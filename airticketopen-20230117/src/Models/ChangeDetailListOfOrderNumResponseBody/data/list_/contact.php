@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailListOfOrderNumResponseBody\data\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contact extends Model
 {
     /**
-     * @example gao******@gmail.com
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @example 86
-     *
      * @var string
      */
     public $mobileCountryCode;
 
     /**
-     * @example 183*****92
-     *
      * @var string
      */
     public $mobilePhoneNum;
     protected $_name = [
-        'email'             => 'email',
+        'email' => 'email',
         'mobileCountryCode' => 'mobile_country_code',
-        'mobilePhoneNum'    => 'mobile_phone_num',
+        'mobilePhoneNum' => 'mobile_phone_num',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
+
         if (null !== $this->mobileCountryCode) {
             $res['mobile_country_code'] = $this->mobileCountryCode;
         }
+
         if (null !== $this->mobilePhoneNum) {
             $res['mobile_phone_num'] = $this->mobilePhoneNum;
         }
@@ -54,20 +51,22 @@ class contact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
+
         if (isset($map['mobile_country_code'])) {
             $model->mobileCountryCode = $map['mobile_country_code'];
         }
+
         if (isset($map['mobile_phone_num'])) {
             $model->mobilePhoneNum = $map['mobile_phone_num'];
         }

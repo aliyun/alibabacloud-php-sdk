@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AncillarySuggestResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AncillarySuggestResponseBody\data\segAncillaryMapList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description ancillary detail list
-     *
      * @var segAncillaryMapList[]
      */
     public $segAncillaryMapList;
 
     /**
-     * @description solution_id, equals to solution_id in request
-     *
-     * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
-     *
      * @var string
      */
     public $solutionId;
     protected $_name = [
         'segAncillaryMapList' => 'seg_ancillary_map_list',
-        'solutionId'          => 'solution_id',
+        'solutionId' => 'solution_id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->segAncillaryMapList)) {
+            Model::validateArray($this->segAncillaryMapList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->segAncillaryMapList) {
-            $res['seg_ancillary_map_list'] = [];
-            if (null !== $this->segAncillaryMapList && \is_array($this->segAncillaryMapList)) {
-                $n = 0;
-                foreach ($this->segAncillaryMapList as $item) {
-                    $res['seg_ancillary_map_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->segAncillaryMapList)) {
+                $res['seg_ancillary_map_list'] = [];
+                $n1 = 0;
+                foreach ($this->segAncillaryMapList as $item1) {
+                    $res['seg_ancillary_map_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->solutionId) {
             $res['solution_id'] = $this->solutionId;
         }
@@ -52,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['seg_ancillary_map_list'])) {
             if (!empty($map['seg_ancillary_map_list'])) {
                 $model->segAncillaryMapList = [];
-                $n                          = 0;
-                foreach ($map['seg_ancillary_map_list'] as $item) {
-                    $model->segAncillaryMapList[$n++] = null !== $item ? segAncillaryMapList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['seg_ancillary_map_list'] as $item1) {
+                    $model->segAncillaryMapList[$n1] = segAncillaryMapList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['solution_id'])) {
             $model->solutionId = $map['solution_id'];
         }

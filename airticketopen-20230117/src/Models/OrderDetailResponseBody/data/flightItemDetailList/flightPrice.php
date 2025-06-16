@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderDetailResponseBody\data\flightItemDetailList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class flightPrice extends Model
 {
     /**
-     * @description selling price
-     *
-     * @example 300
-     *
      * @var float
      */
     public $sellPrice;
 
     /**
-     * @description tax
-     *
-     * @example 10
-     *
      * @var float
      */
     public $tax;
     protected $_name = [
         'sellPrice' => 'sell_price',
-        'tax'       => 'tax',
+        'tax' => 'tax',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sellPrice) {
             $res['sell_price'] = $this->sellPrice;
         }
+
         if (null !== $this->tax) {
             $res['tax'] = $this->tax;
         }
@@ -47,17 +41,18 @@ class flightPrice extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flightPrice
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sell_price'])) {
             $model->sellPrice = $map['sell_price'];
         }
+
         if (isset($map['tax'])) {
             $model->tax = $map['tax'];
         }

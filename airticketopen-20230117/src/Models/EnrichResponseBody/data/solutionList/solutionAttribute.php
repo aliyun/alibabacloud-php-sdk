@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingCheckResponseBody;
+namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichResponseBody\data\solutionList;
 
 use AlibabaCloud\Dara\Model;
 
-class data extends Model
+class solutionAttribute extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $orderNum;
+    public $supplySourceType;
     protected $_name = [
-        'orderNum' => 'order_num',
+        'supplySourceType' => 'supply_source_type',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->orderNum) {
-            $res['order_num'] = $this->orderNum;
+        if (null !== $this->supplySourceType) {
+            $res['supply_source_type'] = $this->supplySourceType;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['order_num'])) {
-            $model->orderNum = $map['order_num'];
+        if (isset($map['supply_source_type'])) {
+            $model->supplySourceType = $map['supply_source_type'];
         }
 
         return $model;

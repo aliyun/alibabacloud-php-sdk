@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OrderDetailRequest extends Model
 {
     /**
-     * @description order number created by book
-     *
-     * @example 4966***617111
-     *
      * @var int
      */
     public $orderNum;
 
     /**
-     * @description external order number(customized by buyer when book)
-     *
-     * @example x091-2023-0220-j-0001
-     *
      * @var string
      */
     public $outOrderNum;
     protected $_name = [
-        'orderNum'    => 'order_num',
+        'orderNum' => 'order_num',
         'outOrderNum' => 'out_order_num',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderNum) {
             $res['order_num'] = $this->orderNum;
         }
+
         if (null !== $this->outOrderNum) {
             $res['out_order_num'] = $this->outOrderNum;
         }
@@ -47,17 +41,18 @@ class OrderDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OrderDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_num'])) {
             $model->orderNum = $map['order_num'];
         }
+
         if (isset($map['out_order_num'])) {
             $model->outOrderNum = $map['out_order_num'];
         }

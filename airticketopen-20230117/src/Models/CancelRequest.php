@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelRequest extends Model
 {
     /**
-     * @description order number
-     *
-     * This parameter is required.
-     * @example 496***2617111
-     *
      * @var int
      */
     public $orderNum;
@@ -23,9 +18,10 @@ class CancelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderNum) {
@@ -35,11 +31,11 @@ class CancelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

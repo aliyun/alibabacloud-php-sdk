@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyResponseBody\data\refundResults;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description order number
-     *
-     * @example 4966***617111
-     *
      * @var int
      */
     public $orderNum;
 
     /**
-     * @description refund results
-     *
      * @var refundResults[]
      */
     public $refundResults;
     protected $_name = [
-        'orderNum'      => 'order_num',
+        'orderNum' => 'order_num',
         'refundResults' => 'refund_results',
     ];
 
     public function validate()
     {
+        if (\is_array($this->refundResults)) {
+            Model::validateArray($this->refundResults);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderNum) {
             $res['order_num'] = $this->orderNum;
         }
+
         if (null !== $this->refundResults) {
-            $res['refund_results'] = [];
-            if (null !== $this->refundResults && \is_array($this->refundResults)) {
-                $n = 0;
-                foreach ($this->refundResults as $item) {
-                    $res['refund_results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->refundResults)) {
+                $res['refund_results'] = [];
+                $n1 = 0;
+                foreach ($this->refundResults as $item1) {
+                    $res['refund_results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_num'])) {
             $model->orderNum = $map['order_num'];
         }
+
         if (isset($map['refund_results'])) {
             if (!empty($map['refund_results'])) {
                 $model->refundResults = [];
-                $n                    = 0;
-                foreach ($map['refund_results'] as $item) {
-                    $model->refundResults[$n++] = null !== $item ? refundResults::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['refund_results'] as $item1) {
+                    $model->refundResults[$n1] = refundResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

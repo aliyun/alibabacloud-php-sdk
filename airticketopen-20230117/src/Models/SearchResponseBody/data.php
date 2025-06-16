@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchResponseBody\data\solutionList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description solution list
-     *
      * @var solutionList[]
      */
     public $solutionList;
@@ -21,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->solutionList)) {
+            Model::validateArray($this->solutionList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->solutionList) {
-            $res['solution_list'] = [];
-            if (null !== $this->solutionList && \is_array($this->solutionList)) {
-                $n = 0;
-                foreach ($this->solutionList as $item) {
-                    $res['solution_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->solutionList)) {
+                $res['solution_list'] = [];
+                $n1 = 0;
+                foreach ($this->solutionList as $item1) {
+                    $res['solution_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['solution_list'])) {
             if (!empty($map['solution_list'])) {
                 $model->solutionList = [];
-                $n                   = 0;
-                foreach ($map['solution_list'] as $item) {
-                    $model->solutionList[$n++] = null !== $item ? solutionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['solution_list'] as $item1) {
+                    $model->solutionList[$n1] = solutionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

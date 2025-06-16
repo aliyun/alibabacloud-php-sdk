@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 4988430***950
-     *
      * @var int
      */
     public $changeOrderNum;
@@ -22,9 +18,10 @@ class ChangeDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderNum) {
@@ -34,11 +31,11 @@ class ChangeDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

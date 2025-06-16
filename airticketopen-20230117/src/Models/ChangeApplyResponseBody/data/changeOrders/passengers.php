@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeApplyResponseBody\data\changeOrders;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passengers extends Model
 {
     /**
-     * @example 411***********4411
-     *
      * @var string
      */
     public $document;
 
     /**
-     * @example SAN
-     *
      * @var string
      */
     public $firstName;
 
     /**
-     * @example ZHANG
-     *
      * @var string
      */
     public $lastName;
     protected $_name = [
-        'document'  => 'document',
+        'document' => 'document',
         'firstName' => 'first_name',
-        'lastName'  => 'last_name',
+        'lastName' => 'last_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->document) {
             $res['document'] = $this->document;
         }
+
         if (null !== $this->firstName) {
             $res['first_name'] = $this->firstName;
         }
+
         if (null !== $this->lastName) {
             $res['last_name'] = $this->lastName;
         }
@@ -54,20 +51,22 @@ class passengers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['document'])) {
             $model->document = $map['document'];
         }
+
         if (isset($map['first_name'])) {
             $model->firstName = $map['first_name'];
         }
+
         if (isset($map['last_name'])) {
             $model->lastName = $map['last_name'];
         }

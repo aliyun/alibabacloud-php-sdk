@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailResponseBody\data\changeFeeDetails\changeFee;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailResponseBody\data\changeFeeDetails\passenger;
-use AlibabaCloud\Tea\Model;
 
 class changeFeeDetails extends Model
 {
@@ -26,32 +26,41 @@ class changeFeeDetails extends Model
 
     public function validate()
     {
+        if (null !== $this->changeFee) {
+            $this->changeFee->validate();
+        }
+        if (null !== $this->passenger) {
+            $this->passenger->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeFee) {
-            $res['change_fee'] = null !== $this->changeFee ? $this->changeFee->toMap() : null;
+            $res['change_fee'] = null !== $this->changeFee ? $this->changeFee->toArray($noStream) : $this->changeFee;
         }
+
         if (null !== $this->passenger) {
-            $res['passenger'] = null !== $this->passenger ? $this->passenger->toMap() : null;
+            $res['passenger'] = null !== $this->passenger ? $this->passenger->toArray($noStream) : $this->passenger;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return changeFeeDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['change_fee'])) {
             $model->changeFee = changeFee::fromMap($map['change_fee']);
         }
+
         if (isset($map['passenger'])) {
             $model->passenger = passenger::fromMap($map['passenger']);
         }

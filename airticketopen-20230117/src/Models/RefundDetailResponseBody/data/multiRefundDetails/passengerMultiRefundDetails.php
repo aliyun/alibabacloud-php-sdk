@@ -4,75 +4,73 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundDetailResponseBody\data\multiRefundDetails;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundDetailResponseBody\data\multiRefundDetails\passengerMultiRefundDetails\passenger;
-use AlibabaCloud\Tea\Model;
 
 class passengerMultiRefundDetails extends Model
 {
     /**
-     * @description amount of the supplementary refund for the change order
-     *
-     * @example 30
-     *
      * @var float
      */
     public $changeOrderRefundFee;
 
     /**
-     * @description amount of the supplementary refund for the original order
-     *
-     * @example 30
-     *
      * @var float
      */
     public $originalOrderRefundFee;
 
     /**
-     * @description passenger for the refund
-     *
      * @var passenger
      */
     public $passenger;
     protected $_name = [
-        'changeOrderRefundFee'   => 'change_order_refund_fee',
+        'changeOrderRefundFee' => 'change_order_refund_fee',
         'originalOrderRefundFee' => 'original_order_refund_fee',
-        'passenger'              => 'passenger',
+        'passenger' => 'passenger',
     ];
 
     public function validate()
     {
+        if (null !== $this->passenger) {
+            $this->passenger->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderRefundFee) {
             $res['change_order_refund_fee'] = $this->changeOrderRefundFee;
         }
+
         if (null !== $this->originalOrderRefundFee) {
             $res['original_order_refund_fee'] = $this->originalOrderRefundFee;
         }
+
         if (null !== $this->passenger) {
-            $res['passenger'] = null !== $this->passenger ? $this->passenger->toMap() : null;
+            $res['passenger'] = null !== $this->passenger ? $this->passenger->toArray($noStream) : $this->passenger;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerMultiRefundDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['change_order_refund_fee'])) {
             $model->changeOrderRefundFee = $map['change_order_refund_fee'];
         }
+
         if (isset($map['original_order_refund_fee'])) {
             $model->originalOrderRefundFee = $map['original_order_refund_fee'];
         }
+
         if (isset($map['passenger'])) {
             $model->passenger = passenger::fromMap($map['passenger']);
         }

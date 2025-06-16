@@ -4,121 +4,96 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichRequest\journeyParamList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class segmentParamList extends Model
 {
     /**
-     * @description arrival airport code (capitalized)
-     *
-     * @example MFM
-     *
      * @var string
      */
     public $arrivalAirport;
 
     /**
-     * @description arrival city code (capitalized)
-     *
-     * @example MFM
-     *
      * @var string
      */
     public $arrivalCity;
 
     /**
-     * @description RBD
-     *
-     * @example V
-     *
      * @var string
      */
     public $cabin;
 
     /**
-     * @description child RBD
-     *
-     * @example E
-     *
      * @var string
      */
     public $childCabin;
 
     /**
-     * @description departure airport code (capitalized)
-     *
-     * @example PVG
-     *
      * @var string
      */
     public $departureAirport;
 
     /**
-     * @description departure city code (capitalized)
-     *
-     * @example SHA
-     *
      * @var string
      */
     public $departureCity;
 
     /**
-     * @description departure time in string format (yyyy-MM-dd HH:mm:ss)
-     *
-     * @example 2023-03-10 07:55:00
-     *
      * @var string
      */
     public $departureTime;
 
     /**
-     * @description marketing flight no. (eg: KA5809)
-     *
-     * This parameter is required.
-     * @example HO1295
-     *
      * @var string
      */
     public $marketingFlightNo;
     protected $_name = [
-        'arrivalAirport'    => 'arrival_airport',
-        'arrivalCity'       => 'arrival_city',
-        'cabin'             => 'cabin',
-        'childCabin'        => 'child_cabin',
-        'departureAirport'  => 'departure_airport',
-        'departureCity'     => 'departure_city',
-        'departureTime'     => 'departure_time',
+        'arrivalAirport' => 'arrival_airport',
+        'arrivalCity' => 'arrival_city',
+        'cabin' => 'cabin',
+        'childCabin' => 'child_cabin',
+        'departureAirport' => 'departure_airport',
+        'departureCity' => 'departure_city',
+        'departureTime' => 'departure_time',
         'marketingFlightNo' => 'marketing_flight_no',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrivalAirport) {
             $res['arrival_airport'] = $this->arrivalAirport;
         }
+
         if (null !== $this->arrivalCity) {
             $res['arrival_city'] = $this->arrivalCity;
         }
+
         if (null !== $this->cabin) {
             $res['cabin'] = $this->cabin;
         }
+
         if (null !== $this->childCabin) {
             $res['child_cabin'] = $this->childCabin;
         }
+
         if (null !== $this->departureAirport) {
             $res['departure_airport'] = $this->departureAirport;
         }
+
         if (null !== $this->departureCity) {
             $res['departure_city'] = $this->departureCity;
         }
+
         if (null !== $this->departureTime) {
             $res['departure_time'] = $this->departureTime;
         }
+
         if (null !== $this->marketingFlightNo) {
             $res['marketing_flight_no'] = $this->marketingFlightNo;
         }
@@ -126,35 +101,42 @@ class segmentParamList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return segmentParamList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arrival_airport'])) {
             $model->arrivalAirport = $map['arrival_airport'];
         }
+
         if (isset($map['arrival_city'])) {
             $model->arrivalCity = $map['arrival_city'];
         }
+
         if (isset($map['cabin'])) {
             $model->cabin = $map['cabin'];
         }
+
         if (isset($map['child_cabin'])) {
             $model->childCabin = $map['child_cabin'];
         }
+
         if (isset($map['departure_airport'])) {
             $model->departureAirport = $map['departure_airport'];
         }
+
         if (isset($map['departure_city'])) {
             $model->departureCity = $map['departure_city'];
         }
+
         if (isset($map['departure_time'])) {
             $model->departureTime = $map['departure_time'];
         }
+
         if (isset($map['marketing_flight_no'])) {
             $model->marketingFlightNo = $map['marketing_flight_no'];
         }

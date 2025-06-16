@@ -4,84 +4,86 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class airLegs extends Model
 {
     /**
-     * @description arrival airport [IATA airport code] list
-     *
-     * @example MFM
-     *
      * @var string[]
      */
     public $arrivalAirportList;
 
     /**
-     * @description arrival city code
-     *
-     * This parameter is required.
-     * @example MFM
-     *
      * @var string
      */
     public $arrivalCity;
 
     /**
-     * @description departure airport [IATA airport code] list
-     *
-     * @example PVG
-     *
      * @var string[]
      */
     public $departureAirportList;
 
     /**
-     * @description departure city code
-     *
-     * This parameter is required.
-     * @example SHA
-     *
      * @var string
      */
     public $departureCity;
 
     /**
-     * @description departure date (eg: yyyyMMdd)
-     *
-     * This parameter is required.
-     * @example 20230310
-     *
      * @var string
      */
     public $departureDate;
     protected $_name = [
-        'arrivalAirportList'   => 'arrival_airport_list',
-        'arrivalCity'          => 'arrival_city',
+        'arrivalAirportList' => 'arrival_airport_list',
+        'arrivalCity' => 'arrival_city',
         'departureAirportList' => 'departure_airport_list',
-        'departureCity'        => 'departure_city',
-        'departureDate'        => 'departure_date',
+        'departureCity' => 'departure_city',
+        'departureDate' => 'departure_date',
     ];
 
     public function validate()
     {
+        if (\is_array($this->arrivalAirportList)) {
+            Model::validateArray($this->arrivalAirportList);
+        }
+        if (\is_array($this->departureAirportList)) {
+            Model::validateArray($this->departureAirportList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrivalAirportList) {
-            $res['arrival_airport_list'] = $this->arrivalAirportList;
+            if (\is_array($this->arrivalAirportList)) {
+                $res['arrival_airport_list'] = [];
+                $n1 = 0;
+                foreach ($this->arrivalAirportList as $item1) {
+                    $res['arrival_airport_list'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->arrivalCity) {
             $res['arrival_city'] = $this->arrivalCity;
         }
+
         if (null !== $this->departureAirportList) {
-            $res['departure_airport_list'] = $this->departureAirportList;
+            if (\is_array($this->departureAirportList)) {
+                $res['departure_airport_list'] = [];
+                $n1 = 0;
+                foreach ($this->departureAirportList as $item1) {
+                    $res['departure_airport_list'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->departureCity) {
             $res['departure_city'] = $this->departureCity;
         }
+
         if (null !== $this->departureDate) {
             $res['departure_date'] = $this->departureDate;
         }
@@ -89,30 +91,44 @@ class airLegs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return airLegs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arrival_airport_list'])) {
             if (!empty($map['arrival_airport_list'])) {
-                $model->arrivalAirportList = $map['arrival_airport_list'];
+                $model->arrivalAirportList = [];
+                $n1 = 0;
+                foreach ($map['arrival_airport_list'] as $item1) {
+                    $model->arrivalAirportList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['arrival_city'])) {
             $model->arrivalCity = $map['arrival_city'];
         }
+
         if (isset($map['departure_airport_list'])) {
             if (!empty($map['departure_airport_list'])) {
-                $model->departureAirportList = $map['departure_airport_list'];
+                $model->departureAirportList = [];
+                $n1 = 0;
+                foreach ($map['departure_airport_list'] as $item1) {
+                    $model->departureAirportList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['departure_city'])) {
             $model->departureCity = $map['departure_city'];
         }
+
         if (isset($map['departure_date'])) {
             $model->departureDate = $map['departure_date'];
         }

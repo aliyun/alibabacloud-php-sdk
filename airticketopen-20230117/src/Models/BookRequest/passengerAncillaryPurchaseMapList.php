@@ -4,46 +4,51 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookRequest\passengerAncillaryPurchaseMapList\bookAncillaryReqItem;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookRequest\passengerAncillaryPurchaseMapList\passengerList;
-use AlibabaCloud\Tea\Model;
 
 class passengerAncillaryPurchaseMapList extends Model
 {
     /**
-     * @description ancillary information
-     *
      * @var bookAncillaryReqItem
      */
     public $bookAncillaryReqItem;
 
     /**
-     * @description passenger list for unified ancillary purchases
-     *
      * @var passengerList[]
      */
     public $passengerList;
     protected $_name = [
         'bookAncillaryReqItem' => 'book_ancillary_req_item',
-        'passengerList'        => 'passenger_list',
+        'passengerList' => 'passenger_list',
     ];
 
     public function validate()
     {
+        if (null !== $this->bookAncillaryReqItem) {
+            $this->bookAncillaryReqItem->validate();
+        }
+        if (\is_array($this->passengerList)) {
+            Model::validateArray($this->passengerList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bookAncillaryReqItem) {
-            $res['book_ancillary_req_item'] = null !== $this->bookAncillaryReqItem ? $this->bookAncillaryReqItem->toMap() : null;
+            $res['book_ancillary_req_item'] = null !== $this->bookAncillaryReqItem ? $this->bookAncillaryReqItem->toArray($noStream) : $this->bookAncillaryReqItem;
         }
+
         if (null !== $this->passengerList) {
-            $res['passenger_list'] = [];
-            if (null !== $this->passengerList && \is_array($this->passengerList)) {
-                $n = 0;
-                foreach ($this->passengerList as $item) {
-                    $res['passenger_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->passengerList)) {
+                $res['passenger_list'] = [];
+                $n1 = 0;
+                foreach ($this->passengerList as $item1) {
+                    $res['passenger_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,23 +56,25 @@ class passengerAncillaryPurchaseMapList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerAncillaryPurchaseMapList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['book_ancillary_req_item'])) {
             $model->bookAncillaryReqItem = bookAncillaryReqItem::fromMap($map['book_ancillary_req_item']);
         }
+
         if (isset($map['passenger_list'])) {
             if (!empty($map['passenger_list'])) {
                 $model->passengerList = [];
-                $n                    = 0;
-                foreach ($map['passenger_list'] as $item) {
-                    $model->passengerList[$n++] = null !== $item ? passengerList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['passenger_list'] as $item1) {
+                    $model->passengerList[$n1] = passengerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

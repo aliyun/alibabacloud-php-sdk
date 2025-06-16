@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookRequest\passengerAncillaryPurchaseMapList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bookAncillaryReqItem extends Model
 {
     /**
-     * @description ancillary product ID, returned by AncillarySuggest.
-     *
-     * @example MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
-     *
      * @var string
      */
     public $ancillaryId;
 
     /**
-     * @description type of ancillary product, only support "4"(4 means paid baggage) currently.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $ancillaryType;
     protected $_name = [
-        'ancillaryId'   => 'ancillary_id',
+        'ancillaryId' => 'ancillary_id',
         'ancillaryType' => 'ancillary_type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ancillaryId) {
             $res['ancillary_id'] = $this->ancillaryId;
         }
+
         if (null !== $this->ancillaryType) {
             $res['ancillary_type'] = $this->ancillaryType;
         }
@@ -47,17 +41,18 @@ class bookAncillaryReqItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bookAncillaryReqItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ancillary_id'])) {
             $model->ancillaryId = $map['ancillary_id'];
         }
+
         if (isset($map['ancillary_type'])) {
             $model->ancillaryType = $map['ancillary_type'];
         }

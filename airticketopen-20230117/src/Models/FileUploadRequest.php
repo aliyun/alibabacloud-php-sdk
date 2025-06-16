@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FileUploadRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 0r2LSuIsHlxEoGZcnGe34U1njBOR83Q4HNSvMDGrDPK5J71VjcGdRIWz2x3+tFxvQaduwHB46Z9K
-     * SR/kULQZHsDDd2zgA9RRTsEQF2OSxFFFx2P/2Q==
      * @var string
      */
     public $fileContent;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 496***2617111
-     *
      * @var int
      */
     public $orderNum;
     protected $_name = [
         'fileContent' => 'file_content',
-        'orderNum'    => 'order_num',
+        'orderNum' => 'order_num',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileContent) {
             $res['file_content'] = $this->fileContent;
         }
+
         if (null !== $this->orderNum) {
             $res['order_num'] = $this->orderNum;
         }
@@ -47,17 +41,18 @@ class FileUploadRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FileUploadRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['file_content'])) {
             $model->fileContent = $map['file_content'];
         }
+
         if (isset($map['order_num'])) {
             $model->orderNum = $map['order_num'];
         }

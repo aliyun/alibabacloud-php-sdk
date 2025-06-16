@@ -4,117 +4,123 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyRequest\refundJourneys;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyRequest\refundPassengerList;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyRequest\refundType;
-use AlibabaCloud\Tea\Model;
 
 class RefundApplyRequest extends Model
 {
     /**
-     * @description order number
-     *
-     * This parameter is required.
-     * @example 4966***617111
-     *
      * @var int
      */
     public $orderNum;
 
     /**
-     * @description journeys for which a refund is being requested
-     *
-     * This parameter is required.
      * @var refundJourneys[]
      */
     public $refundJourneys;
 
     /**
-     * @description passengers that applying for a refund
-     *
-     * This parameter is required.
      * @var refundPassengerList[]
      */
     public $refundPassengerList;
 
     /**
-     * @description refund type and attachments
-     *
-     * This parameter is required.
      * @var refundType
      */
     public $refundType;
     protected $_name = [
-        'orderNum'            => 'order_num',
-        'refundJourneys'      => 'refund_journeys',
+        'orderNum' => 'order_num',
+        'refundJourneys' => 'refund_journeys',
         'refundPassengerList' => 'refund_passenger_list',
-        'refundType'          => 'refund_type',
+        'refundType' => 'refund_type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->refundJourneys)) {
+            Model::validateArray($this->refundJourneys);
+        }
+        if (\is_array($this->refundPassengerList)) {
+            Model::validateArray($this->refundPassengerList);
+        }
+        if (null !== $this->refundType) {
+            $this->refundType->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderNum) {
             $res['order_num'] = $this->orderNum;
         }
+
         if (null !== $this->refundJourneys) {
-            $res['refund_journeys'] = [];
-            if (null !== $this->refundJourneys && \is_array($this->refundJourneys)) {
-                $n = 0;
-                foreach ($this->refundJourneys as $item) {
-                    $res['refund_journeys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->refundJourneys)) {
+                $res['refund_journeys'] = [];
+                $n1 = 0;
+                foreach ($this->refundJourneys as $item1) {
+                    $res['refund_journeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->refundPassengerList) {
-            $res['refund_passenger_list'] = [];
-            if (null !== $this->refundPassengerList && \is_array($this->refundPassengerList)) {
-                $n = 0;
-                foreach ($this->refundPassengerList as $item) {
-                    $res['refund_passenger_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->refundPassengerList)) {
+                $res['refund_passenger_list'] = [];
+                $n1 = 0;
+                foreach ($this->refundPassengerList as $item1) {
+                    $res['refund_passenger_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->refundType) {
-            $res['refund_type'] = null !== $this->refundType ? $this->refundType->toMap() : null;
+            $res['refund_type'] = null !== $this->refundType ? $this->refundType->toArray($noStream) : $this->refundType;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefundApplyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_num'])) {
             $model->orderNum = $map['order_num'];
         }
+
         if (isset($map['refund_journeys'])) {
             if (!empty($map['refund_journeys'])) {
                 $model->refundJourneys = [];
-                $n                     = 0;
-                foreach ($map['refund_journeys'] as $item) {
-                    $model->refundJourneys[$n++] = null !== $item ? refundJourneys::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['refund_journeys'] as $item1) {
+                    $model->refundJourneys[$n1] = refundJourneys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['refund_passenger_list'])) {
             if (!empty($map['refund_passenger_list'])) {
                 $model->refundPassengerList = [];
-                $n                          = 0;
-                foreach ($map['refund_passenger_list'] as $item) {
-                    $model->refundPassengerList[$n++] = null !== $item ? refundPassengerList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['refund_passenger_list'] as $item1) {
+                    $model->refundPassengerList[$n1] = refundPassengerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['refund_type'])) {
             $model->refundType = refundType::fromMap($map['refund_type']);
         }

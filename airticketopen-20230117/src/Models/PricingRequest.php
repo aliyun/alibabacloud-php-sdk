@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PricingRequest extends Model
 {
     /**
-     * @description solution_id returned by Enrich
-     *
-     * This parameter is required.
-     * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
-     *
      * @var string
      */
     public $solutionId;
@@ -23,9 +18,10 @@ class PricingRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->solutionId) {
@@ -35,11 +31,11 @@ class PricingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PricingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

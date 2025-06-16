@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example HGH
-     *
      * @var string
      */
     public $cityCode;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $visaType;
@@ -28,14 +24,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['city_code'] = $this->cityCode;
         }
+
         if (null !== $this->visaType) {
             $res['visa_type'] = $this->visaType;
         }
@@ -43,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['city_code'])) {
             $model->cityCode = $map['city_code'];
         }
+
         if (isset($map['visa_type'])) {
             $model->visaType = $map['visa_type'];
         }

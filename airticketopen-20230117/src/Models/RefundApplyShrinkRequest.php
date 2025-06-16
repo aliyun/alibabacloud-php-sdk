@@ -4,66 +4,56 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefundApplyShrinkRequest extends Model
 {
     /**
-     * @description order number
-     *
-     * This parameter is required.
-     * @example 4966***617111
-     *
      * @var int
      */
     public $orderNum;
 
     /**
-     * @description journeys for which a refund is being requested
-     *
-     * This parameter is required.
      * @var string
      */
     public $refundJourneysShrink;
 
     /**
-     * @description passengers that applying for a refund
-     *
-     * This parameter is required.
      * @var string
      */
     public $refundPassengerListShrink;
 
     /**
-     * @description refund type and attachments
-     *
-     * This parameter is required.
      * @var string
      */
     public $refundTypeShrink;
     protected $_name = [
-        'orderNum'                  => 'order_num',
-        'refundJourneysShrink'      => 'refund_journeys',
+        'orderNum' => 'order_num',
+        'refundJourneysShrink' => 'refund_journeys',
         'refundPassengerListShrink' => 'refund_passenger_list',
-        'refundTypeShrink'          => 'refund_type',
+        'refundTypeShrink' => 'refund_type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderNum) {
             $res['order_num'] = $this->orderNum;
         }
+
         if (null !== $this->refundJourneysShrink) {
             $res['refund_journeys'] = $this->refundJourneysShrink;
         }
+
         if (null !== $this->refundPassengerListShrink) {
             $res['refund_passenger_list'] = $this->refundPassengerListShrink;
         }
+
         if (null !== $this->refundTypeShrink) {
             $res['refund_type'] = $this->refundTypeShrink;
         }
@@ -71,23 +61,26 @@ class RefundApplyShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefundApplyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_num'])) {
             $model->orderNum = $map['order_num'];
         }
+
         if (isset($map['refund_journeys'])) {
             $model->refundJourneysShrink = $map['refund_journeys'];
         }
+
         if (isset($map['refund_passenger_list'])) {
             $model->refundPassengerListShrink = $map['refund_passenger_list'];
         }
+
         if (isset($map['refund_type'])) {
             $model->refundTypeShrink = $map['refund_type'];
         }

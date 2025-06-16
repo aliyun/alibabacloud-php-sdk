@@ -4,57 +4,56 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class refundType extends Model
 {
     /**
-     * @description attachment file URLs
-     *
-     * (note: upload the files using a separate file upload interface to get the file URLs)
-     * @example [xxx,yyy]
-     *
      * @var string[]
      */
     public $file;
 
     /**
-     * @description refund type
-     *
-     * This parameter is required.
-     * @example 2
-     *
      * @var int
      */
     public $refundTypeId;
 
     /**
-     * @description remark
-     *
-     * @example remark desc
-     *
      * @var string
      */
     public $remark;
     protected $_name = [
-        'file'         => 'file',
+        'file' => 'file',
         'refundTypeId' => 'refund_type_id',
-        'remark'       => 'remark',
+        'remark' => 'remark',
     ];
 
     public function validate()
     {
+        if (\is_array($this->file)) {
+            Model::validateArray($this->file);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->file) {
-            $res['file'] = $this->file;
+            if (\is_array($this->file)) {
+                $res['file'] = [];
+                $n1 = 0;
+                foreach ($this->file as $item1) {
+                    $res['file'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->refundTypeId) {
             $res['refund_type_id'] = $this->refundTypeId;
         }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
@@ -62,22 +61,29 @@ class refundType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return refundType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['file'])) {
             if (!empty($map['file'])) {
-                $model->file = $map['file'];
+                $model->file = [];
+                $n1 = 0;
+                foreach ($map['file'] as $item1) {
+                    $model->file[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['refund_type_id'])) {
             $model->refundTypeId = $map['refund_type_id'];
         }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }

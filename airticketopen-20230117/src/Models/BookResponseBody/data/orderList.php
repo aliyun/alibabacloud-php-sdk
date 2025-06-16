@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderList extends Model
 {
     /**
-     * @description order number
-     *
-     * @example 4966***617111
-     *
      * @var int
      */
     public $orderNum;
@@ -22,9 +18,10 @@ class orderList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderNum) {
@@ -34,11 +31,11 @@ class orderList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

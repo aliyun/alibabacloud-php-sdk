@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AccountFlowListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AccountFlowListResponseBody\data\list_;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AccountFlowListResponseBody\data\pagination;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -20,50 +20,61 @@ class data extends Model
      */
     public $pagination;
     protected $_name = [
-        'list'       => 'list',
+        'list' => 'list',
         'pagination' => 'pagination',
     ];
 
     public function validate()
     {
+        if (\is_array($this->list)) {
+            Model::validateArray($this->list);
+        }
+        if (null !== $this->pagination) {
+            $this->pagination->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['list'] = [];
-            if (null !== $this->list && \is_array($this->list)) {
-                $n = 0;
-                foreach ($this->list as $item) {
-                    $res['list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->list)) {
+                $res['list'] = [];
+                $n1 = 0;
+                foreach ($this->list as $item1) {
+                    $res['list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pagination) {
-            $res['pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
+            $res['pagination'] = null !== $this->pagination ? $this->pagination->toArray($noStream) : $this->pagination;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['list'])) {
             if (!empty($map['list'])) {
                 $model->list = [];
-                $n           = 0;
-                foreach ($map['list'] as $item) {
-                    $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['list'] as $item1) {
+                    $model->list[$n1] = list_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['pagination'])) {
             $model->pagination = pagination::fromMap($map['pagination']);
         }

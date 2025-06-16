@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefundDetailRequest extends Model
 {
     /**
-     * @description refund order number
-     *
-     * This parameter is required.
-     * @example 4966***617732
-     *
      * @var int
      */
     public $refundOrderNum;
@@ -23,9 +18,10 @@ class RefundDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->refundOrderNum) {
@@ -35,11 +31,11 @@ class RefundDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefundDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
