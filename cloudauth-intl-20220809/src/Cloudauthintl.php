@@ -838,6 +838,10 @@ class Cloudauthintl extends OpenApiClient
             @$body['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
 
+        if (null !== $request->idSpoof) {
+            @$body['IdSpoof'] = $request->idSpoof;
+        }
+
         if (null !== $request->idThreshold) {
             @$body['IdThreshold'] = $request->idThreshold;
         }
@@ -1588,6 +1592,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->ocr) {
             @$query['Ocr'] = $request->ocr;
+        }
+
+        if (null !== $request->pages) {
+            @$query['Pages'] = $request->pages;
         }
 
         if (null !== $request->procedurePriority) {

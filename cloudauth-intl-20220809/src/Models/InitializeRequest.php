@@ -136,6 +136,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $pages;
+
+    /**
+     * @var string
+     */
     public $procedurePriority;
 
     /**
@@ -213,6 +218,7 @@ class InitializeRequest extends Model
         'metaInfo' => 'MetaInfo',
         'model' => 'Model',
         'ocr' => 'Ocr',
+        'pages' => 'Pages',
         'procedurePriority' => 'ProcedurePriority',
         'productCode' => 'ProductCode',
         'productFlow' => 'ProductFlow',
@@ -270,7 +276,8 @@ class InitializeRequest extends Model
                 $res['DocPageConfig'] = [];
                 $n1 = 0;
                 foreach ($this->docPageConfig as $item1) {
-                    $res['DocPageConfig'][$n1++] = $item1;
+                    $res['DocPageConfig'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -341,6 +348,10 @@ class InitializeRequest extends Model
 
         if (null !== $this->ocr) {
             $res['Ocr'] = $this->ocr;
+        }
+
+        if (null !== $this->pages) {
+            $res['Pages'] = $this->pages;
         }
 
         if (null !== $this->procedurePriority) {
@@ -431,7 +442,8 @@ class InitializeRequest extends Model
                 $model->docPageConfig = [];
                 $n1 = 0;
                 foreach ($map['DocPageConfig'] as $item1) {
-                    $model->docPageConfig[$n1++] = $item1;
+                    $model->docPageConfig[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -502,6 +514,10 @@ class InitializeRequest extends Model
 
         if (isset($map['Ocr'])) {
             $model->ocr = $map['Ocr'];
+        }
+
+        if (isset($map['Pages'])) {
+            $model->pages = $map['Pages'];
         }
 
         if (isset($map['ProcedurePriority'])) {

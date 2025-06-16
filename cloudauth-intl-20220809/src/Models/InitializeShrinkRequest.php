@@ -136,6 +136,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $pages;
+
+    /**
+     * @var string
+     */
     public $procedurePriority;
 
     /**
@@ -213,6 +218,7 @@ class InitializeShrinkRequest extends Model
         'metaInfo' => 'MetaInfo',
         'model' => 'Model',
         'ocr' => 'Ocr',
+        'pages' => 'Pages',
         'procedurePriority' => 'ProcedurePriority',
         'productCode' => 'ProductCode',
         'productFlow' => 'ProductFlow',
@@ -332,6 +338,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->ocr) {
             $res['Ocr'] = $this->ocr;
+        }
+
+        if (null !== $this->pages) {
+            $res['Pages'] = $this->pages;
         }
 
         if (null !== $this->procedurePriority) {
@@ -487,6 +497,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['Ocr'])) {
             $model->ocr = $map['Ocr'];
+        }
+
+        if (isset($map['Pages'])) {
+            $model->pages = $map['Pages'];
         }
 
         if (isset($map['ProcedurePriority'])) {

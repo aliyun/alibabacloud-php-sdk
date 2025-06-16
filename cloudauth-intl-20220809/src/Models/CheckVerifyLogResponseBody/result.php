@@ -82,7 +82,8 @@ class result extends Model
                 $res['LogInfo'] = [];
                 $n1 = 0;
                 foreach ($this->logInfo as $item1) {
-                    $res['LogInfo'][$n1++] = $item1;
+                    $res['LogInfo'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class result extends Model
                 $model->logInfo = [];
                 $n1 = 0;
                 foreach ($map['LogInfo'] as $item1) {
-                    $model->logInfo[$n1++] = $item1;
+                    $model->logInfo[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
