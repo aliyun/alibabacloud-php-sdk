@@ -37,6 +37,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskShrinkRequest;
@@ -1357,22 +1358,32 @@ class Csas extends OpenApiClient
     /**
      * 创建数字水印暗水印透明底图.
      *
-     * @param request - CreateWmBaseImageRequest
+     * @param tmpReq - CreateWmBaseImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateWmBaseImageResponse
      *
-     * @param CreateWmBaseImageRequest $request
+     * @param CreateWmBaseImageRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return CreateWmBaseImageResponse
      */
-    public function createWmBaseImageWithOptions($request, $runtime)
+    public function createWmBaseImageWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateWmBaseImageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageControl) {
+            $request->imageControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageControl, 'ImageControl', 'json');
+        }
+
         $body = [];
         if (null !== $request->height) {
             @$body['Height'] = $request->height;
+        }
+
+        if (null !== $request->imageControlShrink) {
+            @$body['ImageControl'] = $request->imageControlShrink;
         }
 
         if (null !== $request->opacity) {
@@ -3297,7 +3308,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询内网访问策略详情.
+     * Query Intranet Access Policy Details.
      *
      * @param request - GetPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3332,7 +3343,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询内网访问策略详情.
+     * Query Intranet Access Policy Details.
      *
      * @param request - GetPrivateAccessPolicyRequest
      *
@@ -5766,7 +5777,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询用户零信任策略.
+     * List query of user zero trust policies.
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5801,7 +5812,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询用户零信任策略.
+     * List query of user zero trust policies.
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
      *
@@ -6924,7 +6935,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改内网访问策略.
+     * Modify Private Access Policy.
      *
      * @param request - UpdatePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7034,7 +7045,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改内网访问策略.
+     * Modify Private Access Policy.
      *
      * @param request - UpdatePrivateAccessPolicyRequest
      *

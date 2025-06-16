@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl;
 
-class CreateWmBaseImageRequest extends Model
+class CreateWmBaseImageShrinkRequest extends Model
 {
     /**
      * @var int
@@ -15,9 +14,9 @@ class CreateWmBaseImageRequest extends Model
     public $height;
 
     /**
-     * @var imageControl
+     * @var string
      */
-    public $imageControl;
+    public $imageControlShrink;
 
     /**
      * @var int
@@ -55,7 +54,7 @@ class CreateWmBaseImageRequest extends Model
     public $wmType;
     protected $_name = [
         'height' => 'Height',
-        'imageControl' => 'ImageControl',
+        'imageControlShrink' => 'ImageControl',
         'opacity' => 'Opacity',
         'scale' => 'Scale',
         'width' => 'Width',
@@ -67,9 +66,6 @@ class CreateWmBaseImageRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->imageControl) {
-            $this->imageControl->validate();
-        }
         parent::validate();
     }
 
@@ -80,8 +76,8 @@ class CreateWmBaseImageRequest extends Model
             $res['Height'] = $this->height;
         }
 
-        if (null !== $this->imageControl) {
-            $res['ImageControl'] = null !== $this->imageControl ? $this->imageControl->toArray($noStream) : $this->imageControl;
+        if (null !== $this->imageControlShrink) {
+            $res['ImageControl'] = $this->imageControlShrink;
         }
 
         if (null !== $this->opacity) {
@@ -128,7 +124,7 @@ class CreateWmBaseImageRequest extends Model
         }
 
         if (isset($map['ImageControl'])) {
-            $model->imageControl = imageControl::fromMap($map['ImageControl']);
+            $model->imageControlShrink = $map['ImageControl'];
         }
 
         if (isset($map['Opacity'])) {
