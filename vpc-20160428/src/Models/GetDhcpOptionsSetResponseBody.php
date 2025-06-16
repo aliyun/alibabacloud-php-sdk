@@ -17,6 +17,11 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $associateVpcs;
 
     /**
+     * @var string
+     */
+    public $creationTime;
+
+    /**
      * @var dhcpOptions
      */
     public $dhcpOptions;
@@ -62,6 +67,7 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $tags;
     protected $_name = [
         'associateVpcs' => 'AssociateVpcs',
+        'creationTime' => 'CreationTime',
         'dhcpOptions' => 'DhcpOptions',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
         'dhcpOptionsSetId' => 'DhcpOptionsSetId',
@@ -99,6 +105,10 @@ class GetDhcpOptionsSetResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
 
         if (null !== $this->dhcpOptions) {
@@ -164,6 +174,10 @@ class GetDhcpOptionsSetResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
 
         if (isset($map['DhcpOptions'])) {

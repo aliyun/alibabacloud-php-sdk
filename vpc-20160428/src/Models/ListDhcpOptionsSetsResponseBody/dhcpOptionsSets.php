@@ -16,6 +16,11 @@ class dhcpOptionsSets extends Model
     public $associateVpcCount;
 
     /**
+     * @var string
+     */
+    public $creationTime;
+
+    /**
      * @var dhcpOptions
      */
     public $dhcpOptions;
@@ -56,6 +61,7 @@ class dhcpOptionsSets extends Model
     public $tags;
     protected $_name = [
         'associateVpcCount' => 'AssociateVpcCount',
+        'creationTime' => 'CreationTime',
         'dhcpOptions' => 'DhcpOptions',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
         'dhcpOptionsSetId' => 'DhcpOptionsSetId',
@@ -82,6 +88,10 @@ class dhcpOptionsSets extends Model
         $res = [];
         if (null !== $this->associateVpcCount) {
             $res['AssociateVpcCount'] = $this->associateVpcCount;
+        }
+
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
 
         if (null !== $this->dhcpOptions) {
@@ -136,6 +146,10 @@ class dhcpOptionsSets extends Model
         $model = new self();
         if (isset($map['AssociateVpcCount'])) {
             $model->associateVpcCount = $map['AssociateVpcCount'];
+        }
+
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
 
         if (isset($map['DhcpOptions'])) {
