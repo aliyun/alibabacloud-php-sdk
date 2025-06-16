@@ -44,7 +44,8 @@ class SetClientCertificateHostnamesRequest extends Model
                 $res['Hostnames'] = [];
                 $n1 = 0;
                 foreach ($this->hostnames as $item1) {
-                    $res['Hostnames'][$n1++] = $item1;
+                    $res['Hostnames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class SetClientCertificateHostnamesRequest extends Model
                 $model->hostnames = [];
                 $n1 = 0;
                 foreach ($map['Hostnames'] as $item1) {
-                    $model->hostnames[$n1++] = $item1;
+                    $model->hostnames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

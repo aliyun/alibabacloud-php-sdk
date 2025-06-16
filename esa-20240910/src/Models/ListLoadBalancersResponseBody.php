@@ -63,7 +63,8 @@ class ListLoadBalancersResponseBody extends Model
                 $res['LoadBalancers'] = [];
                 $n1 = 0;
                 foreach ($this->loadBalancers as $item1) {
-                    $res['LoadBalancers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LoadBalancers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListLoadBalancersResponseBody extends Model
                 $model->loadBalancers = [];
                 $n1 = 0;
                 foreach ($map['LoadBalancers'] as $item1) {
-                    $model->loadBalancers[$n1++] = loadBalancers::fromMap($item1);
+                    $model->loadBalancers[$n1] = loadBalancers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

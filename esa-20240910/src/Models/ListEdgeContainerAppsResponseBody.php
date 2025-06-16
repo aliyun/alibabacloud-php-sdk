@@ -57,7 +57,8 @@ class ListEdgeContainerAppsResponseBody extends Model
                 $res['Apps'] = [];
                 $n1 = 0;
                 foreach ($this->apps as $item1) {
-                    $res['Apps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Apps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListEdgeContainerAppsResponseBody extends Model
                 $model->apps = [];
                 $n1 = 0;
                 foreach ($map['Apps'] as $item1) {
-                    $model->apps[$n1++] = apps::fromMap($item1);
+                    $model->apps[$n1] = apps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

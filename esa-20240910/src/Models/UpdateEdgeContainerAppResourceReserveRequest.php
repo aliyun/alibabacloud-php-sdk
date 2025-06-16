@@ -73,7 +73,8 @@ class UpdateEdgeContainerAppResourceReserveRequest extends Model
                 $res['ReserveSet'] = [];
                 $n1 = 0;
                 foreach ($this->reserveSet as $item1) {
-                    $res['ReserveSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReserveSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class UpdateEdgeContainerAppResourceReserveRequest extends Model
                 $model->reserveSet = [];
                 $n1 = 0;
                 foreach ($map['ReserveSet'] as $item1) {
-                    $model->reserveSet[$n1++] = reserveSet::fromMap($item1);
+                    $model->reserveSet[$n1] = reserveSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

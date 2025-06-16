@@ -41,7 +41,8 @@ class noChangeIpWhitelist extends Model
                 $res['IPv4'] = [];
                 $n1 = 0;
                 foreach ($this->IPv4 as $item1) {
-                    $res['IPv4'][$n1++] = $item1;
+                    $res['IPv4'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class noChangeIpWhitelist extends Model
                 $res['IPv6'] = [];
                 $n1 = 0;
                 foreach ($this->IPv6 as $item1) {
-                    $res['IPv6'][$n1++] = $item1;
+                    $res['IPv6'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class noChangeIpWhitelist extends Model
                 $model->IPv4 = [];
                 $n1 = 0;
                 foreach ($map['IPv4'] as $item1) {
-                    $model->IPv4[$n1++] = $item1;
+                    $model->IPv4[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class noChangeIpWhitelist extends Model
                 $model->IPv6 = [];
                 $n1 = 0;
                 foreach ($map['IPv6'] as $item1) {
-                    $model->IPv6[$n1++] = $item1;
+                    $model->IPv6[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

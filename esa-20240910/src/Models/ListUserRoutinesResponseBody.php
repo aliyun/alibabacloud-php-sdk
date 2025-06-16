@@ -85,7 +85,8 @@ class ListUserRoutinesResponseBody extends Model
                 $res['Routines'] = [];
                 $n1 = 0;
                 foreach ($this->routines as $item1) {
-                    $res['Routines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Routines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class ListUserRoutinesResponseBody extends Model
                 $model->routines = [];
                 $n1 = 0;
                 foreach ($map['Routines'] as $item1) {
-                    $model->routines[$n1++] = routines::fromMap($item1);
+                    $model->routines[$n1] = routines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

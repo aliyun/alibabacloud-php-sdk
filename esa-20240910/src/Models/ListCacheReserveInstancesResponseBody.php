@@ -63,7 +63,8 @@ class ListCacheReserveInstancesResponseBody extends Model
                 $res['InstanceInfo'] = [];
                 $n1 = 0;
                 foreach ($this->instanceInfo as $item1) {
-                    $res['InstanceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListCacheReserveInstancesResponseBody extends Model
                 $model->instanceInfo = [];
                 $n1 = 0;
                 foreach ($map['InstanceInfo'] as $item1) {
-                    $model->instanceInfo[$n1++] = instanceInfo::fromMap($item1);
+                    $model->instanceInfo[$n1] = instanceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class ListWaitingRoomEventsResponseBody extends Model
                 $res['WaitingRoomEvents'] = [];
                 $n1 = 0;
                 foreach ($this->waitingRoomEvents as $item1) {
-                    $res['WaitingRoomEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WaitingRoomEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListWaitingRoomEventsResponseBody extends Model
                 $model->waitingRoomEvents = [];
                 $n1 = 0;
                 foreach ($map['WaitingRoomEvents'] as $item1) {
-                    $model->waitingRoomEvents[$n1++] = waitingRoomEvents::fromMap($item1);
+                    $model->waitingRoomEvents[$n1] = waitingRoomEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

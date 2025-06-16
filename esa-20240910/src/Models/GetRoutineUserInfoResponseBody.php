@@ -52,7 +52,8 @@ class GetRoutineUserInfoResponseBody extends Model
                 $res['Routines'] = [];
                 $n1 = 0;
                 foreach ($this->routines as $item1) {
-                    $res['Routines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Routines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class GetRoutineUserInfoResponseBody extends Model
                 $res['Subdomains'] = [];
                 $n1 = 0;
                 foreach ($this->subdomains as $item1) {
-                    $res['Subdomains'][$n1++] = $item1;
+                    $res['Subdomains'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +89,8 @@ class GetRoutineUserInfoResponseBody extends Model
                 $model->routines = [];
                 $n1 = 0;
                 foreach ($map['Routines'] as $item1) {
-                    $model->routines[$n1++] = routines::fromMap($item1);
+                    $model->routines[$n1] = routines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class GetRoutineUserInfoResponseBody extends Model
                 $model->subdomains = [];
                 $n1 = 0;
                 foreach ($map['Subdomains'] as $item1) {
-                    $model->subdomains[$n1++] = $item1;
+                    $model->subdomains[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

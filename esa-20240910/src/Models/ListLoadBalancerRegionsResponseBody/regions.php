@@ -63,7 +63,8 @@ class regions extends Model
                 $res['SubRegions'] = [];
                 $n1 = 0;
                 foreach ($this->subRegions as $item1) {
-                    $res['SubRegions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubRegions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class regions extends Model
                 $model->subRegions = [];
                 $n1 = 0;
                 foreach ($map['SubRegions'] as $item1) {
-                    $model->subRegions[$n1++] = subRegions::fromMap($item1);
+                    $model->subRegions[$n1] = subRegions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

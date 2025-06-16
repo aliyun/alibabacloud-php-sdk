@@ -43,7 +43,8 @@ class DescribeSiteLogsResponseBody extends Model
                 $res['SiteLogDetails'] = [];
                 $n1 = 0;
                 foreach ($this->siteLogDetails as $item1) {
-                    $res['SiteLogDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SiteLogDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeSiteLogsResponseBody extends Model
                 $model->siteLogDetails = [];
                 $n1 = 0;
                 foreach ($map['SiteLogDetails'] as $item1) {
-                    $model->siteLogDetails[$n1++] = siteLogDetails::fromMap($item1);
+                    $model->siteLogDetails[$n1] = siteLogDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

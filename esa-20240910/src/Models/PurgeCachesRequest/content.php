@@ -84,7 +84,8 @@ class content extends Model
                 $res['CacheKeys'] = [];
                 $n1 = 0;
                 foreach ($this->cacheKeys as $item1) {
-                    $res['CacheKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CacheKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class content extends Model
                 $res['CacheTags'] = [];
                 $n1 = 0;
                 foreach ($this->cacheTags as $item1) {
-                    $res['CacheTags'][$n1++] = $item1;
+                    $res['CacheTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class content extends Model
                 $res['Directories'] = [];
                 $n1 = 0;
                 foreach ($this->directories as $item1) {
-                    $res['Directories'][$n1++] = $item1;
+                    $res['Directories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +117,8 @@ class content extends Model
                 $res['Files'] = [];
                 $n1 = 0;
                 foreach ($this->files as $item1) {
-                    $res['Files'][$n1++] = $item1;
+                    $res['Files'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +128,8 @@ class content extends Model
                 $res['Hostnames'] = [];
                 $n1 = 0;
                 foreach ($this->hostnames as $item1) {
-                    $res['Hostnames'][$n1++] = $item1;
+                    $res['Hostnames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class content extends Model
                 $res['IgnoreParams'] = [];
                 $n1 = 0;
                 foreach ($this->ignoreParams as $item1) {
-                    $res['IgnoreParams'][$n1++] = $item1;
+                    $res['IgnoreParams'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +165,8 @@ class content extends Model
                 $model->cacheKeys = [];
                 $n1 = 0;
                 foreach ($map['CacheKeys'] as $item1) {
-                    $model->cacheKeys[$n1++] = cacheKeys::fromMap($item1);
+                    $model->cacheKeys[$n1] = cacheKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +176,8 @@ class content extends Model
                 $model->cacheTags = [];
                 $n1 = 0;
                 foreach ($map['CacheTags'] as $item1) {
-                    $model->cacheTags[$n1++] = $item1;
+                    $model->cacheTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +187,8 @@ class content extends Model
                 $model->directories = [];
                 $n1 = 0;
                 foreach ($map['Directories'] as $item1) {
-                    $model->directories[$n1++] = $item1;
+                    $model->directories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +198,8 @@ class content extends Model
                 $model->files = [];
                 $n1 = 0;
                 foreach ($map['Files'] as $item1) {
-                    $model->files[$n1++] = $item1;
+                    $model->files[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +209,8 @@ class content extends Model
                 $model->hostnames = [];
                 $n1 = 0;
                 foreach ($map['Hostnames'] as $item1) {
-                    $model->hostnames[$n1++] = $item1;
+                    $model->hostnames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +220,8 @@ class content extends Model
                 $model->ignoreParams = [];
                 $n1 = 0;
                 foreach ($map['IgnoreParams'] as $item1) {
-                    $model->ignoreParams[$n1++] = $item1;
+                    $model->ignoreParams[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

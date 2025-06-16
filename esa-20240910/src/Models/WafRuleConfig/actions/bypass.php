@@ -65,7 +65,8 @@ class bypass extends Model
                 $res['CustomRules'] = [];
                 $n1 = 0;
                 foreach ($this->customRules as $item1) {
-                    $res['CustomRules'][$n1++] = $item1;
+                    $res['CustomRules'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,7 +76,8 @@ class bypass extends Model
                 $res['RegularRules'] = [];
                 $n1 = 0;
                 foreach ($this->regularRules as $item1) {
-                    $res['RegularRules'][$n1++] = $item1;
+                    $res['RegularRules'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +87,8 @@ class bypass extends Model
                 $res['RegularTypes'] = [];
                 $n1 = 0;
                 foreach ($this->regularTypes as $item1) {
-                    $res['RegularTypes'][$n1++] = $item1;
+                    $res['RegularTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +102,8 @@ class bypass extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = $item1;
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +124,8 @@ class bypass extends Model
                 $model->customRules = [];
                 $n1 = 0;
                 foreach ($map['CustomRules'] as $item1) {
-                    $model->customRules[$n1++] = $item1;
+                    $model->customRules[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +135,8 @@ class bypass extends Model
                 $model->regularRules = [];
                 $n1 = 0;
                 foreach ($map['RegularRules'] as $item1) {
-                    $model->regularRules[$n1++] = $item1;
+                    $model->regularRules[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +146,8 @@ class bypass extends Model
                 $model->regularTypes = [];
                 $n1 = 0;
                 foreach ($map['RegularTypes'] as $item1) {
-                    $model->regularTypes[$n1++] = $item1;
+                    $model->regularTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +161,8 @@ class bypass extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

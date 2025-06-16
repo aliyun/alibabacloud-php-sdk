@@ -59,7 +59,8 @@ class quotas extends Model
                 $res['SiteUsage'] = [];
                 $n1 = 0;
                 foreach ($this->siteUsage as $item1) {
-                    $res['SiteUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SiteUsage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class quotas extends Model
                 $model->siteUsage = [];
                 $n1 = 0;
                 foreach ($map['SiteUsage'] as $item1) {
-                    $model->siteUsage[$n1++] = siteUsage::fromMap($item1);
+                    $model->siteUsage[$n1] = siteUsage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

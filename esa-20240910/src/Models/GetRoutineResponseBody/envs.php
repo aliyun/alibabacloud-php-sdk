@@ -50,7 +50,8 @@ class envs extends Model
                 $res['CanaryAreaList'] = [];
                 $n1 = 0;
                 foreach ($this->canaryAreaList as $item1) {
-                    $res['CanaryAreaList'][$n1++] = $item1;
+                    $res['CanaryAreaList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class envs extends Model
                 $model->canaryAreaList = [];
                 $n1 = 0;
                 foreach ($map['CanaryAreaList'] as $item1) {
-                    $model->canaryAreaList[$n1++] = $item1;
+                    $model->canaryAreaList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

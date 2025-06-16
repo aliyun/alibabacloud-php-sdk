@@ -116,7 +116,8 @@ class GetEdgeContainerStagingDeployStatusResponseBody extends Model
                 $res['VIPs'] = [];
                 $n1 = 0;
                 foreach ($this->VIPs as $item1) {
-                    $res['VIPs'][$n1++] = $item1;
+                    $res['VIPs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +170,8 @@ class GetEdgeContainerStagingDeployStatusResponseBody extends Model
                 $model->VIPs = [];
                 $n1 = 0;
                 foreach ($map['VIPs'] as $item1) {
-                    $model->VIPs[$n1++] = $item1;
+                    $model->VIPs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class queryArgs extends Model
                 $res['Kinds'] = [];
                 $n1 = 0;
                 foreach ($this->kinds as $item1) {
-                    $res['Kinds'][$n1++] = $item1;
+                    $res['Kinds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class queryArgs extends Model
                 $model->kinds = [];
                 $n1 = 0;
                 foreach ($map['Kinds'] as $item1) {
-                    $model->kinds[$n1++] = $item1;
+                    $model->kinds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

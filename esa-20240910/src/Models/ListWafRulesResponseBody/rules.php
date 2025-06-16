@@ -134,7 +134,8 @@ class rules extends Model
                 $res['CharacteristicsFields'] = [];
                 $n1 = 0;
                 foreach ($this->characteristicsFields as $item1) {
-                    $res['CharacteristicsFields'][$n1++] = $item1;
+                    $res['CharacteristicsFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class rules extends Model
                 $res['Fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['Fields'][$n1++] = $item1;
+                    $res['Fields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +188,8 @@ class rules extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = $item1;
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -223,7 +226,8 @@ class rules extends Model
                 $model->characteristicsFields = [];
                 $n1 = 0;
                 foreach ($map['CharacteristicsFields'] as $item1) {
-                    $model->characteristicsFields[$n1++] = $item1;
+                    $model->characteristicsFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +241,8 @@ class rules extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['Fields'] as $item1) {
-                    $model->fields[$n1++] = $item1;
+                    $model->fields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -275,7 +280,8 @@ class rules extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

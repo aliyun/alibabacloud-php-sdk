@@ -3451,7 +3451,7 @@ class ESA extends OpenApiClient
      * Add a New Load Balancer.
      *
      * @remarks
-     * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and other settings, to achieve effective traffic management and optimization.
+     * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and more, to achieve effective traffic management and optimization.
      *
      * @param tmpReq - CreateLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3571,7 +3571,7 @@ class ESA extends OpenApiClient
      * Add a New Load Balancer.
      *
      * @remarks
-     * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and other settings, to achieve effective traffic management and optimization.
+     * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and more, to achieve effective traffic management and optimization.
      *
      * @param request - CreateLoadBalancerRequest
      *

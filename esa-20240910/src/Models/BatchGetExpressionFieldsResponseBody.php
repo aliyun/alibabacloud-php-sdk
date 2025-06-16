@@ -39,7 +39,8 @@ class BatchGetExpressionFieldsResponseBody extends Model
                 $res['Fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['Fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class BatchGetExpressionFieldsResponseBody extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['Fields'] as $item1) {
-                    $model->fields[$n1++] = fields::fromMap($item1);
+                    $model->fields[$n1] = fields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

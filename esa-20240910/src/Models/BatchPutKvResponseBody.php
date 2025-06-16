@@ -47,7 +47,8 @@ class BatchPutKvResponseBody extends Model
                 $res['FailKeys'] = [];
                 $n1 = 0;
                 foreach ($this->failKeys as $item1) {
-                    $res['FailKeys'][$n1++] = $item1;
+                    $res['FailKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class BatchPutKvResponseBody extends Model
                 $res['SuccessKeys'] = [];
                 $n1 = 0;
                 foreach ($this->successKeys as $item1) {
-                    $res['SuccessKeys'][$n1++] = $item1;
+                    $res['SuccessKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class BatchPutKvResponseBody extends Model
                 $model->failKeys = [];
                 $n1 = 0;
                 foreach ($map['FailKeys'] as $item1) {
-                    $model->failKeys[$n1++] = $item1;
+                    $model->failKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class BatchPutKvResponseBody extends Model
                 $model->successKeys = [];
                 $n1 = 0;
                 foreach ($map['SuccessKeys'] as $item1) {
-                    $model->successKeys[$n1++] = $item1;
+                    $model->successKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

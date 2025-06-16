@@ -91,7 +91,8 @@ class originPools extends Model
                 $res['Origins'] = [];
                 $n1 = 0;
                 foreach ($this->origins as $item1) {
-                    $res['Origins'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Origins'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class originPools extends Model
                 $model->origins = [];
                 $n1 = 0;
                 foreach ($map['Origins'] as $item1) {
-                    $model->origins[$n1++] = origins::fromMap($item1);
+                    $model->origins[$n1] = origins::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

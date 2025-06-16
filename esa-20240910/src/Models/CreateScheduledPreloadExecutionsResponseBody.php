@@ -70,7 +70,8 @@ class CreateScheduledPreloadExecutionsResponseBody extends Model
                 $res['FailedExecutions'] = [];
                 $n1 = 0;
                 foreach ($this->failedExecutions as $item1) {
-                    $res['FailedExecutions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedExecutions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,7 +81,8 @@ class CreateScheduledPreloadExecutionsResponseBody extends Model
                 $res['FailedMessages'] = [];
                 $n1 = 0;
                 foreach ($this->failedMessages as $item1) {
-                    $res['FailedMessages'][$n1++] = $item1;
+                    $res['FailedMessages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class CreateScheduledPreloadExecutionsResponseBody extends Model
                 $res['SuccessExecutions'] = [];
                 $n1 = 0;
                 foreach ($this->successExecutions as $item1) {
-                    $res['SuccessExecutions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SuccessExecutions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +126,8 @@ class CreateScheduledPreloadExecutionsResponseBody extends Model
                 $model->failedExecutions = [];
                 $n1 = 0;
                 foreach ($map['FailedExecutions'] as $item1) {
-                    $model->failedExecutions[$n1++] = failedExecutions::fromMap($item1);
+                    $model->failedExecutions[$n1] = failedExecutions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +137,8 @@ class CreateScheduledPreloadExecutionsResponseBody extends Model
                 $model->failedMessages = [];
                 $n1 = 0;
                 foreach ($map['FailedMessages'] as $item1) {
-                    $model->failedMessages[$n1++] = $item1;
+                    $model->failedMessages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +156,8 @@ class CreateScheduledPreloadExecutionsResponseBody extends Model
                 $model->successExecutions = [];
                 $n1 = 0;
                 foreach ($map['SuccessExecutions'] as $item1) {
-                    $model->successExecutions[$n1++] = successExecutions::fromMap($item1);
+                    $model->successExecutions[$n1] = successExecutions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -73,7 +73,8 @@ class DescribeDDoSL7QpsListResponseBody extends Model
                 $res['DataModule'] = [];
                 $n1 = 0;
                 foreach ($this->dataModule as $item1) {
-                    $res['DataModule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class DescribeDDoSL7QpsListResponseBody extends Model
                 $model->dataModule = [];
                 $n1 = 0;
                 foreach ($map['DataModule'] as $item1) {
-                    $model->dataModule[$n1++] = dataModule::fromMap($item1);
+                    $model->dataModule[$n1] = dataModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

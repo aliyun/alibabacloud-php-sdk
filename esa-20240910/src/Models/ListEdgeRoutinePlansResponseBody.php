@@ -71,7 +71,8 @@ class ListEdgeRoutinePlansResponseBody extends Model
                 $res['PlanInfo'] = [];
                 $n1 = 0;
                 foreach ($this->planInfo as $item1) {
-                    $res['PlanInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PlanInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListEdgeRoutinePlansResponseBody extends Model
                 $model->planInfo = [];
                 $n1 = 0;
                 foreach ($map['PlanInfo'] as $item1) {
-                    $model->planInfo[$n1++] = planInfo::fromMap($item1);
+                    $model->planInfo[$n1] = planInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

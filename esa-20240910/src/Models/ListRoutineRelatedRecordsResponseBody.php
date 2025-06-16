@@ -65,7 +65,8 @@ class ListRoutineRelatedRecordsResponseBody extends Model
                 $res['RelatedRecords'] = [];
                 $n1 = 0;
                 foreach ($this->relatedRecords as $item1) {
-                    $res['RelatedRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelatedRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListRoutineRelatedRecordsResponseBody extends Model
                 $model->relatedRecords = [];
                 $n1 = 0;
                 foreach ($map['RelatedRecords'] as $item1) {
-                    $model->relatedRecords[$n1++] = relatedRecords::fromMap($item1);
+                    $model->relatedRecords[$n1] = relatedRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

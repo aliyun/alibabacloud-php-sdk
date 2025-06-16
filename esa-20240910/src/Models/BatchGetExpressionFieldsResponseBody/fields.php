@@ -38,7 +38,8 @@ class fields extends Model
                 $res['Fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['Fields'][$n1++] = $item1;
+                    $res['Fields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class fields extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['Fields'] as $item1) {
-                    $model->fields[$n1++] = $item1;
+                    $model->fields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class GetRoutineStagingEnvIpResponseBody extends Model
                 $res['IPV4'] = [];
                 $n1 = 0;
                 foreach ($this->IPV4 as $item1) {
-                    $res['IPV4'][$n1++] = $item1;
+                    $res['IPV4'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetRoutineStagingEnvIpResponseBody extends Model
                 $model->IPV4 = [];
                 $n1 = 0;
                 foreach ($map['IPV4'] as $item1) {
-                    $model->IPV4[$n1++] = $item1;
+                    $model->IPV4[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

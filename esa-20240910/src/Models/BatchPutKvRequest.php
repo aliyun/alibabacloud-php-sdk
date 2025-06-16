@@ -39,7 +39,8 @@ class BatchPutKvRequest extends Model
                 $res['KvList'] = [];
                 $n1 = 0;
                 foreach ($this->kvList as $item1) {
-                    $res['KvList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KvList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class BatchPutKvRequest extends Model
                 $model->kvList = [];
                 $n1 = 0;
                 foreach ($map['KvList'] as $item1) {
-                    $model->kvList[$n1++] = kvList::fromMap($item1);
+                    $model->kvList[$n1] = kvList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

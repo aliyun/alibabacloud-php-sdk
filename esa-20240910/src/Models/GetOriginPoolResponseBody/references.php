@@ -53,7 +53,8 @@ class references extends Model
                 $res['DnsRecords'] = [];
                 $n1 = 0;
                 foreach ($this->dnsRecords as $item1) {
-                    $res['DnsRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DnsRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class references extends Model
                 $res['IPARecords'] = [];
                 $n1 = 0;
                 foreach ($this->IPARecords as $item1) {
-                    $res['IPARecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IPARecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class references extends Model
                 $res['LoadBalancers'] = [];
                 $n1 = 0;
                 foreach ($this->loadBalancers as $item1) {
-                    $res['LoadBalancers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LoadBalancers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class references extends Model
                 $model->dnsRecords = [];
                 $n1 = 0;
                 foreach ($map['DnsRecords'] as $item1) {
-                    $model->dnsRecords[$n1++] = dnsRecords::fromMap($item1);
+                    $model->dnsRecords[$n1] = dnsRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class references extends Model
                 $model->IPARecords = [];
                 $n1 = 0;
                 foreach ($map['IPARecords'] as $item1) {
-                    $model->IPARecords[$n1++] = IPARecords::fromMap($item1);
+                    $model->IPARecords[$n1] = IPARecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class references extends Model
                 $model->loadBalancers = [];
                 $n1 = 0;
                 foreach ($map['LoadBalancers'] as $item1) {
-                    $model->loadBalancers[$n1++] = loadBalancers::fromMap($item1);
+                    $model->loadBalancers[$n1] = loadBalancers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

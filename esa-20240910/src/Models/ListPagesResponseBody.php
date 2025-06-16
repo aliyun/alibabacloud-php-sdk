@@ -71,7 +71,8 @@ class ListPagesResponseBody extends Model
                 $res['Pages'] = [];
                 $n1 = 0;
                 foreach ($this->pages as $item1) {
-                    $res['Pages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Pages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListPagesResponseBody extends Model
                 $model->pages = [];
                 $n1 = 0;
                 foreach ($map['Pages'] as $item1) {
-                    $model->pages[$n1++] = pages::fromMap($item1);
+                    $model->pages[$n1] = pages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

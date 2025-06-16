@@ -173,7 +173,8 @@ class result extends Model
                 $res['DCV'] = [];
                 $n1 = 0;
                 foreach ($this->DCV as $item1) {
-                    $res['DCV'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DCV'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +275,8 @@ class result extends Model
                 $model->DCV = [];
                 $n1 = 0;
                 foreach ($map['DCV'] as $item1) {
-                    $model->DCV[$n1++] = DCV::fromMap($item1);
+                    $model->DCV[$n1] = DCV::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

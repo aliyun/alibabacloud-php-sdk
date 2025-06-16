@@ -33,7 +33,8 @@ class appPackage extends Model
                 $res['PackageSigns'] = [];
                 $n1 = 0;
                 foreach ($this->packageSigns as $item1) {
-                    $res['PackageSigns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PackageSigns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class appPackage extends Model
                 $model->packageSigns = [];
                 $n1 = 0;
                 foreach ($map['PackageSigns'] as $item1) {
-                    $model->packageSigns[$n1++] = packageSigns::fromMap($item1);
+                    $model->packageSigns[$n1] = packageSigns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class BatchCreateRecordsRequest extends Model
                 $res['RecordList'] = [];
                 $n1 = 0;
                 foreach ($this->recordList as $item1) {
-                    $res['RecordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class BatchCreateRecordsRequest extends Model
                 $model->recordList = [];
                 $n1 = 0;
                 foreach ($map['RecordList'] as $item1) {
-                    $model->recordList[$n1++] = recordList::fromMap($item1);
+                    $model->recordList[$n1] = recordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

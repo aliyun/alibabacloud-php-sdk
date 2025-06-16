@@ -39,7 +39,8 @@ class ListLoadBalancerOriginStatusResponseBody extends Model
                 $res['OriginStatus'] = [];
                 $n1 = 0;
                 foreach ($this->originStatus as $item1) {
-                    $res['OriginStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OriginStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListLoadBalancerOriginStatusResponseBody extends Model
                 $model->originStatus = [];
                 $n1 = 0;
                 foreach ($map['OriginStatus'] as $item1) {
-                    $model->originStatus[$n1++] = originStatus::fromMap($item1);
+                    $model->originStatus[$n1] = originStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

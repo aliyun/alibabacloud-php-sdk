@@ -78,7 +78,8 @@ class kafkaDelivery extends Model
                 $res['Brokers'] = [];
                 $n1 = 0;
                 foreach ($this->brokers as $item1) {
-                    $res['Brokers'][$n1++] = $item1;
+                    $res['Brokers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +128,8 @@ class kafkaDelivery extends Model
                 $model->brokers = [];
                 $n1 = 0;
                 foreach ($map['Brokers'] as $item1) {
-                    $model->brokers[$n1++] = $item1;
+                    $model->brokers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

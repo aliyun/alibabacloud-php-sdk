@@ -38,7 +38,8 @@ class clientIpIdentifier extends Model
                 $res['Headers'] = [];
                 $n1 = 0;
                 foreach ($this->headers as $item1) {
-                    $res['Headers'][$n1++] = $item1;
+                    $res['Headers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class clientIpIdentifier extends Model
                 $model->headers = [];
                 $n1 = 0;
                 foreach ($map['Headers'] as $item1) {
-                    $model->headers[$n1++] = $item1;
+                    $model->headers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

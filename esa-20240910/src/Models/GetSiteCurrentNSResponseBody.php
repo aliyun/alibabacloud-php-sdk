@@ -38,7 +38,8 @@ class GetSiteCurrentNSResponseBody extends Model
                 $res['NSList'] = [];
                 $n1 = 0;
                 foreach ($this->NSList as $item1) {
-                    $res['NSList'][$n1++] = $item1;
+                    $res['NSList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetSiteCurrentNSResponseBody extends Model
                 $model->NSList = [];
                 $n1 = 0;
                 foreach ($map['NSList'] as $item1) {
-                    $model->NSList[$n1++] = $item1;
+                    $model->NSList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

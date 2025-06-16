@@ -85,7 +85,8 @@ class ListWafRulesetsResponseBody extends Model
                 $res['Rulesets'] = [];
                 $n1 = 0;
                 foreach ($this->rulesets as $item1) {
-                    $res['Rulesets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rulesets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class ListWafRulesetsResponseBody extends Model
                 $model->rulesets = [];
                 $n1 = 0;
                 foreach ($map['Rulesets'] as $item1) {
-                    $model->rulesets[$n1++] = rulesets::fromMap($item1);
+                    $model->rulesets[$n1] = rulesets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

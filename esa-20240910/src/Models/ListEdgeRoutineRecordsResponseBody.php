@@ -65,7 +65,8 @@ class ListEdgeRoutineRecordsResponseBody extends Model
                 $res['Records'] = [];
                 $n1 = 0;
                 foreach ($this->records as $item1) {
-                    $res['Records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListEdgeRoutineRecordsResponseBody extends Model
                 $model->records = [];
                 $n1 = 0;
                 foreach ($map['Records'] as $item1) {
-                    $model->records[$n1++] = records::fromMap($item1);
+                    $model->records[$n1] = records::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

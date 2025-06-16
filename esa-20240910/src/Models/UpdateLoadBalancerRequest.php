@@ -136,7 +136,8 @@ class UpdateLoadBalancerRequest extends Model
                 $res['DefaultPools'] = [];
                 $n1 = 0;
                 foreach ($this->defaultPools as $item1) {
-                    $res['DefaultPools'][$n1++] = $item1;
+                    $res['DefaultPools'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +175,8 @@ class UpdateLoadBalancerRequest extends Model
                 $res['Rules'] = [];
                 $n1 = 0;
                 foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +221,8 @@ class UpdateLoadBalancerRequest extends Model
                 $model->defaultPools = [];
                 $n1 = 0;
                 foreach ($map['DefaultPools'] as $item1) {
-                    $model->defaultPools[$n1++] = $item1;
+                    $model->defaultPools[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,7 +260,8 @@ class UpdateLoadBalancerRequest extends Model
                 $model->rules = [];
                 $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                    $model->rules[$n1] = rules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -47,7 +47,8 @@ class GetCacheReserveSpecificationResponseBody extends Model
                 $res['CacheReserveCapacity'] = [];
                 $n1 = 0;
                 foreach ($this->cacheReserveCapacity as $item1) {
-                    $res['CacheReserveCapacity'][$n1++] = $item1;
+                    $res['CacheReserveCapacity'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class GetCacheReserveSpecificationResponseBody extends Model
                 $res['CacheReserveRegion'] = [];
                 $n1 = 0;
                 foreach ($this->cacheReserveRegion as $item1) {
-                    $res['CacheReserveRegion'][$n1++] = $item1;
+                    $res['CacheReserveRegion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class GetCacheReserveSpecificationResponseBody extends Model
                 $model->cacheReserveCapacity = [];
                 $n1 = 0;
                 foreach ($map['CacheReserveCapacity'] as $item1) {
-                    $model->cacheReserveCapacity[$n1++] = $item1;
+                    $model->cacheReserveCapacity[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class GetCacheReserveSpecificationResponseBody extends Model
                 $model->cacheReserveRegion = [];
                 $n1 = 0;
                 foreach ($map['CacheReserveRegion'] as $item1) {
-                    $model->cacheReserveRegion[$n1++] = $item1;
+                    $model->cacheReserveRegion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

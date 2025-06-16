@@ -58,7 +58,8 @@ class queryArgs extends Model
                 $res['ProtectionLevels'] = [];
                 $n1 = 0;
                 foreach ($this->protectionLevels as $item1) {
-                    $res['ProtectionLevels'][$n1++] = $item1;
+                    $res['ProtectionLevels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class queryArgs extends Model
                 $model->protectionLevels = [];
                 $n1 = 0;
                 foreach ($map['ProtectionLevels'] as $item1) {
-                    $model->protectionLevels[$n1++] = $item1;
+                    $model->protectionLevels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

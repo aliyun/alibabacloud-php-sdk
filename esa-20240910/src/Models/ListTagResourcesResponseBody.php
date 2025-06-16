@@ -59,7 +59,8 @@ class ListTagResourcesResponseBody extends Model
                 $res['TagResources'] = [];
                 $n1 = 0;
                 foreach ($this->tagResources as $item1) {
-                    $res['TagResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class ListTagResourcesResponseBody extends Model
                 $model->tagResources = [];
                 $n1 = 0;
                 foreach ($map['TagResources'] as $item1) {
-                    $model->tagResources[$n1++] = tagResources::fromMap($item1);
+                    $model->tagResources[$n1] = tagResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

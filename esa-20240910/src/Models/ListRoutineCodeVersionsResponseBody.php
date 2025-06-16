@@ -57,7 +57,8 @@ class ListRoutineCodeVersionsResponseBody extends Model
                 $res['CodeVersions'] = [];
                 $n1 = 0;
                 foreach ($this->codeVersions as $item1) {
-                    $res['CodeVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CodeVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListRoutineCodeVersionsResponseBody extends Model
                 $model->codeVersions = [];
                 $n1 = 0;
                 foreach ($map['CodeVersions'] as $item1) {
-                    $model->codeVersions[$n1++] = codeVersions::fromMap($item1);
+                    $model->codeVersions[$n1] = codeVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

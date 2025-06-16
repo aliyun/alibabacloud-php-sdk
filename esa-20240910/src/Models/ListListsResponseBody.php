@@ -63,7 +63,8 @@ class ListListsResponseBody extends Model
                 $res['Lists'] = [];
                 $n1 = 0;
                 foreach ($this->lists as $item1) {
-                    $res['Lists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Lists'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListListsResponseBody extends Model
                 $model->lists = [];
                 $n1 = 0;
                 foreach ($map['Lists'] as $item1) {
-                    $model->lists[$n1++] = lists::fromMap($item1);
+                    $model->lists[$n1] = lists::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

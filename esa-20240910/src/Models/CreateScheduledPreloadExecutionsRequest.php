@@ -39,7 +39,8 @@ class CreateScheduledPreloadExecutionsRequest extends Model
                 $res['Executions'] = [];
                 $n1 = 0;
                 foreach ($this->executions as $item1) {
-                    $res['Executions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Executions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class CreateScheduledPreloadExecutionsRequest extends Model
                 $model->executions = [];
                 $n1 = 0;
                 foreach ($map['Executions'] as $item1) {
-                    $model->executions[$n1++] = executions::fromMap($item1);
+                    $model->executions[$n1] = executions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

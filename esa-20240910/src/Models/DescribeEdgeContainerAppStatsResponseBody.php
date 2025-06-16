@@ -109,7 +109,8 @@ class DescribeEdgeContainerAppStatsResponseBody extends Model
                 $res['Points'] = [];
                 $n1 = 0;
                 foreach ($this->points as $item1) {
-                    $res['Points'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Points'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +163,8 @@ class DescribeEdgeContainerAppStatsResponseBody extends Model
                 $model->points = [];
                 $n1 = 0;
                 foreach ($map['Points'] as $item1) {
-                    $model->points[$n1++] = points::fromMap($item1);
+                    $model->points[$n1] = points::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

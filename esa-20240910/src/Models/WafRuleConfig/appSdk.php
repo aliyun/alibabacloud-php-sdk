@@ -56,7 +56,8 @@ class appSdk extends Model
                 $res['FeatureAbnormal'] = [];
                 $n1 = 0;
                 foreach ($this->featureAbnormal as $item1) {
-                    $res['FeatureAbnormal'][$n1++] = $item1;
+                    $res['FeatureAbnormal'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class appSdk extends Model
                 $model->featureAbnormal = [];
                 $n1 = 0;
                 foreach ($map['FeatureAbnormal'] as $item1) {
-                    $model->featureAbnormal[$n1++] = $item1;
+                    $model->featureAbnormal[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

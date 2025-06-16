@@ -65,7 +65,8 @@ class siteLogDetails extends Model
                 $res['LogInfos'] = [];
                 $n1 = 0;
                 foreach ($this->logInfos as $item1) {
-                    $res['LogInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class siteLogDetails extends Model
                 $model->logInfos = [];
                 $n1 = 0;
                 foreach ($map['LogInfos'] as $item1) {
-                    $model->logInfos[$n1++] = logInfos::fromMap($item1);
+                    $model->logInfos[$n1] = logInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

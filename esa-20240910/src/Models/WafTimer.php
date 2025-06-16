@@ -55,7 +55,8 @@ class WafTimer extends Model
                 $res['Periods'] = [];
                 $n1 = 0;
                 foreach ($this->periods as $item1) {
-                    $res['Periods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Periods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class WafTimer extends Model
                 $res['WeeklyPeriods'] = [];
                 $n1 = 0;
                 foreach ($this->weeklyPeriods as $item1) {
-                    $res['WeeklyPeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WeeklyPeriods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class WafTimer extends Model
                 $model->periods = [];
                 $n1 = 0;
                 foreach ($map['Periods'] as $item1) {
-                    $model->periods[$n1++] = periods::fromMap($item1);
+                    $model->periods[$n1] = periods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class WafTimer extends Model
                 $model->weeklyPeriods = [];
                 $n1 = 0;
                 foreach ($map['WeeklyPeriods'] as $item1) {
-                    $model->weeklyPeriods[$n1++] = weeklyPeriods::fromMap($item1);
+                    $model->weeklyPeriods[$n1] = weeklyPeriods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -56,7 +56,8 @@ class UpdateSiteCustomLogRequest extends Model
                 $res['Cookies'] = [];
                 $n1 = 0;
                 foreach ($this->cookies as $item1) {
-                    $res['Cookies'][$n1++] = $item1;
+                    $res['Cookies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -66,7 +67,8 @@ class UpdateSiteCustomLogRequest extends Model
                 $res['RequestHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->requestHeaders as $item1) {
-                    $res['RequestHeaders'][$n1++] = $item1;
+                    $res['RequestHeaders'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -76,7 +78,8 @@ class UpdateSiteCustomLogRequest extends Model
                 $res['ResponseHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->responseHeaders as $item1) {
-                    $res['ResponseHeaders'][$n1++] = $item1;
+                    $res['ResponseHeaders'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +104,8 @@ class UpdateSiteCustomLogRequest extends Model
                 $model->cookies = [];
                 $n1 = 0;
                 foreach ($map['Cookies'] as $item1) {
-                    $model->cookies[$n1++] = $item1;
+                    $model->cookies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +115,8 @@ class UpdateSiteCustomLogRequest extends Model
                 $model->requestHeaders = [];
                 $n1 = 0;
                 foreach ($map['RequestHeaders'] as $item1) {
-                    $model->requestHeaders[$n1++] = $item1;
+                    $model->requestHeaders[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +126,8 @@ class UpdateSiteCustomLogRequest extends Model
                 $model->responseHeaders = [];
                 $n1 = 0;
                 foreach ($map['ResponseHeaders'] as $item1) {
-                    $model->responseHeaders[$n1++] = $item1;
+                    $model->responseHeaders[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

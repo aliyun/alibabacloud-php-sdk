@@ -91,7 +91,8 @@ class fields extends Model
                 $res['Logics'] = [];
                 $n1 = 0;
                 foreach ($this->logics as $item1) {
-                    $res['Logics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Logics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class fields extends Model
                 $model->logics = [];
                 $n1 = 0;
                 foreach ($map['Logics'] as $item1) {
-                    $model->logics[$n1++] = logics::fromMap($item1);
+                    $model->logics[$n1] = logics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

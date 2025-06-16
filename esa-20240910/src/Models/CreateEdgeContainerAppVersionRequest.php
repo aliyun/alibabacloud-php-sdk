@@ -55,7 +55,8 @@ class CreateEdgeContainerAppVersionRequest extends Model
                 $res['Containers'] = [];
                 $n1 = 0;
                 foreach ($this->containers as $item1) {
-                    $res['Containers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Containers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class CreateEdgeContainerAppVersionRequest extends Model
                 $model->containers = [];
                 $n1 = 0;
                 foreach ($map['Containers'] as $item1) {
-                    $model->containers[$n1++] = containers::fromMap($item1);
+                    $model->containers[$n1] = containers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -83,7 +83,8 @@ class configs extends Model
                 $res['ResponseHeaderModification'] = [];
                 $n1 = 0;
                 foreach ($this->responseHeaderModification as $item1) {
-                    $res['ResponseHeaderModification'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResponseHeaderModification'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class configs extends Model
                 $model->responseHeaderModification = [];
                 $n1 = 0;
                 foreach ($map['ResponseHeaderModification'] as $item1) {
-                    $model->responseHeaderModification[$n1++] = responseHeaderModification::fromMap($item1);
+                    $model->responseHeaderModification[$n1] = responseHeaderModification::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

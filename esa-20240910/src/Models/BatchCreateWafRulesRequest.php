@@ -65,7 +65,8 @@ class BatchCreateWafRulesRequest extends Model
                 $res['Configs'] = [];
                 $n1 = 0;
                 foreach ($this->configs as $item1) {
-                    $res['Configs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Configs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class BatchCreateWafRulesRequest extends Model
                 $model->configs = [];
                 $n1 = 0;
                 foreach ($map['Configs'] as $item1) {
-                    $model->configs[$n1++] = WafRuleConfig::fromMap($item1);
+                    $model->configs[$n1] = WafRuleConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

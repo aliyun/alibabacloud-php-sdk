@@ -38,7 +38,8 @@ class fields extends Model
                 $res['Dimension'] = [];
                 $n1 = 0;
                 foreach ($this->dimension as $item1) {
-                    $res['Dimension'][$n1++] = $item1;
+                    $res['Dimension'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class fields extends Model
                 $model->dimension = [];
                 $n1 = 0;
                 foreach ($map['Dimension'] as $item1) {
-                    $model->dimension[$n1++] = $item1;
+                    $model->dimension[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

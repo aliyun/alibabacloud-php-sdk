@@ -63,7 +63,8 @@ class ListOriginPoolsResponseBody extends Model
                 $res['OriginPools'] = [];
                 $n1 = 0;
                 foreach ($this->originPools as $item1) {
-                    $res['OriginPools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OriginPools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListOriginPoolsResponseBody extends Model
                 $model->originPools = [];
                 $n1 = 0;
                 foreach ($map['OriginPools'] as $item1) {
-                    $model->originPools[$n1++] = originPools::fromMap($item1);
+                    $model->originPools[$n1] = originPools::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

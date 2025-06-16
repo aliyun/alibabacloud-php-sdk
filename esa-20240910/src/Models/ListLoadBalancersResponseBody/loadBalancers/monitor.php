@@ -46,6 +46,11 @@ class monitor extends Model
     /**
      * @var string
      */
+    public $monitoringRegion;
+
+    /**
+     * @var string
+     */
     public $path;
 
     /**
@@ -70,6 +75,7 @@ class monitor extends Model
         'header' => 'Header',
         'interval' => 'Interval',
         'method' => 'Method',
+        'monitoringRegion' => 'MonitoringRegion',
         'path' => 'Path',
         'port' => 'Port',
         'timeout' => 'Timeout',
@@ -110,6 +116,10 @@ class monitor extends Model
 
         if (null !== $this->method) {
             $res['Method'] = $this->method;
+        }
+
+        if (null !== $this->monitoringRegion) {
+            $res['MonitoringRegion'] = $this->monitoringRegion;
         }
 
         if (null !== $this->path) {
@@ -165,6 +175,10 @@ class monitor extends Model
 
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
+        }
+
+        if (isset($map['MonitoringRegion'])) {
+            $model->monitoringRegion = $map['MonitoringRegion'];
         }
 
         if (isset($map['Path'])) {

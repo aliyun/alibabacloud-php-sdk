@@ -39,7 +39,8 @@ class weeklyPeriods extends Model
                 $res['DailyPeriods'] = [];
                 $n1 = 0;
                 foreach ($this->dailyPeriods as $item1) {
-                    $res['DailyPeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DailyPeriods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class weeklyPeriods extends Model
                 $model->dailyPeriods = [];
                 $n1 = 0;
                 foreach ($map['DailyPeriods'] as $item1) {
-                    $model->dailyPeriods[$n1++] = dailyPeriods::fromMap($item1);
+                    $model->dailyPeriods[$n1] = dailyPeriods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

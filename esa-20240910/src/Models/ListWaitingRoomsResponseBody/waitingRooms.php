@@ -149,7 +149,8 @@ class waitingRooms extends Model
                 $res['HostNameAndPath'] = [];
                 $n1 = 0;
                 foreach ($this->hostNameAndPath as $item1) {
-                    $res['HostNameAndPath'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HostNameAndPath'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +235,8 @@ class waitingRooms extends Model
                 $model->hostNameAndPath = [];
                 $n1 = 0;
                 foreach ($map['HostNameAndPath'] as $item1) {
-                    $model->hostNameAndPath[$n1++] = hostNameAndPath::fromMap($item1);
+                    $model->hostNameAndPath[$n1] = hostNameAndPath::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

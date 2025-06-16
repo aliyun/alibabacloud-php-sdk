@@ -69,7 +69,8 @@ class GetRoutineResponseBody extends Model
                 $res['Envs'] = [];
                 $n1 = 0;
                 foreach ($this->envs as $item1) {
-                    $res['Envs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Envs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class GetRoutineResponseBody extends Model
                 $model->envs = [];
                 $n1 = 0;
                 foreach ($map['Envs'] as $item1) {
-                    $model->envs[$n1++] = envs::fromMap($item1);
+                    $model->envs[$n1] = envs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

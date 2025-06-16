@@ -47,7 +47,8 @@ class PreloadCachesRequest extends Model
                 $res['Content'] = [];
                 $n1 = 0;
                 foreach ($this->content as $item1) {
-                    $res['Content'][$n1++] = $item1;
+                    $res['Content'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class PreloadCachesRequest extends Model
                 $model->content = [];
                 $n1 = 0;
                 foreach ($map['Content'] as $item1) {
-                    $model->content[$n1++] = $item1;
+                    $model->content[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

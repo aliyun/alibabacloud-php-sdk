@@ -43,7 +43,8 @@ class FieldContentValue extends Model
                 $res['FieldList'] = [];
                 $n1 = 0;
                 foreach ($this->fieldList as $item1) {
-                    $res['FieldList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FieldList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class FieldContentValue extends Model
                 $model->fieldList = [];
                 $n1 = 0;
                 foreach ($map['FieldList'] as $item1) {
-                    $model->fieldList[$n1++] = fieldList::fromMap($item1);
+                    $model->fieldList[$n1] = fieldList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

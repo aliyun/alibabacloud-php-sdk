@@ -72,7 +72,8 @@ class criteria extends Model
                 $res['Criteria'] = [];
                 $n1 = 0;
                 foreach ($this->criteria as $item1) {
-                    $res['Criteria'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Criteria'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class criteria extends Model
                 $model->criteria = [];
                 $n1 = 0;
                 foreach ($map['Criteria'] as $item1) {
-                    $model->criteria[$n1++] = criteria\criteria::fromMap($item1);
+                    $model->criteria[$n1] = criteria\criteria::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

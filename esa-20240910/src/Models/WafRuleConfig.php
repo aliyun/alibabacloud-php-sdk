@@ -193,7 +193,8 @@ class WafRuleConfig extends Model
                 $res['ManagedRulesets'] = [];
                 $n1 = 0;
                 foreach ($this->managedRulesets as $item1) {
-                    $res['ManagedRulesets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ManagedRulesets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +220,8 @@ class WafRuleConfig extends Model
                 $res['Sigchl'] = [];
                 $n1 = 0;
                 foreach ($this->sigchl as $item1) {
-                    $res['Sigchl'][$n1++] = $item1;
+                    $res['Sigchl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +290,8 @@ class WafRuleConfig extends Model
                 $model->managedRulesets = [];
                 $n1 = 0;
                 foreach ($map['ManagedRulesets'] as $item1) {
-                    $model->managedRulesets[$n1++] = managedRulesets::fromMap($item1);
+                    $model->managedRulesets[$n1] = managedRulesets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +317,8 @@ class WafRuleConfig extends Model
                 $model->sigchl = [];
                 $n1 = 0;
                 foreach ($map['Sigchl'] as $item1) {
-                    $model->sigchl[$n1++] = $item1;
+                    $model->sigchl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

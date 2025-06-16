@@ -82,7 +82,8 @@ class UpdateCustomScenePolicyResponseBody extends Model
                 $res['Objects'] = [];
                 $n1 = 0;
                 foreach ($this->objects as $item1) {
-                    $res['Objects'][$n1++] = $item1;
+                    $res['Objects'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class UpdateCustomScenePolicyResponseBody extends Model
                 $model->objects = [];
                 $n1 = 0;
                 foreach ($map['Objects'] as $item1) {
-                    $model->objects[$n1++] = $item1;
+                    $model->objects[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -71,7 +71,8 @@ class ListLoadBalancerRegionsResponseBody extends Model
                 $res['Regions'] = [];
                 $n1 = 0;
                 foreach ($this->regions as $item1) {
-                    $res['Regions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Regions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListLoadBalancerRegionsResponseBody extends Model
                 $model->regions = [];
                 $n1 = 0;
                 foreach ($map['Regions'] as $item1) {
-                    $model->regions[$n1++] = regions::fromMap($item1);
+                    $model->regions[$n1] = regions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -76,7 +76,8 @@ class GetListResponseBody extends Model
                 $res['Items'] = [];
                 $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = $item1;
+                    $res['Items'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class GetListResponseBody extends Model
                 $model->items = [];
                 $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = $item1;
+                    $model->items[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

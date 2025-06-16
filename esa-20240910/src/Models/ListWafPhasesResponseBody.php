@@ -39,7 +39,8 @@ class ListWafPhasesResponseBody extends Model
                 $res['Phases'] = [];
                 $n1 = 0;
                 foreach ($this->phases as $item1) {
-                    $res['Phases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Phases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListWafPhasesResponseBody extends Model
                 $model->phases = [];
                 $n1 = 0;
                 foreach ($map['Phases'] as $item1) {
-                    $model->phases[$n1++] = phases::fromMap($item1);
+                    $model->phases[$n1] = phases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

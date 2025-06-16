@@ -49,7 +49,8 @@ class recordResultList extends Model
                 $res['Failed'] = [];
                 $n1 = 0;
                 foreach ($this->failed as $item1) {
-                    $res['Failed'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Failed'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,7 +60,8 @@ class recordResultList extends Model
                 $res['Success'] = [];
                 $n1 = 0;
                 foreach ($this->success as $item1) {
-                    $res['Success'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Success'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class recordResultList extends Model
                 $model->failed = [];
                 $n1 = 0;
                 foreach ($map['Failed'] as $item1) {
-                    $model->failed[$n1++] = failed::fromMap($item1);
+                    $model->failed[$n1] = failed::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class recordResultList extends Model
                 $model->success = [];
                 $n1 = 0;
                 foreach ($map['Success'] as $item1) {
-                    $model->success[$n1++] = success::fromMap($item1);
+                    $model->success[$n1] = success::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

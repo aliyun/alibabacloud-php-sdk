@@ -143,7 +143,8 @@ class ListSitesRequest extends Model
                 $res['TagFilter'] = [];
                 $n1 = 0;
                 foreach ($this->tagFilter as $item1) {
-                    $res['TagFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagFilter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +209,8 @@ class ListSitesRequest extends Model
                 $model->tagFilter = [];
                 $n1 = 0;
                 foreach ($map['TagFilter'] as $item1) {
-                    $model->tagFilter[$n1++] = tagFilter::fromMap($item1);
+                    $model->tagFilter[$n1] = tagFilter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

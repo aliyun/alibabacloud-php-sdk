@@ -77,7 +77,8 @@ class rulesets extends Model
                 $res['Fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['Fields'][$n1++] = $item1;
+                    $res['Fields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class rulesets extends Model
                 $res['Types'] = [];
                 $n1 = 0;
                 foreach ($this->types as $item1) {
-                    $res['Types'][$n1++] = $item1;
+                    $res['Types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class rulesets extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['Fields'] as $item1) {
-                    $model->fields[$n1++] = $item1;
+                    $model->fields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class rulesets extends Model
                 $model->types = [];
                 $n1 = 0;
                 foreach ($map['Types'] as $item1) {
-                    $model->types[$n1++] = $item1;
+                    $model->types[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

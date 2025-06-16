@@ -38,7 +38,8 @@ class ListRoutineCanaryAreasResponseBody extends Model
                 $res['CanaryAreas'] = [];
                 $n1 = 0;
                 foreach ($this->canaryAreas as $item1) {
-                    $res['CanaryAreas'][$n1++] = $item1;
+                    $res['CanaryAreas'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListRoutineCanaryAreasResponseBody extends Model
                 $model->canaryAreas = [];
                 $n1 = 0;
                 foreach ($map['CanaryAreas'] as $item1) {
-                    $model->canaryAreas[$n1++] = $item1;
+                    $model->canaryAreas[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
