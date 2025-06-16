@@ -75,7 +75,8 @@ class parameterConstraints extends Model
                 $res['AllowedValues'] = [];
                 $n1 = 0;
                 foreach ($this->allowedValues as $item1) {
-                    $res['AllowedValues'][$n1++] = $item1;
+                    $res['AllowedValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class parameterConstraints extends Model
                 $res['AssociationParameterNames'] = [];
                 $n1 = 0;
                 foreach ($this->associationParameterNames as $item1) {
-                    $res['AssociationParameterNames'][$n1++] = $item1;
+                    $res['AssociationParameterNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class parameterConstraints extends Model
                 $res['OriginalConstraints'] = [];
                 $n1 = 0;
                 foreach ($this->originalConstraints as $item1) {
-                    $res['OriginalConstraints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OriginalConstraints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +135,8 @@ class parameterConstraints extends Model
                 $model->allowedValues = [];
                 $n1 = 0;
                 foreach ($map['AllowedValues'] as $item1) {
-                    $model->allowedValues[$n1++] = $item1;
+                    $model->allowedValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +146,8 @@ class parameterConstraints extends Model
                 $model->associationParameterNames = [];
                 $n1 = 0;
                 foreach ($map['AssociationParameterNames'] as $item1) {
-                    $model->associationParameterNames[$n1++] = $item1;
+                    $model->associationParameterNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +165,8 @@ class parameterConstraints extends Model
                 $model->originalConstraints = [];
                 $n1 = 0;
                 foreach ($map['OriginalConstraints'] as $item1) {
-                    $model->originalConstraints[$n1++] = originalConstraints::fromMap($item1);
+                    $model->originalConstraints[$n1] = originalConstraints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -69,7 +69,8 @@ class ListResellersResponseBody extends Model
                 $res['SupplierInformation'] = [];
                 $n1 = 0;
                 foreach ($this->supplierInformation as $item1) {
-                    $res['SupplierInformation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupplierInformation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListResellersResponseBody extends Model
                 $model->supplierInformation = [];
                 $n1 = 0;
                 foreach ($map['SupplierInformation'] as $item1) {
-                    $model->supplierInformation[$n1++] = supplierInformation::fromMap($item1);
+                    $model->supplierInformation[$n1] = supplierInformation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

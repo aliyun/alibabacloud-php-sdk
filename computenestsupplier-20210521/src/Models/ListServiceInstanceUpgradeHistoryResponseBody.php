@@ -73,7 +73,8 @@ class ListServiceInstanceUpgradeHistoryResponseBody extends Model
                 $res['UpgradeHistory'] = [];
                 $n1 = 0;
                 foreach ($this->upgradeHistory as $item1) {
-                    $res['UpgradeHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UpgradeHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListServiceInstanceUpgradeHistoryResponseBody extends Model
                 $model->upgradeHistory = [];
                 $n1 = 0;
                 foreach ($map['UpgradeHistory'] as $item1) {
-                    $model->upgradeHistory[$n1++] = upgradeHistory::fromMap($item1);
+                    $model->upgradeHistory[$n1] = upgradeHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

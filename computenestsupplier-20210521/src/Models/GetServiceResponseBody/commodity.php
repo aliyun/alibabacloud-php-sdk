@@ -104,7 +104,8 @@ class commodity extends Model
                 $res['Components'] = [];
                 $n1 = 0;
                 foreach ($this->components as $item1) {
-                    $res['Components'][$n1++] = $item1;
+                    $res['Components'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class commodity extends Model
                 $res['MeteringEntities'] = [];
                 $n1 = 0;
                 foreach ($this->meteringEntities as $item1) {
-                    $res['MeteringEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MeteringEntities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class commodity extends Model
                 $res['Specifications'] = [];
                 $n1 = 0;
                 foreach ($this->specifications as $item1) {
-                    $res['Specifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Specifications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +172,8 @@ class commodity extends Model
                 $model->components = [];
                 $n1 = 0;
                 foreach ($map['Components'] as $item1) {
-                    $model->components[$n1++] = $item1;
+                    $model->components[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +191,8 @@ class commodity extends Model
                 $model->meteringEntities = [];
                 $n1 = 0;
                 foreach ($map['MeteringEntities'] as $item1) {
-                    $model->meteringEntities[$n1++] = meteringEntities::fromMap($item1);
+                    $model->meteringEntities[$n1] = meteringEntities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +206,8 @@ class commodity extends Model
                 $model->specifications = [];
                 $n1 = 0;
                 foreach ($map['Specifications'] as $item1) {
-                    $model->specifications[$n1++] = specifications::fromMap($item1);
+                    $model->specifications[$n1] = specifications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

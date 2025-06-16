@@ -39,7 +39,8 @@ class rolePolicy extends Model
                 $res['MissingPolicy'] = [];
                 $n1 = 0;
                 foreach ($this->missingPolicy as $item1) {
-                    $res['MissingPolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MissingPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class rolePolicy extends Model
                 $model->missingPolicy = [];
                 $n1 = 0;
                 foreach ($map['MissingPolicy'] as $item1) {
-                    $model->missingPolicy[$n1++] = missingPolicy::fromMap($item1);
+                    $model->missingPolicy[$n1] = missingPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

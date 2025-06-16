@@ -39,7 +39,8 @@ class ListArtifactRisksResponseBody extends Model
                 $res['ArtifactRiskList'] = [];
                 $n1 = 0;
                 foreach ($this->artifactRiskList as $item1) {
-                    $res['ArtifactRiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ArtifactRiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListArtifactRisksResponseBody extends Model
                 $model->artifactRiskList = [];
                 $n1 = 0;
                 foreach ($map['ArtifactRiskList'] as $item1) {
-                    $model->artifactRiskList[$n1++] = artifactRiskList::fromMap($item1);
+                    $model->artifactRiskList[$n1] = artifactRiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

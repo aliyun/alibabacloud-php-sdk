@@ -55,7 +55,8 @@ class ListArtifactVersionsRequest extends Model
                 $res['Filters'] = [];
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListArtifactVersionsRequest extends Model
                 $model->filters = [];
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

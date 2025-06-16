@@ -63,7 +63,8 @@ class ListServiceTestTaskLogsResponseBody extends Model
                 $res['TaskLogs'] = [];
                 $n1 = 0;
                 foreach ($this->taskLogs as $item1) {
-                    $res['TaskLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class ListServiceTestTaskLogsResponseBody extends Model
                 $model->taskLogs = [];
                 $n1 = 0;
                 foreach ($map['TaskLogs'] as $item1) {
-                    $model->taskLogs[$n1++] = taskLogs::fromMap($item1);
+                    $model->taskLogs[$n1] = taskLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -69,7 +69,8 @@ class ListServiceInstancesResponseBody extends Model
                 $res['ServiceInstances'] = [];
                 $n1 = 0;
                 foreach ($this->serviceInstances as $item1) {
-                    $res['ServiceInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListServiceInstancesResponseBody extends Model
                 $model->serviceInstances = [];
                 $n1 = 0;
                 foreach ($map['ServiceInstances'] as $item1) {
-                    $model->serviceInstances[$n1++] = serviceInstances::fromMap($item1);
+                    $model->serviceInstances[$n1] = serviceInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -57,7 +57,8 @@ class ListArtifactVersionsResponseBody extends Model
                 $res['Artifacts'] = [];
                 $n1 = 0;
                 foreach ($this->artifacts as $item1) {
-                    $res['Artifacts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Artifacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListArtifactVersionsResponseBody extends Model
                 $model->artifacts = [];
                 $n1 = 0;
                 foreach ($map['Artifacts'] as $item1) {
-                    $model->artifacts[$n1++] = artifacts::fromMap($item1);
+                    $model->artifacts[$n1] = artifacts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

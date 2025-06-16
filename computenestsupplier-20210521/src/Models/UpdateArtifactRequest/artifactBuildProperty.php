@@ -79,7 +79,8 @@ class artifactBuildProperty extends Model
                 $res['BuildArgs'] = [];
                 $n1 = 0;
                 foreach ($this->buildArgs as $item1) {
-                    $res['BuildArgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BuildArgs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +129,8 @@ class artifactBuildProperty extends Model
                 $model->buildArgs = [];
                 $n1 = 0;
                 foreach ($map['BuildArgs'] as $item1) {
-                    $model->buildArgs[$n1++] = buildArgs::fromMap($item1);
+                    $model->buildArgs[$n1] = buildArgs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

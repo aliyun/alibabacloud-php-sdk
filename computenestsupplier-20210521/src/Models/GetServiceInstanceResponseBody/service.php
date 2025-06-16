@@ -144,7 +144,8 @@ class service extends Model
                 $res['ServiceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->serviceInfos as $item1) {
-                    $res['ServiceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +175,8 @@ class service extends Model
                 $res['UpgradableServiceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->upgradableServiceInfos as $item1) {
-                    $res['UpgradableServiceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UpgradableServiceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +186,8 @@ class service extends Model
                 $res['UpgradableServiceVersions'] = [];
                 $n1 = 0;
                 foreach ($this->upgradableServiceVersions as $item1) {
-                    $res['UpgradableServiceVersions'][$n1++] = $item1;
+                    $res['UpgradableServiceVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +236,8 @@ class service extends Model
                 $model->serviceInfos = [];
                 $n1 = 0;
                 foreach ($map['ServiceInfos'] as $item1) {
-                    $model->serviceInfos[$n1++] = serviceInfos::fromMap($item1);
+                    $model->serviceInfos[$n1] = serviceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -263,7 +267,8 @@ class service extends Model
                 $model->upgradableServiceInfos = [];
                 $n1 = 0;
                 foreach ($map['UpgradableServiceInfos'] as $item1) {
-                    $model->upgradableServiceInfos[$n1++] = upgradableServiceInfos::fromMap($item1);
+                    $model->upgradableServiceInfos[$n1] = upgradableServiceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -273,7 +278,8 @@ class service extends Model
                 $model->upgradableServiceVersions = [];
                 $n1 = 0;
                 foreach ($map['UpgradableServiceVersions'] as $item1) {
-                    $model->upgradableServiceVersions[$n1++] = $item1;
+                    $model->upgradableServiceVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

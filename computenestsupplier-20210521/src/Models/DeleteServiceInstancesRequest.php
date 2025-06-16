@@ -52,7 +52,8 @@ class DeleteServiceInstancesRequest extends Model
                 $res['ServiceInstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->serviceInstanceId as $item1) {
-                    $res['ServiceInstanceId'][$n1++] = $item1;
+                    $res['ServiceInstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DeleteServiceInstancesRequest extends Model
                 $model->serviceInstanceId = [];
                 $n1 = 0;
                 foreach ($map['ServiceInstanceId'] as $item1) {
-                    $model->serviceInstanceId[$n1++] = $item1;
+                    $model->serviceInstanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

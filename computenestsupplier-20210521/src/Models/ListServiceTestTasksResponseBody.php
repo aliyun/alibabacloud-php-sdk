@@ -73,7 +73,8 @@ class ListServiceTestTasksResponseBody extends Model
                 $res['ServiceTestTasks'] = [];
                 $n1 = 0;
                 foreach ($this->serviceTestTasks as $item1) {
-                    $res['ServiceTestTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceTestTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListServiceTestTasksResponseBody extends Model
                 $model->serviceTestTasks = [];
                 $n1 = 0;
                 foreach ($map['ServiceTestTasks'] as $item1) {
-                    $model->serviceTestTasks[$n1++] = serviceTestTasks::fromMap($item1);
+                    $model->serviceTestTasks[$n1] = serviceTestTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

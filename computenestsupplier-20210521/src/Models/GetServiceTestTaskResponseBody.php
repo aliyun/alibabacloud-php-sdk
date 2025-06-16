@@ -57,7 +57,8 @@ class GetServiceTestTaskResponseBody extends Model
                 $res['ExecutionDetails'] = [];
                 $n1 = 0;
                 foreach ($this->executionDetails as $item1) {
-                    $res['ExecutionDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExecutionDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class GetServiceTestTaskResponseBody extends Model
                 $model->executionDetails = [];
                 $n1 = 0;
                 foreach ($map['ExecutionDetails'] as $item1) {
-                    $model->executionDetails[$n1++] = executionDetails::fromMap($item1);
+                    $model->executionDetails[$n1] = executionDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

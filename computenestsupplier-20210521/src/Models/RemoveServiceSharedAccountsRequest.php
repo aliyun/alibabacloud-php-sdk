@@ -72,7 +72,8 @@ class RemoveServiceSharedAccountsRequest extends Model
                 $res['UserAliUids'] = [];
                 $n1 = 0;
                 foreach ($this->userAliUids as $item1) {
-                    $res['UserAliUids'][$n1++] = $item1;
+                    $res['UserAliUids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class RemoveServiceSharedAccountsRequest extends Model
                 $model->userAliUids = [];
                 $n1 = 0;
                 foreach ($map['UserAliUids'] as $item1) {
-                    $model->userAliUids[$n1++] = $item1;
+                    $model->userAliUids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

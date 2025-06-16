@@ -44,7 +44,8 @@ class ListTagKeysResponseBody extends Model
                 $res['Keys'] = [];
                 $n1 = 0;
                 foreach ($this->keys as $item1) {
-                    $res['Keys'][$n1++] = $item1;
+                    $res['Keys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListTagKeysResponseBody extends Model
                 $model->keys = [];
                 $n1 = 0;
                 foreach ($map['Keys'] as $item1) {
-                    $model->keys[$n1++] = $item1;
+                    $model->keys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

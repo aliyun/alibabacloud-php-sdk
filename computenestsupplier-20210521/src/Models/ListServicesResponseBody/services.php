@@ -337,7 +337,8 @@ class services extends Model
                 $res['ServiceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->serviceInfos as $item1) {
-                    $res['ServiceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +384,8 @@ class services extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -508,7 +510,8 @@ class services extends Model
                 $model->serviceInfos = [];
                 $n1 = 0;
                 foreach ($map['ServiceInfos'] as $item1) {
-                    $model->serviceInfos[$n1++] = serviceInfos::fromMap($item1);
+                    $model->serviceInfos[$n1] = serviceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -554,7 +557,8 @@ class services extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

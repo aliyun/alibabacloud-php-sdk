@@ -57,7 +57,8 @@ class ListAcrImageTagsResponseBody extends Model
                 $res['Images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListAcrImageTagsResponseBody extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['Images'] as $item1) {
-                    $model->images[$n1++] = images::fromMap($item1);
+                    $model->images[$n1] = images::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

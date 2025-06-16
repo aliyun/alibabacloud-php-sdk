@@ -165,7 +165,8 @@ class CreateSupplierRegistrationRequest extends Model
                 $res['ProductDeliveryTypes'] = [];
                 $n1 = 0;
                 foreach ($this->productDeliveryTypes as $item1) {
-                    $res['ProductDeliveryTypes'][$n1++] = $item1;
+                    $res['ProductDeliveryTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +180,8 @@ class CreateSupplierRegistrationRequest extends Model
                 $res['ProductSellTypes'] = [];
                 $n1 = 0;
                 foreach ($this->productSellTypes as $item1) {
-                    $res['ProductSellTypes'][$n1++] = $item1;
+                    $res['ProductSellTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +262,8 @@ class CreateSupplierRegistrationRequest extends Model
                 $model->productDeliveryTypes = [];
                 $n1 = 0;
                 foreach ($map['ProductDeliveryTypes'] as $item1) {
-                    $model->productDeliveryTypes[$n1++] = $item1;
+                    $model->productDeliveryTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +277,8 @@ class CreateSupplierRegistrationRequest extends Model
                 $model->productSellTypes = [];
                 $n1 = 0;
                 foreach ($map['ProductSellTypes'] as $item1) {
-                    $model->productSellTypes[$n1++] = $item1;
+                    $model->productSellTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

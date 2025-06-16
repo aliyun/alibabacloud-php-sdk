@@ -62,7 +62,8 @@ class CreateServiceTestTaskRequest extends Model
                 $res['TestCaseIds'] = [];
                 $n1 = 0;
                 foreach ($this->testCaseIds as $item1) {
-                    $res['TestCaseIds'][$n1++] = $item1;
+                    $res['TestCaseIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class CreateServiceTestTaskRequest extends Model
                 $model->testCaseIds = [];
                 $n1 = 0;
                 foreach ($map['TestCaseIds'] as $item1) {
-                    $model->testCaseIds[$n1++] = $item1;
+                    $model->testCaseIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

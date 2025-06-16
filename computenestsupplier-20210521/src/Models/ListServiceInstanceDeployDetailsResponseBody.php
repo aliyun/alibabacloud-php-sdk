@@ -57,7 +57,8 @@ class ListServiceInstanceDeployDetailsResponseBody extends Model
                 $res['DeployDetails'] = [];
                 $n1 = 0;
                 foreach ($this->deployDetails as $item1) {
-                    $res['DeployDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeployDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListServiceInstanceDeployDetailsResponseBody extends Model
                 $model->deployDetails = [];
                 $n1 = 0;
                 foreach ($map['DeployDetails'] as $item1) {
-                    $model->deployDetails[$n1++] = deployDetails::fromMap($item1);
+                    $model->deployDetails[$n1] = deployDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

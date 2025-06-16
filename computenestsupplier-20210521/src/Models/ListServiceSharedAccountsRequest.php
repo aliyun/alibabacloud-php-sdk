@@ -63,7 +63,8 @@ class ListServiceSharedAccountsRequest extends Model
                 $res['Filter'] = [];
                 $n1 = 0;
                 foreach ($this->filter as $item1) {
-                    $res['Filter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListServiceSharedAccountsRequest extends Model
                 $model->filter = [];
                 $n1 = 0;
                 foreach ($map['Filter'] as $item1) {
-                    $model->filter[$n1++] = filter::fromMap($item1);
+                    $model->filter[$n1] = filter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

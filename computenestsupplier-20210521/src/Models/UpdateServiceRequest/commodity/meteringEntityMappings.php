@@ -44,7 +44,8 @@ class meteringEntityMappings extends Model
                 $res['EntityIds'] = [];
                 $n1 = 0;
                 foreach ($this->entityIds as $item1) {
-                    $res['EntityIds'][$n1++] = $item1;
+                    $res['EntityIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class meteringEntityMappings extends Model
                 $model->entityIds = [];
                 $n1 = 0;
                 foreach ($map['EntityIds'] as $item1) {
-                    $model->entityIds[$n1++] = $item1;
+                    $model->entityIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

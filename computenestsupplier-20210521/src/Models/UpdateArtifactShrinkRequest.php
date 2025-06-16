@@ -98,7 +98,8 @@ class UpdateArtifactShrinkRequest extends Model
                 $res['SupportRegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->supportRegionIds as $item1) {
-                    $res['SupportRegionIds'][$n1++] = $item1;
+                    $res['SupportRegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class UpdateArtifactShrinkRequest extends Model
                 $model->supportRegionIds = [];
                 $n1 = 0;
                 foreach ($map['SupportRegionIds'] as $item1) {
-                    $model->supportRegionIds[$n1++] = $item1;
+                    $model->supportRegionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -55,7 +55,8 @@ class GetArtifactRepositoryCredentialsResponseBody extends Model
                 $res['AvailableResources'] = [];
                 $n1 = 0;
                 foreach ($this->availableResources as $item1) {
-                    $res['AvailableResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class GetArtifactRepositoryCredentialsResponseBody extends Model
                 $model->availableResources = [];
                 $n1 = 0;
                 foreach ($map['AvailableResources'] as $item1) {
-                    $model->availableResources[$n1++] = availableResources::fromMap($item1);
+                    $model->availableResources[$n1] = availableResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

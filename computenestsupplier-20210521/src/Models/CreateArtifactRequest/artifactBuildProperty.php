@@ -49,6 +49,11 @@ class artifactBuildProperty extends Model
      * @var string
      */
     public $sourceImageId;
+
+    /**
+     * @var int
+     */
+    public $systemDiskSize;
     protected $_name = [
         'buildArgs' => 'BuildArgs',
         'codeRepo' => 'CodeRepo',
@@ -58,6 +63,7 @@ class artifactBuildProperty extends Model
         'regionId' => 'RegionId',
         'sourceContainerImage' => 'SourceContainerImage',
         'sourceImageId' => 'SourceImageId',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
     public function validate()
@@ -79,7 +85,8 @@ class artifactBuildProperty extends Model
                 $res['BuildArgs'] = [];
                 $n1 = 0;
                 foreach ($this->buildArgs as $item1) {
-                    $res['BuildArgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BuildArgs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,6 +119,10 @@ class artifactBuildProperty extends Model
             $res['SourceImageId'] = $this->sourceImageId;
         }
 
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+
         return $res;
     }
 
@@ -128,7 +139,8 @@ class artifactBuildProperty extends Model
                 $model->buildArgs = [];
                 $n1 = 0;
                 foreach ($map['BuildArgs'] as $item1) {
-                    $model->buildArgs[$n1++] = buildArgs::fromMap($item1);
+                    $model->buildArgs[$n1] = buildArgs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -159,6 +171,10 @@ class artifactBuildProperty extends Model
 
         if (isset($map['SourceImageId'])) {
             $model->sourceImageId = $map['SourceImageId'];
+        }
+
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
         }
 
         return $model;

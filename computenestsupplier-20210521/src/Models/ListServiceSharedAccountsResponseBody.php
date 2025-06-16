@@ -69,7 +69,8 @@ class ListServiceSharedAccountsResponseBody extends Model
                 $res['ShareAccount'] = [];
                 $n1 = 0;
                 foreach ($this->shareAccount as $item1) {
-                    $res['ShareAccount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ShareAccount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListServiceSharedAccountsResponseBody extends Model
                 $model->shareAccount = [];
                 $n1 = 0;
                 foreach ($map['ShareAccount'] as $item1) {
-                    $model->shareAccount[$n1++] = shareAccount::fromMap($item1);
+                    $model->shareAccount[$n1] = shareAccount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

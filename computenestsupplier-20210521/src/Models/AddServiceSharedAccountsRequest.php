@@ -69,7 +69,8 @@ class AddServiceSharedAccountsRequest extends Model
                 $res['SharedAccounts'] = [];
                 $n1 = 0;
                 foreach ($this->sharedAccounts as $item1) {
-                    $res['SharedAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SharedAccounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class AddServiceSharedAccountsRequest extends Model
                 $model->sharedAccounts = [];
                 $n1 = 0;
                 foreach ($map['SharedAccounts'] as $item1) {
-                    $model->sharedAccounts[$n1++] = sharedAccounts::fromMap($item1);
+                    $model->sharedAccounts[$n1] = sharedAccounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

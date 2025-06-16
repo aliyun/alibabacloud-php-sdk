@@ -69,7 +69,8 @@ class ListSupplierRegistrationsResponseBody extends Model
                 $res['SupplierRegistrations'] = [];
                 $n1 = 0;
                 foreach ($this->supplierRegistrations as $item1) {
-                    $res['SupplierRegistrations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupplierRegistrations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListSupplierRegistrationsResponseBody extends Model
                 $model->supplierRegistrations = [];
                 $n1 = 0;
                 foreach ($map['SupplierRegistrations'] as $item1) {
-                    $model->supplierRegistrations[$n1++] = supplierRegistrations::fromMap($item1);
+                    $model->supplierRegistrations[$n1] = supplierRegistrations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

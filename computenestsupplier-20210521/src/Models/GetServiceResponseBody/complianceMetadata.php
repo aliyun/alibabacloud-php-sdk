@@ -32,7 +32,8 @@ class complianceMetadata extends Model
                 $res['CompliancePacks'] = [];
                 $n1 = 0;
                 foreach ($this->compliancePacks as $item1) {
-                    $res['CompliancePacks'][$n1++] = $item1;
+                    $res['CompliancePacks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class complianceMetadata extends Model
                 $model->compliancePacks = [];
                 $n1 = 0;
                 foreach ($map['CompliancePacks'] as $item1) {
-                    $model->compliancePacks[$n1++] = $item1;
+                    $model->compliancePacks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

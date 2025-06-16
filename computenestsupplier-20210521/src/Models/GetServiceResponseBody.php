@@ -501,7 +501,8 @@ class GetServiceResponseBody extends Model
                 $res['ServiceDocumentInfos'] = [];
                 $n1 = 0;
                 foreach ($this->serviceDocumentInfos as $item1) {
-                    $res['ServiceDocumentInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceDocumentInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -515,7 +516,8 @@ class GetServiceResponseBody extends Model
                 $res['ServiceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->serviceInfos as $item1) {
-                    $res['ServiceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -573,7 +575,8 @@ class GetServiceResponseBody extends Model
                 $res['SupportContacts'] = [];
                 $n1 = 0;
                 foreach ($this->supportContacts as $item1) {
-                    $res['SupportContacts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportContacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -583,7 +586,8 @@ class GetServiceResponseBody extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -761,7 +765,8 @@ class GetServiceResponseBody extends Model
                 $model->serviceDocumentInfos = [];
                 $n1 = 0;
                 foreach ($map['ServiceDocumentInfos'] as $item1) {
-                    $model->serviceDocumentInfos[$n1++] = serviceDocumentInfos::fromMap($item1);
+                    $model->serviceDocumentInfos[$n1] = serviceDocumentInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -775,7 +780,8 @@ class GetServiceResponseBody extends Model
                 $model->serviceInfos = [];
                 $n1 = 0;
                 foreach ($map['ServiceInfos'] as $item1) {
-                    $model->serviceInfos[$n1++] = serviceInfos::fromMap($item1);
+                    $model->serviceInfos[$n1] = serviceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -833,7 +839,8 @@ class GetServiceResponseBody extends Model
                 $model->supportContacts = [];
                 $n1 = 0;
                 foreach ($map['SupportContacts'] as $item1) {
-                    $model->supportContacts[$n1++] = supportContacts::fromMap($item1);
+                    $model->supportContacts[$n1] = supportContacts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -843,7 +850,8 @@ class GetServiceResponseBody extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
