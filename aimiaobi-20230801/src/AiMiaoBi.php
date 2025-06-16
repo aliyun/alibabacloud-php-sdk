@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAuditContentResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAuditContentResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportCustomSourceAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportCustomSourceAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentRequest;
@@ -119,6 +121,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartAuditResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartAuditResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetStyleLearningResultRequest;
@@ -143,6 +147,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAnalysisTagDetailByTaskIdShri
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomTextRequest;
@@ -323,6 +329,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskShrinkRequest
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskShrinkRequest;
@@ -1687,6 +1696,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportAnalysisTagDetailByTaskIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导出智能审核报告.
+     *
+     * @param request - ExportAuditContentResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportAuditContentResultResponse
+     *
+     * @param ExportAuditContentResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ExportAuditContentResultResponse
+     */
+    public function exportAuditContentResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportAuditContentResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportAuditContentResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出智能审核报告.
+     *
+     * @param request - ExportAuditContentResultRequest
+     *
+     * @returns ExportAuditContentResultResponse
+     *
+     * @param ExportAuditContentResultRequest $request
+     *
+     * @return ExportAuditContentResultResponse
+     */
+    public function exportAuditContentResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportAuditContentResultWithOptions($request, $runtime);
     }
 
     /**
@@ -3854,6 +3924,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 查询智能审核结果.
+     *
+     * @param request - GetSmartAuditResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSmartAuditResultResponse
+     *
+     * @param GetSmartAuditResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSmartAuditResultResponse
+     */
+    public function getSmartAuditResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSmartAuditResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSmartAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询智能审核结果.
+     *
+     * @param request - GetSmartAuditResultRequest
+     *
+     * @returns GetSmartAuditResultResponse
+     *
+     * @param GetSmartAuditResultRequest $request
+     *
+     * @return GetSmartAuditResultResponse
+     */
+    public function getSmartAuditResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmartAuditResultWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询一键成片剪辑任务
      *
      * @param request - GetSmartClipTaskRequest
@@ -4577,6 +4708,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAsyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取审核维度列表.
+     *
+     * @param request - ListAuditContentErrorTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuditContentErrorTypesResponse
+     *
+     * @param ListAuditContentErrorTypesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListAuditContentErrorTypesResponse
+     */
+    public function listAuditContentErrorTypesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuditContentErrorTypes',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuditContentErrorTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取审核维度列表.
+     *
+     * @param request - ListAuditContentErrorTypesRequest
+     *
+     * @returns ListAuditContentErrorTypesResponse
+     *
+     * @param ListAuditContentErrorTypesRequest $request
+     *
+     * @return ListAuditContentErrorTypesResponse
+     */
+    public function listAuditContentErrorTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuditContentErrorTypesWithOptions($request, $runtime);
     }
 
     /**
@@ -10652,6 +10848,77 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitEnterpriseVocAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交智能审核.
+     *
+     * @param tmpReq - SubmitSmartAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSmartAuditResponse
+     *
+     * @param SubmitSmartAuditRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitSmartAuditResponse
+     */
+    public function submitSmartAuditWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitSmartAuditShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->subCodes) {
+            $request->subCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subCodes, 'SubCodes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->subCodesShrink) {
+            @$body['SubCodes'] = $request->subCodesShrink;
+        }
+
+        if (null !== $request->text) {
+            @$body['Text'] = $request->text;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSmartAudit',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSmartAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交智能审核.
+     *
+     * @param request - SubmitSmartAuditRequest
+     *
+     * @returns SubmitSmartAuditResponse
+     *
+     * @param SubmitSmartAuditRequest $request
+     *
+     * @return SubmitSmartAuditResponse
+     */
+    public function submitSmartAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSmartAuditWithOptions($request, $runtime);
     }
 
     /**
