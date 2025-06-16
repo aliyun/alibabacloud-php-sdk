@@ -33,7 +33,8 @@ class sslVpnClientCertKeys extends Model
                 $res['SslVpnClientCertKey'] = [];
                 $n1 = 0;
                 foreach ($this->sslVpnClientCertKey as $item1) {
-                    $res['SslVpnClientCertKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SslVpnClientCertKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class sslVpnClientCertKeys extends Model
                 $model->sslVpnClientCertKey = [];
                 $n1 = 0;
                 foreach ($map['SslVpnClientCertKey'] as $item1) {
-                    $model->sslVpnClientCertKey[$n1++] = sslVpnClientCertKey::fromMap($item1);
+                    $model->sslVpnClientCertKey[$n1] = sslVpnClientCertKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

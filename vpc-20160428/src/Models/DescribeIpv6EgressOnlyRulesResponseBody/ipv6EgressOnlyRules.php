@@ -33,7 +33,8 @@ class ipv6EgressOnlyRules extends Model
                 $res['Ipv6EgressOnlyRule'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6EgressOnlyRule as $item1) {
-                    $res['Ipv6EgressOnlyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6EgressOnlyRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv6EgressOnlyRules extends Model
                 $model->ipv6EgressOnlyRule = [];
                 $n1 = 0;
                 foreach ($map['Ipv6EgressOnlyRule'] as $item1) {
-                    $model->ipv6EgressOnlyRule[$n1++] = ipv6EgressOnlyRule::fromMap($item1);
+                    $model->ipv6EgressOnlyRule[$n1] = ipv6EgressOnlyRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

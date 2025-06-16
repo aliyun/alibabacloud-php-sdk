@@ -33,7 +33,8 @@ class traffic95DetailList extends Model
                 $res['Traffic95Detail'] = [];
                 $n1 = 0;
                 foreach ($this->traffic95Detail as $item1) {
-                    $res['Traffic95Detail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Traffic95Detail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class traffic95DetailList extends Model
                 $model->traffic95Detail = [];
                 $n1 = 0;
                 foreach ($map['Traffic95Detail'] as $item1) {
-                    $model->traffic95Detail[$n1++] = traffic95Detail::fromMap($item1);
+                    $model->traffic95Detail[$n1] = traffic95Detail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

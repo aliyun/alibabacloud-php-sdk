@@ -32,7 +32,8 @@ class trafficPath extends Model
                 $res['TrafficPathList'] = [];
                 $n1 = 0;
                 foreach ($this->trafficPathList as $item1) {
-                    $res['TrafficPathList'][$n1++] = $item1;
+                    $res['TrafficPathList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class trafficPath extends Model
                 $model->trafficPathList = [];
                 $n1 = 0;
                 foreach ($map['TrafficPathList'] as $item1) {
-                    $model->trafficPathList[$n1++] = $item1;
+                    $model->trafficPathList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

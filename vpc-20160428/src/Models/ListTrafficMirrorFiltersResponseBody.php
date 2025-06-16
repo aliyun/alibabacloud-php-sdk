@@ -83,7 +83,8 @@ class ListTrafficMirrorFiltersResponseBody extends Model
                 $res['TrafficMirrorFilters'] = [];
                 $n1 = 0;
                 foreach ($this->trafficMirrorFilters as $item1) {
-                    $res['TrafficMirrorFilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficMirrorFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class ListTrafficMirrorFiltersResponseBody extends Model
                 $model->trafficMirrorFilters = [];
                 $n1 = 0;
                 foreach ($map['TrafficMirrorFilters'] as $item1) {
-                    $model->trafficMirrorFilters[$n1++] = trafficMirrorFilters::fromMap($item1);
+                    $model->trafficMirrorFilters[$n1] = trafficMirrorFilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

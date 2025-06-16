@@ -33,7 +33,8 @@ class eipSegments extends Model
                 $res['EipSegment'] = [];
                 $n1 = 0;
                 foreach ($this->eipSegment as $item1) {
-                    $res['EipSegment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EipSegment'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class eipSegments extends Model
                 $model->eipSegment = [];
                 $n1 = 0;
                 foreach ($map['EipSegment'] as $item1) {
-                    $model->eipSegment[$n1++] = eipSegment::fromMap($item1);
+                    $model->eipSegment[$n1] = eipSegment::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

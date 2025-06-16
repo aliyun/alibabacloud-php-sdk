@@ -33,7 +33,8 @@ class snatTableEntries extends Model
                 $res['SnatTableEntry'] = [];
                 $n1 = 0;
                 foreach ($this->snatTableEntry as $item1) {
-                    $res['SnatTableEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SnatTableEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class snatTableEntries extends Model
                 $model->snatTableEntry = [];
                 $n1 = 0;
                 foreach ($map['SnatTableEntry'] as $item1) {
-                    $model->snatTableEntry[$n1++] = snatTableEntry::fromMap($item1);
+                    $model->snatTableEntry[$n1] = snatTableEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

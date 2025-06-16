@@ -55,7 +55,8 @@ class DeleteRouteEntriesResponseBody extends Model
                 $res['FailedRouteEntries'] = [];
                 $n1 = 0;
                 foreach ($this->failedRouteEntries as $item1) {
-                    $res['FailedRouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedRouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class DeleteRouteEntriesResponseBody extends Model
                 $model->failedRouteEntries = [];
                 $n1 = 0;
                 foreach ($map['FailedRouteEntries'] as $item1) {
-                    $model->failedRouteEntries[$n1++] = failedRouteEntries::fromMap($item1);
+                    $model->failedRouteEntries[$n1] = failedRouteEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

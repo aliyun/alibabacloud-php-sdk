@@ -171,7 +171,8 @@ class CreatePublicIpAddressPoolRequest extends Model
                 $res['SecurityProtectionTypes'] = [];
                 $n1 = 0;
                 foreach ($this->securityProtectionTypes as $item1) {
-                    $res['SecurityProtectionTypes'][$n1++] = $item1;
+                    $res['SecurityProtectionTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +182,8 @@ class CreatePublicIpAddressPoolRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +193,8 @@ class CreatePublicIpAddressPoolRequest extends Model
                 $res['Zones'] = [];
                 $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['Zones'][$n1++] = $item1;
+                    $res['Zones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +263,8 @@ class CreatePublicIpAddressPoolRequest extends Model
                 $model->securityProtectionTypes = [];
                 $n1 = 0;
                 foreach ($map['SecurityProtectionTypes'] as $item1) {
-                    $model->securityProtectionTypes[$n1++] = $item1;
+                    $model->securityProtectionTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +274,8 @@ class CreatePublicIpAddressPoolRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +285,8 @@ class CreatePublicIpAddressPoolRequest extends Model
                 $model->zones = [];
                 $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
-                    $model->zones[$n1++] = $item1;
+                    $model->zones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

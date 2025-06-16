@@ -33,7 +33,8 @@ class eipInfos extends Model
                 $res['EipInfo'] = [];
                 $n1 = 0;
                 foreach ($this->eipInfo as $item1) {
-                    $res['EipInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EipInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class eipInfos extends Model
                 $model->eipInfo = [];
                 $n1 = 0;
                 foreach ($map['EipInfo'] as $item1) {
-                    $model->eipInfo[$n1++] = eipInfo::fromMap($item1);
+                    $model->eipInfo[$n1] = eipInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -19,6 +19,11 @@ class ModifyRouteEntryRequest extends Model
     public $destinationCidrBlock;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $newNextHopId;
@@ -70,6 +75,7 @@ class ModifyRouteEntryRequest extends Model
     protected $_name = [
         'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
+        'dryRun' => 'DryRun',
         'newNextHopId' => 'NewNextHopId',
         'newNextHopType' => 'NewNextHopType',
         'ownerAccount' => 'OwnerAccount',
@@ -96,6 +102,10 @@ class ModifyRouteEntryRequest extends Model
 
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->newNextHopId) {
@@ -155,6 +165,10 @@ class ModifyRouteEntryRequest extends Model
 
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['NewNextHopId'])) {

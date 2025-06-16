@@ -32,7 +32,8 @@ class securityProtectionTypes extends Model
                 $res['SecurityProtectionType'] = [];
                 $n1 = 0;
                 foreach ($this->securityProtectionType as $item1) {
-                    $res['SecurityProtectionType'][$n1++] = $item1;
+                    $res['SecurityProtectionType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class securityProtectionTypes extends Model
                 $model->securityProtectionType = [];
                 $n1 = 0;
                 foreach ($map['SecurityProtectionType'] as $item1) {
-                    $model->securityProtectionType[$n1++] = $item1;
+                    $model->securityProtectionType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

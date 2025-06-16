@@ -45,7 +45,8 @@ class DescribeVpnGatewayAvailableZonesResponseBody extends Model
                 $res['AvailableZoneIdList'] = [];
                 $n1 = 0;
                 foreach ($this->availableZoneIdList as $item1) {
-                    $res['AvailableZoneIdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableZoneIdList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeVpnGatewayAvailableZonesResponseBody extends Model
                 $model->availableZoneIdList = [];
                 $n1 = 0;
                 foreach ($map['AvailableZoneIdList'] as $item1) {
-                    $model->availableZoneIdList[$n1++] = availableZoneIdList::fromMap($item1);
+                    $model->availableZoneIdList[$n1] = availableZoneIdList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

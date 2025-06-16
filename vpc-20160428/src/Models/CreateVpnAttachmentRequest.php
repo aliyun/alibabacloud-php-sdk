@@ -33,6 +33,11 @@ class CreateVpnAttachmentRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $effectImmediately;
 
     /**
@@ -129,6 +134,7 @@ class CreateVpnAttachmentRequest extends Model
         'bgpConfig' => 'BgpConfig',
         'clientToken' => 'ClientToken',
         'customerGatewayId' => 'CustomerGatewayId',
+        'dryRun' => 'DryRun',
         'effectImmediately' => 'EffectImmediately',
         'enableDpd' => 'EnableDpd',
         'enableNatTraversal' => 'EnableNatTraversal',
@@ -178,6 +184,10 @@ class CreateVpnAttachmentRequest extends Model
 
         if (null !== $this->customerGatewayId) {
             $res['CustomerGatewayId'] = $this->customerGatewayId;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->effectImmediately) {
@@ -253,7 +263,8 @@ class CreateVpnAttachmentRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -263,7 +274,8 @@ class CreateVpnAttachmentRequest extends Model
                 $res['TunnelOptionsSpecification'] = [];
                 $n1 = 0;
                 foreach ($this->tunnelOptionsSpecification as $item1) {
-                    $res['TunnelOptionsSpecification'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TunnelOptionsSpecification'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -293,6 +305,10 @@ class CreateVpnAttachmentRequest extends Model
 
         if (isset($map['CustomerGatewayId'])) {
             $model->customerGatewayId = $map['CustomerGatewayId'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EffectImmediately'])) {
@@ -368,7 +384,8 @@ class CreateVpnAttachmentRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +395,8 @@ class CreateVpnAttachmentRequest extends Model
                 $model->tunnelOptionsSpecification = [];
                 $n1 = 0;
                 foreach ($map['TunnelOptionsSpecification'] as $item1) {
-                    $model->tunnelOptionsSpecification[$n1++] = tunnelOptionsSpecification::fromMap($item1);
+                    $model->tunnelOptionsSpecification[$n1] = tunnelOptionsSpecification::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

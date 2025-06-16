@@ -108,7 +108,8 @@ class vcoRouteEntries extends Model
                 $res['NextHopTunnelIdList'] = [];
                 $n1 = 0;
                 foreach ($this->nextHopTunnelIdList as $item1) {
-                    $res['NextHopTunnelIdList'][$n1++] = $item1;
+                    $res['NextHopTunnelIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +170,8 @@ class vcoRouteEntries extends Model
                 $model->nextHopTunnelIdList = [];
                 $n1 = 0;
                 foreach ($map['NextHopTunnelIdList'] as $item1) {
-                    $model->nextHopTunnelIdList[$n1++] = $item1;
+                    $model->nextHopTunnelIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

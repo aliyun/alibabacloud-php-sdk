@@ -133,7 +133,8 @@ class ListNatIpCidrsRequest extends Model
                 $res['NatIpCidrName'] = [];
                 $n1 = 0;
                 foreach ($this->natIpCidrName as $item1) {
-                    $res['NatIpCidrName'][$n1++] = $item1;
+                    $res['NatIpCidrName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class ListNatIpCidrsRequest extends Model
                 $res['NatIpCidrs'] = [];
                 $n1 = 0;
                 foreach ($this->natIpCidrs as $item1) {
-                    $res['NatIpCidrs'][$n1++] = $item1;
+                    $res['NatIpCidrs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +214,8 @@ class ListNatIpCidrsRequest extends Model
                 $model->natIpCidrName = [];
                 $n1 = 0;
                 foreach ($map['NatIpCidrName'] as $item1) {
-                    $model->natIpCidrName[$n1++] = $item1;
+                    $model->natIpCidrName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +229,8 @@ class ListNatIpCidrsRequest extends Model
                 $model->natIpCidrs = [];
                 $n1 = 0;
                 foreach ($map['NatIpCidrs'] as $item1) {
-                    $model->natIpCidrs[$n1++] = $item1;
+                    $model->natIpCidrs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

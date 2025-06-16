@@ -51,7 +51,8 @@ class ListDhcpOptionsSetsResponseBody extends Model
                 $res['DhcpOptionsSets'] = [];
                 $n1 = 0;
                 foreach ($this->dhcpOptionsSets as $item1) {
-                    $res['DhcpOptionsSets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DhcpOptionsSets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListDhcpOptionsSetsResponseBody extends Model
                 $model->dhcpOptionsSets = [];
                 $n1 = 0;
                 foreach ($map['DhcpOptionsSets'] as $item1) {
-                    $model->dhcpOptionsSets[$n1++] = dhcpOptionsSets::fromMap($item1);
+                    $model->dhcpOptionsSets[$n1] = dhcpOptionsSets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

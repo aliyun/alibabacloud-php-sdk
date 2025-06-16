@@ -134,7 +134,8 @@ class CreateFailoverTestJobRequest extends Model
                 $res['ResourceId'] = [];
                 $n1 = 0;
                 foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1++] = $item1;
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +200,8 @@ class CreateFailoverTestJobRequest extends Model
                 $model->resourceId = [];
                 $n1 = 0;
                 foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1++] = $item1;
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

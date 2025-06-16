@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\bgpConfigs;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\ipsecConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\tunnelsConfig;
 
 class vpnConnectionConfig extends Model
 {
+    /**
+     * @var bgpConfigs
+     */
+    public $bgpConfigs;
+
     /**
      * @var ikeConfig
      */
@@ -46,6 +52,7 @@ class vpnConnectionConfig extends Model
      */
     public $tunnelsConfig;
     protected $_name = [
+        'bgpConfigs' => 'BgpConfigs',
         'ikeConfig' => 'IkeConfig',
         'ipsecConfig' => 'IpsecConfig',
         'local' => 'Local',
@@ -57,6 +64,9 @@ class vpnConnectionConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->bgpConfigs) {
+            $this->bgpConfigs->validate();
+        }
         if (null !== $this->ikeConfig) {
             $this->ikeConfig->validate();
         }
@@ -72,6 +82,10 @@ class vpnConnectionConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bgpConfigs) {
+            $res['BgpConfigs'] = null !== $this->bgpConfigs ? $this->bgpConfigs->toArray($noStream) : $this->bgpConfigs;
+        }
+
         if (null !== $this->ikeConfig) {
             $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toArray($noStream) : $this->ikeConfig;
         }
@@ -111,6 +125,10 @@ class vpnConnectionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BgpConfigs'])) {
+            $model->bgpConfigs = bgpConfigs::fromMap($map['BgpConfigs']);
+        }
+
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
         }

@@ -135,7 +135,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $res['VirtualPhysicalConnectionAliUids'] = [];
                 $n1 = 0;
                 foreach ($this->virtualPhysicalConnectionAliUids as $item1) {
-                    $res['VirtualPhysicalConnectionAliUids'][$n1++] = $item1;
+                    $res['VirtualPhysicalConnectionAliUids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +161,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $res['VirtualPhysicalConnectionIds'] = [];
                 $n1 = 0;
                 foreach ($this->virtualPhysicalConnectionIds as $item1) {
-                    $res['VirtualPhysicalConnectionIds'][$n1++] = $item1;
+                    $res['VirtualPhysicalConnectionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +172,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $res['VirtualPhysicalConnectionStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->virtualPhysicalConnectionStatuses as $item1) {
-                    $res['VirtualPhysicalConnectionStatuses'][$n1++] = $item1;
+                    $res['VirtualPhysicalConnectionStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +183,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $res['VlanIds'] = [];
                 $n1 = 0;
                 foreach ($this->vlanIds as $item1) {
-                    $res['VlanIds'][$n1++] = $item1;
+                    $res['VlanIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +229,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +240,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $model->virtualPhysicalConnectionAliUids = [];
                 $n1 = 0;
                 foreach ($map['VirtualPhysicalConnectionAliUids'] as $item1) {
-                    $model->virtualPhysicalConnectionAliUids[$n1++] = $item1;
+                    $model->virtualPhysicalConnectionAliUids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +255,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $model->virtualPhysicalConnectionIds = [];
                 $n1 = 0;
                 foreach ($map['VirtualPhysicalConnectionIds'] as $item1) {
-                    $model->virtualPhysicalConnectionIds[$n1++] = $item1;
+                    $model->virtualPhysicalConnectionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +266,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $model->virtualPhysicalConnectionStatuses = [];
                 $n1 = 0;
                 foreach ($map['VirtualPhysicalConnectionStatuses'] as $item1) {
-                    $model->virtualPhysicalConnectionStatuses[$n1++] = $item1;
+                    $model->virtualPhysicalConnectionStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +277,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
                 $model->vlanIds = [];
                 $n1 = 0;
                 foreach ($map['VlanIds'] as $item1) {
-                    $model->vlanIds[$n1++] = $item1;
+                    $model->vlanIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

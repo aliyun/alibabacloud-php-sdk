@@ -39,7 +39,8 @@ class routeEntrySummarys extends Model
                 $res['EntrySummarys'] = [];
                 $n1 = 0;
                 foreach ($this->entrySummarys as $item1) {
-                    $res['EntrySummarys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EntrySummarys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class routeEntrySummarys extends Model
                 $model->entrySummarys = [];
                 $n1 = 0;
                 foreach ($map['EntrySummarys'] as $item1) {
-                    $model->entrySummarys[$n1++] = entrySummarys::fromMap($item1);
+                    $model->entrySummarys[$n1] = entrySummarys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

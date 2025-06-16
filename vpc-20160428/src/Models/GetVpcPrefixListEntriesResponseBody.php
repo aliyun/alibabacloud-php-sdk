@@ -65,7 +65,8 @@ class GetVpcPrefixListEntriesResponseBody extends Model
                 $res['PrefixListEntry'] = [];
                 $n1 = 0;
                 foreach ($this->prefixListEntry as $item1) {
-                    $res['PrefixListEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrefixListEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class GetVpcPrefixListEntriesResponseBody extends Model
                 $model->prefixListEntry = [];
                 $n1 = 0;
                 foreach ($map['PrefixListEntry'] as $item1) {
-                    $model->prefixListEntry[$n1++] = prefixListEntry::fromMap($item1);
+                    $model->prefixListEntry[$n1] = prefixListEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

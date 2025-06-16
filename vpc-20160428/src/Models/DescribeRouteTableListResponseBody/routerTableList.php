@@ -33,7 +33,8 @@ class routerTableList extends Model
                 $res['RouterTableListType'] = [];
                 $n1 = 0;
                 foreach ($this->routerTableListType as $item1) {
-                    $res['RouterTableListType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouterTableListType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class routerTableList extends Model
                 $model->routerTableListType = [];
                 $n1 = 0;
                 foreach ($map['RouterTableListType'] as $item1) {
-                    $model->routerTableListType[$n1++] = routerTableListType::fromMap($item1);
+                    $model->routerTableListType[$n1] = routerTableListType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

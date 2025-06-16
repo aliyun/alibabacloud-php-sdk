@@ -45,7 +45,7 @@ class ipv6Gateway extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
     public $ownerId;
 

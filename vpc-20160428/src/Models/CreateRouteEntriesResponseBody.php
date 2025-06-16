@@ -64,7 +64,8 @@ class CreateRouteEntriesResponseBody extends Model
                 $res['FailedRouteEntries'] = [];
                 $n1 = 0;
                 foreach ($this->failedRouteEntries as $item1) {
-                    $res['FailedRouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedRouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class CreateRouteEntriesResponseBody extends Model
                 $res['RouteEntryIds'] = [];
                 $n1 = 0;
                 foreach ($this->routeEntryIds as $item1) {
-                    $res['RouteEntryIds'][$n1++] = $item1;
+                    $res['RouteEntryIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +109,8 @@ class CreateRouteEntriesResponseBody extends Model
                 $model->failedRouteEntries = [];
                 $n1 = 0;
                 foreach ($map['FailedRouteEntries'] as $item1) {
-                    $model->failedRouteEntries[$n1++] = failedRouteEntries::fromMap($item1);
+                    $model->failedRouteEntries[$n1] = failedRouteEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +124,8 @@ class CreateRouteEntriesResponseBody extends Model
                 $model->routeEntryIds = [];
                 $n1 = 0;
                 foreach ($map['RouteEntryIds'] as $item1) {
-                    $model->routeEntryIds[$n1++] = $item1;
+                    $model->routeEntryIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

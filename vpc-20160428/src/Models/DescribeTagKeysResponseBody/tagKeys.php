@@ -33,7 +33,8 @@ class tagKeys extends Model
                 $res['TagKey'] = [];
                 $n1 = 0;
                 foreach ($this->tagKey as $item1) {
-                    $res['TagKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class tagKeys extends Model
                 $model->tagKey = [];
                 $n1 = 0;
                 foreach ($map['TagKey'] as $item1) {
-                    $model->tagKey[$n1++] = tagKey::fromMap($item1);
+                    $model->tagKey[$n1] = tagKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

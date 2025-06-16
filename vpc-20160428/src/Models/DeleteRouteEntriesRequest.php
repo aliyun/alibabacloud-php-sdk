@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouteEntriesRequest\routeEntries
 class DeleteRouteEntriesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -39,6 +44,7 @@ class DeleteRouteEntriesRequest extends Model
      */
     public $routeEntries;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -58,6 +64,10 @@ class DeleteRouteEntriesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -83,7 +93,8 @@ class DeleteRouteEntriesRequest extends Model
                 $res['RouteEntries'] = [];
                 $n1 = 0;
                 foreach ($this->routeEntries as $item1) {
-                    $res['RouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,6 +110,10 @@ class DeleteRouteEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -124,7 +139,8 @@ class DeleteRouteEntriesRequest extends Model
                 $model->routeEntries = [];
                 $n1 = 0;
                 foreach ($map['RouteEntries'] as $item1) {
-                    $model->routeEntries[$n1++] = routeEntries::fromMap($item1);
+                    $model->routeEntries[$n1] = routeEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -24,6 +24,11 @@ class ingressRules extends Model
     public $destinationPortRange;
 
     /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @var int
      */
     public $priority;
@@ -46,6 +51,7 @@ class ingressRules extends Model
         'action' => 'Action',
         'destinationCidrBlock' => 'DestinationCidrBlock',
         'destinationPortRange' => 'DestinationPortRange',
+        'ipVersion' => 'IpVersion',
         'priority' => 'Priority',
         'protocol' => 'Protocol',
         'sourceCidrBlock' => 'SourceCidrBlock',
@@ -70,6 +76,10 @@ class ingressRules extends Model
 
         if (null !== $this->destinationPortRange) {
             $res['DestinationPortRange'] = $this->destinationPortRange;
+        }
+
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         if (null !== $this->priority) {
@@ -109,6 +119,10 @@ class ingressRules extends Model
 
         if (isset($map['DestinationPortRange'])) {
             $model->destinationPortRange = $map['DestinationPortRange'];
+        }
+
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         if (isset($map['Priority'])) {

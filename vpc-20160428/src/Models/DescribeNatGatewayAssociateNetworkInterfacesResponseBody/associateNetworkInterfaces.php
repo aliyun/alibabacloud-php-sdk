@@ -33,7 +33,8 @@ class associateNetworkInterfaces extends Model
                 $res['AssociateNetworkInterface'] = [];
                 $n1 = 0;
                 foreach ($this->associateNetworkInterface as $item1) {
-                    $res['AssociateNetworkInterface'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AssociateNetworkInterface'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class associateNetworkInterfaces extends Model
                 $model->associateNetworkInterface = [];
                 $n1 = 0;
                 foreach ($map['AssociateNetworkInterface'] as $item1) {
-                    $model->associateNetworkInterface[$n1++] = associateNetworkInterface::fromMap($item1);
+                    $model->associateNetworkInterface[$n1] = associateNetworkInterface::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

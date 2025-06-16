@@ -19,6 +19,11 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $nextHop;
@@ -85,6 +90,7 @@ class CreateVpnPbrRouteEntryRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
+        'dryRun' => 'DryRun',
         'nextHop' => 'NextHop',
         'overlayMode' => 'OverlayMode',
         'ownerAccount' => 'OwnerAccount',
@@ -114,6 +120,10 @@ class CreateVpnPbrRouteEntryRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->nextHop) {
@@ -185,6 +195,10 @@ class CreateVpnPbrRouteEntryRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['NextHop'])) {

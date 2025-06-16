@@ -119,7 +119,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
                 $res['QosIdList'] = [];
                 $n1 = 0;
                 foreach ($this->qosIdList as $item1) {
-                    $res['QosIdList'][$n1++] = $item1;
+                    $res['QosIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
                 $res['QosNameList'] = [];
                 $n1 = 0;
                 foreach ($this->qosNameList as $item1) {
-                    $res['QosNameList'][$n1++] = $item1;
+                    $res['QosNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +195,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
                 $model->qosIdList = [];
                 $n1 = 0;
                 foreach ($map['QosIdList'] as $item1) {
-                    $model->qosIdList[$n1++] = $item1;
+                    $model->qosIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +206,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
                 $model->qosNameList = [];
                 $n1 = 0;
                 foreach ($map['QosNameList'] as $item1) {
-                    $model->qosNameList[$n1++] = $item1;
+                    $model->qosNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +229,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

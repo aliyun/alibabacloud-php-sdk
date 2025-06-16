@@ -93,7 +93,8 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
                 $res['QueueIdList'] = [];
                 $n1 = 0;
                 foreach ($this->queueIdList as $item1) {
-                    $res['QueueIdList'][$n1++] = $item1;
+                    $res['QueueIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
                 $res['QueueNameList'] = [];
                 $n1 = 0;
                 foreach ($this->queueNameList as $item1) {
-                    $res['QueueNameList'][$n1++] = $item1;
+                    $res['QueueNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +150,8 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
                 $model->queueIdList = [];
                 $n1 = 0;
                 foreach ($map['QueueIdList'] as $item1) {
-                    $model->queueIdList[$n1++] = $item1;
+                    $model->queueIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +161,8 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
                 $model->queueNameList = [];
                 $n1 = 0;
                 foreach ($map['QueueNameList'] as $item1) {
-                    $model->queueNameList[$n1++] = $item1;
+                    $model->queueNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class accessPointFeatureModels extends Model
                 $res['AccessPointFeatureModel'] = [];
                 $n1 = 0;
                 foreach ($this->accessPointFeatureModel as $item1) {
-                    $res['AccessPointFeatureModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessPointFeatureModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class accessPointFeatureModels extends Model
                 $model->accessPointFeatureModel = [];
                 $n1 = 0;
                 foreach ($map['AccessPointFeatureModel'] as $item1) {
-                    $model->accessPointFeatureModel[$n1++] = accessPointFeatureModel::fromMap($item1);
+                    $model->accessPointFeatureModel[$n1] = accessPointFeatureModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

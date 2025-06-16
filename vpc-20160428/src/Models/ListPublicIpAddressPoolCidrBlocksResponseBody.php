@@ -55,7 +55,8 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
                 $res['PublicIpPoolCidrBlockList'] = [];
                 $n1 = 0;
                 foreach ($this->publicIpPoolCidrBlockList as $item1) {
-                    $res['PublicIpPoolCidrBlockList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PublicIpPoolCidrBlockList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
                 $model->publicIpPoolCidrBlockList = [];
                 $n1 = 0;
                 foreach ($map['PublicIpPoolCidrBlockList'] as $item1) {
-                    $model->publicIpPoolCidrBlockList[$n1++] = publicIpPoolCidrBlockList::fromMap($item1);
+                    $model->publicIpPoolCidrBlockList[$n1] = publicIpPoolCidrBlockList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -68,6 +68,11 @@ class ListVpcGatewayEndpointsRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'endpointId' => 'EndpointId',
         'endpointName' => 'EndpointName',
@@ -81,6 +86,7 @@ class ListVpcGatewayEndpointsRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'serviceName' => 'ServiceName',
         'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -143,9 +149,14 @@ class ListVpcGatewayEndpointsRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -208,9 +219,14 @@ class ListVpcGatewayEndpointsRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

@@ -134,7 +134,8 @@ class ListVSwitchCidrReservationsRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +145,8 @@ class ListVSwitchCidrReservationsRequest extends Model
                 $res['VSwitchCidrReservationIds'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchCidrReservationIds as $item1) {
-                    $res['VSwitchCidrReservationIds'][$n1++] = $item1;
+                    $res['VSwitchCidrReservationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +207,8 @@ class ListVSwitchCidrReservationsRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +218,8 @@ class ListVSwitchCidrReservationsRequest extends Model
                 $model->vSwitchCidrReservationIds = [];
                 $n1 = 0;
                 foreach ($map['VSwitchCidrReservationIds'] as $item1) {
-                    $model->vSwitchCidrReservationIds[$n1++] = $item1;
+                    $model->vSwitchCidrReservationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

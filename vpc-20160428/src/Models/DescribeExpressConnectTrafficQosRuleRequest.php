@@ -111,7 +111,8 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
                 $res['RuleIdList'] = [];
                 $n1 = 0;
                 foreach ($this->ruleIdList as $item1) {
-                    $res['RuleIdList'][$n1++] = $item1;
+                    $res['RuleIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
                 $res['RuleNameList'] = [];
                 $n1 = 0;
                 foreach ($this->ruleNameList as $item1) {
-                    $res['RuleNameList'][$n1++] = $item1;
+                    $res['RuleNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +172,8 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
                 $model->ruleIdList = [];
                 $n1 = 0;
                 foreach ($map['RuleIdList'] as $item1) {
-                    $model->ruleIdList[$n1++] = $item1;
+                    $model->ruleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
                 $model->ruleNameList = [];
                 $n1 = 0;
                 foreach ($map['RuleNameList'] as $item1) {
-                    $model->ruleNameList[$n1++] = $item1;
+                    $model->ruleNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

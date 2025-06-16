@@ -57,7 +57,8 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
                 $res['CrossAccountAuthorizations'] = [];
                 $n1 = 0;
                 foreach ($this->crossAccountAuthorizations as $item1) {
-                    $res['CrossAccountAuthorizations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CrossAccountAuthorizations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
                 $model->crossAccountAuthorizations = [];
                 $n1 = 0;
                 foreach ($map['CrossAccountAuthorizations'] as $item1) {
-                    $model->crossAccountAuthorizations[$n1++] = crossAccountAuthorizations::fromMap($item1);
+                    $model->crossAccountAuthorizations[$n1] = crossAccountAuthorizations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

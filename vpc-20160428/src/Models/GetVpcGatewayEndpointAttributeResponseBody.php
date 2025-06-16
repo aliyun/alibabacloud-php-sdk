@@ -134,7 +134,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
                 $res['RouteTables'] = [];
                 $n1 = 0;
                 foreach ($this->routeTables as $item1) {
-                    $res['RouteTables'][$n1++] = $item1;
+                    $res['RouteTables'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +207,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
                 $model->routeTables = [];
                 $n1 = 0;
                 foreach ($map['RouteTables'] as $item1) {
-                    $model->routeTables[$n1++] = $item1;
+                    $model->routeTables[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +222,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

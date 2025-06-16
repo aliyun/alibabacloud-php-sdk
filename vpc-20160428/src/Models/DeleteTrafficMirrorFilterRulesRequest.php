@@ -112,7 +112,8 @@ class DeleteTrafficMirrorFilterRulesRequest extends Model
                 $res['TrafficMirrorFilterRuleIds'] = [];
                 $n1 = 0;
                 foreach ($this->trafficMirrorFilterRuleIds as $item1) {
-                    $res['TrafficMirrorFilterRuleIds'][$n1++] = $item1;
+                    $res['TrafficMirrorFilterRuleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +166,8 @@ class DeleteTrafficMirrorFilterRulesRequest extends Model
                 $model->trafficMirrorFilterRuleIds = [];
                 $n1 = 0;
                 foreach ($map['TrafficMirrorFilterRuleIds'] as $item1) {
-                    $model->trafficMirrorFilterRuleIds[$n1++] = $item1;
+                    $model->trafficMirrorFilterRuleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

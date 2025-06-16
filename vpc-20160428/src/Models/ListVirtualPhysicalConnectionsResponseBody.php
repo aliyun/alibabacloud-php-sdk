@@ -73,7 +73,8 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
                 $res['VirtualPhysicalConnections'] = [];
                 $n1 = 0;
                 foreach ($this->virtualPhysicalConnections as $item1) {
-                    $res['VirtualPhysicalConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VirtualPhysicalConnections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
                 $model->virtualPhysicalConnections = [];
                 $n1 = 0;
                 foreach ($map['VirtualPhysicalConnections'] as $item1) {
-                    $model->virtualPhysicalConnections[$n1++] = virtualPhysicalConnections::fromMap($item1);
+                    $model->virtualPhysicalConnections[$n1] = virtualPhysicalConnections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

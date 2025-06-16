@@ -69,7 +69,8 @@ class ListFullNatEntriesResponseBody extends Model
                 $res['FullNatEntries'] = [];
                 $n1 = 0;
                 foreach ($this->fullNatEntries as $item1) {
-                    $res['FullNatEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FullNatEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class ListFullNatEntriesResponseBody extends Model
                 $model->fullNatEntries = [];
                 $n1 = 0;
                 foreach ($map['FullNatEntries'] as $item1) {
-                    $model->fullNatEntries[$n1++] = fullNatEntries::fromMap($item1);
+                    $model->fullNatEntries[$n1] = fullNatEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

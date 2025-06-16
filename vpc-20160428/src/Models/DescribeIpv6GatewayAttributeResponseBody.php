@@ -50,7 +50,7 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
     public $ownerId;
 

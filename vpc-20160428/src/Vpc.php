@@ -918,11 +918,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActivateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActivateRouterInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActivateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1008,11 +1005,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActiveFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1106,11 +1100,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddBgpNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddBgpNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddBgpNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1208,11 +1199,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddCommonBandwidthPackageIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddCommonBandwidthPackageIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddCommonBandwidthPackageIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1319,11 +1307,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddCommonBandwidthPackageIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddCommonBandwidthPackageIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddCommonBandwidthPackageIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1412,11 +1397,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddGlobalAccelerationInstanceIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGlobalAccelerationInstanceIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGlobalAccelerationInstanceIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1503,11 +1485,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddIPv6TranslatorAclListEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -1611,11 +1590,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddPublicIpAddressPoolCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddPublicIpAddressPoolCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddPublicIpAddressPoolCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1718,11 +1694,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddSourcesToTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddSourcesToTrafficMirrorSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddSourcesToTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1880,11 +1853,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateEipAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2020,11 +1990,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateEipAddressProResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateEipAddressProResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateEipAddressProResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2136,11 +2103,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateEipSegmentAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateEipSegmentAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateEipSegmentAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -2260,11 +2224,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateIpv6AddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2372,11 +2333,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateIpv6InternetBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2478,11 +2436,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateVpcIpv6CidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateVpcIpv6CidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateVpcIpv6CidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2600,11 +2555,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ApplyPhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyPhysicalConnectionLOAResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyPhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2715,11 +2667,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateEipAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2825,11 +2774,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateEipAddressBatchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateEipAddressBatchResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateEipAddressBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2936,11 +2882,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateHaVipResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3051,11 +2994,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateNetworkAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3182,11 +3122,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociatePhysicalConnectionToVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociatePhysicalConnectionToVirtualBorderRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociatePhysicalConnectionToVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3279,11 +3216,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3384,11 +3318,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateRouteTableWithGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateRouteTableWithGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateRouteTableWithGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3489,11 +3420,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateRouteTablesWithVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateRouteTablesWithVpcGatewayEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateRouteTablesWithVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3617,11 +3545,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateVpcCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateVpcCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateVpcCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3716,11 +3641,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateVpnGatewayWithCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateVpnGatewayWithCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateVpnGatewayWithCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3824,11 +3746,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachDhcpOptionsSetToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachDhcpOptionsSetToVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachDhcpOptionsSetToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3904,11 +3823,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachVbrToVpconnResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachVbrToVpconnResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachVbrToVpconnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3993,11 +3909,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelCommonBandwidthPackageIpBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelCommonBandwidthPackageIpBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelCommonBandwidthPackageIpBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4085,11 +3998,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelPhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4164,11 +4074,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4256,11 +4163,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckCanAllocateVpcPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckCanAllocateVpcPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckCanAllocateVpcPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4332,11 +4236,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckVpnBgpEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckVpnBgpEnabledResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckVpnBgpEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4440,11 +4341,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CompletePhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CompletePhysicalConnectionLOAResponse::fromMap($this->execute($params, $req, $runtime));
+        return CompletePhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4524,11 +4422,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfirmPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfirmPhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfirmPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4607,11 +4502,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConnectRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConnectRouterInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConnectRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4704,11 +4596,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConvertBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConvertBandwidthPackageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConvertBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4813,11 +4702,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CopyNetworkAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyNetworkAclEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyNetworkAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4946,11 +4832,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBgpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBgpGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBgpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5056,11 +4939,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBgpPeerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBgpPeerResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBgpPeerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5176,11 +5056,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCommonBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCommonBandwidthPackageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCommonBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5284,11 +5161,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCustomerGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5384,11 +5258,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDefaultVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDefaultVSwitchResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDefaultVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5501,11 +5372,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDefaultVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDefaultVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDefaultVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5635,11 +5503,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDhcpOptionsSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5760,11 +5625,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateExpressCloudConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateExpressCloudConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateExpressCloudConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5856,11 +5718,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateExpressConnectTrafficQosResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5956,11 +5815,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateExpressConnectTrafficQosQueueResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6092,11 +5948,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateExpressConnectTrafficQosRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6210,11 +6063,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFailoverTestJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6349,11 +6199,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6484,11 +6331,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateForwardEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6624,11 +6468,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFullNatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFullNatEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFullNatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6737,11 +6578,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGlobalAccelerationInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -6853,11 +6691,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateHaVipResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6974,11 +6809,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateHighReliablePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateHighReliablePhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateHighReliablePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7085,11 +6917,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIPv6TranslatorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIPv6TranslatorResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIPv6TranslatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -7175,11 +7004,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIPv6TranslatorAclListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIPv6TranslatorAclListResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIPv6TranslatorAclListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -7301,11 +7127,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIPv6TranslatorEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -7416,11 +7239,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpsecServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7538,11 +7358,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpv4GatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7654,11 +7471,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpv6EgressOnlyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpv6EgressOnlyRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpv6EgressOnlyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7770,11 +7584,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpv6GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpv6GatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpv6GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7944,11 +7755,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNatGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8069,11 +7877,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNatIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNatIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNatIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8184,11 +7989,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNatIpCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNatIpCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNatIpCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8288,11 +8090,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNetworkAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8430,11 +8229,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8539,11 +8335,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePhysicalConnectionOccupancyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePhysicalConnectionOccupancyOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePhysicalConnectionOccupancyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8646,11 +8439,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePhysicalConnectionSetupOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePhysicalConnectionSetupOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePhysicalConnectionSetupOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8765,11 +8555,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePublicIpAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8825,6 +8612,10 @@ class Vpc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -8867,11 +8658,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8964,6 +8752,10 @@ class Vpc extends OpenApiClient
             @$query['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->nextHopId) {
             @$query['NextHopId'] = $request->nextHopId;
         }
@@ -9018,11 +8810,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9156,11 +8945,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9347,11 +9133,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRouterInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9479,11 +9262,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSnatEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9581,11 +9361,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSslVpnClientCertResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9649,6 +9426,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->compress) {
             @$query['Compress'] = $request->compress;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->enableMultiFactorAuth) {
@@ -9721,11 +9502,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSslVpnServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9843,11 +9621,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTrafficMirrorFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTrafficMirrorFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTrafficMirrorFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9950,11 +9725,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTrafficMirrorFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTrafficMirrorFilterRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTrafficMirrorFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10093,11 +9865,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTrafficMirrorSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10223,11 +9992,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVSwitchResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10363,11 +10129,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVSwitchCidrReservationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVSwitchCidrReservationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVSwitchCidrReservationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10474,11 +10237,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVbrHaResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10533,6 +10293,10 @@ class Vpc extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->nextHop) {
             @$query['NextHop'] = $request->nextHop;
         }
@@ -10583,11 +10347,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVcoRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10739,11 +10500,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVirtualBorderRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10850,11 +10608,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVirtualPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVirtualPhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVirtualPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10998,11 +10753,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11128,11 +10880,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpcGatewayEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11249,11 +10998,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpcPrefixListResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11336,11 +11082,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpconnFromVbrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpconnFromVbrResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpconnFromVbrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11409,6 +11152,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->customerGatewayId) {
             @$query['CustomerGatewayId'] = $request->customerGatewayId;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->effectImmediately) {
@@ -11506,11 +11253,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpnAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11582,6 +11326,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->customerGatewayId) {
             @$query['CustomerGatewayId'] = $request->customerGatewayId;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->effectImmediately) {
@@ -11679,11 +11427,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpnConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11833,11 +11578,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpnGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11896,6 +11638,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->nextHop) {
@@ -11964,11 +11710,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpnPbrRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpnPbrRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpnPbrRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12026,6 +11769,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->nextHop) {
@@ -12086,11 +11833,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpnRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12168,11 +11912,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeactivateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeactivateRouterInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeactivateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12254,11 +11995,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeactiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeactiveFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeactiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12344,11 +12082,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteBgpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteBgpGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteBgpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12432,11 +12167,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteBgpNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteBgpNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteBgpNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12516,11 +12248,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteBgpPeerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteBgpPeerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteBgpPeerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12603,11 +12332,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCommonBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCommonBandwidthPackageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCommonBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12693,11 +12419,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomerGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12791,11 +12514,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDhcpOptionsSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12882,11 +12602,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExpressConnectTrafficQosResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12970,11 +12687,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExpressConnectTrafficQosQueueResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13062,11 +12776,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExpressConnectTrafficQosRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13149,11 +12860,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFailoverTestJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13238,11 +12946,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13340,11 +13045,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteForwardEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13447,11 +13149,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFullNatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFullNatEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFullNatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13540,11 +13239,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGlobalAccelerationInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13640,11 +13336,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteHaVipResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13734,11 +13427,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIPv6TranslatorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIPv6TranslatorResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIPv6TranslatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13821,11 +13511,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIPv6TranslatorAclListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIPv6TranslatorAclListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIPv6TranslatorAclListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -13915,11 +13602,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIPv6TranslatorEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -13996,11 +13680,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpsecServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14106,11 +13787,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpv4GatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14208,11 +13886,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpv6EgressOnlyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpv6EgressOnlyRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpv6EgressOnlyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14313,11 +13988,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpv6GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpv6GatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpv6GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14419,11 +14091,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpv6InternetBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14514,11 +14183,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNatGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14621,11 +14287,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteNatIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNatIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNatIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14728,11 +14391,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteNatIpCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNatIpCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNatIpCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14828,11 +14488,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNetworkAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14861,7 +14518,7 @@ class Vpc extends OpenApiClient
      * Deletes a connection over an Express Connect circuit.
      *
      * @remarks
-     * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+     * You can only delete a connection over an Express Connect circuit that is in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, and **Terminated** states.
      *
      * @param request - DeletePhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14919,18 +14576,15 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a connection over an Express Connect circuit.
      *
      * @remarks
-     * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+     * You can only delete a connection over an Express Connect circuit that is in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, and **Terminated** states.
      *
      * @param request - DeletePhysicalConnectionRequest
      *
@@ -15018,11 +14672,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePublicIpAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15126,11 +14777,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePublicIpAddressPoolCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePublicIpAddressPoolCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePublicIpAddressPoolCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15185,6 +14833,10 @@ class Vpc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -15227,11 +14879,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15292,6 +14941,10 @@ class Vpc extends OpenApiClient
             @$query['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->nextHopId) {
             @$query['NextHopId'] = $request->nextHopId;
         }
@@ -15342,11 +14995,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15443,11 +15093,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15539,11 +15186,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRouterInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15638,11 +15282,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSnatEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15738,11 +15379,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSslVpnClientCertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15838,11 +15476,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSslVpnServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15938,11 +15573,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTrafficMirrorFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTrafficMirrorFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTrafficMirrorFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16042,11 +15674,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTrafficMirrorFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTrafficMirrorFilterRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTrafficMirrorFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16142,11 +15771,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTrafficMirrorSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16242,11 +15868,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVSwitchResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16347,11 +15970,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVSwitchCidrReservationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVSwitchCidrReservationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVSwitchCidrReservationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16438,11 +16058,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVbrHaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16540,11 +16157,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVcoRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16636,11 +16250,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVirtualBorderRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16743,11 +16354,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16840,11 +16448,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpcGatewayEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16931,11 +16536,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpcPrefixListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17018,11 +16620,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpnAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17113,11 +16712,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpnConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17207,11 +16803,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpnGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17324,11 +16917,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpnPbrRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpnPbrRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpnPbrRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17436,11 +17026,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpnRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17537,11 +17124,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17628,11 +17212,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return Describe95TrafficResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return Describe95TrafficResponse::fromMap($this->execute($params, $req, $runtime));
+        return Describe95TrafficResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17712,11 +17293,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccessPointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17808,11 +17386,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBgpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBgpGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBgpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17896,11 +17471,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBgpNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBgpNetworksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBgpNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17996,11 +17568,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBgpPeersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBgpPeersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBgpPeersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18108,11 +17677,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCommonBandwidthPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCommonBandwidthPackagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCommonBandwidthPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18188,11 +17754,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCustomerGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18284,11 +17847,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCustomerGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCustomerGatewaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCustomerGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18360,11 +17920,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEcGrantRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEcGrantRelationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEcGrantRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18519,11 +18076,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEipAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEipAddressesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEipAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18609,11 +18163,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEipGatewayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEipGatewayInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEipGatewayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18707,11 +18258,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEipMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEipMonitorDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEipMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18802,11 +18350,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEipSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEipSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEipSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18906,11 +18451,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectTrafficQosResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18998,11 +18540,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectTrafficQosQueueResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19094,11 +18633,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExpressConnectTrafficQosRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19178,11 +18714,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFailoverTestJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19270,11 +18803,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFailoverTestJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFailoverTestJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFailoverTestJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19402,11 +18932,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFlowLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFlowLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19522,11 +19049,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeForwardTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeForwardTableEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeForwardTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19638,11 +19162,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGlobalAccelerationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGlobalAccelerationInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGlobalAccelerationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19738,11 +19259,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGrantRulesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGrantRulesToCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGrantRulesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19834,11 +19352,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHaVipsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHaVipsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHaVipsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19918,11 +19433,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHighDefinitionMonitorLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHighDefinitionMonitorLogAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHighDefinitionMonitorLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20006,11 +19518,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIPv6TranslatorAclListAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIPv6TranslatorAclListAttributesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIPv6TranslatorAclListAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20101,11 +19610,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIPv6TranslatorAclListsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIPv6TranslatorAclListsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIPv6TranslatorAclListsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -20239,11 +19745,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIPv6TranslatorEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIPv6TranslatorEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIPv6TranslatorEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -20361,11 +19864,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIPv6TranslatorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIPv6TranslatorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIPv6TranslatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -20508,11 +20008,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIpv6AddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIpv6AddressesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIpv6AddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20616,11 +20113,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIpv6EgressOnlyRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIpv6EgressOnlyRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIpv6EgressOnlyRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20700,11 +20194,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIpv6GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIpv6GatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIpv6GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20808,11 +20299,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIpv6GatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIpv6GatewaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIpv6GatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20916,11 +20404,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNatGatewayAssociateNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNatGatewayAssociateNetworkInterfacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNatGatewayAssociateNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21051,11 +20536,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNatGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNatGatewaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNatGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21142,11 +20624,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNetworkAclAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNetworkAclAttributesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNetworkAclAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21258,11 +20737,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNetworkAclsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNetworkAclsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNetworkAclsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21342,11 +20818,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePhysicalConnectionLOAResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21449,11 +20922,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePhysicalConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePhysicalConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePhysicalConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21547,11 +21017,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePublicIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePublicIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePublicIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21630,11 +21097,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21761,11 +21225,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRouteEntryListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRouteEntryListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRouteEntryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21880,11 +21341,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRouteTableListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRouteTableListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRouteTableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21995,11 +21453,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRouteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRouteTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRouteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -22074,11 +21529,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRouterInterfaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRouterInterfaceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRouterInterfaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22170,11 +21622,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRouterInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRouterInterfacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRouterInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22257,11 +21706,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeServerRelatedGlobalAccelerationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeServerRelatedGlobalAccelerationInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeServerRelatedGlobalAccelerationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22376,11 +21822,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSnatTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSnatTableEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSnatTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22456,11 +21899,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSslVpnClientCertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22556,11 +21996,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSslVpnClientCertsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSslVpnClientCertsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSslVpnClientCertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22648,11 +22085,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSslVpnClientsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSslVpnClientsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSslVpnClientsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22752,11 +22186,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSslVpnServersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSslVpnServersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSslVpnServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22848,11 +22279,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22944,11 +22372,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagKeysForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagKeysForExpressConnectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagKeysForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23046,11 +22471,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23140,11 +22562,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVRoutersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23224,11 +22643,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVSwitchAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVSwitchAttributesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVSwitchAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23352,11 +22768,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVSwitchesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23444,11 +22857,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVbrHaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23536,11 +22946,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVcoRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVcoRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVcoRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23632,11 +23039,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVirtualBorderRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVirtualBorderRoutersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVirtualBorderRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23720,11 +23124,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVirtualBorderRoutersForPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVirtualBorderRoutersForPhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVirtualBorderRoutersForPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23808,11 +23209,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpcAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpcAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpcAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23928,11 +23326,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpcsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24020,11 +23415,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24100,11 +23492,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24204,11 +23593,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnConnectionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnConnectionLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnConnectionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24308,11 +23694,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24396,11 +23779,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnCrossAccountAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnCrossAccountAuthorizationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnCrossAccountAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24480,11 +23860,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24536,11 +23913,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnGatewayAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnGatewayAvailableZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnGatewayAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24648,11 +24022,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnGatewaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24736,11 +24107,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnPbrRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnPbrRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnPbrRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24828,11 +24196,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24932,11 +24297,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVpnSslServerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVpnSslServerLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVpnSslServerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25016,11 +24378,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25115,11 +24474,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachDhcpOptionsSetFromVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachDhcpOptionsSetFromVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachDhcpOptionsSetFromVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25211,11 +24567,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DiagnoseVpnConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DiagnoseVpnConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DiagnoseVpnConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25243,9 +24596,6 @@ class Vpc extends OpenApiClient
 
     /**
      * Diagnoses a VPN gateway.
-     *
-     * @remarks
-     * VPN网关发起诊断
      *
      * @param request - DiagnoseVpnGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25299,18 +24649,12 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DiagnoseVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DiagnoseVpnGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DiagnoseVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Diagnoses a VPN gateway.
-     *
-     * @remarks
-     * VPN网关发起诊断
      *
      * @param request - DiagnoseVpnGatewayRequest
      *
@@ -25377,11 +24721,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableNatGatewayEcsMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -25464,11 +24805,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableVpcClassicLinkResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25564,11 +24902,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DissociateRouteTableFromGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DissociateRouteTableFromGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DissociateRouteTableFromGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25656,11 +24991,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DissociateRouteTablesFromVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DissociateRouteTablesFromVpcGatewayEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DissociateRouteTablesFromVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25742,11 +25074,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DissociateVpnGatewayWithCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DissociateVpnGatewayWithCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DissociateVpnGatewayWithCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25828,11 +25157,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DownloadVpnConnectionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DownloadVpnConnectionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DownloadVpnConnectionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -25903,11 +25229,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableNatGatewayEcsMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -26001,11 +25324,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnablePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnablePhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnablePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26092,11 +25412,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableVpcClassicLinkResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26195,11 +25512,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableVpcIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableVpcIpv4GatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableVpcIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26282,11 +25596,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDhcpOptionsSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26366,11 +25677,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFlowLogServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFlowLogServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFlowLogServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26450,11 +25758,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIpv4GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIpv4GatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIpv4GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26537,11 +25842,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNatGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNatGatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNatGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26619,11 +25921,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPhysicalConnectionServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPhysicalConnectionServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPhysicalConnectionServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26706,11 +26005,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPublicIpAddressPoolServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPublicIpAddressPoolServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPublicIpAddressPoolServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26790,11 +26086,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTrafficMirrorServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTrafficMirrorServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTrafficMirrorServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26878,11 +26171,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVSwitchCidrReservationUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVSwitchCidrReservationUsageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVSwitchCidrReservationUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -26958,11 +26248,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcGatewayEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcGatewayEndpointAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcGatewayEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27046,11 +26333,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcPrefixListAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcPrefixListAssociationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcPrefixListAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27134,11 +26418,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcPrefixListEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcPrefixListEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcPrefixListEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27222,11 +26503,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcRouteEntrySummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcRouteEntrySummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcRouteEntrySummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27297,11 +26575,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpnGatewayDiagnoseResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpnGatewayDiagnoseResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpnGatewayDiagnoseResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27401,11 +26676,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantInstanceToCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantInstanceToCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantInstanceToCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27496,11 +26768,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantInstanceToVbrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantInstanceToVbrResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantInstanceToVbrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27564,11 +26833,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListBusinessAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListBusinessAccessPointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListBusinessAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27668,11 +26934,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDhcpOptionsSetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDhcpOptionsSetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDhcpOptionsSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27759,11 +27022,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEnhanhcedNatGatewayAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEnhanhcedNatGatewayAvailableZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEnhanhcedNatGatewayAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27882,11 +27142,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFullNatEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFullNatEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFullNatEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -27978,11 +27235,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListGatewayRouteTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGatewayRouteTableEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGatewayRouteTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28029,11 +27283,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListGeographicSubRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGeographicSubRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGeographicSubRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28109,11 +27360,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpsecServerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpsecServerLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpsecServerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28193,11 +27441,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpsecServersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpsecServersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpsecServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28301,11 +27546,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpv4GatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpv4GatewaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpv4GatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28417,11 +27659,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNatIpCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNatIpCidrsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNatIpCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28533,11 +27772,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNatIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNatIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNatIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28633,11 +27869,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPrefixListsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPrefixListsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPrefixListsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28659,6 +27892,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * 查询IP地址池中的IP地址网段信息.
+     *
      * @param request - ListPublicIpAddressPoolCidrBlocksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -28727,14 +27962,13 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPublicIpAddressPoolCidrBlocksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPublicIpAddressPoolCidrBlocksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPublicIpAddressPoolCidrBlocksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询IP地址池中的IP地址网段信息.
+     *
      * @param request - ListPublicIpAddressPoolCidrBlocksRequest
      *
      * @returns ListPublicIpAddressPoolCidrBlocksResponse
@@ -28841,11 +28075,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPublicIpAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPublicIpAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPublicIpAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -28944,11 +28175,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29054,11 +28282,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesForExpressConnectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29161,11 +28386,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTrafficMirrorFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrafficMirrorFiltersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrafficMirrorFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29285,11 +28507,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTrafficMirrorSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrafficMirrorSessionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrafficMirrorSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29389,11 +28608,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVSwitchCidrReservationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVSwitchCidrReservationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVSwitchCidrReservationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29493,11 +28709,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVirtualPhysicalConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVirtualPhysicalConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVirtualPhysicalConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29581,11 +28794,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointServicesByEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointServicesByEndUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointServicesByEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29671,6 +28881,10 @@ class Vpc extends OpenApiClient
             @$query['Tags'] = $request->tags;
         }
 
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -29685,11 +28899,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcGatewayEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcGatewayEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcGatewayEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29789,11 +29000,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcPublishedRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29876,11 +29084,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpnCertificateAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpnCertificateAssociationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpnCertificateAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -29999,11 +29204,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyBgpGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyBgpGroupAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyBgpGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30099,11 +29301,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyBgpPeerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyBgpPeerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyBgpPeerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30187,11 +29386,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCommonBandwidthPackageAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCommonBandwidthPackageAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCommonBandwidthPackageAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30283,11 +29479,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCommonBandwidthPackageIpBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCommonBandwidthPackageIpBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCommonBandwidthPackageIpBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30382,11 +29575,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCommonBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCommonBandwidthPackageSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCommonBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30492,11 +29682,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCustomerGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCustomerGatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCustomerGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30591,11 +29778,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyEipAddressAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyEipAddressAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyEipAddressAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30679,11 +29863,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyEipForwardModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyEipForwardModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyEipForwardModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30779,11 +29960,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressCloudConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressCloudConnectionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressCloudConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30863,11 +30041,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressCloudConnectionBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressCloudConnectionBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressCloudConnectionBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -30963,11 +30138,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressConnectTrafficQosResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31063,11 +30235,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressConnectTrafficQosQueueResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31203,11 +30372,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyExpressConnectTrafficQosRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31305,11 +30471,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyFlowLogAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31437,11 +30600,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyForwardEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31574,11 +30734,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyFullNatEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyFullNatEntryAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyFullNatEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31669,11 +30826,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalAccelerationInstanceAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalAccelerationInstanceAttributesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalAccelerationInstanceAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31757,11 +30911,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalAccelerationInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalAccelerationInstanceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalAccelerationInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31854,11 +31005,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHaVipAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHaVipAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHaVipAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -31946,11 +31094,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIPv6TranslatorAclAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIPv6TranslatorAclAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIPv6TranslatorAclAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -32037,11 +31182,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIPv6TranslatorAclListEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32129,11 +31271,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIPv6TranslatorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIPv6TranslatorAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIPv6TranslatorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32221,11 +31360,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIPv6TranslatorBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIPv6TranslatorBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIPv6TranslatorBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32344,11 +31480,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIPv6TranslatorEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -32447,11 +31580,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIpv6AddressAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIpv6AddressAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIpv6AddressAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32547,11 +31677,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIpv6GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIpv6GatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIpv6GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32654,11 +31781,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIpv6InternetBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32771,11 +31895,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyNatGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNatGatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNatGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32880,11 +32001,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyNatGatewaySpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNatGatewaySpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNatGatewaySpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -32997,11 +32115,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyNatIpAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNatIpAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNatIpAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33105,11 +32220,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyNatIpCidrAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNatIpCidrAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNatIpCidrAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33205,11 +32317,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyNetworkAclAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNetworkAclAttributesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNetworkAclAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33331,11 +32440,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyPhysicalConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPhysicalConnectionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPhysicalConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33388,6 +32494,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->destinationCidrBlock) {
             @$query['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->newNextHopId) {
@@ -33444,11 +32554,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33542,11 +32649,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyRouteTableAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyRouteTableAttributesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyRouteTableAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33665,11 +32769,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyRouterInterfaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyRouterInterfaceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyRouterInterfaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33757,11 +32858,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyRouterInterfaceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyRouterInterfaceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyRouterInterfaceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33877,11 +32975,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySnatEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -33973,11 +33068,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySslVpnClientCertResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34037,6 +33129,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->compress) {
             @$query['Compress'] = $request->compress;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->enableMultiFactorAuth) {
@@ -34109,11 +33205,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySslVpnServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34209,11 +33302,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTunnelAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTunnelAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTunnelAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34300,11 +33390,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVRouterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVRouterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVRouterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34409,11 +33496,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVSwitchAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVSwitchAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVSwitchAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34515,11 +33599,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVSwitchCidrReservationAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVSwitchCidrReservationAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVSwitchCidrReservationAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34625,11 +33706,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVcoRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVcoRouteEntryWeightResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVcoRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34792,11 +33870,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVirtualBorderRouterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVirtualBorderRouterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVirtualBorderRouterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -34913,11 +33988,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpcAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpcAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpcAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35032,11 +34104,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpcPrefixListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35197,11 +34266,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpnAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpnAttachmentAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpnAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35361,11 +34427,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpnConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpnConnectionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpnConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35473,11 +34536,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpnGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpnGatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpnGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35601,11 +34661,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpnPbrRouteEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpnPbrRouteEntryAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpnPbrRouteEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35725,11 +34782,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpnPbrRouteEntryPriorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpnPbrRouteEntryPriorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpnPbrRouteEntryPriorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35849,11 +34903,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpnPbrRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpnPbrRouteEntryWeightResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpnPbrRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -35966,11 +35017,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpnRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpnRouteEntryWeightResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpnRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36061,11 +35109,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36149,11 +35194,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveVpnResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveVpnResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveVpnResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36237,11 +35279,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenFlowLogServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenFlowLogServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenFlowLogServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36317,11 +35356,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenPhysicalConnectionServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenPhysicalConnectionServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenPhysicalConnectionServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36401,11 +35437,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenPublicIpAddressPoolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenPublicIpAddressPoolServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenPublicIpAddressPoolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36489,11 +35522,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenTrafficMirrorServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenTrafficMirrorServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenTrafficMirrorServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36589,11 +35619,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishVpcRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishVpcRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishVpcRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36689,11 +35716,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishVpnRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36765,11 +35789,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RecoverPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecoverPhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecoverPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36859,11 +35880,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RecoverVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecoverVirtualBorderRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecoverVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -36955,11 +35973,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseEipAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37056,11 +36071,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseEipSegmentAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseEipSegmentAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseEipSegmentAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37155,11 +36167,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseIpv6AddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37243,11 +36252,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveCommonBandwidthPackageIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveCommonBandwidthPackageIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveCommonBandwidthPackageIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37325,11 +36331,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveGlobalAccelerationInstanceIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveGlobalAccelerationInstanceIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveGlobalAccelerationInstanceIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37411,11 +36414,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveIPv6TranslatorAclListEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37509,11 +36509,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveSourcesFromTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveSourcesFromTrafficMirrorSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveSourcesFromTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37613,11 +36610,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReplaceVpcDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReplaceVpcDhcpOptionsSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReplaceVpcDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37723,11 +36717,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetryVpcPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetryVpcPrefixListAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetryVpcPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37832,11 +36823,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevokeInstanceFromCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeInstanceFromCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeInstanceFromCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -37923,11 +36911,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevokeInstanceFromVbrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeInstanceFromVbrResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeInstanceFromVbrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38035,11 +37020,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SecondApplyPhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SecondApplyPhysicalConnectionLOAResponse::fromMap($this->execute($params, $req, $runtime));
+        return SecondApplyPhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38134,11 +37116,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetHighDefinitionMonitorLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetHighDefinitionMonitorLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetHighDefinitionMonitorLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38224,11 +37203,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartFailoverTestJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38311,11 +37287,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopFailoverTestJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38409,11 +37382,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38516,11 +37486,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesForExpressConnectResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38614,11 +37581,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TerminatePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TerminatePhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return TerminatePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38707,11 +37671,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TerminateVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TerminateVirtualBorderRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return TerminateVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38791,11 +37752,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransformEipSegmentToPublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransformEipSegmentToPublicIpAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransformEipSegmentToPublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38883,11 +37841,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -38989,11 +37944,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociateEipAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39079,11 +38031,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociateGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociateGlobalAccelerationInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociateGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39185,11 +38134,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociateHaVipResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39298,11 +38244,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociateNetworkAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39393,11 +38336,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39492,11 +38432,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociateRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39595,11 +38532,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociateVpcCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociateVpcCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociateVpcCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39691,11 +38625,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesForExpressConnectResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39803,11 +38734,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDhcpOptionsSetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDhcpOptionsSetAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDhcpOptionsSetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -39907,11 +38835,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFailoverTestJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40023,11 +38948,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGatewayRouteTableEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGatewayRouteTableEntryAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGatewayRouteTableEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40134,11 +39056,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIpsecServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40244,11 +39163,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIpv4GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIpv4GatewayAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIpv4GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40361,11 +39277,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateNatGatewayNatTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateNatGatewayNatTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateNatGatewayNatTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -40489,11 +39402,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateNetworkAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateNetworkAclEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateNetworkAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40594,11 +39504,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdatePublicIpAddressPoolAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePublicIpAddressPoolAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePublicIpAddressPoolAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40696,11 +39603,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTrafficMirrorFilterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTrafficMirrorFilterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTrafficMirrorFilterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40821,11 +39725,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTrafficMirrorFilterRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTrafficMirrorFilterRuleAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTrafficMirrorFilterRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -40958,11 +39859,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTrafficMirrorSessionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTrafficMirrorSessionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTrafficMirrorSessionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -41053,11 +39951,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVirtualBorderBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVirtualBorderBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVirtualBorderBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -41133,11 +40028,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVirtualPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVirtualPhysicalConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVirtualPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -41239,11 +40131,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVpcGatewayEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVpcGatewayEndpointAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVpcGatewayEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -41336,11 +40225,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -41435,11 +40321,8 @@ class Vpc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return WithdrawVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return WithdrawVpcPublishedRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return WithdrawVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

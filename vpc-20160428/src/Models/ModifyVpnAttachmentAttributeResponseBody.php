@@ -263,7 +263,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
                 $res['TunnelOptionsSpecification'] = [];
                 $n1 = 0;
                 foreach ($this->tunnelOptionsSpecification as $item1) {
-                    $res['TunnelOptionsSpecification'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TunnelOptionsSpecification'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -376,7 +377,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
                 $model->tunnelOptionsSpecification = [];
                 $n1 = 0;
                 foreach ($map['TunnelOptionsSpecification'] as $item1) {
-                    $model->tunnelOptionsSpecification[$n1++] = tunnelOptionsSpecification::fromMap($item1);
+                    $model->tunnelOptionsSpecification[$n1] = tunnelOptionsSpecification::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

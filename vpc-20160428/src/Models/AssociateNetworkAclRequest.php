@@ -105,7 +105,8 @@ class AssociateNetworkAclRequest extends Model
                 $res['Resource'] = [];
                 $n1 = 0;
                 foreach ($this->resource as $item1) {
-                    $res['Resource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Resource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class AssociateNetworkAclRequest extends Model
                 $model->resource = [];
                 $n1 = 0;
                 foreach ($map['Resource'] as $item1) {
-                    $model->resource[$n1++] = resource::fromMap($item1);
+                    $model->resource[$n1] = resource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

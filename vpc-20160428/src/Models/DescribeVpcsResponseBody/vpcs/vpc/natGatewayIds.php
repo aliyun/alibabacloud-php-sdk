@@ -32,7 +32,8 @@ class natGatewayIds extends Model
                 $res['NatGatewayIds'] = [];
                 $n1 = 0;
                 foreach ($this->natGatewayIds as $item1) {
-                    $res['NatGatewayIds'][$n1++] = $item1;
+                    $res['NatGatewayIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class natGatewayIds extends Model
                 $model->natGatewayIds = [];
                 $n1 = 0;
                 foreach ($map['NatGatewayIds'] as $item1) {
-                    $model->natGatewayIds[$n1++] = $item1;
+                    $model->natGatewayIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

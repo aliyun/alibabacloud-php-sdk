@@ -32,7 +32,8 @@ class fullNatTableIds extends Model
                 $res['FullNatTableId'] = [];
                 $n1 = 0;
                 foreach ($this->fullNatTableId as $item1) {
-                    $res['FullNatTableId'][$n1++] = $item1;
+                    $res['FullNatTableId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class fullNatTableIds extends Model
                 $model->fullNatTableId = [];
                 $n1 = 0;
                 foreach ($map['FullNatTableId'] as $item1) {
-                    $model->fullNatTableId[$n1++] = $item1;
+                    $model->fullNatTableId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

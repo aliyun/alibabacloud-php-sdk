@@ -33,7 +33,8 @@ class commonBandwidthPackages extends Model
                 $res['CommonBandwidthPackage'] = [];
                 $n1 = 0;
                 foreach ($this->commonBandwidthPackage as $item1) {
-                    $res['CommonBandwidthPackage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CommonBandwidthPackage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class commonBandwidthPackages extends Model
                 $model->commonBandwidthPackage = [];
                 $n1 = 0;
                 foreach ($map['CommonBandwidthPackage'] as $item1) {
-                    $model->commonBandwidthPackage[$n1++] = commonBandwidthPackage::fromMap($item1);
+                    $model->commonBandwidthPackage[$n1] = commonBandwidthPackage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class bgpGroups extends Model
                 $res['BgpGroup'] = [];
                 $n1 = 0;
                 foreach ($this->bgpGroup as $item1) {
-                    $res['BgpGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BgpGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class bgpGroups extends Model
                 $model->bgpGroup = [];
                 $n1 = 0;
                 foreach ($map['BgpGroup'] as $item1) {
-                    $model->bgpGroup[$n1++] = bgpGroup::fromMap($item1);
+                    $model->bgpGroup[$n1] = bgpGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class bgpPeers extends Model
                 $res['BgpPeer'] = [];
                 $n1 = 0;
                 foreach ($this->bgpPeer as $item1) {
-                    $res['BgpPeer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BgpPeer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class bgpPeers extends Model
                 $model->bgpPeer = [];
                 $n1 = 0;
                 foreach ($map['BgpPeer'] as $item1) {
-                    $model->bgpPeer[$n1++] = bgpPeer::fromMap($item1);
+                    $model->bgpPeer[$n1] = bgpPeer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

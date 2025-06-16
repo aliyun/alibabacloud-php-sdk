@@ -55,7 +55,8 @@ class ListPublicIpAddressPoolsResponseBody extends Model
                 $res['PublicIpAddressPoolList'] = [];
                 $n1 = 0;
                 foreach ($this->publicIpAddressPoolList as $item1) {
-                    $res['PublicIpAddressPoolList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PublicIpAddressPoolList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListPublicIpAddressPoolsResponseBody extends Model
                 $model->publicIpAddressPoolList = [];
                 $n1 = 0;
                 foreach ($map['PublicIpAddressPoolList'] as $item1) {
-                    $model->publicIpAddressPoolList[$n1++] = publicIpAddressPoolList::fromMap($item1);
+                    $model->publicIpAddressPoolList[$n1] = publicIpAddressPoolList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

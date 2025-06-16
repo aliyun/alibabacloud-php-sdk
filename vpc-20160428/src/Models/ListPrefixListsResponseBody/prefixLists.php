@@ -120,7 +120,8 @@ class prefixLists extends Model
                 $res['CidrBlocks'] = [];
                 $n1 = 0;
                 foreach ($this->cidrBlocks as $item1) {
-                    $res['CidrBlocks'][$n1++] = $item1;
+                    $res['CidrBlocks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +183,8 @@ class prefixLists extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +205,8 @@ class prefixLists extends Model
                 $model->cidrBlocks = [];
                 $n1 = 0;
                 foreach ($map['CidrBlocks'] as $item1) {
-                    $model->cidrBlocks[$n1++] = $item1;
+                    $model->cidrBlocks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +268,8 @@ class prefixLists extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

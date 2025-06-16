@@ -91,7 +91,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
                 $res['AddInstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->addInstanceList as $item1) {
-                    $res['AddInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
                 $res['RemoveInstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->removeInstanceList as $item1) {
-                    $res['RemoveInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemoveInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +156,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
                 $model->addInstanceList = [];
                 $n1 = 0;
                 foreach ($map['AddInstanceList'] as $item1) {
-                    $model->addInstanceList[$n1++] = addInstanceList::fromMap($item1);
+                    $model->addInstanceList[$n1] = addInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +195,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
                 $model->removeInstanceList = [];
                 $n1 = 0;
                 foreach ($map['RemoveInstanceList'] as $item1) {
-                    $model->removeInstanceList[$n1++] = removeInstanceList::fromMap($item1);
+                    $model->removeInstanceList[$n1] = removeInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

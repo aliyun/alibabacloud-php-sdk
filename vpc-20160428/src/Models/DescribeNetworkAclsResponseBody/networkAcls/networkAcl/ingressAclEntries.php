@@ -33,7 +33,8 @@ class ingressAclEntries extends Model
                 $res['IngressAclEntry'] = [];
                 $n1 = 0;
                 foreach ($this->ingressAclEntry as $item1) {
-                    $res['IngressAclEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IngressAclEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ingressAclEntries extends Model
                 $model->ingressAclEntry = [];
                 $n1 = 0;
                 foreach ($map['IngressAclEntry'] as $item1) {
-                    $model->ingressAclEntry[$n1++] = ingressAclEntry::fromMap($item1);
+                    $model->ingressAclEntry[$n1] = ingressAclEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -146,7 +146,8 @@ class trafficMirrorSessions extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +181,8 @@ class trafficMirrorSessions extends Model
                 $res['TrafficMirrorSourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->trafficMirrorSourceIds as $item1) {
-                    $res['TrafficMirrorSourceIds'][$n1++] = $item1;
+                    $res['TrafficMirrorSourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +235,8 @@ class trafficMirrorSessions extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +270,8 @@ class trafficMirrorSessions extends Model
                 $model->trafficMirrorSourceIds = [];
                 $n1 = 0;
                 foreach ($map['TrafficMirrorSourceIds'] as $item1) {
-                    $model->trafficMirrorSourceIds[$n1++] = $item1;
+                    $model->trafficMirrorSourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

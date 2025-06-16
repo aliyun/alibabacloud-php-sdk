@@ -105,7 +105,8 @@ class WithdrawVpcPublishedRouteEntriesRequest extends Model
                 $res['RouteEntries'] = [];
                 $n1 = 0;
                 foreach ($this->routeEntries as $item1) {
-                    $res['RouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class WithdrawVpcPublishedRouteEntriesRequest extends Model
                 $model->routeEntries = [];
                 $n1 = 0;
                 foreach ($map['RouteEntries'] as $item1) {
-                    $model->routeEntries[$n1++] = routeEntries::fromMap($item1);
+                    $model->routeEntries[$n1] = routeEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

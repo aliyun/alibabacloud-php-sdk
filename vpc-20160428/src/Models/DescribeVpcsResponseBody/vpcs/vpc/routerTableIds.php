@@ -32,7 +32,8 @@ class routerTableIds extends Model
                 $res['RouterTableIds'] = [];
                 $n1 = 0;
                 foreach ($this->routerTableIds as $item1) {
-                    $res['RouterTableIds'][$n1++] = $item1;
+                    $res['RouterTableIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class routerTableIds extends Model
                 $model->routerTableIds = [];
                 $n1 = 0;
                 foreach ($map['RouterTableIds'] as $item1) {
-                    $model->routerTableIds[$n1++] = $item1;
+                    $model->routerTableIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

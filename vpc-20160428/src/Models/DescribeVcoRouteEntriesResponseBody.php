@@ -83,7 +83,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
                 $res['VcoRouteEntries'] = [];
                 $n1 = 0;
                 foreach ($this->vcoRouteEntries as $item1) {
-                    $res['VcoRouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VcoRouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
                 $res['VpnRouteCounts'] = [];
                 $n1 = 0;
                 foreach ($this->vpnRouteCounts as $item1) {
-                    $res['VpnRouteCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpnRouteCounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
                 $model->vcoRouteEntries = [];
                 $n1 = 0;
                 foreach ($map['VcoRouteEntries'] as $item1) {
-                    $model->vcoRouteEntries[$n1++] = vcoRouteEntries::fromMap($item1);
+                    $model->vcoRouteEntries[$n1] = vcoRouteEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
                 $model->vpnRouteCounts = [];
                 $n1 = 0;
                 foreach ($map['VpnRouteCounts'] as $item1) {
-                    $model->vpnRouteCounts[$n1++] = vpnRouteCounts::fromMap($item1);
+                    $model->vpnRouteCounts[$n1] = vpnRouteCounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

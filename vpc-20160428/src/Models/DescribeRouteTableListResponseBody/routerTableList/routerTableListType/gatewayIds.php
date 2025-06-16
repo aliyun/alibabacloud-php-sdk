@@ -32,7 +32,8 @@ class gatewayIds extends Model
                 $res['GatewayIds'] = [];
                 $n1 = 0;
                 foreach ($this->gatewayIds as $item1) {
-                    $res['GatewayIds'][$n1++] = $item1;
+                    $res['GatewayIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class gatewayIds extends Model
                 $model->gatewayIds = [];
                 $n1 = 0;
                 foreach ($map['GatewayIds'] as $item1) {
-                    $model->gatewayIds[$n1++] = $item1;
+                    $model->gatewayIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

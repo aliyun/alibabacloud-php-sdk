@@ -33,7 +33,8 @@ class accessPointSet extends Model
                 $res['AccessPointType'] = [];
                 $n1 = 0;
                 foreach ($this->accessPointType as $item1) {
-                    $res['AccessPointType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessPointType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class accessPointSet extends Model
                 $model->accessPointType = [];
                 $n1 = 0;
                 foreach ($map['AccessPointType'] as $item1) {
-                    $model->accessPointType[$n1++] = accessPointType::fromMap($item1);
+                    $model->accessPointType[$n1] = accessPointType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

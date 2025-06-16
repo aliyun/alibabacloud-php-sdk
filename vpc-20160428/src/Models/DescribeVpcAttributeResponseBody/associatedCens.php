@@ -33,7 +33,8 @@ class associatedCens extends Model
                 $res['AssociatedCen'] = [];
                 $n1 = 0;
                 foreach ($this->associatedCen as $item1) {
-                    $res['AssociatedCen'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AssociatedCen'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class associatedCens extends Model
                 $model->associatedCen = [];
                 $n1 = 0;
                 foreach ($map['AssociatedCen'] as $item1) {
-                    $model->associatedCen[$n1++] = associatedCen::fromMap($item1);
+                    $model->associatedCen[$n1] = associatedCen::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

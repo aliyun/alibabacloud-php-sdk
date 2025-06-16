@@ -33,7 +33,8 @@ class cenGrantRules extends Model
                 $res['CbnGrantRule'] = [];
                 $n1 = 0;
                 foreach ($this->cbnGrantRule as $item1) {
-                    $res['CbnGrantRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CbnGrantRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cenGrantRules extends Model
                 $model->cbnGrantRule = [];
                 $n1 = 0;
                 foreach ($map['CbnGrantRule'] as $item1) {
-                    $model->cbnGrantRule[$n1++] = cbnGrantRule::fromMap($item1);
+                    $model->cbnGrantRule[$n1] = cbnGrantRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

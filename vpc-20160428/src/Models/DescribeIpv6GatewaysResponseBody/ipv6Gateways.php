@@ -33,7 +33,8 @@ class ipv6Gateways extends Model
                 $res['Ipv6Gateway'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Gateway as $item1) {
-                    $res['Ipv6Gateway'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6Gateway'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv6Gateways extends Model
                 $model->ipv6Gateway = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Gateway'] as $item1) {
-                    $model->ipv6Gateway[$n1++] = ipv6Gateway::fromMap($item1);
+                    $model->ipv6Gateway[$n1] = ipv6Gateway::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

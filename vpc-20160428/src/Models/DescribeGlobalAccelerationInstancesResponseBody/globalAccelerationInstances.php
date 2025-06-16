@@ -33,7 +33,8 @@ class globalAccelerationInstances extends Model
                 $res['GlobalAccelerationInstance'] = [];
                 $n1 = 0;
                 foreach ($this->globalAccelerationInstance as $item1) {
-                    $res['GlobalAccelerationInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GlobalAccelerationInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class globalAccelerationInstances extends Model
                 $model->globalAccelerationInstance = [];
                 $n1 = 0;
                 foreach ($map['GlobalAccelerationInstance'] as $item1) {
-                    $model->globalAccelerationInstance[$n1++] = globalAccelerationInstance::fromMap($item1);
+                    $model->globalAccelerationInstance[$n1] = globalAccelerationInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

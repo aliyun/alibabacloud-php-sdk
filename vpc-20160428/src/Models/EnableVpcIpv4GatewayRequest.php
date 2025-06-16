@@ -112,7 +112,8 @@ class EnableVpcIpv4GatewayRequest extends Model
                 $res['RouteTableList'] = [];
                 $n1 = 0;
                 foreach ($this->routeTableList as $item1) {
-                    $res['RouteTableList'][$n1++] = $item1;
+                    $res['RouteTableList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +166,8 @@ class EnableVpcIpv4GatewayRequest extends Model
                 $model->routeTableList = [];
                 $n1 = 0;
                 foreach ($map['RouteTableList'] as $item1) {
-                    $model->routeTableList[$n1++] = $item1;
+                    $model->routeTableList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

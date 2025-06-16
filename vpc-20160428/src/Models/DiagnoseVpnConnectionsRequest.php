@@ -87,7 +87,8 @@ class DiagnoseVpnConnectionsRequest extends Model
                 $res['TunnelIds'] = [];
                 $n1 = 0;
                 foreach ($this->tunnelIds as $item1) {
-                    $res['TunnelIds'][$n1++] = $item1;
+                    $res['TunnelIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class DiagnoseVpnConnectionsRequest extends Model
                 $res['VpnConnectionIds'] = [];
                 $n1 = 0;
                 foreach ($this->vpnConnectionIds as $item1) {
-                    $res['VpnConnectionIds'][$n1++] = $item1;
+                    $res['VpnConnectionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class DiagnoseVpnConnectionsRequest extends Model
                 $model->tunnelIds = [];
                 $n1 = 0;
                 foreach ($map['TunnelIds'] as $item1) {
-                    $model->tunnelIds[$n1++] = $item1;
+                    $model->tunnelIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class DiagnoseVpnConnectionsRequest extends Model
                 $model->vpnConnectionIds = [];
                 $n1 = 0;
                 foreach ($map['VpnConnectionIds'] as $item1) {
-                    $model->vpnConnectionIds[$n1++] = $item1;
+                    $model->vpnConnectionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

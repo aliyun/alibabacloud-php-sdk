@@ -33,7 +33,8 @@ class backendServers extends Model
                 $res['BackendServer'] = [];
                 $n1 = 0;
                 foreach ($this->backendServer as $item1) {
-                    $res['BackendServer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackendServer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class backendServers extends Model
                 $model->backendServer = [];
                 $n1 = 0;
                 foreach ($map['BackendServer'] as $item1) {
-                    $model->backendServer[$n1++] = backendServer::fromMap($item1);
+                    $model->backendServer[$n1] = backendServer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

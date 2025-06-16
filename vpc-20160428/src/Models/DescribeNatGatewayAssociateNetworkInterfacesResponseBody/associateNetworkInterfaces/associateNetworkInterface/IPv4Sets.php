@@ -33,7 +33,8 @@ class IPv4Sets extends Model
                 $res['IPv4Set'] = [];
                 $n1 = 0;
                 foreach ($this->IPv4Set as $item1) {
-                    $res['IPv4Set'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IPv4Set'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class IPv4Sets extends Model
                 $model->IPv4Set = [];
                 $n1 = 0;
                 foreach ($map['IPv4Set'] as $item1) {
-                    $model->IPv4Set[$n1++] = IPv4Set::fromMap($item1);
+                    $model->IPv4Set[$n1] = IPv4Set::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

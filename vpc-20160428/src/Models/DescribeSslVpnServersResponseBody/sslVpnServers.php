@@ -33,7 +33,8 @@ class sslVpnServers extends Model
                 $res['SslVpnServer'] = [];
                 $n1 = 0;
                 foreach ($this->sslVpnServer as $item1) {
-                    $res['SslVpnServer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SslVpnServer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class sslVpnServers extends Model
                 $model->sslVpnServer = [];
                 $n1 = 0;
                 foreach ($map['SslVpnServer'] as $item1) {
-                    $model->sslVpnServer[$n1++] = sslVpnServer::fromMap($item1);
+                    $model->sslVpnServer[$n1] = sslVpnServer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

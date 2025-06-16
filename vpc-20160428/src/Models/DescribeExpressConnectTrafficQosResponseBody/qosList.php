@@ -89,7 +89,8 @@ class qosList extends Model
                 $res['AssociatedInstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->associatedInstanceList as $item1) {
-                    $res['AssociatedInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AssociatedInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class qosList extends Model
                 $res['QueueList'] = [];
                 $n1 = 0;
                 foreach ($this->queueList as $item1) {
-                    $res['QueueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueueList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +135,8 @@ class qosList extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +157,8 @@ class qosList extends Model
                 $model->associatedInstanceList = [];
                 $n1 = 0;
                 foreach ($map['AssociatedInstanceList'] as $item1) {
-                    $model->associatedInstanceList[$n1++] = associatedInstanceList::fromMap($item1);
+                    $model->associatedInstanceList[$n1] = associatedInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +184,8 @@ class qosList extends Model
                 $model->queueList = [];
                 $n1 = 0;
                 foreach ($map['QueueList'] as $item1) {
-                    $model->queueList[$n1++] = queueList::fromMap($item1);
+                    $model->queueList[$n1] = queueList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +203,8 @@ class qosList extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

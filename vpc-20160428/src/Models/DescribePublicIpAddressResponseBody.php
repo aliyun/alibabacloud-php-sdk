@@ -96,7 +96,8 @@ class DescribePublicIpAddressResponseBody extends Model
                 $res['PublicIpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->publicIpAddress as $item1) {
-                    $res['PublicIpAddress'][$n1++] = $item1;
+                    $res['PublicIpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +150,8 @@ class DescribePublicIpAddressResponseBody extends Model
                 $model->publicIpAddress = [];
                 $n1 = 0;
                 foreach ($map['PublicIpAddress'] as $item1) {
-                    $model->publicIpAddress[$n1++] = $item1;
+                    $model->publicIpAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

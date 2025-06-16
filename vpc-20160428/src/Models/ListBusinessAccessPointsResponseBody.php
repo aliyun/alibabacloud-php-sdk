@@ -39,7 +39,8 @@ class ListBusinessAccessPointsResponseBody extends Model
                 $res['BusinessAccessPoints'] = [];
                 $n1 = 0;
                 foreach ($this->businessAccessPoints as $item1) {
-                    $res['BusinessAccessPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BusinessAccessPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListBusinessAccessPointsResponseBody extends Model
                 $model->businessAccessPoints = [];
                 $n1 = 0;
                 foreach ($map['BusinessAccessPoints'] as $item1) {
-                    $model->businessAccessPoints[$n1++] = businessAccessPoints::fromMap($item1);
+                    $model->businessAccessPoints[$n1] = businessAccessPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class ListNatIpsResponseBody extends Model
                 $res['NatIps'] = [];
                 $n1 = 0;
                 foreach ($this->natIps as $item1) {
-                    $res['NatIps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NatIps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListNatIpsResponseBody extends Model
                 $model->natIps = [];
                 $n1 = 0;
                 foreach ($map['NatIps'] as $item1) {
-                    $model->natIps[$n1++] = natIps::fromMap($item1);
+                    $model->natIps[$n1] = natIps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

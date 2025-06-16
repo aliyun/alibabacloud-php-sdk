@@ -69,7 +69,8 @@ class DescribeSslVpnClientsResponseBody extends Model
                 $res['ClientInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->clientInfoList as $item1) {
-                    $res['ClientInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClientInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class DescribeSslVpnClientsResponseBody extends Model
                 $model->clientInfoList = [];
                 $n1 = 0;
                 foreach ($map['ClientInfoList'] as $item1) {
-                    $model->clientInfoList[$n1++] = clientInfoList::fromMap($item1);
+                    $model->clientInfoList[$n1] = clientInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

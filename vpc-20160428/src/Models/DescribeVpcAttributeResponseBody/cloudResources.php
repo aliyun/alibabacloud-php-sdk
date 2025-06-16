@@ -33,7 +33,8 @@ class cloudResources extends Model
                 $res['CloudResourceSetType'] = [];
                 $n1 = 0;
                 foreach ($this->cloudResourceSetType as $item1) {
-                    $res['CloudResourceSetType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CloudResourceSetType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cloudResources extends Model
                 $model->cloudResourceSetType = [];
                 $n1 = 0;
                 foreach ($map['CloudResourceSetType'] as $item1) {
-                    $model->cloudResourceSetType[$n1++] = cloudResourceSetType::fromMap($item1);
+                    $model->cloudResourceSetType[$n1] = cloudResourceSetType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

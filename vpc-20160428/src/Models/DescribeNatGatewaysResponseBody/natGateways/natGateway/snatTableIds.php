@@ -32,7 +32,8 @@ class snatTableIds extends Model
                 $res['SnatTableId'] = [];
                 $n1 = 0;
                 foreach ($this->snatTableId as $item1) {
-                    $res['SnatTableId'][$n1++] = $item1;
+                    $res['SnatTableId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class snatTableIds extends Model
                 $model->snatTableId = [];
                 $n1 = 0;
                 foreach ($map['SnatTableId'] as $item1) {
-                    $model->snatTableId[$n1++] = $item1;
+                    $model->snatTableId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

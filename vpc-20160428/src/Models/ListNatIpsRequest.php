@@ -133,7 +133,8 @@ class ListNatIpsRequest extends Model
                 $res['NatIpIds'] = [];
                 $n1 = 0;
                 foreach ($this->natIpIds as $item1) {
-                    $res['NatIpIds'][$n1++] = $item1;
+                    $res['NatIpIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class ListNatIpsRequest extends Model
                 $res['NatIpName'] = [];
                 $n1 = 0;
                 foreach ($this->natIpName as $item1) {
-                    $res['NatIpName'][$n1++] = $item1;
+                    $res['NatIpName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +214,8 @@ class ListNatIpsRequest extends Model
                 $model->natIpIds = [];
                 $n1 = 0;
                 foreach ($map['NatIpIds'] as $item1) {
-                    $model->natIpIds[$n1++] = $item1;
+                    $model->natIpIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +225,8 @@ class ListNatIpsRequest extends Model
                 $model->natIpName = [];
                 $n1 = 0;
                 foreach ($map['NatIpName'] as $item1) {
-                    $model->natIpName[$n1++] = $item1;
+                    $model->natIpName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

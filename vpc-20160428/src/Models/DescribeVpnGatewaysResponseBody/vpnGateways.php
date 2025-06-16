@@ -33,7 +33,8 @@ class vpnGateways extends Model
                 $res['VpnGateway'] = [];
                 $n1 = 0;
                 foreach ($this->vpnGateway as $item1) {
-                    $res['VpnGateway'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpnGateway'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class vpnGateways extends Model
                 $model->vpnGateway = [];
                 $n1 = 0;
                 foreach ($map['VpnGateway'] as $item1) {
-                    $model->vpnGateway[$n1++] = vpnGateway::fromMap($item1);
+                    $model->vpnGateway[$n1] = vpnGateway::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

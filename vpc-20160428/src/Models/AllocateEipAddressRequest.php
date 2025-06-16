@@ -258,7 +258,8 @@ class AllocateEipAddressRequest extends Model
                 $res['SecurityProtectionTypes'] = [];
                 $n1 = 0;
                 foreach ($this->securityProtectionTypes as $item1) {
-                    $res['SecurityProtectionTypes'][$n1++] = $item1;
+                    $res['SecurityProtectionTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +269,8 @@ class AllocateEipAddressRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -377,7 +379,8 @@ class AllocateEipAddressRequest extends Model
                 $model->securityProtectionTypes = [];
                 $n1 = 0;
                 foreach ($map['SecurityProtectionTypes'] as $item1) {
-                    $model->securityProtectionTypes[$n1++] = $item1;
+                    $model->securityProtectionTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -387,7 +390,8 @@ class AllocateEipAddressRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

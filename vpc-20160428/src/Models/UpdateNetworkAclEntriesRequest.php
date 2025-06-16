@@ -111,7 +111,8 @@ class UpdateNetworkAclEntriesRequest extends Model
                 $res['EgressAclEntries'] = [];
                 $n1 = 0;
                 foreach ($this->egressAclEntries as $item1) {
-                    $res['EgressAclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EgressAclEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class UpdateNetworkAclEntriesRequest extends Model
                 $res['IngressAclEntries'] = [];
                 $n1 = 0;
                 foreach ($this->ingressAclEntries as $item1) {
-                    $res['IngressAclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IngressAclEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +184,8 @@ class UpdateNetworkAclEntriesRequest extends Model
                 $model->egressAclEntries = [];
                 $n1 = 0;
                 foreach ($map['EgressAclEntries'] as $item1) {
-                    $model->egressAclEntries[$n1++] = egressAclEntries::fromMap($item1);
+                    $model->egressAclEntries[$n1] = egressAclEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +195,8 @@ class UpdateNetworkAclEntriesRequest extends Model
                 $model->ingressAclEntries = [];
                 $n1 = 0;
                 foreach ($map['IngressAclEntries'] as $item1) {
-                    $model->ingressAclEntries[$n1++] = ingressAclEntries::fromMap($item1);
+                    $model->ingressAclEntries[$n1] = ingressAclEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

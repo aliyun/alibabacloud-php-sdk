@@ -75,7 +75,8 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
                 $res['QosList'] = [];
                 $n1 = 0;
                 foreach ($this->qosList as $item1) {
-                    $res['QosList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QosList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
                 $model->qosList = [];
                 $n1 = 0;
                 foreach ($map['QosList'] as $item1) {
-                    $model->qosList[$n1++] = qosList::fromMap($item1);
+                    $model->qosList[$n1] = qosList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

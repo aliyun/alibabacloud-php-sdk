@@ -33,7 +33,8 @@ class ipv6CidrBlocks extends Model
                 $res['Ipv6CidrBlock'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6CidrBlock as $item1) {
-                    $res['Ipv6CidrBlock'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6CidrBlock'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv6CidrBlocks extends Model
                 $model->ipv6CidrBlock = [];
                 $n1 = 0;
                 foreach ($map['Ipv6CidrBlock'] as $item1) {
-                    $model->ipv6CidrBlock[$n1++] = ipv6CidrBlock::fromMap($item1);
+                    $model->ipv6CidrBlock[$n1] = ipv6CidrBlock::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

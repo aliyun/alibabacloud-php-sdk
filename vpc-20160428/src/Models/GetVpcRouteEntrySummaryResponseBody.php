@@ -43,7 +43,8 @@ class GetVpcRouteEntrySummaryResponseBody extends Model
                 $res['RouteEntrySummarys'] = [];
                 $n1 = 0;
                 foreach ($this->routeEntrySummarys as $item1) {
-                    $res['RouteEntrySummarys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteEntrySummarys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class GetVpcRouteEntrySummaryResponseBody extends Model
                 $model->routeEntrySummarys = [];
                 $n1 = 0;
                 foreach ($map['RouteEntrySummarys'] as $item1) {
-                    $model->routeEntrySummarys[$n1++] = routeEntrySummarys::fromMap($item1);
+                    $model->routeEntrySummarys[$n1] = routeEntrySummarys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

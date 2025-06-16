@@ -95,7 +95,8 @@ class GetDhcpOptionsSetResponseBody extends Model
                 $res['AssociateVpcs'] = [];
                 $n1 = 0;
                 foreach ($this->associateVpcs as $item1) {
-                    $res['AssociateVpcs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AssociateVpcs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class GetDhcpOptionsSetResponseBody extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +160,8 @@ class GetDhcpOptionsSetResponseBody extends Model
                 $model->associateVpcs = [];
                 $n1 = 0;
                 foreach ($map['AssociateVpcs'] as $item1) {
-                    $model->associateVpcs[$n1++] = associateVpcs::fromMap($item1);
+                    $model->associateVpcs[$n1] = associateVpcs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +203,8 @@ class GetDhcpOptionsSetResponseBody extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

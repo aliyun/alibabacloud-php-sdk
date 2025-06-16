@@ -122,7 +122,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
                 $res['ApList'] = [];
                 $n1 = 0;
                 foreach ($this->apList as $item1) {
-                    $res['ApList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
                 $res['DeviceAdvancedCapacity'] = [];
                 $n1 = 0;
                 foreach ($this->deviceAdvancedCapacity as $item1) {
-                    $res['DeviceAdvancedCapacity'][$n1++] = $item1;
+                    $res['DeviceAdvancedCapacity'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +184,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +210,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
                 $model->apList = [];
                 $n1 = 0;
                 foreach ($map['ApList'] as $item1) {
-                    $model->apList[$n1++] = apList::fromMap($item1);
+                    $model->apList[$n1] = apList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +225,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
                 $model->deviceAdvancedCapacity = [];
                 $n1 = 0;
                 foreach ($map['DeviceAdvancedCapacity'] as $item1) {
-                    $model->deviceAdvancedCapacity[$n1++] = $item1;
+                    $model->deviceAdvancedCapacity[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +272,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

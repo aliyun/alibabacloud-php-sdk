@@ -51,7 +51,8 @@ class ListIpv4GatewaysResponseBody extends Model
                 $res['Ipv4GatewayModels'] = [];
                 $n1 = 0;
                 foreach ($this->ipv4GatewayModels as $item1) {
-                    $res['Ipv4GatewayModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv4GatewayModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListIpv4GatewaysResponseBody extends Model
                 $model->ipv4GatewayModels = [];
                 $n1 = 0;
                 foreach ($map['Ipv4GatewayModels'] as $item1) {
-                    $model->ipv4GatewayModels[$n1++] = ipv4GatewayModels::fromMap($item1);
+                    $model->ipv4GatewayModels[$n1] = ipv4GatewayModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

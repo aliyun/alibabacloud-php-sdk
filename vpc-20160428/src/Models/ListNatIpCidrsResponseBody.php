@@ -51,7 +51,8 @@ class ListNatIpCidrsResponseBody extends Model
                 $res['NatIpCidrs'] = [];
                 $n1 = 0;
                 foreach ($this->natIpCidrs as $item1) {
-                    $res['NatIpCidrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NatIpCidrs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListNatIpCidrsResponseBody extends Model
                 $model->natIpCidrs = [];
                 $n1 = 0;
                 foreach ($map['NatIpCidrs'] as $item1) {
-                    $model->natIpCidrs[$n1++] = natIpCidrs::fromMap($item1);
+                    $model->natIpCidrs[$n1] = natIpCidrs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

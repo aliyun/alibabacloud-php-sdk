@@ -109,7 +109,8 @@ class ModifyVpcPrefixListRequest extends Model
                 $res['AddPrefixListEntry'] = [];
                 $n1 = 0;
                 foreach ($this->addPrefixListEntry as $item1) {
-                    $res['AddPrefixListEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddPrefixListEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class ModifyVpcPrefixListRequest extends Model
                 $res['RemovePrefixListEntry'] = [];
                 $n1 = 0;
                 foreach ($this->removePrefixListEntry as $item1) {
-                    $res['RemovePrefixListEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemovePrefixListEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +186,8 @@ class ModifyVpcPrefixListRequest extends Model
                 $model->addPrefixListEntry = [];
                 $n1 = 0;
                 foreach ($map['AddPrefixListEntry'] as $item1) {
-                    $model->addPrefixListEntry[$n1++] = addPrefixListEntry::fromMap($item1);
+                    $model->addPrefixListEntry[$n1] = addPrefixListEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +233,8 @@ class ModifyVpcPrefixListRequest extends Model
                 $model->removePrefixListEntry = [];
                 $n1 = 0;
                 foreach ($map['RemovePrefixListEntry'] as $item1) {
-                    $model->removePrefixListEntry[$n1++] = removePrefixListEntry::fromMap($item1);
+                    $model->removePrefixListEntry[$n1] = removePrefixListEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -112,7 +112,8 @@ class RemoveSourcesFromTrafficMirrorSessionRequest extends Model
                 $res['TrafficMirrorSourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->trafficMirrorSourceIds as $item1) {
-                    $res['TrafficMirrorSourceIds'][$n1++] = $item1;
+                    $res['TrafficMirrorSourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +166,8 @@ class RemoveSourcesFromTrafficMirrorSessionRequest extends Model
                 $model->trafficMirrorSourceIds = [];
                 $n1 = 0;
                 foreach ($map['TrafficMirrorSourceIds'] as $item1) {
-                    $model->trafficMirrorSourceIds[$n1++] = $item1;
+                    $model->trafficMirrorSourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

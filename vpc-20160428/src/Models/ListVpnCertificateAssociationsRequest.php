@@ -65,7 +65,8 @@ class ListVpnCertificateAssociationsRequest extends Model
                 $res['CertificateId'] = [];
                 $n1 = 0;
                 foreach ($this->certificateId as $item1) {
-                    $res['CertificateId'][$n1++] = $item1;
+                    $res['CertificateId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListVpnCertificateAssociationsRequest extends Model
                 $res['VpnGatewayId'] = [];
                 $n1 = 0;
                 foreach ($this->vpnGatewayId as $item1) {
-                    $res['VpnGatewayId'][$n1++] = $item1;
+                    $res['VpnGatewayId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class ListVpnCertificateAssociationsRequest extends Model
                 $model->certificateId = [];
                 $n1 = 0;
                 foreach ($map['CertificateId'] as $item1) {
-                    $model->certificateId[$n1++] = $item1;
+                    $model->certificateId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +141,8 @@ class ListVpnCertificateAssociationsRequest extends Model
                 $model->vpnGatewayId = [];
                 $n1 = 0;
                 foreach ($map['VpnGatewayId'] as $item1) {
-                    $model->vpnGatewayId[$n1++] = $item1;
+                    $model->vpnGatewayId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

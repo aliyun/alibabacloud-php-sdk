@@ -33,7 +33,8 @@ class vpnRouteEntries extends Model
                 $res['VpnRouteEntry'] = [];
                 $n1 = 0;
                 foreach ($this->vpnRouteEntry as $item1) {
-                    $res['VpnRouteEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpnRouteEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class vpnRouteEntries extends Model
                 $model->vpnRouteEntry = [];
                 $n1 = 0;
                 foreach ($map['VpnRouteEntry'] as $item1) {
-                    $model->vpnRouteEntry[$n1++] = vpnRouteEntry::fromMap($item1);
+                    $model->vpnRouteEntry[$n1] = vpnRouteEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

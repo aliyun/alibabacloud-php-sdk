@@ -73,7 +73,8 @@ class DiagnoseVpnConnectionsResponseBody extends Model
                 $res['VpnConnections'] = [];
                 $n1 = 0;
                 foreach ($this->vpnConnections as $item1) {
-                    $res['VpnConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpnConnections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class DiagnoseVpnConnectionsResponseBody extends Model
                 $model->vpnConnections = [];
                 $n1 = 0;
                 foreach ($map['VpnConnections'] as $item1) {
-                    $model->vpnConnections[$n1++] = vpnConnections::fromMap($item1);
+                    $model->vpnConnections[$n1] = vpnConnections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

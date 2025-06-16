@@ -67,7 +67,8 @@ class DescribeEcGrantRelationResponseBody extends Model
                 $res['EcGrantRelations'] = [];
                 $n1 = 0;
                 foreach ($this->ecGrantRelations as $item1) {
-                    $res['EcGrantRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EcGrantRelations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class DescribeEcGrantRelationResponseBody extends Model
                 $model->ecGrantRelations = [];
                 $n1 = 0;
                 foreach ($map['EcGrantRelations'] as $item1) {
-                    $model->ecGrantRelations[$n1++] = ecGrantRelations::fromMap($item1);
+                    $model->ecGrantRelations[$n1] = ecGrantRelations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

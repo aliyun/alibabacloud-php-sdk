@@ -57,7 +57,8 @@ class ListIpsecServersResponseBody extends Model
                 $res['IpsecServers'] = [];
                 $n1 = 0;
                 foreach ($this->ipsecServers as $item1) {
-                    $res['IpsecServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpsecServers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListIpsecServersResponseBody extends Model
                 $model->ipsecServers = [];
                 $n1 = 0;
                 foreach ($map['IpsecServers'] as $item1) {
-                    $model->ipsecServers[$n1++] = ipsecServers::fromMap($item1);
+                    $model->ipsecServers[$n1] = ipsecServers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

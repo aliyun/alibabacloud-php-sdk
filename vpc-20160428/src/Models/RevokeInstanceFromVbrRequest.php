@@ -74,7 +74,8 @@ class RevokeInstanceFromVbrRequest extends Model
                 $res['VbrInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->vbrInstanceIds as $item1) {
-                    $res['VbrInstanceIds'][$n1++] = $item1;
+                    $res['VbrInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class RevokeInstanceFromVbrRequest extends Model
                 $model->vbrInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['VbrInstanceIds'] as $item1) {
-                    $model->vbrInstanceIds[$n1++] = $item1;
+                    $model->vbrInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

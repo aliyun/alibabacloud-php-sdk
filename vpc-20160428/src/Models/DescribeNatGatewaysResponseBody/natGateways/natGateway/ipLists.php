@@ -33,7 +33,8 @@ class ipLists extends Model
                 $res['IpList'] = [];
                 $n1 = 0;
                 foreach ($this->ipList as $item1) {
-                    $res['IpList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipLists extends Model
                 $model->ipList = [];
                 $n1 = 0;
                 foreach ($map['IpList'] as $item1) {
-                    $model->ipList[$n1++] = ipList::fromMap($item1);
+                    $model->ipList[$n1] = ipList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

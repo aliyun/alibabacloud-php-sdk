@@ -33,7 +33,8 @@ class eipAddresses extends Model
                 $res['EipAddress'] = [];
                 $n1 = 0;
                 foreach ($this->eipAddress as $item1) {
-                    $res['EipAddress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EipAddress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class eipAddresses extends Model
                 $model->eipAddress = [];
                 $n1 = 0;
                 foreach ($map['EipAddress'] as $item1) {
-                    $model->eipAddress[$n1++] = eipAddress::fromMap($item1);
+                    $model->eipAddress[$n1] = eipAddress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

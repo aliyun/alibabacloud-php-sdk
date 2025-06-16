@@ -88,7 +88,8 @@ class AddCommonBandwidthPackageIpsRequest extends Model
                 $res['IpInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->ipInstanceIds as $item1) {
-                    $res['IpInstanceIds'][$n1++] = $item1;
+                    $res['IpInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class AddCommonBandwidthPackageIpsRequest extends Model
                 $model->ipInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['IpInstanceIds'] as $item1) {
-                    $model->ipInstanceIds[$n1++] = $item1;
+                    $model->ipInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

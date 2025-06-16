@@ -33,7 +33,8 @@ class networkAcls extends Model
                 $res['NetworkAcl'] = [];
                 $n1 = 0;
                 foreach ($this->networkAcl as $item1) {
-                    $res['NetworkAcl'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkAcl'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class networkAcls extends Model
                 $model->networkAcl = [];
                 $n1 = 0;
                 foreach ($map['NetworkAcl'] as $item1) {
-                    $model->networkAcl[$n1++] = networkAcl::fromMap($item1);
+                    $model->networkAcl[$n1] = networkAcl::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

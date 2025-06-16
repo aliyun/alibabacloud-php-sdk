@@ -33,7 +33,8 @@ class ipv6TranslatorEntries extends Model
                 $res['Ipv6TranslatorEntry'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6TranslatorEntry as $item1) {
-                    $res['Ipv6TranslatorEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6TranslatorEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv6TranslatorEntries extends Model
                 $model->ipv6TranslatorEntry = [];
                 $n1 = 0;
                 foreach ($map['Ipv6TranslatorEntry'] as $item1) {
-                    $model->ipv6TranslatorEntry[$n1++] = ipv6TranslatorEntry::fromMap($item1);
+                    $model->ipv6TranslatorEntry[$n1] = ipv6TranslatorEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

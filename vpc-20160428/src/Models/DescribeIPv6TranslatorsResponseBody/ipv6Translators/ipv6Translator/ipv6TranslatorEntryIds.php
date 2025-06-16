@@ -32,7 +32,8 @@ class ipv6TranslatorEntryIds extends Model
                 $res['Ipv6TranslatorEntryId'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6TranslatorEntryId as $item1) {
-                    $res['Ipv6TranslatorEntryId'][$n1++] = $item1;
+                    $res['Ipv6TranslatorEntryId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ipv6TranslatorEntryIds extends Model
                 $model->ipv6TranslatorEntryId = [];
                 $n1 = 0;
                 foreach ($map['Ipv6TranslatorEntryId'] as $item1) {
-                    $model->ipv6TranslatorEntryId[$n1++] = $item1;
+                    $model->ipv6TranslatorEntryId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

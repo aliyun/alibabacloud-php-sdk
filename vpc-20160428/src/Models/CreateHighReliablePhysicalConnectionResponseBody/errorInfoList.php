@@ -33,7 +33,8 @@ class errorInfoList extends Model
                 $res['errorInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->errorInfoList as $item1) {
-                    $res['errorInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['errorInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class errorInfoList extends Model
                 $model->errorInfoList = [];
                 $n1 = 0;
                 foreach ($map['errorInfoList'] as $item1) {
-                    $model->errorInfoList[$n1++] = self::fromMap($item1);
+                    $model->errorInfoList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

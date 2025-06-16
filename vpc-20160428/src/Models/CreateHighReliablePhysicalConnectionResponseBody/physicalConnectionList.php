@@ -33,7 +33,8 @@ class physicalConnectionList extends Model
                 $res['physicalConnectionList'] = [];
                 $n1 = 0;
                 foreach ($this->physicalConnectionList as $item1) {
-                    $res['physicalConnectionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['physicalConnectionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class physicalConnectionList extends Model
                 $model->physicalConnectionList = [];
                 $n1 = 0;
                 foreach ($map['physicalConnectionList'] as $item1) {
-                    $model->physicalConnectionList[$n1++] = self::fromMap($item1);
+                    $model->physicalConnectionList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

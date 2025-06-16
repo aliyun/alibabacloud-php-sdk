@@ -67,7 +67,8 @@ class DescribeFailoverTestJobsResponseBody extends Model
                 $res['FailoverTestJobList'] = [];
                 $n1 = 0;
                 foreach ($this->failoverTestJobList as $item1) {
-                    $res['FailoverTestJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailoverTestJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class DescribeFailoverTestJobsResponseBody extends Model
                 $model->failoverTestJobList = [];
                 $n1 = 0;
                 foreach ($map['FailoverTestJobList'] as $item1) {
-                    $model->failoverTestJobList[$n1++] = failoverTestJobList::fromMap($item1);
+                    $model->failoverTestJobList[$n1] = failoverTestJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

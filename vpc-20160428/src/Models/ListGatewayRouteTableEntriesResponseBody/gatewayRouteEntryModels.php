@@ -89,7 +89,8 @@ class gatewayRouteEntryModels extends Model
                 $res['NextHops'] = [];
                 $n1 = 0;
                 foreach ($this->nextHops as $item1) {
-                    $res['NextHops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NextHops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class gatewayRouteEntryModels extends Model
                 $model->nextHops = [];
                 $n1 = 0;
                 foreach ($map['NextHops'] as $item1) {
-                    $model->nextHops[$n1++] = nextHops::fromMap($item1);
+                    $model->nextHops[$n1] = nextHops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

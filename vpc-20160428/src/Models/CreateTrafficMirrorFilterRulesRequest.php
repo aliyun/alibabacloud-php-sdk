@@ -99,7 +99,8 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
                 $res['EgressRules'] = [];
                 $n1 = 0;
                 foreach ($this->egressRules as $item1) {
-                    $res['EgressRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EgressRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
                 $res['IngressRules'] = [];
                 $n1 = 0;
                 foreach ($this->ingressRules as $item1) {
-                    $res['IngressRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IngressRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +164,8 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
                 $model->egressRules = [];
                 $n1 = 0;
                 foreach ($map['EgressRules'] as $item1) {
-                    $model->egressRules[$n1++] = egressRules::fromMap($item1);
+                    $model->egressRules[$n1] = egressRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +175,8 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
                 $model->ingressRules = [];
                 $n1 = 0;
                 foreach ($map['IngressRules'] as $item1) {
-                    $model->ingressRules[$n1++] = ingressRules::fromMap($item1);
+                    $model->ingressRules[$n1] = ingressRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

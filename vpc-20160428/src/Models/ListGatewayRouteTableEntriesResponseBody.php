@@ -51,7 +51,8 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
                 $res['GatewayRouteEntryModels'] = [];
                 $n1 = 0;
                 foreach ($this->gatewayRouteEntryModels as $item1) {
-                    $res['GatewayRouteEntryModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GatewayRouteEntryModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
                 $model->gatewayRouteEntryModels = [];
                 $n1 = 0;
                 foreach ($map['GatewayRouteEntryModels'] as $item1) {
-                    $model->gatewayRouteEntryModels[$n1++] = gatewayRouteEntryModels::fromMap($item1);
+                    $model->gatewayRouteEntryModels[$n1] = gatewayRouteEntryModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

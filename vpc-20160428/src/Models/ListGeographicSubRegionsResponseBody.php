@@ -48,7 +48,8 @@ class ListGeographicSubRegionsResponseBody extends Model
                 $res['GeographicSubRegions'] = [];
                 $n1 = 0;
                 foreach ($this->geographicSubRegions as $item1) {
-                    $res['GeographicSubRegions'][$n1++] = $item1;
+                    $res['GeographicSubRegions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListGeographicSubRegionsResponseBody extends Model
                 $model->geographicSubRegions = [];
                 $n1 = 0;
                 foreach ($map['GeographicSubRegions'] as $item1) {
-                    $model->geographicSubRegions[$n1++] = $item1;
+                    $model->geographicSubRegions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

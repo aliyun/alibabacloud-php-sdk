@@ -33,7 +33,8 @@ class vpnConnections extends Model
                 $res['VpnConnection'] = [];
                 $n1 = 0;
                 foreach ($this->vpnConnection as $item1) {
-                    $res['VpnConnection'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpnConnection'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class vpnConnections extends Model
                 $model->vpnConnection = [];
                 $n1 = 0;
                 foreach ($map['VpnConnection'] as $item1) {
-                    $model->vpnConnection[$n1++] = vpnConnection::fromMap($item1);
+                    $model->vpnConnection[$n1] = vpnConnection::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

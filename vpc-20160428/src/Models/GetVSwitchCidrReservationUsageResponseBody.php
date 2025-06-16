@@ -57,7 +57,8 @@ class GetVSwitchCidrReservationUsageResponseBody extends Model
                 $res['CidrReservationUsages'] = [];
                 $n1 = 0;
                 foreach ($this->cidrReservationUsages as $item1) {
-                    $res['CidrReservationUsages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CidrReservationUsages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class GetVSwitchCidrReservationUsageResponseBody extends Model
                 $model->cidrReservationUsages = [];
                 $n1 = 0;
                 foreach ($map['CidrReservationUsages'] as $item1) {
-                    $model->cidrReservationUsages[$n1++] = cidrReservationUsages::fromMap($item1);
+                    $model->cidrReservationUsages[$n1] = cidrReservationUsages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

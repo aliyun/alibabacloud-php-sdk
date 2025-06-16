@@ -68,7 +68,8 @@ class ListIpsecServersRequest extends Model
                 $res['IpsecServerId'] = [];
                 $n1 = 0;
                 foreach ($this->ipsecServerId as $item1) {
-                    $res['IpsecServerId'][$n1++] = $item1;
+                    $res['IpsecServerId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class ListIpsecServersRequest extends Model
                 $model->ipsecServerId = [];
                 $n1 = 0;
                 foreach ($map['IpsecServerId'] as $item1) {
-                    $model->ipsecServerId[$n1++] = $item1;
+                    $model->ipsecServerId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

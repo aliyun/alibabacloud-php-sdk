@@ -15,6 +15,11 @@ class DeleteRouteEntryRequest extends Model
     public $destinationCidrBlock;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $nextHopId;
@@ -60,6 +65,7 @@ class DeleteRouteEntryRequest extends Model
     public $routeTableId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
+        'dryRun' => 'DryRun',
         'nextHopId' => 'NextHopId',
         'nextHopList' => 'NextHopList',
         'ownerAccount' => 'OwnerAccount',
@@ -86,6 +92,10 @@ class DeleteRouteEntryRequest extends Model
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
 
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
@@ -95,7 +105,8 @@ class DeleteRouteEntryRequest extends Model
                 $res['NextHopList'] = [];
                 $n1 = 0;
                 foreach ($this->nextHopList as $item1) {
-                    $res['NextHopList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NextHopList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,6 +154,10 @@ class DeleteRouteEntryRequest extends Model
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
 
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
@@ -152,7 +167,8 @@ class DeleteRouteEntryRequest extends Model
                 $model->nextHopList = [];
                 $n1 = 0;
                 foreach ($map['NextHopList'] as $item1) {
-                    $model->nextHopList[$n1++] = nextHopList::fromMap($item1);
+                    $model->nextHopList[$n1] = nextHopList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

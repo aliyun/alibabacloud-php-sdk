@@ -59,7 +59,8 @@ class routeEntries extends Model
                 $res['RoutePublishTargets'] = [];
                 $n1 = 0;
                 foreach ($this->routePublishTargets as $item1) {
-                    $res['RoutePublishTargets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RoutePublishTargets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class routeEntries extends Model
                 $model->routePublishTargets = [];
                 $n1 = 0;
                 foreach ($map['RoutePublishTargets'] as $item1) {
-                    $model->routePublishTargets[$n1++] = routePublishTargets::fromMap($item1);
+                    $model->routePublishTargets[$n1] = routePublishTargets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

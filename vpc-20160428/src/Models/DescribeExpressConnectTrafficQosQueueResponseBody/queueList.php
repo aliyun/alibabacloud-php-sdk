@@ -99,7 +99,8 @@ class queueList extends Model
                 $res['RuleList'] = [];
                 $n1 = 0;
                 foreach ($this->ruleList as $item1) {
-                    $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class queueList extends Model
                 $model->ruleList = [];
                 $n1 = 0;
                 foreach ($map['RuleList'] as $item1) {
-                    $model->ruleList[$n1++] = ruleList::fromMap($item1);
+                    $model->ruleList[$n1] = ruleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

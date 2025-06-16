@@ -112,7 +112,8 @@ class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
                 $res['RouteTableIds'] = [];
                 $n1 = 0;
                 foreach ($this->routeTableIds as $item1) {
-                    $res['RouteTableIds'][$n1++] = $item1;
+                    $res['RouteTableIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +166,8 @@ class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
                 $model->routeTableIds = [];
                 $n1 = 0;
                 foreach ($map['RouteTableIds'] as $item1) {
-                    $model->routeTableIds[$n1++] = $item1;
+                    $model->routeTableIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

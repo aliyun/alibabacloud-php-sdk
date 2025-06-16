@@ -33,7 +33,8 @@ class tunnelsConfig extends Model
                 $res['TunnelConfig'] = [];
                 $n1 = 0;
                 foreach ($this->tunnelConfig as $item1) {
-                    $res['TunnelConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TunnelConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class tunnelsConfig extends Model
                 $model->tunnelConfig = [];
                 $n1 = 0;
                 foreach ($map['TunnelConfig'] as $item1) {
-                    $model->tunnelConfig[$n1++] = tunnelConfig::fromMap($item1);
+                    $model->tunnelConfig[$n1] = tunnelConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

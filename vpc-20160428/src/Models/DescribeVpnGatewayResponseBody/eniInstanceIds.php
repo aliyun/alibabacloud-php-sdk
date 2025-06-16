@@ -32,7 +32,8 @@ class eniInstanceIds extends Model
                 $res['EniInstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->eniInstanceId as $item1) {
-                    $res['EniInstanceId'][$n1++] = $item1;
+                    $res['EniInstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class eniInstanceIds extends Model
                 $model->eniInstanceId = [];
                 $n1 = 0;
                 foreach ($map['EniInstanceId'] as $item1) {
-                    $model->eniInstanceId[$n1++] = $item1;
+                    $model->eniInstanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

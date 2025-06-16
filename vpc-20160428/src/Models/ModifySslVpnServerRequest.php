@@ -31,6 +31,11 @@ class ModifySslVpnServerRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $enableMultiFactorAuth;
 
     /**
@@ -102,6 +107,7 @@ class ModifySslVpnServerRequest extends Model
         'clientIpPool' => 'ClientIpPool',
         'clientToken' => 'ClientToken',
         'compress' => 'Compress',
+        'dryRun' => 'DryRun',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
         'IDaaSApplicationId' => 'IDaaSApplicationId',
         'IDaaSInstanceId' => 'IDaaSInstanceId',
@@ -140,6 +146,10 @@ class ModifySslVpnServerRequest extends Model
 
         if (null !== $this->compress) {
             $res['Compress'] = $this->compress;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enableMultiFactorAuth) {
@@ -223,6 +233,10 @@ class ModifySslVpnServerRequest extends Model
 
         if (isset($map['Compress'])) {
             $model->compress = $map['Compress'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EnableMultiFactorAuth'])) {

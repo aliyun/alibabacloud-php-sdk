@@ -128,7 +128,8 @@ class DescribeRouteEntryListRequest extends Model
                 $res['DestCidrBlockList'] = [];
                 $n1 = 0;
                 foreach ($this->destCidrBlockList as $item1) {
-                    $res['DestCidrBlockList'][$n1++] = $item1;
+                    $res['DestCidrBlockList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +214,8 @@ class DescribeRouteEntryListRequest extends Model
                 $model->destCidrBlockList = [];
                 $n1 = 0;
                 foreach ($map['DestCidrBlockList'] as $item1) {
-                    $model->destCidrBlockList[$n1++] = $item1;
+                    $model->destCidrBlockList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
