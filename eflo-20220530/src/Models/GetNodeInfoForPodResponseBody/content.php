@@ -144,7 +144,8 @@ class content extends Model
                 $res['VSwitches'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
-                    $res['VSwitches'][$n1++] = $item1;
+                    $res['VSwitches'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +214,8 @@ class content extends Model
                 $model->vSwitches = [];
                 $n1 = 0;
                 foreach ($map['VSwitches'] as $item1) {
-                    $model->vSwitches[$n1++] = $item1;
+                    $model->vSwitches[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

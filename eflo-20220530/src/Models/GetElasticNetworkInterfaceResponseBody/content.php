@@ -195,7 +195,8 @@ class content extends Model
                 $res['Ipv6Addresses'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Addresses as $item1) {
-                    $res['Ipv6Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6Addresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +222,8 @@ class content extends Model
                 $res['PrivateIpAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpAddresses as $item1) {
-                    $res['PrivateIpAddresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrivateIpAddresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -247,7 +249,8 @@ class content extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +315,8 @@ class content extends Model
                 $model->ipv6Addresses = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Addresses'] as $item1) {
-                    $model->ipv6Addresses[$n1++] = ipv6Addresses::fromMap($item1);
+                    $model->ipv6Addresses[$n1] = ipv6Addresses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +342,8 @@ class content extends Model
                 $model->privateIpAddresses = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpAddresses'] as $item1) {
-                    $model->privateIpAddresses[$n1++] = privateIpAddresses::fromMap($item1);
+                    $model->privateIpAddresses[$n1] = privateIpAddresses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -364,7 +369,8 @@ class content extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

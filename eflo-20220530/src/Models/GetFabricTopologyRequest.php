@@ -69,7 +69,8 @@ class GetFabricTopologyRequest extends Model
                 $res['LniIds'] = [];
                 $n1 = 0;
                 foreach ($this->lniIds as $item1) {
-                    $res['LniIds'][$n1++] = $item1;
+                    $res['LniIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class GetFabricTopologyRequest extends Model
                 $res['NodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +118,8 @@ class GetFabricTopologyRequest extends Model
                 $model->lniIds = [];
                 $n1 = 0;
                 foreach ($map['LniIds'] as $item1) {
-                    $model->lniIds[$n1++] = $item1;
+                    $model->lniIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class GetFabricTopologyRequest extends Model
                 $model->nodeIds = [];
                 $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

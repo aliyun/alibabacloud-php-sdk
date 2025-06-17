@@ -38,7 +38,8 @@ class content extends Model
                 $res['SubnetIds'] = [];
                 $n1 = 0;
                 foreach ($this->subnetIds as $item1) {
-                    $res['SubnetIds'][$n1++] = $item1;
+                    $res['SubnetIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class content extends Model
                 $model->subnetIds = [];
                 $n1 = 0;
                 foreach ($map['SubnetIds'] as $item1) {
-                    $model->subnetIds[$n1++] = $item1;
+                    $model->subnetIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

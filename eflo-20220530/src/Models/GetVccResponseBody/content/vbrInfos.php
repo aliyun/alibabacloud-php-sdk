@@ -79,7 +79,8 @@ class vbrInfos extends Model
                 $res['VbrBgpPeers'] = [];
                 $n1 = 0;
                 foreach ($this->vbrBgpPeers as $item1) {
-                    $res['VbrBgpPeers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VbrBgpPeers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class vbrInfos extends Model
                 $model->vbrBgpPeers = [];
                 $n1 = 0;
                 foreach ($map['VbrBgpPeers'] as $item1) {
-                    $model->vbrBgpPeers[$n1++] = vbrBgpPeers::fromMap($item1);
+                    $model->vbrBgpPeers[$n1] = vbrBgpPeers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

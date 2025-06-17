@@ -162,7 +162,8 @@ class data extends Model
                 $res['ErInfos'] = [];
                 $n1 = 0;
                 foreach ($this->erInfos as $item1) {
-                    $res['ErInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +197,8 @@ class data extends Model
                 $res['SecondaryCidrBlocks'] = [];
                 $n1 = 0;
                 foreach ($this->secondaryCidrBlocks as $item1) {
-                    $res['SecondaryCidrBlocks'][$n1++] = $item1;
+                    $res['SecondaryCidrBlocks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +220,8 @@ class data extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +271,8 @@ class data extends Model
                 $model->erInfos = [];
                 $n1 = 0;
                 foreach ($map['ErInfos'] as $item1) {
-                    $model->erInfos[$n1++] = erInfos::fromMap($item1);
+                    $model->erInfos[$n1] = erInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -302,7 +306,8 @@ class data extends Model
                 $model->secondaryCidrBlocks = [];
                 $n1 = 0;
                 foreach ($map['SecondaryCidrBlocks'] as $item1) {
-                    $model->secondaryCidrBlocks[$n1++] = $item1;
+                    $model->secondaryCidrBlocks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -324,7 +329,8 @@ class data extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

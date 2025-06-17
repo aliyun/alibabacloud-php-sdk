@@ -279,7 +279,8 @@ class content extends Model
                 $res['AliyunRouterInfo'] = [];
                 $n1 = 0;
                 foreach ($this->aliyunRouterInfo as $item1) {
-                    $res['AliyunRouterInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AliyunRouterInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -317,7 +318,8 @@ class content extends Model
                 $res['CisRouterInfo'] = [];
                 $n1 = 0;
                 foreach ($this->cisRouterInfo as $item1) {
-                    $res['CisRouterInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CisRouterInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -347,7 +349,8 @@ class content extends Model
                 $res['ErInfos'] = [];
                 $n1 = 0;
                 foreach ($this->erInfos as $item1) {
-                    $res['ErInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -405,7 +408,8 @@ class content extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -423,7 +427,8 @@ class content extends Model
                 $res['VbrInfos'] = [];
                 $n1 = 0;
                 foreach ($this->vbrInfos as $item1) {
-                    $res['VbrInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VbrInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -472,7 +477,8 @@ class content extends Model
                 $model->aliyunRouterInfo = [];
                 $n1 = 0;
                 foreach ($map['AliyunRouterInfo'] as $item1) {
-                    $model->aliyunRouterInfo[$n1++] = aliyunRouterInfo::fromMap($item1);
+                    $model->aliyunRouterInfo[$n1] = aliyunRouterInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -510,7 +516,8 @@ class content extends Model
                 $model->cisRouterInfo = [];
                 $n1 = 0;
                 foreach ($map['CisRouterInfo'] as $item1) {
-                    $model->cisRouterInfo[$n1++] = cisRouterInfo::fromMap($item1);
+                    $model->cisRouterInfo[$n1] = cisRouterInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -540,7 +547,8 @@ class content extends Model
                 $model->erInfos = [];
                 $n1 = 0;
                 foreach ($map['ErInfos'] as $item1) {
-                    $model->erInfos[$n1++] = erInfos::fromMap($item1);
+                    $model->erInfos[$n1] = erInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -598,7 +606,8 @@ class content extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -616,7 +625,8 @@ class content extends Model
                 $model->vbrInfos = [];
                 $n1 = 0;
                 foreach ($map['VbrInfos'] as $item1) {
-                    $model->vbrInfos[$n1++] = vbrInfos::fromMap($item1);
+                    $model->vbrInfos[$n1] = vbrInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -48,7 +48,8 @@ class DeleteErRouteMapRequest extends Model
                 $res['ErRouteMapIds'] = [];
                 $n1 = 0;
                 foreach ($this->erRouteMapIds as $item1) {
-                    $res['ErRouteMapIds'][$n1++] = $item1;
+                    $res['ErRouteMapIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class DeleteErRouteMapRequest extends Model
                 $model->erRouteMapIds = [];
                 $n1 = 0;
                 foreach ($map['ErRouteMapIds'] as $item1) {
-                    $model->erRouteMapIds[$n1++] = $item1;
+                    $model->erRouteMapIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

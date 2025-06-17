@@ -65,7 +65,8 @@ class ListNodeInfosForPodResponseBody extends Model
                 $res['Content'] = [];
                 $n1 = 0;
                 foreach ($this->content as $item1) {
-                    $res['Content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Content'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListNodeInfosForPodResponseBody extends Model
                 $model->content = [];
                 $n1 = 0;
                 foreach ($map['Content'] as $item1) {
-                    $model->content[$n1++] = content::fromMap($item1);
+                    $model->content[$n1] = content::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

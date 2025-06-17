@@ -51,7 +51,8 @@ class content extends Model
                 $res['InstanceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->instanceInfos as $item1) {
-                    $res['InstanceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class content extends Model
                 $model->instanceInfos = [];
                 $n1 = 0;
                 foreach ($map['InstanceInfos'] as $item1) {
-                    $model->instanceInfos[$n1++] = instanceInfos::fromMap($item1);
+                    $model->instanceInfos[$n1] = instanceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

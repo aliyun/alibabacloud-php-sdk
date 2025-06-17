@@ -160,7 +160,8 @@ class content extends Model
                 $res['Ethernet'] = [];
                 $n1 = 0;
                 foreach ($this->ethernet as $item1) {
-                    $res['Ethernet'][$n1++] = $item1;
+                    $res['Ethernet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +195,8 @@ class content extends Model
                 $res['PrivateIpAddressMacGroup'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpAddressMacGroup as $item1) {
-                    $res['PrivateIpAddressMacGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrivateIpAddressMacGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +230,8 @@ class content extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +268,8 @@ class content extends Model
                 $model->ethernet = [];
                 $n1 = 0;
                 foreach ($map['Ethernet'] as $item1) {
-                    $model->ethernet[$n1++] = $item1;
+                    $model->ethernet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -299,7 +303,8 @@ class content extends Model
                 $model->privateIpAddressMacGroup = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpAddressMacGroup'] as $item1) {
-                    $model->privateIpAddressMacGroup[$n1++] = privateIpAddressMacGroup::fromMap($item1);
+                    $model->privateIpAddressMacGroup[$n1] = privateIpAddressMacGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -333,7 +338,8 @@ class content extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

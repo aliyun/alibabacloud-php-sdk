@@ -65,7 +65,8 @@ class content extends Model
                 $res['TopoInfo'] = [];
                 $n1 = 0;
                 foreach ($this->topoInfo as $item1) {
-                    $res['TopoInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopoInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class content extends Model
                 $model->topoInfo = [];
                 $n1 = 0;
                 foreach ($map['TopoInfo'] as $item1) {
-                    $model->topoInfo[$n1++] = topoInfo::fromMap($item1);
+                    $model->topoInfo[$n1] = topoInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

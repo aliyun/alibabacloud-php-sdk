@@ -79,7 +79,8 @@ class CreateVpdRequest extends Model
                 $res['Subnets'] = [];
                 $n1 = 0;
                 foreach ($this->subnets as $item1) {
-                    $res['Subnets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Subnets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class CreateVpdRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class CreateVpdRequest extends Model
                 $model->subnets = [];
                 $n1 = 0;
                 foreach ($map['Subnets'] as $item1) {
-                    $model->subnets[$n1++] = subnets::fromMap($item1);
+                    $model->subnets[$n1] = subnets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class CreateVpdRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

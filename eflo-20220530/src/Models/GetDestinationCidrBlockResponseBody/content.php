@@ -32,7 +32,8 @@ class content extends Model
                 $res['DestinationCidrBlock'] = [];
                 $n1 = 0;
                 foreach ($this->destinationCidrBlock as $item1) {
-                    $res['DestinationCidrBlock'][$n1++] = $item1;
+                    $res['DestinationCidrBlock'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class content extends Model
                 $model->destinationCidrBlock = [];
                 $n1 = 0;
                 foreach ($map['DestinationCidrBlock'] as $item1) {
-                    $model->destinationCidrBlock[$n1++] = $item1;
+                    $model->destinationCidrBlock[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

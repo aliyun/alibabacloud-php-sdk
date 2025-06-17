@@ -52,7 +52,8 @@ class topoInfo extends Model
                 $res['NextLayer'] = [];
                 $n1 = 0;
                 foreach ($this->nextLayer as $item1) {
-                    $res['NextLayer'][$n1++] = $item1;
+                    $res['NextLayer'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class topoInfo extends Model
                 $model->nextLayer = [];
                 $n1 = 0;
                 foreach ($map['NextLayer'] as $item1) {
-                    $model->nextLayer[$n1++] = $item1;
+                    $model->nextLayer[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -137,7 +137,8 @@ class content extends Model
                 $res['ErAttachments'] = [];
                 $n1 = 0;
                 foreach ($this->erAttachments as $item1) {
-                    $res['ErAttachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErAttachments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class content extends Model
                 $res['ErRouteEntrys'] = [];
                 $n1 = 0;
                 foreach ($this->erRouteEntrys as $item1) {
-                    $res['ErRouteEntrys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErRouteEntrys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +167,8 @@ class content extends Model
                 $res['ErRouteMaps'] = [];
                 $n1 = 0;
                 foreach ($this->erRouteMaps as $item1) {
-                    $res['ErRouteMaps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErRouteMaps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +202,8 @@ class content extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +236,8 @@ class content extends Model
                 $model->erAttachments = [];
                 $n1 = 0;
                 foreach ($map['ErAttachments'] as $item1) {
-                    $model->erAttachments[$n1++] = erAttachments::fromMap($item1);
+                    $model->erAttachments[$n1] = erAttachments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -250,7 +255,8 @@ class content extends Model
                 $model->erRouteEntrys = [];
                 $n1 = 0;
                 foreach ($map['ErRouteEntrys'] as $item1) {
-                    $model->erRouteEntrys[$n1++] = erRouteEntrys::fromMap($item1);
+                    $model->erRouteEntrys[$n1] = erRouteEntrys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +266,8 @@ class content extends Model
                 $model->erRouteMaps = [];
                 $n1 = 0;
                 foreach ($map['ErRouteMaps'] as $item1) {
-                    $model->erRouteMaps[$n1++] = erRouteMaps::fromMap($item1);
+                    $model->erRouteMaps[$n1] = erRouteMaps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +301,8 @@ class content extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
