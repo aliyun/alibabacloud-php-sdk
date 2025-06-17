@@ -39,6 +39,11 @@ class SingleSendMailRequest extends Model
     public $htmlBody;
 
     /**
+     * @var string
+     */
+    public $ipPoolId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -104,6 +109,7 @@ class SingleSendMailRequest extends Model
         'fromAlias' => 'FromAlias',
         'headers' => 'Headers',
         'htmlBody' => 'HtmlBody',
+        'ipPoolId' => 'IpPoolId',
         'ownerId' => 'OwnerId',
         'replyAddress' => 'ReplyAddress',
         'replyAddressAlias' => 'ReplyAddressAlias',
@@ -148,6 +154,10 @@ class SingleSendMailRequest extends Model
 
         if (null !== $this->htmlBody) {
             $res['HtmlBody'] = $this->htmlBody;
+        }
+
+        if (null !== $this->ipPoolId) {
+            $res['IpPoolId'] = $this->ipPoolId;
         }
 
         if (null !== $this->ownerId) {
@@ -231,6 +241,10 @@ class SingleSendMailRequest extends Model
 
         if (isset($map['HtmlBody'])) {
             $model->htmlBody = $map['HtmlBody'];
+        }
+
+        if (isset($map['IpPoolId'])) {
+            $model->ipPoolId = $map['IpPoolId'];
         }
 
         if (isset($map['OwnerId'])) {

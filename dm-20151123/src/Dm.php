@@ -305,6 +305,10 @@ class Dm extends OpenApiClient
             @$query['Headers'] = $request->headers;
         }
 
+        if (null !== $request->ipPoolId) {
+            @$query['IpPoolId'] = $request->ipPoolId;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -3428,6 +3432,10 @@ class Dm extends OpenApiClient
 
         if (null !== $request->htmlBody) {
             @$query['HtmlBody'] = $request->htmlBody;
+        }
+
+        if (null !== $request->ipPoolId) {
+            @$query['IpPoolId'] = $request->ipPoolId;
         }
 
         if (null !== $request->ownerId) {

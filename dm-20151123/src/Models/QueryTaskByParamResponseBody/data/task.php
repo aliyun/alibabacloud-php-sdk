@@ -21,6 +21,16 @@ class task extends Model
     /**
      * @var string
      */
+    public $ipPoolId;
+
+    /**
+     * @var string
+     */
+    public $ipPoolName;
+
+    /**
+     * @var string
+     */
     public $receiversName;
 
     /**
@@ -55,6 +65,8 @@ class task extends Model
     protected $_name = [
         'addressType' => 'AddressType',
         'createTime' => 'CreateTime',
+        'ipPoolId' => 'IpPoolId',
+        'ipPoolName' => 'IpPoolName',
         'receiversName' => 'ReceiversName',
         'requestCount' => 'RequestCount',
         'tagName' => 'TagName',
@@ -78,6 +90,14 @@ class task extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->ipPoolId) {
+            $res['IpPoolId'] = $this->ipPoolId;
+        }
+
+        if (null !== $this->ipPoolName) {
+            $res['IpPoolName'] = $this->ipPoolName;
         }
 
         if (null !== $this->receiversName) {
@@ -125,6 +145,14 @@ class task extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['IpPoolId'])) {
+            $model->ipPoolId = $map['IpPoolId'];
+        }
+
+        if (isset($map['IpPoolName'])) {
+            $model->ipPoolName = $map['IpPoolName'];
         }
 
         if (isset($map['ReceiversName'])) {

@@ -29,6 +29,11 @@ class BatchSendMailRequest extends Model
     public $headers;
 
     /**
+     * @var string
+     */
+    public $ipPoolId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -82,6 +87,7 @@ class BatchSendMailRequest extends Model
         'addressType' => 'AddressType',
         'clickTrace' => 'ClickTrace',
         'headers' => 'Headers',
+        'ipPoolId' => 'IpPoolId',
         'ownerId' => 'OwnerId',
         'receiversName' => 'ReceiversName',
         'replyAddress' => 'ReplyAddress',
@@ -116,6 +122,10 @@ class BatchSendMailRequest extends Model
 
         if (null !== $this->headers) {
             $res['Headers'] = $this->headers;
+        }
+
+        if (null !== $this->ipPoolId) {
+            $res['IpPoolId'] = $this->ipPoolId;
         }
 
         if (null !== $this->ownerId) {
@@ -183,6 +193,10 @@ class BatchSendMailRequest extends Model
 
         if (isset($map['Headers'])) {
             $model->headers = $map['Headers'];
+        }
+
+        if (isset($map['IpPoolId'])) {
+            $model->ipPoolId = $map['IpPoolId'];
         }
 
         if (isset($map['OwnerId'])) {
