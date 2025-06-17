@@ -53,7 +53,8 @@ class DescribeSecurityEventTimeSeriesMetricResponseBody extends Model
                 $res['SecurityEventTimeSeries'] = [];
                 $n1 = 0;
                 foreach ($this->securityEventTimeSeries as $item1) {
-                    $res['SecurityEventTimeSeries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityEventTimeSeries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DescribeSecurityEventTimeSeriesMetricResponseBody extends Model
                 $model->securityEventTimeSeries = [];
                 $n1 = 0;
                 foreach ($map['SecurityEventTimeSeries'] as $item1) {
-                    $model->securityEventTimeSeries[$n1++] = securityEventTimeSeries::fromMap($item1);
+                    $model->securityEventTimeSeries[$n1] = securityEventTimeSeries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

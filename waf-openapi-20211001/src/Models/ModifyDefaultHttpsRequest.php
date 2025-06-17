@@ -82,7 +82,8 @@ class ModifyDefaultHttpsRequest extends Model
                 $res['CustomCiphers'] = [];
                 $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
-                    $res['CustomCiphers'][$n1++] = $item1;
+                    $res['CustomCiphers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class ModifyDefaultHttpsRequest extends Model
                 $model->customCiphers = [];
                 $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
-                    $model->customCiphers[$n1++] = $item1;
+                    $model->customCiphers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

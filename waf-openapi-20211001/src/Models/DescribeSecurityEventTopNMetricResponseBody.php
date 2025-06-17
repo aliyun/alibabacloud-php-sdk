@@ -53,7 +53,8 @@ class DescribeSecurityEventTopNMetricResponseBody extends Model
                 $res['SecurityEventTopNValues'] = [];
                 $n1 = 0;
                 foreach ($this->securityEventTopNValues as $item1) {
-                    $res['SecurityEventTopNValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityEventTopNValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DescribeSecurityEventTopNMetricResponseBody extends Model
                 $model->securityEventTopNValues = [];
                 $n1 = 0;
                 foreach ($map['SecurityEventTopNValues'] as $item1) {
-                    $model->securityEventTopNValues[$n1++] = securityEventTopNValues::fromMap($item1);
+                    $model->securityEventTopNValues[$n1] = securityEventTopNValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

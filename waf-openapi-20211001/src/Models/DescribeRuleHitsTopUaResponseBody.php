@@ -43,7 +43,8 @@ class DescribeRuleHitsTopUaResponseBody extends Model
                 $res['RuleHitsTopUa'] = [];
                 $n1 = 0;
                 foreach ($this->ruleHitsTopUa as $item1) {
-                    $res['RuleHitsTopUa'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleHitsTopUa'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeRuleHitsTopUaResponseBody extends Model
                 $model->ruleHitsTopUa = [];
                 $n1 = 0;
                 foreach ($map['RuleHitsTopUa'] as $item1) {
-                    $model->ruleHitsTopUa[$n1++] = ruleHitsTopUa::fromMap($item1);
+                    $model->ruleHitsTopUa[$n1] = ruleHitsTopUa::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

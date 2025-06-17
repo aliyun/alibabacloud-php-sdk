@@ -45,7 +45,8 @@ class DescribeCloudResourcesResponseBody extends Model
                 $res['CloudResources'] = [];
                 $n1 = 0;
                 foreach ($this->cloudResources as $item1) {
-                    $res['CloudResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CloudResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeCloudResourcesResponseBody extends Model
                 $model->cloudResources = [];
                 $n1 = 0;
                 foreach ($map['CloudResources'] as $item1) {
-                    $model->cloudResources[$n1++] = cloudResources::fromMap($item1);
+                    $model->cloudResources[$n1] = cloudResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -108,7 +108,8 @@ class data extends Model
                 $res['InfoCount'] = [];
                 $n1 = 0;
                 foreach ($this->infoCount as $item1) {
-                    $res['InfoCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InfoCount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class data extends Model
                 $res['SensitiveList'] = [];
                 $n1 = 0;
                 foreach ($this->sensitiveList as $item1) {
-                    $res['SensitiveList'][$n1++] = $item1;
+                    $res['SensitiveList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +169,8 @@ class data extends Model
                 $model->infoCount = [];
                 $n1 = 0;
                 foreach ($map['InfoCount'] as $item1) {
-                    $model->infoCount[$n1++] = infoCount::fromMap($item1);
+                    $model->infoCount[$n1] = infoCount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +184,8 @@ class data extends Model
                 $model->sensitiveList = [];
                 $n1 = 0;
                 foreach ($map['SensitiveList'] as $item1) {
-                    $model->sensitiveList[$n1++] = $item1;
+                    $model->sensitiveList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

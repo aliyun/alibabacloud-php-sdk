@@ -41,7 +41,8 @@ class listenPorts extends Model
                 $res['Http'] = [];
                 $n1 = 0;
                 foreach ($this->http as $item1) {
-                    $res['Http'][$n1++] = $item1;
+                    $res['Http'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class listenPorts extends Model
                 $res['Https'] = [];
                 $n1 = 0;
                 foreach ($this->https as $item1) {
-                    $res['Https'][$n1++] = $item1;
+                    $res['Https'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class listenPorts extends Model
                 $model->http = [];
                 $n1 = 0;
                 foreach ($map['Http'] as $item1) {
-                    $model->http[$n1++] = $item1;
+                    $model->http[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class listenPorts extends Model
                 $model->https = [];
                 $n1 = 0;
                 foreach ($map['Https'] as $item1) {
-                    $model->https[$n1++] = $item1;
+                    $model->https[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

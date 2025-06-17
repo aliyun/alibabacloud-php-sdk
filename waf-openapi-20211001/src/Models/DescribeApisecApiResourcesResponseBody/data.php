@@ -231,7 +231,8 @@ class data extends Model
                 $res['Examples'] = [];
                 $n1 = 0;
                 foreach ($this->examples as $item1) {
-                    $res['Examples'][$n1++] = $item1;
+                    $res['Examples'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -261,7 +262,8 @@ class data extends Model
                 $res['Resources'] = [];
                 $n1 = 0;
                 foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = $item1;
+                    $res['Resources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -346,7 +348,8 @@ class data extends Model
                 $model->examples = [];
                 $n1 = 0;
                 foreach ($map['Examples'] as $item1) {
-                    $model->examples[$n1++] = $item1;
+                    $model->examples[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -376,7 +379,8 @@ class data extends Model
                 $model->resources = [];
                 $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = $item1;
+                    $model->resources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

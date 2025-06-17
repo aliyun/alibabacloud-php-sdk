@@ -43,7 +43,8 @@ class DescribeUserApiRequestResponseBody extends Model
                 $res['Requests'] = [];
                 $n1 = 0;
                 foreach ($this->requests as $item1) {
-                    $res['Requests'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Requests'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeUserApiRequestResponseBody extends Model
                 $model->requests = [];
                 $n1 = 0;
                 foreach ($map['Requests'] as $item1) {
-                    $model->requests[$n1++] = requests::fromMap($item1);
+                    $model->requests[$n1] = requests::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

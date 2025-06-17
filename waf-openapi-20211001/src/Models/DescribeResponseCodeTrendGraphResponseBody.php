@@ -43,7 +43,8 @@ class DescribeResponseCodeTrendGraphResponseBody extends Model
                 $res['ResponseCodes'] = [];
                 $n1 = 0;
                 foreach ($this->responseCodes as $item1) {
-                    $res['ResponseCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResponseCodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeResponseCodeTrendGraphResponseBody extends Model
                 $model->responseCodes = [];
                 $n1 = 0;
                 foreach ($map['ResponseCodes'] as $item1) {
-                    $model->responseCodes[$n1++] = responseCodes::fromMap($item1);
+                    $model->responseCodes[$n1] = responseCodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

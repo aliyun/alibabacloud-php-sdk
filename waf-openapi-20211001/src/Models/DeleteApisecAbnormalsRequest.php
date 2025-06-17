@@ -56,7 +56,8 @@ class DeleteApisecAbnormalsRequest extends Model
                 $res['AbnormalIds'] = [];
                 $n1 = 0;
                 foreach ($this->abnormalIds as $item1) {
-                    $res['AbnormalIds'][$n1++] = $item1;
+                    $res['AbnormalIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class DeleteApisecAbnormalsRequest extends Model
                 $model->abnormalIds = [];
                 $n1 = 0;
                 foreach ($map['AbnormalIds'] as $item1) {
-                    $model->abnormalIds[$n1++] = $item1;
+                    $model->abnormalIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

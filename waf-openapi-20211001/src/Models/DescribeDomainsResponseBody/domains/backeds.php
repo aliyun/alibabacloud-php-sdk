@@ -43,7 +43,8 @@ class backeds extends Model
                 $res['Http'] = [];
                 $n1 = 0;
                 foreach ($this->http as $item1) {
-                    $res['Http'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Http'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class backeds extends Model
                 $res['Https'] = [];
                 $n1 = 0;
                 foreach ($this->https as $item1) {
-                    $res['Https'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Https'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class backeds extends Model
                 $model->http = [];
                 $n1 = 0;
                 foreach ($map['Http'] as $item1) {
-                    $model->http[$n1++] = http::fromMap($item1);
+                    $model->http[$n1] = http::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class backeds extends Model
                 $model->https = [];
                 $n1 = 0;
                 foreach ($map['Https'] as $item1) {
-                    $model->https[$n1++] = https::fromMap($item1);
+                    $model->https[$n1] = https::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

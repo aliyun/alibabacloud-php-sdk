@@ -39,7 +39,8 @@ class DescribeHybridCloudClustersResponseBody extends Model
                 $res['ClusterInfos'] = [];
                 $n1 = 0;
                 foreach ($this->clusterInfos as $item1) {
-                    $res['ClusterInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeHybridCloudClustersResponseBody extends Model
                 $model->clusterInfos = [];
                 $n1 = 0;
                 foreach ($map['ClusterInfos'] as $item1) {
-                    $model->clusterInfos[$n1++] = clusterInfos::fromMap($item1);
+                    $model->clusterInfos[$n1] = clusterInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

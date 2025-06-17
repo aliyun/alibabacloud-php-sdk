@@ -44,7 +44,8 @@ class accessPortAndProtocols extends Model
                 $res['CertificateIds'] = [];
                 $n1 = 0;
                 foreach ($this->certificateIds as $item1) {
-                    $res['CertificateIds'][$n1++] = $item1;
+                    $res['CertificateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class accessPortAndProtocols extends Model
                 $model->certificateIds = [];
                 $n1 = 0;
                 foreach ($map['CertificateIds'] as $item1) {
-                    $model->certificateIds[$n1++] = $item1;
+                    $model->certificateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

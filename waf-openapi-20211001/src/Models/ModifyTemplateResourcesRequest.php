@@ -83,7 +83,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $res['BindResourceGroups'] = [];
                 $n1 = 0;
                 foreach ($this->bindResourceGroups as $item1) {
-                    $res['BindResourceGroups'][$n1++] = $item1;
+                    $res['BindResourceGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $res['BindResources'] = [];
                 $n1 = 0;
                 foreach ($this->bindResources as $item1) {
-                    $res['BindResources'][$n1++] = $item1;
+                    $res['BindResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +121,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $res['UnbindResourceGroups'] = [];
                 $n1 = 0;
                 foreach ($this->unbindResourceGroups as $item1) {
-                    $res['UnbindResourceGroups'][$n1++] = $item1;
+                    $res['UnbindResourceGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +132,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $res['UnbindResources'] = [];
                 $n1 = 0;
                 foreach ($this->unbindResources as $item1) {
-                    $res['UnbindResources'][$n1++] = $item1;
+                    $res['UnbindResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +154,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $model->bindResourceGroups = [];
                 $n1 = 0;
                 foreach ($map['BindResourceGroups'] as $item1) {
-                    $model->bindResourceGroups[$n1++] = $item1;
+                    $model->bindResourceGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +165,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $model->bindResources = [];
                 $n1 = 0;
                 foreach ($map['BindResources'] as $item1) {
-                    $model->bindResources[$n1++] = $item1;
+                    $model->bindResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +192,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $model->unbindResourceGroups = [];
                 $n1 = 0;
                 foreach ($map['UnbindResourceGroups'] as $item1) {
-                    $model->unbindResourceGroups[$n1++] = $item1;
+                    $model->unbindResourceGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +203,8 @@ class ModifyTemplateResourcesRequest extends Model
                 $model->unbindResources = [];
                 $n1 = 0;
                 foreach ($map['UnbindResources'] as $item1) {
-                    $model->unbindResources[$n1++] = $item1;
+                    $model->unbindResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class DescribeDefenseTemplatesResponseBody extends Model
                 $res['Templates'] = [];
                 $n1 = 0;
                 foreach ($this->templates as $item1) {
-                    $res['Templates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Templates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeDefenseTemplatesResponseBody extends Model
                 $model->templates = [];
                 $n1 = 0;
                 foreach ($map['Templates'] as $item1) {
-                    $model->templates[$n1++] = templates::fromMap($item1);
+                    $model->templates[$n1] = templates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

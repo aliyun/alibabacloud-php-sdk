@@ -39,7 +39,8 @@ class DescribeUserEventTypeResponseBody extends Model
                 $res['Event'] = [];
                 $n1 = 0;
                 foreach ($this->event as $item1) {
-                    $res['Event'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Event'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeUserEventTypeResponseBody extends Model
                 $model->event = [];
                 $n1 = 0;
                 foreach ($map['Event'] as $item1) {
-                    $model->event[$n1++] = event::fromMap($item1);
+                    $model->event[$n1] = event::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

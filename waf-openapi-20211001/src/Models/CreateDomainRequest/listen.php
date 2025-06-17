@@ -145,7 +145,8 @@ class listen extends Model
                 $res['CustomCiphers'] = [];
                 $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
-                    $res['CustomCiphers'][$n1++] = $item1;
+                    $res['CustomCiphers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +172,8 @@ class listen extends Model
                 $res['HttpPorts'] = [];
                 $n1 = 0;
                 foreach ($this->httpPorts as $item1) {
-                    $res['HttpPorts'][$n1++] = $item1;
+                    $res['HttpPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +183,8 @@ class listen extends Model
                 $res['HttpsPorts'] = [];
                 $n1 = 0;
                 foreach ($this->httpsPorts as $item1) {
-                    $res['HttpsPorts'][$n1++] = $item1;
+                    $res['HttpsPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +222,8 @@ class listen extends Model
                 $res['XffHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->xffHeaders as $item1) {
-                    $res['XffHeaders'][$n1++] = $item1;
+                    $res['XffHeaders'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +252,8 @@ class listen extends Model
                 $model->customCiphers = [];
                 $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
-                    $model->customCiphers[$n1++] = $item1;
+                    $model->customCiphers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +279,8 @@ class listen extends Model
                 $model->httpPorts = [];
                 $n1 = 0;
                 foreach ($map['HttpPorts'] as $item1) {
-                    $model->httpPorts[$n1++] = $item1;
+                    $model->httpPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -284,7 +290,8 @@ class listen extends Model
                 $model->httpsPorts = [];
                 $n1 = 0;
                 foreach ($map['HttpsPorts'] as $item1) {
-                    $model->httpsPorts[$n1++] = $item1;
+                    $model->httpsPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -322,7 +329,8 @@ class listen extends Model
                 $model->xffHeaders = [];
                 $n1 = 0;
                 foreach ($map['XffHeaders'] as $item1) {
-                    $model->xffHeaders[$n1++] = $item1;
+                    $model->xffHeaders[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

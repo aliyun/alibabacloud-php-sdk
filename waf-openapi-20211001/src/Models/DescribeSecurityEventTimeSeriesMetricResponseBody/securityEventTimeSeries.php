@@ -51,7 +51,8 @@ class securityEventTimeSeries extends Model
                 $res['Timestamps'] = [];
                 $n1 = 0;
                 foreach ($this->timestamps as $item1) {
-                    $res['Timestamps'][$n1++] = $item1;
+                    $res['Timestamps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class securityEventTimeSeries extends Model
                 $res['Values'] = [];
                 $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +88,8 @@ class securityEventTimeSeries extends Model
                 $model->timestamps = [];
                 $n1 = 0;
                 foreach ($map['Timestamps'] as $item1) {
-                    $model->timestamps[$n1++] = $item1;
+                    $model->timestamps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class securityEventTimeSeries extends Model
                 $model->values = [];
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

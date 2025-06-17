@@ -39,7 +39,8 @@ class DescribeApisecLogDeliveriesResponseBody extends Model
                 $res['DeliveryConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->deliveryConfigs as $item1) {
-                    $res['DeliveryConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeliveryConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeApisecLogDeliveriesResponseBody extends Model
                 $model->deliveryConfigs = [];
                 $n1 = 0;
                 foreach ($map['DeliveryConfigs'] as $item1) {
-                    $model->deliveryConfigs[$n1++] = deliveryConfigs::fromMap($item1);
+                    $model->deliveryConfigs[$n1] = deliveryConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class DescribeHybridCloudResourcesResponseBody extends Model
                 $res['Domains'] = [];
                 $n1 = 0;
                 foreach ($this->domains as $item1) {
-                    $res['Domains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Domains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeHybridCloudResourcesResponseBody extends Model
                 $model->domains = [];
                 $n1 = 0;
                 foreach ($map['Domains'] as $item1) {
-                    $model->domains[$n1++] = domains::fromMap($item1);
+                    $model->domains[$n1] = domains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

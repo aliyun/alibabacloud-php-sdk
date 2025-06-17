@@ -45,7 +45,8 @@ class DescribeApiExportsResponseBody extends Model
                 $res['ApiExports'] = [];
                 $n1 = 0;
                 foreach ($this->apiExports as $item1) {
-                    $res['ApiExports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiExports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeApiExportsResponseBody extends Model
                 $model->apiExports = [];
                 $n1 = 0;
                 foreach ($map['ApiExports'] as $item1) {
-                    $model->apiExports[$n1++] = apiExports::fromMap($item1);
+                    $model->apiExports[$n1] = apiExports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -135,7 +135,8 @@ class redirect extends Model
                 $res['Backends'] = [];
                 $n1 = 0;
                 foreach ($this->backends as $item1) {
-                    $res['Backends'][$n1++] = $item1;
+                    $res['Backends'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class redirect extends Model
                 $res['BackupBackends'] = [];
                 $n1 = 0;
                 foreach ($this->backupBackends as $item1) {
-                    $res['BackupBackends'][$n1++] = $item1;
+                    $res['BackupBackends'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +189,8 @@ class redirect extends Model
                 $res['RequestHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->requestHeaders as $item1) {
-                    $res['RequestHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RequestHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +235,8 @@ class redirect extends Model
                 $model->backends = [];
                 $n1 = 0;
                 foreach ($map['Backends'] as $item1) {
-                    $model->backends[$n1++] = $item1;
+                    $model->backends[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -242,7 +246,8 @@ class redirect extends Model
                 $model->backupBackends = [];
                 $n1 = 0;
                 foreach ($map['BackupBackends'] as $item1) {
-                    $model->backupBackends[$n1++] = $item1;
+                    $model->backupBackends[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -284,7 +289,8 @@ class redirect extends Model
                 $model->requestHeaders = [];
                 $n1 = 0;
                 foreach ($map['RequestHeaders'] as $item1) {
-                    $model->requestHeaders[$n1++] = requestHeaders::fromMap($item1);
+                    $model->requestHeaders[$n1] = requestHeaders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class DescribeResourceInstanceCertsResponseBody extends Model
                 $res['Certs'] = [];
                 $n1 = 0;
                 foreach ($this->certs as $item1) {
-                    $res['Certs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Certs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeResourceInstanceCertsResponseBody extends Model
                 $model->certs = [];
                 $n1 = 0;
                 foreach ($map['Certs'] as $item1) {
-                    $model->certs[$n1++] = certs::fromMap($item1);
+                    $model->certs[$n1] = certs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

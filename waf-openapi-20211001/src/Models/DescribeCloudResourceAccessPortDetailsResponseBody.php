@@ -45,7 +45,8 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
                 $res['AccessPortDetails'] = [];
                 $n1 = 0;
                 foreach ($this->accessPortDetails as $item1) {
-                    $res['AccessPortDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessPortDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
                 $model->accessPortDetails = [];
                 $n1 = 0;
                 foreach ($map['AccessPortDetails'] as $item1) {
-                    $model->accessPortDetails[$n1++] = accessPortDetails::fromMap($item1);
+                    $model->accessPortDetails[$n1] = accessPortDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

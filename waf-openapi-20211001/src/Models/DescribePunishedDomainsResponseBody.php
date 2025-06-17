@@ -38,7 +38,8 @@ class DescribePunishedDomainsResponseBody extends Model
                 $res['PunishedDomains'] = [];
                 $n1 = 0;
                 foreach ($this->punishedDomains as $item1) {
-                    $res['PunishedDomains'][$n1++] = $item1;
+                    $res['PunishedDomains'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribePunishedDomainsResponseBody extends Model
                 $model->punishedDomains = [];
                 $n1 = 0;
                 foreach ($map['PunishedDomains'] as $item1) {
-                    $model->punishedDomains[$n1++] = $item1;
+                    $model->punishedDomains[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

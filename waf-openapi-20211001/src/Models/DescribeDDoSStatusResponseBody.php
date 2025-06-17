@@ -39,7 +39,8 @@ class DescribeDDoSStatusResponseBody extends Model
                 $res['DDoSStatus'] = [];
                 $n1 = 0;
                 foreach ($this->DDoSStatus as $item1) {
-                    $res['DDoSStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DDoSStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDDoSStatusResponseBody extends Model
                 $model->DDoSStatus = [];
                 $n1 = 0;
                 foreach ($map['DDoSStatus'] as $item1) {
-                    $model->DDoSStatus[$n1++] = DDoSStatus::fromMap($item1);
+                    $model->DDoSStatus[$n1] = DDoSStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

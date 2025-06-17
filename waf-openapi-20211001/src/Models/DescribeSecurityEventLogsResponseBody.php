@@ -58,7 +58,8 @@ class DescribeSecurityEventLogsResponseBody extends Model
                 $res['SecurityEventLogs'] = [];
                 $n1 = 0;
                 foreach ($this->securityEventLogs as $item1) {
-                    $res['SecurityEventLogs'][$n1++] = $item1;
+                    $res['SecurityEventLogs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class DescribeSecurityEventLogsResponseBody extends Model
                 $model->securityEventLogs = [];
                 $n1 = 0;
                 foreach ($map['SecurityEventLogs'] as $item1) {
-                    $model->securityEventLogs[$n1++] = $item1;
+                    $model->securityEventLogs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

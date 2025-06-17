@@ -102,7 +102,8 @@ class ModifyDefenseResourceXffRequest extends Model
                 $res['CustomHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->customHeaders as $item1) {
-                    $res['CustomHeaders'][$n1++] = $item1;
+                    $res['CustomHeaders'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +129,8 @@ class ModifyDefenseResourceXffRequest extends Model
                 $res['ResponseHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->responseHeaders as $item1) {
-                    $res['ResponseHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResponseHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +167,8 @@ class ModifyDefenseResourceXffRequest extends Model
                 $model->customHeaders = [];
                 $n1 = 0;
                 foreach ($map['CustomHeaders'] as $item1) {
-                    $model->customHeaders[$n1++] = $item1;
+                    $model->customHeaders[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +194,8 @@ class ModifyDefenseResourceXffRequest extends Model
                 $model->responseHeaders = [];
                 $n1 = 0;
                 foreach ($map['ResponseHeaders'] as $item1) {
-                    $model->responseHeaders[$n1++] = responseHeaders::fromMap($item1);
+                    $model->responseHeaders[$n1] = responseHeaders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

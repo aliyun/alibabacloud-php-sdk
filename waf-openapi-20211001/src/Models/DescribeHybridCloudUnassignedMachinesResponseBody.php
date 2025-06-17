@@ -53,7 +53,8 @@ class DescribeHybridCloudUnassignedMachinesResponseBody extends Model
                 $res['UnassignedMachines'] = [];
                 $n1 = 0;
                 foreach ($this->unassignedMachines as $item1) {
-                    $res['UnassignedMachines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UnassignedMachines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DescribeHybridCloudUnassignedMachinesResponseBody extends Model
                 $model->unassignedMachines = [];
                 $n1 = 0;
                 foreach ($map['UnassignedMachines'] as $item1) {
-                    $model->unassignedMachines[$n1++] = unassignedMachines::fromMap($item1);
+                    $model->unassignedMachines[$n1] = unassignedMachines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

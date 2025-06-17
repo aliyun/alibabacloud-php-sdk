@@ -122,7 +122,8 @@ class productInstances extends Model
                 $res['AccessPortAndProtocols'] = [];
                 $n1 = 0;
                 foreach ($this->accessPortAndProtocols as $item1) {
-                    $res['AccessPortAndProtocols'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessPortAndProtocols'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class productInstances extends Model
                 $res['AccessPorts'] = [];
                 $n1 = 0;
                 foreach ($this->accessPorts as $item1) {
-                    $res['AccessPorts'][$n1++] = $item1;
+                    $res['AccessPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +176,8 @@ class productInstances extends Model
                 $res['ResourcePorts'] = [];
                 $n1 = 0;
                 foreach ($this->resourcePorts as $item1) {
-                    $res['ResourcePorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourcePorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +210,8 @@ class productInstances extends Model
                 $model->accessPortAndProtocols = [];
                 $n1 = 0;
                 foreach ($map['AccessPortAndProtocols'] as $item1) {
-                    $model->accessPortAndProtocols[$n1++] = accessPortAndProtocols::fromMap($item1);
+                    $model->accessPortAndProtocols[$n1] = accessPortAndProtocols::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +221,8 @@ class productInstances extends Model
                 $model->accessPorts = [];
                 $n1 = 0;
                 foreach ($map['AccessPorts'] as $item1) {
-                    $model->accessPorts[$n1++] = $item1;
+                    $model->accessPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +264,8 @@ class productInstances extends Model
                 $model->resourcePorts = [];
                 $n1 = 0;
                 foreach ($map['ResourcePorts'] as $item1) {
-                    $model->resourcePorts[$n1++] = resourcePorts::fromMap($item1);
+                    $model->resourcePorts[$n1] = resourcePorts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

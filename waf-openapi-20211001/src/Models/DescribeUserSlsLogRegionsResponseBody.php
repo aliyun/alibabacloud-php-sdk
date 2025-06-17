@@ -38,7 +38,8 @@ class DescribeUserSlsLogRegionsResponseBody extends Model
                 $res['LogRegions'] = [];
                 $n1 = 0;
                 foreach ($this->logRegions as $item1) {
-                    $res['LogRegions'][$n1++] = $item1;
+                    $res['LogRegions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeUserSlsLogRegionsResponseBody extends Model
                 $model->logRegions = [];
                 $n1 = 0;
                 foreach ($map['LogRegions'] as $item1) {
-                    $model->logRegions[$n1++] = $item1;
+                    $model->logRegions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

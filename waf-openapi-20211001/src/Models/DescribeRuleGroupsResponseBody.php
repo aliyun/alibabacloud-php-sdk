@@ -49,7 +49,8 @@ class DescribeRuleGroupsResponseBody extends Model
                 $res['RuleGroups'] = [];
                 $n1 = 0;
                 foreach ($this->ruleGroups as $item1) {
-                    $res['RuleGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeRuleGroupsResponseBody extends Model
                 $model->ruleGroups = [];
                 $n1 = 0;
                 foreach ($map['RuleGroups'] as $item1) {
-                    $model->ruleGroups[$n1++] = ruleGroups::fromMap($item1);
+                    $model->ruleGroups[$n1] = ruleGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

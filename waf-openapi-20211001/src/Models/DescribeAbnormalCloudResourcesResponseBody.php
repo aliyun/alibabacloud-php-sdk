@@ -39,7 +39,8 @@ class DescribeAbnormalCloudResourcesResponseBody extends Model
                 $res['AbnormalCloudResources'] = [];
                 $n1 = 0;
                 foreach ($this->abnormalCloudResources as $item1) {
-                    $res['AbnormalCloudResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AbnormalCloudResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeAbnormalCloudResourcesResponseBody extends Model
                 $model->abnormalCloudResources = [];
                 $n1 = 0;
                 foreach ($map['AbnormalCloudResources'] as $item1) {
-                    $model->abnormalCloudResources[$n1++] = abnormalCloudResources::fromMap($item1);
+                    $model->abnormalCloudResources[$n1] = abnormalCloudResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

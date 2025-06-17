@@ -42,7 +42,8 @@ class DescribeResourceSupportRegionsResponseBody extends Model
                 $res['SupportRegions'] = [];
                 $n1 = 0;
                 foreach ($this->supportRegions as $item1) {
-                    $res['SupportRegions'][$n1++] = $item1;
+                    $res['SupportRegions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DescribeResourceSupportRegionsResponseBody extends Model
                 $model->supportRegions = [];
                 $n1 = 0;
                 foreach ($map['SupportRegions'] as $item1) {
-                    $model->supportRegions[$n1++] = $item1;
+                    $model->supportRegions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -60,7 +60,8 @@ class CreateMemberAccountsRequest extends Model
                 $res['MemberAccountIds'] = [];
                 $n1 = 0;
                 foreach ($this->memberAccountIds as $item1) {
-                    $res['MemberAccountIds'][$n1++] = $item1;
+                    $res['MemberAccountIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class CreateMemberAccountsRequest extends Model
                 $model->memberAccountIds = [];
                 $n1 = 0;
                 foreach ($map['MemberAccountIds'] as $item1) {
-                    $model->memberAccountIds[$n1++] = $item1;
+                    $model->memberAccountIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class DescribeProductInstancesResponseBody extends Model
                 $res['ProductInstances'] = [];
                 $n1 = 0;
                 foreach ($this->productInstances as $item1) {
-                    $res['ProductInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProductInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeProductInstancesResponseBody extends Model
                 $model->productInstances = [];
                 $n1 = 0;
                 foreach ($map['ProductInstances'] as $item1) {
-                    $model->productInstances[$n1++] = productInstances::fromMap($item1);
+                    $model->productInstances[$n1] = productInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class DescribeVisitUasResponseBody extends Model
                 $res['Uas'] = [];
                 $n1 = 0;
                 foreach ($this->uas as $item1) {
-                    $res['Uas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Uas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeVisitUasResponseBody extends Model
                 $model->uas = [];
                 $n1 = 0;
                 foreach ($map['Uas'] as $item1) {
-                    $model->uas[$n1++] = uas::fromMap($item1);
+                    $model->uas[$n1] = uas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

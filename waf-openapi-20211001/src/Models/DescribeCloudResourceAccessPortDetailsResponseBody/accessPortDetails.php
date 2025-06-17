@@ -167,7 +167,8 @@ class accessPortDetails extends Model
                 $res['Certificates'] = [];
                 $n1 = 0;
                 foreach ($this->certificates as $item1) {
-                    $res['Certificates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Certificates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +182,8 @@ class accessPortDetails extends Model
                 $res['CustomCiphers'] = [];
                 $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
-                    $res['CustomCiphers'][$n1++] = $item1;
+                    $res['CustomCiphers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +213,8 @@ class accessPortDetails extends Model
                 $res['LogHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->logHeaders as $item1) {
-                    $res['LogHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +248,8 @@ class accessPortDetails extends Model
                 $res['SubStatusDetails'] = [];
                 $n1 = 0;
                 foreach ($this->subStatusDetails as $item1) {
-                    $res['SubStatusDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubStatusDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +271,8 @@ class accessPortDetails extends Model
                 $res['XffHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->xffHeaders as $item1) {
-                    $res['XffHeaders'][$n1++] = $item1;
+                    $res['XffHeaders'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +297,8 @@ class accessPortDetails extends Model
                 $model->certificates = [];
                 $n1 = 0;
                 foreach ($map['Certificates'] as $item1) {
-                    $model->certificates[$n1++] = certificates::fromMap($item1);
+                    $model->certificates[$n1] = certificates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +312,8 @@ class accessPortDetails extends Model
                 $model->customCiphers = [];
                 $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
-                    $model->customCiphers[$n1++] = $item1;
+                    $model->customCiphers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +343,8 @@ class accessPortDetails extends Model
                 $model->logHeaders = [];
                 $n1 = 0;
                 foreach ($map['LogHeaders'] as $item1) {
-                    $model->logHeaders[$n1++] = logHeaders::fromMap($item1);
+                    $model->logHeaders[$n1] = logHeaders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -370,7 +378,8 @@ class accessPortDetails extends Model
                 $model->subStatusDetails = [];
                 $n1 = 0;
                 foreach ($map['SubStatusDetails'] as $item1) {
-                    $model->subStatusDetails[$n1++] = subStatusDetails::fromMap($item1);
+                    $model->subStatusDetails[$n1] = subStatusDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -392,7 +401,8 @@ class accessPortDetails extends Model
                 $model->xffHeaders = [];
                 $n1 = 0;
                 foreach ($map['XffHeaders'] as $item1) {
-                    $model->xffHeaders[$n1++] = $item1;
+                    $model->xffHeaders[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

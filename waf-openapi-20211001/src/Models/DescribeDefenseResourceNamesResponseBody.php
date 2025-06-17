@@ -48,7 +48,8 @@ class DescribeDefenseResourceNamesResponseBody extends Model
                 $res['Resources'] = [];
                 $n1 = 0;
                 foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = $item1;
+                    $res['Resources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class DescribeDefenseResourceNamesResponseBody extends Model
                 $model->resources = [];
                 $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = $item1;
+                    $model->resources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

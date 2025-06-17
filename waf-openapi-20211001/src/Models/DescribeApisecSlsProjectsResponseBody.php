@@ -38,7 +38,8 @@ class DescribeApisecSlsProjectsResponseBody extends Model
                 $res['Projects'] = [];
                 $n1 = 0;
                 foreach ($this->projects as $item1) {
-                    $res['Projects'][$n1++] = $item1;
+                    $res['Projects'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeApisecSlsProjectsResponseBody extends Model
                 $model->projects = [];
                 $n1 = 0;
                 foreach ($map['Projects'] as $item1) {
-                    $model->projects[$n1++] = $item1;
+                    $model->projects[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

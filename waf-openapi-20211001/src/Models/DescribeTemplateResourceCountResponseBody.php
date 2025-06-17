@@ -43,7 +43,8 @@ class DescribeTemplateResourceCountResponseBody extends Model
                 $res['ResourceCount'] = [];
                 $n1 = 0;
                 foreach ($this->resourceCount as $item1) {
-                    $res['ResourceCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceCount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeTemplateResourceCountResponseBody extends Model
                 $model->resourceCount = [];
                 $n1 = 0;
                 foreach ($map['ResourceCount'] as $item1) {
-                    $model->resourceCount[$n1++] = resourceCount::fromMap($item1);
+                    $model->resourceCount[$n1] = resourceCount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

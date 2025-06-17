@@ -49,7 +49,8 @@ class DescribeNetworkFlowTopNMetricResponseBody extends Model
                 $res['NetworkFlowTopNValues'] = [];
                 $n1 = 0;
                 foreach ($this->networkFlowTopNValues as $item1) {
-                    $res['NetworkFlowTopNValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkFlowTopNValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeNetworkFlowTopNMetricResponseBody extends Model
                 $model->networkFlowTopNValues = [];
                 $n1 = 0;
                 foreach ($map['NetworkFlowTopNValues'] as $item1) {
-                    $model->networkFlowTopNValues[$n1++] = networkFlowTopNValues::fromMap($item1);
+                    $model->networkFlowTopNValues[$n1] = networkFlowTopNValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

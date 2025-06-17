@@ -39,7 +39,8 @@ class DescribeFlowChartResponseBody extends Model
                 $res['FlowChart'] = [];
                 $n1 = 0;
                 foreach ($this->flowChart as $item1) {
-                    $res['FlowChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FlowChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeFlowChartResponseBody extends Model
                 $model->flowChart = [];
                 $n1 = 0;
                 foreach ($map['FlowChart'] as $item1) {
-                    $model->flowChart[$n1++] = flowChart::fromMap($item1);
+                    $model->flowChart[$n1] = flowChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class DescribeResourceRegionIdResponseBody extends Model
                 $res['ResourceRegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceRegionIds as $item1) {
-                    $res['ResourceRegionIds'][$n1++] = $item1;
+                    $res['ResourceRegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DescribeResourceRegionIdResponseBody extends Model
                 $model->resourceRegionIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceRegionIds'] as $item1) {
-                    $model->resourceRegionIds[$n1++] = $item1;
+                    $model->resourceRegionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

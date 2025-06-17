@@ -202,7 +202,8 @@ class data extends Model
                 $res['AttackIps'] = [];
                 $n1 = 0;
                 foreach ($this->attackIps as $item1) {
-                    $res['AttackIps'][$n1++] = $item1;
+                    $res['AttackIps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -315,7 +316,8 @@ class data extends Model
                 $model->attackIps = [];
                 $n1 = 0;
                 foreach ($map['AttackIps'] as $item1) {
-                    $model->attackIps[$n1++] = $item1;
+                    $model->attackIps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

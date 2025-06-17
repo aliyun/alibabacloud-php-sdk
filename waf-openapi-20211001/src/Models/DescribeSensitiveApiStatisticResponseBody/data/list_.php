@@ -68,7 +68,8 @@ class list_ extends Model
                 $res['SensitiveCode'] = [];
                 $n1 = 0;
                 foreach ($this->sensitiveCode as $item1) {
-                    $res['SensitiveCode'][$n1++] = $item1;
+                    $res['SensitiveCode'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class list_ extends Model
                 $model->sensitiveCode = [];
                 $n1 = 0;
                 foreach ($map['SensitiveCode'] as $item1) {
-                    $model->sensitiveCode[$n1++] = $item1;
+                    $model->sensitiveCode[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

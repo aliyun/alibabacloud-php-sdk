@@ -43,7 +43,8 @@ class DescribeRuleHitsTopTuleTypeResponseBody extends Model
                 $res['RuleHitsTopTuleType'] = [];
                 $n1 = 0;
                 foreach ($this->ruleHitsTopTuleType as $item1) {
-                    $res['RuleHitsTopTuleType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleHitsTopTuleType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeRuleHitsTopTuleTypeResponseBody extends Model
                 $model->ruleHitsTopTuleType = [];
                 $n1 = 0;
                 foreach ($map['RuleHitsTopTuleType'] as $item1) {
-                    $model->ruleHitsTopTuleType[$n1++] = ruleHitsTopTuleType::fromMap($item1);
+                    $model->ruleHitsTopTuleType[$n1] = ruleHitsTopTuleType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

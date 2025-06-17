@@ -38,7 +38,8 @@ class DescribeApisecSlsLogStoresResponseBody extends Model
                 $res['LogStores'] = [];
                 $n1 = 0;
                 foreach ($this->logStores as $item1) {
-                    $res['LogStores'][$n1++] = $item1;
+                    $res['LogStores'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeApisecSlsLogStoresResponseBody extends Model
                 $model->logStores = [];
                 $n1 = 0;
                 foreach ($map['LogStores'] as $item1) {
-                    $model->logStores[$n1++] = $item1;
+                    $model->logStores[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

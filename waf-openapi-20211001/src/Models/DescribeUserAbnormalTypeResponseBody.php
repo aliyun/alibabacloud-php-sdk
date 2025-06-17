@@ -39,7 +39,8 @@ class DescribeUserAbnormalTypeResponseBody extends Model
                 $res['Abnormal'] = [];
                 $n1 = 0;
                 foreach ($this->abnormal as $item1) {
-                    $res['Abnormal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Abnormal'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeUserAbnormalTypeResponseBody extends Model
                 $model->abnormal = [];
                 $n1 = 0;
                 foreach ($map['Abnormal'] as $item1) {
-                    $model->abnormal[$n1++] = abnormal::fromMap($item1);
+                    $model->abnormal[$n1] = abnormal::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

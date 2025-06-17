@@ -60,7 +60,8 @@ class DeleteApisecEventsRequest extends Model
                 $res['EventIds'] = [];
                 $n1 = 0;
                 foreach ($this->eventIds as $item1) {
-                    $res['EventIds'][$n1++] = $item1;
+                    $res['EventIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class DeleteApisecEventsRequest extends Model
                 $model->eventIds = [];
                 $n1 = 0;
                 foreach ($map['EventIds'] as $item1) {
-                    $model->eventIds[$n1++] = $item1;
+                    $model->eventIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

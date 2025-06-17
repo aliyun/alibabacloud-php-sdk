@@ -44,7 +44,8 @@ class DescribeDefenseTemplateValidGroupsResponseBody extends Model
                 $res['Groups'] = [];
                 $n1 = 0;
                 foreach ($this->groups as $item1) {
-                    $res['Groups'][$n1++] = $item1;
+                    $res['Groups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class DescribeDefenseTemplateValidGroupsResponseBody extends Model
                 $model->groups = [];
                 $n1 = 0;
                 foreach ($map['Groups'] as $item1) {
-                    $model->groups[$n1++] = $item1;
+                    $model->groups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

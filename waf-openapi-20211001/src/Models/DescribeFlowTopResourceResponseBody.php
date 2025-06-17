@@ -43,7 +43,8 @@ class DescribeFlowTopResourceResponseBody extends Model
                 $res['RuleHitsTopResource'] = [];
                 $n1 = 0;
                 foreach ($this->ruleHitsTopResource as $item1) {
-                    $res['RuleHitsTopResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleHitsTopResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeFlowTopResourceResponseBody extends Model
                 $model->ruleHitsTopResource = [];
                 $n1 = 0;
                 foreach ($map['RuleHitsTopResource'] as $item1) {
-                    $model->ruleHitsTopResource[$n1++] = ruleHitsTopResource::fromMap($item1);
+                    $model->ruleHitsTopResource[$n1] = ruleHitsTopResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

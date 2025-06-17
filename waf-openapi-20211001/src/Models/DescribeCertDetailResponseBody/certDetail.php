@@ -92,7 +92,8 @@ class certDetail extends Model
                 $res['Sans'] = [];
                 $n1 = 0;
                 foreach ($this->sans as $item1) {
-                    $res['Sans'][$n1++] = $item1;
+                    $res['Sans'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class certDetail extends Model
                 $model->sans = [];
                 $n1 = 0;
                 foreach ($map['Sans'] as $item1) {
-                    $model->sans[$n1++] = $item1;
+                    $model->sans[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

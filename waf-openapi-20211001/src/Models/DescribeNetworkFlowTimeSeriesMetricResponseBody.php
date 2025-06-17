@@ -49,7 +49,8 @@ class DescribeNetworkFlowTimeSeriesMetricResponseBody extends Model
                 $res['NetworkFlowTimeSeries'] = [];
                 $n1 = 0;
                 foreach ($this->networkFlowTimeSeries as $item1) {
-                    $res['NetworkFlowTimeSeries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkFlowTimeSeries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeNetworkFlowTimeSeriesMetricResponseBody extends Model
                 $model->networkFlowTimeSeries = [];
                 $n1 = 0;
                 foreach ($map['NetworkFlowTimeSeries'] as $item1) {
-                    $model->networkFlowTimeSeries[$n1++] = networkFlowTimeSeries::fromMap($item1);
+                    $model->networkFlowTimeSeries[$n1] = networkFlowTimeSeries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

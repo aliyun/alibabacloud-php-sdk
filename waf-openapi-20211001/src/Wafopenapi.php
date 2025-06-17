@@ -169,6 +169,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeIpAbroadCountryInfosRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeIpAbroadCountryInfosResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsRequest;
@@ -6812,6 +6814,91 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取支持的海外IP区域封禁支持的国际及地域。
+     *
+     * @param request - DescribeIpAbroadCountryInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeIpAbroadCountryInfosResponse
+     *
+     * @param DescribeIpAbroadCountryInfosRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeIpAbroadCountryInfosResponse
+     */
+    public function describeIpAbroadCountryInfosWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->abroadRegion) {
+            @$query['AbroadRegion'] = $request->abroadRegion;
+        }
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeIpAbroadCountryInfos',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeIpAbroadCountryInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取支持的海外IP区域封禁支持的国际及地域。
+     *
+     * @param request - DescribeIpAbroadCountryInfosRequest
+     *
+     * @returns DescribeIpAbroadCountryInfosResponse
+     *
+     * @param DescribeIpAbroadCountryInfosRequest $request
+     *
+     * @return DescribeIpAbroadCountryInfosResponse
+     */
+    public function describeIpAbroadCountryInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIpAbroadCountryInfosWithOptions($request, $runtime);
     }
 
     /**

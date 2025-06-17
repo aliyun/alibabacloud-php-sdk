@@ -42,7 +42,8 @@ class DescribeResourcePortResponseBody extends Model
                 $res['ResourcePorts'] = [];
                 $n1 = 0;
                 foreach ($this->resourcePorts as $item1) {
-                    $res['ResourcePorts'][$n1++] = $item1;
+                    $res['ResourcePorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DescribeResourcePortResponseBody extends Model
                 $model->resourcePorts = [];
                 $n1 = 0;
                 foreach ($map['ResourcePorts'] as $item1) {
-                    $model->resourcePorts[$n1++] = $item1;
+                    $model->resourcePorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

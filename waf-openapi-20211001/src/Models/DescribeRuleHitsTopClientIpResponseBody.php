@@ -43,7 +43,8 @@ class DescribeRuleHitsTopClientIpResponseBody extends Model
                 $res['RuleHitsTopClientIp'] = [];
                 $n1 = 0;
                 foreach ($this->ruleHitsTopClientIp as $item1) {
-                    $res['RuleHitsTopClientIp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleHitsTopClientIp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeRuleHitsTopClientIpResponseBody extends Model
                 $model->ruleHitsTopClientIp = [];
                 $n1 = 0;
                 foreach ($map['RuleHitsTopClientIp'] as $item1) {
-                    $model->ruleHitsTopClientIp[$n1++] = ruleHitsTopClientIp::fromMap($item1);
+                    $model->ruleHitsTopClientIp[$n1] = ruleHitsTopClientIp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
