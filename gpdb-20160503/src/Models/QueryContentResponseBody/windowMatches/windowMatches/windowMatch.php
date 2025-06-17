@@ -33,7 +33,8 @@ class windowMatch extends Model
                 $res['windowMatch'] = [];
                 $n1 = 0;
                 foreach ($this->windowMatch as $item1) {
-                    $res['windowMatch'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['windowMatch'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class windowMatch extends Model
                 $model->windowMatch = [];
                 $n1 = 0;
                 foreach ($map['windowMatch'] as $item1) {
-                    $model->windowMatch[$n1++] = self::fromMap($item1);
+                    $model->windowMatch[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

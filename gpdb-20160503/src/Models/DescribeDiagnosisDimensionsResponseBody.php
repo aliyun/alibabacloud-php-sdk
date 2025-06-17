@@ -47,7 +47,8 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
                 $res['Databases'] = [];
                 $n1 = 0;
                 foreach ($this->databases as $item1) {
-                    $res['Databases'][$n1++] = $item1;
+                    $res['Databases'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
                 $res['UserNames'] = [];
                 $n1 = 0;
                 foreach ($this->userNames as $item1) {
-                    $res['UserNames'][$n1++] = $item1;
+                    $res['UserNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
                 $model->databases = [];
                 $n1 = 0;
                 foreach ($map['Databases'] as $item1) {
-                    $model->databases[$n1++] = $item1;
+                    $model->databases[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
                 $model->userNames = [];
                 $n1 = 0;
                 foreach ($map['UserNames'] as $item1) {
-                    $model->userNames[$n1++] = $item1;
+                    $model->userNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

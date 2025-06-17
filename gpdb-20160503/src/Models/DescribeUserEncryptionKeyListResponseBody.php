@@ -39,7 +39,8 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
                 $res['KmsKeys'] = [];
                 $n1 = 0;
                 foreach ($this->kmsKeys as $item1) {
-                    $res['KmsKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KmsKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
                 $model->kmsKeys = [];
                 $n1 = 0;
                 foreach ($map['KmsKeys'] as $item1) {
-                    $model->kmsKeys[$n1++] = kmsKeys::fromMap($item1);
+                    $model->kmsKeys[$n1] = kmsKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

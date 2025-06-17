@@ -32,7 +32,8 @@ class collections extends Model
                 $res['Collection'] = [];
                 $n1 = 0;
                 foreach ($this->collection as $item1) {
-                    $res['Collection'][$n1++] = $item1;
+                    $res['Collection'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class collections extends Model
                 $model->collection = [];
                 $n1 = 0;
                 foreach ($map['Collection'] as $item1) {
-                    $model->collection[$n1++] = $item1;
+                    $model->collection[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

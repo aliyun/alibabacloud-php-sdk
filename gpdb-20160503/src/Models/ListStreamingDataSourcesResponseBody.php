@@ -51,7 +51,8 @@ class ListStreamingDataSourcesResponseBody extends Model
                 $res['DataSourceItems'] = [];
                 $n1 = 0;
                 foreach ($this->dataSourceItems as $item1) {
-                    $res['DataSourceItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSourceItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListStreamingDataSourcesResponseBody extends Model
                 $model->dataSourceItems = [];
                 $n1 = 0;
                 foreach ($map['DataSourceItems'] as $item1) {
-                    $model->dataSourceItems[$n1++] = dataSourceItems::fromMap($item1);
+                    $model->dataSourceItems[$n1] = dataSourceItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

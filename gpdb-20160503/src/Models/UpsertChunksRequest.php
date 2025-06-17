@@ -123,7 +123,8 @@ class UpsertChunksRequest extends Model
                 $res['TextChunks'] = [];
                 $n1 = 0;
                 foreach ($this->textChunks as $item1) {
-                    $res['TextChunks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TextChunks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +181,8 @@ class UpsertChunksRequest extends Model
                 $model->textChunks = [];
                 $n1 = 0;
                 foreach ($map['TextChunks'] as $item1) {
-                    $model->textChunks[$n1++] = textChunks::fromMap($item1);
+                    $model->textChunks[$n1] = textChunks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

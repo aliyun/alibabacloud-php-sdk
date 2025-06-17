@@ -32,7 +32,8 @@ class secrets extends Model
                 $res['Secrets'] = [];
                 $n1 = 0;
                 foreach ($this->secrets as $item1) {
-                    $res['Secrets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Secrets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class secrets extends Model
                 $model->secrets = [];
                 $n1 = 0;
                 foreach ($map['Secrets'] as $item1) {
-                    $model->secrets[$n1++] = secrets\secrets::fromMap($item1);
+                    $model->secrets[$n1] = secrets\secrets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

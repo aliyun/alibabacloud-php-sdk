@@ -234,7 +234,8 @@ class QueryCollectionDataRequest extends Model
                 $res['Vector'] = [];
                 $n1 = 0;
                 foreach ($this->vector as $item1) {
-                    $res['Vector'][$n1++] = $item1;
+                    $res['Vector'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +337,8 @@ class QueryCollectionDataRequest extends Model
                 $model->vector = [];
                 $n1 = 0;
                 foreach ($map['Vector'] as $item1) {
-                    $model->vector[$n1++] = $item1;
+                    $model->vector[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

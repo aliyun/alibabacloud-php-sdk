@@ -32,7 +32,8 @@ class roleList extends Model
                 $res['Role'] = [];
                 $n1 = 0;
                 foreach ($this->role as $item1) {
-                    $res['Role'][$n1++] = $item1;
+                    $res['Role'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class roleList extends Model
                 $model->role = [];
                 $n1 = 0;
                 foreach ($map['Role'] as $item1) {
-                    $model->role[$n1++] = $item1;
+                    $model->role[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

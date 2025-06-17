@@ -39,7 +39,8 @@ class resources extends Model
                 $res['SupportedEngines'] = [];
                 $n1 = 0;
                 foreach ($this->supportedEngines as $item1) {
-                    $res['SupportedEngines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedEngines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class resources extends Model
                 $model->supportedEngines = [];
                 $n1 = 0;
                 foreach ($map['SupportedEngines'] as $item1) {
-                    $model->supportedEngines[$n1++] = supportedEngines::fromMap($item1);
+                    $model->supportedEngines[$n1] = supportedEngines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class ListExternalDataServicesResponseBody extends Model
                 $res['ServiceItems'] = [];
                 $n1 = 0;
                 foreach ($this->serviceItems as $item1) {
-                    $res['ServiceItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class ListExternalDataServicesResponseBody extends Model
                 $model->serviceItems = [];
                 $n1 = 0;
                 foreach ($map['ServiceItems'] as $item1) {
-                    $model->serviceItems[$n1++] = serviceItems::fromMap($item1);
+                    $model->serviceItems[$n1] = serviceItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

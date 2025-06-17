@@ -33,7 +33,8 @@ class performances extends Model
                 $res['Performance'] = [];
                 $n1 = 0;
                 foreach ($this->performance as $item1) {
-                    $res['Performance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Performance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class performances extends Model
                 $model->performance = [];
                 $n1 = 0;
                 foreach ($map['Performance'] as $item1) {
-                    $model->performance[$n1++] = performance::fromMap($item1);
+                    $model->performance[$n1] = performance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

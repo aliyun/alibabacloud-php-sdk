@@ -99,7 +99,8 @@ class UpsertCollectionDataRequest extends Model
                 $res['Rows'] = [];
                 $n1 = 0;
                 foreach ($this->rows as $item1) {
-                    $res['Rows'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rows'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class UpsertCollectionDataRequest extends Model
                 $model->rows = [];
                 $n1 = 0;
                 foreach ($map['Rows'] as $item1) {
-                    $model->rows[$n1++] = rows::fromMap($item1);
+                    $model->rows[$n1] = rows::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

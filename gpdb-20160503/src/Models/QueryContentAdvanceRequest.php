@@ -221,7 +221,8 @@ class QueryContentAdvanceRequest extends Model
                 $res['RecallWindow'] = [];
                 $n1 = 0;
                 foreach ($this->recallWindow as $item1) {
-                    $res['RecallWindow'][$n1++] = $item1;
+                    $res['RecallWindow'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -327,7 +328,8 @@ class QueryContentAdvanceRequest extends Model
                 $model->recallWindow = [];
                 $n1 = 0;
                 foreach ($map['RecallWindow'] as $item1) {
-                    $model->recallWindow[$n1++] = $item1;
+                    $model->recallWindow[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

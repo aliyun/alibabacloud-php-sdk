@@ -43,7 +43,8 @@ class items extends Model
                 $res['Series'] = [];
                 $n1 = 0;
                 foreach ($this->series as $item1) {
-                    $res['Series'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Series'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class items extends Model
                 $model->series = [];
                 $n1 = 0;
                 foreach ($map['Series'] as $item1) {
-                    $model->series[$n1++] = series::fromMap($item1);
+                    $model->series[$n1] = series::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

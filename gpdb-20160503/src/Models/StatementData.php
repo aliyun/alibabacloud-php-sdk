@@ -95,7 +95,8 @@ class StatementData extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = $item1;
+                    $res['Parameters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class StatementData extends Model
                 $res['Sqls'] = [];
                 $n1 = 0;
                 foreach ($this->sqls as $item1) {
-                    $res['Sqls'][$n1++] = $item1;
+                    $res['Sqls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +156,8 @@ class StatementData extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = $item1;
+                    $model->parameters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +175,8 @@ class StatementData extends Model
                 $model->sqls = [];
                 $n1 = 0;
                 foreach ($map['Sqls'] as $item1) {
-                    $model->sqls[$n1++] = $item1;
+                    $model->sqls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

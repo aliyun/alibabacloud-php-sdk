@@ -123,7 +123,8 @@ class DescribeDBInstancesRequest extends Model
                 $res['DBInstanceCategories'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceCategories as $item1) {
-                    $res['DBInstanceCategories'][$n1++] = $item1;
+                    $res['DBInstanceCategories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class DescribeDBInstancesRequest extends Model
                 $res['DBInstanceModes'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceModes as $item1) {
-                    $res['DBInstanceModes'][$n1++] = $item1;
+                    $res['DBInstanceModes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class DescribeDBInstancesRequest extends Model
                 $res['DBInstanceStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceStatuses as $item1) {
-                    $res['DBInstanceStatuses'][$n1++] = $item1;
+                    $res['DBInstanceStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +164,8 @@ class DescribeDBInstancesRequest extends Model
                 $res['InstanceDeployTypes'] = [];
                 $n1 = 0;
                 foreach ($this->instanceDeployTypes as $item1) {
-                    $res['InstanceDeployTypes'][$n1++] = $item1;
+                    $res['InstanceDeployTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +199,8 @@ class DescribeDBInstancesRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -220,7 +225,8 @@ class DescribeDBInstancesRequest extends Model
                 $model->DBInstanceCategories = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceCategories'] as $item1) {
-                    $model->DBInstanceCategories[$n1++] = $item1;
+                    $model->DBInstanceCategories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +244,8 @@ class DescribeDBInstancesRequest extends Model
                 $model->DBInstanceModes = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceModes'] as $item1) {
-                    $model->DBInstanceModes[$n1++] = $item1;
+                    $model->DBInstanceModes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +255,8 @@ class DescribeDBInstancesRequest extends Model
                 $model->DBInstanceStatuses = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceStatuses'] as $item1) {
-                    $model->DBInstanceStatuses[$n1++] = $item1;
+                    $model->DBInstanceStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +266,8 @@ class DescribeDBInstancesRequest extends Model
                 $model->instanceDeployTypes = [];
                 $n1 = 0;
                 foreach ($map['InstanceDeployTypes'] as $item1) {
-                    $model->instanceDeployTypes[$n1++] = $item1;
+                    $model->instanceDeployTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +301,8 @@ class DescribeDBInstancesRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

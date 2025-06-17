@@ -53,7 +53,8 @@ class ModifyDBResourceGroupRequest extends Model
                 $res['ResourceGroupItems'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroupItems as $item1) {
-                    $res['ResourceGroupItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceGroupItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ModifyDBResourceGroupRequest extends Model
                 $model->resourceGroupItems = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroupItems'] as $item1) {
-                    $model->resourceGroupItems[$n1++] = resourceGroupItems::fromMap($item1);
+                    $model->resourceGroupItems[$n1] = resourceGroupItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

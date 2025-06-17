@@ -65,7 +65,8 @@ class DescribeDataSharePerformanceResponseBody extends Model
                 $res['PerformanceKeys'] = [];
                 $n1 = 0;
                 foreach ($this->performanceKeys as $item1) {
-                    $res['PerformanceKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PerformanceKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class DescribeDataSharePerformanceResponseBody extends Model
                 $model->performanceKeys = [];
                 $n1 = 0;
                 foreach ($map['PerformanceKeys'] as $item1) {
-                    $model->performanceKeys[$n1++] = performanceKeys::fromMap($item1);
+                    $model->performanceKeys[$n1] = performanceKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

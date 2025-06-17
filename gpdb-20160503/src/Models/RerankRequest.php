@@ -84,7 +84,8 @@ class RerankRequest extends Model
                 $res['Documents'] = [];
                 $n1 = 0;
                 foreach ($this->documents as $item1) {
-                    $res['Documents'][$n1++] = $item1;
+                    $res['Documents'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class RerankRequest extends Model
                 $model->documents = [];
                 $n1 = 0;
                 foreach ($map['Documents'] as $item1) {
-                    $model->documents[$n1++] = $item1;
+                    $model->documents[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -211,7 +211,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $res['DestColumns'] = [];
                 $n1 = 0;
                 foreach ($this->destColumns as $item1) {
-                    $res['DestColumns'][$n1++] = $item1;
+                    $res['DestColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +266,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $res['MatchColumns'] = [];
                 $n1 = 0;
                 foreach ($this->matchColumns as $item1) {
-                    $res['MatchColumns'][$n1++] = $item1;
+                    $res['MatchColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +293,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $res['SrcColumns'] = [];
                 $n1 = 0;
                 foreach ($this->srcColumns as $item1) {
-                    $res['SrcColumns'][$n1++] = $item1;
+                    $res['SrcColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -305,7 +308,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $res['UpdateColumns'] = [];
                 $n1 = 0;
                 foreach ($this->updateColumns as $item1) {
-                    $res['UpdateColumns'][$n1++] = $item1;
+                    $res['UpdateColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -350,7 +354,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $model->destColumns = [];
                 $n1 = 0;
                 foreach ($map['DestColumns'] as $item1) {
-                    $model->destColumns[$n1++] = $item1;
+                    $model->destColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -404,7 +409,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $model->matchColumns = [];
                 $n1 = 0;
                 foreach ($map['MatchColumns'] as $item1) {
-                    $model->matchColumns[$n1++] = $item1;
+                    $model->matchColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -430,7 +436,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $model->srcColumns = [];
                 $n1 = 0;
                 foreach ($map['SrcColumns'] as $item1) {
-                    $model->srcColumns[$n1++] = $item1;
+                    $model->srcColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -444,7 +451,8 @@ class DescribeStreamingJobResponseBody extends Model
                 $model->updateColumns = [];
                 $n1 = 0;
                 foreach ($map['UpdateColumns'] as $item1) {
-                    $model->updateColumns[$n1++] = $item1;
+                    $model->updateColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

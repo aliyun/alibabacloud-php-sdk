@@ -41,7 +41,8 @@ class sparseVector extends Model
                 $res['Indices'] = [];
                 $n1 = 0;
                 foreach ($this->indices as $item1) {
-                    $res['Indices'][$n1++] = $item1;
+                    $res['Indices'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class sparseVector extends Model
                 $res['Values'] = [];
                 $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class sparseVector extends Model
                 $model->indices = [];
                 $n1 = 0;
                 foreach ($map['Indices'] as $item1) {
-                    $model->indices[$n1++] = $item1;
+                    $model->indices[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class sparseVector extends Model
                 $model->values = [];
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class vector extends Model
                 $res['VectorList'] = [];
                 $n1 = 0;
                 foreach ($this->vectorList as $item1) {
-                    $res['VectorList'][$n1++] = $item1;
+                    $res['VectorList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class vector extends Model
                 $model->vectorList = [];
                 $n1 = 0;
                 foreach ($map['VectorList'] as $item1) {
-                    $model->vectorList[$n1++] = $item1;
+                    $model->vectorList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -62,7 +62,8 @@ class UnbindDBResourceGroupWithRoleRequest extends Model
                 $res['RoleList'] = [];
                 $n1 = 0;
                 foreach ($this->roleList as $item1) {
-                    $res['RoleList'][$n1++] = $item1;
+                    $res['RoleList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class UnbindDBResourceGroupWithRoleRequest extends Model
                 $model->roleList = [];
                 $n1 = 0;
                 foreach ($map['RoleList'] as $item1) {
-                    $model->roleList[$n1++] = $item1;
+                    $model->roleList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

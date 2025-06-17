@@ -50,7 +50,8 @@ class SetDataShareInstanceRequest extends Model
                 $res['InstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceList as $item1) {
-                    $res['InstanceList'][$n1++] = $item1;
+                    $res['InstanceList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class SetDataShareInstanceRequest extends Model
                 $model->instanceList = [];
                 $n1 = 0;
                 foreach ($map['InstanceList'] as $item1) {
-                    $model->instanceList[$n1++] = $item1;
+                    $model->instanceList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

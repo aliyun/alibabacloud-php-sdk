@@ -38,7 +38,8 @@ class DescribeHadoopClustersInSameNetResponseBody extends Model
                 $res['Clusters'] = [];
                 $n1 = 0;
                 foreach ($this->clusters as $item1) {
-                    $res['Clusters'][$n1++] = $item1;
+                    $res['Clusters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeHadoopClustersInSameNetResponseBody extends Model
                 $model->clusters = [];
                 $n1 = 0;
                 foreach ($map['Clusters'] as $item1) {
-                    $model->clusters[$n1++] = $item1;
+                    $model->clusters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

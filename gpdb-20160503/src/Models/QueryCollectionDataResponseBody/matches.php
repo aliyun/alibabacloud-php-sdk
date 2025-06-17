@@ -30,7 +30,8 @@ class matches extends Model {
         $res['match'] = [];
         $n1 = 0;
         foreach($this->match as $item1) {
-          $res['match'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+          $res['match'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+          $n1++;
         }
       }
     }
@@ -51,7 +52,8 @@ class matches extends Model {
         $model->match = [];
         $n1 = 0;
         foreach($map['match'] as $item1) {
-          $model->match[$n1++] = match::fromMap($item1);
+          $model->match[$n1] = match::fromMap($item1);
+          $n1++;
         }
       }
     }

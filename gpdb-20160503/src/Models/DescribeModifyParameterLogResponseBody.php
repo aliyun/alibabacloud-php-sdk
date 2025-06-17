@@ -39,7 +39,8 @@ class DescribeModifyParameterLogResponseBody extends Model
                 $res['Changelogs'] = [];
                 $n1 = 0;
                 foreach ($this->changelogs as $item1) {
-                    $res['Changelogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Changelogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeModifyParameterLogResponseBody extends Model
                 $model->changelogs = [];
                 $n1 = 0;
                 foreach ($map['Changelogs'] as $item1) {
-                    $model->changelogs[$n1++] = changelogs::fromMap($item1);
+                    $model->changelogs[$n1] = changelogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

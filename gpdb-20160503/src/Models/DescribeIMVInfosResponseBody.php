@@ -49,7 +49,8 @@ class DescribeIMVInfosResponseBody extends Model
                 $res['ImvInfos'] = [];
                 $n1 = 0;
                 foreach ($this->imvInfos as $item1) {
-                    $res['ImvInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImvInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeIMVInfosResponseBody extends Model
                 $model->imvInfos = [];
                 $n1 = 0;
                 foreach ($map['ImvInfos'] as $item1) {
-                    $model->imvInfos[$n1++] = imvInfos::fromMap($item1);
+                    $model->imvInfos[$n1] = imvInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

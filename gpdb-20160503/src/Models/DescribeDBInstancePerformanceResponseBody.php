@@ -74,7 +74,8 @@ class DescribeDBInstancePerformanceResponseBody extends Model
                 $res['PerformanceKeys'] = [];
                 $n1 = 0;
                 foreach ($this->performanceKeys as $item1) {
-                    $res['PerformanceKeys'][$n1++] = $item1;
+                    $res['PerformanceKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class DescribeDBInstancePerformanceResponseBody extends Model
                 $model->performanceKeys = [];
                 $n1 = 0;
                 foreach ($map['PerformanceKeys'] as $item1) {
-                    $model->performanceKeys[$n1++] = $item1;
+                    $model->performanceKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

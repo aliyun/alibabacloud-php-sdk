@@ -182,7 +182,8 @@ class UploadDocumentAsyncRequest extends Model
                 $res['Separators'] = [];
                 $n1 = 0;
                 foreach ($this->separators as $item1) {
-                    $res['Separators'][$n1++] = $item1;
+                    $res['Separators'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +269,8 @@ class UploadDocumentAsyncRequest extends Model
                 $model->separators = [];
                 $n1 = 0;
                 foreach ($map['Separators'] as $item1) {
-                    $model->separators[$n1++] = $item1;
+                    $model->separators[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

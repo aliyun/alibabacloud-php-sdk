@@ -33,7 +33,8 @@ class items extends Model
                 $res['PlanList'] = [];
                 $n1 = 0;
                 foreach ($this->planList as $item1) {
-                    $res['PlanList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PlanList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->planList = [];
                 $n1 = 0;
                 foreach ($map['PlanList'] as $item1) {
-                    $model->planList[$n1++] = planList::fromMap($item1);
+                    $model->planList[$n1] = planList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

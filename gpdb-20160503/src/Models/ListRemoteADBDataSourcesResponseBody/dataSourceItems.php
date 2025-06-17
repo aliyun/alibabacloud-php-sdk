@@ -33,7 +33,8 @@ class dataSourceItems extends Model
                 $res['RemoteDataSources'] = [];
                 $n1 = 0;
                 foreach ($this->remoteDataSources as $item1) {
-                    $res['RemoteDataSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemoteDataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dataSourceItems extends Model
                 $model->remoteDataSources = [];
                 $n1 = 0;
                 foreach ($map['RemoteDataSources'] as $item1) {
-                    $model->remoteDataSources[$n1++] = remoteDataSources::fromMap($item1);
+                    $model->remoteDataSources[$n1] = remoteDataSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

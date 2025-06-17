@@ -33,7 +33,8 @@ class records extends Model
                 $res['Record'] = [];
                 $n1 = 0;
                 foreach ($this->record as $item1) {
-                    $res['Record'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Record'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class records extends Model
                 $model->record = [];
                 $n1 = 0;
                 foreach ($map['Record'] as $item1) {
-                    $model->record[$n1++] = Field::fromMap($item1);
+                    $model->record[$n1] = Field::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

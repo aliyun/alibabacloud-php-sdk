@@ -32,7 +32,8 @@ class namespaces extends Model
                 $res['Namespace'] = [];
                 $n1 = 0;
                 foreach ($this->namespace as $item1) {
-                    $res['Namespace'][$n1++] = $item1;
+                    $res['Namespace'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class namespaces extends Model
                 $model->namespace = [];
                 $n1 = 0;
                 foreach ($map['Namespace'] as $item1) {
-                    $model->namespace[$n1++] = $item1;
+                    $model->namespace[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

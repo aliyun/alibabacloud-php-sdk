@@ -162,6 +162,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $instanceSpec;
+
+    /**
+     * @var string
+     */
     public $lockMode;
 
     /**
@@ -379,6 +384,7 @@ class DBInstanceAttribute extends Model
         'hostType' => 'HostType',
         'idleTime' => 'IdleTime',
         'instanceNetworkType' => 'InstanceNetworkType',
+        'instanceSpec' => 'InstanceSpec',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
         'maintainEndTime' => 'MaintainEndTime',
@@ -548,6 +554,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        }
+
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
         }
 
         if (null !== $this->lockMode) {
@@ -831,6 +841,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
+        }
+
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
         }
 
         if (isset($map['LockMode'])) {

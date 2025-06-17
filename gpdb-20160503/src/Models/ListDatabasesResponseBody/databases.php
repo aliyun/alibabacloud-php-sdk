@@ -32,7 +32,8 @@ class databases extends Model
                 $res['Databases'] = [];
                 $n1 = 0;
                 foreach ($this->databases as $item1) {
-                    $res['Databases'][$n1++] = $item1;
+                    $res['Databases'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class databases extends Model
                 $model->databases = [];
                 $n1 = 0;
                 foreach ($map['Databases'] as $item1) {
-                    $model->databases[$n1++] = $item1;
+                    $model->databases[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

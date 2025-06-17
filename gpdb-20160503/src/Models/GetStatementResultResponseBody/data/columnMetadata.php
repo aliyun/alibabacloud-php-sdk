@@ -33,7 +33,8 @@ class columnMetadata extends Model
                 $res['ColumnMetadata'] = [];
                 $n1 = 0;
                 foreach ($this->columnMetadata as $item1) {
-                    $res['ColumnMetadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ColumnMetadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class columnMetadata extends Model
                 $model->columnMetadata = [];
                 $n1 = 0;
                 foreach ($map['ColumnMetadata'] as $item1) {
-                    $model->columnMetadata[$n1++] = self::fromMap($item1);
+                    $model->columnMetadata[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

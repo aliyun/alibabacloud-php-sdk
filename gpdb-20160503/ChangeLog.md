@@ -1,3 +1,7 @@
+2025-06-17 Version: 2.8.2
+- Update API DescribeDBInstanceAttribute: add response parameters Body.Items.$.InstanceSpec.
+
+
 2025-06-11 Version: 2.8.1
 - Update API UpsertChunks: add request parameters AllowInsertWithFilter.
 
