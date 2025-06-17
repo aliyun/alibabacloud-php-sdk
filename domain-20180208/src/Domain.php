@@ -7,6 +7,9 @@ namespace AlibabaCloud\SDK\Domain\V20180208;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptDemandResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsShrinkRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BidDomainRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BidDomainResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\ChangeAuctionRequest;
@@ -43,6 +46,8 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportAuctionDetailRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportAuctionDetailResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsRequest;
@@ -157,6 +162,69 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->acceptDemandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 闯入接口.
+     *
+     * @param tmpReq - BatchIntrudeDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchIntrudeDomainsResponse
+     *
+     * @param BatchIntrudeDomainsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchIntrudeDomainsResponse
+     */
+    public function batchIntrudeDomainsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchIntrudeDomainsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->domainNames) {
+            $request->domainNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->domainNames, 'DomainNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->domainNamesShrink) {
+            @$query['DomainNames'] = $request->domainNamesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchIntrudeDomains',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchIntrudeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 闯入接口.
+     *
+     * @param request - BatchIntrudeDomainsRequest
+     *
+     * @returns BatchIntrudeDomainsResponse
+     *
+     * @param BatchIntrudeDomainsRequest $request
+     *
+     * @return BatchIntrudeDomainsResponse
+     */
+    public function batchIntrudeDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchIntrudeDomainsWithOptions($request, $runtime);
     }
 
     /**
@@ -1262,6 +1330,63 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryExchangeRateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询竞价商品详情.
+     *
+     * @param request - QueryExportAuctionDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryExportAuctionDetailResponse
+     *
+     * @param QueryExportAuctionDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryExportAuctionDetailResponse
+     */
+    public function queryExportAuctionDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->auctionId) {
+            @$query['AuctionId'] = $request->auctionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryExportAuctionDetail',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryExportAuctionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询竞价商品详情.
+     *
+     * @param request - QueryExportAuctionDetailRequest
+     *
+     * @returns QueryExportAuctionDetailResponse
+     *
+     * @param QueryExportAuctionDetailRequest $request
+     *
+     * @return QueryExportAuctionDetailResponse
+     */
+    public function queryExportAuctionDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryExportAuctionDetailWithOptions($request, $runtime);
     }
 
     /**

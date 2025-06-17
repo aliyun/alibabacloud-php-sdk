@@ -33,7 +33,8 @@ class data extends Model
                 $res['BrokerDemandRecord'] = [];
                 $n1 = 0;
                 foreach ($this->brokerDemandRecord as $item1) {
-                    $res['BrokerDemandRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BrokerDemandRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->brokerDemandRecord = [];
                 $n1 = 0;
                 foreach ($map['BrokerDemandRecord'] as $item1) {
-                    $model->brokerDemandRecord[$n1++] = brokerDemandRecord::fromMap($item1);
+                    $model->brokerDemandRecord[$n1] = brokerDemandRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

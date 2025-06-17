@@ -33,7 +33,8 @@ class ChangeAuctionRequest extends Model
                 $res['AuctionList'] = [];
                 $n1 = 0;
                 foreach ($this->auctionList as $item1) {
-                    $res['AuctionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuctionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ChangeAuctionRequest extends Model
                 $model->auctionList = [];
                 $n1 = 0;
                 foreach ($map['AuctionList'] as $item1) {
-                    $model->auctionList[$n1++] = auctionList::fromMap($item1);
+                    $model->auctionList[$n1] = auctionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

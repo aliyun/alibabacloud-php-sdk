@@ -54,7 +54,8 @@ class module extends Model
                 $res['DomainBlockTrade'] = [];
                 $n1 = 0;
                 foreach ($this->domainBlockTrade as $item1) {
-                    $res['DomainBlockTrade'][$n1++] = $item1;
+                    $res['DomainBlockTrade'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class module extends Model
                 $model->domainBlockTrade = [];
                 $n1 = 0;
                 foreach ($map['DomainBlockTrade'] as $item1) {
-                    $model->domainBlockTrade[$n1++] = $item1;
+                    $model->domainBlockTrade[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

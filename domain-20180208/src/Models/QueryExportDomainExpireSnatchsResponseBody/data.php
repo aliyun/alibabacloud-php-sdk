@@ -149,6 +149,11 @@ class data extends Model
     public $regDate;
 
     /**
+     * @var float
+     */
+    public $renewPrice;
+
+    /**
      * @var bool
      */
     public $reserved;
@@ -172,6 +177,11 @@ class data extends Model
      * @var string
      */
     public $shortName;
+
+    /**
+     * @var string
+     */
+    public $snatchNo;
 
     /**
      * @var string
@@ -231,11 +241,13 @@ class data extends Model
         'productId' => 'ProductId',
         'publishTime' => 'PublishTime',
         'regDate' => 'RegDate',
+        'renewPrice' => 'RenewPrice',
         'reserved' => 'Reserved',
         'rmbPrice' => 'RmbPrice',
         's360Weight' => 'S360Weight',
         'seoAttributes' => 'SeoAttributes',
         'shortName' => 'ShortName',
+        'snatchNo' => 'SnatchNo',
         'snatchTypeDesc' => 'SnatchTypeDesc',
         'sougouAntiLink' => 'SougouAntiLink',
         'sougouIndex' => 'SougouIndex',
@@ -364,6 +376,10 @@ class data extends Model
             $res['RegDate'] = $this->regDate;
         }
 
+        if (null !== $this->renewPrice) {
+            $res['RenewPrice'] = $this->renewPrice;
+        }
+
         if (null !== $this->reserved) {
             $res['Reserved'] = $this->reserved;
         }
@@ -382,6 +398,10 @@ class data extends Model
 
         if (null !== $this->shortName) {
             $res['ShortName'] = $this->shortName;
+        }
+
+        if (null !== $this->snatchNo) {
+            $res['SnatchNo'] = $this->snatchNo;
         }
 
         if (null !== $this->snatchTypeDesc) {
@@ -531,6 +551,10 @@ class data extends Model
             $model->regDate = $map['RegDate'];
         }
 
+        if (isset($map['RenewPrice'])) {
+            $model->renewPrice = $map['RenewPrice'];
+        }
+
         if (isset($map['Reserved'])) {
             $model->reserved = $map['Reserved'];
         }
@@ -549,6 +573,10 @@ class data extends Model
 
         if (isset($map['ShortName'])) {
             $model->shortName = $map['ShortName'];
+        }
+
+        if (isset($map['SnatchNo'])) {
+            $model->snatchNo = $map['SnatchNo'];
         }
 
         if (isset($map['SnatchTypeDesc'])) {

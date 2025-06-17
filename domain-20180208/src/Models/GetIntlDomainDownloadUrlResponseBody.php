@@ -108,7 +108,8 @@ class GetIntlDomainDownloadUrlResponseBody extends Model
                 $res['ErrorArgs'] = [];
                 $n1 = 0;
                 foreach ($this->errorArgs as $item1) {
-                    $res['ErrorArgs'][$n1++] = $item1;
+                    $res['ErrorArgs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +170,8 @@ class GetIntlDomainDownloadUrlResponseBody extends Model
                 $model->errorArgs = [];
                 $n1 = 0;
                 foreach ($map['ErrorArgs'] as $item1) {
-                    $model->errorArgs[$n1++] = $item1;
+                    $model->errorArgs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

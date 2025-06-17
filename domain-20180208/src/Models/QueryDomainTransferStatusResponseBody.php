@@ -39,7 +39,8 @@ class QueryDomainTransferStatusResponseBody extends Model
                 $res['DomainTransferStatus'] = [];
                 $n1 = 0;
                 foreach ($this->domainTransferStatus as $item1) {
-                    $res['DomainTransferStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainTransferStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class QueryDomainTransferStatusResponseBody extends Model
                 $model->domainTransferStatus = [];
                 $n1 = 0;
                 foreach ($map['DomainTransferStatus'] as $item1) {
-                    $model->domainTransferStatus[$n1++] = domainTransferStatus::fromMap($item1);
+                    $model->domainTransferStatus[$n1] = domainTransferStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -62,7 +62,8 @@ class SubmitPurchaseInfoRequest extends Model
                 $res['PurchaseProofs'] = [];
                 $n1 = 0;
                 foreach ($this->purchaseProofs as $item1) {
-                    $res['PurchaseProofs'][$n1++] = $item1;
+                    $res['PurchaseProofs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class SubmitPurchaseInfoRequest extends Model
                 $model->purchaseProofs = [];
                 $n1 = 0;
                 foreach ($map['PurchaseProofs'] as $item1) {
-                    $model->purchaseProofs[$n1++] = $item1;
+                    $model->purchaseProofs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

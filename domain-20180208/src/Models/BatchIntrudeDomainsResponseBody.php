@@ -5,12 +5,12 @@
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsResponseBody\data;
+use AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsResponseBody\data;
 
-class QueryExportDomainExpireSnatchsResponseBody extends Model
+class BatchIntrudeDomainsResponseBody extends Model
 {
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
@@ -25,8 +25,8 @@ class QueryExportDomainExpireSnatchsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         parent::validate();
     }
@@ -35,14 +35,7 @@ class QueryExportDomainExpireSnatchsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->requestId) {
@@ -61,14 +54,7 @@ class QueryExportDomainExpireSnatchsResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['RequestId'])) {

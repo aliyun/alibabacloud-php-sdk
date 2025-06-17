@@ -87,7 +87,8 @@ class auctionList extends Model
                 $res['BidRecords'] = [];
                 $n1 = 0;
                 foreach ($this->bidRecords as $item1) {
-                    $res['BidRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BidRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +145,8 @@ class auctionList extends Model
                 $model->bidRecords = [];
                 $n1 = 0;
                 foreach ($map['BidRecords'] as $item1) {
-                    $model->bidRecords[$n1++] = bidRecords::fromMap($item1);
+                    $model->bidRecords[$n1] = bidRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
