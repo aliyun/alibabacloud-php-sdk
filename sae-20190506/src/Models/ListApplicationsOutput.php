@@ -44,7 +44,8 @@ class ListApplicationsOutput extends Model
                 $res['applications'] = [];
                 $n1 = 0;
                 foreach ($this->applications as $item1) {
-                    $res['applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['applications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListApplicationsOutput extends Model
                 $model->applications = [];
                 $n1 = 0;
                 foreach ($map['applications'] as $item1) {
-                    $model->applications[$n1++] = Application::fromMap($item1);
+                    $model->applications[$n1] = Application::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

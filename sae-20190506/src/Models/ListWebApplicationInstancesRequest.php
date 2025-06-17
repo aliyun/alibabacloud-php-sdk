@@ -78,7 +78,8 @@ class ListWebApplicationInstancesRequest extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class ListWebApplicationInstancesRequest extends Model
                 $res['Statuses'] = [];
                 $n1 = 0;
                 foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1++] = $item1;
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +112,8 @@ class ListWebApplicationInstancesRequest extends Model
                 $res['VersionIds'] = [];
                 $n1 = 0;
                 foreach ($this->versionIds as $item1) {
-                    $res['VersionIds'][$n1++] = $item1;
+                    $res['VersionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +138,8 @@ class ListWebApplicationInstancesRequest extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +161,8 @@ class ListWebApplicationInstancesRequest extends Model
                 $model->statuses = [];
                 $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1++] = $item1;
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +172,8 @@ class ListWebApplicationInstancesRequest extends Model
                 $model->versionIds = [];
                 $n1 = 0;
                 foreach ($map['VersionIds'] as $item1) {
-                    $model->versionIds[$n1++] = $item1;
+                    $model->versionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

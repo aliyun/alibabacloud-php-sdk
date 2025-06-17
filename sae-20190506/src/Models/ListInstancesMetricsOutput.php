@@ -60,7 +60,8 @@ class ListInstancesMetricsOutput extends Model
                 $res['metricsList'] = [];
                 $n1 = 0;
                 foreach ($this->metricsList as $item1) {
-                    $res['metricsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['metricsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class ListInstancesMetricsOutput extends Model
                 $model->metricsList = [];
                 $n1 = 0;
                 foreach ($map['metricsList'] as $item1) {
-                    $model->metricsList[$n1++] = InstanceMetricInfo::fromMap($item1);
+                    $model->metricsList[$n1] = InstanceMetricInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

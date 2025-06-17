@@ -51,7 +51,8 @@ class ListWebInstancesOutput extends Model
                 $res['WebInstances'] = [];
                 $n1 = 0;
                 foreach ($this->webInstances as $item1) {
-                    $res['WebInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WebInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class ListWebInstancesOutput extends Model
                 $model->webInstances = [];
                 $n1 = 0;
                 foreach ($map['WebInstances'] as $item1) {
-                    $model->webInstances[$n1++] = WebInstanceInfo::fromMap($item1);
+                    $model->webInstances[$n1] = WebInstanceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

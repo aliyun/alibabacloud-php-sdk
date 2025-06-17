@@ -39,7 +39,8 @@ class fallback extends Model
                 $res['Destinations'] = [];
                 $n1 = 0;
                 foreach ($this->destinations as $item1) {
-                    $res['Destinations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Destinations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class fallback extends Model
                 $model->destinations = [];
                 $n1 = 0;
                 foreach ($map['Destinations'] as $item1) {
-                    $model->destinations[$n1++] = destinations::fromMap($item1);
+                    $model->destinations[$n1] = destinations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

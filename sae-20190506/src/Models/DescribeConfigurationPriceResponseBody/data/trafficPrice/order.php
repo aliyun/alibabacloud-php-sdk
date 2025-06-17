@@ -58,7 +58,8 @@ class order extends Model
                 $res['RuleIds'] = [];
                 $n1 = 0;
                 foreach ($this->ruleIds as $item1) {
-                    $res['RuleIds'][$n1++] = $item1;
+                    $res['RuleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class order extends Model
                 $model->ruleIds = [];
                 $n1 = 0;
                 foreach ($map['RuleIds'] as $item1) {
-                    $model->ruleIds[$n1++] = $item1;
+                    $model->ruleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -65,7 +65,8 @@ class PriceEstimateOutput extends Model
                 $res['Apps'] = [];
                 $n1 = 0;
                 foreach ($this->apps as $item1) {
-                    $res['Apps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Apps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,7 +76,8 @@ class PriceEstimateOutput extends Model
                 $res['Items'] = [];
                 $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +87,8 @@ class PriceEstimateOutput extends Model
                 $res['PostPayItems'] = [];
                 $n1 = 0;
                 foreach ($this->postPayItems as $item1) {
-                    $res['PostPayItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PostPayItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +117,8 @@ class PriceEstimateOutput extends Model
                 $model->apps = [];
                 $n1 = 0;
                 foreach ($map['Apps'] as $item1) {
-                    $model->apps[$n1++] = apps::fromMap($item1);
+                    $model->apps[$n1] = apps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +128,8 @@ class PriceEstimateOutput extends Model
                 $model->items = [];
                 $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class PriceEstimateOutput extends Model
                 $model->postPayItems = [];
                 $n1 = 0;
                 foreach ($map['PostPayItems'] as $item1) {
-                    $model->postPayItems[$n1++] = postPayItems::fromMap($item1);
+                    $model->postPayItems[$n1] = postPayItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

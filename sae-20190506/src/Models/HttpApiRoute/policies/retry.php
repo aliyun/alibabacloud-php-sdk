@@ -61,7 +61,8 @@ class retry extends Model
                 $res['HttpCodes'] = [];
                 $n1 = 0;
                 foreach ($this->httpCodes as $item1) {
-                    $res['HttpCodes'][$n1++] = $item1;
+                    $res['HttpCodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class retry extends Model
                 $res['RetryOn'] = [];
                 $n1 = 0;
                 foreach ($this->retryOn as $item1) {
-                    $res['RetryOn'][$n1++] = $item1;
+                    $res['RetryOn'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class retry extends Model
                 $model->httpCodes = [];
                 $n1 = 0;
                 foreach ($map['HttpCodes'] as $item1) {
-                    $model->httpCodes[$n1++] = $item1;
+                    $model->httpCodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class retry extends Model
                 $model->retryOn = [];
                 $n1 = 0;
                 foreach ($map['RetryOn'] as $item1) {
-                    $model->retryOn[$n1++] = $item1;
+                    $model->retryOn[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

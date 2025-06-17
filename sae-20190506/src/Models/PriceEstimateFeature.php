@@ -196,7 +196,8 @@ class PriceEstimateFeature extends Model
                 $res['CpuUtilMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->cpuUtilMetrics as $item1) {
-                    $res['CpuUtilMetrics'][$n1++] = $item1;
+                    $res['CpuUtilMetrics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -313,7 +314,8 @@ class PriceEstimateFeature extends Model
                 $model->cpuUtilMetrics = [];
                 $n1 = 0;
                 foreach ($map['CpuUtilMetrics'] as $item1) {
-                    $model->cpuUtilMetrics[$n1++] = $item1;
+                    $model->cpuUtilMetrics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

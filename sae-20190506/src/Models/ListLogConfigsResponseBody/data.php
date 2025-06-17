@@ -55,7 +55,8 @@ class data extends Model
                 $res['LogConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->logConfigs as $item1) {
-                    $res['LogConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class data extends Model
                 $model->logConfigs = [];
                 $n1 = 0;
                 foreach ($map['LogConfigs'] as $item1) {
-                    $model->logConfigs[$n1++] = logConfigs::fromMap($item1);
+                    $model->logConfigs[$n1] = logConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

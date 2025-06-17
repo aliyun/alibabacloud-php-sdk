@@ -129,7 +129,8 @@ class data extends Model
                 $res['Methods'] = [];
                 $n1 = 0;
                 foreach ($this->methods as $item1) {
-                    $res['Methods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Methods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class data extends Model
                 $res['ServicePorts'] = [];
                 $n1 = 0;
                 foreach ($this->servicePorts as $item1) {
-                    $res['ServicePorts'][$n1++] = $item1;
+                    $res['ServicePorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +159,8 @@ class data extends Model
                 $res['ServiceTags'] = [];
                 $n1 = 0;
                 foreach ($this->serviceTags as $item1) {
-                    $res['ServiceTags'][$n1++] = $item1;
+                    $res['ServiceTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +214,8 @@ class data extends Model
                 $model->methods = [];
                 $n1 = 0;
                 foreach ($map['Methods'] as $item1) {
-                    $model->methods[$n1++] = methods::fromMap($item1);
+                    $model->methods[$n1] = methods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +229,8 @@ class data extends Model
                 $model->servicePorts = [];
                 $n1 = 0;
                 foreach ($map['ServicePorts'] as $item1) {
-                    $model->servicePorts[$n1++] = $item1;
+                    $model->servicePorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -239,7 +244,8 @@ class data extends Model
                 $model->serviceTags = [];
                 $n1 = 0;
                 foreach ($map['ServiceTags'] as $item1) {
-                    $model->serviceTags[$n1++] = $item1;
+                    $model->serviceTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

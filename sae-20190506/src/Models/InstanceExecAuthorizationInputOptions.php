@@ -56,7 +56,8 @@ class InstanceExecAuthorizationInputOptions extends Model
                 $res['command'] = [];
                 $n1 = 0;
                 foreach ($this->command as $item1) {
-                    $res['command'][$n1++] = $item1;
+                    $res['command'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class InstanceExecAuthorizationInputOptions extends Model
                 $model->command = [];
                 $n1 = 0;
                 foreach ($map['command'] as $item1) {
-                    $model->command[$n1++] = $item1;
+                    $model->command[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

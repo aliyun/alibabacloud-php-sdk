@@ -45,7 +45,8 @@ class httpGet extends Model
                 $res['httpHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->httpHeaders as $item1) {
-                    $res['httpHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['httpHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class httpGet extends Model
                 $model->httpHeaders = [];
                 $n1 = 0;
                 foreach ($map['httpHeaders'] as $item1) {
-                    $model->httpHeaders[$n1++] = httpHeaders::fromMap($item1);
+                    $model->httpHeaders[$n1] = httpHeaders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

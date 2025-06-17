@@ -44,7 +44,8 @@ class GetApplicationLogsOutput extends Model
                 $res['logEntrys'] = [];
                 $n1 = 0;
                 foreach ($this->logEntrys as $item1) {
-                    $res['logEntrys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['logEntrys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class GetApplicationLogsOutput extends Model
                 $model->logEntrys = [];
                 $n1 = 0;
                 foreach ($map['logEntrys'] as $item1) {
-                    $model->logEntrys[$n1++] = LogEntry::fromMap($item1);
+                    $model->logEntrys[$n1] = LogEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

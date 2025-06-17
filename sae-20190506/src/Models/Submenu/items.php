@@ -62,7 +62,8 @@ class items extends Model
                 $res['RelatingItems'] = [];
                 $n1 = 0;
                 foreach ($this->relatingItems as $item1) {
-                    $res['RelatingItems'][$n1++] = $item1;
+                    $res['RelatingItems'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class items extends Model
                 $model->relatingItems = [];
                 $n1 = 0;
                 foreach ($map['RelatingItems'] as $item1) {
-                    $model->relatingItems[$n1++] = $item1;
+                    $model->relatingItems[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

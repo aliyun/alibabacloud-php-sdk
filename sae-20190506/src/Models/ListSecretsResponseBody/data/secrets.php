@@ -77,7 +77,8 @@ class secrets extends Model
                 $res['RelateApps'] = [];
                 $n1 = 0;
                 foreach ($this->relateApps as $item1) {
-                    $res['RelateApps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelateApps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class secrets extends Model
                 $model->relateApps = [];
                 $n1 = 0;
                 foreach ($map['RelateApps'] as $item1) {
-                    $model->relateApps[$n1++] = relateApps::fromMap($item1);
+                    $model->relateApps[$n1] = relateApps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

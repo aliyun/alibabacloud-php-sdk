@@ -68,7 +68,8 @@ class steps extends Model
                 $res['RegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1++] = $item1;
+                    $res['RegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class steps extends Model
                 $model->regionIds = [];
                 $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1++] = $item1;
+                    $model->regionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

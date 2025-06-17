@@ -103,7 +103,8 @@ class rules extends Model
                 $res['RuleActions'] = [];
                 $n1 = 0;
                 foreach ($this->ruleActions as $item1) {
-                    $res['RuleActions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class rules extends Model
                 $model->ruleActions = [];
                 $n1 = 0;
                 foreach ($map['RuleActions'] as $item1) {
-                    $model->ruleActions[$n1++] = ruleActions::fromMap($item1);
+                    $model->ruleActions[$n1] = ruleActions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

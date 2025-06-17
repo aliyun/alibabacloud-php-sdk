@@ -57,7 +57,8 @@ class apps extends Model
                 $res['Usages'] = [];
                 $n1 = 0;
                 foreach ($this->usages as $item1) {
-                    $res['Usages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Usages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +87,8 @@ class apps extends Model
                 $model->usages = [];
                 $n1 = 0;
                 foreach ($map['Usages'] as $item1) {
-                    $model->usages[$n1++] = usages::fromMap($item1);
+                    $model->usages[$n1] = usages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

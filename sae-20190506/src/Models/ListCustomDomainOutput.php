@@ -44,7 +44,8 @@ class ListCustomDomainOutput extends Model
                 $res['customDomains'] = [];
                 $n1 = 0;
                 foreach ($this->customDomains as $item1) {
-                    $res['customDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['customDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListCustomDomainOutput extends Model
                 $model->customDomains = [];
                 $n1 = 0;
                 foreach ($map['customDomains'] as $item1) {
-                    $model->customDomains[$n1++] = CustomDomain::fromMap($item1);
+                    $model->customDomains[$n1] = CustomDomain::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

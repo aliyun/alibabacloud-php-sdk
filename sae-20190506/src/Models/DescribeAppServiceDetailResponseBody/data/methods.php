@@ -111,7 +111,8 @@ class methods extends Model
                 $res['ParameterDefinitions'] = [];
                 $n1 = 0;
                 foreach ($this->parameterDefinitions as $item1) {
-                    $res['ParameterDefinitions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParameterDefinitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class methods extends Model
                 $res['ParameterDetails'] = [];
                 $n1 = 0;
                 foreach ($this->parameterDetails as $item1) {
-                    $res['ParameterDetails'][$n1++] = $item1;
+                    $res['ParameterDetails'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +133,8 @@ class methods extends Model
                 $res['ParameterTypes'] = [];
                 $n1 = 0;
                 foreach ($this->parameterTypes as $item1) {
-                    $res['ParameterTypes'][$n1++] = $item1;
+                    $res['ParameterTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +144,8 @@ class methods extends Model
                 $res['Paths'] = [];
                 $n1 = 0;
                 foreach ($this->paths as $item1) {
-                    $res['Paths'][$n1++] = $item1;
+                    $res['Paths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +155,8 @@ class methods extends Model
                 $res['RequestMethods'] = [];
                 $n1 = 0;
                 foreach ($this->requestMethods as $item1) {
-                    $res['RequestMethods'][$n1++] = $item1;
+                    $res['RequestMethods'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +197,8 @@ class methods extends Model
                 $model->parameterDefinitions = [];
                 $n1 = 0;
                 foreach ($map['ParameterDefinitions'] as $item1) {
-                    $model->parameterDefinitions[$n1++] = parameterDefinitions::fromMap($item1);
+                    $model->parameterDefinitions[$n1] = parameterDefinitions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +208,8 @@ class methods extends Model
                 $model->parameterDetails = [];
                 $n1 = 0;
                 foreach ($map['ParameterDetails'] as $item1) {
-                    $model->parameterDetails[$n1++] = $item1;
+                    $model->parameterDetails[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +219,8 @@ class methods extends Model
                 $model->parameterTypes = [];
                 $n1 = 0;
                 foreach ($map['ParameterTypes'] as $item1) {
-                    $model->parameterTypes[$n1++] = $item1;
+                    $model->parameterTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +230,8 @@ class methods extends Model
                 $model->paths = [];
                 $n1 = 0;
                 foreach ($map['Paths'] as $item1) {
-                    $model->paths[$n1++] = $item1;
+                    $model->paths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +241,8 @@ class methods extends Model
                 $model->requestMethods = [];
                 $n1 = 0;
                 foreach ($map['RequestMethods'] as $item1) {
-                    $model->requestMethods[$n1++] = $item1;
+                    $model->requestMethods[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

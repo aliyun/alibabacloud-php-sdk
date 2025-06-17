@@ -54,7 +54,8 @@ class Submenu extends Model
                 $res['Items'] = [];
                 $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class Submenu extends Model
                 $res['Submenus'] = [];
                 $n1 = 0;
                 foreach ($this->submenus as $item1) {
-                    $res['Submenus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Submenus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class Submenu extends Model
                 $model->items = [];
                 $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class Submenu extends Model
                 $model->submenus = [];
                 $n1 = 0;
                 foreach ($map['Submenus'] as $item1) {
-                    $model->submenus[$n1++] = self::fromMap($item1);
+                    $model->submenus[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -67,7 +67,8 @@ class metricsStatus extends Model
                 $res['CurrentMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->currentMetrics as $item1) {
-                    $res['CurrentMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CurrentMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class metricsStatus extends Model
                 $res['NextScaleMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->nextScaleMetrics as $item1) {
-                    $res['NextScaleMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NextScaleMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +116,8 @@ class metricsStatus extends Model
                 $model->currentMetrics = [];
                 $n1 = 0;
                 foreach ($map['CurrentMetrics'] as $item1) {
-                    $model->currentMetrics[$n1++] = currentMetrics::fromMap($item1);
+                    $model->currentMetrics[$n1] = currentMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class metricsStatus extends Model
                 $model->nextScaleMetrics = [];
                 $n1 = 0;
                 foreach ($map['NextScaleMetrics'] as $item1) {
-                    $model->nextScaleMetrics[$n1++] = nextScaleMetrics::fromMap($item1);
+                    $model->nextScaleMetrics[$n1] = nextScaleMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

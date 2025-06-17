@@ -264,6 +264,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationVswitchesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateApplicationVswitchesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateAppModeRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateAppModeResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateAppSecurityGroupRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateAppSecurityGroupResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateConfigMapRequest;
@@ -755,6 +757,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Confirms whether to start the next batch.
+     *
      * @param request - ConfirmPipelineBatchRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -799,6 +803,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Confirms whether to start the next batch.
+     *
      * @param request - ConfirmPipelineBatchRequest
      *
      * @returns ConfirmPipelineBatchResponse
@@ -4057,7 +4063,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a specified auto scaling policy of an application.
+     * Queries an Auto Scaling policy of an application.
      *
      * @param request - DescribeApplicationScalingRuleRequest
      * @param headers - map
@@ -4103,7 +4109,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a specified auto scaling policy of an application.
+     * Queries an Auto Scaling policy of an application.
      *
      * @param request - DescribeApplicationScalingRuleRequest
      *
@@ -4739,6 +4745,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries the logs of a sidecar container instance.
+     *
      * @param request - DescribeInstanceLogRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4783,6 +4791,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries the logs of a sidecar container instance.
+     *
      * @param request - DescribeInstanceLogRequest
      *
      * @returns DescribeInstanceLogResponse
@@ -9989,6 +9999,71 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * 应用闲置模式更新.
+     *
+     * @param request - UpdateAppModeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppModeResponse
+     *
+     * @param UpdateAppModeRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAppModeResponse
+     */
+    public function updateAppModeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->enableIdle) {
+            @$query['EnableIdle'] = $request->enableIdle;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppMode',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/app/updateAppMode',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用闲置模式更新.
+     *
+     * @param request - UpdateAppModeRequest
+     *
+     * @returns UpdateAppModeResponse
+     *
+     * @param UpdateAppModeRequest $request
+     *
+     * @return UpdateAppModeResponse
+     */
+    public function updateAppMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAppModeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Updates the security group of an application.
      *
      * @param request - UpdateAppSecurityGroupRequest
@@ -10277,7 +10352,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update a ConfigMap.
+     * Updates a ConfigMap instance.
      *
      * @param request - UpdateConfigMapRequest
      * @param headers - map
@@ -10329,7 +10404,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update a ConfigMap.
+     * Updates a ConfigMap instance.
      *
      * @param request - UpdateConfigMapRequest
      *

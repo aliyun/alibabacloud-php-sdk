@@ -438,7 +438,8 @@ class data extends Model
                 $res['ConfigMapMountDesc'] = [];
                 $n1 = 0;
                 foreach ($this->configMapMountDesc as $item1) {
-                    $res['ConfigMapMountDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigMapMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -488,7 +489,8 @@ class data extends Model
                 $res['MountDesc'] = [];
                 $n1 = 0;
                 foreach ($this->mountDesc as $item1) {
-                    $res['MountDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -522,7 +524,8 @@ class data extends Model
                 $res['OssMountDescs'] = [];
                 $n1 = 0;
                 foreach ($this->ossMountDescs as $item1) {
-                    $res['OssMountDescs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OssMountDescs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -564,7 +567,8 @@ class data extends Model
                 $res['PublicWebHookUrls'] = [];
                 $n1 = 0;
                 foreach ($this->publicWebHookUrls as $item1) {
-                    $res['PublicWebHookUrls'][$n1++] = $item1;
+                    $res['PublicWebHookUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -586,7 +590,8 @@ class data extends Model
                 $res['RefedAppIds'] = [];
                 $n1 = 0;
                 foreach ($this->refedAppIds as $item1) {
-                    $res['RefedAppIds'][$n1++] = $item1;
+                    $res['RefedAppIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -624,7 +629,8 @@ class data extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -662,7 +668,8 @@ class data extends Model
                 $res['VpcWebHookUrls'] = [];
                 $n1 = 0;
                 foreach ($this->vpcWebHookUrls as $item1) {
-                    $res['VpcWebHookUrls'][$n1++] = $item1;
+                    $res['VpcWebHookUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -727,7 +734,8 @@ class data extends Model
                 $model->configMapMountDesc = [];
                 $n1 = 0;
                 foreach ($map['ConfigMapMountDesc'] as $item1) {
-                    $model->configMapMountDesc[$n1++] = configMapMountDesc::fromMap($item1);
+                    $model->configMapMountDesc[$n1] = configMapMountDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -777,7 +785,8 @@ class data extends Model
                 $model->mountDesc = [];
                 $n1 = 0;
                 foreach ($map['MountDesc'] as $item1) {
-                    $model->mountDesc[$n1++] = mountDesc::fromMap($item1);
+                    $model->mountDesc[$n1] = mountDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -811,7 +820,8 @@ class data extends Model
                 $model->ossMountDescs = [];
                 $n1 = 0;
                 foreach ($map['OssMountDescs'] as $item1) {
-                    $model->ossMountDescs[$n1++] = ossMountDescs::fromMap($item1);
+                    $model->ossMountDescs[$n1] = ossMountDescs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -853,7 +863,8 @@ class data extends Model
                 $model->publicWebHookUrls = [];
                 $n1 = 0;
                 foreach ($map['PublicWebHookUrls'] as $item1) {
-                    $model->publicWebHookUrls[$n1++] = $item1;
+                    $model->publicWebHookUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -875,7 +886,8 @@ class data extends Model
                 $model->refedAppIds = [];
                 $n1 = 0;
                 foreach ($map['RefedAppIds'] as $item1) {
-                    $model->refedAppIds[$n1++] = $item1;
+                    $model->refedAppIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -913,7 +925,8 @@ class data extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -951,7 +964,8 @@ class data extends Model
                 $model->vpcWebHookUrls = [];
                 $n1 = 0;
                 foreach ($map['VpcWebHookUrls'] as $item1) {
-                    $model->vpcWebHookUrls[$n1++] = $item1;
+                    $model->vpcWebHookUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

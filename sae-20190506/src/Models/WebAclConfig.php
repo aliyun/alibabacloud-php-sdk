@@ -32,7 +32,8 @@ class WebAclConfig extends Model
                 $res['WebAclEntries'] = [];
                 $n1 = 0;
                 foreach ($this->webAclEntries as $item1) {
-                    $res['WebAclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WebAclEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class WebAclConfig extends Model
                 $model->webAclEntries = [];
                 $n1 = 0;
                 foreach ($map['WebAclEntries'] as $item1) {
-                    $model->webAclEntries[$n1++] = WebAclEntryConfig::fromMap($item1);
+                    $model->webAclEntries[$n1] = WebAclEntryConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

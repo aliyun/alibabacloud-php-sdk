@@ -73,7 +73,8 @@ class stageList extends Model
                 $res['TaskList'] = [];
                 $n1 = 0;
                 foreach ($this->taskList as $item1) {
-                    $res['TaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class stageList extends Model
                 $model->taskList = [];
                 $n1 = 0;
                 foreach ($map['TaskList'] as $item1) {
-                    $model->taskList[$n1++] = taskList::fromMap($item1);
+                    $model->taskList[$n1] = taskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

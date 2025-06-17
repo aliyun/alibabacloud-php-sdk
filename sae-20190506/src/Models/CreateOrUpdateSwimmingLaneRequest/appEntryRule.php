@@ -73,7 +73,8 @@ class appEntryRule extends Model
                 $res['Conditions'] = [];
                 $n1 = 0;
                 foreach ($this->conditions as $item1) {
-                    $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class appEntryRule extends Model
                 $res['Paths'] = [];
                 $n1 = 0;
                 foreach ($this->paths as $item1) {
-                    $res['Paths'][$n1++] = $item1;
+                    $res['Paths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +127,8 @@ class appEntryRule extends Model
                 $model->conditions = [];
                 $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
-                    $model->conditions[$n1++] = conditions::fromMap($item1);
+                    $model->conditions[$n1] = conditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +142,8 @@ class appEntryRule extends Model
                 $model->paths = [];
                 $n1 = 0;
                 foreach ($map['Paths'] as $item1) {
-                    $model->paths[$n1++] = $item1;
+                    $model->paths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

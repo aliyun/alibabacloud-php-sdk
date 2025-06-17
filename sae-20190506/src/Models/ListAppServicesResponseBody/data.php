@@ -158,7 +158,8 @@ class data extends Model
                 $res['ServicePorts'] = [];
                 $n1 = 0;
                 foreach ($this->servicePorts as $item1) {
-                    $res['ServicePorts'][$n1++] = $item1;
+                    $res['ServicePorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -236,7 +237,8 @@ class data extends Model
                 $model->servicePorts = [];
                 $n1 = 0;
                 foreach ($map['ServicePorts'] as $item1) {
-                    $model->servicePorts[$n1++] = $item1;
+                    $model->servicePorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

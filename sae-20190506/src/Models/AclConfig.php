@@ -32,7 +32,8 @@ class AclConfig extends Model
                 $res['aclEntries'] = [];
                 $n1 = 0;
                 foreach ($this->aclEntries as $item1) {
-                    $res['aclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['aclEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class AclConfig extends Model
                 $model->aclEntries = [];
                 $n1 = 0;
                 foreach ($map['aclEntries'] as $item1) {
-                    $model->aclEntries[$n1++] = AclEntryConfig::fromMap($item1);
+                    $model->aclEntries[$n1] = AclEntryConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

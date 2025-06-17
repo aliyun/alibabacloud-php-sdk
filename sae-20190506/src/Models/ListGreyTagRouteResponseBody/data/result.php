@@ -83,7 +83,8 @@ class result extends Model
                 $res['AlbRules'] = [];
                 $n1 = 0;
                 foreach ($this->albRules as $item1) {
-                    $res['AlbRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlbRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class result extends Model
                 $res['DubboRules'] = [];
                 $n1 = 0;
                 foreach ($this->dubboRules as $item1) {
-                    $res['DubboRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DubboRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +121,8 @@ class result extends Model
                 $res['ScRules'] = [];
                 $n1 = 0;
                 foreach ($this->scRules as $item1) {
-                    $res['ScRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +147,8 @@ class result extends Model
                 $model->albRules = [];
                 $n1 = 0;
                 foreach ($map['AlbRules'] as $item1) {
-                    $model->albRules[$n1++] = albRules::fromMap($item1);
+                    $model->albRules[$n1] = albRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +166,8 @@ class result extends Model
                 $model->dubboRules = [];
                 $n1 = 0;
                 foreach ($map['DubboRules'] as $item1) {
-                    $model->dubboRules[$n1++] = dubboRules::fromMap($item1);
+                    $model->dubboRules[$n1] = dubboRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +185,8 @@ class result extends Model
                 $model->scRules = [];
                 $n1 = 0;
                 foreach ($map['ScRules'] as $item1) {
-                    $model->scRules[$n1++] = scRules::fromMap($item1);
+                    $model->scRules[$n1] = scRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

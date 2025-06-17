@@ -42,7 +42,8 @@ class RoutePolicy extends Model
                 $res['policyItems'] = [];
                 $n1 = 0;
                 foreach ($this->policyItems as $item1) {
-                    $res['policyItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['policyItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class RoutePolicy extends Model
                 $model->policyItems = [];
                 $n1 = 0;
                 foreach ($map['policyItems'] as $item1) {
-                    $model->policyItems[$n1++] = PolicyItem::fromMap($item1);
+                    $model->policyItems[$n1] = PolicyItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

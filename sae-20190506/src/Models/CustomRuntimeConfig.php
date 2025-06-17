@@ -41,7 +41,8 @@ class CustomRuntimeConfig extends Model
                 $res['args'] = [];
                 $n1 = 0;
                 foreach ($this->args as $item1) {
-                    $res['args'][$n1++] = $item1;
+                    $res['args'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class CustomRuntimeConfig extends Model
                 $res['command'] = [];
                 $n1 = 0;
                 foreach ($this->command as $item1) {
-                    $res['command'][$n1++] = $item1;
+                    $res['command'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class CustomRuntimeConfig extends Model
                 $model->args = [];
                 $n1 = 0;
                 foreach ($map['args'] as $item1) {
-                    $model->args[$n1++] = $item1;
+                    $model->args[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class CustomRuntimeConfig extends Model
                 $model->command = [];
                 $n1 = 0;
                 foreach ($map['command'] as $item1) {
-                    $model->command[$n1++] = $item1;
+                    $model->command[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

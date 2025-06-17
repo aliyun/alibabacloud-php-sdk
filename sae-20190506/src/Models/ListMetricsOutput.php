@@ -45,7 +45,8 @@ class ListMetricsOutput extends Model
                         $res['metrics'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['metrics'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['metrics'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -75,7 +76,8 @@ class ListMetricsOutput extends Model
                         $model->metrics[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->metrics[$key1][$n2++] = MetricInfo::fromMap($item2);
+                            $model->metrics[$key1][$n2] = MetricInfo::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }

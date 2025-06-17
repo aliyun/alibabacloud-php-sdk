@@ -52,7 +52,8 @@ class ListStaticsQueryResponse extends Model
                 $res['statics'] = [];
                 $n1 = 0;
                 foreach ($this->statics as $item1) {
-                    $res['statics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['statics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class ListStaticsQueryResponse extends Model
                 $model->statics = [];
                 $n1 = 0;
                 foreach ($map['statics'] as $item1) {
-                    $model->statics[$n1++] = StaticsInfo::fromMap($item1);
+                    $model->statics[$n1] = StaticsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -181,7 +181,8 @@ class instances extends Model
                 $res['SidecarContainersStatus'] = [];
                 $n1 = 0;
                 foreach ($this->sidecarContainersStatus as $item1) {
-                    $res['SidecarContainersStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SidecarContainersStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -266,7 +267,8 @@ class instances extends Model
                 $model->sidecarContainersStatus = [];
                 $n1 = 0;
                 foreach ($map['SidecarContainersStatus'] as $item1) {
-                    $model->sidecarContainersStatus[$n1++] = sidecarContainersStatus::fromMap($item1);
+                    $model->sidecarContainersStatus[$n1] = sidecarContainersStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class data extends Model
                 $res['ChangeOrderList'] = [];
                 $n1 = 0;
                 foreach ($this->changeOrderList as $item1) {
-                    $res['ChangeOrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ChangeOrderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->changeOrderList = [];
                 $n1 = 0;
                 foreach ($map['ChangeOrderList'] as $item1) {
-                    $model->changeOrderList[$n1++] = changeOrderList::fromMap($item1);
+                    $model->changeOrderList[$n1] = changeOrderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

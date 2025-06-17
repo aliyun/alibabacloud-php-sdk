@@ -103,7 +103,8 @@ class sidecarContainersConfig extends Model
                 $res['ConfigMapMountDesc'] = [];
                 $n1 = 0;
                 foreach ($this->configMapMountDesc as $item1) {
-                    $res['ConfigMapMountDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigMapMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class sidecarContainersConfig extends Model
                 $res['EmptyDirDesc'] = [];
                 $n1 = 0;
                 foreach ($this->emptyDirDesc as $item1) {
-                    $res['EmptyDirDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EmptyDirDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class sidecarContainersConfig extends Model
                 $model->configMapMountDesc = [];
                 $n1 = 0;
                 foreach ($map['ConfigMapMountDesc'] as $item1) {
-                    $model->configMapMountDesc[$n1++] = configMapMountDesc::fromMap($item1);
+                    $model->configMapMountDesc[$n1] = configMapMountDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class sidecarContainersConfig extends Model
                 $model->emptyDirDesc = [];
                 $n1 = 0;
                 foreach ($map['EmptyDirDesc'] as $item1) {
-                    $model->emptyDirDesc[$n1++] = emptyDirDesc::fromMap($item1);
+                    $model->emptyDirDesc[$n1] = emptyDirDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -71,7 +71,8 @@ class initContainersConfig extends Model
                 $res['ConfigMapMountDesc'] = [];
                 $n1 = 0;
                 foreach ($this->configMapMountDesc as $item1) {
-                    $res['ConfigMapMountDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigMapMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class initContainersConfig extends Model
                 $model->configMapMountDesc = [];
                 $n1 = 0;
                 foreach ($map['ConfigMapMountDesc'] as $item1) {
-                    $model->configMapMountDesc[$n1++] = configMapMountDesc::fromMap($item1);
+                    $model->configMapMountDesc[$n1] = configMapMountDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

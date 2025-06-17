@@ -42,7 +42,8 @@ class ListWebApplicationRevisionsOutput extends Model
                 $res['Revisions'] = [];
                 $n1 = 0;
                 foreach ($this->revisions as $item1) {
-                    $res['Revisions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Revisions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ListWebApplicationRevisionsOutput extends Model
                 $model->revisions = [];
                 $n1 = 0;
                 foreach ($map['Revisions'] as $item1) {
-                    $model->revisions[$n1++] = Revision::fromMap($item1);
+                    $model->revisions[$n1] = Revision::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

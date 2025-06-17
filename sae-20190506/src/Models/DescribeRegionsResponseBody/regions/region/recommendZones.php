@@ -32,7 +32,8 @@ class recommendZones extends Model
                 $res['RecommendZone'] = [];
                 $n1 = 0;
                 foreach ($this->recommendZone as $item1) {
-                    $res['RecommendZone'][$n1++] = $item1;
+                    $res['RecommendZone'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class recommendZones extends Model
                 $model->recommendZone = [];
                 $n1 = 0;
                 foreach ($map['RecommendZone'] as $item1) {
-                    $model->recommendZone[$n1++] = $item1;
+                    $model->recommendZone[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

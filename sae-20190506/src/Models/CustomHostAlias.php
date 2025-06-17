@@ -32,7 +32,8 @@ class CustomHostAlias extends Model
                 $res['hostAliases'] = [];
                 $n1 = 0;
                 foreach ($this->hostAliases as $item1) {
-                    $res['hostAliases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hostAliases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class CustomHostAlias extends Model
                 $model->hostAliases = [];
                 $n1 = 0;
                 foreach ($map['hostAliases'] as $item1) {
-                    $model->hostAliases[$n1++] = HostAlias::fromMap($item1);
+                    $model->hostAliases[$n1] = HostAlias::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

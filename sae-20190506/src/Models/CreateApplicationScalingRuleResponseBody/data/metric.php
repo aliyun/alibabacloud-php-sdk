@@ -49,7 +49,8 @@ class metric extends Model
                 $res['Metrics'] = [];
                 $n1 = 0;
                 foreach ($this->metrics as $item1) {
-                    $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Metrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class metric extends Model
                 $model->metrics = [];
                 $n1 = 0;
                 foreach ($map['Metrics'] as $item1) {
-                    $model->metrics[$n1++] = metrics::fromMap($item1);
+                    $model->metrics[$n1] = metrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

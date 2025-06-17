@@ -85,7 +85,8 @@ class items extends Model
                 $res['Steps'] = [];
                 $n1 = 0;
                 foreach ($this->steps as $item1) {
-                    $res['Steps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Steps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class items extends Model
                 $model->steps = [];
                 $n1 = 0;
                 foreach ($map['Steps'] as $item1) {
-                    $model->steps[$n1++] = steps::fromMap($item1);
+                    $model->steps[$n1] = steps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

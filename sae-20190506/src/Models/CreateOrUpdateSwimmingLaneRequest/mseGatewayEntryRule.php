@@ -73,7 +73,8 @@ class mseGatewayEntryRule extends Model
                 $res['Conditions'] = [];
                 $n1 = 0;
                 foreach ($this->conditions as $item1) {
-                    $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class mseGatewayEntryRule extends Model
                 $res['RouteIds'] = [];
                 $n1 = 0;
                 foreach ($this->routeIds as $item1) {
-                    $res['RouteIds'][$n1++] = $item1;
+                    $res['RouteIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +127,8 @@ class mseGatewayEntryRule extends Model
                 $model->conditions = [];
                 $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
-                    $model->conditions[$n1++] = conditions::fromMap($item1);
+                    $model->conditions[$n1] = conditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class mseGatewayEntryRule extends Model
                 $model->routeIds = [];
                 $n1 = 0;
                 foreach ($map['RouteIds'] as $item1) {
-                    $model->routeIds[$n1++] = $item1;
+                    $model->routeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

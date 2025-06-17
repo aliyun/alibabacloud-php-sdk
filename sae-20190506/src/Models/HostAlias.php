@@ -38,7 +38,8 @@ class HostAlias extends Model
                 $res['hostnames'] = [];
                 $n1 = 0;
                 foreach ($this->hostnames as $item1) {
-                    $res['hostnames'][$n1++] = $item1;
+                    $res['hostnames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class HostAlias extends Model
                 $model->hostnames = [];
                 $n1 = 0;
                 foreach ($map['hostnames'] as $item1) {
-                    $model->hostnames[$n1++] = $item1;
+                    $model->hostnames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

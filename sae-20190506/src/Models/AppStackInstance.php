@@ -83,7 +83,8 @@ class AppStackInstance extends Model
                 $res['Endpoints'] = [];
                 $n1 = 0;
                 foreach ($this->endpoints as $item1) {
-                    $res['Endpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class AppStackInstance extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class AppStackInstance extends Model
                 $model->endpoints = [];
                 $n1 = 0;
                 foreach ($map['Endpoints'] as $item1) {
-                    $model->endpoints[$n1++] = endpoints::fromMap($item1);
+                    $model->endpoints[$n1] = endpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +159,8 @@ class AppStackInstance extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

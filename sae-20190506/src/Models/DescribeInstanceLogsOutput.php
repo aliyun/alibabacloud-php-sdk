@@ -32,7 +32,8 @@ class DescribeInstanceLogsOutput extends Model
                 $res['WebLogEntrys'] = [];
                 $n1 = 0;
                 foreach ($this->webLogEntrys as $item1) {
-                    $res['WebLogEntrys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WebLogEntrys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DescribeInstanceLogsOutput extends Model
                 $model->webLogEntrys = [];
                 $n1 = 0;
                 foreach ($map['WebLogEntrys'] as $item1) {
-                    $model->webLogEntrys[$n1++] = WebLogEntry::fromMap($item1);
+                    $model->webLogEntrys[$n1] = WebLogEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

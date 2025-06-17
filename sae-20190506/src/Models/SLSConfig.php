@@ -33,7 +33,8 @@ class SLSConfig extends Model
                 $res['collectConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->collectConfigs as $item1) {
-                    $res['collectConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['collectConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class SLSConfig extends Model
                 $model->collectConfigs = [];
                 $n1 = 0;
                 foreach ($map['collectConfigs'] as $item1) {
-                    $model->collectConfigs[$n1++] = collectConfigs::fromMap($item1);
+                    $model->collectConfigs[$n1] = collectConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

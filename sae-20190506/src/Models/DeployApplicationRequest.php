@@ -573,7 +573,8 @@ class DeployApplicationRequest extends Model
                 $res['InitContainersConfig'] = [];
                 $n1 = 0;
                 foreach ($this->initContainersConfig as $item1) {
-                    $res['InitContainersConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InitContainersConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -731,7 +732,8 @@ class DeployApplicationRequest extends Model
                 $res['SidecarContainersConfig'] = [];
                 $n1 = 0;
                 foreach ($this->sidecarContainersConfig as $item1) {
-                    $res['SidecarContainersConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SidecarContainersConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -892,7 +894,8 @@ class DeployApplicationRequest extends Model
                 $model->initContainersConfig = [];
                 $n1 = 0;
                 foreach ($map['InitContainersConfig'] as $item1) {
-                    $model->initContainersConfig[$n1++] = InitContainerConfig::fromMap($item1);
+                    $model->initContainersConfig[$n1] = InitContainerConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1050,7 +1053,8 @@ class DeployApplicationRequest extends Model
                 $model->sidecarContainersConfig = [];
                 $n1 = 0;
                 foreach ($map['SidecarContainersConfig'] as $item1) {
-                    $model->sidecarContainersConfig[$n1++] = SidecarContainerConfig::fromMap($item1);
+                    $model->sidecarContainersConfig[$n1] = SidecarContainerConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

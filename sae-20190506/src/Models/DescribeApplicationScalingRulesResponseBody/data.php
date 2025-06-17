@@ -51,7 +51,8 @@ class data extends Model
                 $res['ApplicationScalingRules'] = [];
                 $n1 = 0;
                 foreach ($this->applicationScalingRules as $item1) {
-                    $res['ApplicationScalingRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApplicationScalingRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->applicationScalingRules = [];
                 $n1 = 0;
                 foreach ($map['ApplicationScalingRules'] as $item1) {
-                    $model->applicationScalingRules[$n1++] = applicationScalingRules::fromMap($item1);
+                    $model->applicationScalingRules[$n1] = applicationScalingRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

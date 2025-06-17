@@ -42,7 +42,8 @@ class DescribeWebAppStaticsOutput extends Model
                 $res['WebAppStatics'] = [];
                 $n1 = 0;
                 foreach ($this->webAppStatics as $item1) {
-                    $res['WebAppStatics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WebAppStatics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DescribeWebAppStaticsOutput extends Model
                 $model->webAppStatics = [];
                 $n1 = 0;
                 foreach ($map['WebAppStatics'] as $item1) {
-                    $model->webAppStatics[$n1++] = WebStaticsInfo::fromMap($item1);
+                    $model->webAppStatics[$n1] = WebStaticsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

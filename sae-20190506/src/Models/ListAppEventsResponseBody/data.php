@@ -51,7 +51,8 @@ class data extends Model
                 $res['AppEventEntity'] = [];
                 $n1 = 0;
                 foreach ($this->appEventEntity as $item1) {
-                    $res['AppEventEntity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppEventEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->appEventEntity = [];
                 $n1 = 0;
                 foreach ($map['AppEventEntity'] as $item1) {
-                    $model->appEventEntity[$n1++] = appEventEntity::fromMap($item1);
+                    $model->appEventEntity[$n1] = appEventEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

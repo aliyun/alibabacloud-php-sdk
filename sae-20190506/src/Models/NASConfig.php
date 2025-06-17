@@ -32,7 +32,8 @@ class NASConfig extends Model
                 $res['mountPoints'] = [];
                 $n1 = 0;
                 foreach ($this->mountPoints as $item1) {
-                    $res['mountPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['mountPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class NASConfig extends Model
                 $model->mountPoints = [];
                 $n1 = 0;
                 foreach ($map['mountPoints'] as $item1) {
-                    $model->mountPoints[$n1++] = NASMountConfig::fromMap($item1);
+                    $model->mountPoints[$n1] = NASMountConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

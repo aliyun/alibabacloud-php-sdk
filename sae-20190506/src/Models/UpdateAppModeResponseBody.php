@@ -5,19 +5,13 @@
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Sae\V20190506\Models\ListSwimmingLaneGroupTagsResponseBody\data;
 
-class ListSwimmingLaneGroupTagsResponseBody extends Model
+class UpdateAppModeResponseBody extends Model
 {
     /**
      * @var string
      */
     public $code;
-
-    /**
-     * @var data[]
-     */
-    public $data;
 
     /**
      * @var string
@@ -35,7 +29,7 @@ class ListSwimmingLaneGroupTagsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var string
      */
     public $success;
 
@@ -45,7 +39,6 @@ class ListSwimmingLaneGroupTagsResponseBody extends Model
     public $traceId;
     protected $_name = [
         'code' => 'Code',
-        'data' => 'Data',
         'errorCode' => 'ErrorCode',
         'message' => 'Message',
         'requestId' => 'RequestId',
@@ -55,9 +48,6 @@ class ListSwimmingLaneGroupTagsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
         parent::validate();
     }
 
@@ -66,17 +56,6 @@ class ListSwimmingLaneGroupTagsResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-
-        if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->errorCode) {
@@ -112,17 +91,6 @@ class ListSwimmingLaneGroupTagsResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['ErrorCode'])) {

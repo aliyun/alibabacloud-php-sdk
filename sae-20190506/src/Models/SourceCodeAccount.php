@@ -63,7 +63,8 @@ class SourceCodeAccount extends Model
                 $res['Organizations'] = [];
                 $n1 = 0;
                 foreach ($this->organizations as $item1) {
-                    $res['Organizations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Organizations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class SourceCodeAccount extends Model
                 $model->organizations = [];
                 $n1 = 0;
                 foreach ($map['Organizations'] as $item1) {
-                    $model->organizations[$n1++] = organizations::fromMap($item1);
+                    $model->organizations[$n1] = organizations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

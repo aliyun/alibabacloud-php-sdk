@@ -618,7 +618,8 @@ class data extends Model
                 $res['ConfigMapMountDesc'] = [];
                 $n1 = 0;
                 foreach ($this->configMapMountDesc as $item1) {
-                    $res['ConfigMapMountDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigMapMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -692,7 +693,8 @@ class data extends Model
                 $res['InitContainersConfig'] = [];
                 $n1 = 0;
                 foreach ($this->initContainersConfig as $item1) {
-                    $res['InitContainersConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InitContainersConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -746,7 +748,8 @@ class data extends Model
                 $res['MountDesc'] = [];
                 $n1 = 0;
                 foreach ($this->mountDesc as $item1) {
-                    $res['MountDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -796,7 +799,8 @@ class data extends Model
                 $res['OssMountDescs'] = [];
                 $n1 = 0;
                 foreach ($this->ossMountDescs as $item1) {
-                    $res['OssMountDescs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OssMountDescs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -874,7 +878,8 @@ class data extends Model
                 $res['SecretMountDesc'] = [];
                 $n1 = 0;
                 foreach ($this->secretMountDesc as $item1) {
-                    $res['SecretMountDesc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecretMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -897,7 +902,8 @@ class data extends Model
                 $res['SidecarContainersConfig'] = [];
                 $n1 = 0;
                 foreach ($this->sidecarContainersConfig as $item1) {
-                    $res['SidecarContainersConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SidecarContainersConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -919,7 +925,8 @@ class data extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1020,7 +1027,8 @@ class data extends Model
                 $model->configMapMountDesc = [];
                 $n1 = 0;
                 foreach ($map['ConfigMapMountDesc'] as $item1) {
-                    $model->configMapMountDesc[$n1++] = configMapMountDesc::fromMap($item1);
+                    $model->configMapMountDesc[$n1] = configMapMountDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1094,7 +1102,8 @@ class data extends Model
                 $model->initContainersConfig = [];
                 $n1 = 0;
                 foreach ($map['InitContainersConfig'] as $item1) {
-                    $model->initContainersConfig[$n1++] = initContainersConfig::fromMap($item1);
+                    $model->initContainersConfig[$n1] = initContainersConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1148,7 +1157,8 @@ class data extends Model
                 $model->mountDesc = [];
                 $n1 = 0;
                 foreach ($map['MountDesc'] as $item1) {
-                    $model->mountDesc[$n1++] = mountDesc::fromMap($item1);
+                    $model->mountDesc[$n1] = mountDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1198,7 +1208,8 @@ class data extends Model
                 $model->ossMountDescs = [];
                 $n1 = 0;
                 foreach ($map['OssMountDescs'] as $item1) {
-                    $model->ossMountDescs[$n1++] = ossMountDescs::fromMap($item1);
+                    $model->ossMountDescs[$n1] = ossMountDescs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1276,7 +1287,8 @@ class data extends Model
                 $model->secretMountDesc = [];
                 $n1 = 0;
                 foreach ($map['SecretMountDesc'] as $item1) {
-                    $model->secretMountDesc[$n1++] = secretMountDesc::fromMap($item1);
+                    $model->secretMountDesc[$n1] = secretMountDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1299,7 +1311,8 @@ class data extends Model
                 $model->sidecarContainersConfig = [];
                 $n1 = 0;
                 foreach ($map['SidecarContainersConfig'] as $item1) {
-                    $model->sidecarContainersConfig[$n1++] = sidecarContainersConfig::fromMap($item1);
+                    $model->sidecarContainersConfig[$n1] = sidecarContainersConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1321,7 +1334,8 @@ class data extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

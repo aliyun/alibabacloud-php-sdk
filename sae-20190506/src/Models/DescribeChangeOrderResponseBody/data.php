@@ -211,7 +211,8 @@ class data extends Model
                 $res['Pipelines'] = [];
                 $n1 = 0;
                 foreach ($this->pipelines as $item1) {
-                    $res['Pipelines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Pipelines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +309,8 @@ class data extends Model
                 $model->pipelines = [];
                 $n1 = 0;
                 foreach ($map['Pipelines'] as $item1) {
-                    $model->pipelines[$n1++] = pipelines::fromMap($item1);
+                    $model->pipelines[$n1] = pipelines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

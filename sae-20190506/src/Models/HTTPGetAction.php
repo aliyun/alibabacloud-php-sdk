@@ -60,7 +60,8 @@ class HTTPGetAction extends Model
                 $res['HttpHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->httpHeaders as $item1) {
-                    $res['HttpHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HttpHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class HTTPGetAction extends Model
                 $model->httpHeaders = [];
                 $n1 = 0;
                 foreach ($map['HttpHeaders'] as $item1) {
-                    $model->httpHeaders[$n1++] = HTTPHeader::fromMap($item1);
+                    $model->httpHeaders[$n1] = HTTPHeader::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

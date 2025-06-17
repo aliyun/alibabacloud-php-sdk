@@ -121,7 +121,8 @@ class data extends Model
                 $res['Internet'] = [];
                 $n1 = 0;
                 foreach ($this->internet as $item1) {
-                    $res['Internet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Internet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class data extends Model
                 $res['Intranet'] = [];
                 $n1 = 0;
                 foreach ($this->intranet as $item1) {
-                    $res['Intranet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Intranet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +198,8 @@ class data extends Model
                 $model->internet = [];
                 $n1 = 0;
                 foreach ($map['Internet'] as $item1) {
-                    $model->internet[$n1++] = internet::fromMap($item1);
+                    $model->internet[$n1] = internet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +225,8 @@ class data extends Model
                 $model->intranet = [];
                 $n1 = 0;
                 foreach ($map['Intranet'] as $item1) {
-                    $model->intranet[$n1++] = intranet::fromMap($item1);
+                    $model->intranet[$n1] = intranet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
