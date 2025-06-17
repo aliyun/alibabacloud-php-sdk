@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeBpsDataResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bpsModel extends Model
 {
     /**
-     * @description The bandwidth. Unit: bit/s.
-     *
-     * @example 16710625.733333332
-     *
      * @var float
      */
     public $bps;
 
     /**
-     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2019-11-30T05:41:00Z
-     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'bps'       => 'Bps',
+        'bps' => 'Bps',
         'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bps) {
             $res['Bps'] = $this->bps;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -47,17 +41,18 @@ class bpsModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bpsModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bps'])) {
             $model->bps = $map['Bps'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

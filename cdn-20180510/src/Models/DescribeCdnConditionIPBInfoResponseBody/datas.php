@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnConditionIPBInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class datas extends Model
 {
     /**
-     * @description The configuration value.
-     *
-     * @example "[{\\"text\\":\\"阿鲁巴\\",\\"value\\":\\"AW\\"}]"
-     *
      * @var string
      */
     public $value;
@@ -22,9 +18,10 @@ class datas extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
@@ -34,11 +31,11 @@ class datas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return datas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

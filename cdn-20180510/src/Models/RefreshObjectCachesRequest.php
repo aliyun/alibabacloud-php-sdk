@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshObjectCachesRequest extends Model
 {
@@ -14,8 +14,6 @@ class RefreshObjectCachesRequest extends Model
     public $force;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $objectPath;
@@ -35,32 +33,37 @@ class RefreshObjectCachesRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'force'         => 'Force',
-        'objectPath'    => 'ObjectPath',
-        'objectType'    => 'ObjectType',
-        'ownerId'       => 'OwnerId',
+        'force' => 'Force',
+        'objectPath' => 'ObjectPath',
+        'objectType' => 'ObjectType',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
+
         if (null !== $this->objectPath) {
             $res['ObjectPath'] = $this->objectPath;
         }
+
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -68,26 +71,30 @@ class RefreshObjectCachesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshObjectCachesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
+
         if (isset($map['ObjectPath'])) {
             $model->objectPath = $map['ObjectPath'];
         }
+
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

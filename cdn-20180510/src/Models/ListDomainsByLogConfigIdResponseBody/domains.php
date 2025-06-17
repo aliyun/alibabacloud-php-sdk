@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\ListDomainsByLogConfigIdResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domains extends Model
 {
@@ -18,29 +18,45 @@ class domains extends Model
 
     public function validate()
     {
+        if (\is_array($this->domain)) {
+            Model::validateArray($this->domain);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+            if (\is_array($this->domain)) {
+                $res['Domain'] = [];
+                $n1 = 0;
+                foreach ($this->domain as $item1) {
+                    $res['Domain'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             if (!empty($map['Domain'])) {
-                $model->domain = $map['Domain'];
+                $model->domain = [];
+                $n1 = 0;
+                foreach ($map['Domain'] as $item1) {
+                    $model->domain[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

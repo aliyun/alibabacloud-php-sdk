@@ -4,69 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableRealtimeLogDeliveryRequest extends Model
 {
     /**
-     * @description The accelerated domain name for which you want to disable real-time log delivery. You can specify multiple domain names and separate them with commas (,).
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The name of the Logstore where log entries are stored.
-     *
-     * @example LogstoreName
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description The name of the Log Service project that is used for real-time log delivery.
-     *
-     * @example ProjectName
-     *
      * @var string
      */
     public $project;
 
     /**
-     * @description The ID of the region where the Log Service project is deployed.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $region;
     protected $_name = [
-        'domain'   => 'Domain',
+        'domain' => 'Domain',
         'logstore' => 'Logstore',
-        'project'  => 'Project',
-        'region'   => 'Region',
+        'project' => 'Project',
+        'region' => 'Region',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -74,23 +61,26 @@ class DisableRealtimeLogDeliveryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableRealtimeLogDeliveryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

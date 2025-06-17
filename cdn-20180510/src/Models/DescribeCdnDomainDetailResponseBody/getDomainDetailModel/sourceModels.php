@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainDetailResponseBody\getDomainDetailModel;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainDetailResponseBody\getDomainDetailModel\sourceModels\sourceModel;
-use AlibabaCloud\Tea\Model;
 
 class sourceModels extends Model
 {
@@ -19,17 +19,22 @@ class sourceModels extends Model
 
     public function validate()
     {
+        if (\is_array($this->sourceModel)) {
+            Model::validateArray($this->sourceModel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceModel) {
-            $res['SourceModel'] = [];
-            if (null !== $this->sourceModel && \is_array($this->sourceModel)) {
-                $n = 0;
-                foreach ($this->sourceModel as $item) {
-                    $res['SourceModel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceModel)) {
+                $res['SourceModel'] = [];
+                $n1 = 0;
+                foreach ($this->sourceModel as $item1) {
+                    $res['SourceModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class sourceModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceModel'])) {
             if (!empty($map['SourceModel'])) {
                 $model->sourceModel = [];
-                $n                  = 0;
-                foreach ($map['SourceModel'] as $item) {
-                    $model->sourceModel[$n++] = null !== $item ? sourceModel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SourceModel'] as $item1) {
+                    $model->sourceModel[$n1] = sourceModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

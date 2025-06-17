@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnFullDomainsBlockIPHistoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IPBlockInfo extends Model
 {
     /**
-     * @description The blocked IP address or CIDR block.
-     *
-     * @example 1.XXX.XXX.0~1.XXX.XXX.255
-     *
      * @var string
      */
     public $blockIP;
 
     /**
-     * @description The delivery time.
-     *
-     * @example 2023-04-24 18:49:37
-     *
      * @var string
      */
     public $deliverTime;
 
     /**
-     * @description The delivery status.
-     *
-     *   Success
-     *   Failed
-     *
-     * @example Success
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'blockIP'     => 'BlockIP',
+        'blockIP' => 'BlockIP',
         'deliverTime' => 'DeliverTime',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockIP) {
             $res['BlockIP'] = $this->blockIP;
         }
+
         if (null !== $this->deliverTime) {
             $res['DeliverTime'] = $this->deliverTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,20 +51,22 @@ class IPBlockInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IPBlockInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockIP'])) {
             $model->blockIP = $map['BlockIP'];
         }
+
         if (isset($map['DeliverTime'])) {
             $model->deliverTime = $map['DeliverTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

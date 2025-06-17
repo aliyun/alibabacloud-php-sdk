@@ -4,42 +4,44 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyCdnDomainOwnerResponseBody extends Model
 {
     /**
-     * @description The description of the domain name transfer.
-     *
-     * @example The domain does not allow to transfer to a different account.
-     *
      * @var mixed[]
      */
     public $content;
 
     /**
-     * @description The request ID.
-     *
-     * @example C98E518B-024E-538E-8276-66310CB8667D
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->content)) {
+            Model::validateArray($this->content);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = $this->content;
+            if (\is_array($this->content)) {
+                $res['Content'] = [];
+                foreach ($this->content as $key1 => $value1) {
+                    $res['Content'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +49,23 @@ class ModifyCdnDomainOwnerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCdnDomainOwnerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+            if (!empty($map['Content'])) {
+                $model->content = [];
+                foreach ($map['Content'] as $key1 => $value1) {
+                    $model->content[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

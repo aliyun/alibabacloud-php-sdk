@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCertificateInfoByIDResponseBody\certInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCertificateInfoByIDResponseBody extends Model
 {
     /**
-     * @description The information about the certificate.
-     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 5C1E43DC-9E51-4771-82C0-7D5ECEB547A1
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +25,19 @@ class DescribeCertificateInfoByIDResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->certInfos) {
+            $this->certInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certInfos) {
-            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
+            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toArray($noStream) : $this->certInfos;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeCertificateInfoByIDResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCertificateInfoByIDResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertInfos'])) {
             $model->certInfos = certInfos::fromMap($map['CertInfos']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePreloadDetailByIdRequest extends Model
 {
     /**
-     * @description Queries the details of a preload task by task ID. You can query one task ID at a time.
-     *
-     * This parameter is required.
-     * @example 15423123921
-     *
      * @var string
      */
     public $taskId;
@@ -23,9 +18,10 @@ class DescribePreloadDetailByIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -35,11 +31,11 @@ class DescribePreloadDetailByIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePreloadDetailByIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

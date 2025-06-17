@@ -4,58 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainCnameResponseBody\cnameDatas;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The CNAME assigned to the domain name by Alibaba Cloud CDN.
-     *
-     * @example a.com.w.alikunlun.net
-     *
      * @var string
      */
     public $cname;
 
     /**
-     * @description The accelerated domain name.
-     *
-     * @example a.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The CNAME detection result. Valid values:
-     *
-     *   0: The DNS can detect the CNAME assigned to the domain name.
-     *   Value other than 0: The DNS cannot detect the CNAME assigned to the domain name.
-     *
-     * @example 0
-     *
+     * @var string
+     */
+    public $errMsg;
+
+    /**
+     * @var string
+     */
+    public $passed;
+
+    /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'cname'  => 'Cname',
+        'cname' => 'Cname',
         'domain' => 'Domain',
+        'errMsg' => 'ErrMsg',
+        'passed' => 'Passed',
         'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
+        if (null !== $this->errMsg) {
+            $res['ErrMsg'] = $this->errMsg;
+        }
+
+        if (null !== $this->passed) {
+            $res['Passed'] = $this->passed;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,20 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
+        if (isset($map['ErrMsg'])) {
+            $model->errMsg = $map['ErrMsg'];
+        }
+
+        if (isset($map['Passed'])) {
+            $model->passed = $map['Passed'];
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

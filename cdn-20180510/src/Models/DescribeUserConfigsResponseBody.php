@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponseBody\configs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUserConfigsResponseBody extends Model
 {
     /**
-     * @description The configurations of the specified feature.
-     *
      * @var configs
      */
     public $configs;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 9BCC7BAA-ACBE-45E5-83F0-98BF7E693E84
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'configs'   => 'Configs',
+        'configs' => 'Configs',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->configs) {
+            $this->configs->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configs) {
-            $res['Configs'] = null !== $this->configs ? $this->configs->toMap() : null;
+            $res['Configs'] = null !== $this->configs ? $this->configs->toArray($noStream) : $this->configs;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeUserConfigsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserConfigsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configs'])) {
             $model->configs = configs::fromMap($map['Configs']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,53 +4,54 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainsBySourceResponseBody\domainsList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainsBySourceResponseBody\domainsList\domainsData\domainInfos;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainsBySourceResponseBody\domainsList\domainsData\domains;
-use AlibabaCloud\Tea\Model;
 
 class domainsData extends Model
 {
     /**
-     * @description Information about the domain name.
-     *
      * @var domainInfos
      */
     public $domainInfos;
 
     /**
-     * @description The domain names that correspond to each origin server.
-     *
      * @var domains
      */
     public $domains;
 
     /**
-     * @description The origin server.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $source;
     protected $_name = [
         'domainInfos' => 'DomainInfos',
-        'domains'     => 'Domains',
-        'source'      => 'Source',
+        'domains' => 'Domains',
+        'source' => 'Source',
     ];
 
     public function validate()
     {
+        if (null !== $this->domainInfos) {
+            $this->domainInfos->validate();
+        }
+        if (null !== $this->domains) {
+            $this->domains->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainInfos) {
-            $res['DomainInfos'] = null !== $this->domainInfos ? $this->domainInfos->toMap() : null;
+            $res['DomainInfos'] = null !== $this->domainInfos ? $this->domainInfos->toArray($noStream) : $this->domainInfos;
         }
+
         if (null !== $this->domains) {
-            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
+            $res['Domains'] = null !== $this->domains ? $this->domains->toArray($noStream) : $this->domains;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -58,20 +59,22 @@ class domainsData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainsData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainInfos'])) {
             $model->domainInfos = domainInfos::fromMap($map['DomainInfos']);
         }
+
         if (isset($map['Domains'])) {
             $model->domains = domains::fromMap($map['Domains']);
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeQpsDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeQpsDataResponseBody\data\qpsModel;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->qpsModel)) {
+            Model::validateArray($this->qpsModel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qpsModel) {
-            $res['QpsModel'] = [];
-            if (null !== $this->qpsModel && \is_array($this->qpsModel)) {
-                $n = 0;
-                foreach ($this->qpsModel as $item) {
-                    $res['QpsModel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qpsModel)) {
+                $res['QpsModel'] = [];
+                $n1 = 0;
+                foreach ($this->qpsModel as $item1) {
+                    $res['QpsModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QpsModel'])) {
             if (!empty($map['QpsModel'])) {
                 $model->qpsModel = [];
-                $n               = 0;
-                foreach ($map['QpsModel'] as $item) {
-                    $model->qpsModel[$n++] = null !== $item ? qpsModel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QpsModel'] as $item1) {
+                    $model->qpsModel[$n1] = qpsModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

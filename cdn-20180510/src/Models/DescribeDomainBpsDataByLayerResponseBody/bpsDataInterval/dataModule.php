@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainBpsDataByLayerResponseBody\bpsDataInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the returned data.
-     *
-     * @example 2020-05-06T07:10:00Z
-     *
      * @var string
      */
     public $timeStamp;
 
     /**
-     * @description The total amount of network traffic. Unit: bytes.
-     *
-     * @example 2838
-     *
      * @var string
      */
     public $trafficValue;
 
     /**
-     * @description The peak bandwidth value. Unit: bit/s.
-     *
-     * @example 75.68
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'timeStamp'    => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
         'trafficValue' => 'TrafficValue',
-        'value'        => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
+
         if (null !== $this->trafficValue) {
             $res['TrafficValue'] = $this->trafficValue;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -60,20 +51,22 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
+
         if (isset($map['TrafficValue'])) {
             $model->trafficValue = $map['TrafficValue'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

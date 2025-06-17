@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchSetGrayDomainFunctionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example [{"functionArgs": [{"argName": "key","argValue": "Content-Encoding"},{"argName": "value","argValue": "gzip"}],"functionName": "set_resp_header"} ]
-     *
      * @var string
      */
     public $configs;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example example.com,xxx.org.com
-     *
      * @var string
      */
     public $domainNames;
     protected $_name = [
-        'configs'     => 'Configs',
+        'configs' => 'Configs',
         'domainNames' => 'DomainNames',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configs) {
             $res['Configs'] = $this->configs;
         }
+
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
@@ -47,17 +41,18 @@ class BatchSetGrayDomainFunctionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchSetGrayDomainFunctionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configs'])) {
             $model->configs = $map['Configs'];
         }
+
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
