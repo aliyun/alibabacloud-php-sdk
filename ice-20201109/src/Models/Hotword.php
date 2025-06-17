@@ -58,7 +58,8 @@ class Hotword extends Model
                 $res['TranspositionResultList'] = [];
                 $n1 = 0;
                 foreach ($this->transpositionResultList as $item1) {
-                    $res['TranspositionResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranspositionResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class Hotword extends Model
                 $model->transpositionResultList = [];
                 $n1 = 0;
                 foreach ($map['TranspositionResultList'] as $item1) {
-                    $model->transpositionResultList[$n1++] = TranspositionResult::fromMap($item1);
+                    $model->transpositionResultList[$n1] = TranspositionResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

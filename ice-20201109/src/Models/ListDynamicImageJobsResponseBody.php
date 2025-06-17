@@ -45,7 +45,8 @@ class ListDynamicImageJobsResponseBody extends Model
                 $res['Jobs'] = [];
                 $n1 = 0;
                 foreach ($this->jobs as $item1) {
-                    $res['Jobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Jobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListDynamicImageJobsResponseBody extends Model
                 $model->jobs = [];
                 $n1 = 0;
                 foreach ($map['Jobs'] as $item1) {
-                    $model->jobs[$n1++] = jobs::fromMap($item1);
+                    $model->jobs[$n1] = jobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

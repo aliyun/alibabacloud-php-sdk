@@ -135,7 +135,8 @@ class ChannelAssemblyChannel extends Model
                 $res['OutPutConfigList'] = [];
                 $n1 = 0;
                 foreach ($this->outPutConfigList as $item1) {
-                    $res['OutPutConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutPutConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +201,8 @@ class ChannelAssemblyChannel extends Model
                 $model->outPutConfigList = [];
                 $n1 = 0;
                 foreach ($map['OutPutConfigList'] as $item1) {
-                    $model->outPutConfigList[$n1++] = outPutConfigList::fromMap($item1);
+                    $model->outPutConfigList[$n1] = outPutConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

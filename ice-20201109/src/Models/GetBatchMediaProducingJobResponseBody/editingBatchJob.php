@@ -139,7 +139,8 @@ class editingBatchJob extends Model
                 $res['SubJobList'] = [];
                 $n1 = 0;
                 foreach ($this->subJobList as $item1) {
-                    $res['SubJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +205,8 @@ class editingBatchJob extends Model
                 $model->subJobList = [];
                 $n1 = 0;
                 foreach ($map['SubJobList'] as $item1) {
-                    $model->subJobList[$n1++] = subJobList::fromMap($item1);
+                    $model->subJobList[$n1] = subJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

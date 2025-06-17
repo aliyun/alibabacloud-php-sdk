@@ -39,7 +39,8 @@ class ListDNADBResponseBody extends Model
                 $res['DBList'] = [];
                 $n1 = 0;
                 foreach ($this->DBList as $item1) {
-                    $res['DBList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListDNADBResponseBody extends Model
                 $model->DBList = [];
                 $n1 = 0;
                 foreach ($map['DBList'] as $item1) {
-                    $model->DBList[$n1++] = DBList::fromMap($item1);
+                    $model->DBList[$n1] = DBList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

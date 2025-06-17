@@ -63,7 +63,8 @@ class ListLivePackageOriginEndpointsResponseBody extends Model
                 $res['LivePackageOriginEndpoints'] = [];
                 $n1 = 0;
                 foreach ($this->livePackageOriginEndpoints as $item1) {
-                    $res['LivePackageOriginEndpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LivePackageOriginEndpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListLivePackageOriginEndpointsResponseBody extends Model
                 $model->livePackageOriginEndpoints = [];
                 $n1 = 0;
                 foreach ($map['LivePackageOriginEndpoints'] as $item1) {
-                    $model->livePackageOriginEndpoints[$n1++] = livePackageOriginEndpoints::fromMap($item1);
+                    $model->livePackageOriginEndpoints[$n1] = livePackageOriginEndpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

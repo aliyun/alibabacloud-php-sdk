@@ -67,7 +67,8 @@ class audioSelectors extends Model
                 $res['AudioTrackSelection'] = [];
                 $n1 = 0;
                 foreach ($this->audioTrackSelection as $item1) {
-                    $res['AudioTrackSelection'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioTrackSelection'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class audioSelectors extends Model
                 $model->audioTrackSelection = [];
                 $n1 = 0;
                 foreach ($map['AudioTrackSelection'] as $item1) {
-                    $model->audioTrackSelection[$n1++] = audioTrackSelection::fromMap($item1);
+                    $model->audioTrackSelection[$n1] = audioTrackSelection::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

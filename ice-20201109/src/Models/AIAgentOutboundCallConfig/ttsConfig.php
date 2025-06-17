@@ -42,7 +42,8 @@ class ttsConfig extends Model
                 $res['VoiceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->voiceIdList as $item1) {
-                    $res['VoiceIdList'][$n1++] = $item1;
+                    $res['VoiceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ttsConfig extends Model
                 $model->voiceIdList = [];
                 $n1 = 0;
                 foreach ($map['VoiceIdList'] as $item1) {
-                    $model->voiceIdList[$n1++] = $item1;
+                    $model->voiceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

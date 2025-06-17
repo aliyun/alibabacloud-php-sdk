@@ -65,7 +65,8 @@ class ListSearchLibResponseBody extends Model
                 $res['SearchLibInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->searchLibInfoList as $item1) {
-                    $res['SearchLibInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchLibInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListSearchLibResponseBody extends Model
                 $model->searchLibInfoList = [];
                 $n1 = 0;
                 foreach ($map['SearchLibInfoList'] as $item1) {
-                    $model->searchLibInfoList[$n1++] = searchLibInfoList::fromMap($item1);
+                    $model->searchLibInfoList[$n1] = searchLibInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

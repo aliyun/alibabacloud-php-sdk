@@ -16,6 +16,16 @@ class MediaConvertOutputGroupDetail extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $finishTime;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -39,6 +49,8 @@ class MediaConvertOutputGroupDetail extends Model
     public $taskId;
     protected $_name = [
         'code' => 'Code',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
         'message' => 'Message',
         'name' => 'Name',
         'outputs' => 'Outputs',
@@ -61,6 +73,14 @@ class MediaConvertOutputGroupDetail extends Model
             $res['Code'] = $this->code;
         }
 
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -74,7 +94,8 @@ class MediaConvertOutputGroupDetail extends Model
                 $res['Outputs'] = [];
                 $n1 = 0;
                 foreach ($this->outputs as $item1) {
-                    $res['Outputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Outputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,6 +123,14 @@ class MediaConvertOutputGroupDetail extends Model
             $model->code = $map['Code'];
         }
 
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -115,7 +144,8 @@ class MediaConvertOutputGroupDetail extends Model
                 $model->outputs = [];
                 $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
-                    $model->outputs[$n1++] = MediaConvertOutputDetail::fromMap($item1);
+                    $model->outputs[$n1] = MediaConvertOutputDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

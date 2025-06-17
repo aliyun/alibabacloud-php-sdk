@@ -33,7 +33,8 @@ class subCategories extends Model
                 $res['Category'] = [];
                 $n1 = 0;
                 foreach ($this->category as $item1) {
-                    $res['Category'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Category'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class subCategories extends Model
                 $model->category = [];
                 $n1 = 0;
                 foreach ($map['Category'] as $item1) {
-                    $model->category[$n1++] = category::fromMap($item1);
+                    $model->category[$n1] = category::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

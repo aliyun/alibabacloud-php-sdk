@@ -39,7 +39,8 @@ class data extends Model
                 $res['AvatarList'] = [];
                 $n1 = 0;
                 foreach ($this->avatarList as $item1) {
-                    $res['AvatarList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvatarList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class data extends Model
                 $model->avatarList = [];
                 $n1 = 0;
                 foreach ($map['AvatarList'] as $item1) {
-                    $model->avatarList[$n1++] = avatarList::fromMap($item1);
+                    $model->avatarList[$n1] = avatarList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

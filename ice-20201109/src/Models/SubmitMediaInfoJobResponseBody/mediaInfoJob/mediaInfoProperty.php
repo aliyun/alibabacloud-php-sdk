@@ -53,7 +53,8 @@ class mediaInfoProperty extends Model
                 $res['AudioStreamInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->audioStreamInfoList as $item1) {
-                    $res['AudioStreamInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioStreamInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class mediaInfoProperty extends Model
                 $res['VideoStreamInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->videoStreamInfoList as $item1) {
-                    $res['VideoStreamInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoStreamInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class mediaInfoProperty extends Model
                 $model->audioStreamInfoList = [];
                 $n1 = 0;
                 foreach ($map['AudioStreamInfoList'] as $item1) {
-                    $model->audioStreamInfoList[$n1++] = audioStreamInfoList::fromMap($item1);
+                    $model->audioStreamInfoList[$n1] = audioStreamInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class mediaInfoProperty extends Model
                 $model->videoStreamInfoList = [];
                 $n1 = 0;
                 foreach ($map['VideoStreamInfoList'] as $item1) {
-                    $model->videoStreamInfoList[$n1++] = videoStreamInfoList::fromMap($item1);
+                    $model->videoStreamInfoList[$n1] = videoStreamInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

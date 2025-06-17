@@ -43,7 +43,8 @@ class packageJobList extends Model
                 $res['PackageJobs'] = [];
                 $n1 = 0;
                 foreach ($this->packageJobs as $item1) {
-                    $res['PackageJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PackageJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class packageJobList extends Model
                 $model->packageJobs = [];
                 $n1 = 0;
                 foreach ($map['PackageJobs'] as $item1) {
-                    $model->packageJobs[$n1++] = packageJobs::fromMap($item1);
+                    $model->packageJobs[$n1] = packageJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

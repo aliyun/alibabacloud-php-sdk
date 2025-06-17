@@ -58,7 +58,8 @@ class UpdateMediaLiveInputRequest extends Model
                 $res['InputSettings'] = [];
                 $n1 = 0;
                 foreach ($this->inputSettings as $item1) {
-                    $res['InputSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class UpdateMediaLiveInputRequest extends Model
                 $res['SecurityGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1++] = $item1;
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class UpdateMediaLiveInputRequest extends Model
                 $model->inputSettings = [];
                 $n1 = 0;
                 foreach ($map['InputSettings'] as $item1) {
-                    $model->inputSettings[$n1++] = inputSettings::fromMap($item1);
+                    $model->inputSettings[$n1] = inputSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class UpdateMediaLiveInputRequest extends Model
                 $model->securityGroupIds = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

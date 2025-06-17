@@ -69,7 +69,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $res['AudioSettings'] = [];
                 $n1 = 0;
                 foreach ($this->audioSettings as $item1) {
-                    $res['AudioSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $res['InputAttachments'] = [];
                 $n1 = 0;
                 foreach ($this->inputAttachments as $item1) {
-                    $res['InputAttachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputAttachments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $res['OutputGroups'] = [];
                 $n1 = 0;
                 foreach ($this->outputGroups as $item1) {
-                    $res['OutputGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $res['VideoSettings'] = [];
                 $n1 = 0;
                 foreach ($this->videoSettings as $item1) {
-                    $res['VideoSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +128,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $model->audioSettings = [];
                 $n1 = 0;
                 foreach ($map['AudioSettings'] as $item1) {
-                    $model->audioSettings[$n1++] = audioSettings::fromMap($item1);
+                    $model->audioSettings[$n1] = audioSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $model->inputAttachments = [];
                 $n1 = 0;
                 foreach ($map['InputAttachments'] as $item1) {
-                    $model->inputAttachments[$n1++] = inputAttachments::fromMap($item1);
+                    $model->inputAttachments[$n1] = inputAttachments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +154,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $model->outputGroups = [];
                 $n1 = 0;
                 foreach ($map['OutputGroups'] as $item1) {
-                    $model->outputGroups[$n1++] = outputGroups::fromMap($item1);
+                    $model->outputGroups[$n1] = outputGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +165,8 @@ class CreateMediaLiveChannelRequest extends Model
                 $model->videoSettings = [];
                 $n1 = 0;
                 foreach ($map['VideoSettings'] as $item1) {
-                    $model->videoSettings[$n1++] = videoSettings::fromMap($item1);
+                    $model->videoSettings[$n1] = videoSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

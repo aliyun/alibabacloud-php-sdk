@@ -39,7 +39,8 @@ class ListPipelinesResponseBody extends Model
                 $res['PipelineList'] = [];
                 $n1 = 0;
                 foreach ($this->pipelineList as $item1) {
-                    $res['PipelineList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PipelineList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListPipelinesResponseBody extends Model
                 $model->pipelineList = [];
                 $n1 = 0;
                 foreach ($map['PipelineList'] as $item1) {
-                    $model->pipelineList[$n1++] = pipelineList::fromMap($item1);
+                    $model->pipelineList[$n1] = pipelineList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

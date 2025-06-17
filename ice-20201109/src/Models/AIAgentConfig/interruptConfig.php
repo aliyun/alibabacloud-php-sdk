@@ -42,7 +42,8 @@ class interruptConfig extends Model
                 $res['InterruptWords'] = [];
                 $n1 = 0;
                 foreach ($this->interruptWords as $item1) {
-                    $res['InterruptWords'][$n1++] = $item1;
+                    $res['InterruptWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class interruptConfig extends Model
                 $model->interruptWords = [];
                 $n1 = 0;
                 foreach ($map['InterruptWords'] as $item1) {
-                    $model->interruptWords[$n1++] = $item1;
+                    $model->interruptWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

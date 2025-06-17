@@ -68,7 +68,8 @@ class ListSourceLocationsResponseBody extends Model
                 $res['SourceLocationList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceLocationList as $item1) {
-                    $res['SourceLocationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceLocationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ListSourceLocationsResponseBody extends Model
                 $model->sourceLocationList = [];
                 $n1 = 0;
                 foreach ($map['SourceLocationList'] as $item1) {
-                    $model->sourceLocationList[$n1++] = ChannelAssemblySourceLocation::fromMap($item1);
+                    $model->sourceLocationList[$n1] = ChannelAssemblySourceLocation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

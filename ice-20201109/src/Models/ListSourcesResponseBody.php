@@ -68,7 +68,8 @@ class ListSourcesResponseBody extends Model
                 $res['SourceList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceList as $item1) {
-                    $res['SourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ListSourcesResponseBody extends Model
                 $model->sourceList = [];
                 $n1 = 0;
                 foreach ($map['SourceList'] as $item1) {
-                    $model->sourceList[$n1++] = ChannelAssemblySource::fromMap($item1);
+                    $model->sourceList[$n1] = ChannelAssemblySource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

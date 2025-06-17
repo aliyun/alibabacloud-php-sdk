@@ -58,7 +58,8 @@ class LivePackagingConfig extends Model
                 $res['LiveManifestConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->liveManifestConfigs as $item1) {
-                    $res['LiveManifestConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveManifestConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class LivePackagingConfig extends Model
                 $model->liveManifestConfigs = [];
                 $n1 = 0;
                 foreach ($map['LiveManifestConfigs'] as $item1) {
-                    $model->liveManifestConfigs[$n1++] = LiveManifestConfig::fromMap($item1);
+                    $model->liveManifestConfigs[$n1] = LiveManifestConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

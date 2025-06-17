@@ -43,7 +43,8 @@ class ListSmartVoiceGroupsResponseBody extends Model
                 $res['VoiceGroups'] = [];
                 $n1 = 0;
                 foreach ($this->voiceGroups as $item1) {
-                    $res['VoiceGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VoiceGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListSmartVoiceGroupsResponseBody extends Model
                 $model->voiceGroups = [];
                 $n1 = 0;
                 foreach ($map['VoiceGroups'] as $item1) {
-                    $model->voiceGroups[$n1++] = voiceGroups::fromMap($item1);
+                    $model->voiceGroups[$n1] = voiceGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -50,7 +50,8 @@ class asrConfig extends Model
                 $res['AsrHotWords'] = [];
                 $n1 = 0;
                 foreach ($this->asrHotWords as $item1) {
-                    $res['AsrHotWords'][$n1++] = $item1;
+                    $res['AsrHotWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class asrConfig extends Model
                 $model->asrHotWords = [];
                 $n1 = 0;
                 foreach ($map['AsrHotWords'] as $item1) {
-                    $model->asrHotWords[$n1++] = $item1;
+                    $model->asrHotWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

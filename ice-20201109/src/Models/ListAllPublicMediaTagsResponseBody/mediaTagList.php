@@ -63,7 +63,8 @@ class mediaTagList extends Model
                 $res['Options'] = [];
                 $n1 = 0;
                 foreach ($this->options as $item1) {
-                    $res['Options'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Options'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class mediaTagList extends Model
                 $model->options = [];
                 $n1 = 0;
                 foreach ($map['Options'] as $item1) {
-                    $model->options[$n1++] = options::fromMap($item1);
+                    $model->options[$n1] = options::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

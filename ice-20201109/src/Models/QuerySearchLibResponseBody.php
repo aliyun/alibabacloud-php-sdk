@@ -67,7 +67,8 @@ class QuerySearchLibResponseBody extends Model
                 $res['IndexInfo'] = [];
                 $n1 = 0;
                 foreach ($this->indexInfo as $item1) {
-                    $res['IndexInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IndexInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class QuerySearchLibResponseBody extends Model
                 $model->indexInfo = [];
                 $n1 = 0;
                 foreach ($map['IndexInfo'] as $item1) {
-                    $model->indexInfo[$n1++] = indexInfo::fromMap($item1);
+                    $model->indexInfo[$n1] = indexInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

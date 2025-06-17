@@ -80,7 +80,8 @@ class GetHotwordLibraryResponseBody extends Model
                 $res['Hotwords'] = [];
                 $n1 = 0;
                 foreach ($this->hotwords as $item1) {
-                    $res['Hotwords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Hotwords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class GetHotwordLibraryResponseBody extends Model
                 $model->hotwords = [];
                 $n1 = 0;
                 foreach ($map['Hotwords'] as $item1) {
-                    $model->hotwords[$n1++] = Hotword::fromMap($item1);
+                    $model->hotwords[$n1] = Hotword::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -17,6 +17,11 @@ class config extends Model
     public $inputs;
 
     /**
+     * @var string
+     */
+    public $jobName;
+
+    /**
      * @var MediaConvertOutputGroup[]
      */
     public $outputGroups;
@@ -27,6 +32,7 @@ class config extends Model
     public $outputs;
     protected $_name = [
         'inputs' => 'Inputs',
+        'jobName' => 'JobName',
         'outputGroups' => 'OutputGroups',
         'outputs' => 'Outputs',
     ];
@@ -53,9 +59,14 @@ class config extends Model
                 $res['Inputs'] = [];
                 $n1 = 0;
                 foreach ($this->inputs as $item1) {
-                    $res['Inputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Inputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->jobName) {
+            $res['JobName'] = $this->jobName;
         }
 
         if (null !== $this->outputGroups) {
@@ -63,7 +74,8 @@ class config extends Model
                 $res['OutputGroups'] = [];
                 $n1 = 0;
                 foreach ($this->outputGroups as $item1) {
-                    $res['OutputGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +85,8 @@ class config extends Model
                 $res['Outputs'] = [];
                 $n1 = 0;
                 foreach ($this->outputs as $item1) {
-                    $res['Outputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Outputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,9 +107,14 @@ class config extends Model
                 $model->inputs = [];
                 $n1 = 0;
                 foreach ($map['Inputs'] as $item1) {
-                    $model->inputs[$n1++] = MediaConvertInput::fromMap($item1);
+                    $model->inputs[$n1] = MediaConvertInput::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['JobName'])) {
+            $model->jobName = $map['JobName'];
         }
 
         if (isset($map['OutputGroups'])) {
@@ -104,7 +122,8 @@ class config extends Model
                 $model->outputGroups = [];
                 $n1 = 0;
                 foreach ($map['OutputGroups'] as $item1) {
-                    $model->outputGroups[$n1++] = MediaConvertOutputGroup::fromMap($item1);
+                    $model->outputGroups[$n1] = MediaConvertOutputGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +133,8 @@ class config extends Model
                 $model->outputs = [];
                 $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
-                    $model->outputs[$n1++] = MediaConvertOutput::fromMap($item1);
+                    $model->outputs[$n1] = MediaConvertOutput::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

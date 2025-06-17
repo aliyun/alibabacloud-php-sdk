@@ -63,7 +63,8 @@ class ListVodPackagingAssetsResponseBody extends Model
                 $res['Assets'] = [];
                 $n1 = 0;
                 foreach ($this->assets as $item1) {
-                    $res['Assets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Assets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListVodPackagingAssetsResponseBody extends Model
                 $model->assets = [];
                 $n1 = 0;
                 foreach ($map['Assets'] as $item1) {
-                    $model->assets[$n1++] = assets::fromMap($item1);
+                    $model->assets[$n1] = assets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

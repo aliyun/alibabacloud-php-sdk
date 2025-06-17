@@ -63,7 +63,8 @@ class ListLiveRecordJobsResponseBody extends Model
                 $res['LiveRecordJobs'] = [];
                 $n1 = 0;
                 foreach ($this->liveRecordJobs as $item1) {
-                    $res['LiveRecordJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveRecordJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListLiveRecordJobsResponseBody extends Model
                 $model->liveRecordJobs = [];
                 $n1 = 0;
                 foreach ($map['LiveRecordJobs'] as $item1) {
-                    $model->liveRecordJobs[$n1++] = liveRecordJobs::fromMap($item1);
+                    $model->liveRecordJobs[$n1] = liveRecordJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

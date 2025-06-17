@@ -192,7 +192,8 @@ class avatarChat3D extends Model
                 $res['AsrHotWords'] = [];
                 $n1 = 0;
                 foreach ($this->asrHotWords as $item1) {
-                    $res['AsrHotWords'][$n1++] = $item1;
+                    $res['AsrHotWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -242,7 +243,8 @@ class avatarChat3D extends Model
                 $res['InterruptWords'] = [];
                 $n1 = 0;
                 foreach ($this->interruptWords as $item1) {
-                    $res['InterruptWords'][$n1++] = $item1;
+                    $res['InterruptWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +254,8 @@ class avatarChat3D extends Model
                 $res['LlmHistory'] = [];
                 $n1 = 0;
                 foreach ($this->llmHistory as $item1) {
-                    $res['LlmHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LlmHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +297,8 @@ class avatarChat3D extends Model
                 $res['VoiceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->voiceIdList as $item1) {
-                    $res['VoiceIdList'][$n1++] = $item1;
+                    $res['VoiceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -331,7 +335,8 @@ class avatarChat3D extends Model
                 $model->asrHotWords = [];
                 $n1 = 0;
                 foreach ($map['AsrHotWords'] as $item1) {
-                    $model->asrHotWords[$n1++] = $item1;
+                    $model->asrHotWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -381,7 +386,8 @@ class avatarChat3D extends Model
                 $model->interruptWords = [];
                 $n1 = 0;
                 foreach ($map['InterruptWords'] as $item1) {
-                    $model->interruptWords[$n1++] = $item1;
+                    $model->interruptWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -391,7 +397,8 @@ class avatarChat3D extends Model
                 $model->llmHistory = [];
                 $n1 = 0;
                 foreach ($map['LlmHistory'] as $item1) {
-                    $model->llmHistory[$n1++] = llmHistory::fromMap($item1);
+                    $model->llmHistory[$n1] = llmHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -433,7 +440,8 @@ class avatarChat3D extends Model
                 $model->voiceIdList = [];
                 $n1 = 0;
                 foreach ($map['VoiceIdList'] as $item1) {
-                    $model->voiceIdList[$n1++] = $item1;
+                    $model->voiceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

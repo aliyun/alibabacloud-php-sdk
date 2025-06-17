@@ -51,7 +51,8 @@ class ListBatchMediaProducingJobsResponseBody extends Model
                 $res['EditingBatchJobList'] = [];
                 $n1 = 0;
                 foreach ($this->editingBatchJobList as $item1) {
-                    $res['EditingBatchJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EditingBatchJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListBatchMediaProducingJobsResponseBody extends Model
                 $model->editingBatchJobList = [];
                 $n1 = 0;
                 foreach ($map['EditingBatchJobList'] as $item1) {
-                    $model->editingBatchJobList[$n1++] = editingBatchJobList::fromMap($item1);
+                    $model->editingBatchJobList[$n1] = editingBatchJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

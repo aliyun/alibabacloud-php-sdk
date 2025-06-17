@@ -62,7 +62,8 @@ class ListVodPackagingGroupsResponseBody extends Model
                 $res['PackagingGroups'] = [];
                 $n1 = 0;
                 foreach ($this->packagingGroups as $item1) {
-                    $res['PackagingGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PackagingGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class ListVodPackagingGroupsResponseBody extends Model
                 $model->packagingGroups = [];
                 $n1 = 0;
                 foreach ($map['PackagingGroups'] as $item1) {
-                    $model->packagingGroups[$n1++] = VodPackagingGroup::fromMap($item1);
+                    $model->packagingGroups[$n1] = VodPackagingGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

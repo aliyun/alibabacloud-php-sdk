@@ -55,7 +55,8 @@ class ListMediaProducingJobsResponseBody extends Model
                 $res['MediaProducingJobList'] = [];
                 $n1 = 0;
                 foreach ($this->mediaProducingJobList as $item1) {
-                    $res['MediaProducingJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaProducingJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListMediaProducingJobsResponseBody extends Model
                 $model->mediaProducingJobList = [];
                 $n1 = 0;
                 foreach ($map['MediaProducingJobList'] as $item1) {
-                    $model->mediaProducingJobList[$n1++] = mediaProducingJobList::fromMap($item1);
+                    $model->mediaProducingJobList[$n1] = mediaProducingJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -93,7 +93,8 @@ class Program extends Model
                 $res['AdBreaks'] = [];
                 $n1 = 0;
                 foreach ($this->adBreaks as $item1) {
-                    $res['AdBreaks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdBreaks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class Program extends Model
                 $model->adBreaks = [];
                 $n1 = 0;
                 foreach ($map['AdBreaks'] as $item1) {
-                    $model->adBreaks[$n1++] = adBreaks::fromMap($item1);
+                    $model->adBreaks[$n1] = adBreaks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

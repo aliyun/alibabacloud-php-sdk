@@ -79,7 +79,8 @@ class asset extends Model
                 $res['EgressEndpoints'] = [];
                 $n1 = 0;
                 foreach ($this->egressEndpoints as $item1) {
-                    $res['EgressEndpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EgressEndpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class asset extends Model
                 $model->egressEndpoints = [];
                 $n1 = 0;
                 foreach ($map['EgressEndpoints'] as $item1) {
-                    $model->egressEndpoints[$n1++] = egressEndpoints::fromMap($item1);
+                    $model->egressEndpoints[$n1] = egressEndpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

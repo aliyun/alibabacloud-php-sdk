@@ -63,7 +63,8 @@ class ListLivePackageChannelGroupsResponseBody extends Model
                 $res['LivePackageChannelGroups'] = [];
                 $n1 = 0;
                 foreach ($this->livePackageChannelGroups as $item1) {
-                    $res['LivePackageChannelGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LivePackageChannelGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListLivePackageChannelGroupsResponseBody extends Model
                 $model->livePackageChannelGroups = [];
                 $n1 = 0;
                 foreach ($map['LivePackageChannelGroups'] as $item1) {
-                    $model->livePackageChannelGroups[$n1++] = livePackageChannelGroups::fromMap($item1);
+                    $model->livePackageChannelGroups[$n1] = livePackageChannelGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

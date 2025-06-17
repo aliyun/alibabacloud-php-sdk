@@ -33,7 +33,8 @@ class libs extends Model
                 $res['Lib'] = [];
                 $n1 = 0;
                 foreach ($this->lib as $item1) {
-                    $res['Lib'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Lib'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class libs extends Model
                 $model->lib = [];
                 $n1 = 0;
                 foreach ($map['Lib'] as $item1) {
-                    $model->lib[$n1++] = lib::fromMap($item1);
+                    $model->lib[$n1] = lib::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

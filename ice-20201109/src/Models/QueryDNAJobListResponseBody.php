@@ -39,7 +39,8 @@ class QueryDNAJobListResponseBody extends Model
                 $res['JobList'] = [];
                 $n1 = 0;
                 foreach ($this->jobList as $item1) {
-                    $res['JobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class QueryDNAJobListResponseBody extends Model
                 $model->jobList = [];
                 $n1 = 0;
                 foreach ($map['JobList'] as $item1) {
-                    $model->jobList[$n1++] = jobList::fromMap($item1);
+                    $model->jobList[$n1] = jobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

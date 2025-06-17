@@ -78,7 +78,8 @@ class drmConfig extends Model
                 $res['SystemIds'] = [];
                 $n1 = 0;
                 foreach ($this->systemIds as $item1) {
-                    $res['SystemIds'][$n1++] = $item1;
+                    $res['SystemIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class drmConfig extends Model
                 $model->systemIds = [];
                 $n1 = 0;
                 foreach ($map['SystemIds'] as $item1) {
-                    $model->systemIds[$n1++] = $item1;
+                    $model->systemIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

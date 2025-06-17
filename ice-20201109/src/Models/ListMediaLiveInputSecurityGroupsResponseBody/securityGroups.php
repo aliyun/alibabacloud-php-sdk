@@ -63,7 +63,8 @@ class securityGroups extends Model
                 $res['InputIds'] = [];
                 $n1 = 0;
                 foreach ($this->inputIds as $item1) {
-                    $res['InputIds'][$n1++] = $item1;
+                    $res['InputIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class securityGroups extends Model
                 $res['WhitelistRules'] = [];
                 $n1 = 0;
                 foreach ($this->whitelistRules as $item1) {
-                    $res['WhitelistRules'][$n1++] = $item1;
+                    $res['WhitelistRules'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +108,8 @@ class securityGroups extends Model
                 $model->inputIds = [];
                 $n1 = 0;
                 foreach ($map['InputIds'] as $item1) {
-                    $model->inputIds[$n1++] = $item1;
+                    $model->inputIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +127,8 @@ class securityGroups extends Model
                 $model->whitelistRules = [];
                 $n1 = 0;
                 foreach ($map['WhitelistRules'] as $item1) {
-                    $model->whitelistRules[$n1++] = $item1;
+                    $model->whitelistRules[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

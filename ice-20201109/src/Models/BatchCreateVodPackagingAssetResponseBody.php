@@ -53,7 +53,8 @@ class BatchCreateVodPackagingAssetResponseBody extends Model
                 $res['ResultList'] = [];
                 $n1 = 0;
                 foreach ($this->resultList as $item1) {
-                    $res['ResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class BatchCreateVodPackagingAssetResponseBody extends Model
                 $model->resultList = [];
                 $n1 = 0;
                 foreach ($map['ResultList'] as $item1) {
-                    $model->resultList[$n1++] = resultList::fromMap($item1);
+                    $model->resultList[$n1] = resultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

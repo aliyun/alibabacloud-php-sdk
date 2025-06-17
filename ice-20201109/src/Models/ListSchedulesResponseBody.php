@@ -64,7 +64,8 @@ class ListSchedulesResponseBody extends Model
                 $res['Programs'] = [];
                 $n1 = 0;
                 foreach ($this->programs as $item1) {
-                    $res['Programs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Programs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class ListSchedulesResponseBody extends Model
                 $model->programs = [];
                 $n1 = 0;
                 foreach ($map['Programs'] as $item1) {
-                    $model->programs[$n1++] = ChannelAssemblyScheduleData::fromMap($item1);
+                    $model->programs[$n1] = ChannelAssemblyScheduleData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -83,7 +83,8 @@ class processConfig extends Model
                 $res['CombineConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->combineConfigs as $item1) {
-                    $res['CombineConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CombineConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class processConfig extends Model
                 $res['ImageWatermarks'] = [];
                 $n1 = 0;
                 foreach ($this->imageWatermarks as $item1) {
-                    $res['ImageWatermarks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageWatermarks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +109,8 @@ class processConfig extends Model
                 $res['Subtitles'] = [];
                 $n1 = 0;
                 foreach ($this->subtitles as $item1) {
-                    $res['Subtitles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Subtitles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +120,8 @@ class processConfig extends Model
                 $res['TextWatermarks'] = [];
                 $n1 = 0;
                 foreach ($this->textWatermarks as $item1) {
-                    $res['TextWatermarks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TextWatermarks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +146,8 @@ class processConfig extends Model
                 $model->combineConfigs = [];
                 $n1 = 0;
                 foreach ($map['CombineConfigs'] as $item1) {
-                    $model->combineConfigs[$n1++] = combineConfigs::fromMap($item1);
+                    $model->combineConfigs[$n1] = combineConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +161,8 @@ class processConfig extends Model
                 $model->imageWatermarks = [];
                 $n1 = 0;
                 foreach ($map['ImageWatermarks'] as $item1) {
-                    $model->imageWatermarks[$n1++] = imageWatermarks::fromMap($item1);
+                    $model->imageWatermarks[$n1] = imageWatermarks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +172,8 @@ class processConfig extends Model
                 $model->subtitles = [];
                 $n1 = 0;
                 foreach ($map['Subtitles'] as $item1) {
-                    $model->subtitles[$n1++] = subtitles::fromMap($item1);
+                    $model->subtitles[$n1] = subtitles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +183,8 @@ class processConfig extends Model
                 $model->textWatermarks = [];
                 $n1 = 0;
                 foreach ($map['TextWatermarks'] as $item1) {
-                    $model->textWatermarks[$n1++] = textWatermarks::fromMap($item1);
+                    $model->textWatermarks[$n1] = textWatermarks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

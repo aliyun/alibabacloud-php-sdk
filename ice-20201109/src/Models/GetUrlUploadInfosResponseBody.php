@@ -48,7 +48,8 @@ class GetUrlUploadInfosResponseBody extends Model
                 $res['NonExists'] = [];
                 $n1 = 0;
                 foreach ($this->nonExists as $item1) {
-                    $res['NonExists'][$n1++] = $item1;
+                    $res['NonExists'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class GetUrlUploadInfosResponseBody extends Model
                 $res['URLUploadInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->URLUploadInfoList as $item1) {
-                    $res['URLUploadInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['URLUploadInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class GetUrlUploadInfosResponseBody extends Model
                 $model->nonExists = [];
                 $n1 = 0;
                 foreach ($map['NonExists'] as $item1) {
-                    $model->nonExists[$n1++] = $item1;
+                    $model->nonExists[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class GetUrlUploadInfosResponseBody extends Model
                 $model->URLUploadInfoList = [];
                 $n1 = 0;
                 foreach ($map['URLUploadInfoList'] as $item1) {
-                    $model->URLUploadInfoList[$n1++] = URLUploadInfoList::fromMap($item1);
+                    $model->URLUploadInfoList[$n1] = URLUploadInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

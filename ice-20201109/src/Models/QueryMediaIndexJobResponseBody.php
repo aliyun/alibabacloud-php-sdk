@@ -55,7 +55,8 @@ class QueryMediaIndexJobResponseBody extends Model
                 $res['IndexJobInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->indexJobInfoList as $item1) {
-                    $res['IndexJobInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IndexJobInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class QueryMediaIndexJobResponseBody extends Model
                 $model->indexJobInfoList = [];
                 $n1 = 0;
                 foreach ($map['IndexJobInfoList'] as $item1) {
-                    $model->indexJobInfoList[$n1++] = indexJobInfoList::fromMap($item1);
+                    $model->indexJobInfoList[$n1] = indexJobInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

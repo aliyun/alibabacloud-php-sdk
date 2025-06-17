@@ -69,7 +69,8 @@ class ListMediaLiveInputSecurityGroupsResponseBody extends Model
                 $res['SecurityGroups'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroups as $item1) {
-                    $res['SecurityGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListMediaLiveInputSecurityGroupsResponseBody extends Model
                 $model->securityGroups = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroups'] as $item1) {
-                    $model->securityGroups[$n1++] = securityGroups::fromMap($item1);
+                    $model->securityGroups[$n1] = securityGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

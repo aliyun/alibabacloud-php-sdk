@@ -45,7 +45,8 @@ class ListCustomTemplatesResponseBody extends Model
                 $res['CustomTemplateList'] = [];
                 $n1 = 0;
                 foreach ($this->customTemplateList as $item1) {
-                    $res['CustomTemplateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomTemplateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListCustomTemplatesResponseBody extends Model
                 $model->customTemplateList = [];
                 $n1 = 0;
                 foreach ($map['CustomTemplateList'] as $item1) {
-                    $model->customTemplateList[$n1++] = customTemplateList::fromMap($item1);
+                    $model->customTemplateList[$n1] = customTemplateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

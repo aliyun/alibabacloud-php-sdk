@@ -29,6 +29,16 @@ class job extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $finishTime;
+
+    /**
+     * @var string
+     */
     public $jobId;
 
     /**
@@ -45,6 +55,11 @@ class job extends Model
      * @var MediaConvertOutputGroupDetail[]
      */
     public $outputGroupDetails;
+
+    /**
+     * @var int
+     */
+    public $percent;
 
     /**
      * @var string
@@ -69,10 +84,13 @@ class job extends Model
         'clientToken' => 'ClientToken',
         'code' => 'Code',
         'config' => 'Config',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
         'jobId' => 'JobId',
         'message' => 'Message',
         'outputDetails' => 'OutputDetails',
         'outputGroupDetails' => 'OutputGroupDetails',
+        'percent' => 'Percent',
         'pipelineId' => 'PipelineId',
         'requestId' => 'RequestId',
         'state' => 'State',
@@ -108,6 +126,14 @@ class job extends Model
             $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
 
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -121,7 +147,8 @@ class job extends Model
                 $res['OutputDetails'] = [];
                 $n1 = 0;
                 foreach ($this->outputDetails as $item1) {
-                    $res['OutputDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,9 +158,14 @@ class job extends Model
                 $res['OutputGroupDetails'] = [];
                 $n1 = 0;
                 foreach ($this->outputGroupDetails as $item1) {
-                    $res['OutputGroupDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputGroupDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->percent) {
+            $res['Percent'] = $this->percent;
         }
 
         if (null !== $this->pipelineId) {
@@ -175,6 +207,14 @@ class job extends Model
             $model->config = config::fromMap($map['Config']);
         }
 
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
@@ -188,7 +228,8 @@ class job extends Model
                 $model->outputDetails = [];
                 $n1 = 0;
                 foreach ($map['OutputDetails'] as $item1) {
-                    $model->outputDetails[$n1++] = MediaConvertOutputDetail::fromMap($item1);
+                    $model->outputDetails[$n1] = MediaConvertOutputDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -198,9 +239,14 @@ class job extends Model
                 $model->outputGroupDetails = [];
                 $n1 = 0;
                 foreach ($map['OutputGroupDetails'] as $item1) {
-                    $model->outputGroupDetails[$n1++] = MediaConvertOutputGroupDetail::fromMap($item1);
+                    $model->outputGroupDetails[$n1] = MediaConvertOutputGroupDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Percent'])) {
+            $model->percent = $map['Percent'];
         }
 
         if (isset($map['PipelineId'])) {

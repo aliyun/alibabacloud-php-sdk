@@ -49,7 +49,8 @@ class ListLiveTranscodeTemplatesResponseBody extends Model
                 $res['TemplateContentList'] = [];
                 $n1 = 0;
                 foreach ($this->templateContentList as $item1) {
-                    $res['TemplateContentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TemplateContentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListLiveTranscodeTemplatesResponseBody extends Model
                 $model->templateContentList = [];
                 $n1 = 0;
                 foreach ($map['TemplateContentList'] as $item1) {
-                    $model->templateContentList[$n1++] = templateContentList::fromMap($item1);
+                    $model->templateContentList[$n1] = templateContentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

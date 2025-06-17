@@ -69,7 +69,8 @@ class mediaClipList extends Model
                 $res['OccurrencesInfos'] = [];
                 $n1 = 0;
                 foreach ($this->occurrencesInfos as $item1) {
-                    $res['OccurrencesInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OccurrencesInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class mediaClipList extends Model
                 $model->occurrencesInfos = [];
                 $n1 = 0;
                 foreach ($map['OccurrencesInfos'] as $item1) {
-                    $model->occurrencesInfos[$n1++] = occurrencesInfos::fromMap($item1);
+                    $model->occurrencesInfos[$n1] = occurrencesInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

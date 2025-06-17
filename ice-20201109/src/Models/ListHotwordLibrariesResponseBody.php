@@ -57,7 +57,8 @@ class ListHotwordLibrariesResponseBody extends Model
                 $res['HotwordLibraryList'] = [];
                 $n1 = 0;
                 foreach ($this->hotwordLibraryList as $item1) {
-                    $res['HotwordLibraryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HotwordLibraryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListHotwordLibrariesResponseBody extends Model
                 $model->hotwordLibraryList = [];
                 $n1 = 0;
                 foreach ($map['HotwordLibraryList'] as $item1) {
-                    $model->hotwordLibraryList[$n1++] = hotwordLibraryList::fromMap($item1);
+                    $model->hotwordLibraryList[$n1] = hotwordLibraryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

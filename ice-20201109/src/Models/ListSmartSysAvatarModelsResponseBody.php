@@ -49,7 +49,8 @@ class ListSmartSysAvatarModelsResponseBody extends Model
                 $res['SmartSysAvatarModelList'] = [];
                 $n1 = 0;
                 foreach ($this->smartSysAvatarModelList as $item1) {
-                    $res['SmartSysAvatarModelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SmartSysAvatarModelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListSmartSysAvatarModelsResponseBody extends Model
                 $model->smartSysAvatarModelList = [];
                 $n1 = 0;
                 foreach ($map['SmartSysAvatarModelList'] as $item1) {
-                    $model->smartSysAvatarModelList[$n1++] = smartSysAvatarModelList::fromMap($item1);
+                    $model->smartSysAvatarModelList[$n1] = smartSysAvatarModelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

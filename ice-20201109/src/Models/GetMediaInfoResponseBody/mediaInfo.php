@@ -63,7 +63,8 @@ class mediaInfo extends Model
                 $res['FileInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->fileInfoList as $item1) {
-                    $res['FileInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FileInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class mediaInfo extends Model
                 $model->fileInfoList = [];
                 $n1 = 0;
                 foreach ($map['FileInfoList'] as $item1) {
-                    $model->fileInfoList[$n1++] = fileInfoList::fromMap($item1);
+                    $model->fileInfoList[$n1] = fileInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class outputStream extends Model
                 $res['StreamInfos'] = [];
                 $n1 = 0;
                 foreach ($this->streamInfos as $item1) {
-                    $res['StreamInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StreamInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class outputStream extends Model
                 $model->streamInfos = [];
                 $n1 = 0;
                 foreach ($map['StreamInfos'] as $item1) {
-                    $model->streamInfos[$n1++] = streamInfos::fromMap($item1);
+                    $model->streamInfos[$n1] = streamInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

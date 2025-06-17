@@ -44,7 +44,8 @@ class DeleteLiveSnapshotFilesRequest extends Model
                 $res['CreateTimestampList'] = [];
                 $n1 = 0;
                 foreach ($this->createTimestampList as $item1) {
-                    $res['CreateTimestampList'][$n1++] = $item1;
+                    $res['CreateTimestampList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class DeleteLiveSnapshotFilesRequest extends Model
                 $model->createTimestampList = [];
                 $n1 = 0;
                 foreach ($map['CreateTimestampList'] as $item1) {
-                    $model->createTimestampList[$n1++] = $item1;
+                    $model->createTimestampList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -61,7 +61,8 @@ class SearchMediaByFaceResponseBody extends Model
                 $res['MediaInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->mediaInfoList as $item1) {
-                    $res['MediaInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class SearchMediaByFaceResponseBody extends Model
                 $model->mediaInfoList = [];
                 $n1 = 0;
                 foreach ($map['MediaInfoList'] as $item1) {
-                    $model->mediaInfoList[$n1++] = mediaInfoList::fromMap($item1);
+                    $model->mediaInfoList[$n1] = mediaInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

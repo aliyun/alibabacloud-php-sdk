@@ -64,7 +64,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $res['LiveMaterials'] = [];
                 $n1 = 0;
                 foreach ($this->liveMaterials as $item1) {
-                    $res['LiveMaterials'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveMaterials'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $res['MediaInfos'] = [];
                 $n1 = 0;
                 foreach ($this->mediaInfos as $item1) {
-                    $res['MediaInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $res['ProjectMaterials'] = [];
                 $n1 = 0;
                 foreach ($this->projectMaterials as $item1) {
-                    $res['ProjectMaterials'][$n1++] = $item1;
+                    $res['ProjectMaterials'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $model->liveMaterials = [];
                 $n1 = 0;
                 foreach ($map['LiveMaterials'] as $item1) {
-                    $model->liveMaterials[$n1++] = liveMaterials::fromMap($item1);
+                    $model->liveMaterials[$n1] = liveMaterials::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +127,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $model->mediaInfos = [];
                 $n1 = 0;
                 foreach ($map['MediaInfos'] as $item1) {
-                    $model->mediaInfos[$n1++] = mediaInfos::fromMap($item1);
+                    $model->mediaInfos[$n1] = mediaInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +142,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $model->projectMaterials = [];
                 $n1 = 0;
                 foreach ($map['ProjectMaterials'] as $item1) {
-                    $model->projectMaterials[$n1++] = $item1;
+                    $model->projectMaterials[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

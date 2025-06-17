@@ -45,7 +45,8 @@ class SearchPublicMediaInfoResponseBody extends Model
                 $res['PublicMediaInfos'] = [];
                 $n1 = 0;
                 foreach ($this->publicMediaInfos as $item1) {
-                    $res['PublicMediaInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PublicMediaInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class SearchPublicMediaInfoResponseBody extends Model
                 $model->publicMediaInfos = [];
                 $n1 = 0;
                 foreach ($map['PublicMediaInfos'] as $item1) {
-                    $model->publicMediaInfos[$n1++] = publicMediaInfos::fromMap($item1);
+                    $model->publicMediaInfos[$n1] = publicMediaInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -178,7 +178,8 @@ class QueryIProductionJobResponseBody extends Model
                 $res['OutputFiles'] = [];
                 $n1 = 0;
                 foreach ($this->outputFiles as $item1) {
-                    $res['OutputFiles'][$n1++] = $item1;
+                    $res['OutputFiles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +189,8 @@ class QueryIProductionJobResponseBody extends Model
                 $res['OutputMediaIds'] = [];
                 $n1 = 0;
                 foreach ($this->outputMediaIds as $item1) {
-                    $res['OutputMediaIds'][$n1++] = $item1;
+                    $res['OutputMediaIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +200,8 @@ class QueryIProductionJobResponseBody extends Model
                 $res['OutputUrls'] = [];
                 $n1 = 0;
                 foreach ($this->outputUrls as $item1) {
-                    $res['OutputUrls'][$n1++] = $item1;
+                    $res['OutputUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -275,7 +278,8 @@ class QueryIProductionJobResponseBody extends Model
                 $model->outputFiles = [];
                 $n1 = 0;
                 foreach ($map['OutputFiles'] as $item1) {
-                    $model->outputFiles[$n1++] = $item1;
+                    $model->outputFiles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -285,7 +289,8 @@ class QueryIProductionJobResponseBody extends Model
                 $model->outputMediaIds = [];
                 $n1 = 0;
                 foreach ($map['OutputMediaIds'] as $item1) {
-                    $model->outputMediaIds[$n1++] = $item1;
+                    $model->outputMediaIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -295,7 +300,8 @@ class QueryIProductionJobResponseBody extends Model
                 $model->outputUrls = [];
                 $n1 = 0;
                 foreach ($map['OutputUrls'] as $item1) {
-                    $model->outputUrls[$n1++] = $item1;
+                    $model->outputUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

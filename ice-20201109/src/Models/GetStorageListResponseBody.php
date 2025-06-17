@@ -43,7 +43,8 @@ class GetStorageListResponseBody extends Model
                 $res['StorageInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->storageInfoList as $item1) {
-                    $res['StorageInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StorageInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class GetStorageListResponseBody extends Model
                 $model->storageInfoList = [];
                 $n1 = 0;
                 foreach ($map['StorageInfoList'] as $item1) {
-                    $model->storageInfoList[$n1++] = storageInfoList::fromMap($item1);
+                    $model->storageInfoList[$n1] = storageInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

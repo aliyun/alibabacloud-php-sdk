@@ -39,7 +39,8 @@ class ListAIAgentDialoguesResponseBody extends Model
                 $res['Dialogues'] = [];
                 $n1 = 0;
                 foreach ($this->dialogues as $item1) {
-                    $res['Dialogues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Dialogues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAIAgentDialoguesResponseBody extends Model
                 $model->dialogues = [];
                 $n1 = 0;
                 foreach ($map['Dialogues'] as $item1) {
-                    $model->dialogues[$n1++] = dialogues::fromMap($item1);
+                    $model->dialogues[$n1] = dialogues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

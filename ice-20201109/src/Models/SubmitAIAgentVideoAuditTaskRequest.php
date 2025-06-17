@@ -83,7 +83,8 @@ class SubmitAIAgentVideoAuditTaskRequest extends Model
                 $res['CapturePolicies'] = [];
                 $n1 = 0;
                 foreach ($this->capturePolicies as $item1) {
-                    $res['CapturePolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CapturePolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class SubmitAIAgentVideoAuditTaskRequest extends Model
                 $model->capturePolicies = [];
                 $n1 = 0;
                 foreach ($map['CapturePolicies'] as $item1) {
-                    $model->capturePolicies[$n1++] = capturePolicies::fromMap($item1);
+                    $model->capturePolicies[$n1] = capturePolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

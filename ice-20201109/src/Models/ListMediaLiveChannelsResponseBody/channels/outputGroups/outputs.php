@@ -60,7 +60,8 @@ class outputs extends Model
                 $res['AudioSettingNames'] = [];
                 $n1 = 0;
                 foreach ($this->audioSettingNames as $item1) {
-                    $res['AudioSettingNames'][$n1++] = $item1;
+                    $res['AudioSettingNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class outputs extends Model
                 $model->audioSettingNames = [];
                 $n1 = 0;
                 foreach ($map['AudioSettingNames'] as $item1) {
-                    $model->audioSettingNames[$n1++] = $item1;
+                    $model->audioSettingNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

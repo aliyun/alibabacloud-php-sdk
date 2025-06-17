@@ -150,7 +150,8 @@ class transcodeJobList extends Model
                 $res['InputGroup'] = [];
                 $n1 = 0;
                 foreach ($this->inputGroup as $item1) {
-                    $res['InputGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -236,7 +237,8 @@ class transcodeJobList extends Model
                 $model->inputGroup = [];
                 $n1 = 0;
                 foreach ($map['InputGroup'] as $item1) {
-                    $model->inputGroup[$n1++] = inputGroup::fromMap($item1);
+                    $model->inputGroup[$n1] = inputGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

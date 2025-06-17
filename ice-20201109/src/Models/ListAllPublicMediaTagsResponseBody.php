@@ -39,7 +39,8 @@ class ListAllPublicMediaTagsResponseBody extends Model
                 $res['MediaTagList'] = [];
                 $n1 = 0;
                 foreach ($this->mediaTagList as $item1) {
-                    $res['MediaTagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaTagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAllPublicMediaTagsResponseBody extends Model
                 $model->mediaTagList = [];
                 $n1 = 0;
                 foreach ($map['MediaTagList'] as $item1) {
-                    $model->mediaTagList[$n1++] = mediaTagList::fromMap($item1);
+                    $model->mediaTagList[$n1] = mediaTagList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

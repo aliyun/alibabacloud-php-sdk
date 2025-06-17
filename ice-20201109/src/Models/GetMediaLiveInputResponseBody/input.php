@@ -75,7 +75,8 @@ class input extends Model
                 $res['ChannelIds'] = [];
                 $n1 = 0;
                 foreach ($this->channelIds as $item1) {
-                    $res['ChannelIds'][$n1++] = $item1;
+                    $res['ChannelIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class input extends Model
                 $res['InputInfos'] = [];
                 $n1 = 0;
                 foreach ($this->inputInfos as $item1) {
-                    $res['InputInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +109,8 @@ class input extends Model
                 $res['SecurityGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1++] = $item1;
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +135,8 @@ class input extends Model
                 $model->channelIds = [];
                 $n1 = 0;
                 foreach ($map['ChannelIds'] as $item1) {
-                    $model->channelIds[$n1++] = $item1;
+                    $model->channelIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +154,8 @@ class input extends Model
                 $model->inputInfos = [];
                 $n1 = 0;
                 foreach ($map['InputInfos'] as $item1) {
-                    $model->inputInfos[$n1++] = inputInfos::fromMap($item1);
+                    $model->inputInfos[$n1] = inputInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +169,8 @@ class input extends Model
                 $model->securityGroupIds = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

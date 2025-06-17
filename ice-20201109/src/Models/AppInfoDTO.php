@@ -79,7 +79,8 @@ class AppInfoDTO extends Model
                 $res['Platforms'] = [];
                 $n1 = 0;
                 foreach ($this->platforms as $item1) {
-                    $res['Platforms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Platforms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class AppInfoDTO extends Model
                 $model->platforms = [];
                 $n1 = 0;
                 foreach ($map['Platforms'] as $item1) {
-                    $model->platforms[$n1++] = platforms::fromMap($item1);
+                    $model->platforms[$n1] = platforms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

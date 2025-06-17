@@ -61,7 +61,8 @@ class SearchMediaByHybridResponseBody extends Model
                 $res['MediaList'] = [];
                 $n1 = 0;
                 foreach ($this->mediaList as $item1) {
-                    $res['MediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class SearchMediaByHybridResponseBody extends Model
                 $model->mediaList = [];
                 $n1 = 0;
                 foreach ($map['MediaList'] as $item1) {
-                    $model->mediaList[$n1++] = mediaList::fromMap($item1);
+                    $model->mediaList[$n1] = mediaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

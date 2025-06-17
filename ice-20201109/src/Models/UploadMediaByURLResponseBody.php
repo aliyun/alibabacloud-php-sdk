@@ -43,7 +43,8 @@ class UploadMediaByURLResponseBody extends Model
                 $res['UploadJobs'] = [];
                 $n1 = 0;
                 foreach ($this->uploadJobs as $item1) {
-                    $res['UploadJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UploadJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class UploadMediaByURLResponseBody extends Model
                 $model->uploadJobs = [];
                 $n1 = 0;
                 foreach ($map['UploadJobs'] as $item1) {
-                    $model->uploadJobs[$n1++] = uploadJobs::fromMap($item1);
+                    $model->uploadJobs[$n1] = uploadJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -137,7 +137,8 @@ class transcodeParentJob extends Model
                 $res['InputGroup'] = [];
                 $n1 = 0;
                 foreach ($this->inputGroup as $item1) {
-                    $res['InputGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class transcodeParentJob extends Model
                 $res['OutputGroup'] = [];
                 $n1 = 0;
                 foreach ($this->outputGroup as $item1) {
-                    $res['OutputGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +191,8 @@ class transcodeParentJob extends Model
                 $res['TranscodeJobList'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeJobList as $item1) {
-                    $res['TranscodeJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +229,8 @@ class transcodeParentJob extends Model
                 $model->inputGroup = [];
                 $n1 = 0;
                 foreach ($map['InputGroup'] as $item1) {
-                    $model->inputGroup[$n1++] = inputGroup::fromMap($item1);
+                    $model->inputGroup[$n1] = inputGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +248,8 @@ class transcodeParentJob extends Model
                 $model->outputGroup = [];
                 $n1 = 0;
                 foreach ($map['OutputGroup'] as $item1) {
-                    $model->outputGroup[$n1++] = outputGroup::fromMap($item1);
+                    $model->outputGroup[$n1] = outputGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -278,7 +283,8 @@ class transcodeParentJob extends Model
                 $model->transcodeJobList = [];
                 $n1 = 0;
                 foreach ($map['TranscodeJobList'] as $item1) {
-                    $model->transcodeJobList[$n1++] = transcodeJobList::fromMap($item1);
+                    $model->transcodeJobList[$n1] = transcodeJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

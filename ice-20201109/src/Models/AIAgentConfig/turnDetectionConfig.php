@@ -32,7 +32,8 @@ class turnDetectionConfig extends Model
                 $res['TurnEndWords'] = [];
                 $n1 = 0;
                 foreach ($this->turnEndWords as $item1) {
-                    $res['TurnEndWords'][$n1++] = $item1;
+                    $res['TurnEndWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class turnDetectionConfig extends Model
                 $model->turnEndWords = [];
                 $n1 = 0;
                 foreach ($map['TurnEndWords'] as $item1) {
-                    $model->turnEndWords[$n1++] = $item1;
+                    $model->turnEndWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

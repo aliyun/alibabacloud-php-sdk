@@ -57,7 +57,8 @@ class ListMediaLiveInputsResponseBody extends Model
                 $res['Inputs'] = [];
                 $n1 = 0;
                 foreach ($this->inputs as $item1) {
-                    $res['Inputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Inputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListMediaLiveInputsResponseBody extends Model
                 $model->inputs = [];
                 $n1 = 0;
                 foreach ($map['Inputs'] as $item1) {
-                    $model->inputs[$n1++] = inputs::fromMap($item1);
+                    $model->inputs[$n1] = inputs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

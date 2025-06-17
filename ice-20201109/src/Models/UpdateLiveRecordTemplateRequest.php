@@ -49,7 +49,8 @@ class UpdateLiveRecordTemplateRequest extends Model
                 $res['RecordFormat'] = [];
                 $n1 = 0;
                 foreach ($this->recordFormat as $item1) {
-                    $res['RecordFormat'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecordFormat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class UpdateLiveRecordTemplateRequest extends Model
                 $model->recordFormat = [];
                 $n1 = 0;
                 foreach ($map['RecordFormat'] as $item1) {
-                    $model->recordFormat[$n1++] = recordFormat::fromMap($item1);
+                    $model->recordFormat[$n1] = recordFormat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

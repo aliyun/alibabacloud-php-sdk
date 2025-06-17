@@ -53,7 +53,8 @@ class aiData extends Model
                 $res['AiLabelInfo'] = [];
                 $n1 = 0;
                 foreach ($this->aiLabelInfo as $item1) {
-                    $res['AiLabelInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AiLabelInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class aiData extends Model
                 $res['AsrInfo'] = [];
                 $n1 = 0;
                 foreach ($this->asrInfo as $item1) {
-                    $res['AsrInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AsrInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class aiData extends Model
                 $res['OcrInfo'] = [];
                 $n1 = 0;
                 foreach ($this->ocrInfo as $item1) {
-                    $res['OcrInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OcrInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class aiData extends Model
                 $model->aiLabelInfo = [];
                 $n1 = 0;
                 foreach ($map['AiLabelInfo'] as $item1) {
-                    $model->aiLabelInfo[$n1++] = aiLabelInfo::fromMap($item1);
+                    $model->aiLabelInfo[$n1] = aiLabelInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class aiData extends Model
                 $model->asrInfo = [];
                 $n1 = 0;
                 foreach ($map['AsrInfo'] as $item1) {
-                    $model->asrInfo[$n1++] = asrInfo::fromMap($item1);
+                    $model->asrInfo[$n1] = asrInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class aiData extends Model
                 $model->ocrInfo = [];
                 $n1 = 0;
                 foreach ($map['OcrInfo'] as $item1) {
-                    $model->ocrInfo[$n1++] = ocrInfo::fromMap($item1);
+                    $model->ocrInfo[$n1] = ocrInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

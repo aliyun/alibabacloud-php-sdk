@@ -93,7 +93,8 @@ class dialogues extends Model
                 $res['AttachedFileList'] = [];
                 $n1 = 0;
                 foreach ($this->attachedFileList as $item1) {
-                    $res['AttachedFileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AttachedFileList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class dialogues extends Model
                 $model->attachedFileList = [];
                 $n1 = 0;
                 foreach ($map['AttachedFileList'] as $item1) {
-                    $model->attachedFileList[$n1++] = attachedFileList::fromMap($item1);
+                    $model->attachedFileList[$n1] = attachedFileList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

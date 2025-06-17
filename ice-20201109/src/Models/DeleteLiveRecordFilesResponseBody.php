@@ -45,7 +45,8 @@ class DeleteLiveRecordFilesResponseBody extends Model
                 $res['DeleteFileInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->deleteFileInfoList as $item1) {
-                    $res['DeleteFileInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeleteFileInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DeleteLiveRecordFilesResponseBody extends Model
                 $model->deleteFileInfoList = [];
                 $n1 = 0;
                 foreach ($map['DeleteFileInfoList'] as $item1) {
-                    $model->deleteFileInfoList[$n1++] = deleteFileInfoList::fromMap($item1);
+                    $model->deleteFileInfoList[$n1] = deleteFileInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

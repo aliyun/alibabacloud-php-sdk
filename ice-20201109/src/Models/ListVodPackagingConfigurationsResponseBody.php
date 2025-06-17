@@ -62,7 +62,8 @@ class ListVodPackagingConfigurationsResponseBody extends Model
                 $res['PackagingConfigurations'] = [];
                 $n1 = 0;
                 foreach ($this->packagingConfigurations as $item1) {
-                    $res['PackagingConfigurations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PackagingConfigurations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class ListVodPackagingConfigurationsResponseBody extends Model
                 $model->packagingConfigurations = [];
                 $n1 = 0;
                 foreach ($map['PackagingConfigurations'] as $item1) {
-                    $model->packagingConfigurations[$n1++] = VodPackagingConfiguration::fromMap($item1);
+                    $model->packagingConfigurations[$n1] = VodPackagingConfiguration::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

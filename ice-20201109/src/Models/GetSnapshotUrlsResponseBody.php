@@ -54,7 +54,8 @@ class GetSnapshotUrlsResponseBody extends Model
                 $res['SnapshotUrls'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotUrls as $item1) {
-                    $res['SnapshotUrls'][$n1++] = $item1;
+                    $res['SnapshotUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class GetSnapshotUrlsResponseBody extends Model
                 $model->snapshotUrls = [];
                 $n1 = 0;
                 foreach ($map['SnapshotUrls'] as $item1) {
-                    $model->snapshotUrls[$n1++] = $item1;
+                    $model->snapshotUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

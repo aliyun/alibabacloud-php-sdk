@@ -49,7 +49,8 @@ class ListSystemTemplatesResponseBody extends Model
                 $res['SystemTemplateList'] = [];
                 $n1 = 0;
                 foreach ($this->systemTemplateList as $item1) {
-                    $res['SystemTemplateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SystemTemplateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListSystemTemplatesResponseBody extends Model
                 $model->systemTemplateList = [];
                 $n1 = 0;
                 foreach ($map['SystemTemplateList'] as $item1) {
-                    $model->systemTemplateList[$n1++] = systemTemplateList::fromMap($item1);
+                    $model->systemTemplateList[$n1] = systemTemplateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

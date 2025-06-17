@@ -45,7 +45,8 @@ class inputAttachments extends Model
                 $res['AudioSelectors'] = [];
                 $n1 = 0;
                 foreach ($this->audioSelectors as $item1) {
-                    $res['AudioSelectors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioSelectors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class inputAttachments extends Model
                 $model->audioSelectors = [];
                 $n1 = 0;
                 foreach ($map['AudioSelectors'] as $item1) {
-                    $model->audioSelectors[$n1++] = audioSelectors::fromMap($item1);
+                    $model->audioSelectors[$n1] = audioSelectors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

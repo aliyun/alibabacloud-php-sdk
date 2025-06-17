@@ -75,7 +75,8 @@ class recordTemplateList extends Model
                 $res['RecordFormatList'] = [];
                 $n1 = 0;
                 foreach ($this->recordFormatList as $item1) {
-                    $res['RecordFormatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecordFormatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class recordTemplateList extends Model
                 $model->recordFormatList = [];
                 $n1 = 0;
                 foreach ($map['RecordFormatList'] as $item1) {
-                    $model->recordFormatList[$n1++] = recordFormatList::fromMap($item1);
+                    $model->recordFormatList[$n1] = recordFormatList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

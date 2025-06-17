@@ -52,7 +52,8 @@ class UpdateMediaLiveInputSecurityGroupRequest extends Model
                 $res['WhitelistRules'] = [];
                 $n1 = 0;
                 foreach ($this->whitelistRules as $item1) {
-                    $res['WhitelistRules'][$n1++] = $item1;
+                    $res['WhitelistRules'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class UpdateMediaLiveInputSecurityGroupRequest extends Model
                 $model->whitelistRules = [];
                 $n1 = 0;
                 foreach ($map['WhitelistRules'] as $item1) {
-                    $model->whitelistRules[$n1++] = $item1;
+                    $model->whitelistRules[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

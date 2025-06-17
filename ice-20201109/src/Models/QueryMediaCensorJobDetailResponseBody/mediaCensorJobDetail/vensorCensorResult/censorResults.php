@@ -33,7 +33,8 @@ class censorResults extends Model
                 $res['CensorResult'] = [];
                 $n1 = 0;
                 foreach ($this->censorResult as $item1) {
-                    $res['CensorResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CensorResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class censorResults extends Model
                 $model->censorResult = [];
                 $n1 = 0;
                 foreach ($map['CensorResult'] as $item1) {
-                    $model->censorResult[$n1++] = censorResult::fromMap($item1);
+                    $model->censorResult[$n1] = censorResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

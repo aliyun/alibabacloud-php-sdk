@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertOutputDetail\result;
 
 class MediaConvertOutputDetail extends Model
 {
@@ -12,6 +13,16 @@ class MediaConvertOutputDetail extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $finishTime;
 
     /**
      * @var string
@@ -24,6 +35,11 @@ class MediaConvertOutputDetail extends Model
     public $name;
 
     /**
+     * @var result
+     */
+    public $result;
+
+    /**
      * @var string
      */
     public $status;
@@ -34,14 +50,20 @@ class MediaConvertOutputDetail extends Model
     public $taskId;
     protected $_name = [
         'code' => 'Code',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
         'message' => 'Message',
         'name' => 'Name',
+        'result' => 'Result',
         'status' => 'Status',
         'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
         parent::validate();
     }
 
@@ -52,12 +74,24 @@ class MediaConvertOutputDetail extends Model
             $res['Code'] = $this->code;
         }
 
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         if (null !== $this->status) {
@@ -83,12 +117,24 @@ class MediaConvertOutputDetail extends Model
             $model->code = $map['Code'];
         }
 
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
 
         if (isset($map['Status'])) {

@@ -69,7 +69,8 @@ class ListSmartJobsResponseBody extends Model
                 $res['SmartJobList'] = [];
                 $n1 = 0;
                 foreach ($this->smartJobList as $item1) {
-                    $res['SmartJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SmartJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListSmartJobsResponseBody extends Model
                 $model->smartJobList = [];
                 $n1 = 0;
                 foreach ($map['SmartJobList'] as $item1) {
-                    $model->smartJobList[$n1++] = smartJobList::fromMap($item1);
+                    $model->smartJobList[$n1] = smartJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class AddFavoritePublicMediaResponseBody extends Model
                 $res['IgnoredList'] = [];
                 $n1 = 0;
                 foreach ($this->ignoredList as $item1) {
-                    $res['IgnoredList'][$n1++] = $item1;
+                    $res['IgnoredList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class AddFavoritePublicMediaResponseBody extends Model
                 $model->ignoredList = [];
                 $n1 = 0;
                 foreach ($map['IgnoredList'] as $item1) {
-                    $model->ignoredList[$n1++] = $item1;
+                    $model->ignoredList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

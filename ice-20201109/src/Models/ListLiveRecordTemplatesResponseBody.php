@@ -71,7 +71,8 @@ class ListLiveRecordTemplatesResponseBody extends Model
                 $res['RecordTemplateList'] = [];
                 $n1 = 0;
                 foreach ($this->recordTemplateList as $item1) {
-                    $res['RecordTemplateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecordTemplateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListLiveRecordTemplatesResponseBody extends Model
                 $model->recordTemplateList = [];
                 $n1 = 0;
                 foreach ($map['RecordTemplateList'] as $item1) {
-                    $model->recordTemplateList[$n1++] = recordTemplateList::fromMap($item1);
+                    $model->recordTemplateList[$n1] = recordTemplateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

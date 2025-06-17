@@ -55,7 +55,8 @@ class llmConfig extends Model
                 $res['LlmHistory'] = [];
                 $n1 = 0;
                 foreach ($this->llmHistory as $item1) {
-                    $res['LlmHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LlmHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class llmConfig extends Model
                 $model->llmHistory = [];
                 $n1 = 0;
                 foreach ($map['LlmHistory'] as $item1) {
-                    $model->llmHistory[$n1++] = llmHistory::fromMap($item1);
+                    $model->llmHistory[$n1] = llmHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

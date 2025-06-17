@@ -39,7 +39,8 @@ class data extends Model
                 $res['CustomizedVoiceList'] = [];
                 $n1 = 0;
                 foreach ($this->customizedVoiceList as $item1) {
-                    $res['CustomizedVoiceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomizedVoiceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class data extends Model
                 $model->customizedVoiceList = [];
                 $n1 = 0;
                 foreach ($map['CustomizedVoiceList'] as $item1) {
-                    $model->customizedVoiceList[$n1++] = customizedVoiceList::fromMap($item1);
+                    $model->customizedVoiceList[$n1] = customizedVoiceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

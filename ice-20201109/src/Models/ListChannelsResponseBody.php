@@ -56,7 +56,8 @@ class ListChannelsResponseBody extends Model
                 $res['ChannelList'] = [];
                 $n1 = 0;
                 foreach ($this->channelList as $item1) {
-                    $res['ChannelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ChannelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class ListChannelsResponseBody extends Model
                 $model->channelList = [];
                 $n1 = 0;
                 foreach ($map['ChannelList'] as $item1) {
-                    $model->channelList[$n1++] = ChannelAssemblyChannel::fromMap($item1);
+                    $model->channelList[$n1] = ChannelAssemblyChannel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class samples extends Model
                 $res['Sample'] = [];
                 $n1 = 0;
                 foreach ($this->sample as $item1) {
-                    $res['Sample'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sample'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class samples extends Model
                 $model->sample = [];
                 $n1 = 0;
                 foreach ($map['Sample'] as $item1) {
-                    $model->sample[$n1++] = sample::fromMap($item1);
+                    $model->sample[$n1] = sample::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

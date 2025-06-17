@@ -65,7 +65,8 @@ class ListChannelAlertsResponseBody extends Model
                 $res['ProgramAlerts'] = [];
                 $n1 = 0;
                 foreach ($this->programAlerts as $item1) {
-                    $res['ProgramAlerts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProgramAlerts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListChannelAlertsResponseBody extends Model
                 $model->programAlerts = [];
                 $n1 = 0;
                 foreach ($map['ProgramAlerts'] as $item1) {
-                    $model->programAlerts[$n1++] = programAlerts::fromMap($item1);
+                    $model->programAlerts[$n1] = programAlerts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

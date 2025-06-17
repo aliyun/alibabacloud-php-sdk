@@ -65,7 +65,8 @@ class DescribePlayListResponseBody extends Model
                 $res['PlayList'] = [];
                 $n1 = 0;
                 foreach ($this->playList as $item1) {
-                    $res['PlayList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PlayList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class DescribePlayListResponseBody extends Model
                 $model->playList = [];
                 $n1 = 0;
                 foreach ($map['PlayList'] as $item1) {
-                    $model->playList[$n1++] = playList::fromMap($item1);
+                    $model->playList[$n1] = playList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

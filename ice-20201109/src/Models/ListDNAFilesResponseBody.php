@@ -45,7 +45,8 @@ class ListDNAFilesResponseBody extends Model
                 $res['FileList'] = [];
                 $n1 = 0;
                 foreach ($this->fileList as $item1) {
-                    $res['FileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FileList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListDNAFilesResponseBody extends Model
                 $model->fileList = [];
                 $n1 = 0;
                 foreach ($map['FileList'] as $item1) {
-                    $model->fileList[$n1++] = fileList::fromMap($item1);
+                    $model->fileList[$n1] = fileList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

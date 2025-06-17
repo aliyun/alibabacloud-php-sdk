@@ -63,7 +63,8 @@ class occurrencesInfos extends Model
                 $res['TrackData'] = [];
                 $n1 = 0;
                 foreach ($this->trackData as $item1) {
-                    $res['TrackData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrackData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class occurrencesInfos extends Model
                 $model->trackData = [];
                 $n1 = 0;
                 foreach ($map['TrackData'] as $item1) {
-                    $model->trackData[$n1++] = trackData::fromMap($item1);
+                    $model->trackData[$n1] = trackData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

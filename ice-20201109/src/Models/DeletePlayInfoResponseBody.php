@@ -47,7 +47,8 @@ class DeletePlayInfoResponseBody extends Model
                 $res['ForbiddenList'] = [];
                 $n1 = 0;
                 foreach ($this->forbiddenList as $item1) {
-                    $res['ForbiddenList'][$n1++] = $item1;
+                    $res['ForbiddenList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class DeletePlayInfoResponseBody extends Model
                 $res['IgnoredList'] = [];
                 $n1 = 0;
                 foreach ($this->ignoredList as $item1) {
-                    $res['IgnoredList'][$n1++] = $item1;
+                    $res['IgnoredList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class DeletePlayInfoResponseBody extends Model
                 $model->forbiddenList = [];
                 $n1 = 0;
                 foreach ($map['ForbiddenList'] as $item1) {
-                    $model->forbiddenList[$n1++] = $item1;
+                    $model->forbiddenList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class DeletePlayInfoResponseBody extends Model
                 $model->ignoredList = [];
                 $n1 = 0;
                 foreach ($map['IgnoredList'] as $item1) {
-                    $model->ignoredList[$n1++] = $item1;
+                    $model->ignoredList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

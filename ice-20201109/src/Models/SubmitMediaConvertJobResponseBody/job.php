@@ -121,7 +121,8 @@ class job extends Model
                 $res['OutputDetails'] = [];
                 $n1 = 0;
                 foreach ($this->outputDetails as $item1) {
-                    $res['OutputDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class job extends Model
                 $res['OutputGroupDetails'] = [];
                 $n1 = 0;
                 foreach ($this->outputGroupDetails as $item1) {
-                    $res['OutputGroupDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputGroupDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +190,8 @@ class job extends Model
                 $model->outputDetails = [];
                 $n1 = 0;
                 foreach ($map['OutputDetails'] as $item1) {
-                    $model->outputDetails[$n1++] = MediaConvertOutputDetail::fromMap($item1);
+                    $model->outputDetails[$n1] = MediaConvertOutputDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +201,8 @@ class job extends Model
                 $model->outputGroupDetails = [];
                 $n1 = 0;
                 foreach ($map['OutputGroupDetails'] as $item1) {
-                    $model->outputGroupDetails[$n1++] = MediaConvertOutputGroupDetail::fromMap($item1);
+                    $model->outputGroupDetails[$n1] = MediaConvertOutputGroupDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
