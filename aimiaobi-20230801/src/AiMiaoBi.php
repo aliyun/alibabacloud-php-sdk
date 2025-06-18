@@ -8,6 +8,17 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTimeLineRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTimeLineResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskRequest;
@@ -80,6 +91,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobRequest;
@@ -472,6 +485,316 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDatasetDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成剪辑视频.
+     *
+     * @param tmpReq - AsyncCreateClipsTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AsyncCreateClipsTaskResponse
+     *
+     * @param AsyncCreateClipsTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AsyncCreateClipsTaskResponse
+     */
+    public function asyncCreateClipsTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AsyncCreateClipsTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->colorWords) {
+            $request->colorWordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->colorWords, 'ColorWords', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->colorWordsShrink) {
+            @$body['ColorWords'] = $request->colorWordsShrink;
+        }
+
+        if (null !== $request->height) {
+            @$body['Height'] = $request->height;
+        }
+
+        if (null !== $request->musicUrl) {
+            @$body['MusicUrl'] = $request->musicUrl;
+        }
+
+        if (null !== $request->musicVolume) {
+            @$body['MusicVolume'] = $request->musicVolume;
+        }
+
+        if (null !== $request->subtitleFontSize) {
+            @$body['SubtitleFontSize'] = $request->subtitleFontSize;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->voiceStyle) {
+            @$body['VoiceStyle'] = $request->voiceStyle;
+        }
+
+        if (null !== $request->voiceVolume) {
+            @$body['VoiceVolume'] = $request->voiceVolume;
+        }
+
+        if (null !== $request->width) {
+            @$body['Width'] = $request->width;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AsyncCreateClipsTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AsyncCreateClipsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成剪辑视频.
+     *
+     * @param request - AsyncCreateClipsTaskRequest
+     *
+     * @returns AsyncCreateClipsTaskResponse
+     *
+     * @param AsyncCreateClipsTaskRequest $request
+     *
+     * @return AsyncCreateClipsTaskResponse
+     */
+    public function asyncCreateClipsTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asyncCreateClipsTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 智能剪辑timeline.
+     *
+     * @param request - AsyncCreateClipsTimeLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AsyncCreateClipsTimeLineResponse
+     *
+     * @param AsyncCreateClipsTimeLineRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AsyncCreateClipsTimeLineResponse
+     */
+    public function asyncCreateClipsTimeLineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->processPrompt) {
+            @$body['ProcessPrompt'] = $request->processPrompt;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AsyncCreateClipsTimeLine',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AsyncCreateClipsTimeLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 智能剪辑timeline.
+     *
+     * @param request - AsyncCreateClipsTimeLineRequest
+     *
+     * @returns AsyncCreateClipsTimeLineResponse
+     *
+     * @param AsyncCreateClipsTimeLineRequest $request
+     *
+     * @return AsyncCreateClipsTimeLineResponse
+     */
+    public function asyncCreateClipsTimeLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asyncCreateClipsTimeLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑剪辑任务的timeline.
+     *
+     * @param tmpReq - AsyncEditTimelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AsyncEditTimelineResponse
+     *
+     * @param AsyncEditTimelineRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AsyncEditTimelineResponse
+     */
+    public function asyncEditTimelineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AsyncEditTimelineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->timelines) {
+            $request->timelinesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timelines, 'Timelines', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->autoClips) {
+            @$body['AutoClips'] = $request->autoClips;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->timelinesShrink) {
+            @$body['Timelines'] = $request->timelinesShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AsyncEditTimeline',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AsyncEditTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑剪辑任务的timeline.
+     *
+     * @param request - AsyncEditTimelineRequest
+     *
+     * @returns AsyncEditTimelineResponse
+     *
+     * @param AsyncEditTimelineRequest $request
+     *
+     * @return AsyncEditTimelineResponse
+     */
+    public function asyncEditTimeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asyncEditTimelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传剪辑素材.
+     *
+     * @param tmpReq - AsyncUploadVideoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AsyncUploadVideoResponse
+     *
+     * @param AsyncUploadVideoRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AsyncUploadVideoResponse
+     */
+    public function asyncUploadVideoWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AsyncUploadVideoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceVideos) {
+            $request->sourceVideosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceVideos, 'SourceVideos', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->anlysisPrompt) {
+            @$body['AnlysisPrompt'] = $request->anlysisPrompt;
+        }
+
+        if (null !== $request->sourceVideosShrink) {
+            @$body['SourceVideos'] = $request->sourceVideosShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AsyncUploadVideo',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AsyncUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传剪辑素材.
+     *
+     * @param request - AsyncUploadVideoRequest
+     *
+     * @returns AsyncUploadVideoResponse
+     *
+     * @param AsyncUploadVideoRequest $request
+     *
+     * @return AsyncUploadVideoResponse
+     */
+    public function asyncUploadVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asyncUploadVideoWithOptions($request, $runtime);
     }
 
     /**
@@ -2607,6 +2930,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateViewPointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获得剪辑任务状态
+     *
+     * @param request - GetAutoClipsTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAutoClipsTaskInfoResponse
+     *
+     * @param GetAutoClipsTaskInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAutoClipsTaskInfoResponse
+     */
+    public function getAutoClipsTaskInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAutoClipsTaskInfo',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAutoClipsTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得剪辑任务状态
+     *
+     * @param request - GetAutoClipsTaskInfoRequest
+     *
+     * @returns GetAutoClipsTaskInfoResponse
+     *
+     * @param GetAutoClipsTaskInfoRequest $request
+     *
+     * @return GetAutoClipsTaskInfoResponse
+     */
+    public function getAutoClipsTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAutoClipsTaskInfoWithOptions($request, $runtime);
     }
 
     /**
