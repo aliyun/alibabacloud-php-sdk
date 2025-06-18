@@ -39,7 +39,8 @@ class GetCAInstanceStatusResponseBody extends Model
                 $res['InstanceStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceStatusList as $item1) {
-                    $res['InstanceStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetCAInstanceStatusResponseBody extends Model
                 $model->instanceStatusList = [];
                 $n1 = 0;
                 foreach ($map['InstanceStatusList'] as $item1) {
-                    $model->instanceStatusList[$n1++] = instanceStatusList::fromMap($item1);
+                    $model->instanceStatusList[$n1] = instanceStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

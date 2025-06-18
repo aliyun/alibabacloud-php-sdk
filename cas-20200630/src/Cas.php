@@ -36,12 +36,16 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusRequest
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\UploadPcaCertToCasRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\UploadPcaCertToCasResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -238,11 +242,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -376,11 +377,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateClientCertificateWithCsrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateClientCertificateWithCsrResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateClientCertificateWithCsrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -478,11 +476,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCustomCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCustomCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCustomCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -561,11 +556,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRevokeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRevokeClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRevokeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -661,11 +653,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRootCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRootCACertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRootCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -792,11 +781,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServerCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -925,11 +911,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServerCertificateWithCsrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServerCertificateWithCsrResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServerCertificateWithCsrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1043,11 +1026,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSubCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSubCACertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSubCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1114,11 +1094,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1185,11 +1162,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCACertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1247,11 +1221,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCACertificateCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCACertificateCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCACertificateCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1295,6 +1266,14 @@ class Cas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->caStatus) {
+            @$query['CaStatus'] = $request->caStatus;
+        }
+
+        if (null !== $request->certType) {
+            @$query['CertType'] = $request->certType;
+        }
+
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
         }
@@ -1303,8 +1282,16 @@ class Cas extends OpenApiClient
             @$query['Identifier'] = $request->identifier;
         }
 
+        if (null !== $request->issuerType) {
+            @$query['IssuerType'] = $request->issuerType;
+        }
+
         if (null !== $request->showSize) {
             @$query['ShowSize'] = $request->showSize;
+        }
+
+        if (null !== $request->validStatus) {
+            @$query['ValidStatus'] = $request->validStatus;
         }
 
         $req = new OpenApiRequest([
@@ -1321,11 +1308,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCACertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCACertificateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCACertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1403,11 +1387,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCertificatePrivateKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCertificatePrivateKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCertificatePrivateKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1488,11 +1469,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1565,11 +1543,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClientCertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClientCertificateStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClientCertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1639,11 +1614,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCAInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCAInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCAInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1667,6 +1639,95 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCAInstanceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取证书列表.
+     *
+     * @param request - ListCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCertResponse
+     *
+     * @param ListCertRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListCertResponse
+     */
+    public function listCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->afterDate) {
+            @$query['AfterDate'] = $request->afterDate;
+        }
+
+        if (null !== $request->beforeDate) {
+            @$query['BeforeDate'] = $request->beforeDate;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->instanceUuid) {
+            @$query['InstanceUuid'] = $request->instanceUuid;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCert',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取证书列表.
+     *
+     * @param request - ListCertRequest
+     *
+     * @returns ListCertResponse
+     *
+     * @param ListCertRequest $request
+     *
+     * @return ListCertResponse
+     */
+    public function listCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCertWithOptions($request, $runtime);
     }
 
     /**
@@ -1717,11 +1778,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1791,11 +1849,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRevokeCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRevokeCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRevokeCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1866,11 +1921,8 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCACertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCACertificateStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCACertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1895,5 +1947,62 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCACertificateStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传pca证书到SSL上传证书.
+     *
+     * @param request - UploadPcaCertToCasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadPcaCertToCasResponse
+     *
+     * @param UploadPcaCertToCasRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UploadPcaCertToCasResponse
+     */
+    public function uploadPcaCertToCasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadPcaCertToCas',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadPcaCertToCasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传pca证书到SSL上传证书.
+     *
+     * @param request - UploadPcaCertToCasRequest
+     *
+     * @returns UploadPcaCertToCasResponse
+     *
+     * @param UploadPcaCertToCasRequest $request
+     *
+     * @return UploadPcaCertToCasResponse
+     */
+    public function uploadPcaCertToCas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadPcaCertToCasWithOptions($request, $runtime);
     }
 }

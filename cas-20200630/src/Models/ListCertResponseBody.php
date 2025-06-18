@@ -5,19 +5,29 @@
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateResponseBody\certificateList;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertResponseBody\list_;
 
-class ListRevokeCertificateResponseBody extends Model
+class ListCertResponseBody extends Model
 {
-    /**
-     * @var certificateList[]
-     */
-    public $certificateList;
-
     /**
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var list_[]
+     */
+    public $list;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var int
@@ -39,8 +49,10 @@ class ListRevokeCertificateResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'certificateList' => 'CertificateList',
         'currentPage' => 'CurrentPage',
+        'list' => 'List',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'pageCount' => 'PageCount',
         'requestId' => 'RequestId',
         'showSize' => 'ShowSize',
@@ -49,8 +61,8 @@ class ListRevokeCertificateResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->certificateList)) {
-            Model::validateArray($this->certificateList);
+        if (\is_array($this->list)) {
+            Model::validateArray($this->list);
         }
         parent::validate();
     }
@@ -58,19 +70,27 @@ class ListRevokeCertificateResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->certificateList) {
-            if (\is_array($this->certificateList)) {
-                $res['CertificateList'] = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->list) {
+            if (\is_array($this->list)) {
+                $res['List'] = [];
                 $n1 = 0;
-                foreach ($this->certificateList as $item1) {
-                    $res['CertificateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->list as $item1) {
+                    $res['List'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
         }
 
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageCount) {
@@ -100,19 +120,27 @@ class ListRevokeCertificateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertificateList'])) {
-            if (!empty($map['CertificateList'])) {
-                $model->certificateList = [];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['List'])) {
+            if (!empty($map['List'])) {
+                $model->list = [];
                 $n1 = 0;
-                foreach ($map['CertificateList'] as $item1) {
-                    $model->certificateList[$n1] = certificateList::fromMap($item1);
+                foreach ($map['List'] as $item1) {
+                    $model->list[$n1] = list_::fromMap($item1);
                     ++$n1;
                 }
             }
         }
 
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageCount'])) {

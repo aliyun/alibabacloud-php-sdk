@@ -39,7 +39,8 @@ class DescribeClientCertificateStatusResponseBody extends Model
                 $res['CertificateStatus'] = [];
                 $n1 = 0;
                 foreach ($this->certificateStatus as $item1) {
-                    $res['CertificateStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CertificateStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeClientCertificateStatusResponseBody extends Model
                 $model->certificateStatus = [];
                 $n1 = 0;
                 foreach ($map['CertificateStatus'] as $item1) {
-                    $model->certificateStatus[$n1++] = certificateStatus::fromMap($item1);
+                    $model->certificateStatus[$n1] = certificateStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

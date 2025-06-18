@@ -77,7 +77,8 @@ class subject extends Model
                 $res['CustomAttributes'] = [];
                 $n1 = 0;
                 foreach ($this->customAttributes as $item1) {
-                    $res['CustomAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomAttributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class subject extends Model
                 $model->customAttributes = [];
                 $n1 = 0;
                 foreach ($map['CustomAttributes'] as $item1) {
-                    $model->customAttributes[$n1++] = customAttributes::fromMap($item1);
+                    $model->customAttributes[$n1] = customAttributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

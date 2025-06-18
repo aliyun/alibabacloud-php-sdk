@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DescribeCACertificateListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $caStatus;
+
+    /**
+     * @var string
+     */
+    public $certType;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -19,13 +29,27 @@ class DescribeCACertificateListRequest extends Model
     public $identifier;
 
     /**
+     * @var string
+     */
+    public $issuerType;
+
+    /**
      * @var int
      */
     public $showSize;
+
+    /**
+     * @var string
+     */
+    public $validStatus;
     protected $_name = [
+        'caStatus' => 'CaStatus',
+        'certType' => 'CertType',
         'currentPage' => 'CurrentPage',
         'identifier' => 'Identifier',
+        'issuerType' => 'IssuerType',
         'showSize' => 'ShowSize',
+        'validStatus' => 'ValidStatus',
     ];
 
     public function validate()
@@ -36,6 +60,14 @@ class DescribeCACertificateListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->caStatus) {
+            $res['CaStatus'] = $this->caStatus;
+        }
+
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -44,8 +76,16 @@ class DescribeCACertificateListRequest extends Model
             $res['Identifier'] = $this->identifier;
         }
 
+        if (null !== $this->issuerType) {
+            $res['IssuerType'] = $this->issuerType;
+        }
+
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
+        }
+
+        if (null !== $this->validStatus) {
+            $res['ValidStatus'] = $this->validStatus;
         }
 
         return $res;
@@ -59,6 +99,14 @@ class DescribeCACertificateListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CaStatus'])) {
+            $model->caStatus = $map['CaStatus'];
+        }
+
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -67,8 +115,16 @@ class DescribeCACertificateListRequest extends Model
             $model->identifier = $map['Identifier'];
         }
 
+        if (isset($map['IssuerType'])) {
+            $model->issuerType = $map['IssuerType'];
+        }
+
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
+        }
+
+        if (isset($map['ValidStatus'])) {
+            $model->validStatus = $map['ValidStatus'];
         }
 
         return $model;

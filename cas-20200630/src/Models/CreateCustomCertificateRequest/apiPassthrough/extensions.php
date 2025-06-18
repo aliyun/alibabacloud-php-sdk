@@ -61,7 +61,8 @@ class extensions extends Model
                 $res['Criticals'] = [];
                 $n1 = 0;
                 foreach ($this->criticals as $item1) {
-                    $res['Criticals'][$n1++] = $item1;
+                    $res['Criticals'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class extensions extends Model
                 $res['ExtendedKeyUsages'] = [];
                 $n1 = 0;
                 foreach ($this->extendedKeyUsages as $item1) {
-                    $res['ExtendedKeyUsages'][$n1++] = $item1;
+                    $res['ExtendedKeyUsages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +87,8 @@ class extensions extends Model
                 $res['SubjectAlternativeNames'] = [];
                 $n1 = 0;
                 foreach ($this->subjectAlternativeNames as $item1) {
-                    $res['SubjectAlternativeNames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubjectAlternativeNames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +109,8 @@ class extensions extends Model
                 $model->criticals = [];
                 $n1 = 0;
                 foreach ($map['Criticals'] as $item1) {
-                    $model->criticals[$n1++] = $item1;
+                    $model->criticals[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +120,8 @@ class extensions extends Model
                 $model->extendedKeyUsages = [];
                 $n1 = 0;
                 foreach ($map['ExtendedKeyUsages'] as $item1) {
-                    $model->extendedKeyUsages[$n1++] = $item1;
+                    $model->extendedKeyUsages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +135,8 @@ class extensions extends Model
                 $model->subjectAlternativeNames = [];
                 $n1 = 0;
                 foreach ($map['SubjectAlternativeNames'] as $item1) {
-                    $model->subjectAlternativeNames[$n1++] = subjectAlternativeNames::fromMap($item1);
+                    $model->subjectAlternativeNames[$n1] = subjectAlternativeNames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

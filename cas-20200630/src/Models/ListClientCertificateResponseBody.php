@@ -63,7 +63,8 @@ class ListClientCertificateResponseBody extends Model
                 $res['CertificateList'] = [];
                 $n1 = 0;
                 foreach ($this->certificateList as $item1) {
-                    $res['CertificateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CertificateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListClientCertificateResponseBody extends Model
                 $model->certificateList = [];
                 $n1 = 0;
                 foreach ($map['CertificateList'] as $item1) {
-                    $model->certificateList[$n1++] = certificateList::fromMap($item1);
+                    $model->certificateList[$n1] = certificateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

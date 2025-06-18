@@ -124,7 +124,8 @@ class CreateSubCACertificateRequest extends Model
                 $res['ExtendedKeyUsages'] = [];
                 $n1 = 0;
                 foreach ($this->extendedKeyUsages as $item1) {
-                    $res['ExtendedKeyUsages'][$n1++] = $item1;
+                    $res['ExtendedKeyUsages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +194,8 @@ class CreateSubCACertificateRequest extends Model
                 $model->extendedKeyUsages = [];
                 $n1 = 0;
                 foreach ($map['ExtendedKeyUsages'] as $item1) {
-                    $model->extendedKeyUsages[$n1++] = $item1;
+                    $model->extendedKeyUsages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
