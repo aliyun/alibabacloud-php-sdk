@@ -175,7 +175,8 @@ class list_ extends Model
                 $res['PersonalOutboundNumberList'] = [];
                 $n1 = 0;
                 foreach ($this->personalOutboundNumberList as $item1) {
-                    $res['PersonalOutboundNumberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PersonalOutboundNumberList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class list_ extends Model
                 $res['SkillLevelList'] = [];
                 $n1 = 0;
                 foreach ($this->skillLevelList as $item1) {
-                    $res['SkillLevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SkillLevelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +272,8 @@ class list_ extends Model
                 $model->personalOutboundNumberList = [];
                 $n1 = 0;
                 foreach ($map['PersonalOutboundNumberList'] as $item1) {
-                    $model->personalOutboundNumberList[$n1++] = personalOutboundNumberList::fromMap($item1);
+                    $model->personalOutboundNumberList[$n1] = personalOutboundNumberList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -300,7 +303,8 @@ class list_ extends Model
                 $model->skillLevelList = [];
                 $n1 = 0;
                 foreach ($map['SkillLevelList'] as $item1) {
-                    $model->skillLevelList[$n1++] = skillLevelList::fromMap($item1);
+                    $model->skillLevelList[$n1] = skillLevelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

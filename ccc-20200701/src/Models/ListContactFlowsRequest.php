@@ -31,6 +31,11 @@ class ListContactFlowsRequest extends Model
     /**
      * @var string
      */
+    public $searchPattern;
+
+    /**
+     * @var string
+     */
     public $sortOrder;
 
     /**
@@ -42,6 +47,7 @@ class ListContactFlowsRequest extends Model
         'orderByField' => 'OrderByField',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'searchPattern' => 'SearchPattern',
         'sortOrder' => 'SortOrder',
         'type' => 'Type',
     ];
@@ -68,6 +74,10 @@ class ListContactFlowsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->searchPattern) {
+            $res['SearchPattern'] = $this->searchPattern;
         }
 
         if (null !== $this->sortOrder) {
@@ -103,6 +113,10 @@ class ListContactFlowsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SearchPattern'])) {
+            $model->searchPattern = $map['SearchPattern'];
         }
 
         if (isset($map['SortOrder'])) {

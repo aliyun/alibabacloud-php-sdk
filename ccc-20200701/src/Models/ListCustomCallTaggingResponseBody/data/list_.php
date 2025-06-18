@@ -63,7 +63,8 @@ class list_ extends Model
                 $res['CallTagList'] = [];
                 $n1 = 0;
                 foreach ($this->callTagList as $item1) {
-                    $res['CallTagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CallTagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class list_ extends Model
                 $model->callTagList = [];
                 $n1 = 0;
                 foreach ($map['CallTagList'] as $item1) {
-                    $model->callTagList[$n1++] = callTagList::fromMap($item1);
+                    $model->callTagList[$n1] = callTagList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

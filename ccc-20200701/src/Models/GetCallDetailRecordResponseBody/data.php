@@ -223,7 +223,8 @@ class data extends Model
                 $res['AgentEvents'] = [];
                 $n1 = 0;
                 foreach ($this->agentEvents as $item1) {
-                    $res['AgentEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AgentEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,7 +282,8 @@ class data extends Model
                 $res['CustomerEvents'] = [];
                 $n1 = 0;
                 foreach ($this->customerEvents as $item1) {
-                    $res['CustomerEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomerEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -303,7 +305,8 @@ class data extends Model
                 $res['IvrEvents'] = [];
                 $n1 = 0;
                 foreach ($this->ivrEvents as $item1) {
-                    $res['IvrEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IvrEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -317,7 +320,8 @@ class data extends Model
                 $res['QueueEvents'] = [];
                 $n1 = 0;
                 foreach ($this->queueEvents as $item1) {
-                    $res['QueueEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueueEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +382,8 @@ class data extends Model
                 $model->agentEvents = [];
                 $n1 = 0;
                 foreach ($map['AgentEvents'] as $item1) {
-                    $model->agentEvents[$n1++] = agentEvents::fromMap($item1);
+                    $model->agentEvents[$n1] = agentEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -436,7 +441,8 @@ class data extends Model
                 $model->customerEvents = [];
                 $n1 = 0;
                 foreach ($map['CustomerEvents'] as $item1) {
-                    $model->customerEvents[$n1++] = customerEvents::fromMap($item1);
+                    $model->customerEvents[$n1] = customerEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -458,7 +464,8 @@ class data extends Model
                 $model->ivrEvents = [];
                 $n1 = 0;
                 foreach ($map['IvrEvents'] as $item1) {
-                    $model->ivrEvents[$n1++] = ivrEvents::fromMap($item1);
+                    $model->ivrEvents[$n1] = ivrEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -472,7 +479,8 @@ class data extends Model
                 $model->queueEvents = [];
                 $n1 = 0;
                 foreach ($map['QueueEvents'] as $item1) {
-                    $model->queueEvents[$n1++] = queueEvents::fromMap($item1);
+                    $model->queueEvents[$n1] = queueEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

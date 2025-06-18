@@ -131,7 +131,8 @@ class CreateCampaignRequest extends Model
                 $res['CaseList'] = [];
                 $n1 = 0;
                 foreach ($this->caseList as $item1) {
-                    $res['CaseList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CaseList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +213,8 @@ class CreateCampaignRequest extends Model
                 $model->caseList = [];
                 $n1 = 0;
                 foreach ($map['CaseList'] as $item1) {
-                    $model->caseList[$n1++] = caseList::fromMap($item1);
+                    $model->caseList[$n1] = caseList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -133,7 +133,8 @@ class data extends Model
                 $res['FileKeys'] = [];
                 $n1 = 0;
                 foreach ($this->fileKeys as $item1) {
-                    $res['FileKeys'][$n1++] = $item1;
+                    $res['FileKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class data extends Model
                 $res['FileUrls'] = [];
                 $n1 = 0;
                 foreach ($this->fileUrls as $item1) {
-                    $res['FileUrls'][$n1++] = $item1;
+                    $res['FileUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +214,8 @@ class data extends Model
                 $model->fileKeys = [];
                 $n1 = 0;
                 foreach ($map['FileKeys'] as $item1) {
-                    $model->fileKeys[$n1++] = $item1;
+                    $model->fileKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +225,8 @@ class data extends Model
                 $model->fileUrls = [];
                 $n1 = 0;
                 foreach ($map['FileUrls'] as $item1) {
-                    $model->fileUrls[$n1++] = $item1;
+                    $model->fileUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

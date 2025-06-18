@@ -38,7 +38,8 @@ class ListCallSummariesRequest extends Model
                 $res['ContactIdList'] = [];
                 $n1 = 0;
                 foreach ($this->contactIdList as $item1) {
-                    $res['ContactIdList'][$n1++] = $item1;
+                    $res['ContactIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListCallSummariesRequest extends Model
                 $model->contactIdList = [];
                 $n1 = 0;
                 foreach ($map['ContactIdList'] as $item1) {
-                    $model->contactIdList[$n1++] = $item1;
+                    $model->contactIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

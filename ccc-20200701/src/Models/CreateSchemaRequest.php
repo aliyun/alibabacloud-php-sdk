@@ -69,7 +69,8 @@ class CreateSchemaRequest extends Model
                 $res['Properties'] = [];
                 $n1 = 0;
                 foreach ($this->properties as $item1) {
-                    $res['Properties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class CreateSchemaRequest extends Model
                 $model->properties = [];
                 $n1 = 0;
                 foreach ($map['Properties'] as $item1) {
-                    $model->properties[$n1++] = properties::fromMap($item1);
+                    $model->properties[$n1] = properties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

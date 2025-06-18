@@ -3454,6 +3454,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * -.
+     *
      * @param request - DeleteContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3470,6 +3472,10 @@ class CCC extends OpenApiClient
         $query = [];
         if (null !== $request->contactFlowId) {
             @$query['ContactFlowId'] = $request->contactFlowId;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
 
         if (null !== $request->instanceId) {
@@ -3495,6 +3501,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * -.
+     *
      * @param request - DeleteContactFlowRequest
      *
      * @returns DeleteContactFlowResponse
@@ -9154,6 +9162,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * -.
+     *
      * @param request - ListContactFlowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9184,6 +9194,10 @@ class CCC extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->searchPattern) {
+            @$query['SearchPattern'] = $request->searchPattern;
+        }
+
         if (null !== $request->sortOrder) {
             @$query['SortOrder'] = $request->sortOrder;
         }
@@ -9211,6 +9225,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * -.
+     *
      * @param request - ListContactFlowsRequest
      *
      * @returns ListContactFlowsResponse

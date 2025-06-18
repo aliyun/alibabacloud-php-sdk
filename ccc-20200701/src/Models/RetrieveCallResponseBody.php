@@ -82,7 +82,8 @@ class RetrieveCallResponseBody extends Model
                 $res['Params'] = [];
                 $n1 = 0;
                 foreach ($this->params as $item1) {
-                    $res['Params'][$n1++] = $item1;
+                    $res['Params'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class RetrieveCallResponseBody extends Model
                 $model->params = [];
                 $n1 = 0;
                 foreach ($map['Params'] as $item1) {
-                    $model->params[$n1++] = $item1;
+                    $model->params[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

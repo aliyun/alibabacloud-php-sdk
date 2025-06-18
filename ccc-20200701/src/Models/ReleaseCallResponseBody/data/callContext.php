@@ -45,7 +45,8 @@ class callContext extends Model
                 $res['ChannelContexts'] = [];
                 $n1 = 0;
                 foreach ($this->channelContexts as $item1) {
-                    $res['ChannelContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ChannelContexts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class callContext extends Model
                 $model->channelContexts = [];
                 $n1 = 0;
                 foreach ($map['ChannelContexts'] as $item1) {
-                    $model->channelContexts[$n1++] = channelContexts::fromMap($item1);
+                    $model->channelContexts[$n1] = channelContexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

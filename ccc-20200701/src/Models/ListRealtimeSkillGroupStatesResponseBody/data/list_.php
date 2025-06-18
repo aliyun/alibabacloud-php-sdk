@@ -105,7 +105,8 @@ class list_ extends Model
                 $res['BreakCodeDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->breakCodeDetailList as $item1) {
-                    $res['BreakCodeDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BreakCodeDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +175,8 @@ class list_ extends Model
                 $model->breakCodeDetailList = [];
                 $n1 = 0;
                 foreach ($map['BreakCodeDetailList'] as $item1) {
-                    $model->breakCodeDetailList[$n1++] = breakCodeDetailList::fromMap($item1);
+                    $model->breakCodeDetailList[$n1] = breakCodeDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

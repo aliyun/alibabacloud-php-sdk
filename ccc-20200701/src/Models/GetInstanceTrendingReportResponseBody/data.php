@@ -53,7 +53,8 @@ class data extends Model
                 $res['Inbound'] = [];
                 $n1 = 0;
                 foreach ($this->inbound as $item1) {
-                    $res['Inbound'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Inbound'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class data extends Model
                 $res['Outbound'] = [];
                 $n1 = 0;
                 foreach ($this->outbound as $item1) {
-                    $res['Outbound'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Outbound'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class data extends Model
                 $res['Overall'] = [];
                 $n1 = 0;
                 foreach ($this->overall as $item1) {
-                    $res['Overall'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Overall'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class data extends Model
                 $model->inbound = [];
                 $n1 = 0;
                 foreach ($map['Inbound'] as $item1) {
-                    $model->inbound[$n1++] = inbound::fromMap($item1);
+                    $model->inbound[$n1] = inbound::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class data extends Model
                 $model->outbound = [];
                 $n1 = 0;
                 foreach ($map['Outbound'] as $item1) {
-                    $model->outbound[$n1++] = outbound::fromMap($item1);
+                    $model->outbound[$n1] = outbound::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class data extends Model
                 $model->overall = [];
                 $n1 = 0;
                 foreach ($map['Overall'] as $item1) {
-                    $model->overall[$n1++] = overall::fromMap($item1);
+                    $model->overall[$n1] = overall::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -403,7 +403,8 @@ class inbound extends Model
                 $res['AccessChannelTypeDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->accessChannelTypeDetailList as $item1) {
-                    $res['AccessChannelTypeDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessChannelTypeDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -668,7 +669,8 @@ class inbound extends Model
                 $model->accessChannelTypeDetailList = [];
                 $n1 = 0;
                 foreach ($map['AccessChannelTypeDetailList'] as $item1) {
-                    $model->accessChannelTypeDetailList[$n1++] = accessChannelTypeDetailList::fromMap($item1);
+                    $model->accessChannelTypeDetailList[$n1] = accessChannelTypeDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

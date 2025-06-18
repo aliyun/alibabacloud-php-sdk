@@ -69,7 +69,8 @@ class GetConversationDetailResponseBody extends Model
                 $res['Phrases'] = [];
                 $n1 = 0;
                 foreach ($this->phrases as $item1) {
-                    $res['Phrases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Phrases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class GetConversationDetailResponseBody extends Model
                 $model->phrases = [];
                 $n1 = 0;
                 foreach ($map['Phrases'] as $item1) {
-                    $model->phrases[$n1++] = phrases::fromMap($item1);
+                    $model->phrases[$n1] = phrases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

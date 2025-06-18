@@ -14,11 +14,17 @@ class DeleteContactFlowRequest extends Model
     public $contactFlowId;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
+        'force' => 'Force',
         'instanceId' => 'InstanceId',
     ];
 
@@ -32,6 +38,10 @@ class DeleteContactFlowRequest extends Model
         $res = [];
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
+        }
+
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
 
         if (null !== $this->instanceId) {
@@ -51,6 +61,10 @@ class DeleteContactFlowRequest extends Model
         $model = new self();
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
+        }
+
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
 
         if (isset($map['InstanceId'])) {

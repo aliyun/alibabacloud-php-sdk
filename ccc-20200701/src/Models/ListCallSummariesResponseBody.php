@@ -70,7 +70,8 @@ class ListCallSummariesResponseBody extends Model
                 $res['Data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListCallSummariesResponseBody extends Model
                 $res['Params'] = [];
                 $n1 = 0;
                 foreach ($this->params as $item1) {
-                    $res['Params'][$n1++] = $item1;
+                    $res['Params'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +119,8 @@ class ListCallSummariesResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +138,8 @@ class ListCallSummariesResponseBody extends Model
                 $model->params = [];
                 $n1 = 0;
                 foreach ($map['Params'] as $item1) {
-                    $model->params[$n1++] = $item1;
+                    $model->params[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

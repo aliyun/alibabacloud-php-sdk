@@ -121,7 +121,8 @@ class data extends Model
                 $res['HoldTimeSegments'] = [];
                 $n1 = 0;
                 foreach ($this->holdTimeSegments as $item1) {
-                    $res['HoldTimeSegments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HoldTimeSegments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +183,8 @@ class data extends Model
                 $model->holdTimeSegments = [];
                 $n1 = 0;
                 foreach ($map['HoldTimeSegments'] as $item1) {
-                    $model->holdTimeSegments[$n1++] = holdTimeSegments::fromMap($item1);
+                    $model->holdTimeSegments[$n1] = holdTimeSegments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

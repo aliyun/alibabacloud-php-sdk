@@ -129,7 +129,8 @@ class list_ extends Model
                 $res['TicketFields'] = [];
                 $n1 = 0;
                 foreach ($this->ticketFields as $item1) {
-                    $res['TicketFields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TicketFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +191,8 @@ class list_ extends Model
                 $model->ticketFields = [];
                 $n1 = 0;
                 foreach ($map['TicketFields'] as $item1) {
-                    $model->ticketFields[$n1++] = ticketFields::fromMap($item1);
+                    $model->ticketFields[$n1] = ticketFields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -52,7 +52,8 @@ class todoList extends Model
                 $res['Tasks'] = [];
                 $n1 = 0;
                 foreach ($this->tasks as $item1) {
-                    $res['Tasks'][$n1++] = $item1;
+                    $res['Tasks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class todoList extends Model
                 $model->tasks = [];
                 $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
-                    $model->tasks[$n1++] = $item1;
+                    $model->tasks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

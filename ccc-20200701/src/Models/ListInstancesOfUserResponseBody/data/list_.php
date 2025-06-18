@@ -85,7 +85,8 @@ class list_ extends Model
                 $res['AdminList'] = [];
                 $n1 = 0;
                 foreach ($this->adminList as $item1) {
-                    $res['AdminList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdminList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class list_ extends Model
                 $res['NumberList'] = [];
                 $n1 = 0;
                 foreach ($this->numberList as $item1) {
-                    $res['NumberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NumberList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +146,8 @@ class list_ extends Model
                 $model->adminList = [];
                 $n1 = 0;
                 foreach ($map['AdminList'] as $item1) {
-                    $model->adminList[$n1++] = adminList::fromMap($item1);
+                    $model->adminList[$n1] = adminList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class list_ extends Model
                 $model->numberList = [];
                 $n1 = 0;
                 foreach ($map['NumberList'] as $item1) {
-                    $model->numberList[$n1++] = numberList::fromMap($item1);
+                    $model->numberList[$n1] = numberList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

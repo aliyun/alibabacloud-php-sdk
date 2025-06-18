@@ -165,7 +165,8 @@ class list_ extends Model
                 $res['SkillGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->skillGroupIdList as $item1) {
-                    $res['SkillGroupIdList'][$n1++] = $item1;
+                    $res['SkillGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,7 +176,8 @@ class list_ extends Model
                 $res['SkillGroupNameList'] = [];
                 $n1 = 0;
                 foreach ($this->skillGroupNameList as $item1) {
-                    $res['SkillGroupNameList'][$n1++] = $item1;
+                    $res['SkillGroupNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +254,8 @@ class list_ extends Model
                 $model->skillGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['SkillGroupIdList'] as $item1) {
-                    $model->skillGroupIdList[$n1++] = $item1;
+                    $model->skillGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +265,8 @@ class list_ extends Model
                 $model->skillGroupNameList = [];
                 $n1 = 0;
                 foreach ($map['SkillGroupNameList'] as $item1) {
-                    $model->skillGroupNameList[$n1++] = $item1;
+                    $model->skillGroupNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

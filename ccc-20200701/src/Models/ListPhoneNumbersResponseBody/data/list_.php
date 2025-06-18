@@ -141,7 +141,8 @@ class list_ extends Model
                 $res['SkillGroups'] = [];
                 $n1 = 0;
                 foreach ($this->skillGroups as $item1) {
-                    $res['SkillGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SkillGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +211,8 @@ class list_ extends Model
                 $model->skillGroups = [];
                 $n1 = 0;
                 foreach ($map['SkillGroups'] as $item1) {
-                    $model->skillGroups[$n1++] = skillGroups::fromMap($item1);
+                    $model->skillGroups[$n1] = skillGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

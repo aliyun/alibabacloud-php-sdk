@@ -120,7 +120,8 @@ class data extends Model
                 $res['SignedSkillGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->signedSkillGroupIdList as $item1) {
-                    $res['SignedSkillGroupIdList'][$n1++] = $item1;
+                    $res['SignedSkillGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +182,8 @@ class data extends Model
                 $model->signedSkillGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['SignedSkillGroupIdList'] as $item1) {
-                    $model->signedSkillGroupIdList[$n1++] = $item1;
+                    $model->signedSkillGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

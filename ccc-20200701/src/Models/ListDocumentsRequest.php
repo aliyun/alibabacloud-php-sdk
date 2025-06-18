@@ -93,7 +93,8 @@ class ListDocumentsRequest extends Model
                 $res['Sorts'] = [];
                 $n1 = 0;
                 foreach ($this->sorts as $item1) {
-                    $res['Sorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class ListDocumentsRequest extends Model
                 $model->sorts = [];
                 $n1 = 0;
                 foreach ($map['Sorts'] as $item1) {
-                    $model->sorts[$n1++] = sorts::fromMap($item1);
+                    $model->sorts[$n1] = sorts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

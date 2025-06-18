@@ -85,7 +85,8 @@ class data extends Model
                 $res['PropertyList'] = [];
                 $n1 = 0;
                 foreach ($this->propertyList as $item1) {
-                    $res['PropertyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class data extends Model
                 $model->propertyList = [];
                 $n1 = 0;
                 foreach ($map['PropertyList'] as $item1) {
-                    $model->propertyList[$n1++] = propertyList::fromMap($item1);
+                    $model->propertyList[$n1] = propertyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

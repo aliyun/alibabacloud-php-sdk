@@ -146,7 +146,8 @@ class userContext extends Model
                 $res['ParallelJobList'] = [];
                 $n1 = 0;
                 foreach ($this->parallelJobList as $item1) {
-                    $res['ParallelJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParallelJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +161,8 @@ class userContext extends Model
                 $res['SignedSkillGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->signedSkillGroupIdList as $item1) {
-                    $res['SignedSkillGroupIdList'][$n1++] = $item1;
+                    $res['SignedSkillGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +227,8 @@ class userContext extends Model
                 $model->parallelJobList = [];
                 $n1 = 0;
                 foreach ($map['ParallelJobList'] as $item1) {
-                    $model->parallelJobList[$n1++] = parallelJobList::fromMap($item1);
+                    $model->parallelJobList[$n1] = parallelJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -239,7 +242,8 @@ class userContext extends Model
                 $model->signedSkillGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['SignedSkillGroupIdList'] as $item1) {
-                    $model->signedSkillGroupIdList[$n1++] = $item1;
+                    $model->signedSkillGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

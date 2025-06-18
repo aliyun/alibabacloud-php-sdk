@@ -63,7 +63,8 @@ class data extends Model
                 $res['ChatContexts'] = [];
                 $n1 = 0;
                 foreach ($this->chatContexts as $item1) {
-                    $res['ChatContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ChatContexts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class data extends Model
                 $model->chatContexts = [];
                 $n1 = 0;
                 foreach ($map['ChatContexts'] as $item1) {
-                    $model->chatContexts[$n1++] = chatContexts::fromMap($item1);
+                    $model->chatContexts[$n1] = chatContexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
