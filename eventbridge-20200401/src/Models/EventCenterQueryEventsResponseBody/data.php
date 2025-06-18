@@ -69,7 +69,8 @@ class data extends Model
                 $res['Table'] = [];
                 $n1 = 0;
                 foreach ($this->table as $item1) {
-                    $res['Table'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Table'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class data extends Model
                 $res['TimeSeries'] = [];
                 $n1 = 0;
                 foreach ($this->timeSeries as $item1) {
-                    $res['TimeSeries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimeSeries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class data extends Model
                 $model->table = [];
                 $n1 = 0;
                 foreach ($map['Table'] as $item1) {
-                    $model->table[$n1++] = table::fromMap($item1);
+                    $model->table[$n1] = table::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class data extends Model
                 $model->timeSeries = [];
                 $n1 = 0;
                 foreach ($map['TimeSeries'] as $item1) {
-                    $model->timeSeries[$n1++] = timeSeries::fromMap($item1);
+                    $model->timeSeries[$n1] = timeSeries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

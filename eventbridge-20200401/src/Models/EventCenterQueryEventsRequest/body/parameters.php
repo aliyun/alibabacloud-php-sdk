@@ -104,7 +104,8 @@ class parameters extends Model
                 $res['Breakdowns'] = [];
                 $n1 = 0;
                 foreach ($this->breakdowns as $item1) {
-                    $res['Breakdowns'][$n1++] = $item1;
+                    $res['Breakdowns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class parameters extends Model
                 $res['Calculations'] = [];
                 $n1 = 0;
                 foreach ($this->calculations as $item1) {
-                    $res['Calculations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Calculations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class parameters extends Model
                 $res['Filters'] = [];
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +157,8 @@ class parameters extends Model
                 $res['Orders'] = [];
                 $n1 = 0;
                 foreach ($this->orders as $item1) {
-                    $res['Orders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Orders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +187,8 @@ class parameters extends Model
                 $model->breakdowns = [];
                 $n1 = 0;
                 foreach ($map['Breakdowns'] as $item1) {
-                    $model->breakdowns[$n1++] = $item1;
+                    $model->breakdowns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +198,8 @@ class parameters extends Model
                 $model->calculations = [];
                 $n1 = 0;
                 foreach ($map['Calculations'] as $item1) {
-                    $model->calculations[$n1++] = calculations::fromMap($item1);
+                    $model->calculations[$n1] = calculations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +217,8 @@ class parameters extends Model
                 $model->filters = [];
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +240,8 @@ class parameters extends Model
                 $model->orders = [];
                 $n1 = 0;
                 foreach ($map['Orders'] as $item1) {
-                    $model->orders[$n1++] = orders::fromMap($item1);
+                    $model->orders[$n1] = orders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

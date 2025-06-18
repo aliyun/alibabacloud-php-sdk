@@ -52,7 +52,8 @@ class DeleteTargetsRequest extends Model
                 $res['TargetIds'] = [];
                 $n1 = 0;
                 foreach ($this->targetIds as $item1) {
-                    $res['TargetIds'][$n1++] = $item1;
+                    $res['TargetIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DeleteTargetsRequest extends Model
                 $model->targetIds = [];
                 $n1 = 0;
                 foreach ($map['TargetIds'] as $item1) {
-                    $model->targetIds[$n1++] = $item1;
+                    $model->targetIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

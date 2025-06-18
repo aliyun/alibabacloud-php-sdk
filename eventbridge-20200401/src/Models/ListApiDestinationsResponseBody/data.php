@@ -51,7 +51,8 @@ class data extends Model
                 $res['ApiDestinations'] = [];
                 $n1 = 0;
                 foreach ($this->apiDestinations as $item1) {
-                    $res['ApiDestinations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiDestinations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->apiDestinations = [];
                 $n1 = 0;
                 foreach ($map['ApiDestinations'] as $item1) {
-                    $model->apiDestinations[$n1++] = apiDestinations::fromMap($item1);
+                    $model->apiDestinations[$n1] = apiDestinations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

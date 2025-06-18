@@ -71,7 +71,8 @@ class CreateRuleRequest extends Model
                 $res['EventTargets'] = [];
                 $n1 = 0;
                 foreach ($this->eventTargets as $item1) {
-                    $res['EventTargets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EventTargets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class CreateRuleRequest extends Model
                 $model->eventTargets = [];
                 $n1 = 0;
                 foreach ($map['EventTargets'] as $item1) {
-                    $model->eventTargets[$n1++] = eventTargets::fromMap($item1);
+                    $model->eventTargets[$n1] = eventTargets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

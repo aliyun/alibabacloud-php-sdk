@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRespo
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\batchWindow;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\businessOption;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\deadLetterQueue;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\retryStrategy;
 
@@ -15,6 +16,11 @@ class runOptions extends Model
      * @var batchWindow
      */
     public $batchWindow;
+
+    /**
+     * @var businessOption
+     */
+    public $businessOption;
 
     /**
      * @var deadLetterQueue
@@ -42,6 +48,7 @@ class runOptions extends Model
     public $throttling;
     protected $_name = [
         'batchWindow' => 'BatchWindow',
+        'businessOption' => 'BusinessOption',
         'deadLetterQueue' => 'DeadLetterQueue',
         'errorsTolerance' => 'ErrorsTolerance',
         'maximumTasks' => 'MaximumTasks',
@@ -53,6 +60,9 @@ class runOptions extends Model
     {
         if (null !== $this->batchWindow) {
             $this->batchWindow->validate();
+        }
+        if (null !== $this->businessOption) {
+            $this->businessOption->validate();
         }
         if (null !== $this->deadLetterQueue) {
             $this->deadLetterQueue->validate();
@@ -68,6 +78,10 @@ class runOptions extends Model
         $res = [];
         if (null !== $this->batchWindow) {
             $res['BatchWindow'] = null !== $this->batchWindow ? $this->batchWindow->toArray($noStream) : $this->batchWindow;
+        }
+
+        if (null !== $this->businessOption) {
+            $res['BusinessOption'] = null !== $this->businessOption ? $this->businessOption->toArray($noStream) : $this->businessOption;
         }
 
         if (null !== $this->deadLetterQueue) {
@@ -103,6 +117,10 @@ class runOptions extends Model
         $model = new self();
         if (isset($map['BatchWindow'])) {
             $model->batchWindow = batchWindow::fromMap($map['BatchWindow']);
+        }
+
+        if (isset($map['BusinessOption'])) {
+            $model->businessOption = businessOption::fromMap($map['BusinessOption']);
         }
 
         if (isset($map['DeadLetterQueue'])) {

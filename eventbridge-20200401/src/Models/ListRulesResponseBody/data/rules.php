@@ -121,7 +121,8 @@ class rules extends Model
                 $res['Targets'] = [];
                 $n1 = 0;
                 foreach ($this->targets as $item1) {
-                    $res['Targets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Targets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +180,8 @@ class rules extends Model
                 $model->targets = [];
                 $n1 = 0;
                 foreach ($map['Targets'] as $item1) {
-                    $model->targets[$n1++] = targets::fromMap($item1);
+                    $model->targets[$n1] = targets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

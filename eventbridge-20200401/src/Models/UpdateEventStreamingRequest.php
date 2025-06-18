@@ -105,7 +105,8 @@ class UpdateEventStreamingRequest extends Model
                 $res['Transforms'] = [];
                 $n1 = 0;
                 foreach ($this->transforms as $item1) {
-                    $res['Transforms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Transforms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +151,8 @@ class UpdateEventStreamingRequest extends Model
                 $model->transforms = [];
                 $n1 = 0;
                 foreach ($map['Transforms'] as $item1) {
-                    $model->transforms[$n1++] = transforms::fromMap($item1);
+                    $model->transforms[$n1] = transforms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

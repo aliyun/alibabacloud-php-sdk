@@ -104,7 +104,8 @@ class sourceApacheRocketMQCheckpointParameters extends Model
                 $res['Topics'] = [];
                 $n1 = 0;
                 foreach ($this->topics as $item1) {
-                    $res['Topics'][$n1++] = $item1;
+                    $res['Topics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +158,8 @@ class sourceApacheRocketMQCheckpointParameters extends Model
                 $model->topics = [];
                 $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
-                    $model->topics[$n1++] = $item1;
+                    $model->topics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

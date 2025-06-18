@@ -97,7 +97,8 @@ class eventSourceList extends Model
                 $res['EventTypes'] = [];
                 $n1 = 0;
                 foreach ($this->eventTypes as $item1) {
-                    $res['EventTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EventTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +151,8 @@ class eventSourceList extends Model
                 $model->eventTypes = [];
                 $n1 = 0;
                 foreach ($map['EventTypes'] as $item1) {
-                    $model->eventTypes[$n1++] = eventTypes::fromMap($item1);
+                    $model->eventTypes[$n1] = eventTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

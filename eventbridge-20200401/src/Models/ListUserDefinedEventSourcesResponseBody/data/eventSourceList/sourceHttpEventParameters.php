@@ -80,7 +80,8 @@ class sourceHttpEventParameters extends Model
                 $res['Ip'] = [];
                 $n1 = 0;
                 foreach ($this->ip as $item1) {
-                    $res['Ip'][$n1++] = $item1;
+                    $res['Ip'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,7 +91,8 @@ class sourceHttpEventParameters extends Model
                 $res['Method'] = [];
                 $n1 = 0;
                 foreach ($this->method as $item1) {
-                    $res['Method'][$n1++] = $item1;
+                    $res['Method'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class sourceHttpEventParameters extends Model
                 $res['PublicWebHookUrl'] = [];
                 $n1 = 0;
                 foreach ($this->publicWebHookUrl as $item1) {
-                    $res['PublicWebHookUrl'][$n1++] = $item1;
+                    $res['PublicWebHookUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class sourceHttpEventParameters extends Model
                 $res['Referer'] = [];
                 $n1 = 0;
                 foreach ($this->referer as $item1) {
-                    $res['Referer'][$n1++] = $item1;
+                    $res['Referer'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +132,8 @@ class sourceHttpEventParameters extends Model
                 $res['VpcWebHookUrl'] = [];
                 $n1 = 0;
                 foreach ($this->vpcWebHookUrl as $item1) {
-                    $res['VpcWebHookUrl'][$n1++] = $item1;
+                    $res['VpcWebHookUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +154,8 @@ class sourceHttpEventParameters extends Model
                 $model->ip = [];
                 $n1 = 0;
                 foreach ($map['Ip'] as $item1) {
-                    $model->ip[$n1++] = $item1;
+                    $model->ip[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +165,8 @@ class sourceHttpEventParameters extends Model
                 $model->method = [];
                 $n1 = 0;
                 foreach ($map['Method'] as $item1) {
-                    $model->method[$n1++] = $item1;
+                    $model->method[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +176,8 @@ class sourceHttpEventParameters extends Model
                 $model->publicWebHookUrl = [];
                 $n1 = 0;
                 foreach ($map['PublicWebHookUrl'] as $item1) {
-                    $model->publicWebHookUrl[$n1++] = $item1;
+                    $model->publicWebHookUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +187,8 @@ class sourceHttpEventParameters extends Model
                 $model->referer = [];
                 $n1 = 0;
                 foreach ($map['Referer'] as $item1) {
-                    $model->referer[$n1++] = $item1;
+                    $model->referer[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +206,8 @@ class sourceHttpEventParameters extends Model
                 $model->vpcWebHookUrl = [];
                 $n1 = 0;
                 foreach ($map['VpcWebHookUrl'] as $item1) {
-                    $model->vpcWebHookUrl[$n1++] = $item1;
+                    $model->vpcWebHookUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

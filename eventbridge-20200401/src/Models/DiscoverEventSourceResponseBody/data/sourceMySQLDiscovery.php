@@ -57,7 +57,8 @@ class sourceMySQLDiscovery extends Model
                 $res['DatabaseNames'] = [];
                 $n1 = 0;
                 foreach ($this->databaseNames as $item1) {
-                    $res['DatabaseNames'][$n1++] = $item1;
+                    $res['DatabaseNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class sourceMySQLDiscovery extends Model
                 $res['TableNames'] = [];
                 $n1 = 0;
                 foreach ($this->tableNames as $item1) {
-                    $res['TableNames'][$n1++] = $item1;
+                    $res['TableNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +98,8 @@ class sourceMySQLDiscovery extends Model
                 $model->databaseNames = [];
                 $n1 = 0;
                 foreach ($map['DatabaseNames'] as $item1) {
-                    $model->databaseNames[$n1++] = $item1;
+                    $model->databaseNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class sourceMySQLDiscovery extends Model
                 $model->tableNames = [];
                 $n1 = 0;
                 foreach ($map['TableNames'] as $item1) {
-                    $model->tableNames[$n1++] = $item1;
+                    $model->tableNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class data extends Model
                 $res['ErrorEntries'] = [];
                 $n1 = 0;
                 foreach ($this->errorEntries as $item1) {
-                    $res['ErrorEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErrorEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class data extends Model
                 $model->errorEntries = [];
                 $n1 = 0;
                 foreach ($map['ErrorEntries'] as $item1) {
-                    $model->errorEntries[$n1++] = errorEntries::fromMap($item1);
+                    $model->errorEntries[$n1] = errorEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

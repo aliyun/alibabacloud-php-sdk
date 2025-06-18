@@ -68,7 +68,8 @@ class filters extends Model
                 $res['NestedFilters'] = [];
                 $n1 = 0;
                 foreach ($this->nestedFilters as $item1) {
-                    $res['NestedFilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NestedFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class filters extends Model
                 $res['Values'] = [];
                 $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +113,8 @@ class filters extends Model
                 $model->nestedFilters = [];
                 $n1 = 0;
                 foreach ($map['NestedFilters'] as $item1) {
-                    $model->nestedFilters[$n1++] = nestedFilters::fromMap($item1);
+                    $model->nestedFilters[$n1] = nestedFilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +128,8 @@ class filters extends Model
                 $model->values = [];
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

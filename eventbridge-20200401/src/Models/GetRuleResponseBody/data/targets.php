@@ -127,7 +127,8 @@ class targets extends Model
                 $res['ParamList'] = [];
                 $n1 = 0;
                 foreach ($this->paramList as $item1) {
-                    $res['ParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +190,8 @@ class targets extends Model
                 $model->paramList = [];
                 $n1 = 0;
                 foreach ($map['ParamList'] as $item1) {
-                    $model->paramList[$n1++] = paramList::fromMap($item1);
+                    $model->paramList[$n1] = paramList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

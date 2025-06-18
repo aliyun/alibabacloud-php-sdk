@@ -53,7 +53,8 @@ class OAuthHttpParameters extends Model
                 $res['BodyParameters'] = [];
                 $n1 = 0;
                 foreach ($this->bodyParameters as $item1) {
-                    $res['BodyParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BodyParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class OAuthHttpParameters extends Model
                 $res['HeaderParameters'] = [];
                 $n1 = 0;
                 foreach ($this->headerParameters as $item1) {
-                    $res['HeaderParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HeaderParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class OAuthHttpParameters extends Model
                 $res['QueryStringParameters'] = [];
                 $n1 = 0;
                 foreach ($this->queryStringParameters as $item1) {
-                    $res['QueryStringParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueryStringParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class OAuthHttpParameters extends Model
                 $model->bodyParameters = [];
                 $n1 = 0;
                 foreach ($map['BodyParameters'] as $item1) {
-                    $model->bodyParameters[$n1++] = bodyParameters::fromMap($item1);
+                    $model->bodyParameters[$n1] = bodyParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class OAuthHttpParameters extends Model
                 $model->headerParameters = [];
                 $n1 = 0;
                 foreach ($map['HeaderParameters'] as $item1) {
-                    $model->headerParameters[$n1++] = headerParameters::fromMap($item1);
+                    $model->headerParameters[$n1] = headerParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class OAuthHttpParameters extends Model
                 $model->queryStringParameters = [];
                 $n1 = 0;
                 foreach ($map['QueryStringParameters'] as $item1) {
-                    $model->queryStringParameters[$n1++] = queryStringParameters::fromMap($item1);
+                    $model->queryStringParameters[$n1] = queryStringParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

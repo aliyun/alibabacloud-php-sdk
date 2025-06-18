@@ -3047,7 +3047,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 检查EventSource配置是否可用.
+     * Checks whether event source configurations are available.
+     *
+     * @remarks
+     * You can call this API operation to query all custom event sources.
      *
      * @param tmpReq - TestEventSourceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3092,7 +3095,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 检查EventSource配置是否可用.
+     * Checks whether event source configurations are available.
+     *
+     * @remarks
+     * You can call this API operation to query all custom event sources.
      *
      * @param request - TestEventSourceConfigRequest
      *
