@@ -171,7 +171,8 @@ class data extends Model
                 $res['AttCkLabels'] = [];
                 $n1 = 0;
                 foreach ($this->attCkLabels as $item1) {
-                    $res['AttCkLabels'][$n1++] = $item1;
+                    $res['AttCkLabels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +182,8 @@ class data extends Model
                 $res['AttckStages'] = [];
                 $n1 = 0;
                 foreach ($this->attckStages as $item1) {
-                    $res['AttckStages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AttckStages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +193,8 @@ class data extends Model
                 $res['DataSources'] = [];
                 $n1 = 0;
                 foreach ($this->dataSources as $item1) {
-                    $res['DataSources'][$n1++] = $item1;
+                    $res['DataSources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -284,7 +287,8 @@ class data extends Model
                 $model->attCkLabels = [];
                 $n1 = 0;
                 foreach ($map['AttCkLabels'] as $item1) {
-                    $model->attCkLabels[$n1++] = $item1;
+                    $model->attCkLabels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +298,8 @@ class data extends Model
                 $model->attckStages = [];
                 $n1 = 0;
                 foreach ($map['AttckStages'] as $item1) {
-                    $model->attckStages[$n1++] = attckStages::fromMap($item1);
+                    $model->attckStages[$n1] = attckStages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +309,8 @@ class data extends Model
                 $model->dataSources = [];
                 $n1 = 0;
                 foreach ($map['DataSources'] as $item1) {
-                    $model->dataSources[$n1++] = $item1;
+                    $model->dataSources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

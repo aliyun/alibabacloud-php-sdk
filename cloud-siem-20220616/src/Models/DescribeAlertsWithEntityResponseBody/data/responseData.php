@@ -247,7 +247,8 @@ class responseData extends Model
                 $res['AlertInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->alertInfoList as $item1) {
-                    $res['AlertInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlertInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -400,7 +401,8 @@ class responseData extends Model
                 $model->alertInfoList = [];
                 $n1 = 0;
                 foreach ($map['AlertInfoList'] as $item1) {
-                    $model->alertInfoList[$n1++] = alertInfoList::fromMap($item1);
+                    $model->alertInfoList[$n1] = alertInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

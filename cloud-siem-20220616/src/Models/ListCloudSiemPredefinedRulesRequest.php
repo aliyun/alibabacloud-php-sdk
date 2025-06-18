@@ -202,7 +202,8 @@ class ListCloudSiemPredefinedRulesRequest extends Model
                 $res['ThreatLevel'] = [];
                 $n1 = 0;
                 foreach ($this->threatLevel as $item1) {
-                    $res['ThreatLevel'][$n1++] = $item1;
+                    $res['ThreatLevel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +292,8 @@ class ListCloudSiemPredefinedRulesRequest extends Model
                 $model->threatLevel = [];
                 $n1 = 0;
                 foreach ($map['ThreatLevel'] as $item1) {
-                    $model->threatLevel[$n1++] = $item1;
+                    $model->threatLevel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

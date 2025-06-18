@@ -81,7 +81,8 @@ class data extends Model
                 $res['DataSourceInstanceLogs'] = [];
                 $n1 = 0;
                 foreach ($this->dataSourceInstanceLogs as $item1) {
-                    $res['DataSourceInstanceLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSourceInstanceLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +127,8 @@ class data extends Model
                 $model->dataSourceInstanceLogs = [];
                 $n1 = 0;
                 foreach ($map['DataSourceInstanceLogs'] as $item1) {
-                    $model->dataSourceInstanceLogs[$n1++] = dataSourceInstanceLogs::fromMap($item1);
+                    $model->dataSourceInstanceLogs[$n1] = dataSourceInstanceLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

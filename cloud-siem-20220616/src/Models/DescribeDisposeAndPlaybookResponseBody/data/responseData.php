@@ -127,7 +127,8 @@ class responseData extends Model
                 $res['OpcodeSet'] = [];
                 $n1 = 0;
                 foreach ($this->opcodeSet as $item1) {
-                    $res['OpcodeSet'][$n1++] = $item1;
+                    $res['OpcodeSet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class responseData extends Model
                 $res['PlaybookList'] = [];
                 $n1 = 0;
                 foreach ($this->playbookList as $item1) {
-                    $res['PlaybookList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PlaybookList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +149,8 @@ class responseData extends Model
                 $res['Scope'] = [];
                 $n1 = 0;
                 foreach ($this->scope as $item1) {
-                    $res['Scope'][$n1++] = $item1;
+                    $res['Scope'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +205,8 @@ class responseData extends Model
                 $model->opcodeSet = [];
                 $n1 = 0;
                 foreach ($map['OpcodeSet'] as $item1) {
-                    $model->opcodeSet[$n1++] = $item1;
+                    $model->opcodeSet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +216,8 @@ class responseData extends Model
                 $model->playbookList = [];
                 $n1 = 0;
                 foreach ($map['PlaybookList'] as $item1) {
-                    $model->playbookList[$n1++] = playbookList::fromMap($item1);
+                    $model->playbookList[$n1] = playbookList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +227,8 @@ class responseData extends Model
                 $model->scope = [];
                 $n1 = 0;
                 foreach ($map['Scope'] as $item1) {
-                    $model->scope[$n1++] = $item1;
+                    $model->scope[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

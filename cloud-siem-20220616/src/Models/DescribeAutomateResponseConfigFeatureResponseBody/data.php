@@ -63,7 +63,8 @@ class data extends Model
                 $res['RightValueEnums'] = [];
                 $n1 = 0;
                 foreach ($this->rightValueEnums as $item1) {
-                    $res['RightValueEnums'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RightValueEnums'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class data extends Model
                 $res['SupportOperators'] = [];
                 $n1 = 0;
                 foreach ($this->supportOperators as $item1) {
-                    $res['SupportOperators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportOperators'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class data extends Model
                 $model->rightValueEnums = [];
                 $n1 = 0;
                 foreach ($map['RightValueEnums'] as $item1) {
-                    $model->rightValueEnums[$n1++] = rightValueEnums::fromMap($item1);
+                    $model->rightValueEnums[$n1] = rightValueEnums::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class data extends Model
                 $model->supportOperators = [];
                 $n1 = 0;
                 foreach ($map['SupportOperators'] as $item1) {
-                    $model->supportOperators[$n1++] = supportOperators::fromMap($item1);
+                    $model->supportOperators[$n1] = supportOperators::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

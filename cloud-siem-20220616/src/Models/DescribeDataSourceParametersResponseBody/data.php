@@ -155,7 +155,8 @@ class data extends Model
                 $res['ParamValue'] = [];
                 $n1 = 0;
                 foreach ($this->paramValue as $item1) {
-                    $res['ParamValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParamValue'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +229,8 @@ class data extends Model
                 $model->paramValue = [];
                 $n1 = 0;
                 foreach ($map['ParamValue'] as $item1) {
-                    $model->paramValue[$n1++] = paramValue::fromMap($item1);
+                    $model->paramValue[$n1] = paramValue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

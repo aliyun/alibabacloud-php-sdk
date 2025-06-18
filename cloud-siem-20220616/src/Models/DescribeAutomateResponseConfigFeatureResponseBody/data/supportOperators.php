@@ -102,7 +102,8 @@ class supportOperators extends Model
                 $res['SupportTag'] = [];
                 $n1 = 0;
                 foreach ($this->supportTag as $item1) {
-                    $res['SupportTag'][$n1++] = $item1;
+                    $res['SupportTag'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class supportOperators extends Model
                 $model->supportTag = [];
                 $n1 = 0;
                 foreach ($map['SupportTag'] as $item1) {
-                    $model->supportTag[$n1++] = $item1;
+                    $model->supportTag[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

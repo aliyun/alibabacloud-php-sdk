@@ -103,7 +103,8 @@ class DataProductListLogMapValue extends Model
                 $res['ExtraParameters'] = [];
                 $n1 = 0;
                 foreach ($this->extraParameters as $item1) {
-                    $res['ExtraParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExtraParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class DataProductListLogMapValue extends Model
                 $model->extraParameters = [];
                 $n1 = 0;
                 foreach ($map['ExtraParameters'] as $item1) {
-                    $model->extraParameters[$n1++] = extraParameters::fromMap($item1);
+                    $model->extraParameters[$n1] = extraParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

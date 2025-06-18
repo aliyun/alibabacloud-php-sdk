@@ -110,7 +110,8 @@ class playbookList extends Model
                 $res['ParamConfig'] = [];
                 $n1 = 0;
                 foreach ($this->paramConfig as $item1) {
-                    $res['ParamConfig'][$n1++] = $item1;
+                    $res['ParamConfig'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class playbookList extends Model
                 $model->paramConfig = [];
                 $n1 = 0;
                 foreach ($map['ParamConfig'] as $item1) {
-                    $model->paramConfig[$n1++] = $item1;
+                    $model->paramConfig[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

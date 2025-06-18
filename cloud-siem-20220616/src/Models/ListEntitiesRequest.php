@@ -62,6 +62,11 @@ class ListEntitiesRequest extends Model
      * @var int
      */
     public $roleType;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'entityName' => 'EntityName',
@@ -74,6 +79,7 @@ class ListEntitiesRequest extends Model
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
         'roleType' => 'RoleType',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class ListEntitiesRequest extends Model
 
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class ListEntitiesRequest extends Model
 
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

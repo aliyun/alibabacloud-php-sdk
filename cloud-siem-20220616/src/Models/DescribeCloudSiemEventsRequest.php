@@ -172,7 +172,8 @@ class DescribeCloudSiemEventsRequest extends Model
                 $res['ThreadLevel'] = [];
                 $n1 = 0;
                 foreach ($this->threadLevel as $item1) {
-                    $res['ThreadLevel'][$n1++] = $item1;
+                    $res['ThreadLevel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +250,8 @@ class DescribeCloudSiemEventsRequest extends Model
                 $model->threadLevel = [];
                 $n1 = 0;
                 foreach ($map['ThreadLevel'] as $item1) {
-                    $model->threadLevel[$n1++] = $item1;
+                    $model->threadLevel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

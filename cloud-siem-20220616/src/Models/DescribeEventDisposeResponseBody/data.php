@@ -54,7 +54,8 @@ class data extends Model
                 $res['EventDispose'] = [];
                 $n1 = 0;
                 foreach ($this->eventDispose as $item1) {
-                    $res['EventDispose'][$n1++] = $item1;
+                    $res['EventDispose'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class data extends Model
                 $model->eventDispose = [];
                 $n1 = 0;
                 foreach ($map['EventDispose'] as $item1) {
-                    $model->eventDispose[$n1++] = $item1;
+                    $model->eventDispose[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

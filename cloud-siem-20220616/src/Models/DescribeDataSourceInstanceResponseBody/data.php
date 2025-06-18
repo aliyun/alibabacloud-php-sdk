@@ -63,7 +63,8 @@ class data extends Model
                 $res['DataSourceInstanceParams'] = [];
                 $n1 = 0;
                 foreach ($this->dataSourceInstanceParams as $item1) {
-                    $res['DataSourceInstanceParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSourceInstanceParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class data extends Model
                 $model->dataSourceInstanceParams = [];
                 $n1 = 0;
                 foreach ($map['DataSourceInstanceParams'] as $item1) {
-                    $model->dataSourceInstanceParams[$n1++] = dataSourceInstanceParams::fromMap($item1);
+                    $model->dataSourceInstanceParams[$n1] = dataSourceInstanceParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

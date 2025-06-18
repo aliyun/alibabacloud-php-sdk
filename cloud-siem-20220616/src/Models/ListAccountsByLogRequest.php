@@ -66,7 +66,8 @@ class ListAccountsByLogRequest extends Model
                 $res['LogCodes'] = [];
                 $n1 = 0;
                 foreach ($this->logCodes as $item1) {
-                    $res['LogCodes'][$n1++] = $item1;
+                    $res['LogCodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class ListAccountsByLogRequest extends Model
                 $model->logCodes = [];
                 $n1 = 0;
                 foreach ($map['LogCodes'] as $item1) {
-                    $model->logCodes[$n1++] = $item1;
+                    $model->logCodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

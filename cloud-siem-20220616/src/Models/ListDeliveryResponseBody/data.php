@@ -75,7 +75,8 @@ class data extends Model
                 $res['ProductList'] = [];
                 $n1 = 0;
                 foreach ($this->productList as $item1) {
-                    $res['ProductList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProductList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class data extends Model
                 $model->productList = [];
                 $n1 = 0;
                 foreach ($map['ProductList'] as $item1) {
-                    $model->productList[$n1++] = productList::fromMap($item1);
+                    $model->productList[$n1] = productList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

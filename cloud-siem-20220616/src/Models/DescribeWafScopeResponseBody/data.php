@@ -48,7 +48,8 @@ class data extends Model
                 $res['Domains'] = [];
                 $n1 = 0;
                 foreach ($this->domains as $item1) {
-                    $res['Domains'][$n1++] = $item1;
+                    $res['Domains'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class data extends Model
                 $model->domains = [];
                 $n1 = 0;
                 foreach ($map['Domains'] as $item1) {
-                    $model->domains[$n1++] = $item1;
+                    $model->domains[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

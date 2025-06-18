@@ -5445,6 +5445,10 @@ class Cloudsiem extends OpenApiClient
             @$body['RoleType'] = $request->roleType;
         }
 
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);

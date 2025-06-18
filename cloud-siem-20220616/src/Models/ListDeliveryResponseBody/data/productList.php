@@ -55,7 +55,8 @@ class productList extends Model
                 $res['LogList'] = [];
                 $n1 = 0;
                 foreach ($this->logList as $item1) {
-                    $res['LogList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class productList extends Model
                         $res['LogMap'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['LogMap'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['LogMap'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -99,7 +101,8 @@ class productList extends Model
                 $model->logList = [];
                 $n1 = 0;
                 foreach ($map['LogList'] as $item1) {
-                    $model->logList[$n1++] = logList::fromMap($item1);
+                    $model->logList[$n1] = logList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class productList extends Model
                         $model->logMap[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->logMap[$key1][$n2++] = DataProductListLogMapValue::fromMap($item2);
+                            $model->logMap[$key1][$n2] = DataProductListLogMapValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }

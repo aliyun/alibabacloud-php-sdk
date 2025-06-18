@@ -66,7 +66,8 @@ class DescribeAlertSourceRequest extends Model
                 $res['Level'] = [];
                 $n1 = 0;
                 foreach ($this->level as $item1) {
-                    $res['Level'][$n1++] = $item1;
+                    $res['Level'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class DescribeAlertSourceRequest extends Model
                 $model->level = [];
                 $n1 = 0;
                 foreach ($map['Level'] as $item1) {
-                    $model->level[$n1++] = $item1;
+                    $model->level[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

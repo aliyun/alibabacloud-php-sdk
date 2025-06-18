@@ -69,7 +69,8 @@ class dataSourceInstanceLogs extends Model
                 $res['LogParams'] = [];
                 $n1 = 0;
                 foreach ($this->logParams as $item1) {
-                    $res['LogParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class dataSourceInstanceLogs extends Model
                 $model->logParams = [];
                 $n1 = 0;
                 foreach ($map['LogParams'] as $item1) {
-                    $model->logParams[$n1++] = logParams::fromMap($item1);
+                    $model->logParams[$n1] = logParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -47,7 +47,8 @@ class data extends Model
                 $res['ResponseData'] = [];
                 $n1 = 0;
                 foreach ($this->responseData as $item1) {
-                    $res['ResponseData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResponseData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class data extends Model
                 $model->responseData = [];
                 $n1 = 0;
                 foreach ($map['ResponseData'] as $item1) {
-                    $model->responseData[$n1++] = responseData::fromMap($item1);
+                    $model->responseData[$n1] = responseData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

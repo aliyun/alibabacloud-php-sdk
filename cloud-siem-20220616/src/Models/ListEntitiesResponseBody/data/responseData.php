@@ -81,12 +81,27 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $isAsset;
+
+    /**
+     * @var string
+     */
+    public $isMalware;
+
+    /**
+     * @var string
+     */
     public $malwareType;
 
     /**
      * @var int
      */
     public $subUserId;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
         'alertNum' => 'AlertNum',
         'alertUuid' => 'AlertUuid',
@@ -102,8 +117,11 @@ class responseData extends Model
         'gmtModified' => 'GmtModified',
         'id' => 'Id',
         'incidentUuid' => 'IncidentUuid',
+        'isAsset' => 'IsAsset',
+        'isMalware' => 'IsMalware',
         'malwareType' => 'MalwareType',
         'subUserId' => 'SubUserId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -170,12 +188,24 @@ class responseData extends Model
             $res['IncidentUuid'] = $this->incidentUuid;
         }
 
+        if (null !== $this->isAsset) {
+            $res['IsAsset'] = $this->isAsset;
+        }
+
+        if (null !== $this->isMalware) {
+            $res['IsMalware'] = $this->isMalware;
+        }
+
         if (null !== $this->malwareType) {
             $res['MalwareType'] = $this->malwareType;
         }
 
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -245,12 +275,24 @@ class responseData extends Model
             $model->incidentUuid = $map['IncidentUuid'];
         }
 
+        if (isset($map['IsAsset'])) {
+            $model->isAsset = $map['IsAsset'];
+        }
+
+        if (isset($map['IsMalware'])) {
+            $model->isMalware = $map['IsMalware'];
+        }
+
         if (isset($map['MalwareType'])) {
             $model->malwareType = $map['MalwareType'];
         }
 
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

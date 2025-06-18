@@ -111,7 +111,8 @@ class responseData extends Model
                 $res['AssetInfo'] = [];
                 $n1 = 0;
                 foreach ($this->assetInfo as $item1) {
-                    $res['AssetInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AssetInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +177,8 @@ class responseData extends Model
                 $model->assetInfo = [];
                 $n1 = 0;
                 foreach ($map['AssetInfo'] as $item1) {
-                    $model->assetInfo[$n1++] = assetInfo::fromMap($item1);
+                    $model->assetInfo[$n1] = assetInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

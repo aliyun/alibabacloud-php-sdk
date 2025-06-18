@@ -173,7 +173,8 @@ class responseData extends Model
                 $res['Entity'] = [];
                 $n1 = 0;
                 foreach ($this->entity as $item1) {
-                    $res['Entity'][$n1++] = $item1;
+                    $res['Entity'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +232,8 @@ class responseData extends Model
                 $res['Scope'] = [];
                 $n1 = 0;
                 foreach ($this->scope as $item1) {
-                    $res['Scope'][$n1++] = $item1;
+                    $res['Scope'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -284,7 +286,8 @@ class responseData extends Model
                 $model->entity = [];
                 $n1 = 0;
                 foreach ($map['Entity'] as $item1) {
-                    $model->entity[$n1++] = $item1;
+                    $model->entity[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -342,7 +345,8 @@ class responseData extends Model
                 $model->scope = [];
                 $n1 = 0;
                 foreach ($map['Scope'] as $item1) {
-                    $model->scope[$n1++] = $item1;
+                    $model->scope[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
