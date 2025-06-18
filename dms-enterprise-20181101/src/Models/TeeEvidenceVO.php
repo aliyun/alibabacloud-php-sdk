@@ -142,7 +142,8 @@ class TeeEvidenceVO extends Model
                 $res['TrustedMrEnclave'] = [];
                 $n1 = 0;
                 foreach ($this->trustedMrEnclave as $item1) {
-                    $res['TrustedMrEnclave'][$n1++] = $item1;
+                    $res['TrustedMrEnclave'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +208,8 @@ class TeeEvidenceVO extends Model
                 $model->trustedMrEnclave = [];
                 $n1 = 0;
                 foreach ($map['TrustedMrEnclave'] as $item1) {
-                    $model->trustedMrEnclave[$n1++] = $item1;
+                    $model->trustedMrEnclave[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

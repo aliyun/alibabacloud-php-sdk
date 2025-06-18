@@ -57,7 +57,8 @@ class GetMetaTableColumnResponseBody extends Model
                 $res['ColumnList'] = [];
                 $n1 = 0;
                 foreach ($this->columnList as $item1) {
-                    $res['ColumnList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ColumnList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class GetMetaTableColumnResponseBody extends Model
                 $model->columnList = [];
                 $n1 = 0;
                 foreach ($map['ColumnList'] as $item1) {
-                    $model->columnList[$n1++] = columnList::fromMap($item1);
+                    $model->columnList[$n1] = columnList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -74,7 +74,8 @@ class columnFilter extends Model
                 $res['InList'] = [];
                 $n1 = 0;
                 foreach ($this->inList as $item1) {
-                    $res['InList'][$n1++] = $item1;
+                    $res['InList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class columnFilter extends Model
                 $model->inList = [];
                 $n1 = 0;
                 foreach ($map['InList'] as $item1) {
-                    $model->inList[$n1++] = $item1;
+                    $model->inList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

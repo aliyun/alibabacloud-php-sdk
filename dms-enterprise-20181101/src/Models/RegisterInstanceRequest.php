@@ -101,6 +101,11 @@ class RegisterInstanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroup;
+
+    /**
+     * @var string
+     */
     public $safeRule;
 
     /**
@@ -156,6 +161,7 @@ class RegisterInstanceRequest extends Model
         'networkType' => 'NetworkType',
         'port' => 'Port',
         'queryTimeout' => 'QueryTimeout',
+        'resourceGroup' => 'ResourceGroup',
         'safeRule' => 'SafeRule',
         'sid' => 'Sid',
         'skipTest' => 'SkipTest',
@@ -244,6 +250,10 @@ class RegisterInstanceRequest extends Model
 
         if (null !== $this->queryTimeout) {
             $res['QueryTimeout'] = $this->queryTimeout;
+        }
+
+        if (null !== $this->resourceGroup) {
+            $res['ResourceGroup'] = $this->resourceGroup;
         }
 
         if (null !== $this->safeRule) {
@@ -359,6 +369,10 @@ class RegisterInstanceRequest extends Model
 
         if (isset($map['QueryTimeout'])) {
             $model->queryTimeout = $map['QueryTimeout'];
+        }
+
+        if (isset($map['ResourceGroup'])) {
+            $model->resourceGroup = $map['ResourceGroup'];
         }
 
         if (isset($map['SafeRule'])) {

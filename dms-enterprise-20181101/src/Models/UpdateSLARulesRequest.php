@@ -49,7 +49,8 @@ class UpdateSLARulesRequest extends Model
                 $res['SlaRuleList'] = [];
                 $n1 = 0;
                 foreach ($this->slaRuleList as $item1) {
-                    $res['SlaRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlaRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class UpdateSLARulesRequest extends Model
                 $model->slaRuleList = [];
                 $n1 = 0;
                 foreach ($map['SlaRuleList'] as $item1) {
-                    $model->slaRuleList[$n1++] = slaRuleList::fromMap($item1);
+                    $model->slaRuleList[$n1] = slaRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class lineageResult extends Model
                 $res['Lineages'] = [];
                 $n1 = 0;
                 foreach ($this->lineages as $item1) {
-                    $res['Lineages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Lineages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class lineageResult extends Model
                 $res['ObjectMetadata'] = [];
                 $n1 = 0;
                 foreach ($this->objectMetadata as $item1) {
-                    $res['ObjectMetadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ObjectMetadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class lineageResult extends Model
                 $model->lineages = [];
                 $n1 = 0;
                 foreach ($map['Lineages'] as $item1) {
-                    $model->lineages[$n1++] = lineages::fromMap($item1);
+                    $model->lineages[$n1] = lineages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class lineageResult extends Model
                 $model->objectMetadata = [];
                 $n1 = 0;
                 foreach ($map['ObjectMetadata'] as $item1) {
-                    $model->objectMetadata[$n1++] = objectMetadata::fromMap($item1);
+                    $model->objectMetadata[$n1] = objectMetadata::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

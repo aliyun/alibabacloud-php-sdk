@@ -119,7 +119,8 @@ class DatasetItemVO extends Model
                 $res['AsyncTaskList'] = [];
                 $n1 = 0;
                 foreach ($this->asyncTaskList as $item1) {
-                    $res['AsyncTaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AsyncTaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class DatasetItemVO extends Model
                 $res['ProjectsLinked'] = [];
                 $n1 = 0;
                 foreach ($this->projectsLinked as $item1) {
-                    $res['ProjectsLinked'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProjectsLinked'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +204,8 @@ class DatasetItemVO extends Model
                 $model->asyncTaskList = [];
                 $n1 = 0;
                 foreach ($map['AsyncTaskList'] as $item1) {
-                    $model->asyncTaskList[$n1++] = AsyncTaskVO::fromMap($item1);
+                    $model->asyncTaskList[$n1] = AsyncTaskVO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +247,8 @@ class DatasetItemVO extends Model
                 $model->projectsLinked = [];
                 $n1 = 0;
                 foreach ($map['ProjectsLinked'] as $item1) {
-                    $model->projectsLinked[$n1++] = ProjectDetailsLiteVO::fromMap($item1);
+                    $model->projectsLinked[$n1] = ProjectDetailsLiteVO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

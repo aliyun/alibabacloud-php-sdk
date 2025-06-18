@@ -80,7 +80,8 @@ class config extends Model
                 $res['DataOption'] = [];
                 $n1 = 0;
                 foreach ($this->dataOption as $item1) {
-                    $res['DataOption'][$n1++] = $item1;
+                    $res['DataOption'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class config extends Model
                 $res['ExportTypes'] = [];
                 $n1 = 0;
                 foreach ($this->exportTypes as $item1) {
-                    $res['ExportTypes'][$n1++] = $item1;
+                    $res['ExportTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class config extends Model
                 $res['SQLExtOption'] = [];
                 $n1 = 0;
                 foreach ($this->SQLExtOption as $item1) {
-                    $res['SQLExtOption'][$n1++] = $item1;
+                    $res['SQLExtOption'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +117,8 @@ class config extends Model
                 $res['SelectedTables'] = [];
                 $n1 = 0;
                 foreach ($this->selectedTables as $item1) {
-                    $res['SelectedTables'][$n1++] = $item1;
+                    $res['SelectedTables'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +152,8 @@ class config extends Model
                 $model->dataOption = [];
                 $n1 = 0;
                 foreach ($map['DataOption'] as $item1) {
-                    $model->dataOption[$n1++] = $item1;
+                    $model->dataOption[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +167,8 @@ class config extends Model
                 $model->exportTypes = [];
                 $n1 = 0;
                 foreach ($map['ExportTypes'] as $item1) {
-                    $model->exportTypes[$n1++] = $item1;
+                    $model->exportTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +178,8 @@ class config extends Model
                 $model->SQLExtOption = [];
                 $n1 = 0;
                 foreach ($map['SQLExtOption'] as $item1) {
-                    $model->SQLExtOption[$n1++] = $item1;
+                    $model->SQLExtOption[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +189,8 @@ class config extends Model
                 $model->selectedTables = [];
                 $n1 = 0;
                 foreach ($map['SelectedTables'] as $item1) {
-                    $model->selectedTables[$n1++] = $item1;
+                    $model->selectedTables[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

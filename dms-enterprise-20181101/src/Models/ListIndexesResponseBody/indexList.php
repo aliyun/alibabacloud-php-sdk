@@ -33,7 +33,8 @@ class indexList extends Model
                 $res['Index'] = [];
                 $n1 = 0;
                 foreach ($this->index as $item1) {
-                    $res['Index'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Index'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class indexList extends Model
                 $model->index = [];
                 $n1 = 0;
                 foreach ($map['Index'] as $item1) {
-                    $model->index[$n1++] = index::fromMap($item1);
+                    $model->index[$n1] = index::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

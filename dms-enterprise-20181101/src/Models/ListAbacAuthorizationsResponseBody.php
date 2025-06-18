@@ -63,7 +63,8 @@ class ListAbacAuthorizationsResponseBody extends Model
                 $res['AuthorizationList'] = [];
                 $n1 = 0;
                 foreach ($this->authorizationList as $item1) {
-                    $res['AuthorizationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListAbacAuthorizationsResponseBody extends Model
                 $model->authorizationList = [];
                 $n1 = 0;
                 foreach ($map['AuthorizationList'] as $item1) {
-                    $model->authorizationList[$n1++] = authorizationList::fromMap($item1);
+                    $model->authorizationList[$n1] = authorizationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

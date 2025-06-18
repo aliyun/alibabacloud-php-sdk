@@ -33,7 +33,8 @@ class authorityTemplateItemList extends Model
                 $res['AuthorityTemplateItem'] = [];
                 $n1 = 0;
                 foreach ($this->authorityTemplateItem as $item1) {
-                    $res['AuthorityTemplateItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorityTemplateItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class authorityTemplateItemList extends Model
                 $model->authorityTemplateItem = [];
                 $n1 = 0;
                 foreach ($map['AuthorityTemplateItem'] as $item1) {
-                    $model->authorityTemplateItem[$n1++] = authorityTemplateItem::fromMap($item1);
+                    $model->authorityTemplateItem[$n1] = authorityTemplateItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

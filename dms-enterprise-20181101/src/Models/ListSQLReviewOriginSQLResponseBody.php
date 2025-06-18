@@ -71,7 +71,8 @@ class ListSQLReviewOriginSQLResponseBody extends Model
                 $res['OriginSQLList'] = [];
                 $n1 = 0;
                 foreach ($this->originSQLList as $item1) {
-                    $res['OriginSQLList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OriginSQLList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListSQLReviewOriginSQLResponseBody extends Model
                 $model->originSQLList = [];
                 $n1 = 0;
                 foreach ($map['OriginSQLList'] as $item1) {
-                    $model->originSQLList[$n1++] = originSQLList::fromMap($item1);
+                    $model->originSQLList[$n1] = originSQLList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class SQLExtOption extends Model
                 $res['SQLExtOption'] = [];
                 $n1 = 0;
                 foreach ($this->SQLExtOption as $item1) {
-                    $res['SQLExtOption'][$n1++] = $item1;
+                    $res['SQLExtOption'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class SQLExtOption extends Model
                 $model->SQLExtOption = [];
                 $n1 = 0;
                 foreach ($map['SQLExtOption'] as $item1) {
-                    $model->SQLExtOption[$n1++] = $item1;
+                    $model->SQLExtOption[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

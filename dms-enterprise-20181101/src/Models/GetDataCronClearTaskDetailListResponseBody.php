@@ -63,7 +63,8 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
                 $res['DataCronClearTaskDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->dataCronClearTaskDetailList as $item1) {
-                    $res['DataCronClearTaskDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataCronClearTaskDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
                 $model->dataCronClearTaskDetailList = [];
                 $n1 = 0;
                 foreach ($map['DataCronClearTaskDetailList'] as $item1) {
-                    $model->dataCronClearTaskDetailList[$n1++] = dataCronClearTaskDetailList::fromMap($item1);
+                    $model->dataCronClearTaskDetailList[$n1] = dataCronClearTaskDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

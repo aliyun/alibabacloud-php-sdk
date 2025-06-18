@@ -33,7 +33,8 @@ class rawDAGList extends Model
                 $res['Dag'] = [];
                 $n1 = 0;
                 foreach ($this->dag as $item1) {
-                    $res['Dag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Dag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class rawDAGList extends Model
                 $model->dag = [];
                 $n1 = 0;
                 foreach ($map['Dag'] as $item1) {
-                    $model->dag[$n1++] = dag::fromMap($item1);
+                    $model->dag[$n1] = dag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

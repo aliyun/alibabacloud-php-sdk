@@ -69,7 +69,8 @@ class ListStandardGroupsResponseBody extends Model
                 $res['StandardGroupList'] = [];
                 $n1 = 0;
                 foreach ($this->standardGroupList as $item1) {
-                    $res['StandardGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StandardGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListStandardGroupsResponseBody extends Model
                 $model->standardGroupList = [];
                 $n1 = 0;
                 foreach ($map['StandardGroupList'] as $item1) {
-                    $model->standardGroupList[$n1++] = standardGroupList::fromMap($item1);
+                    $model->standardGroupList[$n1] = standardGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

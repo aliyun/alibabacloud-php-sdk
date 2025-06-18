@@ -65,7 +65,8 @@ class ListEffectiveOrdersResponseBody extends Model
                 $res['OrderSummary'] = [];
                 $n1 = 0;
                 foreach ($this->orderSummary as $item1) {
-                    $res['OrderSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OrderSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListEffectiveOrdersResponseBody extends Model
                 $model->orderSummary = [];
                 $n1 = 0;
                 foreach ($map['OrderSummary'] as $item1) {
-                    $model->orderSummary[$n1++] = orderSummary::fromMap($item1);
+                    $model->orderSummary[$n1] = orderSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

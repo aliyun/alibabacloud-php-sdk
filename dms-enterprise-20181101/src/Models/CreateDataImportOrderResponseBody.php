@@ -56,7 +56,8 @@ class CreateDataImportOrderResponseBody extends Model
                 $res['CreateOrderResult'] = [];
                 $n1 = 0;
                 foreach ($this->createOrderResult as $item1) {
-                    $res['CreateOrderResult'][$n1++] = $item1;
+                    $res['CreateOrderResult'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class CreateDataImportOrderResponseBody extends Model
                 $model->createOrderResult = [];
                 $n1 = 0;
                 foreach ($map['CreateOrderResult'] as $item1) {
-                    $model->createOrderResult[$n1++] = $item1;
+                    $model->createOrderResult[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

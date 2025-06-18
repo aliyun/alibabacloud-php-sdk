@@ -78,7 +78,8 @@ class ListDataLakeTablebaseInfoResponseBody extends Model
                 $res['TablebaseInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->tablebaseInfoList as $item1) {
-                    $res['TablebaseInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TablebaseInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class ListDataLakeTablebaseInfoResponseBody extends Model
                 $model->tablebaseInfoList = [];
                 $n1 = 0;
                 foreach ($map['TablebaseInfoList'] as $item1) {
-                    $model->tablebaseInfoList[$n1++] = DLTablebaseInfo::fromMap($item1);
+                    $model->tablebaseInfoList[$n1] = DLTablebaseInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class auditUsers extends Model
                 $res['AuditUser'] = [];
                 $n1 = 0;
                 foreach ($this->auditUser as $item1) {
-                    $res['AuditUser'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuditUser'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class auditUsers extends Model
                 $model->auditUser = [];
                 $n1 = 0;
                 foreach ($map['AuditUser'] as $item1) {
-                    $model->auditUser[$n1++] = auditUser::fromMap($item1);
+                    $model->auditUser[$n1] = auditUser::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

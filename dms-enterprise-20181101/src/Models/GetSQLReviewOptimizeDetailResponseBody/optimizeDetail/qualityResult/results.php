@@ -74,7 +74,8 @@ class results extends Model
                 $res['Messages'] = [];
                 $n1 = 0;
                 foreach ($this->messages as $item1) {
-                    $res['Messages'][$n1++] = $item1;
+                    $res['Messages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class results extends Model
                 $res['Scripts'] = [];
                 $n1 = 0;
                 foreach ($this->scripts as $item1) {
-                    $res['Scripts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Scripts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +123,8 @@ class results extends Model
                 $model->messages = [];
                 $n1 = 0;
                 foreach ($map['Messages'] as $item1) {
-                    $model->messages[$n1++] = $item1;
+                    $model->messages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +142,8 @@ class results extends Model
                 $model->scripts = [];
                 $n1 = 0;
                 foreach ($map['Scripts'] as $item1) {
-                    $model->scripts[$n1++] = scripts::fromMap($item1);
+                    $model->scripts[$n1] = scripts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

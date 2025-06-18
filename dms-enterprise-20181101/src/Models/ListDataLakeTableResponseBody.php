@@ -92,7 +92,8 @@ class ListDataLakeTableResponseBody extends Model
                 $res['TableList'] = [];
                 $n1 = 0;
                 foreach ($this->tableList as $item1) {
-                    $res['TableList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class ListDataLakeTableResponseBody extends Model
                 $model->tableList = [];
                 $n1 = 0;
                 foreach ($map['TableList'] as $item1) {
-                    $model->tableList[$n1++] = DLTable::fromMap($item1);
+                    $model->tableList[$n1] = DLTable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

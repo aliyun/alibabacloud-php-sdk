@@ -33,7 +33,8 @@ class workFlowTemplates extends Model
                 $res['WorkFlowTemplate'] = [];
                 $n1 = 0;
                 foreach ($this->workFlowTemplate as $item1) {
-                    $res['WorkFlowTemplate'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WorkFlowTemplate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class workFlowTemplates extends Model
                 $model->workFlowTemplate = [];
                 $n1 = 0;
                 foreach ($map['WorkFlowTemplate'] as $item1) {
-                    $model->workFlowTemplate[$n1++] = workFlowTemplate::fromMap($item1);
+                    $model->workFlowTemplate[$n1] = workFlowTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

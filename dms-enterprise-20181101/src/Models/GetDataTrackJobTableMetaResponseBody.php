@@ -73,7 +73,8 @@ class GetDataTrackJobTableMetaResponseBody extends Model
                 $res['TableMetaList'] = [];
                 $n1 = 0;
                 foreach ($this->tableMetaList as $item1) {
-                    $res['TableMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableMetaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class GetDataTrackJobTableMetaResponseBody extends Model
                 $model->tableMetaList = [];
                 $n1 = 0;
                 foreach ($map['TableMetaList'] as $item1) {
-                    $model->tableMetaList[$n1++] = tableMetaList::fromMap($item1);
+                    $model->tableMetaList[$n1] = tableMetaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

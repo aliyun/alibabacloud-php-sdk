@@ -173,7 +173,8 @@ class OpenStructDLTableInput extends Model
                 $res['PartitionKeys'] = [];
                 $n1 = 0;
                 foreach ($this->partitionKeys as $item1) {
-                    $res['PartitionKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PartitionKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +260,8 @@ class OpenStructDLTableInput extends Model
                 $model->partitionKeys = [];
                 $n1 = 0;
                 foreach ($map['PartitionKeys'] as $item1) {
-                    $model->partitionKeys[$n1++] = DLColumn::fromMap($item1);
+                    $model->partitionKeys[$n1] = DLColumn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

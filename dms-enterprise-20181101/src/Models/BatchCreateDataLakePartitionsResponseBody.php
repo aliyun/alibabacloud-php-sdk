@@ -64,7 +64,8 @@ class BatchCreateDataLakePartitionsResponseBody extends Model
                 $res['Partitions'] = [];
                 $n1 = 0;
                 foreach ($this->partitions as $item1) {
-                    $res['Partitions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Partitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class BatchCreateDataLakePartitionsResponseBody extends Model
                 $model->partitions = [];
                 $n1 = 0;
                 foreach ($map['Partitions'] as $item1) {
-                    $model->partitions[$n1++] = DLPartition::fromMap($item1);
+                    $model->partitions[$n1] = DLPartition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

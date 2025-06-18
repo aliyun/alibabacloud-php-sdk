@@ -32,7 +32,8 @@ class edgeIds extends Model
                 $res['EdgeId'] = [];
                 $n1 = 0;
                 foreach ($this->edgeId as $item1) {
-                    $res['EdgeId'][$n1++] = $item1;
+                    $res['EdgeId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class edgeIds extends Model
                 $model->edgeId = [];
                 $n1 = 0;
                 foreach ($map['EdgeId'] as $item1) {
-                    $model->edgeId[$n1++] = $item1;
+                    $model->edgeId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class roleNameList extends Model
                 $res['RoleNames'] = [];
                 $n1 = 0;
                 foreach ($this->roleNames as $item1) {
-                    $res['RoleNames'][$n1++] = $item1;
+                    $res['RoleNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class roleNameList extends Model
                 $model->roleNames = [];
                 $n1 = 0;
                 foreach ($map['RoleNames'] as $item1) {
-                    $model->roleNames[$n1++] = $item1;
+                    $model->roleNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

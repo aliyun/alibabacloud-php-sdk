@@ -100,7 +100,8 @@ class ListDataLakePartitionRequest extends Model
                 $res['PartNames'] = [];
                 $n1 = 0;
                 foreach ($this->partNames as $item1) {
-                    $res['PartNames'][$n1++] = $item1;
+                    $res['PartNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class ListDataLakePartitionRequest extends Model
                 $model->partNames = [];
                 $n1 = 0;
                 foreach ($map['PartNames'] as $item1) {
-                    $model->partNames[$n1++] = $item1;
+                    $model->partNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

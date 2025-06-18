@@ -32,7 +32,8 @@ class ownerNameList extends Model
                 $res['OwnerNames'] = [];
                 $n1 = 0;
                 foreach ($this->ownerNames as $item1) {
-                    $res['OwnerNames'][$n1++] = $item1;
+                    $res['OwnerNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ownerNameList extends Model
                 $model->ownerNames = [];
                 $n1 = 0;
                 foreach ($map['OwnerNames'] as $item1) {
-                    $model->ownerNames[$n1++] = $item1;
+                    $model->ownerNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

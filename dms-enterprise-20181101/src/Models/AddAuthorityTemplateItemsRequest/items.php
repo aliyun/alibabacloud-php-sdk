@@ -64,7 +64,8 @@ class items extends Model
                 $res['PermissionTypes'] = [];
                 $n1 = 0;
                 foreach ($this->permissionTypes as $item1) {
-                    $res['PermissionTypes'][$n1++] = $item1;
+                    $res['PermissionTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class items extends Model
                 $model->permissionTypes = [];
                 $n1 = 0;
                 foreach ($map['PermissionTypes'] as $item1) {
-                    $model->permissionTypes[$n1++] = $item1;
+                    $model->permissionTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

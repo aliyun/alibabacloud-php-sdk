@@ -115,7 +115,8 @@ class BackFillRequest extends Model
                 $res['FilterNodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->filterNodeIds as $item1) {
-                    $res['FilterNodeIds'][$n1++] = $item1;
+                    $res['FilterNodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class BackFillRequest extends Model
                 $res['StartNodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->startNodeIds as $item1) {
-                    $res['StartNodeIds'][$n1++] = $item1;
+                    $res['StartNodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +184,8 @@ class BackFillRequest extends Model
                 $model->filterNodeIds = [];
                 $n1 = 0;
                 foreach ($map['FilterNodeIds'] as $item1) {
-                    $model->filterNodeIds[$n1++] = $item1;
+                    $model->filterNodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +207,8 @@ class BackFillRequest extends Model
                 $model->startNodeIds = [];
                 $n1 = 0;
                 foreach ($map['StartNodeIds'] as $item1) {
-                    $model->startNodeIds[$n1++] = $item1;
+                    $model->startNodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

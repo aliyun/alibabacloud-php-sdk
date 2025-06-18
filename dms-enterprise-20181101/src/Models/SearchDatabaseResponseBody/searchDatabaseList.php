@@ -33,7 +33,8 @@ class searchDatabaseList extends Model
                 $res['SearchDatabase'] = [];
                 $n1 = 0;
                 foreach ($this->searchDatabase as $item1) {
-                    $res['SearchDatabase'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchDatabase'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class searchDatabaseList extends Model
                 $model->searchDatabase = [];
                 $n1 = 0;
                 foreach ($map['SearchDatabase'] as $item1) {
-                    $model->searchDatabase[$n1++] = searchDatabase::fromMap($item1);
+                    $model->searchDatabase[$n1] = searchDatabase::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

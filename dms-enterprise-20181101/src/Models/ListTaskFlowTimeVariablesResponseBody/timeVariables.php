@@ -33,7 +33,8 @@ class timeVariables extends Model
                 $res['TimeVariable'] = [];
                 $n1 = 0;
                 foreach ($this->timeVariable as $item1) {
-                    $res['TimeVariable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimeVariable'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class timeVariables extends Model
                 $model->timeVariable = [];
                 $n1 = 0;
                 foreach ($map['TimeVariable'] as $item1) {
-                    $model->timeVariable[$n1++] = timeVariable::fromMap($item1);
+                    $model->timeVariable[$n1] = timeVariable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

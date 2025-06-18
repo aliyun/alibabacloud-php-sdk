@@ -50,7 +50,8 @@ class DeleteLhMembersRequest extends Model
                 $res['MemberIds'] = [];
                 $n1 = 0;
                 foreach ($this->memberIds as $item1) {
-                    $res['MemberIds'][$n1++] = $item1;
+                    $res['MemberIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class DeleteLhMembersRequest extends Model
                 $model->memberIds = [];
                 $n1 = 0;
                 foreach ($map['MemberIds'] as $item1) {
-                    $model->memberIds[$n1++] = $item1;
+                    $model->memberIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -91,12 +91,14 @@ class BatchDeleteDataLakePartitionsRequest extends Model
                 $n1 = 0;
                 foreach ($this->partitionValuesList as $item1) {
                     if (\is_array($item1)) {
-                        $res['PartitionValuesList'][$n1++] = [];
+                        $res['PartitionValuesList'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['PartitionValuesList'][$n1++][$n2++] = $item2;
+                            $res['PartitionValuesList'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -146,12 +148,14 @@ class BatchDeleteDataLakePartitionsRequest extends Model
                 $n1 = 0;
                 foreach ($map['PartitionValuesList'] as $item1) {
                     if (!empty($item1)) {
-                        $model->partitionValuesList[$n1++] = [];
+                        $model->partitionValuesList[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->partitionValuesList[$n1++][$n2++] = $item2;
+                            $model->partitionValuesList[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

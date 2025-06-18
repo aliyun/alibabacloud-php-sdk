@@ -32,7 +32,8 @@ class reasonList extends Model
                 $res['Reasons'] = [];
                 $n1 = 0;
                 foreach ($this->reasons as $item1) {
-                    $res['Reasons'][$n1++] = $item1;
+                    $res['Reasons'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class reasonList extends Model
                 $model->reasons = [];
                 $n1 = 0;
                 foreach ($map['Reasons'] as $item1) {
-                    $model->reasons[$n1++] = $item1;
+                    $model->reasons[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

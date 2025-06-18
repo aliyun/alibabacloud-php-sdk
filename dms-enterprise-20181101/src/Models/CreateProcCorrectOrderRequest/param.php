@@ -73,7 +73,8 @@ class param extends Model
                 $res['DbItemList'] = [];
                 $n1 = 0;
                 foreach ($this->dbItemList as $item1) {
-                    $res['DbItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DbItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class param extends Model
                 $model->dbItemList = [];
                 $n1 = 0;
                 foreach ($map['DbItemList'] as $item1) {
-                    $model->dbItemList[$n1++] = dbItemList::fromMap($item1);
+                    $model->dbItemList[$n1] = dbItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

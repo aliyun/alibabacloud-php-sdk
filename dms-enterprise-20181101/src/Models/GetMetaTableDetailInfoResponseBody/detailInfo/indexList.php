@@ -56,7 +56,8 @@ class indexList extends Model
                 $res['IndexColumns'] = [];
                 $n1 = 0;
                 foreach ($this->indexColumns as $item1) {
-                    $res['IndexColumns'][$n1++] = $item1;
+                    $res['IndexColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class indexList extends Model
                 $model->indexColumns = [];
                 $n1 = 0;
                 foreach ($map['IndexColumns'] as $item1) {
-                    $model->indexColumns[$n1++] = $item1;
+                    $model->indexColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

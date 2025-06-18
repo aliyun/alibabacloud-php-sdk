@@ -33,7 +33,8 @@ class DAGInstanceList extends Model
                 $res['DAGInstance'] = [];
                 $n1 = 0;
                 foreach ($this->DAGInstance as $item1) {
-                    $res['DAGInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DAGInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DAGInstanceList extends Model
                 $model->DAGInstance = [];
                 $n1 = 0;
                 foreach ($map['DAGInstance'] as $item1) {
-                    $model->DAGInstance[$n1++] = DAGInstance::fromMap($item1);
+                    $model->DAGInstance[$n1] = DAGInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

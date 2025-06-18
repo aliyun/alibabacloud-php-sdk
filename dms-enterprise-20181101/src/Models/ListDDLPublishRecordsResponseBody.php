@@ -57,7 +57,8 @@ class ListDDLPublishRecordsResponseBody extends Model
                 $res['DDLPublishRecordList'] = [];
                 $n1 = 0;
                 foreach ($this->DDLPublishRecordList as $item1) {
-                    $res['DDLPublishRecordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DDLPublishRecordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListDDLPublishRecordsResponseBody extends Model
                 $model->DDLPublishRecordList = [];
                 $n1 = 0;
                 foreach ($map['DDLPublishRecordList'] as $item1) {
-                    $model->DDLPublishRecordList[$n1++] = DDLPublishRecordList::fromMap($item1);
+                    $model->DDLPublishRecordList[$n1] = DDLPublishRecordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

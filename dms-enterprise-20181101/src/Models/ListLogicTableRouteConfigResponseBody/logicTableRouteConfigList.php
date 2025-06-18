@@ -33,7 +33,8 @@ class logicTableRouteConfigList extends Model
                 $res['LogicTableRouteConfig'] = [];
                 $n1 = 0;
                 foreach ($this->logicTableRouteConfig as $item1) {
-                    $res['LogicTableRouteConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogicTableRouteConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class logicTableRouteConfigList extends Model
                 $model->logicTableRouteConfig = [];
                 $n1 = 0;
                 foreach ($map['LogicTableRouteConfig'] as $item1) {
-                    $model->logicTableRouteConfig[$n1++] = logicTableRouteConfig::fromMap($item1);
+                    $model->logicTableRouteConfig[$n1] = logicTableRouteConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

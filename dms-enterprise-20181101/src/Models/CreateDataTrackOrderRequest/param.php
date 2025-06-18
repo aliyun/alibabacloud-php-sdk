@@ -71,7 +71,8 @@ class param extends Model
                 $res['TableNames'] = [];
                 $n1 = 0;
                 foreach ($this->tableNames as $item1) {
-                    $res['TableNames'][$n1++] = $item1;
+                    $res['TableNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class param extends Model
                 $res['TrackTypes'] = [];
                 $n1 = 0;
                 foreach ($this->trackTypes as $item1) {
-                    $res['TrackTypes'][$n1++] = $item1;
+                    $res['TrackTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +116,8 @@ class param extends Model
                 $model->tableNames = [];
                 $n1 = 0;
                 foreach ($map['TableNames'] as $item1) {
-                    $model->tableNames[$n1++] = $item1;
+                    $model->tableNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +127,8 @@ class param extends Model
                 $model->trackTypes = [];
                 $n1 = 0;
                 foreach ($map['TrackTypes'] as $item1) {
-                    $model->trackTypes[$n1++] = $item1;
+                    $model->trackTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

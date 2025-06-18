@@ -33,7 +33,8 @@ class cooperatorList extends Model
                 $res['Cooperator'] = [];
                 $n1 = 0;
                 foreach ($this->cooperator as $item1) {
-                    $res['Cooperator'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Cooperator'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cooperatorList extends Model
                 $model->cooperator = [];
                 $n1 = 0;
                 foreach ($map['Cooperator'] as $item1) {
-                    $model->cooperator[$n1++] = cooperator::fromMap($item1);
+                    $model->cooperator[$n1] = cooperator::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

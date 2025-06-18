@@ -65,7 +65,8 @@ class ListProxiesResponseBody extends Model
                 $res['ProxyList'] = [];
                 $n1 = 0;
                 foreach ($this->proxyList as $item1) {
-                    $res['ProxyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProxyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListProxiesResponseBody extends Model
                 $model->proxyList = [];
                 $n1 = 0;
                 foreach ($map['ProxyList'] as $item1) {
-                    $model->proxyList[$n1++] = proxyList::fromMap($item1);
+                    $model->proxyList[$n1] = proxyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

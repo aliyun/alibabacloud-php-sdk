@@ -116,7 +116,8 @@ class DLStorageDescriptor extends Model
                 $res['BucketCols'] = [];
                 $n1 = 0;
                 foreach ($this->bucketCols as $item1) {
-                    $res['BucketCols'][$n1++] = $item1;
+                    $res['BucketCols'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +127,8 @@ class DLStorageDescriptor extends Model
                 $res['Columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +154,8 @@ class DLStorageDescriptor extends Model
                 $res['OriginalColumns'] = [];
                 $n1 = 0;
                 foreach ($this->originalColumns as $item1) {
-                    $res['OriginalColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OriginalColumns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +186,8 @@ class DLStorageDescriptor extends Model
                 $res['SortCols'] = [];
                 $n1 = 0;
                 foreach ($this->sortCols as $item1) {
-                    $res['SortCols'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SortCols'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +208,8 @@ class DLStorageDescriptor extends Model
                 $model->bucketCols = [];
                 $n1 = 0;
                 foreach ($map['BucketCols'] as $item1) {
-                    $model->bucketCols[$n1++] = $item1;
+                    $model->bucketCols[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +219,8 @@ class DLStorageDescriptor extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = DLColumn::fromMap($item1);
+                    $model->columns[$n1] = DLColumn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -240,7 +246,8 @@ class DLStorageDescriptor extends Model
                 $model->originalColumns = [];
                 $n1 = 0;
                 foreach ($map['OriginalColumns'] as $item1) {
-                    $model->originalColumns[$n1++] = DLColumn::fromMap($item1);
+                    $model->originalColumns[$n1] = DLColumn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -271,7 +278,8 @@ class DLStorageDescriptor extends Model
                 $model->sortCols = [];
                 $n1 = 0;
                 foreach ($map['SortCols'] as $item1) {
-                    $model->sortCols[$n1++] = DLOrder::fromMap($item1);
+                    $model->sortCols[$n1] = DLOrder::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

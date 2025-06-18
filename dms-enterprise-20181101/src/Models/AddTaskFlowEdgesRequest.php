@@ -49,7 +49,8 @@ class AddTaskFlowEdgesRequest extends Model
                 $res['Edges'] = [];
                 $n1 = 0;
                 foreach ($this->edges as $item1) {
-                    $res['Edges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Edges'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class AddTaskFlowEdgesRequest extends Model
                 $model->edges = [];
                 $n1 = 0;
                 foreach ($map['Edges'] as $item1) {
-                    $model->edges[$n1++] = edges::fromMap($item1);
+                    $model->edges[$n1] = edges::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

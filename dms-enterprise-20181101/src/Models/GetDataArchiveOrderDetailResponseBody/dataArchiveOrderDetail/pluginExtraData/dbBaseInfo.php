@@ -303,7 +303,8 @@ class dbBaseInfo extends Model
                 $res['OwnerIds'] = [];
                 $n1 = 0;
                 foreach ($this->ownerIds as $item1) {
-                    $res['OwnerIds'][$n1++] = $item1;
+                    $res['OwnerIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -313,7 +314,8 @@ class dbBaseInfo extends Model
                 $res['OwnerNames'] = [];
                 $n1 = 0;
                 foreach ($this->ownerNames as $item1) {
-                    $res['OwnerNames'][$n1++] = $item1;
+                    $res['OwnerNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -450,7 +452,8 @@ class dbBaseInfo extends Model
                 $model->ownerIds = [];
                 $n1 = 0;
                 foreach ($map['OwnerIds'] as $item1) {
-                    $model->ownerIds[$n1++] = $item1;
+                    $model->ownerIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -460,7 +463,8 @@ class dbBaseInfo extends Model
                 $model->ownerNames = [];
                 $n1 = 0;
                 foreach ($map['OwnerNames'] as $item1) {
-                    $model->ownerNames[$n1++] = $item1;
+                    $model->ownerNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

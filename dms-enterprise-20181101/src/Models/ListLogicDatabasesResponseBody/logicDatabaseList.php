@@ -33,7 +33,8 @@ class logicDatabaseList extends Model
                 $res['LogicDatabase'] = [];
                 $n1 = 0;
                 foreach ($this->logicDatabase as $item1) {
-                    $res['LogicDatabase'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogicDatabase'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class logicDatabaseList extends Model
                 $model->logicDatabase = [];
                 $n1 = 0;
                 foreach ($map['LogicDatabase'] as $item1) {
-                    $model->logicDatabase[$n1++] = logicDatabase::fromMap($item1);
+                    $model->logicDatabase[$n1] = logicDatabase::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

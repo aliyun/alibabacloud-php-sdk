@@ -33,7 +33,8 @@ class permDetails extends Model
                 $res['PermDetail'] = [];
                 $n1 = 0;
                 foreach ($this->permDetail as $item1) {
-                    $res['PermDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PermDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class permDetails extends Model
                 $model->permDetail = [];
                 $n1 = 0;
                 foreach ($map['PermDetail'] as $item1) {
-                    $model->permDetail[$n1++] = permDetail::fromMap($item1);
+                    $model->permDetail[$n1] = permDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

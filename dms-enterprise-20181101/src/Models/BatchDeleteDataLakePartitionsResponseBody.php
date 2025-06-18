@@ -64,7 +64,8 @@ class BatchDeleteDataLakePartitionsResponseBody extends Model
                 $res['PartitionErrors'] = [];
                 $n1 = 0;
                 foreach ($this->partitionErrors as $item1) {
-                    $res['PartitionErrors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PartitionErrors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class BatchDeleteDataLakePartitionsResponseBody extends Model
                 $model->partitionErrors = [];
                 $n1 = 0;
                 foreach ($map['PartitionErrors'] as $item1) {
-                    $model->partitionErrors[$n1++] = PartitionError::fromMap($item1);
+                    $model->partitionErrors[$n1] = PartitionError::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

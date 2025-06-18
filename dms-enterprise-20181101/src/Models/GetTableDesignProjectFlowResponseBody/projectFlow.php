@@ -55,7 +55,8 @@ class projectFlow extends Model
                 $res['FlowNodeArray'] = [];
                 $n1 = 0;
                 foreach ($this->flowNodeArray as $item1) {
-                    $res['FlowNodeArray'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FlowNodeArray'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class projectFlow extends Model
                 $model->flowNodeArray = [];
                 $n1 = 0;
                 foreach ($map['FlowNodeArray'] as $item1) {
-                    $model->flowNodeArray[$n1++] = flowNodeArray::fromMap($item1);
+                    $model->flowNodeArray[$n1] = flowNodeArray::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

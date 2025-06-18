@@ -76,7 +76,8 @@ class ListDataLakeFunctionResponseBody extends Model
                 $res['FunctionList'] = [];
                 $n1 = 0;
                 foreach ($this->functionList as $item1) {
-                    $res['FunctionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FunctionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class ListDataLakeFunctionResponseBody extends Model
                 $model->functionList = [];
                 $n1 = 0;
                 foreach ($map['FunctionList'] as $item1) {
-                    $model->functionList[$n1++] = DLFunction::fromMap($item1);
+                    $model->functionList[$n1] = DLFunction::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

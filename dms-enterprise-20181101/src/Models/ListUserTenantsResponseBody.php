@@ -73,7 +73,8 @@ class ListUserTenantsResponseBody extends Model
                 $res['TenantList'] = [];
                 $n1 = 0;
                 foreach ($this->tenantList as $item1) {
-                    $res['TenantList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListUserTenantsResponseBody extends Model
                 $model->tenantList = [];
                 $n1 = 0;
                 foreach ($map['TenantList'] as $item1) {
-                    $model->tenantList[$n1++] = tenantList::fromMap($item1);
+                    $model->tenantList[$n1] = tenantList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

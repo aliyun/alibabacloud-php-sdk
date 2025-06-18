@@ -69,7 +69,8 @@ class ListSensitivityLevelResponseBody extends Model
                 $res['SensitivityLevelList'] = [];
                 $n1 = 0;
                 foreach ($this->sensitivityLevelList as $item1) {
-                    $res['SensitivityLevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SensitivityLevelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListSensitivityLevelResponseBody extends Model
                 $model->sensitivityLevelList = [];
                 $n1 = 0;
                 foreach ($map['SensitivityLevelList'] as $item1) {
-                    $model->sensitivityLevelList[$n1++] = sensitivityLevelList::fromMap($item1);
+                    $model->sensitivityLevelList[$n1] = sensitivityLevelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

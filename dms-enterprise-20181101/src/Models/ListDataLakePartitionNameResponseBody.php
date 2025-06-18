@@ -84,7 +84,8 @@ class ListDataLakePartitionNameResponseBody extends Model
                 $res['PartitionNameList'] = [];
                 $n1 = 0;
                 foreach ($this->partitionNameList as $item1) {
-                    $res['PartitionNameList'][$n1++] = $item1;
+                    $res['PartitionNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class ListDataLakePartitionNameResponseBody extends Model
                 $model->partitionNameList = [];
                 $n1 = 0;
                 foreach ($map['PartitionNameList'] as $item1) {
-                    $model->partitionNameList[$n1++] = $item1;
+                    $model->partitionNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

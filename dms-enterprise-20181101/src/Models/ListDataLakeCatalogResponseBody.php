@@ -56,7 +56,8 @@ class ListDataLakeCatalogResponseBody extends Model
                 $res['CataLogList'] = [];
                 $n1 = 0;
                 foreach ($this->cataLogList as $item1) {
-                    $res['CataLogList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CataLogList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class ListDataLakeCatalogResponseBody extends Model
                 $model->cataLogList = [];
                 $n1 = 0;
                 foreach ($map['CataLogList'] as $item1) {
-                    $model->cataLogList[$n1++] = DLCatalog::fromMap($item1);
+                    $model->cataLogList[$n1] = DLCatalog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

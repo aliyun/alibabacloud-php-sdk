@@ -63,11 +63,12 @@ class AddDesensitizationRuleRequest extends Model
                 $n1 = 0;
                 foreach ($this->functionParams as $item1) {
                     if (\is_array($item1)) {
-                        $res['FunctionParams'][$n1++] = [];
+                        $res['FunctionParams'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['FunctionParams'][$n1++][$key2] = $value2;
+                            $res['FunctionParams'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -109,11 +110,12 @@ class AddDesensitizationRuleRequest extends Model
                 $n1 = 0;
                 foreach ($map['FunctionParams'] as $item1) {
                     if (!empty($item1)) {
-                        $model->functionParams[$n1++] = [];
+                        $model->functionParams[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->functionParams[$n1++][$key2] = $value2;
+                            $model->functionParams[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

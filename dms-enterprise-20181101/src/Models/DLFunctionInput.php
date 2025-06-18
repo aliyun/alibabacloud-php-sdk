@@ -112,7 +112,8 @@ class DLFunctionInput extends Model
                 $res['ResourceUris'] = [];
                 $n1 = 0;
                 foreach ($this->resourceUris as $item1) {
-                    $res['ResourceUris'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceUris'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +166,8 @@ class DLFunctionInput extends Model
                 $model->resourceUris = [];
                 $n1 = 0;
                 foreach ($map['ResourceUris'] as $item1) {
-                    $model->resourceUris[$n1++] = DLResourceUri::fromMap($item1);
+                    $model->resourceUris[$n1] = DLResourceUri::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

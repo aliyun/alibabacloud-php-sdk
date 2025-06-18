@@ -71,7 +71,8 @@ class eventList extends Model
                 $res['DataAfter'] = [];
                 $n1 = 0;
                 foreach ($this->dataAfter as $item1) {
-                    $res['DataAfter'][$n1++] = $item1;
+                    $res['DataAfter'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class eventList extends Model
                 $res['DataBefore'] = [];
                 $n1 = 0;
                 foreach ($this->dataBefore as $item1) {
-                    $res['DataBefore'][$n1++] = $item1;
+                    $res['DataBefore'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class eventList extends Model
                 $model->dataAfter = [];
                 $n1 = 0;
                 foreach ($map['DataAfter'] as $item1) {
-                    $model->dataAfter[$n1++] = $item1;
+                    $model->dataAfter[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +135,8 @@ class eventList extends Model
                 $model->dataBefore = [];
                 $n1 = 0;
                 foreach ($map['DataBefore'] as $item1) {
-                    $model->dataBefore[$n1++] = $item1;
+                    $model->dataBefore[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

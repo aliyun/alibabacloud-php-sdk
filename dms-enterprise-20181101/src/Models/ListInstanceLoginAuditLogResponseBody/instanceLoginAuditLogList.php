@@ -33,7 +33,8 @@ class instanceLoginAuditLogList extends Model
                 $res['InstanceLoginAuditLog'] = [];
                 $n1 = 0;
                 foreach ($this->instanceLoginAuditLog as $item1) {
-                    $res['InstanceLoginAuditLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceLoginAuditLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceLoginAuditLogList extends Model
                 $model->instanceLoginAuditLog = [];
                 $n1 = 0;
                 foreach ($map['InstanceLoginAuditLog'] as $item1) {
-                    $model->instanceLoginAuditLog[$n1++] = instanceLoginAuditLog::fromMap($item1);
+                    $model->instanceLoginAuditLog[$n1] = instanceLoginAuditLog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

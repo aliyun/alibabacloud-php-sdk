@@ -44,7 +44,8 @@ class param extends Model
                 $res['AttachmentKeyList'] = [];
                 $n1 = 0;
                 foreach ($this->attachmentKeyList as $item1) {
-                    $res['AttachmentKeyList'][$n1++] = $item1;
+                    $res['AttachmentKeyList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class param extends Model
                 $model->attachmentKeyList = [];
                 $n1 = 0;
                 foreach ($map['AttachmentKeyList'] as $item1) {
-                    $model->attachmentKeyList[$n1++] = $item1;
+                    $model->attachmentKeyList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

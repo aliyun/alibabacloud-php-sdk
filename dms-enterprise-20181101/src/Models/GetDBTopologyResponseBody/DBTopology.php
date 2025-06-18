@@ -73,7 +73,8 @@ class DBTopology extends Model
                 $res['DBTopologyInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->DBTopologyInfoList as $item1) {
-                    $res['DBTopologyInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBTopologyInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class DBTopology extends Model
                 $model->DBTopologyInfoList = [];
                 $n1 = 0;
                 foreach ($map['DBTopologyInfoList'] as $item1) {
-                    $model->DBTopologyInfoList[$n1++] = DBTopologyInfoList::fromMap($item1);
+                    $model->DBTopologyInfoList[$n1] = DBTopologyInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

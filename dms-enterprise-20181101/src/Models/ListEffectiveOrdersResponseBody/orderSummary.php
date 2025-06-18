@@ -65,7 +65,8 @@ class orderSummary extends Model
                 $res['OrderList'] = [];
                 $n1 = 0;
                 foreach ($this->orderList as $item1) {
-                    $res['OrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OrderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class orderSummary extends Model
                 $model->orderList = [];
                 $n1 = 0;
                 foreach ($map['OrderList'] as $item1) {
-                    $model->orderList[$n1++] = orderList::fromMap($item1);
+                    $model->orderList[$n1] = orderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

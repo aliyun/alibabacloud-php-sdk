@@ -50,7 +50,8 @@ class DLSkewedInfo extends Model
                 $res['SkewedColNames'] = [];
                 $n1 = 0;
                 foreach ($this->skewedColNames as $item1) {
-                    $res['SkewedColNames'][$n1++] = $item1;
+                    $res['SkewedColNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,12 +71,14 @@ class DLSkewedInfo extends Model
                 $n1 = 0;
                 foreach ($this->skewedColValues as $item1) {
                     if (\is_array($item1)) {
-                        $res['SkewedColValues'][$n1++] = [];
+                        $res['SkewedColValues'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['SkewedColValues'][$n1++][$n2++] = $item2;
+                            $res['SkewedColValues'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class DLSkewedInfo extends Model
                 $model->skewedColNames = [];
                 $n1 = 0;
                 foreach ($map['SkewedColNames'] as $item1) {
-                    $model->skewedColNames[$n1++] = $item1;
+                    $model->skewedColNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,12 +120,14 @@ class DLSkewedInfo extends Model
                 $n1 = 0;
                 foreach ($map['SkewedColValues'] as $item1) {
                     if (!empty($item1)) {
-                        $model->skewedColValues[$n1++] = [];
+                        $model->skewedColValues[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->skewedColValues[$n1++][$n2++] = $item2;
+                            $model->skewedColValues[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

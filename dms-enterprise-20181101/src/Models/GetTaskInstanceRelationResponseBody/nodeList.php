@@ -33,7 +33,8 @@ class nodeList extends Model
                 $res['Node'] = [];
                 $n1 = 0;
                 foreach ($this->node as $item1) {
-                    $res['Node'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Node'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class nodeList extends Model
                 $model->node = [];
                 $n1 = 0;
                 foreach ($map['Node'] as $item1) {
-                    $model->node[$n1++] = node::fromMap($item1);
+                    $model->node[$n1] = node::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

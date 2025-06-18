@@ -32,7 +32,8 @@ class selectedTables extends Model
                 $res['SelectedTables'] = [];
                 $n1 = 0;
                 foreach ($this->selectedTables as $item1) {
-                    $res['SelectedTables'][$n1++] = $item1;
+                    $res['SelectedTables'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class selectedTables extends Model
                 $model->selectedTables = [];
                 $n1 = 0;
                 foreach ($map['SelectedTables'] as $item1) {
-                    $model->selectedTables[$n1++] = $item1;
+                    $model->selectedTables[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

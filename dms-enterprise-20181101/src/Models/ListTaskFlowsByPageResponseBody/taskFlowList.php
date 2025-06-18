@@ -33,7 +33,8 @@ class taskFlowList extends Model
                 $res['TaskFlow'] = [];
                 $n1 = 0;
                 foreach ($this->taskFlow as $item1) {
-                    $res['TaskFlow'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskFlow'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class taskFlowList extends Model
                 $model->taskFlow = [];
                 $n1 = 0;
                 foreach ($map['TaskFlow'] as $item1) {
-                    $model->taskFlow[$n1++] = taskFlow::fromMap($item1);
+                    $model->taskFlow[$n1] = taskFlow::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

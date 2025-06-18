@@ -113,7 +113,8 @@ class instanceInfo extends Model
                 $res['OwnerIds'] = [];
                 $n1 = 0;
                 foreach ($this->ownerIds as $item1) {
-                    $res['OwnerIds'][$n1++] = $item1;
+                    $res['OwnerIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class instanceInfo extends Model
                 $res['OwnerNickName'] = [];
                 $n1 = 0;
                 foreach ($this->ownerNickName as $item1) {
-                    $res['OwnerNickName'][$n1++] = $item1;
+                    $res['OwnerNickName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +178,8 @@ class instanceInfo extends Model
                 $model->ownerIds = [];
                 $n1 = 0;
                 foreach ($map['OwnerIds'] as $item1) {
-                    $model->ownerIds[$n1++] = $item1;
+                    $model->ownerIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +189,8 @@ class instanceInfo extends Model
                 $model->ownerNickName = [];
                 $n1 = 0;
                 foreach ($map['OwnerNickName'] as $item1) {
-                    $model->ownerNickName[$n1++] = $item1;
+                    $model->ownerNickName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

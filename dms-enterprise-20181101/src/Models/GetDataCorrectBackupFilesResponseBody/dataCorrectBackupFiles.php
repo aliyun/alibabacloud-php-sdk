@@ -32,7 +32,8 @@ class dataCorrectBackupFiles extends Model
                 $res['FileUrl'] = [];
                 $n1 = 0;
                 foreach ($this->fileUrl as $item1) {
-                    $res['FileUrl'][$n1++] = $item1;
+                    $res['FileUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class dataCorrectBackupFiles extends Model
                 $model->fileUrl = [];
                 $n1 = 0;
                 foreach ($map['FileUrl'] as $item1) {
-                    $model->fileUrl[$n1++] = $item1;
+                    $model->fileUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

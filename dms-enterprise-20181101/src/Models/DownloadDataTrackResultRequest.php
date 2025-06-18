@@ -94,7 +94,8 @@ class DownloadDataTrackResultRequest extends Model
                 $res['EventIdList'] = [];
                 $n1 = 0;
                 foreach ($this->eventIdList as $item1) {
-                    $res['EventIdList'][$n1++] = $item1;
+                    $res['EventIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class DownloadDataTrackResultRequest extends Model
                 $res['FilterTableList'] = [];
                 $n1 = 0;
                 foreach ($this->filterTableList as $item1) {
-                    $res['FilterTableList'][$n1++] = $item1;
+                    $res['FilterTableList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class DownloadDataTrackResultRequest extends Model
                 $res['FilterTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->filterTypeList as $item1) {
-                    $res['FilterTypeList'][$n1++] = $item1;
+                    $res['FilterTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +162,8 @@ class DownloadDataTrackResultRequest extends Model
                 $model->eventIdList = [];
                 $n1 = 0;
                 foreach ($map['EventIdList'] as $item1) {
-                    $model->eventIdList[$n1++] = $item1;
+                    $model->eventIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +181,8 @@ class DownloadDataTrackResultRequest extends Model
                 $model->filterTableList = [];
                 $n1 = 0;
                 foreach ($map['FilterTableList'] as $item1) {
-                    $model->filterTableList[$n1++] = $item1;
+                    $model->filterTableList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +192,8 @@ class DownloadDataTrackResultRequest extends Model
                 $model->filterTypeList = [];
                 $n1 = 0;
                 foreach ($map['FilterTypeList'] as $item1) {
-                    $model->filterTypeList[$n1++] = $item1;
+                    $model->filterTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -87,7 +87,8 @@ class SearchDataTrackResultRequest extends Model
                 $res['FilterTableList'] = [];
                 $n1 = 0;
                 foreach ($this->filterTableList as $item1) {
-                    $res['FilterTableList'][$n1++] = $item1;
+                    $res['FilterTableList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class SearchDataTrackResultRequest extends Model
                 $res['FilterTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->filterTypeList as $item1) {
-                    $res['FilterTypeList'][$n1++] = $item1;
+                    $res['FilterTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class SearchDataTrackResultRequest extends Model
                 $model->filterTableList = [];
                 $n1 = 0;
                 foreach ($map['FilterTableList'] as $item1) {
-                    $model->filterTableList[$n1++] = $item1;
+                    $model->filterTableList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class SearchDataTrackResultRequest extends Model
                 $model->filterTypeList = [];
                 $n1 = 0;
                 foreach ($map['FilterTypeList'] as $item1) {
-                    $model->filterTypeList[$n1++] = $item1;
+                    $model->filterTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -63,7 +63,8 @@ class ListDesensitizationRuleResponseBody extends Model
                 $res['DesensitizationRuleList'] = [];
                 $n1 = 0;
                 foreach ($this->desensitizationRuleList as $item1) {
-                    $res['DesensitizationRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesensitizationRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListDesensitizationRuleResponseBody extends Model
                 $model->desensitizationRuleList = [];
                 $n1 = 0;
                 foreach ($map['DesensitizationRuleList'] as $item1) {
-                    $model->desensitizationRuleList[$n1++] = desensitizationRuleList::fromMap($item1);
+                    $model->desensitizationRuleList[$n1] = desensitizationRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

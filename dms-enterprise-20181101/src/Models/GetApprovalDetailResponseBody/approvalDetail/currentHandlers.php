@@ -33,7 +33,8 @@ class currentHandlers extends Model
                 $res['CurrentHandler'] = [];
                 $n1 = 0;
                 foreach ($this->currentHandler as $item1) {
-                    $res['CurrentHandler'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CurrentHandler'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class currentHandlers extends Model
                 $model->currentHandler = [];
                 $n1 = 0;
                 foreach ($map['CurrentHandler'] as $item1) {
-                    $model->currentHandler[$n1++] = currentHandler::fromMap($item1);
+                    $model->currentHandler[$n1] = currentHandler::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

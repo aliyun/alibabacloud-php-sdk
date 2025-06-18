@@ -33,7 +33,8 @@ class semiDesensitizationRuleList extends Model
                 $res['SemiDesensitizationRule'] = [];
                 $n1 = 0;
                 foreach ($this->semiDesensitizationRule as $item1) {
-                    $res['SemiDesensitizationRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SemiDesensitizationRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class semiDesensitizationRuleList extends Model
                 $model->semiDesensitizationRule = [];
                 $n1 = 0;
                 foreach ($map['SemiDesensitizationRule'] as $item1) {
-                    $model->semiDesensitizationRule[$n1++] = semiDesensitizationRule::fromMap($item1);
+                    $model->semiDesensitizationRule[$n1] = semiDesensitizationRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

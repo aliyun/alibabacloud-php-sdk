@@ -32,7 +32,8 @@ class relatedUserNickList extends Model
                 $res['UserNicks'] = [];
                 $n1 = 0;
                 foreach ($this->userNicks as $item1) {
-                    $res['UserNicks'][$n1++] = $item1;
+                    $res['UserNicks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class relatedUserNickList extends Model
                 $model->userNicks = [];
                 $n1 = 0;
                 foreach ($map['UserNicks'] as $item1) {
-                    $model->userNicks[$n1++] = $item1;
+                    $model->userNicks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

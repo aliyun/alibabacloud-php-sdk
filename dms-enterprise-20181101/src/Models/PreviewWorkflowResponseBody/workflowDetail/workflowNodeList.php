@@ -33,7 +33,8 @@ class workflowNodeList extends Model
                 $res['WorkflowNode'] = [];
                 $n1 = 0;
                 foreach ($this->workflowNode as $item1) {
-                    $res['WorkflowNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WorkflowNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class workflowNodeList extends Model
                 $model->workflowNode = [];
                 $n1 = 0;
                 foreach ($map['WorkflowNode'] as $item1) {
-                    $model->workflowNode[$n1++] = workflowNode::fromMap($item1);
+                    $model->workflowNode[$n1] = workflowNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

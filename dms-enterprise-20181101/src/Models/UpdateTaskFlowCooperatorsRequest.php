@@ -44,7 +44,8 @@ class UpdateTaskFlowCooperatorsRequest extends Model
                 $res['CooperatorIds'] = [];
                 $n1 = 0;
                 foreach ($this->cooperatorIds as $item1) {
-                    $res['CooperatorIds'][$n1++] = $item1;
+                    $res['CooperatorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class UpdateTaskFlowCooperatorsRequest extends Model
                 $model->cooperatorIds = [];
                 $n1 = 0;
                 foreach ($map['CooperatorIds'] as $item1) {
-                    $model->cooperatorIds[$n1++] = $item1;
+                    $model->cooperatorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

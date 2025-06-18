@@ -75,7 +75,8 @@ class ListSensitiveDataAuditLogResponseBody extends Model
                 $res['SensitiveDataAuditLogList'] = [];
                 $n1 = 0;
                 foreach ($this->sensitiveDataAuditLogList as $item1) {
-                    $res['SensitiveDataAuditLogList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SensitiveDataAuditLogList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class ListSensitiveDataAuditLogResponseBody extends Model
                 $model->sensitiveDataAuditLogList = [];
                 $n1 = 0;
                 foreach ($map['SensitiveDataAuditLogList'] as $item1) {
-                    $model->sensitiveDataAuditLogList[$n1++] = sensitiveDataAuditLogList::fromMap($item1);
+                    $model->sensitiveDataAuditLogList[$n1] = sensitiveDataAuditLogList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

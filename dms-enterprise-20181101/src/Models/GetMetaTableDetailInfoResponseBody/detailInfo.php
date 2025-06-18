@@ -43,7 +43,8 @@ class detailInfo extends Model
                 $res['ColumnList'] = [];
                 $n1 = 0;
                 foreach ($this->columnList as $item1) {
-                    $res['ColumnList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ColumnList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class detailInfo extends Model
                 $res['IndexList'] = [];
                 $n1 = 0;
                 foreach ($this->indexList as $item1) {
-                    $res['IndexList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IndexList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class detailInfo extends Model
                 $model->columnList = [];
                 $n1 = 0;
                 foreach ($map['ColumnList'] as $item1) {
-                    $model->columnList[$n1++] = columnList::fromMap($item1);
+                    $model->columnList[$n1] = columnList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class detailInfo extends Model
                 $model->indexList = [];
                 $n1 = 0;
                 foreach ($map['IndexList'] as $item1) {
-                    $model->indexList[$n1++] = indexList::fromMap($item1);
+                    $model->indexList[$n1] = indexList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

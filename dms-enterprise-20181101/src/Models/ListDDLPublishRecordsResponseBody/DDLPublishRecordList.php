@@ -121,7 +121,8 @@ class DDLPublishRecordList extends Model
                 $res['PublishTaskInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->publishTaskInfoList as $item1) {
-                    $res['PublishTaskInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PublishTaskInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +183,8 @@ class DDLPublishRecordList extends Model
                 $model->publishTaskInfoList = [];
                 $n1 = 0;
                 foreach ($map['PublishTaskInfoList'] as $item1) {
-                    $model->publishTaskInfoList[$n1++] = publishTaskInfoList::fromMap($item1);
+                    $model->publishTaskInfoList[$n1] = publishTaskInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

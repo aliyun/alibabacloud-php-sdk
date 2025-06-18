@@ -32,7 +32,8 @@ class exportTypes extends Model
                 $res['ExportTypes'] = [];
                 $n1 = 0;
                 foreach ($this->exportTypes as $item1) {
-                    $res['ExportTypes'][$n1++] = $item1;
+                    $res['ExportTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class exportTypes extends Model
                 $model->exportTypes = [];
                 $n1 = 0;
                 foreach ($map['ExportTypes'] as $item1) {
-                    $model->exportTypes[$n1++] = $item1;
+                    $model->exportTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -77,7 +77,8 @@ class ListAbacPoliciesResponseBody extends Model
                 $res['PolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->policyList as $item1) {
-                    $res['PolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class ListAbacPoliciesResponseBody extends Model
                 $model->policyList = [];
                 $n1 = 0;
                 foreach ($map['PolicyList'] as $item1) {
-                    $model->policyList[$n1++] = policyList::fromMap($item1);
+                    $model->policyList[$n1] = policyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

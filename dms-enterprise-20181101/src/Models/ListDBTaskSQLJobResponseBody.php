@@ -63,7 +63,8 @@ class ListDBTaskSQLJobResponseBody extends Model
                 $res['DBTaskSQLJobList'] = [];
                 $n1 = 0;
                 foreach ($this->DBTaskSQLJobList as $item1) {
-                    $res['DBTaskSQLJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBTaskSQLJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListDBTaskSQLJobResponseBody extends Model
                 $model->DBTaskSQLJobList = [];
                 $n1 = 0;
                 foreach ($map['DBTaskSQLJobList'] as $item1) {
-                    $model->DBTaskSQLJobList[$n1++] = DBTaskSQLJobList::fromMap($item1);
+                    $model->DBTaskSQLJobList[$n1] = DBTaskSQLJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

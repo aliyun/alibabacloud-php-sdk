@@ -90,7 +90,8 @@ class DeleteDataLakePartitionRequest extends Model
                 $res['PartitionValues'] = [];
                 $n1 = 0;
                 foreach ($this->partitionValues as $item1) {
-                    $res['PartitionValues'][$n1++] = $item1;
+                    $res['PartitionValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +140,8 @@ class DeleteDataLakePartitionRequest extends Model
                 $model->partitionValues = [];
                 $n1 = 0;
                 foreach ($map['PartitionValues'] as $item1) {
-                    $model->partitionValues[$n1++] = $item1;
+                    $model->partitionValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

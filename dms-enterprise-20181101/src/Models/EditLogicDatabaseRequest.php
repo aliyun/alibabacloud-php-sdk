@@ -54,7 +54,8 @@ class EditLogicDatabaseRequest extends Model
                 $res['DatabaseIds'] = [];
                 $n1 = 0;
                 foreach ($this->databaseIds as $item1) {
-                    $res['DatabaseIds'][$n1++] = $item1;
+                    $res['DatabaseIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class EditLogicDatabaseRequest extends Model
                 $model->databaseIds = [];
                 $n1 = 0;
                 foreach ($map['DatabaseIds'] as $item1) {
-                    $model->databaseIds[$n1++] = $item1;
+                    $model->databaseIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

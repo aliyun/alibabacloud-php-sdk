@@ -65,7 +65,8 @@ class ListDataCorrectPreCheckDBResponseBody extends Model
                 $res['PreCheckDBList'] = [];
                 $n1 = 0;
                 foreach ($this->preCheckDBList as $item1) {
-                    $res['PreCheckDBList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PreCheckDBList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListDataCorrectPreCheckDBResponseBody extends Model
                 $model->preCheckDBList = [];
                 $n1 = 0;
                 foreach ($map['PreCheckDBList'] as $item1) {
-                    $model->preCheckDBList[$n1++] = preCheckDBList::fromMap($item1);
+                    $model->preCheckDBList[$n1] = preCheckDBList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

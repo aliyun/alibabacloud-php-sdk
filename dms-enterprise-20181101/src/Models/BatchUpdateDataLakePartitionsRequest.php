@@ -80,7 +80,8 @@ class BatchUpdateDataLakePartitionsRequest extends Model
                 $res['PartitionInputs'] = [];
                 $n1 = 0;
                 foreach ($this->partitionInputs as $item1) {
-                    $res['PartitionInputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PartitionInputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class BatchUpdateDataLakePartitionsRequest extends Model
                 $model->partitionInputs = [];
                 $n1 = 0;
                 foreach ($map['PartitionInputs'] as $item1) {
-                    $model->partitionInputs[$n1++] = DLPartitionInput::fromMap($item1);
+                    $model->partitionInputs[$n1] = DLPartitionInput::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

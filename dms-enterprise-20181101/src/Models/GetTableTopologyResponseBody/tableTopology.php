@@ -63,7 +63,8 @@ class tableTopology extends Model
                 $res['TableTopologyInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->tableTopologyInfoList as $item1) {
-                    $res['TableTopologyInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableTopologyInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class tableTopology extends Model
                 $model->tableTopologyInfoList = [];
                 $n1 = 0;
                 foreach ($map['TableTopologyInfoList'] as $item1) {
-                    $model->tableTopologyInfoList[$n1++] = tableTopologyInfoList::fromMap($item1);
+                    $model->tableTopologyInfoList[$n1] = tableTopologyInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

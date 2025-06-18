@@ -45,7 +45,8 @@ class UpdateTaskFlowConstantsRequest extends Model
                 $res['DagConstants'] = [];
                 $n1 = 0;
                 foreach ($this->dagConstants as $item1) {
-                    $res['DagConstants'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DagConstants'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class UpdateTaskFlowConstantsRequest extends Model
                 $model->dagConstants = [];
                 $n1 = 0;
                 foreach ($map['DagConstants'] as $item1) {
-                    $model->dagConstants[$n1++] = dagConstants::fromMap($item1);
+                    $model->dagConstants[$n1] = dagConstants::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

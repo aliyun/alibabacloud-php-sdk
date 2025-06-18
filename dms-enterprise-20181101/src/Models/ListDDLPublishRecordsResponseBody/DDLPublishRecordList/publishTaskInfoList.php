@@ -81,7 +81,8 @@ class publishTaskInfoList extends Model
                 $res['PublishJobList'] = [];
                 $n1 = 0;
                 foreach ($this->publishJobList as $item1) {
-                    $res['PublishJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PublishJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +127,8 @@ class publishTaskInfoList extends Model
                 $model->publishJobList = [];
                 $n1 = 0;
                 foreach ($map['PublishJobList'] as $item1) {
-                    $model->publishJobList[$n1++] = publishJobList::fromMap($item1);
+                    $model->publishJobList[$n1] = publishJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

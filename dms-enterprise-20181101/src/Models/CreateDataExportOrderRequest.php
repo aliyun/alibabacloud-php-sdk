@@ -92,7 +92,8 @@ class CreateDataExportOrderRequest extends Model
                 $res['RelatedUserList'] = [];
                 $n1 = 0;
                 foreach ($this->relatedUserList as $item1) {
-                    $res['RelatedUserList'][$n1++] = $item1;
+                    $res['RelatedUserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class CreateDataExportOrderRequest extends Model
                 $model->relatedUserList = [];
                 $n1 = 0;
                 foreach ($map['RelatedUserList'] as $item1) {
-                    $model->relatedUserList[$n1++] = $item1;
+                    $model->relatedUserList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

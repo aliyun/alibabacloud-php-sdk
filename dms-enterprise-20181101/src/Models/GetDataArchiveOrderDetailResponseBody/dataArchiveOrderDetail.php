@@ -163,7 +163,8 @@ class dataArchiveOrderDetail extends Model
                 $res['RelatedUserList'] = [];
                 $n1 = 0;
                 foreach ($this->relatedUserList as $item1) {
-                    $res['RelatedUserList'][$n1++] = $item1;
+                    $res['RelatedUserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class dataArchiveOrderDetail extends Model
                 $res['RelatedUserNickList'] = [];
                 $n1 = 0;
                 foreach ($this->relatedUserNickList as $item1) {
-                    $res['RelatedUserNickList'][$n1++] = $item1;
+                    $res['RelatedUserNickList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -246,7 +248,8 @@ class dataArchiveOrderDetail extends Model
                 $model->relatedUserList = [];
                 $n1 = 0;
                 foreach ($map['RelatedUserList'] as $item1) {
-                    $model->relatedUserList[$n1++] = $item1;
+                    $model->relatedUserList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +259,8 @@ class dataArchiveOrderDetail extends Model
                 $model->relatedUserNickList = [];
                 $n1 = 0;
                 foreach ($map['RelatedUserNickList'] as $item1) {
-                    $model->relatedUserNickList[$n1++] = $item1;
+                    $model->relatedUserNickList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class DBTopology extends Model
                 $res['DataSourceList'] = [];
                 $n1 = 0;
                 foreach ($this->dataSourceList as $item1) {
-                    $res['DataSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DBTopology extends Model
                 $model->dataSourceList = [];
                 $n1 = 0;
                 foreach ($map['DataSourceList'] as $item1) {
-                    $model->dataSourceList[$n1++] = dataSourceList::fromMap($item1);
+                    $model->dataSourceList[$n1] = dataSourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

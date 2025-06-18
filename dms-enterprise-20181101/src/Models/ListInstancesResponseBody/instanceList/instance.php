@@ -119,6 +119,11 @@ class instance extends Model
     /**
      * @var string
      */
+    public $sellTrust;
+
+    /**
+     * @var string
+     */
     public $sid;
 
     /**
@@ -162,6 +167,7 @@ class instance extends Model
         'queryTimeout' => 'QueryTimeout',
         'safeRuleId' => 'SafeRuleId',
         'sellSitd' => 'SellSitd',
+        'sellTrust' => 'SellTrust',
         'sid' => 'Sid',
         'standardGroup' => 'StandardGroup',
         'state' => 'State',
@@ -268,6 +274,10 @@ class instance extends Model
 
         if (null !== $this->sellSitd) {
             $res['SellSitd'] = $this->sellSitd;
+        }
+
+        if (null !== $this->sellTrust) {
+            $res['SellTrust'] = $this->sellTrust;
         }
 
         if (null !== $this->sid) {
@@ -383,6 +393,10 @@ class instance extends Model
 
         if (isset($map['SellSitd'])) {
             $model->sellSitd = $map['SellSitd'];
+        }
+
+        if (isset($map['SellTrust'])) {
+            $model->sellTrust = $map['SellTrust'];
         }
 
         if (isset($map['Sid'])) {

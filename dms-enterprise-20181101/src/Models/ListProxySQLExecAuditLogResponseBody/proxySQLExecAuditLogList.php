@@ -33,7 +33,8 @@ class proxySQLExecAuditLogList extends Model
                 $res['ProxySQLExecAuditLog'] = [];
                 $n1 = 0;
                 foreach ($this->proxySQLExecAuditLog as $item1) {
-                    $res['ProxySQLExecAuditLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProxySQLExecAuditLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class proxySQLExecAuditLogList extends Model
                 $model->proxySQLExecAuditLog = [];
                 $n1 = 0;
                 foreach ($map['ProxySQLExecAuditLog'] as $item1) {
-                    $model->proxySQLExecAuditLog[$n1++] = proxySQLExecAuditLog::fromMap($item1);
+                    $model->proxySQLExecAuditLog[$n1] = proxySQLExecAuditLog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class dagVersionList extends Model
                 $res['DagVersion'] = [];
                 $n1 = 0;
                 foreach ($this->dagVersion as $item1) {
-                    $res['DagVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DagVersion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dagVersionList extends Model
                 $model->dagVersion = [];
                 $n1 = 0;
                 foreach ($map['DagVersion'] as $item1) {
-                    $model->dagVersion[$n1++] = dagVersion::fromMap($item1);
+                    $model->dagVersion[$n1] = dagVersion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

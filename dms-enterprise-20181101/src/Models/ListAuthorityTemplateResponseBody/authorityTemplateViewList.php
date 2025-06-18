@@ -33,7 +33,8 @@ class authorityTemplateViewList extends Model
                 $res['AuthorityTemplateView'] = [];
                 $n1 = 0;
                 foreach ($this->authorityTemplateView as $item1) {
-                    $res['AuthorityTemplateView'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorityTemplateView'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class authorityTemplateViewList extends Model
                 $model->authorityTemplateView = [];
                 $n1 = 0;
                 foreach ($map['AuthorityTemplateView'] as $item1) {
-                    $model->authorityTemplateView[$n1++] = authorityTemplateView::fromMap($item1);
+                    $model->authorityTemplateView[$n1] = authorityTemplateView::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

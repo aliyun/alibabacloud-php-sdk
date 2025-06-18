@@ -18332,6 +18332,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['QueryTimeout'] = $request->queryTimeout;
         }
 
+        if (null !== $request->resourceGroup) {
+            @$query['ResourceGroup'] = $request->resourceGroup;
+        }
+
         if (null !== $request->safeRule) {
             @$query['SafeRule'] = $request->safeRule;
         }

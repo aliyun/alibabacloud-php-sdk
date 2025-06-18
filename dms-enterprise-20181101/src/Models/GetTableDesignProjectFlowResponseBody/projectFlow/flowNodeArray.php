@@ -92,7 +92,8 @@ class flowNodeArray extends Model
                 $res['PublishStrategies'] = [];
                 $n1 = 0;
                 foreach ($this->publishStrategies as $item1) {
-                    $res['PublishStrategies'][$n1++] = $item1;
+                    $res['PublishStrategies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class flowNodeArray extends Model
                 $model->publishStrategies = [];
                 $n1 = 0;
                 foreach ($map['PublishStrategies'] as $item1) {
-                    $model->publishStrategies[$n1++] = $item1;
+                    $model->publishStrategies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

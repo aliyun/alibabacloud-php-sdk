@@ -68,7 +68,8 @@ class ListDataImportSQLTypeResponseBody extends Model
                 $res['SqlTypeResult'] = [];
                 $n1 = 0;
                 foreach ($this->sqlTypeResult as $item1) {
-                    $res['SqlTypeResult'][$n1++] = $item1;
+                    $res['SqlTypeResult'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ListDataImportSQLTypeResponseBody extends Model
                 $model->sqlTypeResult = [];
                 $n1 = 0;
                 foreach ($map['SqlTypeResult'] as $item1) {
-                    $model->sqlTypeResult[$n1++] = $item1;
+                    $model->sqlTypeResult[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

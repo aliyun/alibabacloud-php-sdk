@@ -57,7 +57,8 @@ class dataSourceList extends Model
                 $res['DatabaseList'] = [];
                 $n1 = 0;
                 foreach ($this->databaseList as $item1) {
-                    $res['DatabaseList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatabaseList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class dataSourceList extends Model
                 $model->databaseList = [];
                 $n1 = 0;
                 foreach ($map['DatabaseList'] as $item1) {
-                    $model->databaseList[$n1++] = databaseList::fromMap($item1);
+                    $model->databaseList[$n1] = databaseList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

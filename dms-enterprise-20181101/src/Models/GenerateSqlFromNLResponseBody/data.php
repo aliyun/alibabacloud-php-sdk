@@ -71,7 +71,8 @@ class data extends Model
                 $res['KnowledgeReferences'] = [];
                 $n1 = 0;
                 foreach ($this->knowledgeReferences as $item1) {
-                    $res['KnowledgeReferences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KnowledgeReferences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class data extends Model
                 $res['SimilarSql'] = [];
                 $n1 = 0;
                 foreach ($this->similarSql as $item1) {
-                    $res['SimilarSql'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SimilarSql'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +101,8 @@ class data extends Model
                 $res['Tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +127,8 @@ class data extends Model
                 $model->knowledgeReferences = [];
                 $n1 = 0;
                 foreach ($map['KnowledgeReferences'] as $item1) {
-                    $model->knowledgeReferences[$n1++] = knowledgeReferences::fromMap($item1);
+                    $model->knowledgeReferences[$n1] = knowledgeReferences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +142,8 @@ class data extends Model
                 $model->similarSql = [];
                 $n1 = 0;
                 foreach ($map['SimilarSql'] as $item1) {
-                    $model->similarSql[$n1++] = similarSql::fromMap($item1);
+                    $model->similarSql[$n1] = similarSql::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +157,8 @@ class data extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = tables::fromMap($item1);
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

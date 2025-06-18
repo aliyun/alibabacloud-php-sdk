@@ -32,7 +32,8 @@ class auditUserIdList extends Model
                 $res['AuditUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->auditUserIds as $item1) {
-                    $res['AuditUserIds'][$n1++] = $item1;
+                    $res['AuditUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class auditUserIdList extends Model
                 $model->auditUserIds = [];
                 $n1 = 0;
                 foreach ($map['AuditUserIds'] as $item1) {
-                    $model->auditUserIds[$n1++] = $item1;
+                    $model->auditUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

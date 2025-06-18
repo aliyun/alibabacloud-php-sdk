@@ -59,7 +59,8 @@ class results extends Model
                 $res['ColumnNames'] = [];
                 $n1 = 0;
                 foreach ($this->columnNames as $item1) {
-                    $res['ColumnNames'][$n1++] = $item1;
+                    $res['ColumnNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,11 +79,12 @@ class results extends Model
                 $n1 = 0;
                 foreach ($this->rows as $item1) {
                     if (\is_array($item1)) {
-                        $res['Rows'][$n1++] = [];
+                        $res['Rows'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Rows'][$n1++][$key2] = $value2;
+                            $res['Rows'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +109,8 @@ class results extends Model
                 $model->columnNames = [];
                 $n1 = 0;
                 foreach ($map['ColumnNames'] as $item1) {
-                    $model->columnNames[$n1++] = $item1;
+                    $model->columnNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,11 +129,12 @@ class results extends Model
                 $n1 = 0;
                 foreach ($map['Rows'] as $item1) {
                     if (!empty($item1)) {
-                        $model->rows[$n1++] = [];
+                        $model->rows[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->rows[$n1++][$key2] = $value2;
+                            $model->rows[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

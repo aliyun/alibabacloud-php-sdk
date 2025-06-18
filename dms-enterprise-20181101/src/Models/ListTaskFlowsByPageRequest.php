@@ -62,7 +62,8 @@ class ListTaskFlowsByPageRequest extends Model
                 $res['DagIdList'] = [];
                 $n1 = 0;
                 foreach ($this->dagIdList as $item1) {
-                    $res['DagIdList'][$n1++] = $item1;
+                    $res['DagIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class ListTaskFlowsByPageRequest extends Model
                 $model->dagIdList = [];
                 $n1 = 0;
                 foreach ($map['DagIdList'] as $item1) {
-                    $model->dagIdList[$n1++] = $item1;
+                    $model->dagIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

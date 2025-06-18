@@ -52,7 +52,8 @@ class ImportMasterKeyVO extends Model
                 $res['ProjectId'] = [];
                 $n1 = 0;
                 foreach ($this->projectId as $item1) {
-                    $res['ProjectId'][$n1++] = $item1;
+                    $res['ProjectId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class ImportMasterKeyVO extends Model
                 $model->projectId = [];
                 $n1 = 0;
                 foreach ($map['ProjectId'] as $item1) {
-                    $model->projectId[$n1++] = $item1;
+                    $model->projectId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

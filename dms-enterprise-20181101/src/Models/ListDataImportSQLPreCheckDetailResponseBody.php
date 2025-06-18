@@ -71,7 +71,8 @@ class ListDataImportSQLPreCheckDetailResponseBody extends Model
                 $res['PreCheckSQLDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->preCheckSQLDetailList as $item1) {
-                    $res['PreCheckSQLDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PreCheckSQLDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListDataImportSQLPreCheckDetailResponseBody extends Model
                 $model->preCheckSQLDetailList = [];
                 $n1 = 0;
                 foreach ($map['PreCheckSQLDetailList'] as $item1) {
-                    $model->preCheckSQLDetailList[$n1++] = preCheckSQLDetailList::fromMap($item1);
+                    $model->preCheckSQLDetailList[$n1] = preCheckSQLDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

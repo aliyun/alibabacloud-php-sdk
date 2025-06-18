@@ -108,7 +108,8 @@ class pluginParam extends Model
                 $res['OrderAfter'] = [];
                 $n1 = 0;
                 foreach ($this->orderAfter as $item1) {
-                    $res['OrderAfter'][$n1++] = $item1;
+                    $res['OrderAfter'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +127,8 @@ class pluginParam extends Model
                 $res['TableIncludes'] = [];
                 $n1 = 0;
                 foreach ($this->tableIncludes as $item1) {
-                    $res['TableIncludes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableIncludes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class pluginParam extends Model
                 $res['TableMapping'] = [];
                 $n1 = 0;
                 foreach ($this->tableMapping as $item1) {
-                    $res['TableMapping'][$n1++] = $item1;
+                    $res['TableMapping'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class pluginParam extends Model
                 $res['Variables'] = [];
                 $n1 = 0;
                 foreach ($this->variables as $item1) {
-                    $res['Variables'][$n1++] = $item1;
+                    $res['Variables'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +187,8 @@ class pluginParam extends Model
                 $model->orderAfter = [];
                 $n1 = 0;
                 foreach ($map['OrderAfter'] as $item1) {
-                    $model->orderAfter[$n1++] = $item1;
+                    $model->orderAfter[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +206,8 @@ class pluginParam extends Model
                 $model->tableIncludes = [];
                 $n1 = 0;
                 foreach ($map['TableIncludes'] as $item1) {
-                    $model->tableIncludes[$n1++] = tableIncludes::fromMap($item1);
+                    $model->tableIncludes[$n1] = tableIncludes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +217,8 @@ class pluginParam extends Model
                 $model->tableMapping = [];
                 $n1 = 0;
                 foreach ($map['TableMapping'] as $item1) {
-                    $model->tableMapping[$n1++] = $item1;
+                    $model->tableMapping[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +232,8 @@ class pluginParam extends Model
                 $model->variables = [];
                 $n1 = 0;
                 foreach ($map['Variables'] as $item1) {
-                    $model->variables[$n1++] = $item1;
+                    $model->variables[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

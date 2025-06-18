@@ -49,7 +49,8 @@ class trackResult extends Model
                 $res['EventList'] = [];
                 $n1 = 0;
                 foreach ($this->eventList as $item1) {
-                    $res['EventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EventList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,7 +60,8 @@ class trackResult extends Model
                 $res['TableInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->tableInfoList as $item1) {
-                    $res['TableInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class trackResult extends Model
                 $model->eventList = [];
                 $n1 = 0;
                 foreach ($map['EventList'] as $item1) {
-                    $model->eventList[$n1++] = eventList::fromMap($item1);
+                    $model->eventList[$n1] = eventList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class trackResult extends Model
                 $model->tableInfoList = [];
                 $n1 = 0;
                 foreach ($map['TableInfoList'] as $item1) {
-                    $model->tableInfoList[$n1++] = tableInfoList::fromMap($item1);
+                    $model->tableInfoList[$n1] = tableInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

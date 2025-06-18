@@ -33,7 +33,8 @@ class dagConstants extends Model
                 $res['DagConstant'] = [];
                 $n1 = 0;
                 foreach ($this->dagConstant as $item1) {
-                    $res['DagConstant'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DagConstant'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dagConstants extends Model
                 $model->dagConstant = [];
                 $n1 = 0;
                 foreach ($map['DagConstant'] as $item1) {
-                    $model->dagConstant[$n1++] = dagConstant::fromMap($item1);
+                    $model->dagConstant[$n1] = dagConstant::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

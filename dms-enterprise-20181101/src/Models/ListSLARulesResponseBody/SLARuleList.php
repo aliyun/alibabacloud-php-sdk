@@ -33,7 +33,8 @@ class SLARuleList extends Model
                 $res['SLARule'] = [];
                 $n1 = 0;
                 foreach ($this->SLARule as $item1) {
-                    $res['SLARule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SLARule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class SLARuleList extends Model
                 $model->SLARule = [];
                 $n1 = 0;
                 foreach ($map['SLARule'] as $item1) {
-                    $model->SLARule[$n1++] = SLARule::fromMap($item1);
+                    $model->SLARule[$n1] = SLARule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

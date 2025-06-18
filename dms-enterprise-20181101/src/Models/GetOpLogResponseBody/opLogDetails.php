@@ -33,7 +33,8 @@ class opLogDetails extends Model
                 $res['OpLogDetail'] = [];
                 $n1 = 0;
                 foreach ($this->opLogDetail as $item1) {
-                    $res['OpLogDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OpLogDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class opLogDetails extends Model
                 $model->opLogDetail = [];
                 $n1 = 0;
                 foreach ($map['OpLogDetail'] as $item1) {
-                    $model->opLogDetail[$n1++] = opLogDetail::fromMap($item1);
+                    $model->opLogDetail[$n1] = opLogDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

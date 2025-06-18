@@ -33,7 +33,8 @@ class scenarioDAGList extends Model
                 $res['ScenarioDAG'] = [];
                 $n1 = 0;
                 foreach ($this->scenarioDAG as $item1) {
-                    $res['ScenarioDAG'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScenarioDAG'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class scenarioDAGList extends Model
                 $model->scenarioDAG = [];
                 $n1 = 0;
                 foreach ($map['ScenarioDAG'] as $item1) {
-                    $model->scenarioDAG[$n1++] = scenarioDAG::fromMap($item1);
+                    $model->scenarioDAG[$n1] = scenarioDAG::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

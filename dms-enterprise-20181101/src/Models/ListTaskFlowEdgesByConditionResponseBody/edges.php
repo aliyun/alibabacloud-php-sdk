@@ -33,7 +33,8 @@ class edges extends Model
                 $res['Edge'] = [];
                 $n1 = 0;
                 foreach ($this->edge as $item1) {
-                    $res['Edge'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Edge'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class edges extends Model
                 $model->edge = [];
                 $n1 = 0;
                 foreach ($map['Edge'] as $item1) {
-                    $model->edge[$n1++] = edge::fromMap($item1);
+                    $model->edge[$n1] = edge::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -76,7 +76,8 @@ class ListDataLakeFunctionNameResponseBody extends Model
                 $res['FunctionNameList'] = [];
                 $n1 = 0;
                 foreach ($this->functionNameList as $item1) {
-                    $res['FunctionNameList'][$n1++] = $item1;
+                    $res['FunctionNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class ListDataLakeFunctionNameResponseBody extends Model
                 $model->functionNameList = [];
                 $n1 = 0;
                 foreach ($map['FunctionNameList'] as $item1) {
-                    $model->functionNameList[$n1++] = $item1;
+                    $model->functionNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

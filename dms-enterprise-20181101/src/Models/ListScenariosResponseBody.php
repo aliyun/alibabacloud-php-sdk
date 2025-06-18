@@ -69,7 +69,8 @@ class ListScenariosResponseBody extends Model
                 $res['ScenarioList'] = [];
                 $n1 = 0;
                 foreach ($this->scenarioList as $item1) {
-                    $res['ScenarioList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScenarioList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListScenariosResponseBody extends Model
                 $model->scenarioList = [];
                 $n1 = 0;
                 foreach ($map['ScenarioList'] as $item1) {
-                    $model->scenarioList[$n1++] = scenarioList::fromMap($item1);
+                    $model->scenarioList[$n1] = scenarioList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

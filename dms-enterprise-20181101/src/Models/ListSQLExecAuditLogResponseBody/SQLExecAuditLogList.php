@@ -33,7 +33,8 @@ class SQLExecAuditLogList extends Model
                 $res['SQLExecAuditLog'] = [];
                 $n1 = 0;
                 foreach ($this->SQLExecAuditLog as $item1) {
-                    $res['SQLExecAuditLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SQLExecAuditLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class SQLExecAuditLogList extends Model
                 $model->SQLExecAuditLog = [];
                 $n1 = 0;
                 foreach ($map['SQLExecAuditLog'] as $item1) {
-                    $model->SQLExecAuditLog[$n1++] = SQLExecAuditLog::fromMap($item1);
+                    $model->SQLExecAuditLog[$n1] = SQLExecAuditLog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

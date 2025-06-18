@@ -33,7 +33,8 @@ class sensitiveColumnList extends Model
                 $res['SensitiveColumn'] = [];
                 $n1 = 0;
                 foreach ($this->sensitiveColumn as $item1) {
-                    $res['SensitiveColumn'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SensitiveColumn'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class sensitiveColumnList extends Model
                 $model->sensitiveColumn = [];
                 $n1 = 0;
                 foreach ($map['SensitiveColumn'] as $item1) {
-                    $model->sensitiveColumn[$n1++] = sensitiveColumn::fromMap($item1);
+                    $model->sensitiveColumn[$n1] = sensitiveColumn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

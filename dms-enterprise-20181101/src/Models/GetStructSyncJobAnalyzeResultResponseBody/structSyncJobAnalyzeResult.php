@@ -43,7 +43,8 @@ class structSyncJobAnalyzeResult extends Model
                 $res['ResultList'] = [];
                 $n1 = 0;
                 foreach ($this->resultList as $item1) {
-                    $res['ResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class structSyncJobAnalyzeResult extends Model
                 $res['SummaryList'] = [];
                 $n1 = 0;
                 foreach ($this->summaryList as $item1) {
-                    $res['SummaryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SummaryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class structSyncJobAnalyzeResult extends Model
                 $model->resultList = [];
                 $n1 = 0;
                 foreach ($map['ResultList'] as $item1) {
-                    $model->resultList[$n1++] = resultList::fromMap($item1);
+                    $model->resultList[$n1] = resultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class structSyncJobAnalyzeResult extends Model
                 $model->summaryList = [];
                 $n1 = 0;
                 foreach ($map['SummaryList'] as $item1) {
-                    $model->summaryList[$n1++] = summaryList::fromMap($item1);
+                    $model->summaryList[$n1] = summaryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
