@@ -103,7 +103,8 @@ class ComponentSpec extends Model
                 $res['HyperParameters'] = [];
                 $n1 = 0;
                 foreach ($this->hyperParameters as $item1) {
-                    $res['HyperParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HyperParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class ComponentSpec extends Model
                 $res['InputChannels'] = [];
                 $n1 = 0;
                 foreach ($this->inputChannels as $item1) {
-                    $res['InputChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +133,8 @@ class ComponentSpec extends Model
                 $res['MetricDefinitions'] = [];
                 $n1 = 0;
                 foreach ($this->metricDefinitions as $item1) {
-                    $res['MetricDefinitions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MetricDefinitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +144,8 @@ class ComponentSpec extends Model
                 $res['OutputChannels'] = [];
                 $n1 = 0;
                 foreach ($this->outputChannels as $item1) {
-                    $res['OutputChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +155,8 @@ class ComponentSpec extends Model
                 $res['ResourceRequirements'] = [];
                 $n1 = 0;
                 foreach ($this->resourceRequirements as $item1) {
-                    $res['ResourceRequirements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceRequirements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +185,8 @@ class ComponentSpec extends Model
                 $model->hyperParameters = [];
                 $n1 = 0;
                 foreach ($map['HyperParameters'] as $item1) {
-                    $model->hyperParameters[$n1++] = HyperParameterDefinition::fromMap($item1);
+                    $model->hyperParameters[$n1] = HyperParameterDefinition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +200,8 @@ class ComponentSpec extends Model
                 $model->inputChannels = [];
                 $n1 = 0;
                 foreach ($map['InputChannels'] as $item1) {
-                    $model->inputChannels[$n1++] = Channel::fromMap($item1);
+                    $model->inputChannels[$n1] = Channel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +215,8 @@ class ComponentSpec extends Model
                 $model->metricDefinitions = [];
                 $n1 = 0;
                 foreach ($map['MetricDefinitions'] as $item1) {
-                    $model->metricDefinitions[$n1++] = MetricDefinition::fromMap($item1);
+                    $model->metricDefinitions[$n1] = MetricDefinition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +226,8 @@ class ComponentSpec extends Model
                 $model->outputChannels = [];
                 $n1 = 0;
                 foreach ($map['OutputChannels'] as $item1) {
-                    $model->outputChannels[$n1++] = Channel::fromMap($item1);
+                    $model->outputChannels[$n1] = Channel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +237,8 @@ class ComponentSpec extends Model
                 $model->resourceRequirements = [];
                 $n1 = 0;
                 foreach ($map['ResourceRequirements'] as $item1) {
-                    $model->resourceRequirements[$n1++] = ConditionExpression::fromMap($item1);
+                    $model->resourceRequirements[$n1] = ConditionExpression::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

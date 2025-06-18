@@ -45,7 +45,8 @@ class ListAlgorithmVersionsResponseBody extends Model
                 $res['AlgorithmVersions'] = [];
                 $n1 = 0;
                 foreach ($this->algorithmVersions as $item1) {
-                    $res['AlgorithmVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlgorithmVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListAlgorithmVersionsResponseBody extends Model
                 $model->algorithmVersions = [];
                 $n1 = 0;
                 foreach ($map['AlgorithmVersions'] as $item1) {
-                    $model->algorithmVersions[$n1++] = algorithmVersions::fromMap($item1);
+                    $model->algorithmVersions[$n1] = algorithmVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

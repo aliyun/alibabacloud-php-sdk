@@ -65,7 +65,8 @@ class GetUserViewMetricsResponseBody extends Model
                 $res['UserMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->userMetrics as $item1) {
-                    $res['UserMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class GetUserViewMetricsResponseBody extends Model
                 $model->userMetrics = [];
                 $n1 = 0;
                 foreach ($map['UserMetrics'] as $item1) {
-                    $model->userMetrics[$n1++] = UserViewMetric::fromMap($item1);
+                    $model->userMetrics[$n1] = UserViewMetric::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

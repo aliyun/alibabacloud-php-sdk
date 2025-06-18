@@ -58,7 +58,8 @@ class GetResourceGroupTotalResponseBody extends Model
                 $res['totalGPUInfos'] = [];
                 $n1 = 0;
                 foreach ($this->totalGPUInfos as $item1) {
-                    $res['totalGPUInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['totalGPUInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class GetResourceGroupTotalResponseBody extends Model
                 $model->totalGPUInfos = [];
                 $n1 = 0;
                 foreach ($map['totalGPUInfos'] as $item1) {
-                    $model->totalGPUInfos[$n1++] = GPUInfo::fromMap($item1);
+                    $model->totalGPUInfos[$n1] = GPUInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

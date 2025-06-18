@@ -196,7 +196,8 @@ class GetQuotaResponseBody extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -250,7 +251,8 @@ class GetQuotaResponseBody extends Model
                 $res['ResourceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroupIds as $item1) {
-                    $res['ResourceGroupIds'][$n1++] = $item1;
+                    $res['ResourceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +270,8 @@ class GetQuotaResponseBody extends Model
                 $res['SubQuotas'] = [];
                 $n1 = 0;
                 foreach ($this->subQuotas as $item1) {
-                    $res['SubQuotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubQuotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -278,7 +281,8 @@ class GetQuotaResponseBody extends Model
                 $res['Workspaces'] = [];
                 $n1 = 0;
                 foreach ($this->workspaces as $item1) {
-                    $res['Workspaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Workspaces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -319,7 +323,8 @@ class GetQuotaResponseBody extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -373,7 +378,8 @@ class GetQuotaResponseBody extends Model
                 $model->resourceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroupIds'] as $item1) {
-                    $model->resourceGroupIds[$n1++] = $item1;
+                    $model->resourceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -391,7 +397,8 @@ class GetQuotaResponseBody extends Model
                 $model->subQuotas = [];
                 $n1 = 0;
                 foreach ($map['SubQuotas'] as $item1) {
-                    $model->subQuotas[$n1++] = QuotaIdName::fromMap($item1);
+                    $model->subQuotas[$n1] = QuotaIdName::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -401,7 +408,8 @@ class GetQuotaResponseBody extends Model
                 $model->workspaces = [];
                 $n1 = 0;
                 foreach ($map['Workspaces'] as $item1) {
-                    $model->workspaces[$n1++] = WorkspaceIdName::fromMap($item1);
+                    $model->workspaces[$n1] = WorkspaceIdName::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

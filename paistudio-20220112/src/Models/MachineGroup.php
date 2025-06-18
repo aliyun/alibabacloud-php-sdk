@@ -21,6 +21,16 @@ class MachineGroup extends Model
     /**
      * @var int
      */
+    public $diskCapacity;
+
+    /**
+     * @var string
+     */
+    public $diskPL;
+
+    /**
+     * @var int
+     */
     public $ecsCount;
 
     /**
@@ -100,6 +110,8 @@ class MachineGroup extends Model
     protected $_name = [
         'creatorID' => 'CreatorID',
         'defaultDriver' => 'DefaultDriver',
+        'diskCapacity' => 'DiskCapacity',
+        'diskPL' => 'DiskPL',
         'ecsCount' => 'EcsCount',
         'ecsSpec' => 'EcsSpec',
         'gmtCreatedTime' => 'GmtCreatedTime',
@@ -135,6 +147,14 @@ class MachineGroup extends Model
 
         if (null !== $this->defaultDriver) {
             $res['DefaultDriver'] = $this->defaultDriver;
+        }
+
+        if (null !== $this->diskCapacity) {
+            $res['DiskCapacity'] = $this->diskCapacity;
+        }
+
+        if (null !== $this->diskPL) {
+            $res['DiskPL'] = $this->diskPL;
         }
 
         if (null !== $this->ecsCount) {
@@ -202,7 +222,8 @@ class MachineGroup extends Model
                 $res['SupportedDrivers'] = [];
                 $n1 = 0;
                 foreach ($this->supportedDrivers as $item1) {
-                    $res['SupportedDrivers'][$n1++] = $item1;
+                    $res['SupportedDrivers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,6 +245,14 @@ class MachineGroup extends Model
 
         if (isset($map['DefaultDriver'])) {
             $model->defaultDriver = $map['DefaultDriver'];
+        }
+
+        if (isset($map['DiskCapacity'])) {
+            $model->diskCapacity = $map['DiskCapacity'];
+        }
+
+        if (isset($map['DiskPL'])) {
+            $model->diskPL = $map['DiskPL'];
         }
 
         if (isset($map['EcsCount'])) {
@@ -291,7 +320,8 @@ class MachineGroup extends Model
                 $model->supportedDrivers = [];
                 $n1 = 0;
                 foreach ($map['SupportedDrivers'] as $item1) {
-                    $model->supportedDrivers[$n1++] = $item1;
+                    $model->supportedDrivers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

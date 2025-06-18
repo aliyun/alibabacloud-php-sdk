@@ -164,7 +164,8 @@ class QuotaJobViewMetric extends Model
                 $res['NodeNames'] = [];
                 $n1 = 0;
                 foreach ($this->nodeNames as $item1) {
-                    $res['NodeNames'][$n1++] = $item1;
+                    $res['NodeNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +250,8 @@ class QuotaJobViewMetric extends Model
                 $model->nodeNames = [];
                 $n1 = 0;
                 foreach ($map['NodeNames'] as $item1) {
-                    $model->nodeNames[$n1++] = $item1;
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

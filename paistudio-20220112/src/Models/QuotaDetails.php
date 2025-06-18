@@ -46,6 +46,11 @@ class QuotaDetails extends Model
     /**
      * @var ResourceAmount
      */
+    public $selfSubmittedQuota;
+
+    /**
+     * @var ResourceAmount
+     */
     public $usedQuota;
     protected $_name = [
         'actualMinQuota' => 'ActualMinQuota',
@@ -55,6 +60,7 @@ class QuotaDetails extends Model
         'desiredMinQuota' => 'DesiredMinQuota',
         'requestedQuota' => 'RequestedQuota',
         'selfAllocatedQuota' => 'SelfAllocatedQuota',
+        'selfSubmittedQuota' => 'SelfSubmittedQuota',
         'usedQuota' => 'UsedQuota',
     ];
 
@@ -80,6 +86,9 @@ class QuotaDetails extends Model
         }
         if (null !== $this->selfAllocatedQuota) {
             $this->selfAllocatedQuota->validate();
+        }
+        if (null !== $this->selfSubmittedQuota) {
+            $this->selfSubmittedQuota->validate();
         }
         if (null !== $this->usedQuota) {
             $this->usedQuota->validate();
@@ -116,6 +125,10 @@ class QuotaDetails extends Model
 
         if (null !== $this->selfAllocatedQuota) {
             $res['SelfAllocatedQuota'] = null !== $this->selfAllocatedQuota ? $this->selfAllocatedQuota->toArray($noStream) : $this->selfAllocatedQuota;
+        }
+
+        if (null !== $this->selfSubmittedQuota) {
+            $res['SelfSubmittedQuota'] = null !== $this->selfSubmittedQuota ? $this->selfSubmittedQuota->toArray($noStream) : $this->selfSubmittedQuota;
         }
 
         if (null !== $this->usedQuota) {
@@ -159,6 +172,10 @@ class QuotaDetails extends Model
 
         if (isset($map['SelfAllocatedQuota'])) {
             $model->selfAllocatedQuota = ResourceAmount::fromMap($map['SelfAllocatedQuota']);
+        }
+
+        if (isset($map['SelfSubmittedQuota'])) {
+            $model->selfSubmittedQuota = ResourceAmount::fromMap($map['SelfSubmittedQuota']);
         }
 
         if (isset($map['UsedQuota'])) {

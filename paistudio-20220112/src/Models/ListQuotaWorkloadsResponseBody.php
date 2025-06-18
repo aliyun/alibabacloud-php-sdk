@@ -52,7 +52,8 @@ class ListQuotaWorkloadsResponseBody extends Model
                 $res['Workloads'] = [];
                 $n1 = 0;
                 foreach ($this->workloads as $item1) {
-                    $res['Workloads'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Workloads'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class ListQuotaWorkloadsResponseBody extends Model
                 $model->workloads = [];
                 $n1 = 0;
                 foreach ($map['Workloads'] as $item1) {
-                    $model->workloads[$n1++] = QueueInfo::fromMap($item1);
+                    $model->workloads[$n1] = QueueInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

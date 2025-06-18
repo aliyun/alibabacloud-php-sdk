@@ -48,7 +48,8 @@ class GetSpotPriceHistoryResponseBody extends Model
                 $res['SpotPriceHistory'] = [];
                 $n1 = 0;
                 foreach ($this->spotPriceHistory as $item1) {
-                    $res['SpotPriceHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpotPriceHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class GetSpotPriceHistoryResponseBody extends Model
                 $model->spotPriceHistory = [];
                 $n1 = 0;
                 foreach ($map['SpotPriceHistory'] as $item1) {
-                    $model->spotPriceHistory[$n1++] = SpotPriceItem::fromMap($item1);
+                    $model->spotPriceHistory[$n1] = SpotPriceItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

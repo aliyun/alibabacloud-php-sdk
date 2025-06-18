@@ -79,6 +79,11 @@ class QueueInfo extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $useOversoldResource;
+
+    /**
      * @var string
      */
     public $userId;
@@ -112,6 +117,11 @@ class QueueInfo extends Model
      * @var string
      */
     public $workspaceId;
+
+    /**
+     * @var string
+     */
+    public $workspaceName;
     protected $_name = [
         'code' => 'Code',
         'codeType' => 'CodeType',
@@ -127,6 +137,7 @@ class QueueInfo extends Model
         'reason' => 'Reason',
         'resource' => 'Resource',
         'status' => 'Status',
+        'useOversoldResource' => 'UseOversoldResource',
         'userId' => 'UserId',
         'userName' => 'UserName',
         'workloadId' => 'WorkloadId',
@@ -134,6 +145,7 @@ class QueueInfo extends Model
         'workloadStatus' => 'WorkloadStatus',
         'workloadType' => 'WorkloadType',
         'workspaceId' => 'WorkspaceId',
+        'workspaceName' => 'WorkspaceName',
     ];
 
     public function validate()
@@ -203,6 +215,10 @@ class QueueInfo extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->useOversoldResource) {
+            $res['UseOversoldResource'] = $this->useOversoldResource;
+        }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -229,6 +245,10 @@ class QueueInfo extends Model
 
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
+        }
+
+        if (null !== $this->workspaceName) {
+            $res['WorkspaceName'] = $this->workspaceName;
         }
 
         return $res;
@@ -298,6 +318,10 @@ class QueueInfo extends Model
             $model->status = $map['Status'];
         }
 
+        if (isset($map['UseOversoldResource'])) {
+            $model->useOversoldResource = $map['UseOversoldResource'];
+        }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
@@ -324,6 +348,10 @@ class QueueInfo extends Model
 
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
+        }
+
+        if (isset($map['WorkspaceName'])) {
+            $model->workspaceName = $map['WorkspaceName'];
         }
 
         return $model;

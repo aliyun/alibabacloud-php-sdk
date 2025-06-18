@@ -44,7 +44,8 @@ class ListResourceGroupMachineGroupsResponseBody extends Model
                 $res['MachineGroups'] = [];
                 $n1 = 0;
                 foreach ($this->machineGroups as $item1) {
-                    $res['MachineGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MachineGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListResourceGroupMachineGroupsResponseBody extends Model
                 $model->machineGroups = [];
                 $n1 = 0;
                 foreach ($map['MachineGroups'] as $item1) {
-                    $model->machineGroups[$n1++] = MachineGroup::fromMap($item1);
+                    $model->machineGroups[$n1] = MachineGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

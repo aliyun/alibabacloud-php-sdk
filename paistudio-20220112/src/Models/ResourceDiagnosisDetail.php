@@ -65,7 +65,8 @@ class ResourceDiagnosisDetail extends Model
                 $res['ExceedResources'] = [];
                 $n1 = 0;
                 foreach ($this->exceedResources as $item1) {
-                    $res['ExceedResources'][$n1++] = $item1;
+                    $res['ExceedResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class ResourceDiagnosisDetail extends Model
                 $res['WorkloadIds'] = [];
                 $n1 = 0;
                 foreach ($this->workloadIds as $item1) {
-                    $res['WorkloadIds'][$n1++] = $item1;
+                    $res['WorkloadIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +110,8 @@ class ResourceDiagnosisDetail extends Model
                 $model->exceedResources = [];
                 $n1 = 0;
                 foreach ($map['ExceedResources'] as $item1) {
-                    $model->exceedResources[$n1++] = $item1;
+                    $model->exceedResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +133,8 @@ class ResourceDiagnosisDetail extends Model
                 $model->workloadIds = [];
                 $n1 = 0;
                 foreach ($map['WorkloadIds'] as $item1) {
-                    $model->workloadIds[$n1++] = $item1;
+                    $model->workloadIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

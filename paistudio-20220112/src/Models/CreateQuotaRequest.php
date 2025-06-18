@@ -103,7 +103,8 @@ class CreateQuotaRequest extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class CreateQuotaRequest extends Model
                 $res['ResourceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroupIds as $item1) {
-                    $res['ResourceGroupIds'][$n1++] = $item1;
+                    $res['ResourceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class CreateQuotaRequest extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +199,8 @@ class CreateQuotaRequest extends Model
                 $model->resourceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroupIds'] as $item1) {
-                    $model->resourceGroupIds[$n1++] = $item1;
+                    $model->resourceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

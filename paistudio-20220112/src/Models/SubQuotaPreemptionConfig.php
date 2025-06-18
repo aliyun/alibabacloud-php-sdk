@@ -42,7 +42,8 @@ class SubQuotaPreemptionConfig extends Model
                 $res['PreemptedProducts'] = [];
                 $n1 = 0;
                 foreach ($this->preemptedProducts as $item1) {
-                    $res['PreemptedProducts'][$n1++] = $item1;
+                    $res['PreemptedProducts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class SubQuotaPreemptionConfig extends Model
                 $model->preemptedProducts = [];
                 $n1 = 0;
                 foreach ($map['PreemptedProducts'] as $item1) {
-                    $model->preemptedProducts[$n1++] = $item1;
+                    $model->preemptedProducts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

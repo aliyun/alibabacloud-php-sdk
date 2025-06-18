@@ -47,7 +47,8 @@ class BindingPolicy extends Model
                 $res['ExcludeNodes'] = [];
                 $n1 = 0;
                 foreach ($this->excludeNodes as $item1) {
-                    $res['ExcludeNodes'][$n1++] = $item1;
+                    $res['ExcludeNodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class BindingPolicy extends Model
                 $res['IncludeNodes'] = [];
                 $n1 = 0;
                 foreach ($this->includeNodes as $item1) {
-                    $res['IncludeNodes'][$n1++] = $item1;
+                    $res['IncludeNodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class BindingPolicy extends Model
                 $model->excludeNodes = [];
                 $n1 = 0;
                 foreach ($map['ExcludeNodes'] as $item1) {
-                    $model->excludeNodes[$n1++] = $item1;
+                    $model->excludeNodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class BindingPolicy extends Model
                 $model->includeNodes = [];
                 $n1 = 0;
                 foreach ($map['IncludeNodes'] as $item1) {
-                    $model->includeNodes[$n1++] = $item1;
+                    $model->includeNodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

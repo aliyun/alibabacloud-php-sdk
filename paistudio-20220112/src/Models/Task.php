@@ -107,7 +107,8 @@ class Task extends Model
                 $res['Actions'] = [];
                 $n1 = 0;
                 foreach ($this->actions as $item1) {
-                    $res['Actions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Actions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +177,8 @@ class Task extends Model
                 $model->actions = [];
                 $n1 = 0;
                 foreach ($map['Actions'] as $item1) {
-                    $model->actions[$n1++] = Action::fromMap($item1);
+                    $model->actions[$n1] = Action::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

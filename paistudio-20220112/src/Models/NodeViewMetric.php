@@ -246,7 +246,8 @@ class NodeViewMetric extends Model
                 $res['UserIDs'] = [];
                 $n1 = 0;
                 foreach ($this->userIDs as $item1) {
-                    $res['UserIDs'][$n1++] = $item1;
+                    $res['UserIDs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -356,7 +357,8 @@ class NodeViewMetric extends Model
                 $model->userIDs = [];
                 $n1 = 0;
                 foreach ($map['UserIDs'] as $item1) {
-                    $model->userIDs[$n1++] = $item1;
+                    $model->userIDs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

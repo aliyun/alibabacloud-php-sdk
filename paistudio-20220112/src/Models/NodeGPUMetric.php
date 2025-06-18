@@ -88,7 +88,8 @@ class NodeGPUMetric extends Model
                 $res['GPUMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->GPUMetrics as $item1) {
-                    $res['GPUMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GPUMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class NodeGPUMetric extends Model
                 $model->GPUMetrics = [];
                 $n1 = 0;
                 foreach ($map['GPUMetrics'] as $item1) {
-                    $model->GPUMetrics[$n1++] = GPUMetric::fromMap($item1);
+                    $model->GPUMetrics[$n1] = GPUMetric::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

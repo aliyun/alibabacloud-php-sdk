@@ -32,7 +32,8 @@ class ResourceSpec extends Model
                 $res['NodeSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->nodeSpecs as $item1) {
-                    $res['NodeSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ResourceSpec extends Model
                 $model->nodeSpecs = [];
                 $n1 = 0;
                 foreach ($map['NodeSpecs'] as $item1) {
-                    $model->nodeSpecs[$n1++] = NodeSpec::fromMap($item1);
+                    $model->nodeSpecs[$n1] = NodeSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

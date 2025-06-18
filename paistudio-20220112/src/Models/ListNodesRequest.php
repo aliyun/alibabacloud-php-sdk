@@ -16,6 +16,11 @@ class ListNodesRequest extends Model
     /**
      * @var string
      */
+    public $availabilityZone;
+
+    /**
+     * @var string
+     */
     public $filterByQuotaId;
 
     /**
@@ -27,6 +32,11 @@ class ListNodesRequest extends Model
      * @var string
      */
     public $GPUType;
+
+    /**
+     * @var string
+     */
+    public $hyperZone;
 
     /**
      * @var string
@@ -94,9 +104,11 @@ class ListNodesRequest extends Model
     public $verbose;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
+        'availabilityZone' => 'AvailabilityZone',
         'filterByQuotaId' => 'FilterByQuotaId',
         'filterByResourceGroupIds' => 'FilterByResourceGroupIds',
         'GPUType' => 'GPUType',
+        'hyperZone' => 'HyperZone',
         'machineGroupIds' => 'MachineGroupIds',
         'nodeNames' => 'NodeNames',
         'nodeStatuses' => 'NodeStatuses',
@@ -124,6 +136,10 @@ class ListNodesRequest extends Model
             $res['AcceleratorType'] = $this->acceleratorType;
         }
 
+        if (null !== $this->availabilityZone) {
+            $res['AvailabilityZone'] = $this->availabilityZone;
+        }
+
         if (null !== $this->filterByQuotaId) {
             $res['FilterByQuotaId'] = $this->filterByQuotaId;
         }
@@ -134,6 +150,10 @@ class ListNodesRequest extends Model
 
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
+        }
+
+        if (null !== $this->hyperZone) {
+            $res['HyperZone'] = $this->hyperZone;
         }
 
         if (null !== $this->machineGroupIds) {
@@ -203,6 +223,10 @@ class ListNodesRequest extends Model
             $model->acceleratorType = $map['AcceleratorType'];
         }
 
+        if (isset($map['AvailabilityZone'])) {
+            $model->availabilityZone = $map['AvailabilityZone'];
+        }
+
         if (isset($map['FilterByQuotaId'])) {
             $model->filterByQuotaId = $map['FilterByQuotaId'];
         }
@@ -213,6 +237,10 @@ class ListNodesRequest extends Model
 
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];
+        }
+
+        if (isset($map['HyperZone'])) {
+            $model->hyperZone = $map['HyperZone'];
         }
 
         if (isset($map['MachineGroupIds'])) {

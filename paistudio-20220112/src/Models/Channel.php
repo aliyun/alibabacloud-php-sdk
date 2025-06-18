@@ -80,7 +80,8 @@ class Channel extends Model
                 $res['SupportedChannelTypes'] = [];
                 $n1 = 0;
                 foreach ($this->supportedChannelTypes as $item1) {
-                    $res['SupportedChannelTypes'][$n1++] = $item1;
+                    $res['SupportedChannelTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class Channel extends Model
                 $model->supportedChannelTypes = [];
                 $n1 = 0;
                 foreach ($map['SupportedChannelTypes'] as $item1) {
-                    $model->supportedChannelTypes[$n1++] = $item1;
+                    $model->supportedChannelTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

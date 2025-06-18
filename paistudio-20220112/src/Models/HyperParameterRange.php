@@ -74,7 +74,8 @@ class HyperParameterRange extends Model
                 $res['Enum'] = [];
                 $n1 = 0;
                 foreach ($this->enum as $item1) {
-                    $res['Enum'][$n1++] = $item1;
+                    $res['Enum'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class HyperParameterRange extends Model
                 $model->enum = [];
                 $n1 = 0;
                 foreach ($map['Enum'] as $item1) {
-                    $model->enum[$n1++] = $item1;
+                    $model->enum[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

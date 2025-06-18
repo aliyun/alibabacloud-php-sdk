@@ -202,7 +202,8 @@ class GetMachineGroupResponseBody extends Model
                 $res['SupportedDrivers'] = [];
                 $n1 = 0;
                 foreach ($this->supportedDrivers as $item1) {
-                    $res['SupportedDrivers'][$n1++] = $item1;
+                    $res['SupportedDrivers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +292,8 @@ class GetMachineGroupResponseBody extends Model
                 $model->supportedDrivers = [];
                 $n1 = 0;
                 foreach ($map['SupportedDrivers'] as $item1) {
-                    $model->supportedDrivers[$n1++] = $item1;
+                    $model->supportedDrivers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

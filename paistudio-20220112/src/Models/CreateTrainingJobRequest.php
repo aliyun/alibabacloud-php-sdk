@@ -233,7 +233,8 @@ class CreateTrainingJobRequest extends Model
                 $res['HyperParameters'] = [];
                 $n1 = 0;
                 foreach ($this->hyperParameters as $item1) {
-                    $res['HyperParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HyperParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +244,8 @@ class CreateTrainingJobRequest extends Model
                 $res['InputChannels'] = [];
                 $n1 = 0;
                 foreach ($this->inputChannels as $item1) {
-                    $res['InputChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -253,7 +255,8 @@ class CreateTrainingJobRequest extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -263,7 +266,8 @@ class CreateTrainingJobRequest extends Model
                 $res['OutputChannels'] = [];
                 $n1 = 0;
                 foreach ($this->outputChannels as $item1) {
-                    $res['OutputChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -277,7 +281,8 @@ class CreateTrainingJobRequest extends Model
                 $res['PythonRequirements'] = [];
                 $n1 = 0;
                 foreach ($this->pythonRequirements as $item1) {
-                    $res['PythonRequirements'][$n1++] = $item1;
+                    $res['PythonRequirements'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -363,7 +368,8 @@ class CreateTrainingJobRequest extends Model
                 $model->hyperParameters = [];
                 $n1 = 0;
                 foreach ($map['HyperParameters'] as $item1) {
-                    $model->hyperParameters[$n1++] = hyperParameters::fromMap($item1);
+                    $model->hyperParameters[$n1] = hyperParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -373,7 +379,8 @@ class CreateTrainingJobRequest extends Model
                 $model->inputChannels = [];
                 $n1 = 0;
                 foreach ($map['InputChannels'] as $item1) {
-                    $model->inputChannels[$n1++] = inputChannels::fromMap($item1);
+                    $model->inputChannels[$n1] = inputChannels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +390,8 @@ class CreateTrainingJobRequest extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -393,7 +401,8 @@ class CreateTrainingJobRequest extends Model
                 $model->outputChannels = [];
                 $n1 = 0;
                 foreach ($map['OutputChannels'] as $item1) {
-                    $model->outputChannels[$n1++] = outputChannels::fromMap($item1);
+                    $model->outputChannels[$n1] = outputChannels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -407,7 +416,8 @@ class CreateTrainingJobRequest extends Model
                 $model->pythonRequirements = [];
                 $n1 = 0;
                 foreach ($map['PythonRequirements'] as $item1) {
-                    $model->pythonRequirements[$n1++] = $item1;
+                    $model->pythonRequirements[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

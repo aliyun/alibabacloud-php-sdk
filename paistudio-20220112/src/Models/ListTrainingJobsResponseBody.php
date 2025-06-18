@@ -53,7 +53,8 @@ class ListTrainingJobsResponseBody extends Model
                 $res['TrainingJobs'] = [];
                 $n1 = 0;
                 foreach ($this->trainingJobs as $item1) {
-                    $res['TrainingJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrainingJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ListTrainingJobsResponseBody extends Model
                 $model->trainingJobs = [];
                 $n1 = 0;
                 foreach ($map['TrainingJobs'] as $item1) {
-                    $model->trainingJobs[$n1++] = trainingJobs::fromMap($item1);
+                    $model->trainingJobs[$n1] = trainingJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

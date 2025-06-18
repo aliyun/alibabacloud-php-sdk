@@ -26,6 +26,11 @@ class QuotaConfig extends Model
     /**
      * @var bool
      */
+    public $enableGPUShare;
+
+    /**
+     * @var bool
+     */
     public $enablePreemptSubquotaWorkloads;
 
     /**
@@ -34,9 +39,19 @@ class QuotaConfig extends Model
     public $enableSubQuotaPreemption;
 
     /**
+     * @var OversoldUsageConfig
+     */
+    public $oversoldUsageInfo;
+
+    /**
      * @var WorkspaceSpecs[]
      */
     public $resourceSpecs;
+
+    /**
+     * @var SelfQuotaPreemptionConfig
+     */
+    public $selfQuotaPreemptionConfig;
 
     /**
      * @var SubQuotaPreemptionConfig
@@ -61,9 +76,12 @@ class QuotaConfig extends Model
         'ACS' => 'ACS',
         'clusterId' => 'ClusterId',
         'defaultGPUDriver' => 'DefaultGPUDriver',
+        'enableGPUShare' => 'EnableGPUShare',
         'enablePreemptSubquotaWorkloads' => 'EnablePreemptSubquotaWorkloads',
         'enableSubQuotaPreemption' => 'EnableSubQuotaPreemption',
+        'oversoldUsageInfo' => 'OversoldUsageInfo',
         'resourceSpecs' => 'ResourceSpecs',
+        'selfQuotaPreemptionConfig' => 'SelfQuotaPreemptionConfig',
         'subQuotaPreemptionConfig' => 'SubQuotaPreemptionConfig',
         'supportGPUDrivers' => 'SupportGPUDrivers',
         'supportRDMA' => 'SupportRDMA',
@@ -75,8 +93,14 @@ class QuotaConfig extends Model
         if (null !== $this->ACS) {
             $this->ACS->validate();
         }
+        if (null !== $this->oversoldUsageInfo) {
+            $this->oversoldUsageInfo->validate();
+        }
         if (\is_array($this->resourceSpecs)) {
             Model::validateArray($this->resourceSpecs);
+        }
+        if (null !== $this->selfQuotaPreemptionConfig) {
+            $this->selfQuotaPreemptionConfig->validate();
         }
         if (null !== $this->subQuotaPreemptionConfig) {
             $this->subQuotaPreemptionConfig->validate();
@@ -105,6 +129,10 @@ class QuotaConfig extends Model
             $res['DefaultGPUDriver'] = $this->defaultGPUDriver;
         }
 
+        if (null !== $this->enableGPUShare) {
+            $res['EnableGPUShare'] = $this->enableGPUShare;
+        }
+
         if (null !== $this->enablePreemptSubquotaWorkloads) {
             $res['EnablePreemptSubquotaWorkloads'] = $this->enablePreemptSubquotaWorkloads;
         }
@@ -113,14 +141,23 @@ class QuotaConfig extends Model
             $res['EnableSubQuotaPreemption'] = $this->enableSubQuotaPreemption;
         }
 
+        if (null !== $this->oversoldUsageInfo) {
+            $res['OversoldUsageInfo'] = null !== $this->oversoldUsageInfo ? $this->oversoldUsageInfo->toArray($noStream) : $this->oversoldUsageInfo;
+        }
+
         if (null !== $this->resourceSpecs) {
             if (\is_array($this->resourceSpecs)) {
                 $res['ResourceSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->resourceSpecs as $item1) {
-                    $res['ResourceSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->selfQuotaPreemptionConfig) {
+            $res['SelfQuotaPreemptionConfig'] = null !== $this->selfQuotaPreemptionConfig ? $this->selfQuotaPreemptionConfig->toArray($noStream) : $this->selfQuotaPreemptionConfig;
         }
 
         if (null !== $this->subQuotaPreemptionConfig) {
@@ -132,7 +169,8 @@ class QuotaConfig extends Model
                 $res['SupportGPUDrivers'] = [];
                 $n1 = 0;
                 foreach ($this->supportGPUDrivers as $item1) {
-                    $res['SupportGPUDrivers'][$n1++] = $item1;
+                    $res['SupportGPUDrivers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,6 +206,10 @@ class QuotaConfig extends Model
             $model->defaultGPUDriver = $map['DefaultGPUDriver'];
         }
 
+        if (isset($map['EnableGPUShare'])) {
+            $model->enableGPUShare = $map['EnableGPUShare'];
+        }
+
         if (isset($map['EnablePreemptSubquotaWorkloads'])) {
             $model->enablePreemptSubquotaWorkloads = $map['EnablePreemptSubquotaWorkloads'];
         }
@@ -176,14 +218,23 @@ class QuotaConfig extends Model
             $model->enableSubQuotaPreemption = $map['EnableSubQuotaPreemption'];
         }
 
+        if (isset($map['OversoldUsageInfo'])) {
+            $model->oversoldUsageInfo = OversoldUsageConfig::fromMap($map['OversoldUsageInfo']);
+        }
+
         if (isset($map['ResourceSpecs'])) {
             if (!empty($map['ResourceSpecs'])) {
                 $model->resourceSpecs = [];
                 $n1 = 0;
                 foreach ($map['ResourceSpecs'] as $item1) {
-                    $model->resourceSpecs[$n1++] = WorkspaceSpecs::fromMap($item1);
+                    $model->resourceSpecs[$n1] = WorkspaceSpecs::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SelfQuotaPreemptionConfig'])) {
+            $model->selfQuotaPreemptionConfig = SelfQuotaPreemptionConfig::fromMap($map['SelfQuotaPreemptionConfig']);
         }
 
         if (isset($map['SubQuotaPreemptionConfig'])) {
@@ -195,7 +246,8 @@ class QuotaConfig extends Model
                 $model->supportGPUDrivers = [];
                 $n1 = 0;
                 foreach ($map['SupportGPUDrivers'] as $item1) {
-                    $model->supportGPUDrivers[$n1++] = $item1;
+                    $model->supportGPUDrivers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

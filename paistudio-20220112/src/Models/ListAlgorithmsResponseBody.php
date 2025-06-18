@@ -45,7 +45,8 @@ class ListAlgorithmsResponseBody extends Model
                 $res['Algorithms'] = [];
                 $n1 = 0;
                 foreach ($this->algorithms as $item1) {
-                    $res['Algorithms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Algorithms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListAlgorithmsResponseBody extends Model
                 $model->algorithms = [];
                 $n1 = 0;
                 foreach ($map['Algorithms'] as $item1) {
-                    $model->algorithms[$n1++] = algorithms::fromMap($item1);
+                    $model->algorithms[$n1] = algorithms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

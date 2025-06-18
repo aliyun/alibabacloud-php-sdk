@@ -79,7 +79,8 @@ class UserVpc extends Model
                 $res['ExtendedCIDRs'] = [];
                 $n1 = 0;
                 foreach ($this->extendedCIDRs as $item1) {
-                    $res['ExtendedCIDRs'][$n1++] = $item1;
+                    $res['ExtendedCIDRs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class UserVpc extends Model
                 $model->extendedCIDRs = [];
                 $n1 = 0;
                 foreach ($map['ExtendedCIDRs'] as $item1) {
-                    $model->extendedCIDRs[$n1++] = $item1;
+                    $model->extendedCIDRs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

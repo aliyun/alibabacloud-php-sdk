@@ -39,7 +39,8 @@ class ListTrainingJobInstanceMetricsResponseBody extends Model
                 $res['InstanceMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->instanceMetrics as $item1) {
-                    $res['InstanceMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListTrainingJobInstanceMetricsResponseBody extends Model
                 $model->instanceMetrics = [];
                 $n1 = 0;
                 foreach ($map['InstanceMetrics'] as $item1) {
-                    $model->instanceMetrics[$n1++] = instanceMetrics::fromMap($item1);
+                    $model->instanceMetrics[$n1] = instanceMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

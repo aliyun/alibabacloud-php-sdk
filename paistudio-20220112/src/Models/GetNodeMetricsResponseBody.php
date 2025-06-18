@@ -48,7 +48,8 @@ class GetNodeMetricsResponseBody extends Model
                 $res['NodesMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->nodesMetrics as $item1) {
-                    $res['NodesMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodesMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class GetNodeMetricsResponseBody extends Model
                 $model->nodesMetrics = [];
                 $n1 = 0;
                 foreach ($map['NodesMetrics'] as $item1) {
-                    $model->nodesMetrics[$n1++] = NodeMetric::fromMap($item1);
+                    $model->nodesMetrics[$n1] = NodeMetric::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

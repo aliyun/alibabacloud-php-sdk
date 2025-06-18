@@ -44,7 +44,8 @@ class ListQuotasResponseBody extends Model
                 $res['Quotas'] = [];
                 $n1 = 0;
                 foreach ($this->quotas as $item1) {
-                    $res['Quotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Quotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListQuotasResponseBody extends Model
                 $model->quotas = [];
                 $n1 = 0;
                 foreach ($map['Quotas'] as $item1) {
-                    $model->quotas[$n1++] = Quota::fromMap($item1);
+                    $model->quotas[$n1] = Quota::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

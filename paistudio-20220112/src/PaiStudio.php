@@ -2340,6 +2340,10 @@ class PaiStudio extends OpenApiClient
             @$query['AcceleratorType'] = $request->acceleratorType;
         }
 
+        if (null !== $request->availabilityZone) {
+            @$query['AvailabilityZone'] = $request->availabilityZone;
+        }
+
         if (null !== $request->filterByQuotaId) {
             @$query['FilterByQuotaId'] = $request->filterByQuotaId;
         }
@@ -2350,6 +2354,10 @@ class PaiStudio extends OpenApiClient
 
         if (null !== $request->GPUType) {
             @$query['GPUType'] = $request->GPUType;
+        }
+
+        if (null !== $request->hyperZone) {
+            @$query['HyperZone'] = $request->hyperZone;
         }
 
         if (null !== $request->machineGroupIds) {

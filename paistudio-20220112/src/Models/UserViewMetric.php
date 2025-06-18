@@ -184,7 +184,8 @@ class UserViewMetric extends Model
                 $res['CpuJobNames'] = [];
                 $n1 = 0;
                 foreach ($this->cpuJobNames as $item1) {
-                    $res['CpuJobNames'][$n1++] = $item1;
+                    $res['CpuJobNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +195,8 @@ class UserViewMetric extends Model
                 $res['CpuNodeNames'] = [];
                 $n1 = 0;
                 foreach ($this->cpuNodeNames as $item1) {
-                    $res['CpuNodeNames'][$n1++] = $item1;
+                    $res['CpuNodeNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -220,7 +222,8 @@ class UserViewMetric extends Model
                 $res['GpuJobNames'] = [];
                 $n1 = 0;
                 foreach ($this->gpuJobNames as $item1) {
-                    $res['GpuJobNames'][$n1++] = $item1;
+                    $res['GpuJobNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +233,8 @@ class UserViewMetric extends Model
                 $res['GpuNodeNames'] = [];
                 $n1 = 0;
                 foreach ($this->gpuNodeNames as $item1) {
-                    $res['GpuNodeNames'][$n1++] = $item1;
+                    $res['GpuNodeNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +260,8 @@ class UserViewMetric extends Model
                 $res['NodeNames'] = [];
                 $n1 = 0;
                 foreach ($this->nodeNames as $item1) {
-                    $res['NodeNames'][$n1++] = $item1;
+                    $res['NodeNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -317,7 +322,8 @@ class UserViewMetric extends Model
                 $model->cpuJobNames = [];
                 $n1 = 0;
                 foreach ($map['CpuJobNames'] as $item1) {
-                    $model->cpuJobNames[$n1++] = $item1;
+                    $model->cpuJobNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -327,7 +333,8 @@ class UserViewMetric extends Model
                 $model->cpuNodeNames = [];
                 $n1 = 0;
                 foreach ($map['CpuNodeNames'] as $item1) {
-                    $model->cpuNodeNames[$n1++] = $item1;
+                    $model->cpuNodeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -353,7 +360,8 @@ class UserViewMetric extends Model
                 $model->gpuJobNames = [];
                 $n1 = 0;
                 foreach ($map['GpuJobNames'] as $item1) {
-                    $model->gpuJobNames[$n1++] = $item1;
+                    $model->gpuJobNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -363,7 +371,8 @@ class UserViewMetric extends Model
                 $model->gpuNodeNames = [];
                 $n1 = 0;
                 foreach ($map['GpuNodeNames'] as $item1) {
-                    $model->gpuNodeNames[$n1++] = $item1;
+                    $model->gpuNodeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -389,7 +398,8 @@ class UserViewMetric extends Model
                 $model->nodeNames = [];
                 $n1 = 0;
                 foreach ($map['NodeNames'] as $item1) {
-                    $model->nodeNames[$n1++] = $item1;
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

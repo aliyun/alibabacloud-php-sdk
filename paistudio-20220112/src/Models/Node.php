@@ -14,6 +14,11 @@ class Node extends Model
     public $acceleratorType;
 
     /**
+     * @var string
+     */
+    public $availabilityZone;
+
+    /**
      * @var QuotaIdName[]
      */
     public $boundQuotas;
@@ -57,6 +62,11 @@ class Node extends Model
      * @var string
      */
     public $gmtModifiedTime;
+
+    /**
+     * @var string
+     */
+    public $hyperZone;
 
     /**
      * @var bool
@@ -159,6 +169,7 @@ class Node extends Model
     public $workloadNum;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
+        'availabilityZone' => 'AvailabilityZone',
         'boundQuotas' => 'BoundQuotas',
         'CPU' => 'CPU',
         'creatorId' => 'CreatorId',
@@ -168,6 +179,7 @@ class Node extends Model
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtExpiredTime' => 'GmtExpiredTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
+        'hyperZone' => 'HyperZone',
         'isBound' => 'IsBound',
         'limitCPU' => 'LimitCPU',
         'limitGPU' => 'LimitGPU',
@@ -208,12 +220,17 @@ class Node extends Model
             $res['AcceleratorType'] = $this->acceleratorType;
         }
 
+        if (null !== $this->availabilityZone) {
+            $res['AvailabilityZone'] = $this->availabilityZone;
+        }
+
         if (null !== $this->boundQuotas) {
             if (\is_array($this->boundQuotas)) {
                 $res['BoundQuotas'] = [];
                 $n1 = 0;
                 foreach ($this->boundQuotas as $item1) {
-                    $res['BoundQuotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BoundQuotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,6 +265,10 @@ class Node extends Model
 
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
+        }
+
+        if (null !== $this->hyperZone) {
+            $res['HyperZone'] = $this->hyperZone;
         }
 
         if (null !== $this->isBound) {
@@ -327,7 +348,8 @@ class Node extends Model
                 $res['Users'] = [];
                 $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -351,12 +373,17 @@ class Node extends Model
             $model->acceleratorType = $map['AcceleratorType'];
         }
 
+        if (isset($map['AvailabilityZone'])) {
+            $model->availabilityZone = $map['AvailabilityZone'];
+        }
+
         if (isset($map['BoundQuotas'])) {
             if (!empty($map['BoundQuotas'])) {
                 $model->boundQuotas = [];
                 $n1 = 0;
                 foreach ($map['BoundQuotas'] as $item1) {
-                    $model->boundQuotas[$n1++] = QuotaIdName::fromMap($item1);
+                    $model->boundQuotas[$n1] = QuotaIdName::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -391,6 +418,10 @@ class Node extends Model
 
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
+        }
+
+        if (isset($map['HyperZone'])) {
+            $model->hyperZone = $map['HyperZone'];
         }
 
         if (isset($map['IsBound'])) {
@@ -470,7 +501,8 @@ class Node extends Model
                 $model->users = [];
                 $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = UserInfo::fromMap($item1);
+                    $model->users[$n1] = UserInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

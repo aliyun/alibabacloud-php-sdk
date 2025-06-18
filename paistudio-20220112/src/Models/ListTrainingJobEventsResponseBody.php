@@ -44,7 +44,8 @@ class ListTrainingJobEventsResponseBody extends Model
                 $res['Events'] = [];
                 $n1 = 0;
                 foreach ($this->events as $item1) {
-                    $res['Events'][$n1++] = $item1;
+                    $res['Events'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListTrainingJobEventsResponseBody extends Model
                 $model->events = [];
                 $n1 = 0;
                 foreach ($map['Events'] as $item1) {
-                    $model->events[$n1++] = $item1;
+                    $model->events[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

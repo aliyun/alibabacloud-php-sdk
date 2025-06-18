@@ -42,7 +42,8 @@ class ACS extends Model
                 $res['AssociatedProducts'] = [];
                 $n1 = 0;
                 foreach ($this->associatedProducts as $item1) {
-                    $res['AssociatedProducts'][$n1++] = $item1;
+                    $res['AssociatedProducts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ACS extends Model
                 $model->associatedProducts = [];
                 $n1 = 0;
                 foreach ($map['AssociatedProducts'] as $item1) {
-                    $model->associatedProducts[$n1++] = $item1;
+                    $model->associatedProducts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

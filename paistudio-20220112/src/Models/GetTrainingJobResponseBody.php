@@ -358,7 +358,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['HyperParameters'] = [];
                 $n1 = 0;
                 foreach ($this->hyperParameters as $item1) {
-                    $res['HyperParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HyperParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -368,7 +369,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['InputChannels'] = [];
                 $n1 = 0;
                 foreach ($this->inputChannels as $item1) {
-                    $res['InputChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +380,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['Instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -392,7 +395,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -402,7 +406,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['LatestMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->latestMetrics as $item1) {
-                    $res['LatestMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LatestMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -416,7 +421,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['OutputChannels'] = [];
                 $n1 = 0;
                 foreach ($this->outputChannels as $item1) {
-                    $res['OutputChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -434,7 +440,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['PythonRequirements'] = [];
                 $n1 = 0;
                 foreach ($this->pythonRequirements as $item1) {
-                    $res['PythonRequirements'][$n1++] = $item1;
+                    $res['PythonRequirements'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -472,7 +479,8 @@ class GetTrainingJobResponseBody extends Model
                 $res['StatusTransitions'] = [];
                 $n1 = 0;
                 foreach ($this->statusTransitions as $item1) {
-                    $res['StatusTransitions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StatusTransitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -570,7 +578,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->hyperParameters = [];
                 $n1 = 0;
                 foreach ($map['HyperParameters'] as $item1) {
-                    $model->hyperParameters[$n1++] = hyperParameters::fromMap($item1);
+                    $model->hyperParameters[$n1] = hyperParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -580,7 +589,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->inputChannels = [];
                 $n1 = 0;
                 foreach ($map['InputChannels'] as $item1) {
-                    $model->inputChannels[$n1++] = inputChannels::fromMap($item1);
+                    $model->inputChannels[$n1] = inputChannels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -590,7 +600,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
-                    $model->instances[$n1++] = instances::fromMap($item1);
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -604,7 +615,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -614,7 +626,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->latestMetrics = [];
                 $n1 = 0;
                 foreach ($map['LatestMetrics'] as $item1) {
-                    $model->latestMetrics[$n1++] = latestMetrics::fromMap($item1);
+                    $model->latestMetrics[$n1] = latestMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -628,7 +641,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->outputChannels = [];
                 $n1 = 0;
                 foreach ($map['OutputChannels'] as $item1) {
-                    $model->outputChannels[$n1++] = outputChannels::fromMap($item1);
+                    $model->outputChannels[$n1] = outputChannels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -646,7 +660,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->pythonRequirements = [];
                 $n1 = 0;
                 foreach ($map['PythonRequirements'] as $item1) {
-                    $model->pythonRequirements[$n1++] = $item1;
+                    $model->pythonRequirements[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -684,7 +699,8 @@ class GetTrainingJobResponseBody extends Model
                 $model->statusTransitions = [];
                 $n1 = 0;
                 foreach ($map['StatusTransitions'] as $item1) {
-                    $model->statusTransitions[$n1++] = statusTransitions::fromMap($item1);
+                    $model->statusTransitions[$n1] = statusTransitions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
