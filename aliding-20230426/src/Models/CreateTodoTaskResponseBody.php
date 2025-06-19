@@ -177,7 +177,8 @@ class CreateTodoTaskResponseBody extends Model
                 $res['contentFieldList'] = [];
                 $n1 = 0;
                 foreach ($this->contentFieldList as $item1) {
-                    $res['contentFieldList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['contentFieldList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +212,8 @@ class CreateTodoTaskResponseBody extends Model
                 $res['executorIds'] = [];
                 $n1 = 0;
                 foreach ($this->executorIds as $item1) {
-                    $res['executorIds'][$n1++] = $item1;
+                    $res['executorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +247,8 @@ class CreateTodoTaskResponseBody extends Model
                 $res['participantIds'] = [];
                 $n1 = 0;
                 foreach ($this->participantIds as $item1) {
-                    $res['participantIds'][$n1++] = $item1;
+                    $res['participantIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +297,8 @@ class CreateTodoTaskResponseBody extends Model
                 $model->contentFieldList = [];
                 $n1 = 0;
                 foreach ($map['contentFieldList'] as $item1) {
-                    $model->contentFieldList[$n1++] = contentFieldList::fromMap($item1);
+                    $model->contentFieldList[$n1] = contentFieldList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -328,7 +332,8 @@ class CreateTodoTaskResponseBody extends Model
                 $model->executorIds = [];
                 $n1 = 0;
                 foreach ($map['executorIds'] as $item1) {
-                    $model->executorIds[$n1++] = $item1;
+                    $model->executorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -362,7 +367,8 @@ class CreateTodoTaskResponseBody extends Model
                 $model->participantIds = [];
                 $n1 = 0;
                 foreach ($map['participantIds'] as $item1) {
-                    $model->participantIds[$n1++] = $item1;
+                    $model->participantIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

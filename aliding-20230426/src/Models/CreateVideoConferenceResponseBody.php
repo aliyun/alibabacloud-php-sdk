@@ -84,7 +84,8 @@ class CreateVideoConferenceResponseBody extends Model
                 $res['phoneNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->phoneNumbers as $item1) {
-                    $res['phoneNumbers'][$n1++] = $item1;
+                    $res['phoneNumbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class CreateVideoConferenceResponseBody extends Model
                 $model->phoneNumbers = [];
                 $n1 = 0;
                 foreach ($map['phoneNumbers'] as $item1) {
-                    $model->phoneNumbers[$n1++] = $item1;
+                    $model->phoneNumbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

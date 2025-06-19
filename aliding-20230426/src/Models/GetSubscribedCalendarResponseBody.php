@@ -84,7 +84,8 @@ class GetSubscribedCalendarResponseBody extends Model
                 $res['managers'] = [];
                 $n1 = 0;
                 foreach ($this->managers as $item1) {
-                    $res['managers'][$n1++] = $item1;
+                    $res['managers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class GetSubscribedCalendarResponseBody extends Model
                 $model->managers = [];
                 $n1 = 0;
                 foreach ($map['managers'] as $item1) {
-                    $model->managers[$n1++] = $item1;
+                    $model->managers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

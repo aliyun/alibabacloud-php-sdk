@@ -77,12 +77,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->backgroundColors as $item1) {
                     if (\is_array($item1)) {
-                        $res['backgroundColors'][$n1++] = [];
+                        $res['backgroundColors'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['backgroundColors'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['backgroundColors'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -93,12 +95,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->displayValues as $item1) {
                     if (\is_array($item1)) {
-                        $res['displayValues'][$n1++] = [];
+                        $res['displayValues'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['displayValues'][$n1++][$n2++] = $item2;
+                            $res['displayValues'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -109,12 +113,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->formulas as $item1) {
                     if (\is_array($item1)) {
-                        $res['formulas'][$n1++] = [];
+                        $res['formulas'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['formulas'][$n1++][$n2++] = $item2;
+                            $res['formulas'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -125,12 +131,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->hyperlinks as $item1) {
                     if (\is_array($item1)) {
-                        $res['hyperlinks'][$n1++] = [];
+                        $res['hyperlinks'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['hyperlinks'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['hyperlinks'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -145,12 +153,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->values as $item1) {
                     if (\is_array($item1)) {
-                        $res['values'][$n1++] = [];
+                        $res['values'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['values'][$n1++][$n2++] = $item2;
+                            $res['values'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -172,12 +182,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['backgroundColors'] as $item1) {
                     if (!empty($item1)) {
-                        $model->backgroundColors[$n1++] = [];
+                        $model->backgroundColors[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->backgroundColors[$n1++][$n2++] = backgroundColors::fromMap($item2);
+                            $model->backgroundColors[$n1][$n2] = backgroundColors::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -188,12 +200,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['displayValues'] as $item1) {
                     if (!empty($item1)) {
-                        $model->displayValues[$n1++] = [];
+                        $model->displayValues[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->displayValues[$n1++][$n2++] = $item2;
+                            $model->displayValues[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -204,12 +218,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['formulas'] as $item1) {
                     if (!empty($item1)) {
-                        $model->formulas[$n1++] = [];
+                        $model->formulas[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->formulas[$n1++][$n2++] = $item2;
+                            $model->formulas[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -220,12 +236,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['hyperlinks'] as $item1) {
                     if (!empty($item1)) {
-                        $model->hyperlinks[$n1++] = [];
+                        $model->hyperlinks[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->hyperlinks[$n1++][$n2++] = hyperlinks::fromMap($item2);
+                            $model->hyperlinks[$n1][$n2] = hyperlinks::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -240,12 +258,14 @@ class GetRangeResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['values'] as $item1) {
                     if (!empty($item1)) {
-                        $model->values[$n1++] = [];
+                        $model->values[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->values[$n1++][$n2++] = $item2;
+                            $model->values[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

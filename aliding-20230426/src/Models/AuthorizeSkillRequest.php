@@ -32,7 +32,8 @@ class AuthorizeSkillRequest extends Model
                 $res['PermissionCodes'] = [];
                 $n1 = 0;
                 foreach ($this->permissionCodes as $item1) {
-                    $res['PermissionCodes'][$n1++] = $item1;
+                    $res['PermissionCodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class AuthorizeSkillRequest extends Model
                 $model->permissionCodes = [];
                 $n1 = 0;
                 foreach ($map['PermissionCodes'] as $item1) {
-                    $model->permissionCodes[$n1++] = $item1;
+                    $model->permissionCodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

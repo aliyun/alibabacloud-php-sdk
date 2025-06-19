@@ -66,7 +66,8 @@ class UpdateStatusRequest extends Model
                 $res['ErrorLines'] = [];
                 $n1 = 0;
                 foreach ($this->errorLines as $item1) {
-                    $res['ErrorLines'][$n1++] = $item1;
+                    $res['ErrorLines'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class UpdateStatusRequest extends Model
                 $model->errorLines = [];
                 $n1 = 0;
                 foreach ($map['ErrorLines'] as $item1) {
-                    $model->errorLines[$n1++] = $item1;
+                    $model->errorLines[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

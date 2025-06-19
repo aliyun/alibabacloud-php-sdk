@@ -60,7 +60,8 @@ class BatchGetFormDataByIdListRequest extends Model
                 $res['FormInstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->formInstanceIdList as $item1) {
-                    $res['FormInstanceIdList'][$n1++] = $item1;
+                    $res['FormInstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class BatchGetFormDataByIdListRequest extends Model
                 $model->formInstanceIdList = [];
                 $n1 = 0;
                 foreach ($map['FormInstanceIdList'] as $item1) {
-                    $model->formInstanceIdList[$n1++] = $item1;
+                    $model->formInstanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

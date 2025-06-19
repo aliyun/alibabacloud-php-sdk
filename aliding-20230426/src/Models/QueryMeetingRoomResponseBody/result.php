@@ -136,7 +136,8 @@ class result extends Model
                 $res['DeviceUnionIds'] = [];
                 $n1 = 0;
                 foreach ($this->deviceUnionIds as $item1) {
-                    $res['DeviceUnionIds'][$n1++] = $item1;
+                    $res['DeviceUnionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class result extends Model
                 $res['RoomLabels'] = [];
                 $n1 = 0;
                 foreach ($this->roomLabels as $item1) {
-                    $res['RoomLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RoomLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +221,8 @@ class result extends Model
                 $model->deviceUnionIds = [];
                 $n1 = 0;
                 foreach ($map['DeviceUnionIds'] as $item1) {
-                    $model->deviceUnionIds[$n1++] = $item1;
+                    $model->deviceUnionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -253,7 +256,8 @@ class result extends Model
                 $model->roomLabels = [];
                 $n1 = 0;
                 foreach ($map['RoomLabels'] as $item1) {
-                    $model->roomLabels[$n1++] = roomLabels::fromMap($item1);
+                    $model->roomLabels[$n1] = roomLabels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

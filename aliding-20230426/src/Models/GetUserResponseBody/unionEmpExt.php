@@ -49,7 +49,8 @@ class unionEmpExt extends Model
                 $res['unionEmpMapList'] = [];
                 $n1 = 0;
                 foreach ($this->unionEmpMapList as $item1) {
-                    $res['unionEmpMapList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['unionEmpMapList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class unionEmpExt extends Model
                 $model->unionEmpMapList = [];
                 $n1 = 0;
                 foreach ($map['unionEmpMapList'] as $item1) {
-                    $model->unionEmpMapList[$n1++] = unionEmpMapList::fromMap($item1);
+                    $model->unionEmpMapList[$n1] = unionEmpMapList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

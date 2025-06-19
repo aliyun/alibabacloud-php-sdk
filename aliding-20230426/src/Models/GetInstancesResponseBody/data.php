@@ -106,7 +106,8 @@ class data extends Model
                 $res['ActionExecutor'] = [];
                 $n1 = 0;
                 foreach ($this->actionExecutor as $item1) {
-                    $res['ActionExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ActionExecutor'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +177,8 @@ class data extends Model
                 $model->actionExecutor = [];
                 $n1 = 0;
                 foreach ($map['ActionExecutor'] as $item1) {
-                    $model->actionExecutor[$n1++] = actionExecutor::fromMap($item1);
+                    $model->actionExecutor[$n1] = actionExecutor::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

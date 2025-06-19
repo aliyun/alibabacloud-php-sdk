@@ -82,7 +82,8 @@ class scheduleConfSettingModel extends Model
                 $res['CohostUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->cohostUserIds as $item1) {
-                    $res['CohostUserIds'][$n1++] = $item1;
+                    $res['CohostUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class scheduleConfSettingModel extends Model
                 $model->cohostUserIds = [];
                 $n1 = 0;
                 foreach ($map['CohostUserIds'] as $item1) {
-                    $model->cohostUserIds[$n1++] = $item1;
+                    $model->cohostUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

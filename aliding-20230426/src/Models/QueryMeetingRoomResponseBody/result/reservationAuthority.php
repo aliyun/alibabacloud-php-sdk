@@ -33,7 +33,8 @@ class reservationAuthority extends Model
                 $res['AuthorizedMembers'] = [];
                 $n1 = 0;
                 foreach ($this->authorizedMembers as $item1) {
-                    $res['AuthorizedMembers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizedMembers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class reservationAuthority extends Model
                 $model->authorizedMembers = [];
                 $n1 = 0;
                 foreach ($map['AuthorizedMembers'] as $item1) {
-                    $model->authorizedMembers[$n1++] = authorizedMembers::fromMap($item1);
+                    $model->authorizedMembers[$n1] = authorizedMembers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

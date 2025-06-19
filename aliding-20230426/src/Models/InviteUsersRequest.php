@@ -59,7 +59,8 @@ class InviteUsersRequest extends Model
                 $res['InviteeList'] = [];
                 $n1 = 0;
                 foreach ($this->inviteeList as $item1) {
-                    $res['InviteeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InviteeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class InviteUsersRequest extends Model
                 $res['phoneInviteeList'] = [];
                 $n1 = 0;
                 foreach ($this->phoneInviteeList as $item1) {
-                    $res['phoneInviteeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['phoneInviteeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class InviteUsersRequest extends Model
                 $model->inviteeList = [];
                 $n1 = 0;
                 foreach ($map['InviteeList'] as $item1) {
-                    $model->inviteeList[$n1++] = inviteeList::fromMap($item1);
+                    $model->inviteeList[$n1] = inviteeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class InviteUsersRequest extends Model
                 $model->phoneInviteeList = [];
                 $n1 = 0;
                 foreach ($map['phoneInviteeList'] as $item1) {
-                    $model->phoneInviteeList[$n1++] = phoneInviteeList::fromMap($item1);
+                    $model->phoneInviteeList[$n1] = phoneInviteeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

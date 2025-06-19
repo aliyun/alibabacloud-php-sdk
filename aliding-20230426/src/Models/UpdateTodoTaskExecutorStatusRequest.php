@@ -59,7 +59,8 @@ class UpdateTodoTaskExecutorStatusRequest extends Model
                 $res['executorStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->executorStatusList as $item1) {
-                    $res['executorStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['executorStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class UpdateTodoTaskExecutorStatusRequest extends Model
                 $model->executorStatusList = [];
                 $n1 = 0;
                 foreach ($map['executorStatusList'] as $item1) {
-                    $model->executorStatusList[$n1++] = executorStatusList::fromMap($item1);
+                    $model->executorStatusList[$n1] = executorStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

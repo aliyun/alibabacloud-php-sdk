@@ -47,7 +47,8 @@ class notify extends Model
                 $res['GroupNoticeReceiverUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->groupNoticeReceiverUserIds as $item1) {
-                    $res['GroupNoticeReceiverUserIds'][$n1++] = $item1;
+                    $res['GroupNoticeReceiverUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class notify extends Model
                 $res['WorkNoticeReceiverUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->workNoticeReceiverUserIds as $item1) {
-                    $res['WorkNoticeReceiverUserIds'][$n1++] = $item1;
+                    $res['WorkNoticeReceiverUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class notify extends Model
                 $model->groupNoticeReceiverUserIds = [];
                 $n1 = 0;
                 foreach ($map['GroupNoticeReceiverUserIds'] as $item1) {
-                    $model->groupNoticeReceiverUserIds[$n1++] = $item1;
+                    $model->groupNoticeReceiverUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class notify extends Model
                 $model->workNoticeReceiverUserIds = [];
                 $n1 = 0;
                 foreach ($map['WorkNoticeReceiverUserIds'] as $item1) {
-                    $model->workNoticeReceiverUserIds[$n1++] = $item1;
+                    $model->workNoticeReceiverUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

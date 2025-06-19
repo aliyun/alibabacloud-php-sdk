@@ -62,7 +62,8 @@ class StatisticsListByTypeReportResponseBody extends Model
                 $res['useridList'] = [];
                 $n1 = 0;
                 foreach ($this->useridList as $item1) {
-                    $res['useridList'][$n1++] = $item1;
+                    $res['useridList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class StatisticsListByTypeReportResponseBody extends Model
                 $model->useridList = [];
                 $n1 = 0;
                 foreach ($map['useridList'] as $item1) {
-                    $model->useridList[$n1++] = $item1;
+                    $model->useridList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

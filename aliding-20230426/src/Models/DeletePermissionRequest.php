@@ -59,7 +59,8 @@ class DeletePermissionRequest extends Model
                 $res['Members'] = [];
                 $n1 = 0;
                 foreach ($this->members as $item1) {
-                    $res['Members'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Members'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class DeletePermissionRequest extends Model
                 $model->members = [];
                 $n1 = 0;
                 foreach ($map['Members'] as $item1) {
-                    $model->members[$n1++] = members::fromMap($item1);
+                    $model->members[$n1] = members::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

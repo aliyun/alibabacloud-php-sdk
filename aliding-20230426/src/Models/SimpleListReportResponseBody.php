@@ -57,7 +57,8 @@ class SimpleListReportResponseBody extends Model
                 $res['dataList'] = [];
                 $n1 = 0;
                 foreach ($this->dataList as $item1) {
-                    $res['dataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class SimpleListReportResponseBody extends Model
                 $model->dataList = [];
                 $n1 = 0;
                 foreach ($map['dataList'] as $item1) {
-                    $model->dataList[$n1++] = dataList::fromMap($item1);
+                    $model->dataList[$n1] = dataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

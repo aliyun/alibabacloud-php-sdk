@@ -48,7 +48,8 @@ class GetMeetingRoomsScheduleRequest extends Model
                 $res['RoomIds'] = [];
                 $n1 = 0;
                 foreach ($this->roomIds as $item1) {
-                    $res['RoomIds'][$n1++] = $item1;
+                    $res['RoomIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class GetMeetingRoomsScheduleRequest extends Model
                 $model->roomIds = [];
                 $n1 = 0;
                 foreach ($map['RoomIds'] as $item1) {
-                    $model->roomIds[$n1++] = $item1;
+                    $model->roomIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

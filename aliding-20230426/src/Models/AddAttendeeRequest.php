@@ -57,7 +57,8 @@ class AddAttendeeRequest extends Model
                 $res['AttendeesToAdd'] = [];
                 $n1 = 0;
                 foreach ($this->attendeesToAdd as $item1) {
-                    $res['AttendeesToAdd'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AttendeesToAdd'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class AddAttendeeRequest extends Model
                 $model->attendeesToAdd = [];
                 $n1 = 0;
                 foreach ($map['AttendeesToAdd'] as $item1) {
-                    $model->attendeesToAdd[$n1++] = attendeesToAdd::fromMap($item1);
+                    $model->attendeesToAdd[$n1] = attendeesToAdd::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateRunRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowStructViewContent;
+
+    /**
      * @var string
      */
     public $assistantId;
@@ -38,6 +43,7 @@ class CreateRunRequest extends Model
      */
     public $threadId;
     protected $_name = [
+        'allowStructViewContent' => 'allowStructViewContent',
         'assistantId' => 'assistantId',
         'originalAssistantId' => 'originalAssistantId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
@@ -54,6 +60,10 @@ class CreateRunRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowStructViewContent) {
+            $res['allowStructViewContent'] = $this->allowStructViewContent;
+        }
+
         if (null !== $this->assistantId) {
             $res['assistantId'] = $this->assistantId;
         }
@@ -89,6 +99,10 @@ class CreateRunRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allowStructViewContent'])) {
+            $model->allowStructViewContent = $map['allowStructViewContent'];
+        }
+
         if (isset($map['assistantId'])) {
             $model->assistantId = $map['assistantId'];
         }

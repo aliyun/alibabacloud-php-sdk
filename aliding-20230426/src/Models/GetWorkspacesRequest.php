@@ -60,7 +60,8 @@ class GetWorkspacesRequest extends Model
                 $res['WorkspaceIds'] = [];
                 $n1 = 0;
                 foreach ($this->workspaceIds as $item1) {
-                    $res['WorkspaceIds'][$n1++] = $item1;
+                    $res['WorkspaceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class GetWorkspacesRequest extends Model
                 $model->workspaceIds = [];
                 $n1 = 0;
                 foreach ($map['WorkspaceIds'] as $item1) {
-                    $model->workspaceIds[$n1++] = $item1;
+                    $model->workspaceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

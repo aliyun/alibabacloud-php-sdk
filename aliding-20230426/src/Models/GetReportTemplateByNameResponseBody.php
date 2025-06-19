@@ -83,7 +83,8 @@ class GetReportTemplateByNameResponseBody extends Model
                 $res['defaultReceivedConvs'] = [];
                 $n1 = 0;
                 foreach ($this->defaultReceivedConvs as $item1) {
-                    $res['defaultReceivedConvs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['defaultReceivedConvs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class GetReportTemplateByNameResponseBody extends Model
                 $res['defaultReceivers'] = [];
                 $n1 = 0;
                 foreach ($this->defaultReceivers as $item1) {
-                    $res['defaultReceivers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['defaultReceivers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class GetReportTemplateByNameResponseBody extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +147,8 @@ class GetReportTemplateByNameResponseBody extends Model
                 $model->defaultReceivedConvs = [];
                 $n1 = 0;
                 foreach ($map['defaultReceivedConvs'] as $item1) {
-                    $model->defaultReceivedConvs[$n1++] = defaultReceivedConvs::fromMap($item1);
+                    $model->defaultReceivedConvs[$n1] = defaultReceivedConvs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +158,8 @@ class GetReportTemplateByNameResponseBody extends Model
                 $model->defaultReceivers = [];
                 $n1 = 0;
                 foreach ($map['defaultReceivers'] as $item1) {
-                    $model->defaultReceivers[$n1++] = defaultReceivers::fromMap($item1);
+                    $model->defaultReceivers[$n1] = defaultReceivers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +169,8 @@ class GetReportTemplateByNameResponseBody extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = fields::fromMap($item1);
+                    $model->fields[$n1] = fields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

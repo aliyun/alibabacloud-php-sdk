@@ -101,7 +101,8 @@ class paragraphList extends Model
                 $res['SentenceList'] = [];
                 $n1 = 0;
                 foreach ($this->sentenceList as $item1) {
-                    $res['SentenceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SentenceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class paragraphList extends Model
                 $model->sentenceList = [];
                 $n1 = 0;
                 foreach ($map['SentenceList'] as $item1) {
-                    $model->sentenceList[$n1++] = sentenceList::fromMap($item1);
+                    $model->sentenceList[$n1] = sentenceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

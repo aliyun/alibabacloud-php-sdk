@@ -49,7 +49,8 @@ class QueryCloudRecordTextResponseBody extends Model
                 $res['paragraphList'] = [];
                 $n1 = 0;
                 foreach ($this->paragraphList as $item1) {
-                    $res['paragraphList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['paragraphList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class QueryCloudRecordTextResponseBody extends Model
                 $model->paragraphList = [];
                 $n1 = 0;
                 foreach ($map['paragraphList'] as $item1) {
-                    $model->paragraphList[$n1++] = paragraphList::fromMap($item1);
+                    $model->paragraphList[$n1] = paragraphList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

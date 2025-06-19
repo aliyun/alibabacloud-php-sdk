@@ -53,7 +53,8 @@ class QueryOrgTodoTasksResponseBody extends Model
                 $res['todoCards'] = [];
                 $n1 = 0;
                 foreach ($this->todoCards as $item1) {
-                    $res['todoCards'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['todoCards'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class QueryOrgTodoTasksResponseBody extends Model
                 $model->todoCards = [];
                 $n1 = 0;
                 foreach ($map['todoCards'] as $item1) {
-                    $model->todoCards[$n1++] = todoCards::fromMap($item1);
+                    $model->todoCards[$n1] = todoCards::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

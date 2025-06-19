@@ -75,7 +75,8 @@ class QueryConferenceInfoByRoomCodeResponseBody extends Model
                 $res['conferenceList'] = [];
                 $n1 = 0;
                 foreach ($this->conferenceList as $item1) {
-                    $res['conferenceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['conferenceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class QueryConferenceInfoByRoomCodeResponseBody extends Model
                 $model->conferenceList = [];
                 $n1 = 0;
                 foreach ($map['conferenceList'] as $item1) {
-                    $model->conferenceList[$n1++] = conferenceList::fromMap($item1);
+                    $model->conferenceList[$n1] = conferenceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

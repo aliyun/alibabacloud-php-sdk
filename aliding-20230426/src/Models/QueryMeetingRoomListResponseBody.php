@@ -63,7 +63,8 @@ class QueryMeetingRoomListResponseBody extends Model
                 $res['result'] = [];
                 $n1 = 0;
                 foreach ($this->result as $item1) {
-                    $res['result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class QueryMeetingRoomListResponseBody extends Model
                 $model->result = [];
                 $n1 = 0;
                 foreach ($map['result'] as $item1) {
-                    $model->result[$n1++] = result::fromMap($item1);
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -54,7 +54,8 @@ class sceneContext extends Model
                 $res['GroupMsgs'] = [];
                 $n1 = 0;
                 foreach ($this->groupMsgs as $item1) {
-                    $res['GroupMsgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupMsgs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class sceneContext extends Model
                 $res['RelevantorUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->relevantorUserIds as $item1) {
-                    $res['RelevantorUserIds'][$n1++] = $item1;
+                    $res['RelevantorUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class sceneContext extends Model
                 $model->groupMsgs = [];
                 $n1 = 0;
                 foreach ($map['GroupMsgs'] as $item1) {
-                    $model->groupMsgs[$n1++] = groupMsgs::fromMap($item1);
+                    $model->groupMsgs[$n1] = groupMsgs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +110,8 @@ class sceneContext extends Model
                 $model->relevantorUserIds = [];
                 $n1 = 0;
                 foreach ($map['RelevantorUserIds'] as $item1) {
-                    $model->relevantorUserIds[$n1++] = $item1;
+                    $model->relevantorUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

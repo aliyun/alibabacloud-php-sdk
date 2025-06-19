@@ -75,7 +75,8 @@ class headerSignatureInfo extends Model
                 $res['InternalResourceUrls'] = [];
                 $n1 = 0;
                 foreach ($this->internalResourceUrls as $item1) {
-                    $res['InternalResourceUrls'][$n1++] = $item1;
+                    $res['InternalResourceUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class headerSignatureInfo extends Model
                 $res['ResourceUrls'] = [];
                 $n1 = 0;
                 foreach ($this->resourceUrls as $item1) {
-                    $res['ResourceUrls'][$n1++] = $item1;
+                    $res['ResourceUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +125,8 @@ class headerSignatureInfo extends Model
                 $model->internalResourceUrls = [];
                 $n1 = 0;
                 foreach ($map['InternalResourceUrls'] as $item1) {
-                    $model->internalResourceUrls[$n1++] = $item1;
+                    $model->internalResourceUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +140,8 @@ class headerSignatureInfo extends Model
                 $model->resourceUrls = [];
                 $n1 = 0;
                 foreach ($map['ResourceUrls'] as $item1) {
-                    $model->resourceUrls[$n1++] = $item1;
+                    $model->resourceUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

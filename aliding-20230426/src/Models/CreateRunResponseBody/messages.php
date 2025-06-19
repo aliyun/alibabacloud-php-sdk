@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\content;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct;
 
 class messages extends Model
 {
@@ -18,6 +19,11 @@ class messages extends Model
      * @var string
      */
     public $contentDesc;
+
+    /**
+     * @var contentStruct
+     */
+    public $contentStruct;
 
     /**
      * @var int
@@ -46,6 +52,7 @@ class messages extends Model
     protected $_name = [
         'content' => 'content',
         'contentDesc' => 'contentDesc',
+        'contentStruct' => 'contentStruct',
         'createAt' => 'createAt',
         'id' => 'id',
         'role' => 'role',
@@ -57,6 +64,9 @@ class messages extends Model
     {
         if (null !== $this->content) {
             $this->content->validate();
+        }
+        if (null !== $this->contentStruct) {
+            $this->contentStruct->validate();
         }
         parent::validate();
     }
@@ -70,6 +80,10 @@ class messages extends Model
 
         if (null !== $this->contentDesc) {
             $res['contentDesc'] = $this->contentDesc;
+        }
+
+        if (null !== $this->contentStruct) {
+            $res['contentStruct'] = null !== $this->contentStruct ? $this->contentStruct->toArray($noStream) : $this->contentStruct;
         }
 
         if (null !== $this->createAt) {
@@ -109,6 +123,10 @@ class messages extends Model
 
         if (isset($map['contentDesc'])) {
             $model->contentDesc = $map['contentDesc'];
+        }
+
+        if (isset($map['contentStruct'])) {
+            $model->contentStruct = contentStruct::fromMap($map['contentStruct']);
         }
 
         if (isset($map['createAt'])) {

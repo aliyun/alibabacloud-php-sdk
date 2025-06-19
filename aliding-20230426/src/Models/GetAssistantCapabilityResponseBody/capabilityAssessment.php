@@ -43,7 +43,8 @@ class capabilityAssessment extends Model
                 $res['capabilityList'] = [];
                 $n1 = 0;
                 foreach ($this->capabilityList as $item1) {
-                    $res['capabilityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['capabilityList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class capabilityAssessment extends Model
                 $model->capabilityList = [];
                 $n1 = 0;
                 foreach ($map['capabilityList'] as $item1) {
-                    $model->capabilityList[$n1++] = capabilityList::fromMap($item1);
+                    $model->capabilityList[$n1] = capabilityList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -158,7 +158,8 @@ class dentries extends Model
                         $res['AppProperties'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['AppProperties'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['AppProperties'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -260,7 +261,8 @@ class dentries extends Model
                         $model->appProperties[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->appProperties[$key1][$n2++] = DentriesAppPropertiesValue::fromMap($item2);
+                            $model->appProperties[$key1][$n2] = DentriesAppPropertiesValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }

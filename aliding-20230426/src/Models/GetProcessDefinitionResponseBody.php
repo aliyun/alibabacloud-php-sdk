@@ -128,7 +128,8 @@ class GetProcessDefinitionResponseBody extends Model
                 $res['owners'] = [];
                 $n1 = 0;
                 foreach ($this->owners as $item1) {
-                    $res['owners'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['owners'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class GetProcessDefinitionResponseBody extends Model
                 $res['tasks'] = [];
                 $n1 = 0;
                 foreach ($this->tasks as $item1) {
-                    $res['tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +210,8 @@ class GetProcessDefinitionResponseBody extends Model
                 $model->owners = [];
                 $n1 = 0;
                 foreach ($map['owners'] as $item1) {
-                    $model->owners[$n1++] = owners::fromMap($item1);
+                    $model->owners[$n1] = owners::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +237,8 @@ class GetProcessDefinitionResponseBody extends Model
                 $model->tasks = [];
                 $n1 = 0;
                 foreach ($map['tasks'] as $item1) {
-                    $model->tasks[$n1++] = tasks::fromMap($item1);
+                    $model->tasks[$n1] = tasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -99,7 +99,8 @@ class originator extends Model
                 $res['MasterDataDepartments'] = [];
                 $n1 = 0;
                 foreach ($this->masterDataDepartments as $item1) {
-                    $res['MasterDataDepartments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MasterDataDepartments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class originator extends Model
                 $model->masterDataDepartments = [];
                 $n1 = 0;
                 foreach ($map['MasterDataDepartments'] as $item1) {
-                    $model->masterDataDepartments[$n1++] = masterDataDepartments::fromMap($item1);
+                    $model->masterDataDepartments[$n1] = masterDataDepartments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

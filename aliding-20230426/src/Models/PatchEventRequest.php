@@ -132,7 +132,8 @@ class PatchEventRequest extends Model
                 $res['Attendees'] = [];
                 $n1 = 0;
                 foreach ($this->attendees as $item1) {
-                    $res['Attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Attendees'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +147,8 @@ class PatchEventRequest extends Model
                 $res['CardInstances'] = [];
                 $n1 = 0;
                 foreach ($this->cardInstances as $item1) {
-                    $res['CardInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CardInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +191,8 @@ class PatchEventRequest extends Model
                 $res['Reminders'] = [];
                 $n1 = 0;
                 foreach ($this->reminders as $item1) {
-                    $res['Reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Reminders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +221,8 @@ class PatchEventRequest extends Model
                 $model->attendees = [];
                 $n1 = 0;
                 foreach ($map['Attendees'] as $item1) {
-                    $model->attendees[$n1++] = attendees::fromMap($item1);
+                    $model->attendees[$n1] = attendees::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +236,8 @@ class PatchEventRequest extends Model
                 $model->cardInstances = [];
                 $n1 = 0;
                 foreach ($map['CardInstances'] as $item1) {
-                    $model->cardInstances[$n1++] = cardInstances::fromMap($item1);
+                    $model->cardInstances[$n1] = cardInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -275,7 +280,8 @@ class PatchEventRequest extends Model
                 $model->reminders = [];
                 $n1 = 0;
                 foreach ($map['Reminders'] as $item1) {
-                    $model->reminders[$n1++] = reminders::fromMap($item1);
+                    $model->reminders[$n1] = reminders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

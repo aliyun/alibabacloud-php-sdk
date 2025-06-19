@@ -51,7 +51,8 @@ class GetNewestInnerGroupsResponseBody extends Model
                 $res['groupInfos'] = [];
                 $n1 = 0;
                 foreach ($this->groupInfos as $item1) {
-                    $res['groupInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['groupInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class GetNewestInnerGroupsResponseBody extends Model
                 $model->groupInfos = [];
                 $n1 = 0;
                 foreach ($map['groupInfos'] as $item1) {
-                    $model->groupInfos[$n1++] = groupInfos::fromMap($item1);
+                    $model->groupInfos[$n1] = groupInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

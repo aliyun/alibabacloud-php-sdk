@@ -43,7 +43,8 @@ class GetMeetingRoomsScheduleResponseBody extends Model
                 $res['scheduleInformation'] = [];
                 $n1 = 0;
                 foreach ($this->scheduleInformation as $item1) {
-                    $res['scheduleInformation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['scheduleInformation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class GetMeetingRoomsScheduleResponseBody extends Model
                 $model->scheduleInformation = [];
                 $n1 = 0;
                 foreach ($map['scheduleInformation'] as $item1) {
-                    $model->scheduleInformation[$n1++] = scheduleInformation::fromMap($item1);
+                    $model->scheduleInformation[$n1] = scheduleInformation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

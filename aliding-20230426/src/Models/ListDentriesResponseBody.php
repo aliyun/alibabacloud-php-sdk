@@ -57,7 +57,8 @@ class ListDentriesResponseBody extends Model
                 $res['dentries'] = [];
                 $n1 = 0;
                 foreach ($this->dentries as $item1) {
-                    $res['dentries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dentries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListDentriesResponseBody extends Model
                 $model->dentries = [];
                 $n1 = 0;
                 foreach ($map['dentries'] as $item1) {
-                    $model->dentries[$n1++] = dentries::fromMap($item1);
+                    $model->dentries[$n1] = dentries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

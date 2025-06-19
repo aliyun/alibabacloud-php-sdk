@@ -134,7 +134,8 @@ class UpdateMeetingRoomRequest extends Model
                 $res['RoomLabelIds'] = [];
                 $n1 = 0;
                 foreach ($this->roomLabelIds as $item1) {
-                    $res['RoomLabelIds'][$n1++] = $item1;
+                    $res['RoomLabelIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +200,8 @@ class UpdateMeetingRoomRequest extends Model
                 $model->roomLabelIds = [];
                 $n1 = 0;
                 foreach ($map['RoomLabelIds'] as $item1) {
-                    $model->roomLabelIds[$n1++] = $item1;
+                    $model->roomLabelIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

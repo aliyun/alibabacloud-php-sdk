@@ -65,7 +65,8 @@ class ListDriveSpacesResponseBody extends Model
                 $res['spaces'] = [];
                 $n1 = 0;
                 foreach ($this->spaces as $item1) {
-                    $res['spaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['spaces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListDriveSpacesResponseBody extends Model
                 $model->spaces = [];
                 $n1 = 0;
                 foreach ($map['spaces'] as $item1) {
-                    $model->spaces[$n1++] = spaces::fromMap($item1);
+                    $model->spaces[$n1] = spaces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

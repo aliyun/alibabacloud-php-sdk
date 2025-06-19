@@ -62,7 +62,8 @@ class GetMultipartFileUploadInfosRequest extends Model
                 $res['PartNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->partNumbers as $item1) {
-                    $res['PartNumbers'][$n1++] = $item1;
+                    $res['PartNumbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class GetMultipartFileUploadInfosRequest extends Model
                 $model->partNumbers = [];
                 $n1 = 0;
                 foreach ($map['PartNumbers'] as $item1) {
-                    $model->partNumbers[$n1++] = $item1;
+                    $model->partNumbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

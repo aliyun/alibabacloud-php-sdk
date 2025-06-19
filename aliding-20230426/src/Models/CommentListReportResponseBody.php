@@ -51,7 +51,8 @@ class CommentListReportResponseBody extends Model
                 $res['comments'] = [];
                 $n1 = 0;
                 foreach ($this->comments as $item1) {
-                    $res['comments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['comments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class CommentListReportResponseBody extends Model
                 $model->comments = [];
                 $n1 = 0;
                 foreach ($map['comments'] as $item1) {
-                    $model->comments[$n1++] = comments::fromMap($item1);
+                    $model->comments[$n1] = comments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

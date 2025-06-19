@@ -56,7 +56,8 @@ class QueryMinutesSummaryRequest extends Model
                 $res['summaryTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->summaryTypeList as $item1) {
-                    $res['summaryTypeList'][$n1++] = $item1;
+                    $res['summaryTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class QueryMinutesSummaryRequest extends Model
                 $model->summaryTypeList = [];
                 $n1 = 0;
                 foreach ($map['summaryTypeList'] as $item1) {
-                    $model->summaryTypeList[$n1++] = $item1;
+                    $model->summaryTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

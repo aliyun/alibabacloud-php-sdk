@@ -175,7 +175,8 @@ class GetTicketResponseBody extends Model
                 $res['takers'] = [];
                 $n1 = 0;
                 foreach ($this->takers as $item1) {
-                    $res['takers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['takers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +257,8 @@ class GetTicketResponseBody extends Model
                 $model->takers = [];
                 $n1 = 0;
                 foreach ($map['takers'] as $item1) {
-                    $model->takers[$n1++] = takers::fromMap($item1);
+                    $model->takers[$n1] = takers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

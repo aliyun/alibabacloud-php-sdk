@@ -61,7 +61,8 @@ class newLive extends Model
                 $res['LiveList'] = [];
                 $n1 = 0;
                 foreach ($this->liveList as $item1) {
-                    $res['LiveList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class newLive extends Model
                 $model->liveList = [];
                 $n1 = 0;
                 foreach ($map['LiveList'] as $item1) {
-                    $model->liveList[$n1++] = liveList::fromMap($item1);
+                    $model->liveList[$n1] = liveList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

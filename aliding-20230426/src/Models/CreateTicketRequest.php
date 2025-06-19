@@ -108,7 +108,8 @@ class CreateTicketRequest extends Model
                 $res['ProcessorUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->processorUserIds as $item1) {
-                    $res['ProcessorUserIds'][$n1++] = $item1;
+                    $res['ProcessorUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class CreateTicketRequest extends Model
                 $model->processorUserIds = [];
                 $n1 = 0;
                 foreach ($map['ProcessorUserIds'] as $item1) {
-                    $model->processorUserIds[$n1++] = $item1;
+                    $model->processorUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

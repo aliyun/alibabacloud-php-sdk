@@ -44,7 +44,8 @@ class option extends Model
                 $res['FilterRoleIds'] = [];
                 $n1 = 0;
                 foreach ($this->filterRoleIds as $item1) {
-                    $res['FilterRoleIds'][$n1++] = $item1;
+                    $res['FilterRoleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class option extends Model
                 $model->filterRoleIds = [];
                 $n1 = 0;
                 foreach ($map['FilterRoleIds'] as $item1) {
-                    $model->filterRoleIds[$n1++] = $item1;
+                    $model->filterRoleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

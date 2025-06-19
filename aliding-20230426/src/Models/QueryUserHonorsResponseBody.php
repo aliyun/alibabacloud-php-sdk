@@ -45,7 +45,8 @@ class QueryUserHonorsResponseBody extends Model
                 $res['honors'] = [];
                 $n1 = 0;
                 foreach ($this->honors as $item1) {
-                    $res['honors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['honors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class QueryUserHonorsResponseBody extends Model
                 $model->honors = [];
                 $n1 = 0;
                 foreach ($map['honors'] as $item1) {
-                    $model->honors[$n1++] = honors::fromMap($item1);
+                    $model->honors[$n1] = honors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

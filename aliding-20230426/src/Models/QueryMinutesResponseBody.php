@@ -51,7 +51,8 @@ class QueryMinutesResponseBody extends Model
                 $res['audioList'] = [];
                 $n1 = 0;
                 foreach ($this->audioList as $item1) {
-                    $res['audioList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['audioList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class QueryMinutesResponseBody extends Model
                 $model->audioList = [];
                 $n1 = 0;
                 foreach ($map['audioList'] as $item1) {
-                    $model->audioList[$n1++] = audioList::fromMap($item1);
+                    $model->audioList[$n1] = audioList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class AddWorkspaceMembersResponseBody extends Model
                 $res['NotInOrgList'] = [];
                 $n1 = 0;
                 foreach ($this->notInOrgList as $item1) {
-                    $res['NotInOrgList'][$n1++] = $item1;
+                    $res['NotInOrgList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class AddWorkspaceMembersResponseBody extends Model
                 $model->notInOrgList = [];
                 $n1 = 0;
                 foreach ($map['NotInOrgList'] as $item1) {
-                    $model->notInOrgList[$n1++] = $item1;
+                    $model->notInOrgList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

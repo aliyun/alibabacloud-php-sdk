@@ -42,7 +42,8 @@ class location extends Model
                 $res['MeetingRooms'] = [];
                 $n1 = 0;
                 foreach ($this->meetingRooms as $item1) {
-                    $res['MeetingRooms'][$n1++] = $item1;
+                    $res['MeetingRooms'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class location extends Model
                 $model->meetingRooms = [];
                 $n1 = 0;
                 foreach ($map['MeetingRooms'] as $item1) {
-                    $model->meetingRooms[$n1++] = $item1;
+                    $model->meetingRooms[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

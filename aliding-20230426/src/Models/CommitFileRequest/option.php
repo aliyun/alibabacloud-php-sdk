@@ -57,7 +57,8 @@ class option extends Model
                 $res['AppProperties'] = [];
                 $n1 = 0;
                 foreach ($this->appProperties as $item1) {
-                    $res['AppProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class option extends Model
                 $model->appProperties = [];
                 $n1 = 0;
                 foreach ($map['AppProperties'] as $item1) {
-                    $model->appProperties[$n1++] = appProperties::fromMap($item1);
+                    $model->appProperties[$n1] = appProperties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

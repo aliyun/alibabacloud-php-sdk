@@ -53,7 +53,8 @@ class RemoveMeetingRoomsRequest extends Model
                 $res['MeetingRoomsToRemove'] = [];
                 $n1 = 0;
                 foreach ($this->meetingRoomsToRemove as $item1) {
-                    $res['MeetingRoomsToRemove'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MeetingRoomsToRemove'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class RemoveMeetingRoomsRequest extends Model
                 $model->meetingRoomsToRemove = [];
                 $n1 = 0;
                 foreach ($map['MeetingRoomsToRemove'] as $item1) {
-                    $model->meetingRoomsToRemove[$n1++] = meetingRoomsToRemove::fromMap($item1);
+                    $model->meetingRoomsToRemove[$n1] = meetingRoomsToRemove::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

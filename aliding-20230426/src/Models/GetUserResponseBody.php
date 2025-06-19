@@ -262,7 +262,8 @@ class GetUserResponseBody extends Model
                 $res['deptIdList'] = [];
                 $n1 = 0;
                 foreach ($this->deptIdList as $item1) {
-                    $res['deptIdList'][$n1++] = $item1;
+                    $res['deptIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -272,7 +273,8 @@ class GetUserResponseBody extends Model
                 $res['deptOrderList'] = [];
                 $n1 = 0;
                 foreach ($this->deptOrderList as $item1) {
-                    $res['deptOrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['deptOrderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +320,8 @@ class GetUserResponseBody extends Model
                 $res['leaderInDept'] = [];
                 $n1 = 0;
                 foreach ($this->leaderInDept as $item1) {
-                    $res['leaderInDept'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['leaderInDept'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -364,7 +367,8 @@ class GetUserResponseBody extends Model
                 $res['roleList'] = [];
                 $n1 = 0;
                 foreach ($this->roleList as $item1) {
-                    $res['roleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['roleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -433,7 +437,8 @@ class GetUserResponseBody extends Model
                 $model->deptIdList = [];
                 $n1 = 0;
                 foreach ($map['deptIdList'] as $item1) {
-                    $model->deptIdList[$n1++] = $item1;
+                    $model->deptIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -443,7 +448,8 @@ class GetUserResponseBody extends Model
                 $model->deptOrderList = [];
                 $n1 = 0;
                 foreach ($map['deptOrderList'] as $item1) {
-                    $model->deptOrderList[$n1++] = deptOrderList::fromMap($item1);
+                    $model->deptOrderList[$n1] = deptOrderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -489,7 +495,8 @@ class GetUserResponseBody extends Model
                 $model->leaderInDept = [];
                 $n1 = 0;
                 foreach ($map['leaderInDept'] as $item1) {
-                    $model->leaderInDept[$n1++] = leaderInDept::fromMap($item1);
+                    $model->leaderInDept[$n1] = leaderInDept::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -535,7 +542,8 @@ class GetUserResponseBody extends Model
                 $model->roleList = [];
                 $n1 = 0;
                 foreach ($map['roleList'] as $item1) {
-                    $model->roleList[$n1++] = roleList::fromMap($item1);
+                    $model->roleList[$n1] = roleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

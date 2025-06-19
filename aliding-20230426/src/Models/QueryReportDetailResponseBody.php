@@ -99,7 +99,8 @@ class QueryReportDetailResponseBody extends Model
                 $res['content'] = [];
                 $n1 = 0;
                 foreach ($this->content as $item1) {
-                    $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['content'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +165,8 @@ class QueryReportDetailResponseBody extends Model
                 $model->content = [];
                 $n1 = 0;
                 foreach ($map['content'] as $item1) {
-                    $model->content[$n1++] = content::fromMap($item1);
+                    $model->content[$n1] = content::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

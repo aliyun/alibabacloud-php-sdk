@@ -47,7 +47,8 @@ class visitorInfo extends Model
                 $res['DentryActions'] = [];
                 $n1 = 0;
                 foreach ($this->dentryActions as $item1) {
-                    $res['DentryActions'][$n1++] = $item1;
+                    $res['DentryActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class visitorInfo extends Model
                 $res['SpaceActions'] = [];
                 $n1 = 0;
                 foreach ($this->spaceActions as $item1) {
-                    $res['SpaceActions'][$n1++] = $item1;
+                    $res['SpaceActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class visitorInfo extends Model
                 $model->dentryActions = [];
                 $n1 = 0;
                 foreach ($map['DentryActions'] as $item1) {
-                    $model->dentryActions[$n1++] = $item1;
+                    $model->dentryActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class visitorInfo extends Model
                 $model->spaceActions = [];
                 $n1 = 0;
                 foreach ($map['SpaceActions'] as $item1) {
-                    $model->spaceActions[$n1++] = $item1;
+                    $model->spaceActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class QueryConferenceMembersResponseBody extends Model
                 $res['memberModels'] = [];
                 $n1 = 0;
                 foreach ($this->memberModels as $item1) {
-                    $res['memberModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['memberModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class QueryConferenceMembersResponseBody extends Model
                 $model->memberModels = [];
                 $n1 = 0;
                 foreach ($map['memberModels'] as $item1) {
-                    $model->memberModels[$n1++] = memberModels::fromMap($item1);
+                    $model->memberModels[$n1] = memberModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

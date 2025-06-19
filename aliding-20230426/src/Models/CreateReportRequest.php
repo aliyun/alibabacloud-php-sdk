@@ -79,7 +79,8 @@ class CreateReportRequest extends Model
                 $res['Contents'] = [];
                 $n1 = 0;
                 foreach ($this->contents as $item1) {
-                    $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Contents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class CreateReportRequest extends Model
                 $res['ToCids'] = [];
                 $n1 = 0;
                 foreach ($this->toCids as $item1) {
-                    $res['ToCids'][$n1++] = $item1;
+                    $res['ToCids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +117,8 @@ class CreateReportRequest extends Model
                 $res['ToUserids'] = [];
                 $n1 = 0;
                 foreach ($this->toUserids as $item1) {
-                    $res['ToUserids'][$n1++] = $item1;
+                    $res['ToUserids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class CreateReportRequest extends Model
                 $model->contents = [];
                 $n1 = 0;
                 foreach ($map['Contents'] as $item1) {
-                    $model->contents[$n1++] = contents::fromMap($item1);
+                    $model->contents[$n1] = contents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +166,8 @@ class CreateReportRequest extends Model
                 $model->toCids = [];
                 $n1 = 0;
                 foreach ($map['ToCids'] as $item1) {
-                    $model->toCids[$n1++] = $item1;
+                    $model->toCids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +177,8 @@ class CreateReportRequest extends Model
                 $model->toUserids = [];
                 $n1 = 0;
                 foreach ($map['ToUserids'] as $item1) {
-                    $model->toUserids[$n1++] = $item1;
+                    $model->toUserids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

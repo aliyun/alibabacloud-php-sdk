@@ -56,7 +56,8 @@ class SendSearchShadeResponseBody extends Model
                 $res['arguments'] = [];
                 $n1 = 0;
                 foreach ($this->arguments as $item1) {
-                    $res['arguments'][$n1++] = $item1;
+                    $res['arguments'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class SendSearchShadeResponseBody extends Model
                 $model->arguments = [];
                 $n1 = 0;
                 foreach ($map['arguments'] as $item1) {
-                    $model->arguments[$n1++] = $item1;
+                    $model->arguments[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

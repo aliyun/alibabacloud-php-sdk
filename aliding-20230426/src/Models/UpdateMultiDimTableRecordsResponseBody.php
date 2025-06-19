@@ -51,7 +51,8 @@ class UpdateMultiDimTableRecordsResponseBody extends Model
                 $res['Value'] = [];
                 $n1 = 0;
                 foreach ($this->value as $item1) {
-                    $res['Value'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Value'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class UpdateMultiDimTableRecordsResponseBody extends Model
                 $model->value = [];
                 $n1 = 0;
                 foreach ($map['Value'] as $item1) {
-                    $model->value[$n1++] = value::fromMap($item1);
+                    $model->value[$n1] = value::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

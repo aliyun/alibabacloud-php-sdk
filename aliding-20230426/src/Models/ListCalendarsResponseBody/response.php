@@ -33,7 +33,8 @@ class response extends Model
                 $res['Calendars'] = [];
                 $n1 = 0;
                 foreach ($this->calendars as $item1) {
-                    $res['Calendars'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Calendars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class response extends Model
                 $model->calendars = [];
                 $n1 = 0;
                 foreach ($map['Calendars'] as $item1) {
-                    $model->calendars[$n1++] = calendars::fromMap($item1);
+                    $model->calendars[$n1] = calendars::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

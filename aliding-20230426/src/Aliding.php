@@ -5351,6 +5351,10 @@ class Aliding extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->allowStructViewContent) {
+            @$body['allowStructViewContent'] = $request->allowStructViewContent;
+        }
+
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
         }

@@ -90,7 +90,8 @@ class InsertContentWithOptionsRequest extends Model
                 $res['Path'] = [];
                 $n1 = 0;
                 foreach ($this->path as $item1) {
-                    $res['Path'][$n1++] = $item1;
+                    $res['Path'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class InsertContentWithOptionsRequest extends Model
                 $model->path = [];
                 $n1 = 0;
                 foreach ($map['Path'] as $item1) {
-                    $model->path[$n1++] = $item1;
+                    $model->path[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

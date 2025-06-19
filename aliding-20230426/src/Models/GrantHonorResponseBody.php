@@ -47,7 +47,8 @@ class GrantHonorResponseBody extends Model
                 $res['failedUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->failedUserIds as $item1) {
-                    $res['failedUserIds'][$n1++] = $item1;
+                    $res['failedUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class GrantHonorResponseBody extends Model
                 $res['successUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->successUserIds as $item1) {
-                    $res['successUserIds'][$n1++] = $item1;
+                    $res['successUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class GrantHonorResponseBody extends Model
                 $model->failedUserIds = [];
                 $n1 = 0;
                 foreach ($map['failedUserIds'] as $item1) {
-                    $model->failedUserIds[$n1++] = $item1;
+                    $model->failedUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class GrantHonorResponseBody extends Model
                 $model->successUserIds = [];
                 $n1 = 0;
                 foreach ($map['successUserIds'] as $item1) {
-                    $model->successUserIds[$n1++] = $item1;
+                    $model->successUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

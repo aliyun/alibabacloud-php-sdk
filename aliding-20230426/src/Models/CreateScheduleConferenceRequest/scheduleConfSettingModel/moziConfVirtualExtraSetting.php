@@ -127,7 +127,8 @@ class moziConfVirtualExtraSetting extends Model
                 $res['MoziConfExtensionAppSettings'] = [];
                 $n1 = 0;
                 foreach ($this->moziConfExtensionAppSettings as $item1) {
-                    $res['MoziConfExtensionAppSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MoziConfExtensionAppSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +193,8 @@ class moziConfVirtualExtraSetting extends Model
                 $model->moziConfExtensionAppSettings = [];
                 $n1 = 0;
                 foreach ($map['MoziConfExtensionAppSettings'] as $item1) {
-                    $model->moziConfExtensionAppSettings[$n1++] = moziConfExtensionAppSettings::fromMap($item1);
+                    $model->moziConfExtensionAppSettings[$n1] = moziConfExtensionAppSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

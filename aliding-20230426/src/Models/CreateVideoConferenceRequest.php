@@ -52,7 +52,8 @@ class CreateVideoConferenceRequest extends Model
                 $res['InviteUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->inviteUserIds as $item1) {
-                    $res['InviteUserIds'][$n1++] = $item1;
+                    $res['InviteUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class CreateVideoConferenceRequest extends Model
                 $model->inviteUserIds = [];
                 $n1 = 0;
                 foreach ($map['InviteUserIds'] as $item1) {
-                    $model->inviteUserIds[$n1++] = $item1;
+                    $model->inviteUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

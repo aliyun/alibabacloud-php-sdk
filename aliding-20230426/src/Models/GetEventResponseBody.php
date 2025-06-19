@@ -207,7 +207,8 @@ class GetEventResponseBody extends Model
                 $res['attendees'] = [];
                 $n1 = 0;
                 foreach ($this->attendees as $item1) {
-                    $res['attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['attendees'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +218,8 @@ class GetEventResponseBody extends Model
                 $res['categories'] = [];
                 $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['categories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['categories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +257,8 @@ class GetEventResponseBody extends Model
                 $res['meetingRooms'] = [];
                 $n1 = 0;
                 foreach ($this->meetingRooms as $item1) {
-                    $res['meetingRooms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['meetingRooms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,7 +284,8 @@ class GetEventResponseBody extends Model
                 $res['reminders'] = [];
                 $n1 = 0;
                 foreach ($this->reminders as $item1) {
-                    $res['reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['reminders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -330,7 +334,8 @@ class GetEventResponseBody extends Model
                 $model->attendees = [];
                 $n1 = 0;
                 foreach ($map['attendees'] as $item1) {
-                    $model->attendees[$n1++] = attendees::fromMap($item1);
+                    $model->attendees[$n1] = attendees::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -340,7 +345,8 @@ class GetEventResponseBody extends Model
                 $model->categories = [];
                 $n1 = 0;
                 foreach ($map['categories'] as $item1) {
-                    $model->categories[$n1++] = categories::fromMap($item1);
+                    $model->categories[$n1] = categories::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +384,8 @@ class GetEventResponseBody extends Model
                 $model->meetingRooms = [];
                 $n1 = 0;
                 foreach ($map['meetingRooms'] as $item1) {
-                    $model->meetingRooms[$n1++] = meetingRooms::fromMap($item1);
+                    $model->meetingRooms[$n1] = meetingRooms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -404,7 +411,8 @@ class GetEventResponseBody extends Model
                 $model->reminders = [];
                 $n1 = 0;
                 foreach ($map['reminders'] as $item1) {
-                    $model->reminders[$n1++] = reminders::fromMap($item1);
+                    $model->reminders[$n1] = reminders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

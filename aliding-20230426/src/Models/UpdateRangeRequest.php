@@ -86,12 +86,14 @@ class UpdateRangeRequest extends Model
                 $n1 = 0;
                 foreach ($this->backgroundColors as $item1) {
                     if (\is_array($item1)) {
-                        $res['BackgroundColors'][$n1++] = [];
+                        $res['BackgroundColors'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['BackgroundColors'][$n1++][$n2++] = $item2;
+                            $res['BackgroundColors'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -102,12 +104,14 @@ class UpdateRangeRequest extends Model
                 $n1 = 0;
                 foreach ($this->hyperlinks as $item1) {
                     if (\is_array($item1)) {
-                        $res['Hyperlinks'][$n1++] = [];
+                        $res['Hyperlinks'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['Hyperlinks'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['Hyperlinks'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -134,12 +138,14 @@ class UpdateRangeRequest extends Model
                 $n1 = 0;
                 foreach ($this->values as $item1) {
                     if (\is_array($item1)) {
-                        $res['Values'][$n1++] = [];
+                        $res['Values'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['Values'][$n1++][$n2++] = $item2;
+                            $res['Values'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -165,12 +171,14 @@ class UpdateRangeRequest extends Model
                 $n1 = 0;
                 foreach ($map['BackgroundColors'] as $item1) {
                     if (!empty($item1)) {
-                        $model->backgroundColors[$n1++] = [];
+                        $model->backgroundColors[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->backgroundColors[$n1++][$n2++] = $item2;
+                            $model->backgroundColors[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -181,12 +189,14 @@ class UpdateRangeRequest extends Model
                 $n1 = 0;
                 foreach ($map['Hyperlinks'] as $item1) {
                     if (!empty($item1)) {
-                        $model->hyperlinks[$n1++] = [];
+                        $model->hyperlinks[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->hyperlinks[$n1++][$n2++] = hyperlinks::fromMap($item2);
+                            $model->hyperlinks[$n1][$n2] = hyperlinks::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -213,12 +223,14 @@ class UpdateRangeRequest extends Model
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     if (!empty($item1)) {
-                        $model->values[$n1++] = [];
+                        $model->values[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->values[$n1++][$n2++] = $item2;
+                            $model->values[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

@@ -94,7 +94,8 @@ class CreateDeliveryPlanRequest extends Model
                 $res['UserIdList'] = [];
                 $n1 = 0;
                 foreach ($this->userIdList as $item1) {
-                    $res['UserIdList'][$n1++] = $item1;
+                    $res['UserIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class CreateDeliveryPlanRequest extends Model
                 $model->userIdList = [];
                 $n1 = 0;
                 foreach ($map['UserIdList'] as $item1) {
-                    $model->userIdList[$n1++] = $item1;
+                    $model->userIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

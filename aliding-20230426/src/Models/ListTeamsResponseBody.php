@@ -65,7 +65,8 @@ class ListTeamsResponseBody extends Model
                 $res['teams'] = [];
                 $n1 = 0;
                 foreach ($this->teams as $item1) {
-                    $res['teams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['teams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListTeamsResponseBody extends Model
                 $model->teams = [];
                 $n1 = 0;
                 foreach ($map['teams'] as $item1) {
-                    $model->teams[$n1++] = teams::fromMap($item1);
+                    $model->teams[$n1] = teams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

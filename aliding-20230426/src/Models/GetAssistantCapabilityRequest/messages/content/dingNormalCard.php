@@ -80,7 +80,8 @@ class dingNormalCard extends Model
                 $res['dynamicDataSourceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->dynamicDataSourceConfigs as $item1) {
-                    $res['dynamicDataSourceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dynamicDataSourceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class dingNormalCard extends Model
                 $model->dynamicDataSourceConfigs = [];
                 $n1 = 0;
                 foreach ($map['dynamicDataSourceConfigs'] as $item1) {
-                    $model->dynamicDataSourceConfigs[$n1++] = dynamicDataSourceConfigs::fromMap($item1);
+                    $model->dynamicDataSourceConfigs[$n1] = dynamicDataSourceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

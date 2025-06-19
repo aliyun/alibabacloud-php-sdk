@@ -124,7 +124,8 @@ class GetInstanceByIdResponseBody extends Model
                 $res['actionExecutor'] = [];
                 $n1 = 0;
                 foreach ($this->actionExecutor as $item1) {
-                    $res['actionExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['actionExecutor'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +207,8 @@ class GetInstanceByIdResponseBody extends Model
                 $model->actionExecutor = [];
                 $n1 = 0;
                 foreach ($map['actionExecutor'] as $item1) {
-                    $model->actionExecutor[$n1++] = actionExecutor::fromMap($item1);
+                    $model->actionExecutor[$n1] = actionExecutor::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

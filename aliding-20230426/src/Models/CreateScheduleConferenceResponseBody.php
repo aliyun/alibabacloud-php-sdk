@@ -56,7 +56,8 @@ class CreateScheduleConferenceResponseBody extends Model
                 $res['phones'] = [];
                 $n1 = 0;
                 foreach ($this->phones as $item1) {
-                    $res['phones'][$n1++] = $item1;
+                    $res['phones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class CreateScheduleConferenceResponseBody extends Model
                 $model->phones = [];
                 $n1 = 0;
                 foreach ($map['phones'] as $item1) {
-                    $model->phones[$n1++] = $item1;
+                    $model->phones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

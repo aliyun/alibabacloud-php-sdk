@@ -33,7 +33,8 @@ class recommendPart extends Model
                 $res['recommends'] = [];
                 $n1 = 0;
                 foreach ($this->recommends as $item1) {
-                    $res['recommends'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['recommends'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class recommendPart extends Model
                 $model->recommends = [];
                 $n1 = 0;
                 foreach ($map['recommends'] as $item1) {
-                    $model->recommends[$n1++] = recommends::fromMap($item1);
+                    $model->recommends[$n1] = recommends::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

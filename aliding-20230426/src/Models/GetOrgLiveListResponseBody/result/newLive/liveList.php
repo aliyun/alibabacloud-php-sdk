@@ -98,7 +98,8 @@ class liveList extends Model
                 $res['ShareOpenConversationIds'] = [];
                 $n1 = 0;
                 foreach ($this->shareOpenConversationIds as $item1) {
-                    $res['ShareOpenConversationIds'][$n1++] = $item1;
+                    $res['ShareOpenConversationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class liveList extends Model
                 $model->shareOpenConversationIds = [];
                 $n1 = 0;
                 foreach ($map['ShareOpenConversationIds'] as $item1) {
-                    $model->shareOpenConversationIds[$n1++] = $item1;
+                    $model->shareOpenConversationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

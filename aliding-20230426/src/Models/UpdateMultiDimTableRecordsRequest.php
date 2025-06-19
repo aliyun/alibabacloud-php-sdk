@@ -59,7 +59,8 @@ class UpdateMultiDimTableRecordsRequest extends Model
                 $res['RecordIds'] = [];
                 $n1 = 0;
                 foreach ($this->recordIds as $item1) {
-                    $res['RecordIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecordIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class UpdateMultiDimTableRecordsRequest extends Model
                 $model->recordIds = [];
                 $n1 = 0;
                 foreach ($map['RecordIds'] as $item1) {
-                    $model->recordIds[$n1++] = recordIds::fromMap($item1);
+                    $model->recordIds[$n1] = recordIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

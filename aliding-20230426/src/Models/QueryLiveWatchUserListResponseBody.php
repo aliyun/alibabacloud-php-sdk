@@ -49,7 +49,8 @@ class QueryLiveWatchUserListResponseBody extends Model
                 $res['orgUsesList'] = [];
                 $n1 = 0;
                 foreach ($this->orgUsesList as $item1) {
-                    $res['orgUsesList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['orgUsesList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,7 +60,8 @@ class QueryLiveWatchUserListResponseBody extends Model
                 $res['outOrgUserList'] = [];
                 $n1 = 0;
                 foreach ($this->outOrgUserList as $item1) {
-                    $res['outOrgUserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['outOrgUserList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class QueryLiveWatchUserListResponseBody extends Model
                 $model->orgUsesList = [];
                 $n1 = 0;
                 foreach ($map['orgUsesList'] as $item1) {
-                    $model->orgUsesList[$n1++] = orgUsesList::fromMap($item1);
+                    $model->orgUsesList[$n1] = orgUsesList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class QueryLiveWatchUserListResponseBody extends Model
                 $model->outOrgUserList = [];
                 $n1 = 0;
                 foreach ($map['outOrgUserList'] as $item1) {
-                    $model->outOrgUserList[$n1++] = outOrgUserList::fromMap($item1);
+                    $model->outOrgUserList[$n1] = outOrgUserList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

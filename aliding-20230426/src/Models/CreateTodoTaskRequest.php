@@ -143,7 +143,8 @@ class CreateTodoTaskRequest extends Model
                 $res['actionList'] = [];
                 $n1 = 0;
                 foreach ($this->actionList as $item1) {
-                    $res['actionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['actionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class CreateTodoTaskRequest extends Model
                 $res['contentFieldList'] = [];
                 $n1 = 0;
                 foreach ($this->contentFieldList as $item1) {
-                    $res['contentFieldList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['contentFieldList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +181,8 @@ class CreateTodoTaskRequest extends Model
                 $res['executorIds'] = [];
                 $n1 = 0;
                 foreach ($this->executorIds as $item1) {
-                    $res['executorIds'][$n1++] = $item1;
+                    $res['executorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +204,8 @@ class CreateTodoTaskRequest extends Model
                 $res['participantIds'] = [];
                 $n1 = 0;
                 foreach ($this->participantIds as $item1) {
-                    $res['participantIds'][$n1++] = $item1;
+                    $res['participantIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +242,8 @@ class CreateTodoTaskRequest extends Model
                 $model->actionList = [];
                 $n1 = 0;
                 foreach ($map['actionList'] as $item1) {
-                    $model->actionList[$n1++] = actionList::fromMap($item1);
+                    $model->actionList[$n1] = actionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +253,8 @@ class CreateTodoTaskRequest extends Model
                 $model->contentFieldList = [];
                 $n1 = 0;
                 foreach ($map['contentFieldList'] as $item1) {
-                    $model->contentFieldList[$n1++] = contentFieldList::fromMap($item1);
+                    $model->contentFieldList[$n1] = contentFieldList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +280,8 @@ class CreateTodoTaskRequest extends Model
                 $model->executorIds = [];
                 $n1 = 0;
                 foreach ($map['executorIds'] as $item1) {
-                    $model->executorIds[$n1++] = $item1;
+                    $model->executorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -296,7 +303,8 @@ class CreateTodoTaskRequest extends Model
                 $model->participantIds = [];
                 $n1 = 0;
                 foreach ($map['participantIds'] as $item1) {
-                    $model->participantIds[$n1++] = $item1;
+                    $model->participantIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

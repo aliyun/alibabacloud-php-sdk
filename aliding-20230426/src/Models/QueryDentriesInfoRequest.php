@@ -66,7 +66,8 @@ class QueryDentriesInfoRequest extends Model
                 $res['AppIdsForAppProperties'] = [];
                 $n1 = 0;
                 foreach ($this->appIdsForAppProperties as $item1) {
-                    $res['AppIdsForAppProperties'][$n1++] = $item1;
+                    $res['AppIdsForAppProperties'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class QueryDentriesInfoRequest extends Model
                 $model->appIdsForAppProperties = [];
                 $n1 = 0;
                 foreach ($map['AppIdsForAppProperties'] as $item1) {
-                    $model->appIdsForAppProperties[$n1++] = $item1;
+                    $model->appIdsForAppProperties[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

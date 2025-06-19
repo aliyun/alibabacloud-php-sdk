@@ -33,7 +33,8 @@ class result extends Model
                 $res['GroupLiveList'] = [];
                 $n1 = 0;
                 foreach ($this->groupLiveList as $item1) {
-                    $res['GroupLiveList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupLiveList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class result extends Model
                 $model->groupLiveList = [];
                 $n1 = 0;
                 foreach ($map['GroupLiveList'] as $item1) {
-                    $model->groupLiveList[$n1++] = groupLiveList::fromMap($item1);
+                    $model->groupLiveList[$n1] = groupLiveList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class ticketMemo extends Model
                 $res['Attachments'] = [];
                 $n1 = 0;
                 foreach ($this->attachments as $item1) {
-                    $res['Attachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Attachments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ticketMemo extends Model
                 $model->attachments = [];
                 $n1 = 0;
                 foreach ($map['Attachments'] as $item1) {
-                    $model->attachments[$n1++] = attachments::fromMap($item1);
+                    $model->attachments[$n1] = attachments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

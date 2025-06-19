@@ -73,7 +73,8 @@ class sentenceList extends Model
                 $res['WordList'] = [];
                 $n1 = 0;
                 foreach ($this->wordList as $item1) {
-                    $res['WordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class sentenceList extends Model
                 $model->wordList = [];
                 $n1 = 0;
                 foreach ($map['WordList'] as $item1) {
-                    $model->wordList[$n1++] = wordList::fromMap($item1);
+                    $model->wordList[$n1] = wordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

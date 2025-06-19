@@ -196,7 +196,8 @@ class data extends Model
                 $res['Actioner'] = [];
                 $n1 = 0;
                 foreach ($this->actioner as $item1) {
-                    $res['Actioner'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Actioner'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +207,8 @@ class data extends Model
                 $res['ActionerId'] = [];
                 $n1 = 0;
                 foreach ($this->actionerId as $item1) {
-                    $res['ActionerId'][$n1++] = $item1;
+                    $res['ActionerId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +218,8 @@ class data extends Model
                 $res['ActionerName'] = [];
                 $n1 = 0;
                 foreach ($this->actionerName as $item1) {
-                    $res['ActionerName'][$n1++] = $item1;
+                    $res['ActionerName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +237,8 @@ class data extends Model
                 $res['CurrentActivityInstances'] = [];
                 $n1 = 0;
                 foreach ($this->currentActivityInstances as $item1) {
-                    $res['CurrentActivityInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CurrentActivityInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -340,7 +344,8 @@ class data extends Model
                 $model->actioner = [];
                 $n1 = 0;
                 foreach ($map['Actioner'] as $item1) {
-                    $model->actioner[$n1++] = actioner::fromMap($item1);
+                    $model->actioner[$n1] = actioner::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -350,7 +355,8 @@ class data extends Model
                 $model->actionerId = [];
                 $n1 = 0;
                 foreach ($map['ActionerId'] as $item1) {
-                    $model->actionerId[$n1++] = $item1;
+                    $model->actionerId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -360,7 +366,8 @@ class data extends Model
                 $model->actionerName = [];
                 $n1 = 0;
                 foreach ($map['ActionerName'] as $item1) {
-                    $model->actionerName[$n1++] = $item1;
+                    $model->actionerName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +385,8 @@ class data extends Model
                 $model->currentActivityInstances = [];
                 $n1 = 0;
                 foreach ($map['CurrentActivityInstances'] as $item1) {
-                    $model->currentActivityInstances[$n1++] = currentActivityInstances::fromMap($item1);
+                    $model->currentActivityInstances[$n1] = currentActivityInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

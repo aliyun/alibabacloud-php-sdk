@@ -49,7 +49,8 @@ class QueryOrgHonorsResponseBody extends Model
                 $res['openHonors'] = [];
                 $n1 = 0;
                 foreach ($this->openHonors as $item1) {
-                    $res['openHonors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['openHonors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class QueryOrgHonorsResponseBody extends Model
                 $model->openHonors = [];
                 $n1 = 0;
                 foreach ($map['openHonors'] as $item1) {
-                    $model->openHonors[$n1++] = openHonors::fromMap($item1);
+                    $model->openHonors[$n1] = openHonors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

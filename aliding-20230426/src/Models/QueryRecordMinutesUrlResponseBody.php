@@ -51,7 +51,8 @@ class QueryRecordMinutesUrlResponseBody extends Model
                 $res['recordMinutesUrls'] = [];
                 $n1 = 0;
                 foreach ($this->recordMinutesUrls as $item1) {
-                    $res['recordMinutesUrls'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['recordMinutesUrls'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class QueryRecordMinutesUrlResponseBody extends Model
                 $model->recordMinutesUrls = [];
                 $n1 = 0;
                 foreach ($map['recordMinutesUrls'] as $item1) {
-                    $model->recordMinutesUrls[$n1++] = recordMinutesUrls::fromMap($item1);
+                    $model->recordMinutesUrls[$n1] = recordMinutesUrls::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

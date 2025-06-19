@@ -58,7 +58,8 @@ class DeleteMultiDimTableRecordsRequest extends Model
                 $res['RecordIds'] = [];
                 $n1 = 0;
                 foreach ($this->recordIds as $item1) {
-                    $res['RecordIds'][$n1++] = $item1;
+                    $res['RecordIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class DeleteMultiDimTableRecordsRequest extends Model
                 $model->recordIds = [];
                 $n1 = 0;
                 foreach ($map['RecordIds'] as $item1) {
-                    $model->recordIds[$n1++] = $item1;
+                    $model->recordIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class GetSpaceDirectoriesResponseBody extends Model
                 $res['children'] = [];
                 $n1 = 0;
                 foreach ($this->children as $item1) {
-                    $res['children'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['children'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class GetSpaceDirectoriesResponseBody extends Model
                 $model->children = [];
                 $n1 = 0;
                 foreach ($map['children'] as $item1) {
-                    $model->children[$n1++] = children::fromMap($item1);
+                    $model->children[$n1] = children::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

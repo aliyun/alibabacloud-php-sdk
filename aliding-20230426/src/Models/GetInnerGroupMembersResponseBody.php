@@ -74,7 +74,8 @@ class GetInnerGroupMembersResponseBody extends Model
                 $res['userIds'] = [];
                 $n1 = 0;
                 foreach ($this->userIds as $item1) {
-                    $res['userIds'][$n1++] = $item1;
+                    $res['userIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class GetInnerGroupMembersResponseBody extends Model
                 $model->userIds = [];
                 $n1 = 0;
                 foreach ($map['userIds'] as $item1) {
-                    $model->userIds[$n1++] = $item1;
+                    $model->userIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

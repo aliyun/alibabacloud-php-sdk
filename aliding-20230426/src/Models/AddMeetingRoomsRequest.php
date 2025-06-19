@@ -53,7 +53,8 @@ class AddMeetingRoomsRequest extends Model
                 $res['MeetingRoomsToAdd'] = [];
                 $n1 = 0;
                 foreach ($this->meetingRoomsToAdd as $item1) {
-                    $res['MeetingRoomsToAdd'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MeetingRoomsToAdd'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class AddMeetingRoomsRequest extends Model
                 $model->meetingRoomsToAdd = [];
                 $n1 = 0;
                 foreach ($map['MeetingRoomsToAdd'] as $item1) {
-                    $model->meetingRoomsToAdd[$n1++] = meetingRoomsToAdd::fromMap($item1);
+                    $model->meetingRoomsToAdd[$n1] = meetingRoomsToAdd::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

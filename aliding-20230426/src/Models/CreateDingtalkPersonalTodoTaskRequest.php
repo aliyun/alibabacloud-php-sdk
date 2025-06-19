@@ -93,7 +93,8 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
                 $res['ExecutorIds'] = [];
                 $n1 = 0;
                 foreach ($this->executorIds as $item1) {
-                    $res['ExecutorIds'][$n1++] = $item1;
+                    $res['ExecutorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
                 $res['ParticipantIds'] = [];
                 $n1 = 0;
                 foreach ($this->participantIds as $item1) {
-                    $res['ParticipantIds'][$n1++] = $item1;
+                    $res['ParticipantIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +150,8 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
                 $model->executorIds = [];
                 $n1 = 0;
                 foreach ($map['ExecutorIds'] as $item1) {
-                    $model->executorIds[$n1++] = $item1;
+                    $model->executorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
                 $model->participantIds = [];
                 $n1 = 0;
                 foreach ($map['ParticipantIds'] as $item1) {
-                    $model->participantIds[$n1++] = $item1;
+                    $model->participantIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

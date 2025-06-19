@@ -33,7 +33,8 @@ class structView extends Model
                 $res['parts'] = [];
                 $n1 = 0;
                 foreach ($this->parts as $item1) {
-                    $res['parts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['parts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class structView extends Model
                 $model->parts = [];
                 $n1 = 0;
                 foreach ($map['parts'] as $item1) {
-                    $model->parts[$n1++] = parts::fromMap($item1);
+                    $model->parts[$n1] = parts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

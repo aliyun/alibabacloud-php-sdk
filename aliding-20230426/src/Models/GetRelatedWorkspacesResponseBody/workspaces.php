@@ -91,7 +91,8 @@ class workspaces extends Model
                 $res['RecentList'] = [];
                 $n1 = 0;
                 foreach ($this->recentList as $item1) {
-                    $res['RecentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class workspaces extends Model
                 $model->recentList = [];
                 $n1 = 0;
                 foreach ($map['RecentList'] as $item1) {
-                    $model->recentList[$n1++] = recentList::fromMap($item1);
+                    $model->recentList[$n1] = recentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

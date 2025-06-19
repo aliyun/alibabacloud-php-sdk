@@ -76,7 +76,8 @@ class BatchSaveFormDataRequest extends Model
                 $res['FormDataJsonList'] = [];
                 $n1 = 0;
                 foreach ($this->formDataJsonList as $item1) {
-                    $res['FormDataJsonList'][$n1++] = $item1;
+                    $res['FormDataJsonList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class BatchSaveFormDataRequest extends Model
                 $model->formDataJsonList = [];
                 $n1 = 0;
                 foreach ($map['FormDataJsonList'] as $item1) {
-                    $model->formDataJsonList[$n1++] = $item1;
+                    $model->formDataJsonList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

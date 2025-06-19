@@ -33,7 +33,8 @@ class referencePart extends Model
                 $res['references'] = [];
                 $n1 = 0;
                 foreach ($this->references as $item1) {
-                    $res['references'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['references'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class referencePart extends Model
                 $model->references = [];
                 $n1 = 0;
                 foreach ($map['references'] as $item1) {
-                    $model->references[$n1++] = references::fromMap($item1);
+                    $model->references[$n1] = references::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

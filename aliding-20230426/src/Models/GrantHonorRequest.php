@@ -127,7 +127,8 @@ class GrantHonorRequest extends Model
                 $res['openConversationIds'] = [];
                 $n1 = 0;
                 foreach ($this->openConversationIds as $item1) {
-                    $res['openConversationIds'][$n1++] = $item1;
+                    $res['openConversationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class GrantHonorRequest extends Model
                 $res['receiverUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->receiverUserIds as $item1) {
-                    $res['receiverUserIds'][$n1++] = $item1;
+                    $res['receiverUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +196,8 @@ class GrantHonorRequest extends Model
                 $model->openConversationIds = [];
                 $n1 = 0;
                 foreach ($map['openConversationIds'] as $item1) {
-                    $model->openConversationIds[$n1++] = $item1;
+                    $model->openConversationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +211,8 @@ class GrantHonorRequest extends Model
                 $model->receiverUserIds = [];
                 $n1 = 0;
                 foreach ($map['receiverUserIds'] as $item1) {
-                    $model->receiverUserIds[$n1++] = $item1;
+                    $model->receiverUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

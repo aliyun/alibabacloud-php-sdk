@@ -61,7 +61,8 @@ class questionsAnsweringSummary extends Model
                 $res['SentenceIdsOfAnswer'] = [];
                 $n1 = 0;
                 foreach ($this->sentenceIdsOfAnswer as $item1) {
-                    $res['SentenceIdsOfAnswer'][$n1++] = $item1;
+                    $res['SentenceIdsOfAnswer'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class questionsAnsweringSummary extends Model
                 $res['SentenceIdsOfQuestion'] = [];
                 $n1 = 0;
                 foreach ($this->sentenceIdsOfQuestion as $item1) {
-                    $res['SentenceIdsOfQuestion'][$n1++] = $item1;
+                    $res['SentenceIdsOfQuestion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class questionsAnsweringSummary extends Model
                 $model->sentenceIdsOfAnswer = [];
                 $n1 = 0;
                 foreach ($map['SentenceIdsOfAnswer'] as $item1) {
-                    $model->sentenceIdsOfAnswer[$n1++] = $item1;
+                    $model->sentenceIdsOfAnswer[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class questionsAnsweringSummary extends Model
                 $model->sentenceIdsOfQuestion = [];
                 $n1 = 0;
                 foreach ($map['SentenceIdsOfQuestion'] as $item1) {
-                    $model->sentenceIdsOfQuestion[$n1++] = $item1;
+                    $model->sentenceIdsOfQuestion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

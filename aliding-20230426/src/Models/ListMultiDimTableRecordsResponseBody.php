@@ -71,7 +71,8 @@ class ListMultiDimTableRecordsResponseBody extends Model
                 $res['records'] = [];
                 $n1 = 0;
                 foreach ($this->records as $item1) {
-                    $res['records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListMultiDimTableRecordsResponseBody extends Model
                 $model->records = [];
                 $n1 = 0;
                 foreach ($map['records'] as $item1) {
-                    $model->records[$n1++] = records::fromMap($item1);
+                    $model->records[$n1] = records::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

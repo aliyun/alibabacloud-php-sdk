@@ -68,7 +68,8 @@ class UpdateConvExtensionRequest extends Model
                 $res['StaffIdList'] = [];
                 $n1 = 0;
                 foreach ($this->staffIdList as $item1) {
-                    $res['StaffIdList'][$n1++] = $item1;
+                    $res['StaffIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class UpdateConvExtensionRequest extends Model
                 $model->staffIdList = [];
                 $n1 = 0;
                 foreach ($map['StaffIdList'] as $item1) {
-                    $model->staffIdList[$n1++] = $item1;
+                    $model->staffIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -92,7 +92,8 @@ class summary extends Model
                 $res['AutoChapters'] = [];
                 $n1 = 0;
                 foreach ($this->autoChapters as $item1) {
-                    $res['AutoChapters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoChapters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class summary extends Model
                 $res['ConversationalSummary'] = [];
                 $n1 = 0;
                 foreach ($this->conversationalSummary as $item1) {
-                    $res['ConversationalSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConversationalSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +118,8 @@ class summary extends Model
                 $res['Keywords'] = [];
                 $n1 = 0;
                 foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1++] = $item1;
+                    $res['Keywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +133,8 @@ class summary extends Model
                 $res['QuestionsAnsweringSummary'] = [];
                 $n1 = 0;
                 foreach ($this->questionsAnsweringSummary as $item1) {
-                    $res['QuestionsAnsweringSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QuestionsAnsweringSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +159,8 @@ class summary extends Model
                 $model->autoChapters = [];
                 $n1 = 0;
                 foreach ($map['AutoChapters'] as $item1) {
-                    $model->autoChapters[$n1++] = autoChapters::fromMap($item1);
+                    $model->autoChapters[$n1] = autoChapters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +170,8 @@ class summary extends Model
                 $model->conversationalSummary = [];
                 $n1 = 0;
                 foreach ($map['ConversationalSummary'] as $item1) {
-                    $model->conversationalSummary[$n1++] = conversationalSummary::fromMap($item1);
+                    $model->conversationalSummary[$n1] = conversationalSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +185,8 @@ class summary extends Model
                 $model->keywords = [];
                 $n1 = 0;
                 foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1++] = $item1;
+                    $model->keywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +200,8 @@ class summary extends Model
                 $model->questionsAnsweringSummary = [];
                 $n1 = 0;
                 foreach ($map['QuestionsAnsweringSummary'] as $item1) {
-                    $model->questionsAnsweringSummary[$n1++] = questionsAnsweringSummary::fromMap($item1);
+                    $model->questionsAnsweringSummary[$n1] = questionsAnsweringSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

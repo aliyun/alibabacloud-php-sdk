@@ -97,7 +97,8 @@ class UpdateTodoTaskRequest extends Model
                 $res['executorIds'] = [];
                 $n1 = 0;
                 foreach ($this->executorIds as $item1) {
-                    $res['executorIds'][$n1++] = $item1;
+                    $res['executorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class UpdateTodoTaskRequest extends Model
                 $res['participantIds'] = [];
                 $n1 = 0;
                 foreach ($this->participantIds as $item1) {
-                    $res['participantIds'][$n1++] = $item1;
+                    $res['participantIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +154,8 @@ class UpdateTodoTaskRequest extends Model
                 $model->executorIds = [];
                 $n1 = 0;
                 foreach ($map['executorIds'] as $item1) {
-                    $model->executorIds[$n1++] = $item1;
+                    $model->executorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class UpdateTodoTaskRequest extends Model
                 $model->participantIds = [];
                 $n1 = 0;
                 foreach ($map['participantIds'] as $item1) {
-                    $model->participantIds[$n1++] = $item1;
+                    $model->participantIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -44,7 +44,8 @@ class RemoveAttendeeRequest extends Model
                 $res['AttendeesToRemove'] = [];
                 $n1 = 0;
                 foreach ($this->attendeesToRemove as $item1) {
-                    $res['AttendeesToRemove'][$n1++] = $item1;
+                    $res['AttendeesToRemove'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class RemoveAttendeeRequest extends Model
                 $model->attendeesToRemove = [];
                 $n1 = 0;
                 foreach ($map['AttendeesToRemove'] as $item1) {
-                    $model->attendeesToRemove[$n1++] = $item1;
+                    $model->attendeesToRemove[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

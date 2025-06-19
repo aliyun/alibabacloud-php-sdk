@@ -43,7 +43,8 @@ class GetWorkspacesResponseBody extends Model
                 $res['workspace'] = [];
                 $n1 = 0;
                 foreach ($this->workspace as $item1) {
-                    $res['workspace'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['workspace'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class GetWorkspacesResponseBody extends Model
                 $model->workspace = [];
                 $n1 = 0;
                 foreach ($map['workspace'] as $item1) {
-                    $model->workspace[$n1++] = workspace::fromMap($item1);
+                    $model->workspace[$n1] = workspace::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

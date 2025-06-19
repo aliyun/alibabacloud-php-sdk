@@ -51,7 +51,8 @@ class GetMultipartFileUploadInfosResponseBody extends Model
                 $res['multipartHeaderSignatureInfos'] = [];
                 $n1 = 0;
                 foreach ($this->multipartHeaderSignatureInfos as $item1) {
-                    $res['multipartHeaderSignatureInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['multipartHeaderSignatureInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class GetMultipartFileUploadInfosResponseBody extends Model
                 $model->multipartHeaderSignatureInfos = [];
                 $n1 = 0;
                 foreach ($map['multipartHeaderSignatureInfos'] as $item1) {
-                    $model->multipartHeaderSignatureInfos[$n1++] = multipartHeaderSignatureInfos::fromMap($item1);
+                    $model->multipartHeaderSignatureInfos[$n1] = multipartHeaderSignatureInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
