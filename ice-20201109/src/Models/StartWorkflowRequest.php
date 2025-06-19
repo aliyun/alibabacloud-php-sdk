@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class StartWorkflowRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $skipInputVerification;
+
+    /**
      * @var string
      */
     public $taskInput;
@@ -23,6 +28,7 @@ class StartWorkflowRequest extends Model
      */
     public $workflowId;
     protected $_name = [
+        'skipInputVerification' => 'SkipInputVerification',
         'taskInput' => 'TaskInput',
         'userData' => 'UserData',
         'workflowId' => 'WorkflowId',
@@ -36,6 +42,10 @@ class StartWorkflowRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->skipInputVerification) {
+            $res['SkipInputVerification'] = $this->skipInputVerification;
+        }
+
         if (null !== $this->taskInput) {
             $res['TaskInput'] = $this->taskInput;
         }
@@ -59,6 +69,10 @@ class StartWorkflowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SkipInputVerification'])) {
+            $model->skipInputVerification = $map['SkipInputVerification'];
+        }
+
         if (isset($map['TaskInput'])) {
             $model->taskInput = $map['TaskInput'];
         }

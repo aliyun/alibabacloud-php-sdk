@@ -409,6 +409,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveTranscodeTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveTranscodeTemplatesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaConvertJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaConvertJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaLiveChannelsRequest;
@@ -14378,6 +14380,87 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 查询 MediaConvertJob 列表.
+     *
+     * @param request - ListMediaConvertJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMediaConvertJobsResponse
+     *
+     * @param ListMediaConvertJobsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListMediaConvertJobsResponse
+     */
+    public function listMediaConvertJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endOfCreateTime) {
+            @$query['EndOfCreateTime'] = $request->endOfCreateTime;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startOfCreateTime) {
+            @$query['StartOfCreateTime'] = $request->startOfCreateTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMediaConvertJobs',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMediaConvertJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 MediaConvertJob 列表.
+     *
+     * @param request - ListMediaConvertJobsRequest
+     *
+     * @returns ListMediaConvertJobsResponse
+     *
+     * @param ListMediaConvertJobsRequest $request
+     *
+     * @return ListMediaConvertJobsResponse
+     */
+    public function listMediaConvertJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaConvertJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of media information analysis jobs.
      *
      * @param request - ListMediaInfoJobsRequest
@@ -19578,6 +19661,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->skipInputVerification) {
+            @$query['SkipInputVerification'] = $request->skipInputVerification;
+        }
+
         if (null !== $request->taskInput) {
             @$query['TaskInput'] = $request->taskInput;
         }
