@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['OperationLogs'] = [];
                 $n1 = 0;
                 foreach ($this->operationLogs as $item1) {
-                    $res['OperationLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperationLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->operationLogs = [];
                 $n1 = 0;
                 foreach ($map['OperationLogs'] as $item1) {
-                    $model->operationLogs[$n1++] = operationLogs::fromMap($item1);
+                    $model->operationLogs[$n1] = operationLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

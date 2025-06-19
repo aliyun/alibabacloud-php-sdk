@@ -157,7 +157,8 @@ class ListTaskInstancesRequest extends Model
                 $res['Ids'] = [];
                 $n1 = 0;
                 foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1++] = $item1;
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class ListTaskInstancesRequest extends Model
                 $res['TaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->taskIds as $item1) {
-                    $res['TaskIds'][$n1++] = $item1;
+                    $res['TaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +262,8 @@ class ListTaskInstancesRequest extends Model
                 $model->ids = [];
                 $n1 = 0;
                 foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1++] = $item1;
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +309,8 @@ class ListTaskInstancesRequest extends Model
                 $model->taskIds = [];
                 $n1 = 0;
                 foreach ($map['TaskIds'] as $item1) {
-                    $model->taskIds[$n1++] = $item1;
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

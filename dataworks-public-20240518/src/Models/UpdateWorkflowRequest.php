@@ -125,7 +125,8 @@ class UpdateWorkflowRequest extends Model
                 $res['Dependencies'] = [];
                 $n1 = 0;
                 foreach ($this->dependencies as $item1) {
-                    $res['Dependencies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Dependencies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class UpdateWorkflowRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +179,8 @@ class UpdateWorkflowRequest extends Model
                 $res['Tasks'] = [];
                 $n1 = 0;
                 foreach ($this->tasks as $item1) {
-                    $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +209,8 @@ class UpdateWorkflowRequest extends Model
                 $model->dependencies = [];
                 $n1 = 0;
                 foreach ($map['Dependencies'] as $item1) {
-                    $model->dependencies[$n1++] = dependencies::fromMap($item1);
+                    $model->dependencies[$n1] = dependencies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +252,8 @@ class UpdateWorkflowRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +263,8 @@ class UpdateWorkflowRequest extends Model
                 $model->tasks = [];
                 $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
-                    $model->tasks[$n1++] = tasks::fromMap($item1);
+                    $model->tasks[$n1] = tasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

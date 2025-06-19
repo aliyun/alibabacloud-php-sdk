@@ -218,6 +218,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRoleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRoleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRerunWorkflowInstancesResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRerunWorkflowInstancesResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceRequest;
@@ -399,6 +401,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionRe
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunWorkflowInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunWorkflowInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunWorkflowInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesShrinkRequest;
@@ -3490,7 +3495,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建工作流实例.
+     * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
      *
      * @param tmpReq - CreateWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3579,7 +3584,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建工作流实例.
+     * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
      *
      * @param request - CreateWorkflowInstancesRequest
      *
@@ -7437,6 +7442,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询异步重跑工作流实例的结果.
+     *
+     * @param request - GetRerunWorkflowInstancesResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRerunWorkflowInstancesResultResponse
+     *
+     * @param GetRerunWorkflowInstancesResultRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetRerunWorkflowInstancesResultResponse
+     */
+    public function getRerunWorkflowInstancesResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->operationId) {
+            @$query['OperationId'] = $request->operationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRerunWorkflowInstancesResult',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRerunWorkflowInstancesResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询异步重跑工作流实例的结果.
+     *
+     * @param request - GetRerunWorkflowInstancesResultRequest
+     *
+     * @returns GetRerunWorkflowInstancesResultResponse
+     *
+     * @param GetRerunWorkflowInstancesResultRequest $request
+     *
+     * @return GetRerunWorkflowInstancesResultResponse
+     */
+    public function getRerunWorkflowInstancesResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRerunWorkflowInstancesResultWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a file resource.
      *
      * @param request - GetResourceRequest
@@ -7608,7 +7670,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取模式详情.
+     * Queries the information about a schema in Data Map. You can call this API operation to query the information only about MaxCompute and Hologres schemas.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this API operation to query the information only about MaxCompute and Hologres schemas.
      *
      * @param request - GetSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7643,7 +7709,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取模式详情.
+     * Queries the information about a schema in Data Map. You can call this API operation to query the information only about MaxCompute and Hologres schemas.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this API operation to query the information only about MaxCompute and Hologres schemas.
      *
      * @param request - GetSchemaRequest
      *
@@ -12845,6 +12915,113 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rerunTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重跑工作流实例.
+     *
+     * @param tmpReq - RerunWorkflowInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RerunWorkflowInstancesResponse
+     *
+     * @param RerunWorkflowInstancesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RerunWorkflowInstancesResponse
+     */
+    public function rerunWorkflowInstancesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RerunWorkflowInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bizdate) {
+            @$body['Bizdate'] = $request->bizdate;
+        }
+
+        if (null !== $request->endTriggerTime) {
+            @$body['EndTriggerTime'] = $request->endTriggerTime;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->filterShrink) {
+            @$body['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->startTriggerTime) {
+            @$body['StartTriggerTime'] = $request->startTriggerTime;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->workflowId) {
+            @$body['WorkflowId'] = $request->workflowId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RerunWorkflowInstances',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RerunWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重跑工作流实例.
+     *
+     * @param request - RerunWorkflowInstancesRequest
+     *
+     * @returns RerunWorkflowInstancesResponse
+     *
+     * @param RerunWorkflowInstancesRequest $request
+     *
+     * @return RerunWorkflowInstancesResponse
+     */
+    public function rerunWorkflowInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rerunWorkflowInstancesWithOptions($request, $runtime);
     }
 
     /**

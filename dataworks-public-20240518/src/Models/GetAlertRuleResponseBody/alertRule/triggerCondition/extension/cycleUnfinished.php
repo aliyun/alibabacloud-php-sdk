@@ -33,7 +33,8 @@ class cycleUnfinished extends Model
                 $res['CycleAndTime'] = [];
                 $n1 = 0;
                 foreach ($this->cycleAndTime as $item1) {
-                    $res['CycleAndTime'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CycleAndTime'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cycleUnfinished extends Model
                 $model->cycleAndTime = [];
                 $n1 = 0;
                 foreach ($map['CycleAndTime'] as $item1) {
-                    $model->cycleAndTime[$n1++] = cycleAndTime::fromMap($item1);
+                    $model->cycleAndTime[$n1] = cycleAndTime::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

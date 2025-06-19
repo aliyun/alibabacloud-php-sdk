@@ -71,7 +71,8 @@ class ListProjectMembersRequest extends Model
                 $res['RoleCodes'] = [];
                 $n1 = 0;
                 foreach ($this->roleCodes as $item1) {
-                    $res['RoleCodes'][$n1++] = $item1;
+                    $res['RoleCodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class ListProjectMembersRequest extends Model
                 $res['UserIds'] = [];
                 $n1 = 0;
                 foreach ($this->userIds as $item1) {
-                    $res['UserIds'][$n1++] = $item1;
+                    $res['UserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +116,8 @@ class ListProjectMembersRequest extends Model
                 $model->roleCodes = [];
                 $n1 = 0;
                 foreach ($map['RoleCodes'] as $item1) {
-                    $model->roleCodes[$n1++] = $item1;
+                    $model->roleCodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +127,8 @@ class ListProjectMembersRequest extends Model
                 $model->userIds = [];
                 $n1 = 0;
                 foreach ($map['UserIds'] as $item1) {
-                    $model->userIds[$n1++] = $item1;
+                    $model->userIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

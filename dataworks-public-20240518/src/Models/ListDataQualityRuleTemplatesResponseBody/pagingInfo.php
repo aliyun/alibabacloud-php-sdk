@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['DataQualityRuleTemplates'] = [];
                 $n1 = 0;
                 foreach ($this->dataQualityRuleTemplates as $item1) {
-                    $res['DataQualityRuleTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataQualityRuleTemplates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->dataQualityRuleTemplates = [];
                 $n1 = 0;
                 foreach ($map['DataQualityRuleTemplates'] as $item1) {
-                    $model->dataQualityRuleTemplates[$n1++] = dataQualityRuleTemplates::fromMap($item1);
+                    $model->dataQualityRuleTemplates[$n1] = dataQualityRuleTemplates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

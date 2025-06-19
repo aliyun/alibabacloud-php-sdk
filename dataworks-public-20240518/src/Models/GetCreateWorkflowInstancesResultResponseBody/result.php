@@ -52,7 +52,8 @@ class result extends Model
                 $res['WorkflowInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->workflowInstanceIds as $item1) {
-                    $res['WorkflowInstanceIds'][$n1++] = $item1;
+                    $res['WorkflowInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class result extends Model
                 $model->workflowInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['WorkflowInstanceIds'] as $item1) {
-                    $model->workflowInstanceIds[$n1++] = $item1;
+                    $model->workflowInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

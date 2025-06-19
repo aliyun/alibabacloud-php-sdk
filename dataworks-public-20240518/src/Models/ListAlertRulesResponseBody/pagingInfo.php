@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['AlertRules'] = [];
                 $n1 = 0;
                 foreach ($this->alertRules as $item1) {
-                    $res['AlertRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlertRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->alertRules = [];
                 $n1 = 0;
                 foreach ($map['AlertRules'] as $item1) {
-                    $model->alertRules[$n1++] = alertRules::fromMap($item1);
+                    $model->alertRules[$n1] = alertRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

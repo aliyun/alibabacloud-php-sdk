@@ -51,7 +51,8 @@ class data extends Model
                 $res['Folders'] = [];
                 $n1 = 0;
                 foreach ($this->folders as $item1) {
-                    $res['Folders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Folders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->folders = [];
                 $n1 = 0;
                 foreach ($map['Folders'] as $item1) {
-                    $model->folders[$n1++] = folders::fromMap($item1);
+                    $model->folders[$n1] = folders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

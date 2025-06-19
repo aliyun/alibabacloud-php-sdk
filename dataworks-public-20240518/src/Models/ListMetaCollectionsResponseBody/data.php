@@ -51,7 +51,8 @@ class data extends Model
                 $res['MetaCollections'] = [];
                 $n1 = 0;
                 foreach ($this->metaCollections as $item1) {
-                    $res['MetaCollections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MetaCollections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->metaCollections = [];
                 $n1 = 0;
                 foreach ($map['MetaCollections'] as $item1) {
-                    $model->metaCollections[$n1++] = metaCollections::fromMap($item1);
+                    $model->metaCollections[$n1] = metaCollections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

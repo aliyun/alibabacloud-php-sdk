@@ -43,7 +43,8 @@ class jobMetrics extends Model
                 $res['SeriesList'] = [];
                 $n1 = 0;
                 foreach ($this->seriesList as $item1) {
-                    $res['SeriesList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SeriesList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class jobMetrics extends Model
                 $model->seriesList = [];
                 $n1 = 0;
                 foreach ($map['SeriesList'] as $item1) {
-                    $model->seriesList[$n1++] = seriesList::fromMap($item1);
+                    $model->seriesList[$n1] = seriesList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

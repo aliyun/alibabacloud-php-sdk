@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['DataQualityEvaluationTaskInstances'] = [];
                 $n1 = 0;
                 foreach ($this->dataQualityEvaluationTaskInstances as $item1) {
-                    $res['DataQualityEvaluationTaskInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataQualityEvaluationTaskInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->dataQualityEvaluationTaskInstances = [];
                 $n1 = 0;
                 foreach ($map['DataQualityEvaluationTaskInstances'] as $item1) {
-                    $model->dataQualityEvaluationTaskInstances[$n1++] = dataQualityEvaluationTaskInstances::fromMap($item1);
+                    $model->dataQualityEvaluationTaskInstances[$n1] = dataQualityEvaluationTaskInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

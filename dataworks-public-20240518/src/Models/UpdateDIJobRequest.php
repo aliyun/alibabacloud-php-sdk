@@ -111,7 +111,8 @@ class UpdateDIJobRequest extends Model
                 $res['TableMappings'] = [];
                 $n1 = 0;
                 foreach ($this->tableMappings as $item1) {
-                    $res['TableMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class UpdateDIJobRequest extends Model
                 $res['TransformationRules'] = [];
                 $n1 = 0;
                 foreach ($this->transformationRules as $item1) {
-                    $res['TransformationRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TransformationRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class UpdateDIJobRequest extends Model
                 $model->tableMappings = [];
                 $n1 = 0;
                 foreach ($map['TableMappings'] as $item1) {
-                    $model->tableMappings[$n1++] = tableMappings::fromMap($item1);
+                    $model->tableMappings[$n1] = tableMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +179,8 @@ class UpdateDIJobRequest extends Model
                 $model->transformationRules = [];
                 $n1 = 0;
                 foreach ($map['TransformationRules'] as $item1) {
-                    $model->transformationRules[$n1++] = transformationRules::fromMap($item1);
+                    $model->transformationRules[$n1] = transformationRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

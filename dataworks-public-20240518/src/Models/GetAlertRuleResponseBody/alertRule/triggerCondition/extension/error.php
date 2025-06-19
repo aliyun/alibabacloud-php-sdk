@@ -42,7 +42,8 @@ class error extends Model
                 $res['StreamTaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->streamTaskIds as $item1) {
-                    $res['StreamTaskIds'][$n1++] = $item1;
+                    $res['StreamTaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class error extends Model
                 $model->streamTaskIds = [];
                 $n1 = 0;
                 foreach ($map['StreamTaskIds'] as $item1) {
-                    $model->streamTaskIds[$n1++] = $item1;
+                    $model->streamTaskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

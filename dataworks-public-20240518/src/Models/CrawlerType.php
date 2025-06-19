@@ -49,7 +49,8 @@ class CrawlerType extends Model
                 $res['SupportedEntityTypes'] = [];
                 $n1 = 0;
                 foreach ($this->supportedEntityTypes as $item1) {
-                    $res['SupportedEntityTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedEntityTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class CrawlerType extends Model
                 $model->supportedEntityTypes = [];
                 $n1 = 0;
                 foreach ($map['SupportedEntityTypes'] as $item1) {
-                    $model->supportedEntityTypes[$n1++] = supportedEntityTypes::fromMap($item1);
+                    $model->supportedEntityTypes[$n1] = supportedEntityTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

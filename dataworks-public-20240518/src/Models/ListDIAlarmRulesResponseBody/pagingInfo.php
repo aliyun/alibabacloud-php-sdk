@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['DIJobAlarmRules'] = [];
                 $n1 = 0;
                 foreach ($this->DIJobAlarmRules as $item1) {
-                    $res['DIJobAlarmRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DIJobAlarmRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->DIJobAlarmRules = [];
                 $n1 = 0;
                 foreach ($map['DIJobAlarmRules'] as $item1) {
-                    $model->DIJobAlarmRules[$n1++] = DIJobAlarmRules::fromMap($item1);
+                    $model->DIJobAlarmRules[$n1] = DIJobAlarmRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

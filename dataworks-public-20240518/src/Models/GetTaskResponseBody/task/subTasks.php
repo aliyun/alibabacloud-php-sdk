@@ -39,7 +39,8 @@ class subTasks extends Model
                 $res['SubTasks'] = [];
                 $n1 = 0;
                 foreach ($this->subTasks as $item1) {
-                    $res['SubTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class subTasks extends Model
                 $model->subTasks = [];
                 $n1 = 0;
                 foreach ($map['SubTasks'] as $item1) {
-                    $model->subTasks[$n1++] = self::fromMap($item1);
+                    $model->subTasks[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

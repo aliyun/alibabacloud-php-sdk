@@ -44,7 +44,8 @@ class ListCrawlerTypesResponseBody extends Model
                 $res['CrawlerTypes'] = [];
                 $n1 = 0;
                 foreach ($this->crawlerTypes as $item1) {
-                    $res['CrawlerTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CrawlerTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListCrawlerTypesResponseBody extends Model
                 $model->crawlerTypes = [];
                 $n1 = 0;
                 foreach ($map['CrawlerTypes'] as $item1) {
-                    $model->crawlerTypes[$n1++] = CrawlerType::fromMap($item1);
+                    $model->crawlerTypes[$n1] = CrawlerType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

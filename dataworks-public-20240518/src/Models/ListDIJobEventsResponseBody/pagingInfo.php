@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['DIJobEvent'] = [];
                 $n1 = 0;
                 foreach ($this->DIJobEvent as $item1) {
-                    $res['DIJobEvent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DIJobEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->DIJobEvent = [];
                 $n1 = 0;
                 foreach ($map['DIJobEvent'] as $item1) {
-                    $model->DIJobEvent[$n1++] = DIJobEvent::fromMap($item1);
+                    $model->DIJobEvent[$n1] = DIJobEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

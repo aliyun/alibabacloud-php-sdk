@@ -107,6 +107,11 @@ class taskInstances extends Model
     public $runtimeResource;
 
     /**
+     * @var string
+     */
+    public $scriptParameters;
+
+    /**
      * @var int
      */
     public $startedTime;
@@ -154,6 +159,16 @@ class taskInstances extends Model
     /**
      * @var int
      */
+    public $waitingResourceTime;
+
+    /**
+     * @var int
+     */
+    public $waitingTriggerTime;
+
+    /**
+     * @var int
+     */
     public $workflowId;
 
     /**
@@ -190,6 +205,7 @@ class taskInstances extends Model
         'runNumber' => 'RunNumber',
         'runtime' => 'Runtime',
         'runtimeResource' => 'RuntimeResource',
+        'scriptParameters' => 'ScriptParameters',
         'startedTime' => 'StartedTime',
         'status' => 'Status',
         'taskId' => 'TaskId',
@@ -199,6 +215,8 @@ class taskInstances extends Model
         'triggerRecurrence' => 'TriggerRecurrence',
         'triggerTime' => 'TriggerTime',
         'triggerType' => 'TriggerType',
+        'waitingResourceTime' => 'WaitingResourceTime',
+        'waitingTriggerTime' => 'WaitingTriggerTime',
         'workflowId' => 'WorkflowId',
         'workflowInstanceId' => 'WorkflowInstanceId',
         'workflowInstanceType' => 'WorkflowInstanceType',
@@ -298,6 +316,10 @@ class taskInstances extends Model
             $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toArray($noStream) : $this->runtimeResource;
         }
 
+        if (null !== $this->scriptParameters) {
+            $res['ScriptParameters'] = $this->scriptParameters;
+        }
+
         if (null !== $this->startedTime) {
             $res['StartedTime'] = $this->startedTime;
         }
@@ -332,6 +354,14 @@ class taskInstances extends Model
 
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
+        }
+
+        if (null !== $this->waitingResourceTime) {
+            $res['WaitingResourceTime'] = $this->waitingResourceTime;
+        }
+
+        if (null !== $this->waitingTriggerTime) {
+            $res['WaitingTriggerTime'] = $this->waitingTriggerTime;
         }
 
         if (null !== $this->workflowId) {
@@ -437,6 +467,10 @@ class taskInstances extends Model
             $model->runtimeResource = runtimeResource::fromMap($map['RuntimeResource']);
         }
 
+        if (isset($map['ScriptParameters'])) {
+            $model->scriptParameters = $map['ScriptParameters'];
+        }
+
         if (isset($map['StartedTime'])) {
             $model->startedTime = $map['StartedTime'];
         }
@@ -471,6 +505,14 @@ class taskInstances extends Model
 
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+
+        if (isset($map['WaitingResourceTime'])) {
+            $model->waitingResourceTime = $map['WaitingResourceTime'];
+        }
+
+        if (isset($map['WaitingTriggerTime'])) {
+            $model->waitingTriggerTime = $map['WaitingTriggerTime'];
         }
 
         if (isset($map['WorkflowId'])) {

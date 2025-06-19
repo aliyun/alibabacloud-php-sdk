@@ -97,7 +97,8 @@ class projects extends Model
                 $res['AliyunResourceTags'] = [];
                 $n1 = 0;
                 foreach ($this->aliyunResourceTags as $item1) {
-                    $res['AliyunResourceTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AliyunResourceTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class projects extends Model
                 $model->aliyunResourceTags = [];
                 $n1 = 0;
                 foreach ($map['AliyunResourceTags'] as $item1) {
-                    $model->aliyunResourceTags[$n1++] = aliyunResourceTags::fromMap($item1);
+                    $model->aliyunResourceTags[$n1] = aliyunResourceTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

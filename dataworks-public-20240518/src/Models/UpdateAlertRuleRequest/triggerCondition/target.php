@@ -47,7 +47,8 @@ class target extends Model
                 $res['AllowTasks'] = [];
                 $n1 = 0;
                 foreach ($this->allowTasks as $item1) {
-                    $res['AllowTasks'][$n1++] = $item1;
+                    $res['AllowTasks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class target extends Model
                 $res['Ids'] = [];
                 $n1 = 0;
                 foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1++] = $item1;
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class target extends Model
                 $model->allowTasks = [];
                 $n1 = 0;
                 foreach ($map['AllowTasks'] as $item1) {
-                    $model->allowTasks[$n1++] = $item1;
+                    $model->allowTasks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class target extends Model
                 $model->ids = [];
                 $n1 = 0;
                 foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1++] = $item1;
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

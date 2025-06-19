@@ -113,7 +113,8 @@ class DataQualityEvaluationTask extends Model
                 $res['Hooks'] = [];
                 $n1 = 0;
                 foreach ($this->hooks as $item1) {
-                    $res['Hooks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Hooks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class DataQualityEvaluationTask extends Model
                 $res['Notifications'] = [];
                 $n1 = 0;
                 foreach ($this->notifications as $item1) {
-                    $res['Notifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Notifications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +182,8 @@ class DataQualityEvaluationTask extends Model
                 $model->hooks = [];
                 $n1 = 0;
                 foreach ($map['Hooks'] as $item1) {
-                    $model->hooks[$n1++] = hooks::fromMap($item1);
+                    $model->hooks[$n1] = hooks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +201,8 @@ class DataQualityEvaluationTask extends Model
                 $model->notifications = [];
                 $n1 = 0;
                 foreach ($map['Notifications'] as $item1) {
-                    $model->notifications[$n1++] = notifications::fromMap($item1);
+                    $model->notifications[$n1] = notifications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

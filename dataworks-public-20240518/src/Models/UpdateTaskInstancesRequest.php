@@ -43,7 +43,8 @@ class UpdateTaskInstancesRequest extends Model
                 $res['TaskInstances'] = [];
                 $n1 = 0;
                 foreach ($this->taskInstances as $item1) {
-                    $res['TaskInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class UpdateTaskInstancesRequest extends Model
                 $model->taskInstances = [];
                 $n1 = 0;
                 foreach ($map['TaskInstances'] as $item1) {
-                    $model->taskInstances[$n1++] = taskInstances::fromMap($item1);
+                    $model->taskInstances[$n1] = taskInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

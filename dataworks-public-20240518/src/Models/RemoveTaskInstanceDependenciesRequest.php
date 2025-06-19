@@ -52,7 +52,8 @@ class RemoveTaskInstanceDependenciesRequest extends Model
                 $res['UpstreamTaskInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->upstreamTaskInstanceIds as $item1) {
-                    $res['UpstreamTaskInstanceIds'][$n1++] = $item1;
+                    $res['UpstreamTaskInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class RemoveTaskInstanceDependenciesRequest extends Model
                 $model->upstreamTaskInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['UpstreamTaskInstanceIds'] as $item1) {
-                    $model->upstreamTaskInstanceIds[$n1++] = $item1;
+                    $model->upstreamTaskInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

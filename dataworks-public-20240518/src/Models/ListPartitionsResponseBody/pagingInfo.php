@@ -59,7 +59,8 @@ class pagingInfo extends Model
                 $res['PartitionList'] = [];
                 $n1 = 0;
                 foreach ($this->partitionList as $item1) {
-                    $res['PartitionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PartitionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class pagingInfo extends Model
                 $model->partitionList = [];
                 $n1 = 0;
                 foreach ($map['PartitionList'] as $item1) {
-                    $model->partitionList[$n1++] = Partition::fromMap($item1);
+                    $model->partitionList[$n1] = Partition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

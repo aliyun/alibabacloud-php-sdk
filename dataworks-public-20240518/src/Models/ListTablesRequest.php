@@ -102,7 +102,8 @@ class ListTablesRequest extends Model
                 $res['TableTypes'] = [];
                 $n1 = 0;
                 foreach ($this->tableTypes as $item1) {
-                    $res['TableTypes'][$n1++] = $item1;
+                    $res['TableTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class ListTablesRequest extends Model
                 $model->tableTypes = [];
                 $n1 = 0;
                 foreach ($map['TableTypes'] as $item1) {
-                    $model->tableTypes[$n1++] = $item1;
+                    $model->tableTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

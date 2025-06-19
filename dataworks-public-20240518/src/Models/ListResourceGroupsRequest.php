@@ -97,7 +97,8 @@ class ListResourceGroupsRequest extends Model
                 $res['AliyunResourceTags'] = [];
                 $n1 = 0;
                 foreach ($this->aliyunResourceTags as $item1) {
-                    $res['AliyunResourceTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AliyunResourceTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +128,8 @@ class ListResourceGroupsRequest extends Model
                 $res['ResourceGroupTypes'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroupTypes as $item1) {
-                    $res['ResourceGroupTypes'][$n1++] = $item1;
+                    $res['ResourceGroupTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +143,8 @@ class ListResourceGroupsRequest extends Model
                 $res['Statuses'] = [];
                 $n1 = 0;
                 foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1++] = $item1;
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class ListResourceGroupsRequest extends Model
                 $model->aliyunResourceTags = [];
                 $n1 = 0;
                 foreach ($map['AliyunResourceTags'] as $item1) {
-                    $model->aliyunResourceTags[$n1++] = aliyunResourceTags::fromMap($item1);
+                    $model->aliyunResourceTags[$n1] = aliyunResourceTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +200,8 @@ class ListResourceGroupsRequest extends Model
                 $model->resourceGroupTypes = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroupTypes'] as $item1) {
-                    $model->resourceGroupTypes[$n1++] = $item1;
+                    $model->resourceGroupTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +215,8 @@ class ListResourceGroupsRequest extends Model
                 $model->statuses = [];
                 $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1++] = $item1;
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

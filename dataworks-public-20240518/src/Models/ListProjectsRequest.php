@@ -97,7 +97,8 @@ class ListProjectsRequest extends Model
                 $res['AliyunResourceTags'] = [];
                 $n1 = 0;
                 foreach ($this->aliyunResourceTags as $item1) {
-                    $res['AliyunResourceTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AliyunResourceTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class ListProjectsRequest extends Model
                 $res['Ids'] = [];
                 $n1 = 0;
                 foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1++] = $item1;
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +127,8 @@ class ListProjectsRequest extends Model
                 $res['Names'] = [];
                 $n1 = 0;
                 foreach ($this->names as $item1) {
-                    $res['Names'][$n1++] = $item1;
+                    $res['Names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class ListProjectsRequest extends Model
                 $model->aliyunResourceTags = [];
                 $n1 = 0;
                 foreach ($map['AliyunResourceTags'] as $item1) {
-                    $model->aliyunResourceTags[$n1++] = aliyunResourceTags::fromMap($item1);
+                    $model->aliyunResourceTags[$n1] = aliyunResourceTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +188,8 @@ class ListProjectsRequest extends Model
                 $model->ids = [];
                 $n1 = 0;
                 foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1++] = $item1;
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +199,8 @@ class ListProjectsRequest extends Model
                 $model->names = [];
                 $n1 = 0;
                 foreach ($map['Names'] as $item1) {
-                    $model->names[$n1++] = $item1;
+                    $model->names[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

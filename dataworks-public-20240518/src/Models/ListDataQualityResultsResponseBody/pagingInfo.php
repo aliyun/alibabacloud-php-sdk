@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['DataQualityResults'] = [];
                 $n1 = 0;
                 foreach ($this->dataQualityResults as $item1) {
-                    $res['DataQualityResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataQualityResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->dataQualityResults = [];
                 $n1 = 0;
                 foreach ($map['DataQualityResults'] as $item1) {
-                    $model->dataQualityResults[$n1++] = dataQualityResults::fromMap($item1);
+                    $model->dataQualityResults[$n1] = dataQualityResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

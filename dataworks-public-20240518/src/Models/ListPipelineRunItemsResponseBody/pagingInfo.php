@@ -59,7 +59,8 @@ class pagingInfo extends Model
                 $res['PipelineRunItems'] = [];
                 $n1 = 0;
                 foreach ($this->pipelineRunItems as $item1) {
-                    $res['PipelineRunItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PipelineRunItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class pagingInfo extends Model
                 $model->pipelineRunItems = [];
                 $n1 = 0;
                 foreach ($map['PipelineRunItems'] as $item1) {
-                    $model->pipelineRunItems[$n1++] = pipelineRunItems::fromMap($item1);
+                    $model->pipelineRunItems[$n1] = pipelineRunItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

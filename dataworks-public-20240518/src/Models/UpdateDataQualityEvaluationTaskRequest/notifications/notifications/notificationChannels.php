@@ -32,7 +32,8 @@ class notificationChannels extends Model
                 $res['Channels'] = [];
                 $n1 = 0;
                 foreach ($this->channels as $item1) {
-                    $res['Channels'][$n1++] = $item1;
+                    $res['Channels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class notificationChannels extends Model
                 $model->channels = [];
                 $n1 = 0;
                 foreach ($map['Channels'] as $item1) {
-                    $model->channels[$n1++] = $item1;
+                    $model->channels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

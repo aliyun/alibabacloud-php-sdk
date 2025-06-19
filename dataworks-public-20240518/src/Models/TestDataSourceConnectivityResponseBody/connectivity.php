@@ -53,7 +53,8 @@ class connectivity extends Model
                 $res['DetailLogs'] = [];
                 $n1 = 0;
                 foreach ($this->detailLogs as $item1) {
-                    $res['DetailLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DetailLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class connectivity extends Model
                 $model->detailLogs = [];
                 $n1 = 0;
                 foreach ($map['DetailLogs'] as $item1) {
-                    $model->detailLogs[$n1++] = detailLogs::fromMap($item1);
+                    $model->detailLogs[$n1] = detailLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

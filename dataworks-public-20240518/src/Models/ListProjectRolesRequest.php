@@ -65,7 +65,8 @@ class ListProjectRolesRequest extends Model
                 $res['Codes'] = [];
                 $n1 = 0;
                 foreach ($this->codes as $item1) {
-                    $res['Codes'][$n1++] = $item1;
+                    $res['Codes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,7 +76,8 @@ class ListProjectRolesRequest extends Model
                 $res['Names'] = [];
                 $n1 = 0;
                 foreach ($this->names as $item1) {
-                    $res['Names'][$n1++] = $item1;
+                    $res['Names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class ListProjectRolesRequest extends Model
                 $model->codes = [];
                 $n1 = 0;
                 foreach ($map['Codes'] as $item1) {
-                    $model->codes[$n1++] = $item1;
+                    $model->codes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class ListProjectRolesRequest extends Model
                 $model->names = [];
                 $n1 = 0;
                 foreach ($map['Names'] as $item1) {
-                    $model->names[$n1++] = $item1;
+                    $model->names[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

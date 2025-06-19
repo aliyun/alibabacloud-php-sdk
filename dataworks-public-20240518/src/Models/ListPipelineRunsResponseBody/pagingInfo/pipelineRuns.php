@@ -99,7 +99,8 @@ class pipelineRuns extends Model
                 $res['Stages'] = [];
                 $n1 = 0;
                 foreach ($this->stages as $item1) {
-                    $res['Stages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Stages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class pipelineRuns extends Model
                 $model->stages = [];
                 $n1 = 0;
                 foreach ($map['Stages'] as $item1) {
-                    $model->stages[$n1++] = stages::fromMap($item1);
+                    $model->stages[$n1] = stages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

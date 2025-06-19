@@ -53,7 +53,8 @@ class outputs extends Model
                 $res['NodeOutputs'] = [];
                 $n1 = 0;
                 foreach ($this->nodeOutputs as $item1) {
-                    $res['NodeOutputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeOutputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class outputs extends Model
                 $res['Tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class outputs extends Model
                 $res['Variables'] = [];
                 $n1 = 0;
                 foreach ($this->variables as $item1) {
-                    $res['Variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class outputs extends Model
                 $model->nodeOutputs = [];
                 $n1 = 0;
                 foreach ($map['NodeOutputs'] as $item1) {
-                    $model->nodeOutputs[$n1++] = nodeOutputs::fromMap($item1);
+                    $model->nodeOutputs[$n1] = nodeOutputs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class outputs extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = tables::fromMap($item1);
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class outputs extends Model
                 $model->variables = [];
                 $n1 = 0;
                 foreach ($map['Variables'] as $item1) {
-                    $model->variables[$n1++] = variables::fromMap($item1);
+                    $model->variables[$n1] = variables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

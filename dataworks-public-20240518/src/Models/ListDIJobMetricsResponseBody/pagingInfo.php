@@ -33,7 +33,8 @@ class pagingInfo extends Model
                 $res['JobMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->jobMetrics as $item1) {
-                    $res['JobMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JobMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class pagingInfo extends Model
                 $model->jobMetrics = [];
                 $n1 = 0;
                 foreach ($map['JobMetrics'] as $item1) {
-                    $model->jobMetrics[$n1++] = jobMetrics::fromMap($item1);
+                    $model->jobMetrics[$n1] = jobMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

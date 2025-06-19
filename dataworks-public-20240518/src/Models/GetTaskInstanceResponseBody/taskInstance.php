@@ -178,6 +178,16 @@ class taskInstance extends Model
     /**
      * @var int
      */
+    public $waitingResourceTime;
+
+    /**
+     * @var int
+     */
+    public $waitingTriggerTime;
+
+    /**
+     * @var int
+     */
     public $workflowId;
 
     /**
@@ -227,6 +237,8 @@ class taskInstance extends Model
         'triggerRecurrence' => 'TriggerRecurrence',
         'triggerTime' => 'TriggerTime',
         'triggerType' => 'TriggerType',
+        'waitingResourceTime' => 'WaitingResourceTime',
+        'waitingTriggerTime' => 'WaitingTriggerTime',
         'workflowId' => 'WorkflowId',
         'workflowInstanceId' => 'WorkflowInstanceId',
         'workflowInstanceType' => 'WorkflowInstanceType',
@@ -363,7 +375,8 @@ class taskInstance extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -394,6 +407,14 @@ class taskInstance extends Model
 
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
+        }
+
+        if (null !== $this->waitingResourceTime) {
+            $res['WaitingResourceTime'] = $this->waitingResourceTime;
+        }
+
+        if (null !== $this->waitingTriggerTime) {
+            $res['WaitingTriggerTime'] = $this->waitingTriggerTime;
         }
 
         if (null !== $this->workflowId) {
@@ -524,7 +545,8 @@ class taskInstance extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -555,6 +577,14 @@ class taskInstance extends Model
 
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+
+        if (isset($map['WaitingResourceTime'])) {
+            $model->waitingResourceTime = $map['WaitingResourceTime'];
+        }
+
+        if (isset($map['WaitingTriggerTime'])) {
+            $model->waitingTriggerTime = $map['WaitingTriggerTime'];
         }
 
         if (isset($map['WorkflowId'])) {

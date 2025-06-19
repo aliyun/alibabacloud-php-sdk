@@ -48,7 +48,8 @@ class AttachDataQualityRulesToEvaluationTaskRequest extends Model
                 $res['DataQualityRuleIds'] = [];
                 $n1 = 0;
                 foreach ($this->dataQualityRuleIds as $item1) {
-                    $res['DataQualityRuleIds'][$n1++] = $item1;
+                    $res['DataQualityRuleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class AttachDataQualityRulesToEvaluationTaskRequest extends Model
                 $model->dataQualityRuleIds = [];
                 $n1 = 0;
                 foreach ($map['DataQualityRuleIds'] as $item1) {
-                    $model->dataQualityRuleIds[$n1++] = $item1;
+                    $model->dataQualityRuleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

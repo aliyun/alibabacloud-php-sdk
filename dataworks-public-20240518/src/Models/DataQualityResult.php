@@ -67,7 +67,8 @@ class DataQualityResult extends Model
                 $res['Details'] = [];
                 $n1 = 0;
                 foreach ($this->details as $item1) {
-                    $res['Details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class DataQualityResult extends Model
                 $model->details = [];
                 $n1 = 0;
                 foreach ($map['Details'] as $item1) {
-                    $model->details[$n1++] = details::fromMap($item1);
+                    $model->details[$n1] = details::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

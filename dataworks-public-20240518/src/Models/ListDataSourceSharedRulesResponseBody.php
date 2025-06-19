@@ -39,7 +39,8 @@ class ListDataSourceSharedRulesResponseBody extends Model
                 $res['DataSourceSharedRules'] = [];
                 $n1 = 0;
                 foreach ($this->dataSourceSharedRules as $item1) {
-                    $res['DataSourceSharedRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSourceSharedRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListDataSourceSharedRulesResponseBody extends Model
                 $model->dataSourceSharedRules = [];
                 $n1 = 0;
                 foreach ($map['DataSourceSharedRules'] as $item1) {
-                    $model->dataSourceSharedRules[$n1++] = dataSourceSharedRules::fromMap($item1);
+                    $model->dataSourceSharedRules[$n1] = dataSourceSharedRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

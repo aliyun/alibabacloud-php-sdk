@@ -43,7 +43,8 @@ class data extends Model
                 $res['DeployedItems'] = [];
                 $n1 = 0;
                 foreach ($this->deployedItems as $item1) {
-                    $res['DeployedItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeployedItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class data extends Model
                 $model->deployedItems = [];
                 $n1 = 0;
                 foreach ($map['DeployedItems'] as $item1) {
-                    $model->deployedItems[$n1++] = deployedItems::fromMap($item1);
+                    $model->deployedItems[$n1] = deployedItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -66,7 +66,8 @@ class notification extends Model
                 $res['Channels'] = [];
                 $n1 = 0;
                 foreach ($this->channels as $item1) {
-                    $res['Channels'][$n1++] = $item1;
+                    $res['Channels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class notification extends Model
                 $res['Receivers'] = [];
                 $n1 = 0;
                 foreach ($this->receivers as $item1) {
-                    $res['Receivers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Receivers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +115,8 @@ class notification extends Model
                 $model->channels = [];
                 $n1 = 0;
                 foreach ($map['Channels'] as $item1) {
-                    $model->channels[$n1++] = $item1;
+                    $model->channels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +134,8 @@ class notification extends Model
                 $model->receivers = [];
                 $n1 = 0;
                 foreach ($map['Receivers'] as $item1) {
-                    $model->receivers[$n1++] = receivers::fromMap($item1);
+                    $model->receivers[$n1] = receivers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

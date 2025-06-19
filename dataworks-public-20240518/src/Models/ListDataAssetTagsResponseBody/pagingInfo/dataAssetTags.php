@@ -109,7 +109,8 @@ class dataAssetTags extends Model
                 $res['Managers'] = [];
                 $n1 = 0;
                 foreach ($this->managers as $item1) {
-                    $res['Managers'][$n1++] = $item1;
+                    $res['Managers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class dataAssetTags extends Model
                 $res['Values'] = [];
                 $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +174,8 @@ class dataAssetTags extends Model
                 $model->managers = [];
                 $n1 = 0;
                 foreach ($map['Managers'] as $item1) {
-                    $model->managers[$n1++] = $item1;
+                    $model->managers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +197,8 @@ class dataAssetTags extends Model
                 $model->values = [];
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

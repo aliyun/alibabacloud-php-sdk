@@ -91,7 +91,8 @@ class ListAlertRulesRequest extends Model
                 $res['TaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->taskIds as $item1) {
-                    $res['TaskIds'][$n1++] = $item1;
+                    $res['TaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class ListAlertRulesRequest extends Model
                 $res['Types'] = [];
                 $n1 = 0;
                 foreach ($this->types as $item1) {
-                    $res['Types'][$n1++] = $item1;
+                    $res['Types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +144,8 @@ class ListAlertRulesRequest extends Model
                 $model->taskIds = [];
                 $n1 = 0;
                 foreach ($map['TaskIds'] as $item1) {
-                    $model->taskIds[$n1++] = $item1;
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class ListAlertRulesRequest extends Model
                 $model->types = [];
                 $n1 = 0;
                 foreach ($map['Types'] as $item1) {
-                    $model->types[$n1++] = $item1;
+                    $model->types[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

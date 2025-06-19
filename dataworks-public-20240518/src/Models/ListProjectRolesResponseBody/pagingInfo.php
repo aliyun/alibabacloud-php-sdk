@@ -59,7 +59,8 @@ class pagingInfo extends Model
                 $res['ProjectRoles'] = [];
                 $n1 = 0;
                 foreach ($this->projectRoles as $item1) {
-                    $res['ProjectRoles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProjectRoles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class pagingInfo extends Model
                 $model->projectRoles = [];
                 $n1 = 0;
                 foreach ($map['ProjectRoles'] as $item1) {
-                    $model->projectRoles[$n1++] = projectRoles::fromMap($item1);
+                    $model->projectRoles[$n1] = projectRoles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

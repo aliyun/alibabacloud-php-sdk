@@ -42,7 +42,8 @@ class notifications extends Model
                 $res['Notifications'] = [];
                 $n1 = 0;
                 foreach ($this->notifications as $item1) {
-                    $res['Notifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Notifications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class notifications extends Model
                 $model->notifications = [];
                 $n1 = 0;
                 foreach ($map['Notifications'] as $item1) {
-                    $model->notifications[$n1++] = notifications\notifications::fromMap($item1);
+                    $model->notifications[$n1] = notifications\notifications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

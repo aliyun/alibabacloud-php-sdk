@@ -70,12 +70,14 @@ class businessMetadata extends Model
                 $n1 = 0;
                 foreach ($this->categories as $item1) {
                     if (\is_array($item1)) {
-                        $res['Categories'][$n1++] = [];
+                        $res['Categories'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['Categories'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['Categories'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class businessMetadata extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class businessMetadata extends Model
                 $res['UpstreamTasks'] = [];
                 $n1 = 0;
                 foreach ($this->upstreamTasks as $item1) {
-                    $res['UpstreamTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UpstreamTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,12 +129,14 @@ class businessMetadata extends Model
                 $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
                     if (!empty($item1)) {
-                        $model->categories[$n1++] = [];
+                        $model->categories[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->categories[$n1++][$n2++] = categories::fromMap($item2);
+                            $model->categories[$n1][$n2] = categories::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +154,8 @@ class businessMetadata extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +165,8 @@ class businessMetadata extends Model
                 $model->upstreamTasks = [];
                 $n1 = 0;
                 foreach ($map['UpstreamTasks'] as $item1) {
-                    $model->upstreamTasks[$n1++] = upstreamTasks::fromMap($item1);
+                    $model->upstreamTasks[$n1] = upstreamTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

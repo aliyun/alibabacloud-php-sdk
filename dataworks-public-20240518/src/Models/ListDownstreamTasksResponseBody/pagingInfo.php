@@ -61,7 +61,8 @@ class pagingInfo extends Model
                 $res['DownstreamTasks'] = [];
                 $n1 = 0;
                 foreach ($this->downstreamTasks as $item1) {
-                    $res['DownstreamTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DownstreamTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class pagingInfo extends Model
                 $res['Tasks'] = [];
                 $n1 = 0;
                 foreach ($this->tasks as $item1) {
-                    $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class pagingInfo extends Model
                 $model->downstreamTasks = [];
                 $n1 = 0;
                 foreach ($map['DownstreamTasks'] as $item1) {
-                    $model->downstreamTasks[$n1++] = downstreamTasks::fromMap($item1);
+                    $model->downstreamTasks[$n1] = downstreamTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class pagingInfo extends Model
                 $model->tasks = [];
                 $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
-                    $model->tasks[$n1++] = tasks::fromMap($item1);
+                    $model->tasks[$n1] = tasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

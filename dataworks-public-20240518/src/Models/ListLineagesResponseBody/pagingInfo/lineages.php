@@ -56,7 +56,8 @@ class lineages extends Model
                 $res['Relationships'] = [];
                 $n1 = 0;
                 foreach ($this->relationships as $item1) {
-                    $res['Relationships'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Relationships'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class lineages extends Model
                 $model->relationships = [];
                 $n1 = 0;
                 foreach ($map['Relationships'] as $item1) {
-                    $model->relationships[$n1++] = LineageRelationship::fromMap($item1);
+                    $model->relationships[$n1] = LineageRelationship::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

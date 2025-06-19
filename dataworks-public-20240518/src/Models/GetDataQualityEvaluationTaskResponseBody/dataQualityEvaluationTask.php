@@ -107,7 +107,8 @@ class dataQualityEvaluationTask extends Model
                 $res['Hooks'] = [];
                 $n1 = 0;
                 foreach ($this->hooks as $item1) {
-                    $res['Hooks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Hooks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +165,8 @@ class dataQualityEvaluationTask extends Model
                 $model->hooks = [];
                 $n1 = 0;
                 foreach ($map['Hooks'] as $item1) {
-                    $model->hooks[$n1++] = hooks::fromMap($item1);
+                    $model->hooks[$n1] = hooks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['Functions'] = [];
                 $n1 = 0;
                 foreach ($this->functions as $item1) {
-                    $res['Functions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Functions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->functions = [];
                 $n1 = 0;
                 foreach ($map['Functions'] as $item1) {
-                    $model->functions[$n1++] = functions::fromMap($item1);
+                    $model->functions[$n1] = functions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class pagingInfo extends Model
                 $res['ResourceGroupList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroupList as $item1) {
-                    $res['ResourceGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class pagingInfo extends Model
                 $model->resourceGroupList = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroupList'] as $item1) {
-                    $model->resourceGroupList[$n1++] = resourceGroupList::fromMap($item1);
+                    $model->resourceGroupList[$n1] = resourceGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -136,7 +136,8 @@ class defaultRunProperties extends Model
                 $res['ExcludeProjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->excludeProjectIds as $item1) {
-                    $res['ExcludeProjectIds'][$n1++] = $item1;
+                    $res['ExcludeProjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +147,8 @@ class defaultRunProperties extends Model
                 $res['ExcludeTaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->excludeTaskIds as $item1) {
-                    $res['ExcludeTaskIds'][$n1++] = $item1;
+                    $res['ExcludeTaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class defaultRunProperties extends Model
                 $res['IncludeProjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->includeProjectIds as $item1) {
-                    $res['IncludeProjectIds'][$n1++] = $item1;
+                    $res['IncludeProjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class defaultRunProperties extends Model
                 $res['IncludeTaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->includeTaskIds as $item1) {
-                    $res['IncludeTaskIds'][$n1++] = $item1;
+                    $res['IncludeTaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +196,8 @@ class defaultRunProperties extends Model
                 $res['RootTaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->rootTaskIds as $item1) {
-                    $res['RootTaskIds'][$n1++] = $item1;
+                    $res['RootTaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +234,8 @@ class defaultRunProperties extends Model
                 $model->excludeProjectIds = [];
                 $n1 = 0;
                 foreach ($map['ExcludeProjectIds'] as $item1) {
-                    $model->excludeProjectIds[$n1++] = $item1;
+                    $model->excludeProjectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -239,7 +245,8 @@ class defaultRunProperties extends Model
                 $model->excludeTaskIds = [];
                 $n1 = 0;
                 foreach ($map['ExcludeTaskIds'] as $item1) {
-                    $model->excludeTaskIds[$n1++] = $item1;
+                    $model->excludeTaskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +256,8 @@ class defaultRunProperties extends Model
                 $model->includeProjectIds = [];
                 $n1 = 0;
                 foreach ($map['IncludeProjectIds'] as $item1) {
-                    $model->includeProjectIds[$n1++] = $item1;
+                    $model->includeProjectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +267,8 @@ class defaultRunProperties extends Model
                 $model->includeTaskIds = [];
                 $n1 = 0;
                 foreach ($map['IncludeTaskIds'] as $item1) {
-                    $model->includeTaskIds[$n1++] = $item1;
+                    $model->includeTaskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -285,7 +294,8 @@ class defaultRunProperties extends Model
                 $model->rootTaskIds = [];
                 $n1 = 0;
                 foreach ($map['RootTaskIds'] as $item1) {
-                    $model->rootTaskIds[$n1++] = $item1;
+                    $model->rootTaskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

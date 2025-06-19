@@ -211,7 +211,8 @@ class nodeConfiguration extends Model
                 $res['InputList'] = [];
                 $n1 = 0;
                 foreach ($this->inputList as $item1) {
-                    $res['InputList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +222,8 @@ class nodeConfiguration extends Model
                 $res['InputParameters'] = [];
                 $n1 = 0;
                 foreach ($this->inputParameters as $item1) {
-                    $res['InputParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +233,8 @@ class nodeConfiguration extends Model
                 $res['OutputList'] = [];
                 $n1 = 0;
                 foreach ($this->outputList as $item1) {
-                    $res['OutputList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -241,7 +244,8 @@ class nodeConfiguration extends Model
                 $res['OutputParameters'] = [];
                 $n1 = 0;
                 foreach ($this->outputParameters as $item1) {
-                    $res['OutputParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -334,7 +338,8 @@ class nodeConfiguration extends Model
                 $model->inputList = [];
                 $n1 = 0;
                 foreach ($map['InputList'] as $item1) {
-                    $model->inputList[$n1++] = inputList::fromMap($item1);
+                    $model->inputList[$n1] = inputList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -344,7 +349,8 @@ class nodeConfiguration extends Model
                 $model->inputParameters = [];
                 $n1 = 0;
                 foreach ($map['InputParameters'] as $item1) {
-                    $model->inputParameters[$n1++] = inputParameters::fromMap($item1);
+                    $model->inputParameters[$n1] = inputParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -354,7 +360,8 @@ class nodeConfiguration extends Model
                 $model->outputList = [];
                 $n1 = 0;
                 foreach ($map['OutputList'] as $item1) {
-                    $model->outputList[$n1++] = outputList::fromMap($item1);
+                    $model->outputList[$n1] = outputList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -364,7 +371,8 @@ class nodeConfiguration extends Model
                 $model->outputParameters = [];
                 $n1 = 0;
                 foreach ($map['OutputParameters'] as $item1) {
-                    $model->outputParameters[$n1++] = outputParameters::fromMap($item1);
+                    $model->outputParameters[$n1] = outputParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

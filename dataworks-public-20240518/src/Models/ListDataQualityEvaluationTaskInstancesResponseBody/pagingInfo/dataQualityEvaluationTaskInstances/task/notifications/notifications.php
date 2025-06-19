@@ -43,7 +43,8 @@ class notifications extends Model
                 $res['NofiticationReceivers'] = [];
                 $n1 = 0;
                 foreach ($this->nofiticationReceivers as $item1) {
-                    $res['NofiticationReceivers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NofiticationReceivers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class notifications extends Model
                 $res['NotificationChannels'] = [];
                 $n1 = 0;
                 foreach ($this->notificationChannels as $item1) {
-                    $res['NotificationChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NotificationChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class notifications extends Model
                 $model->nofiticationReceivers = [];
                 $n1 = 0;
                 foreach ($map['NofiticationReceivers'] as $item1) {
-                    $model->nofiticationReceivers[$n1++] = nofiticationReceivers::fromMap($item1);
+                    $model->nofiticationReceivers[$n1] = nofiticationReceivers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class notifications extends Model
                 $model->notificationChannels = [];
                 $n1 = 0;
                 foreach ($map['NotificationChannels'] as $item1) {
-                    $model->notificationChannels[$n1++] = notificationChannels::fromMap($item1);
+                    $model->notificationChannels[$n1] = notificationChannels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -60,7 +60,8 @@ class UnTagDataAssetsRequest extends Model
                 $res['DataAssetIds'] = [];
                 $n1 = 0;
                 foreach ($this->dataAssetIds as $item1) {
-                    $res['DataAssetIds'][$n1++] = $item1;
+                    $res['DataAssetIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class UnTagDataAssetsRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class UnTagDataAssetsRequest extends Model
                 $model->dataAssetIds = [];
                 $n1 = 0;
                 foreach ($map['DataAssetIds'] as $item1) {
-                    $model->dataAssetIds[$n1++] = $item1;
+                    $model->dataAssetIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +128,8 @@ class UnTagDataAssetsRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

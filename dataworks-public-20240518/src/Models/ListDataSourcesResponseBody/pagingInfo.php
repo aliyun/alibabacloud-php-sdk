@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['DataSources'] = [];
                 $n1 = 0;
                 foreach ($this->dataSources as $item1) {
-                    $res['DataSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->dataSources = [];
                 $n1 = 0;
                 foreach ($map['DataSources'] as $item1) {
-                    $model->dataSources[$n1++] = dataSources::fromMap($item1);
+                    $model->dataSources[$n1] = dataSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

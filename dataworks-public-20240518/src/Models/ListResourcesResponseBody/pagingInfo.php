@@ -59,7 +59,8 @@ class pagingInfo extends Model
                 $res['Resources'] = [];
                 $n1 = 0;
                 foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Resources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class pagingInfo extends Model
                 $model->resources = [];
                 $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = resources::fromMap($item1);
+                    $model->resources[$n1] = resources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

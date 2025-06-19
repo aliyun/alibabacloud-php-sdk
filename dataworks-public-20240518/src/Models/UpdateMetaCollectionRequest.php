@@ -50,7 +50,8 @@ class UpdateMetaCollectionRequest extends Model
                 $res['Administrators'] = [];
                 $n1 = 0;
                 foreach ($this->administrators as $item1) {
-                    $res['Administrators'][$n1++] = $item1;
+                    $res['Administrators'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class UpdateMetaCollectionRequest extends Model
                 $model->administrators = [];
                 $n1 = 0;
                 foreach ($map['Administrators'] as $item1) {
-                    $model->administrators[$n1++] = $item1;
+                    $model->administrators[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

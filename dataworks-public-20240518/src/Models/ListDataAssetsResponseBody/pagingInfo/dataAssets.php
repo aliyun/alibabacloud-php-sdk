@@ -63,7 +63,8 @@ class dataAssets extends Model
                 $res['DataAssetTagMappings'] = [];
                 $n1 = 0;
                 foreach ($this->dataAssetTagMappings as $item1) {
-                    $res['DataAssetTagMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataAssetTagMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class dataAssets extends Model
                 $model->dataAssetTagMappings = [];
                 $n1 = 0;
                 foreach ($map['DataAssetTagMappings'] as $item1) {
-                    $model->dataAssetTagMappings[$n1++] = dataAssetTagMappings::fromMap($item1);
+                    $model->dataAssetTagMappings[$n1] = dataAssetTagMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

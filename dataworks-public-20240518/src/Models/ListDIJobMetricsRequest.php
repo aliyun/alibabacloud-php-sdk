@@ -58,7 +58,8 @@ class ListDIJobMetricsRequest extends Model
                 $res['MetricName'] = [];
                 $n1 = 0;
                 foreach ($this->metricName as $item1) {
-                    $res['MetricName'][$n1++] = $item1;
+                    $res['MetricName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListDIJobMetricsRequest extends Model
                 $model->metricName = [];
                 $n1 = 0;
                 foreach ($map['MetricName'] as $item1) {
-                    $model->metricName[$n1++] = $item1;
+                    $model->metricName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

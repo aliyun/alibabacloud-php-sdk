@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['JobRunInfos'] = [];
                 $n1 = 0;
                 foreach ($this->jobRunInfos as $item1) {
-                    $res['JobRunInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JobRunInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->jobRunInfos = [];
                 $n1 = 0;
                 foreach ($map['JobRunInfos'] as $item1) {
-                    $model->jobRunInfos[$n1++] = jobRunInfos::fromMap($item1);
+                    $model->jobRunInfos[$n1] = jobRunInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

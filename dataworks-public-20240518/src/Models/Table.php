@@ -122,7 +122,8 @@ class Table extends Model
                 $res['PartitionKeys'] = [];
                 $n1 = 0;
                 foreach ($this->partitionKeys as $item1) {
-                    $res['PartitionKeys'][$n1++] = $item1;
+                    $res['PartitionKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +180,8 @@ class Table extends Model
                 $model->partitionKeys = [];
                 $n1 = 0;
                 foreach ($map['PartitionKeys'] as $item1) {
-                    $model->partitionKeys[$n1++] = $item1;
+                    $model->partitionKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

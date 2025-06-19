@@ -51,7 +51,8 @@ class pagingInfo extends Model
                 $res['DeploymentPackageFiles'] = [];
                 $n1 = 0;
                 foreach ($this->deploymentPackageFiles as $item1) {
-                    $res['DeploymentPackageFiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeploymentPackageFiles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class pagingInfo extends Model
                 $model->deploymentPackageFiles = [];
                 $n1 = 0;
                 foreach ($map['DeploymentPackageFiles'] as $item1) {
-                    $model->deploymentPackageFiles[$n1++] = deploymentPackageFiles::fromMap($item1);
+                    $model->deploymentPackageFiles[$n1] = deploymentPackageFiles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

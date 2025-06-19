@@ -59,7 +59,8 @@ class triggerConditions extends Model
                 $res['DdlReportTags'] = [];
                 $n1 = 0;
                 foreach ($this->ddlReportTags as $item1) {
-                    $res['DdlReportTags'][$n1++] = $item1;
+                    $res['DdlReportTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class triggerConditions extends Model
                 $res['DdlTypes'] = [];
                 $n1 = 0;
                 foreach ($this->ddlTypes as $item1) {
-                    $res['DdlTypes'][$n1++] = $item1;
+                    $res['DdlTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class triggerConditions extends Model
                 $model->ddlReportTags = [];
                 $n1 = 0;
                 foreach ($map['DdlReportTags'] as $item1) {
-                    $model->ddlReportTags[$n1++] = $item1;
+                    $model->ddlReportTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class triggerConditions extends Model
                 $model->ddlTypes = [];
                 $n1 = 0;
                 foreach ($map['DdlTypes'] as $item1) {
-                    $model->ddlTypes[$n1++] = $item1;
+                    $model->ddlTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

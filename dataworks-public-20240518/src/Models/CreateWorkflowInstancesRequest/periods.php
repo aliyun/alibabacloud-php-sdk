@@ -45,7 +45,8 @@ class periods extends Model
                 $res['BizDates'] = [];
                 $n1 = 0;
                 foreach ($this->bizDates as $item1) {
-                    $res['BizDates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BizDates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class periods extends Model
                 $model->bizDates = [];
                 $n1 = 0;
                 foreach ($map['BizDates'] as $item1) {
-                    $model->bizDates[$n1++] = bizDates::fromMap($item1);
+                    $model->bizDates[$n1] = bizDates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

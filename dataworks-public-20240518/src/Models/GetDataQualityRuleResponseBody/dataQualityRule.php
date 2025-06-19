@@ -117,7 +117,8 @@ class dataQualityRule extends Model
                 $res['ErrorHandlers'] = [];
                 $n1 = 0;
                 foreach ($this->errorHandlers as $item1) {
-                    $res['ErrorHandlers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErrorHandlers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +179,8 @@ class dataQualityRule extends Model
                 $model->errorHandlers = [];
                 $n1 = 0;
                 foreach ($map['ErrorHandlers'] as $item1) {
-                    $model->errorHandlers[$n1++] = errorHandlers::fromMap($item1);
+                    $model->errorHandlers[$n1] = errorHandlers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

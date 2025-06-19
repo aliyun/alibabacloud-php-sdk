@@ -45,7 +45,8 @@ class dataSources extends Model
                 $res['DataSource'] = [];
                 $n1 = 0;
                 foreach ($this->dataSource as $item1) {
-                    $res['DataSource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class dataSources extends Model
                 $model->dataSource = [];
                 $n1 = 0;
                 foreach ($map['DataSource'] as $item1) {
-                    $model->dataSource[$n1++] = dataSource::fromMap($item1);
+                    $model->dataSource[$n1] = dataSource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

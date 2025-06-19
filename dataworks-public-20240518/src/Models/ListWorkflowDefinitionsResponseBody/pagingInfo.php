@@ -63,7 +63,8 @@ class pagingInfo extends Model
                 $res['WorkflowDefinitions'] = [];
                 $n1 = 0;
                 foreach ($this->workflowDefinitions as $item1) {
-                    $res['WorkflowDefinitions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WorkflowDefinitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class pagingInfo extends Model
                 $model->workflowDefinitions = [];
                 $n1 = 0;
                 foreach ($map['WorkflowDefinitions'] as $item1) {
-                    $model->workflowDefinitions[$n1++] = workflowDefinitions::fromMap($item1);
+                    $model->workflowDefinitions[$n1] = workflowDefinitions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
