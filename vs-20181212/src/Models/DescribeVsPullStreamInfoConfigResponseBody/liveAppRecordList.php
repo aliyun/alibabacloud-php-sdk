@@ -33,7 +33,8 @@ class liveAppRecordList extends Model
                 $res['LiveAppRecord'] = [];
                 $n1 = 0;
                 foreach ($this->liveAppRecord as $item1) {
-                    $res['LiveAppRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveAppRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class liveAppRecordList extends Model
                 $model->liveAppRecord = [];
                 $n1 = 0;
                 foreach ($map['LiveAppRecord'] as $item1) {
-                    $model->liveAppRecord[$n1++] = liveAppRecord::fromMap($item1);
+                    $model->liveAppRecord[$n1] = liveAppRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

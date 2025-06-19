@@ -79,7 +79,8 @@ class DescribeStreamsResponseBody extends Model
                 $res['Streams'] = [];
                 $n1 = 0;
                 foreach ($this->streams as $item1) {
-                    $res['Streams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Streams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class DescribeStreamsResponseBody extends Model
                 $model->streams = [];
                 $n1 = 0;
                 foreach ($map['Streams'] as $item1) {
-                    $model->streams[$n1++] = streams::fromMap($item1);
+                    $model->streams[$n1] = streams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -65,7 +65,8 @@ class ListPublicKeysResponseBody extends Model
                 $res['PublicKeys'] = [];
                 $n1 = 0;
                 foreach ($this->publicKeys as $item1) {
-                    $res['PublicKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PublicKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListPublicKeysResponseBody extends Model
                 $model->publicKeys = [];
                 $n1 = 0;
                 foreach ($map['PublicKeys'] as $item1) {
-                    $model->publicKeys[$n1++] = publicKeys::fromMap($item1);
+                    $model->publicKeys[$n1] = publicKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

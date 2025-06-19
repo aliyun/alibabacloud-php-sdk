@@ -43,7 +43,8 @@ class GetRenderingProjectInstanceStateMetricsResponseBody extends Model
                 $res['StateMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->stateMetrics as $item1) {
-                    $res['StateMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StateMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class GetRenderingProjectInstanceStateMetricsResponseBody extends Model
                 $model->stateMetrics = [];
                 $n1 = 0;
                 foreach ($map['StateMetrics'] as $item1) {
-                    $model->stateMetrics[$n1++] = stateMetrics::fromMap($item1);
+                    $model->stateMetrics[$n1] = stateMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

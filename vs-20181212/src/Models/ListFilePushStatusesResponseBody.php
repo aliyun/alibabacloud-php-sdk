@@ -65,7 +65,8 @@ class ListFilePushStatusesResponseBody extends Model
                 $res['PushStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->pushStatuses as $item1) {
-                    $res['PushStatuses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PushStatuses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListFilePushStatusesResponseBody extends Model
                 $model->pushStatuses = [];
                 $n1 = 0;
                 foreach ($map['PushStatuses'] as $item1) {
-                    $model->pushStatuses[$n1++] = pushStatuses::fromMap($item1);
+                    $model->pushStatuses[$n1] = pushStatuses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

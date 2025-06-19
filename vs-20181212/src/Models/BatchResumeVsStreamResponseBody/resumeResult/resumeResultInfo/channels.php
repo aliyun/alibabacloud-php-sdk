@@ -32,7 +32,8 @@ class channels extends Model
                 $res['Channel'] = [];
                 $n1 = 0;
                 foreach ($this->channel as $item1) {
-                    $res['Channel'][$n1++] = $item1;
+                    $res['Channel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class channels extends Model
                 $model->channel = [];
                 $n1 = 0;
                 foreach ($map['Channel'] as $item1) {
-                    $model->channel[$n1++] = $item1;
+                    $model->channel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

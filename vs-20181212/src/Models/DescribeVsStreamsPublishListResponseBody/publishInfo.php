@@ -33,7 +33,8 @@ class publishInfo extends Model
                 $res['LiveStreamPublishInfo'] = [];
                 $n1 = 0;
                 foreach ($this->liveStreamPublishInfo as $item1) {
-                    $res['LiveStreamPublishInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveStreamPublishInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class publishInfo extends Model
                 $model->liveStreamPublishInfo = [];
                 $n1 = 0;
                 foreach ($map['LiveStreamPublishInfo'] as $item1) {
-                    $model->liveStreamPublishInfo[$n1++] = liveStreamPublishInfo::fromMap($item1);
+                    $model->liveStreamPublishInfo[$n1] = liveStreamPublishInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

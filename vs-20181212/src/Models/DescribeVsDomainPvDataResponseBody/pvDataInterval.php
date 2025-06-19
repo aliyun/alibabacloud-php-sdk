@@ -33,7 +33,8 @@ class pvDataInterval extends Model
                 $res['UsageData'] = [];
                 $n1 = 0;
                 foreach ($this->usageData as $item1) {
-                    $res['UsageData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UsageData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class pvDataInterval extends Model
                 $model->usageData = [];
                 $n1 = 0;
                 foreach ($map['UsageData'] as $item1) {
-                    $model->usageData[$n1++] = usageData::fromMap($item1);
+                    $model->usageData[$n1] = usageData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

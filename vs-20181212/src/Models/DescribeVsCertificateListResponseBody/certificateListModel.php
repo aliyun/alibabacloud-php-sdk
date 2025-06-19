@@ -39,7 +39,8 @@ class certificateListModel extends Model
                 $res['CertList'] = [];
                 $n1 = 0;
                 foreach ($this->certList as $item1) {
-                    $res['CertList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CertList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class certificateListModel extends Model
                 $model->certList = [];
                 $n1 = 0;
                 foreach ($map['CertList'] as $item1) {
-                    $model->certList[$n1++] = certList::fromMap($item1);
+                    $model->certList[$n1] = certList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

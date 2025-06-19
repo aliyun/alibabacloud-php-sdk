@@ -39,7 +39,8 @@ class DescribeVsDomainConfigsResponseBody extends Model
                 $res['DomainConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->domainConfigs as $item1) {
-                    $res['DomainConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeVsDomainConfigsResponseBody extends Model
                 $model->domainConfigs = [];
                 $n1 = 0;
                 foreach ($map['DomainConfigs'] as $item1) {
-                    $model->domainConfigs[$n1++] = domainConfigs::fromMap($item1);
+                    $model->domainConfigs[$n1] = domainConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

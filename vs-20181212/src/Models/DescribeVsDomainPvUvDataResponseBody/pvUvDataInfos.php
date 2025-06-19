@@ -33,7 +33,8 @@ class pvUvDataInfos extends Model
                 $res['PvUvDataInfo'] = [];
                 $n1 = 0;
                 foreach ($this->pvUvDataInfo as $item1) {
-                    $res['PvUvDataInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PvUvDataInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class pvUvDataInfos extends Model
                 $model->pvUvDataInfo = [];
                 $n1 = 0;
                 foreach ($map['PvUvDataInfo'] as $item1) {
-                    $model->pvUvDataInfo[$n1++] = pvUvDataInfo::fromMap($item1);
+                    $model->pvUvDataInfo[$n1] = pvUvDataInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

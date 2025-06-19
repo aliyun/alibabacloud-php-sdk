@@ -195,7 +195,8 @@ class groups extends Model
                 $res['GbTcpPorts'] = [];
                 $n1 = 0;
                 foreach ($this->gbTcpPorts as $item1) {
-                    $res['GbTcpPorts'][$n1++] = $item1;
+                    $res['GbTcpPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class groups extends Model
                 $res['GbUdpPorts'] = [];
                 $n1 = 0;
                 foreach ($this->gbUdpPorts as $item1) {
-                    $res['GbUdpPorts'][$n1++] = $item1;
+                    $res['GbUdpPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -302,7 +304,8 @@ class groups extends Model
                 $model->gbTcpPorts = [];
                 $n1 = 0;
                 foreach ($map['GbTcpPorts'] as $item1) {
-                    $model->gbTcpPorts[$n1++] = $item1;
+                    $model->gbTcpPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +315,8 @@ class groups extends Model
                 $model->gbUdpPorts = [];
                 $n1 = 0;
                 foreach ($map['GbUdpPorts'] as $item1) {
-                    $model->gbUdpPorts[$n1++] = $item1;
+                    $model->gbUdpPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

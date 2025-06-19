@@ -33,7 +33,8 @@ class resumeResult extends Model
                 $res['ResumeResultInfo'] = [];
                 $n1 = 0;
                 foreach ($this->resumeResultInfo as $item1) {
-                    $res['ResumeResultInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResumeResultInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class resumeResult extends Model
                 $model->resumeResultInfo = [];
                 $n1 = 0;
                 foreach ($map['ResumeResultInfo'] as $item1) {
-                    $model->resumeResultInfo[$n1++] = resumeResultInfo::fromMap($item1);
+                    $model->resumeResultInfo[$n1] = resumeResultInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

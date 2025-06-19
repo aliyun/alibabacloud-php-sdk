@@ -65,7 +65,8 @@ class AssociateRenderingProjectInstancesResponseBody extends Model
                 $res['FailedInstances'] = [];
                 $n1 = 0;
                 foreach ($this->failedInstances as $item1) {
-                    $res['FailedInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class AssociateRenderingProjectInstancesResponseBody extends Model
                 $res['SuccessInstances'] = [];
                 $n1 = 0;
                 foreach ($this->successInstances as $item1) {
-                    $res['SuccessInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SuccessInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +110,8 @@ class AssociateRenderingProjectInstancesResponseBody extends Model
                 $model->failedInstances = [];
                 $n1 = 0;
                 foreach ($map['FailedInstances'] as $item1) {
-                    $model->failedInstances[$n1++] = failedInstances::fromMap($item1);
+                    $model->failedInstances[$n1] = failedInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class AssociateRenderingProjectInstancesResponseBody extends Model
                 $model->successInstances = [];
                 $n1 = 0;
                 foreach ($map['SuccessInstances'] as $item1) {
-                    $model->successInstances[$n1++] = successInstances::fromMap($item1);
+                    $model->successInstances[$n1] = successInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

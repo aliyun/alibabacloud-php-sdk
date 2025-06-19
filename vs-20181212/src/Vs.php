@@ -229,6 +229,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DisassociateRenderingProjectInstancesRe
 use AlibabaCloud\SDK\Vs\V20181212\Models\DisassociateRenderingProjectInstancesShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingInstanceCommandsStatusRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingInstanceCommandsStatusResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingInstanceStreamingInfoRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingInstanceStreamingInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingProjectInstanceStateMetricsRequest;
@@ -7848,6 +7850,67 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * 查询命令的执行状态与结果。
+     *
+     * @param request - GetRenderingInstanceCommandsStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRenderingInstanceCommandsStatusResponse
+     *
+     * @param GetRenderingInstanceCommandsStatusRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetRenderingInstanceCommandsStatusResponse
+     */
+    public function getRenderingInstanceCommandsStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cmdId) {
+            @$query['CmdId'] = $request->cmdId;
+        }
+
+        if (null !== $request->renderingInstanceId) {
+            @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRenderingInstanceCommandsStatus',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRenderingInstanceCommandsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询命令的执行状态与结果。
+     *
+     * @param request - GetRenderingInstanceCommandsStatusRequest
+     *
+     * @returns GetRenderingInstanceCommandsStatusResponse
+     *
+     * @param GetRenderingInstanceCommandsStatusRequest $request
+     *
+     * @return GetRenderingInstanceCommandsStatusResponse
+     */
+    public function getRenderingInstanceCommandsStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRenderingInstanceCommandsStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息.
      *
      * @param request - GetRenderingInstanceStreamingInfoRequest
@@ -8747,6 +8810,10 @@ class Vs extends OpenApiClient
 
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->renderingInstanceId) {
+            @$query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
 
         if (null !== $request->sessionId) {
@@ -10337,7 +10404,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 下发shell命令，同步响应。不适用于耗时命令。
+     * 下发shell命令，支持同步/异步响应命令。
      *
      * @param request - SendRenderingInstanceCommandsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10353,8 +10420,16 @@ class Vs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
         if (null !== $request->renderingInstanceId) {
             @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
 
         $body = [];
@@ -10382,7 +10457,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 下发shell命令，同步响应。不适用于耗时命令。
+     * 下发shell命令，支持同步/异步响应命令。
      *
      * @param request - SendRenderingInstanceCommandsRequest
      *

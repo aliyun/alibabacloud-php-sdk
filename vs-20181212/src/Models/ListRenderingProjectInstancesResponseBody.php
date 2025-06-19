@@ -45,7 +45,8 @@ class ListRenderingProjectInstancesResponseBody extends Model
                 $res['RenderingInstances'] = [];
                 $n1 = 0;
                 foreach ($this->renderingInstances as $item1) {
-                    $res['RenderingInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RenderingInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListRenderingProjectInstancesResponseBody extends Model
                 $model->renderingInstances = [];
                 $n1 = 0;
                 foreach ($map['RenderingInstances'] as $item1) {
-                    $model->renderingInstances[$n1++] = renderingInstances::fromMap($item1);
+                    $model->renderingInstances[$n1] = renderingInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

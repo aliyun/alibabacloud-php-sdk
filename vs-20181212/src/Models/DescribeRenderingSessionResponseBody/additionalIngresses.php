@@ -53,7 +53,8 @@ class additionalIngresses extends Model
                 $res['PortMappings'] = [];
                 $n1 = 0;
                 foreach ($this->portMappings as $item1) {
-                    $res['PortMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PortMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class additionalIngresses extends Model
                 $model->portMappings = [];
                 $n1 = 0;
                 foreach ($map['PortMappings'] as $item1) {
-                    $model->portMappings[$n1++] = portMappings::fromMap($item1);
+                    $model->portMappings[$n1] = portMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

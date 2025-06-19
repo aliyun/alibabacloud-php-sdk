@@ -21,6 +21,11 @@ class sessions extends Model
     /**
      * @var string
      */
+    public $renderingInstanceId;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -30,6 +35,7 @@ class sessions extends Model
     protected $_name = [
         'appId' => 'AppId',
         'clientId' => 'ClientId',
+        'renderingInstanceId' => 'RenderingInstanceId',
         'sessionId' => 'SessionId',
         'startTime' => 'StartTime',
     ];
@@ -48,6 +54,10 @@ class sessions extends Model
 
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
+        }
+
+        if (null !== $this->renderingInstanceId) {
+            $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
 
         if (null !== $this->sessionId) {
@@ -75,6 +85,10 @@ class sessions extends Model
 
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
+        }
+
+        if (isset($map['RenderingInstanceId'])) {
+            $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
 
         if (isset($map['SessionId'])) {

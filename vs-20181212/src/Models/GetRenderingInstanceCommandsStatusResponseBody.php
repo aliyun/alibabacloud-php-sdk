@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SendRenderingInstanceCommandsResponseBody extends Model
+class GetRenderingInstanceCommandsStatusResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $cmdId;
+    public $message;
 
     /**
      * @var string
@@ -22,10 +22,16 @@ class SendRenderingInstanceCommandsResponseBody extends Model
      * @var string
      */
     public $result;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'cmdId' => 'CmdId',
+        'message' => 'Message',
         'requestId' => 'RequestId',
         'result' => 'Result',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -36,8 +42,8 @@ class SendRenderingInstanceCommandsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cmdId) {
-            $res['CmdId'] = $this->cmdId;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         if (null !== $this->requestId) {
@@ -46,6 +52,10 @@ class SendRenderingInstanceCommandsResponseBody extends Model
 
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -59,8 +69,8 @@ class SendRenderingInstanceCommandsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CmdId'])) {
-            $model->cmdId = $map['CmdId'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         if (isset($map['RequestId'])) {
@@ -69,6 +79,10 @@ class SendRenderingInstanceCommandsResponseBody extends Model
 
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -16,10 +16,22 @@ class SendRenderingInstanceCommandsRequest extends Model
     /**
      * @var string
      */
+    public $mode;
+
+    /**
+     * @var string
+     */
     public $renderingInstanceId;
+
+    /**
+     * @var int
+     */
+    public $timeout;
     protected $_name = [
         'commands' => 'Commands',
+        'mode' => 'Mode',
         'renderingInstanceId' => 'RenderingInstanceId',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -34,8 +46,16 @@ class SendRenderingInstanceCommandsRequest extends Model
             $res['Commands'] = $this->commands;
         }
 
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
+        }
+
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -53,8 +73,16 @@ class SendRenderingInstanceCommandsRequest extends Model
             $model->commands = $map['Commands'];
         }
 
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
+        }
+
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

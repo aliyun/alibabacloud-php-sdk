@@ -57,7 +57,8 @@ class ListCloudAppsResponseBody extends Model
                 $res['CloudApps'] = [];
                 $n1 = 0;
                 foreach ($this->cloudApps as $item1) {
-                    $res['CloudApps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CloudApps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListCloudAppsResponseBody extends Model
                 $model->cloudApps = [];
                 $n1 = 0;
                 foreach ($map['CloudApps'] as $item1) {
-                    $model->cloudApps[$n1++] = cloudApps::fromMap($item1);
+                    $model->cloudApps[$n1] = cloudApps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

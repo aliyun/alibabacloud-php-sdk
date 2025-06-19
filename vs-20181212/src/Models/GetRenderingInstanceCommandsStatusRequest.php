@@ -6,42 +6,32 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteRenderingInstanceSettingsRequest extends Model
+class GetRenderingInstanceCommandsStatusRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $attributeNames;
+    public $cmdId;
 
     /**
      * @var string
      */
     public $renderingInstanceId;
     protected $_name = [
-        'attributeNames' => 'AttributeNames',
+        'cmdId' => 'CmdId',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->attributeNames)) {
-            Model::validateArray($this->attributeNames);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->attributeNames) {
-            if (\is_array($this->attributeNames)) {
-                $res['AttributeNames'] = [];
-                $n1 = 0;
-                foreach ($this->attributeNames as $item1) {
-                    $res['AttributeNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->cmdId) {
+            $res['CmdId'] = $this->cmdId;
         }
 
         if (null !== $this->renderingInstanceId) {
@@ -59,15 +49,8 @@ class DeleteRenderingInstanceSettingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AttributeNames'])) {
-            if (!empty($map['AttributeNames'])) {
-                $model->attributeNames = [];
-                $n1 = 0;
-                foreach ($map['AttributeNames'] as $item1) {
-                    $model->attributeNames[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (isset($map['CmdId'])) {
+            $model->cmdId = $map['CmdId'];
         }
 
         if (isset($map['RenderingInstanceId'])) {

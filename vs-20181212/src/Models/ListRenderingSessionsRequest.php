@@ -36,6 +36,11 @@ class ListRenderingSessionsRequest extends Model
     /**
      * @var string
      */
+    public $renderingInstanceId;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -48,6 +53,7 @@ class ListRenderingSessionsRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
+        'renderingInstanceId' => 'RenderingInstanceId',
         'sessionId' => 'SessionId',
         'state' => 'State',
     ];
@@ -78,6 +84,10 @@ class ListRenderingSessionsRequest extends Model
 
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->renderingInstanceId) {
+            $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
 
         if (null !== $this->sessionId) {
@@ -117,6 +127,10 @@ class ListRenderingSessionsRequest extends Model
 
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['RenderingInstanceId'])) {
+            $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
 
         if (isset($map['SessionId'])) {

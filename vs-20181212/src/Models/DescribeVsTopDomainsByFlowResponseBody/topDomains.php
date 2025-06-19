@@ -33,7 +33,8 @@ class topDomains extends Model
                 $res['TopDomain'] = [];
                 $n1 = 0;
                 foreach ($this->topDomain as $item1) {
-                    $res['TopDomain'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopDomain'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class topDomains extends Model
                 $model->topDomain = [];
                 $n1 = 0;
                 foreach ($map['TopDomain'] as $item1) {
-                    $model->topDomain[$n1++] = topDomain::fromMap($item1);
+                    $model->topDomain[$n1] = topDomain::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class AssociateRenderingProjectInstancesRequest extends Model
                 $res['RenderingInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->renderingInstanceIds as $item1) {
-                    $res['RenderingInstanceIds'][$n1++] = $item1;
+                    $res['RenderingInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class AssociateRenderingProjectInstancesRequest extends Model
                 $model->renderingInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['RenderingInstanceIds'] as $item1) {
-                    $model->renderingInstanceIds[$n1++] = $item1;
+                    $model->renderingInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

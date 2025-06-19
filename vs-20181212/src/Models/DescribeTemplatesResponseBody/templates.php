@@ -235,7 +235,8 @@ class templates extends Model
                 $res['TransConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->transConfigs as $item1) {
-                    $res['TransConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TransConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -340,7 +341,8 @@ class templates extends Model
                 $model->transConfigs = [];
                 $n1 = 0;
                 foreach ($map['TransConfigs'] as $item1) {
-                    $model->transConfigs[$n1++] = transConfigs::fromMap($item1);
+                    $model->transConfigs[$n1] = transConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class DescribeRenderingInstanceConfigurationResponseBody extends Model
                 $res['Configuration'] = [];
                 $n1 = 0;
                 foreach ($this->configuration as $item1) {
-                    $res['Configuration'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Configuration'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeRenderingInstanceConfigurationResponseBody extends Model
                 $model->configuration = [];
                 $n1 = 0;
                 foreach ($map['Configuration'] as $item1) {
-                    $model->configuration[$n1++] = configuration::fromMap($item1);
+                    $model->configuration[$n1] = configuration::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

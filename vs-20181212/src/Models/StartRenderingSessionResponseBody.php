@@ -34,6 +34,11 @@ class StartRenderingSessionResponseBody extends Model
     /**
      * @var string
      */
+    public $renderingInstanceId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -50,6 +55,7 @@ class StartRenderingSessionResponseBody extends Model
         'isRepeatedRequest' => 'IsRepeatedRequest',
         'location' => 'Location',
         'portMappings' => 'PortMappings',
+        'renderingInstanceId' => 'RenderingInstanceId',
         'requestId' => 'RequestId',
         'sessionId' => 'SessionId',
         'stateInfo' => 'StateInfo',
@@ -89,9 +95,14 @@ class StartRenderingSessionResponseBody extends Model
                 $res['PortMappings'] = [];
                 $n1 = 0;
                 foreach ($this->portMappings as $item1) {
-                    $res['PortMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PortMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->renderingInstanceId) {
+            $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
 
         if (null !== $this->requestId) {
@@ -134,9 +145,14 @@ class StartRenderingSessionResponseBody extends Model
                 $model->portMappings = [];
                 $n1 = 0;
                 foreach ($map['PortMappings'] as $item1) {
-                    $model->portMappings[$n1++] = portMappings::fromMap($item1);
+                    $model->portMappings[$n1] = portMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['RenderingInstanceId'])) {
+            $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
 
         if (isset($map['RequestId'])) {

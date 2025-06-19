@@ -45,7 +45,8 @@ class ListRenderingDataPackagesResponseBody extends Model
                 $res['DataPackages'] = [];
                 $n1 = 0;
                 foreach ($this->dataPackages as $item1) {
-                    $res['DataPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataPackages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListRenderingDataPackagesResponseBody extends Model
                 $model->dataPackages = [];
                 $n1 = 0;
                 foreach ($map['DataPackages'] as $item1) {
-                    $model->dataPackages[$n1++] = dataPackages::fromMap($item1);
+                    $model->dataPackages[$n1] = dataPackages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

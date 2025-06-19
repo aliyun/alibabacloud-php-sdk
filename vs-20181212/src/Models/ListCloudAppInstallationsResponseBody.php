@@ -57,7 +57,8 @@ class ListCloudAppInstallationsResponseBody extends Model
                 $res['InstallationInfos'] = [];
                 $n1 = 0;
                 foreach ($this->installationInfos as $item1) {
-                    $res['InstallationInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstallationInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListCloudAppInstallationsResponseBody extends Model
                 $model->installationInfos = [];
                 $n1 = 0;
                 foreach ($map['InstallationInfos'] as $item1) {
-                    $model->installationInfos[$n1++] = installationInfos::fromMap($item1);
+                    $model->installationInfos[$n1] = installationInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

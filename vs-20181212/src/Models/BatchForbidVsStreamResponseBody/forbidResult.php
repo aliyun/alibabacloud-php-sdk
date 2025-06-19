@@ -33,7 +33,8 @@ class forbidResult extends Model
                 $res['ForbidResultInfo'] = [];
                 $n1 = 0;
                 foreach ($this->forbidResultInfo as $item1) {
-                    $res['ForbidResultInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ForbidResultInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class forbidResult extends Model
                 $model->forbidResultInfo = [];
                 $n1 = 0;
                 foreach ($map['ForbidResultInfo'] as $item1) {
-                    $model->forbidResultInfo[$n1++] = forbidResultInfo::fromMap($item1);
+                    $model->forbidResultInfo[$n1] = forbidResultInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

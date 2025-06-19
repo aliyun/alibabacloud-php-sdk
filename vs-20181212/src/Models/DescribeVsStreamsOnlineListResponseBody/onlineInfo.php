@@ -33,7 +33,8 @@ class onlineInfo extends Model
                 $res['LiveStreamOnlineInfo'] = [];
                 $n1 = 0;
                 foreach ($this->liveStreamOnlineInfo as $item1) {
-                    $res['LiveStreamOnlineInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveStreamOnlineInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class onlineInfo extends Model
                 $model->liveStreamOnlineInfo = [];
                 $n1 = 0;
                 foreach ($map['LiveStreamOnlineInfo'] as $item1) {
-                    $model->liveStreamOnlineInfo[$n1++] = liveStreamOnlineInfo::fromMap($item1);
+                    $model->liveStreamOnlineInfo[$n1] = liveStreamOnlineInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

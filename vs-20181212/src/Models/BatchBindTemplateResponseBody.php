@@ -39,7 +39,8 @@ class BatchBindTemplateResponseBody extends Model
                 $res['Bindings'] = [];
                 $n1 = 0;
                 foreach ($this->bindings as $item1) {
-                    $res['Bindings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Bindings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class BatchBindTemplateResponseBody extends Model
                 $model->bindings = [];
                 $n1 = 0;
                 foreach ($map['Bindings'] as $item1) {
-                    $model->bindings[$n1++] = bindings::fromMap($item1);
+                    $model->bindings[$n1] = bindings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

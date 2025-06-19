@@ -49,7 +49,8 @@ class DescribePresetsResponseBody extends Model
                 $res['Presets'] = [];
                 $n1 = 0;
                 foreach ($this->presets as $item1) {
-                    $res['Presets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Presets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribePresetsResponseBody extends Model
                 $model->presets = [];
                 $n1 = 0;
                 foreach ($map['Presets'] as $item1) {
-                    $model->presets[$n1++] = presets::fromMap($item1);
+                    $model->presets[$n1] = presets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

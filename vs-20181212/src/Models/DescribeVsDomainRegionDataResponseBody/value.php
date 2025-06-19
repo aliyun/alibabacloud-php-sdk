@@ -33,7 +33,8 @@ class value extends Model
                 $res['RegionProportionData'] = [];
                 $n1 = 0;
                 foreach ($this->regionProportionData as $item1) {
-                    $res['RegionProportionData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionProportionData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class value extends Model
                 $model->regionProportionData = [];
                 $n1 = 0;
                 foreach ($map['RegionProportionData'] as $item1) {
-                    $model->regionProportionData[$n1++] = regionProportionData::fromMap($item1);
+                    $model->regionProportionData[$n1] = regionProportionData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

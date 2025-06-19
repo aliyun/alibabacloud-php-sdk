@@ -33,7 +33,8 @@ class resourcePackageInfos extends Model
                 $res['ResourcePackageInfo'] = [];
                 $n1 = 0;
                 foreach ($this->resourcePackageInfo as $item1) {
-                    $res['ResourcePackageInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourcePackageInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class resourcePackageInfos extends Model
                 $model->resourcePackageInfo = [];
                 $n1 = 0;
                 foreach ($map['ResourcePackageInfo'] as $item1) {
-                    $model->resourcePackageInfo[$n1++] = resourcePackageInfo::fromMap($item1);
+                    $model->resourcePackageInfo[$n1] = resourcePackageInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

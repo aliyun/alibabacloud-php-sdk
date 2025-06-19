@@ -33,7 +33,8 @@ class describeVsUpPeakPublishStreamDatas extends Model
                 $res['DescribeVsUpPeakPublishStreamData'] = [];
                 $n1 = 0;
                 foreach ($this->describeVsUpPeakPublishStreamData as $item1) {
-                    $res['DescribeVsUpPeakPublishStreamData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DescribeVsUpPeakPublishStreamData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class describeVsUpPeakPublishStreamDatas extends Model
                 $model->describeVsUpPeakPublishStreamData = [];
                 $n1 = 0;
                 foreach ($map['DescribeVsUpPeakPublishStreamData'] as $item1) {
-                    $model->describeVsUpPeakPublishStreamData[$n1++] = describeVsUpPeakPublishStreamData::fromMap($item1);
+                    $model->describeVsUpPeakPublishStreamData[$n1] = describeVsUpPeakPublishStreamData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

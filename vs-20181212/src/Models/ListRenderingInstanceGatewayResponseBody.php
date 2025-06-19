@@ -57,7 +57,8 @@ class ListRenderingInstanceGatewayResponseBody extends Model
                 $res['GatewayConfigurationInfos'] = [];
                 $n1 = 0;
                 foreach ($this->gatewayConfigurationInfos as $item1) {
-                    $res['GatewayConfigurationInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GatewayConfigurationInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListRenderingInstanceGatewayResponseBody extends Model
                 $model->gatewayConfigurationInfos = [];
                 $n1 = 0;
                 foreach ($map['GatewayConfigurationInfos'] as $item1) {
-                    $model->gatewayConfigurationInfos[$n1++] = gatewayConfigurationInfos::fromMap($item1);
+                    $model->gatewayConfigurationInfos[$n1] = gatewayConfigurationInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
