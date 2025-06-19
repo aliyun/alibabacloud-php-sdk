@@ -19,6 +19,11 @@ class certificateList extends Model
     public $algorithm;
 
     /**
+     * @var string
+     */
+    public $alias;
+
+    /**
      * @var int
      */
     public $beforeDate;
@@ -120,6 +125,7 @@ class certificateList extends Model
     protected $_name = [
         'afterDate' => 'AfterDate',
         'algorithm' => 'Algorithm',
+        'alias' => 'Alias',
         'beforeDate' => 'BeforeDate',
         'certificateType' => 'CertificateType',
         'commonName' => 'CommonName',
@@ -156,6 +162,10 @@ class certificateList extends Model
 
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+
+        if (null !== $this->alias) {
+            $res['Alias'] = $this->alias;
         }
 
         if (null !== $this->beforeDate) {
@@ -255,6 +265,10 @@ class certificateList extends Model
 
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+
+        if (isset($map['Alias'])) {
+            $model->alias = $map['Alias'];
         }
 
         if (isset($map['BeforeDate'])) {
