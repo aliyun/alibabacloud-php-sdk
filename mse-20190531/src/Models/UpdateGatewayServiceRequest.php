@@ -93,7 +93,8 @@ class UpdateGatewayServiceRequest extends Model
                 $res['DnsServerList'] = [];
                 $n1 = 0;
                 foreach ($this->dnsServerList as $item1) {
-                    $res['DnsServerList'][$n1++] = $item1;
+                    $res['DnsServerList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class UpdateGatewayServiceRequest extends Model
                 $res['IpList'] = [];
                 $n1 = 0;
                 foreach ($this->ipList as $item1) {
-                    $res['IpList'][$n1++] = $item1;
+                    $res['IpList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class UpdateGatewayServiceRequest extends Model
                 $model->dnsServerList = [];
                 $n1 = 0;
                 foreach ($map['DnsServerList'] as $item1) {
-                    $model->dnsServerList[$n1++] = $item1;
+                    $model->dnsServerList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class UpdateGatewayServiceRequest extends Model
                 $model->ipList = [];
                 $n1 = 0;
                 foreach ($map['IpList'] as $item1) {
-                    $model->ipList[$n1++] = $item1;
+                    $model->ipList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

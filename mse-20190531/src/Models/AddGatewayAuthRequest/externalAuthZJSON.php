@@ -89,7 +89,8 @@ class externalAuthZJSON extends Model
                 $res['AllowRequestHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->allowRequestHeaders as $item1) {
-                    $res['AllowRequestHeaders'][$n1++] = $item1;
+                    $res['AllowRequestHeaders'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class externalAuthZJSON extends Model
                 $res['AllowUpstreamHeaders'] = [];
                 $n1 = 0;
                 foreach ($this->allowUpstreamHeaders as $item1) {
-                    $res['AllowUpstreamHeaders'][$n1++] = $item1;
+                    $res['AllowUpstreamHeaders'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +154,8 @@ class externalAuthZJSON extends Model
                 $model->allowRequestHeaders = [];
                 $n1 = 0;
                 foreach ($map['AllowRequestHeaders'] as $item1) {
-                    $model->allowRequestHeaders[$n1++] = $item1;
+                    $model->allowRequestHeaders[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class externalAuthZJSON extends Model
                 $model->allowUpstreamHeaders = [];
                 $n1 = 0;
                 foreach ($map['AllowUpstreamHeaders'] as $item1) {
-                    $model->allowUpstreamHeaders[$n1++] = $item1;
+                    $model->allowUpstreamHeaders[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

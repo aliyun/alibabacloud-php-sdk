@@ -111,7 +111,8 @@ class data extends Model
                 $res['Methods'] = [];
                 $n1 = 0;
                 foreach ($this->methods as $item1) {
-                    $res['Methods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Methods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class data extends Model
                 $model->methods = [];
                 $n1 = 0;
                 foreach ($map['Methods'] as $item1) {
-                    $model->methods[$n1++] = methods::fromMap($item1);
+                    $model->methods[$n1] = methods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

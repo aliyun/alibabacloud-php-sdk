@@ -113,7 +113,8 @@ class ListNamingTrackResponseBody extends Model
                 $res['Traces'] = [];
                 $n1 = 0;
                 foreach ($this->traces as $item1) {
-                    $res['Traces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Traces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +167,8 @@ class ListNamingTrackResponseBody extends Model
                 $model->traces = [];
                 $n1 = 0;
                 foreach ($map['Traces'] as $item1) {
-                    $model->traces[$n1++] = traces::fromMap($item1);
+                    $model->traces[$n1] = traces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

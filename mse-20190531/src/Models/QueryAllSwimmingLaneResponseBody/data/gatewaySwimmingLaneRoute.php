@@ -96,7 +96,8 @@ class gatewaySwimmingLaneRoute extends Model
                 $res['Conditions'] = [];
                 $n1 = 0;
                 foreach ($this->conditions as $item1) {
-                    $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class gatewaySwimmingLaneRoute extends Model
                 $res['RouteIdList'] = [];
                 $n1 = 0;
                 foreach ($this->routeIdList as $item1) {
-                    $res['RouteIdList'][$n1++] = $item1;
+                    $res['RouteIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class gatewaySwimmingLaneRoute extends Model
                 $res['RouteIndependentPercentageList'] = [];
                 $n1 = 0;
                 foreach ($this->routeIndependentPercentageList as $item1) {
-                    $res['RouteIndependentPercentageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteIndependentPercentageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +164,8 @@ class gatewaySwimmingLaneRoute extends Model
                 $model->conditions = [];
                 $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
-                    $model->conditions[$n1++] = conditions::fromMap($item1);
+                    $model->conditions[$n1] = conditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +187,8 @@ class gatewaySwimmingLaneRoute extends Model
                 $model->routeIdList = [];
                 $n1 = 0;
                 foreach ($map['RouteIdList'] as $item1) {
-                    $model->routeIdList[$n1++] = $item1;
+                    $model->routeIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +202,8 @@ class gatewaySwimmingLaneRoute extends Model
                 $model->routeIndependentPercentageList = [];
                 $n1 = 0;
                 foreach ($map['RouteIndependentPercentageList'] as $item1) {
-                    $model->routeIndependentPercentageList[$n1++] = routeIndependentPercentageList::fromMap($item1);
+                    $model->routeIndependentPercentageList[$n1] = routeIndependentPercentageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

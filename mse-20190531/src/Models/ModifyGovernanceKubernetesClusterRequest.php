@@ -59,7 +59,8 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
                 $res['NamespaceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->namespaceInfos as $item1) {
-                    $res['NamespaceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NamespaceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
                 $model->namespaceInfos = [];
                 $n1 = 0;
                 foreach ($map['NamespaceInfos'] as $item1) {
-                    $model->namespaceInfos[$n1++] = namespaceInfos::fromMap($item1);
+                    $model->namespaceInfos[$n1] = namespaceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

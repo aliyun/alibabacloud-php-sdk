@@ -86,7 +86,8 @@ class data extends Model
                 $res['AuthCidrs'] = [];
                 $n1 = 0;
                 foreach ($this->authCidrs as $item1) {
-                    $res['AuthCidrs'][$n1++] = $item1;
+                    $res['AuthCidrs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class data extends Model
                 $model->authCidrs = [];
                 $n1 = 0;
                 foreach ($map['AuthCidrs'] as $item1) {
-                    $model->authCidrs[$n1++] = $item1;
+                    $model->authCidrs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

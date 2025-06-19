@@ -170,7 +170,8 @@ class result extends Model
                 $res['IdList'] = [];
                 $n1 = 0;
                 foreach ($this->idList as $item1) {
-                    $res['IdList'][$n1++] = $item1;
+                    $res['IdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +268,8 @@ class result extends Model
                 $model->idList = [];
                 $n1 = 0;
                 foreach ($map['IdList'] as $item1) {
-                    $model->idList[$n1++] = $item1;
+                    $model->idList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

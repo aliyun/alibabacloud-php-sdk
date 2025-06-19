@@ -70,7 +70,8 @@ class method extends Model
                 $res['ParameterTypes'] = [];
                 $n1 = 0;
                 foreach ($this->parameterTypes as $item1) {
-                    $res['ParameterTypes'][$n1++] = $item1;
+                    $res['ParameterTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class method extends Model
                 $model->parameterTypes = [];
                 $n1 = 0;
                 foreach ($map['ParameterTypes'] as $item1) {
-                    $model->parameterTypes[$n1++] = $item1;
+                    $model->parameterTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

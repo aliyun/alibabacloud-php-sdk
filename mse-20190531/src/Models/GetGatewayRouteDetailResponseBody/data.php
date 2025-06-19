@@ -303,7 +303,8 @@ class data extends Model
                 $res['DomainIdList'] = [];
                 $n1 = 0;
                 foreach ($this->domainIdList as $item1) {
-                    $res['DomainIdList'][$n1++] = $item1;
+                    $res['DomainIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -317,7 +318,8 @@ class data extends Model
                 $res['DomainNameList'] = [];
                 $n1 = 0;
                 foreach ($this->domainNameList as $item1) {
-                    $res['DomainNameList'][$n1++] = $item1;
+                    $res['DomainNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -335,7 +337,8 @@ class data extends Model
                 $res['FallbackServices'] = [];
                 $n1 = 0;
                 foreach ($this->fallbackServices as $item1) {
-                    $res['FallbackServices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FallbackServices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -405,7 +408,8 @@ class data extends Model
                 $res['RouteServices'] = [];
                 $n1 = 0;
                 foreach ($this->routeServices as $item1) {
-                    $res['RouteServices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteServices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -470,7 +474,8 @@ class data extends Model
                 $model->domainIdList = [];
                 $n1 = 0;
                 foreach ($map['DomainIdList'] as $item1) {
-                    $model->domainIdList[$n1++] = $item1;
+                    $model->domainIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -484,7 +489,8 @@ class data extends Model
                 $model->domainNameList = [];
                 $n1 = 0;
                 foreach ($map['DomainNameList'] as $item1) {
-                    $model->domainNameList[$n1++] = $item1;
+                    $model->domainNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -502,7 +508,8 @@ class data extends Model
                 $model->fallbackServices = [];
                 $n1 = 0;
                 foreach ($map['FallbackServices'] as $item1) {
-                    $model->fallbackServices[$n1++] = fallbackServices::fromMap($item1);
+                    $model->fallbackServices[$n1] = fallbackServices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -572,7 +579,8 @@ class data extends Model
                 $model->routeServices = [];
                 $n1 = 0;
                 foreach ($map['RouteServices'] as $item1) {
-                    $model->routeServices[$n1++] = routeServices::fromMap($item1);
+                    $model->routeServices[$n1] = routeServices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

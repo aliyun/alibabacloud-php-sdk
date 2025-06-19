@@ -41,7 +41,8 @@ class CloneSentinelRuleFromAhasResponseBody extends Model
                         $res['Data'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['Data'][$key1][$n2++] = $item2;
+                            $res['Data'][$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -71,7 +72,8 @@ class CloneSentinelRuleFromAhasResponseBody extends Model
                         $model->data[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->data[$key1][$n2++] = $item2;
+                            $model->data[$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }

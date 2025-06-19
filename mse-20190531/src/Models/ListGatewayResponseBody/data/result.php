@@ -349,7 +349,8 @@ class result extends Model
                 $res['GatewayEntry'] = [];
                 $n1 = 0;
                 foreach ($this->gatewayEntry as $item1) {
-                    $res['GatewayEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GatewayEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -391,7 +392,8 @@ class result extends Model
                 $res['InternetSlb'] = [];
                 $n1 = 0;
                 foreach ($this->internetSlb as $item1) {
-                    $res['InternetSlb'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InternetSlb'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -445,7 +447,8 @@ class result extends Model
                 $res['Slb'] = [];
                 $n1 = 0;
                 foreach ($this->slb as $item1) {
-                    $res['Slb'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Slb'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -550,7 +553,8 @@ class result extends Model
                 $model->gatewayEntry = [];
                 $n1 = 0;
                 foreach ($map['GatewayEntry'] as $item1) {
-                    $model->gatewayEntry[$n1++] = gatewayEntry::fromMap($item1);
+                    $model->gatewayEntry[$n1] = gatewayEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -592,7 +596,8 @@ class result extends Model
                 $model->internetSlb = [];
                 $n1 = 0;
                 foreach ($map['InternetSlb'] as $item1) {
-                    $model->internetSlb[$n1++] = internetSlb::fromMap($item1);
+                    $model->internetSlb[$n1] = internetSlb::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -646,7 +651,8 @@ class result extends Model
                 $model->slb = [];
                 $n1 = 0;
                 foreach ($map['Slb'] as $item1) {
-                    $model->slb[$n1++] = slb::fromMap($item1);
+                    $model->slb[$n1] = slb::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

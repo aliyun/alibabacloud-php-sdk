@@ -97,7 +97,8 @@ class dubbo extends Model
                 $res['argumentItems'] = [];
                 $n1 = 0;
                 foreach ($this->argumentItems as $item1) {
-                    $res['argumentItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['argumentItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class dubbo extends Model
                 $res['paramTypes'] = [];
                 $n1 = 0;
                 foreach ($this->paramTypes as $item1) {
-                    $res['paramTypes'][$n1++] = $item1;
+                    $res['paramTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +135,8 @@ class dubbo extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = $item1;
+                    $res['tags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class dubbo extends Model
                 $model->argumentItems = [];
                 $n1 = 0;
                 foreach ($map['argumentItems'] as $item1) {
-                    $model->argumentItems[$n1++] = argumentItems::fromMap($item1);
+                    $model->argumentItems[$n1] = argumentItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +192,8 @@ class dubbo extends Model
                 $model->paramTypes = [];
                 $n1 = 0;
                 foreach ($map['paramTypes'] as $item1) {
-                    $model->paramTypes[$n1++] = $item1;
+                    $model->paramTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +207,8 @@ class dubbo extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -123,7 +123,8 @@ class AddGatewaySlbRequest extends Model
                 $res['VServiceList'] = [];
                 $n1 = 0;
                 foreach ($this->VServiceList as $item1) {
-                    $res['VServiceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VServiceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +181,8 @@ class AddGatewaySlbRequest extends Model
                 $model->VServiceList = [];
                 $n1 = 0;
                 foreach ($map['VServiceList'] as $item1) {
-                    $model->VServiceList[$n1++] = VServiceList::fromMap($item1);
+                    $model->VServiceList[$n1] = VServiceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -143,7 +143,8 @@ class data extends Model
                 $res['EntryRules'] = [];
                 $n1 = 0;
                 foreach ($this->entryRules as $item1) {
-                    $res['EntryRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EntryRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +233,8 @@ class data extends Model
                 $model->entryRules = [];
                 $n1 = 0;
                 foreach ($map['EntryRules'] as $item1) {
-                    $model->entryRules[$n1++] = entryRules::fromMap($item1);
+                    $model->entryRules[$n1] = entryRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

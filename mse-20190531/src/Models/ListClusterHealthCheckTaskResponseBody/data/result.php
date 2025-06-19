@@ -171,7 +171,8 @@ class result extends Model
                 $res['RiskList'] = [];
                 $n1 = 0;
                 foreach ($this->riskList as $item1) {
-                    $res['RiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +261,8 @@ class result extends Model
                 $model->riskList = [];
                 $n1 = 0;
                 foreach ($map['RiskList'] as $item1) {
-                    $model->riskList[$n1++] = riskList::fromMap($item1);
+                    $model->riskList[$n1] = riskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

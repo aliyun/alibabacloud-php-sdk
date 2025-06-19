@@ -152,7 +152,8 @@ class routeServices extends Model
                 $res['UnhealthyEndpoints'] = [];
                 $n1 = 0;
                 foreach ($this->unhealthyEndpoints as $item1) {
-                    $res['UnhealthyEndpoints'][$n1++] = $item1;
+                    $res['UnhealthyEndpoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +222,8 @@ class routeServices extends Model
                 $model->unhealthyEndpoints = [];
                 $n1 = 0;
                 foreach ($map['UnhealthyEndpoints'] as $item1) {
-                    $model->unhealthyEndpoints[$n1++] = $item1;
+                    $model->unhealthyEndpoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

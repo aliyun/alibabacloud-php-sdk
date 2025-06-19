@@ -69,7 +69,8 @@ class result extends Model
                 $res['RouteRules'] = [];
                 $n1 = 0;
                 foreach ($this->routeRules as $item1) {
-                    $res['RouteRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class result extends Model
                 $model->routeRules = [];
                 $n1 = 0;
                 foreach ($map['RouteRules'] as $item1) {
-                    $model->routeRules[$n1++] = routeRules::fromMap($item1);
+                    $model->routeRules[$n1] = routeRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

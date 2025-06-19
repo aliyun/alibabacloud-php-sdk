@@ -117,7 +117,8 @@ class configuration extends Model
                 $res['GrayVersions'] = [];
                 $n1 = 0;
                 foreach ($this->grayVersions as $item1) {
-                    $res['GrayVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GrayVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +179,8 @@ class configuration extends Model
                 $model->grayVersions = [];
                 $n1 = 0;
                 foreach ($map['GrayVersions'] as $item1) {
-                    $model->grayVersions[$n1++] = grayVersions::fromMap($item1);
+                    $model->grayVersions[$n1] = grayVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -63,7 +63,8 @@ class httpDubboTranscoder extends Model
                 $res['MothedMapList'] = [];
                 $n1 = 0;
                 foreach ($this->mothedMapList as $item1) {
-                    $res['MothedMapList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MothedMapList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class httpDubboTranscoder extends Model
                 $model->mothedMapList = [];
                 $n1 = 0;
                 foreach ($map['MothedMapList'] as $item1) {
-                    $model->mothedMapList[$n1++] = mothedMapList::fromMap($item1);
+                    $model->mothedMapList[$n1] = mothedMapList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

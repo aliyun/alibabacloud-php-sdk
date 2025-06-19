@@ -39,7 +39,8 @@ class headerOp extends Model
                 $res['HeaderOpItems'] = [];
                 $n1 = 0;
                 foreach ($this->headerOpItems as $item1) {
-                    $res['HeaderOpItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HeaderOpItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class headerOp extends Model
                 $model->headerOpItems = [];
                 $n1 = 0;
                 foreach ($map['HeaderOpItems'] as $item1) {
-                    $model->headerOpItems[$n1++] = headerOpItems::fromMap($item1);
+                    $model->headerOpItems[$n1] = headerOpItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

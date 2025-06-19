@@ -58,7 +58,8 @@ class DeleteFlowRulesRequest extends Model
                 $res['Ids'] = [];
                 $n1 = 0;
                 foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1++] = $item1;
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class DeleteFlowRulesRequest extends Model
                 $model->ids = [];
                 $n1 = 0;
                 foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1++] = $item1;
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

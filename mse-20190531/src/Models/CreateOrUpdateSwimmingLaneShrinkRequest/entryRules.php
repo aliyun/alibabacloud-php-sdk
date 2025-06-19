@@ -58,7 +58,8 @@ class entryRules extends Model
                 $res['Paths'] = [];
                 $n1 = 0;
                 foreach ($this->paths as $item1) {
-                    $res['Paths'][$n1++] = $item1;
+                    $res['Paths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class entryRules extends Model
                 $res['RestItems'] = [];
                 $n1 = 0;
                 foreach ($this->restItems as $item1) {
-                    $res['RestItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RestItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class entryRules extends Model
                 $model->paths = [];
                 $n1 = 0;
                 foreach ($map['Paths'] as $item1) {
-                    $model->paths[$n1++] = $item1;
+                    $model->paths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class entryRules extends Model
                 $model->restItems = [];
                 $n1 = 0;
                 foreach ($map['RestItems'] as $item1) {
-                    $model->restItems[$n1++] = restItems::fromMap($item1);
+                    $model->restItems[$n1] = restItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

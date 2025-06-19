@@ -109,7 +109,8 @@ class AddServiceSourceRequest extends Model
                 $res['GroupList'] = [];
                 $n1 = 0;
                 foreach ($this->groupList as $item1) {
-                    $res['GroupList'][$n1++] = $item1;
+                    $res['GroupList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +128,8 @@ class AddServiceSourceRequest extends Model
                 $res['PathList'] = [];
                 $n1 = 0;
                 foreach ($this->pathList as $item1) {
-                    $res['PathList'][$n1++] = $item1;
+                    $res['PathList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +143,8 @@ class AddServiceSourceRequest extends Model
                 $res['ToAuthorizeSecurityGroups'] = [];
                 $n1 = 0;
                 foreach ($this->toAuthorizeSecurityGroups as $item1) {
-                    $res['ToAuthorizeSecurityGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ToAuthorizeSecurityGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class AddServiceSourceRequest extends Model
                 $model->groupList = [];
                 $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
-                    $model->groupList[$n1++] = $item1;
+                    $model->groupList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +200,8 @@ class AddServiceSourceRequest extends Model
                 $model->pathList = [];
                 $n1 = 0;
                 foreach ($map['PathList'] as $item1) {
-                    $model->pathList[$n1++] = $item1;
+                    $model->pathList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +215,8 @@ class AddServiceSourceRequest extends Model
                 $model->toAuthorizeSecurityGroups = [];
                 $n1 = 0;
                 foreach ($map['ToAuthorizeSecurityGroups'] as $item1) {
-                    $model->toAuthorizeSecurityGroups[$n1++] = toAuthorizeSecurityGroups::fromMap($item1);
+                    $model->toAuthorizeSecurityGroups[$n1] = toAuthorizeSecurityGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -62,7 +62,8 @@ class ListAppBySwimmingLaneGroupTagsRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = $item1;
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class ListAppBySwimmingLaneGroupTagsRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -57,7 +57,8 @@ class authResourceList extends Model
                 $res['AuthResourceHeaderList'] = [];
                 $n1 = 0;
                 foreach ($this->authResourceHeaderList as $item1) {
-                    $res['AuthResourceHeaderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthResourceHeaderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class authResourceList extends Model
                 $model->authResourceHeaderList = [];
                 $n1 = 0;
                 foreach ($map['AuthResourceHeaderList'] as $item1) {
-                    $model->authResourceHeaderList[$n1++] = authResourceHeaderList::fromMap($item1);
+                    $model->authResourceHeaderList[$n1] = authResourceHeaderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

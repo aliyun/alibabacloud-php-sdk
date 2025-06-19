@@ -69,7 +69,8 @@ class authRule extends Model
                 $res['AppIds'] = [];
                 $n1 = 0;
                 foreach ($this->appIds as $item1) {
-                    $res['AppIds'][$n1++] = $item1;
+                    $res['AppIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class authRule extends Model
                 $res['K8sNamespaces'] = [];
                 $n1 = 0;
                 foreach ($this->k8sNamespaces as $item1) {
-                    $res['K8sNamespaces'][$n1++] = $item1;
+                    $res['K8sNamespaces'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +118,8 @@ class authRule extends Model
                 $model->appIds = [];
                 $n1 = 0;
                 foreach ($map['AppIds'] as $item1) {
-                    $model->appIds[$n1++] = $item1;
+                    $model->appIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +137,8 @@ class authRule extends Model
                 $model->k8sNamespaces = [];
                 $n1 = 0;
                 foreach ($map['K8sNamespaces'] as $item1) {
-                    $model->k8sNamespaces[$n1++] = $item1;
+                    $model->k8sNamespaces[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

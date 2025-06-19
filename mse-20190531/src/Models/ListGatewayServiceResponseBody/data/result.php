@@ -197,7 +197,8 @@ class result extends Model
                 $res['DnsServerList'] = [];
                 $n1 = 0;
                 foreach ($this->dnsServerList as $item1) {
-                    $res['DnsServerList'][$n1++] = $item1;
+                    $res['DnsServerList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -251,7 +252,8 @@ class result extends Model
                 $res['Ips'] = [];
                 $n1 = 0;
                 foreach ($this->ips as $item1) {
-                    $res['Ips'][$n1++] = $item1;
+                    $res['Ips'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -273,7 +275,8 @@ class result extends Model
                 $res['Ports'] = [];
                 $n1 = 0;
                 foreach ($this->ports as $item1) {
-                    $res['Ports'][$n1++] = $item1;
+                    $res['Ports'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -307,7 +310,8 @@ class result extends Model
                 $res['UnhealthyEndpoints'] = [];
                 $n1 = 0;
                 foreach ($this->unhealthyEndpoints as $item1) {
-                    $res['UnhealthyEndpoints'][$n1++] = $item1;
+                    $res['UnhealthyEndpoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -317,7 +321,8 @@ class result extends Model
                 $res['Versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['Versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +343,8 @@ class result extends Model
                 $model->dnsServerList = [];
                 $n1 = 0;
                 foreach ($map['DnsServerList'] as $item1) {
-                    $model->dnsServerList[$n1++] = $item1;
+                    $model->dnsServerList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -392,7 +398,8 @@ class result extends Model
                 $model->ips = [];
                 $n1 = 0;
                 foreach ($map['Ips'] as $item1) {
-                    $model->ips[$n1++] = $item1;
+                    $model->ips[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -414,7 +421,8 @@ class result extends Model
                 $model->ports = [];
                 $n1 = 0;
                 foreach ($map['Ports'] as $item1) {
-                    $model->ports[$n1++] = $item1;
+                    $model->ports[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -448,7 +456,8 @@ class result extends Model
                 $model->unhealthyEndpoints = [];
                 $n1 = 0;
                 foreach ($map['UnhealthyEndpoints'] as $item1) {
-                    $model->unhealthyEndpoints[$n1++] = $item1;
+                    $model->unhealthyEndpoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -458,7 +467,8 @@ class result extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
-                    $model->versions[$n1++] = versions::fromMap($item1);
+                    $model->versions[$n1] = versions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

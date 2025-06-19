@@ -106,7 +106,8 @@ class UpdateGatewayServiceCheckRequest extends Model
                 $res['ExpectedStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->expectedStatuses as $item1) {
-                    $res['ExpectedStatuses'][$n1++] = $item1;
+                    $res['ExpectedStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +172,8 @@ class UpdateGatewayServiceCheckRequest extends Model
                 $model->expectedStatuses = [];
                 $n1 = 0;
                 foreach ($map['ExpectedStatuses'] as $item1) {
-                    $model->expectedStatuses[$n1++] = $item1;
+                    $model->expectedStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

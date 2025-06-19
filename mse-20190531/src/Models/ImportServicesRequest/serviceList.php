@@ -77,7 +77,8 @@ class serviceList extends Model
                 $res['DnsServerList'] = [];
                 $n1 = 0;
                 foreach ($this->dnsServerList as $item1) {
-                    $res['DnsServerList'][$n1++] = $item1;
+                    $res['DnsServerList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class serviceList extends Model
                 $res['Ips'] = [];
                 $n1 = 0;
                 foreach ($this->ips as $item1) {
-                    $res['Ips'][$n1++] = $item1;
+                    $res['Ips'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class serviceList extends Model
                 $model->dnsServerList = [];
                 $n1 = 0;
                 foreach ($map['DnsServerList'] as $item1) {
-                    $model->dnsServerList[$n1++] = $item1;
+                    $model->dnsServerList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +149,8 @@ class serviceList extends Model
                 $model->ips = [];
                 $n1 = 0;
                 foreach ($map['Ips'] as $item1) {
-                    $model->ips[$n1++] = $item1;
+                    $model->ips[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

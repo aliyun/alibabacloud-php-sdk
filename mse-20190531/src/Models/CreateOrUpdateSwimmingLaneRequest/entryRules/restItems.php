@@ -102,7 +102,8 @@ class restItems extends Model
                 $res['NameList'] = [];
                 $n1 = 0;
                 foreach ($this->nameList as $item1) {
-                    $res['NameList'][$n1++] = $item1;
+                    $res['NameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +160,8 @@ class restItems extends Model
                 $model->nameList = [];
                 $n1 = 0;
                 foreach ($map['NameList'] as $item1) {
-                    $model->nameList[$n1++] = $item1;
+                    $model->nameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

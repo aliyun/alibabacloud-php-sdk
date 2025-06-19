@@ -202,7 +202,8 @@ class data extends Model
                 $res['DnsServerList'] = [];
                 $n1 = 0;
                 foreach ($this->dnsServerList as $item1) {
-                    $res['DnsServerList'][$n1++] = $item1;
+                    $res['DnsServerList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +249,8 @@ class data extends Model
                 $res['Ips'] = [];
                 $n1 = 0;
                 foreach ($this->ips as $item1) {
-                    $res['Ips'][$n1++] = $item1;
+                    $res['Ips'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +260,8 @@ class data extends Model
                 $res['LabelDetails'] = [];
                 $n1 = 0;
                 foreach ($this->labelDetails as $item1) {
-                    $res['LabelDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LabelDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +283,8 @@ class data extends Model
                 $res['PortTrafficPolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->portTrafficPolicyList as $item1) {
-                    $res['PortTrafficPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PortTrafficPolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -290,7 +294,8 @@ class data extends Model
                 $res['Ports'] = [];
                 $n1 = 0;
                 foreach ($this->ports as $item1) {
-                    $res['Ports'][$n1++] = $item1;
+                    $res['Ports'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -324,7 +329,8 @@ class data extends Model
                 $res['VersionDetails'] = [];
                 $n1 = 0;
                 foreach ($this->versionDetails as $item1) {
-                    $res['VersionDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VersionDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -334,7 +340,8 @@ class data extends Model
                 $res['Versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['Versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -355,7 +362,8 @@ class data extends Model
                 $model->dnsServerList = [];
                 $n1 = 0;
                 foreach ($map['DnsServerList'] as $item1) {
-                    $model->dnsServerList[$n1++] = $item1;
+                    $model->dnsServerList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -401,7 +409,8 @@ class data extends Model
                 $model->ips = [];
                 $n1 = 0;
                 foreach ($map['Ips'] as $item1) {
-                    $model->ips[$n1++] = $item1;
+                    $model->ips[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -411,7 +420,8 @@ class data extends Model
                 $model->labelDetails = [];
                 $n1 = 0;
                 foreach ($map['LabelDetails'] as $item1) {
-                    $model->labelDetails[$n1++] = labelDetails::fromMap($item1);
+                    $model->labelDetails[$n1] = labelDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -433,7 +443,8 @@ class data extends Model
                 $model->portTrafficPolicyList = [];
                 $n1 = 0;
                 foreach ($map['PortTrafficPolicyList'] as $item1) {
-                    $model->portTrafficPolicyList[$n1++] = portTrafficPolicyList::fromMap($item1);
+                    $model->portTrafficPolicyList[$n1] = portTrafficPolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -443,7 +454,8 @@ class data extends Model
                 $model->ports = [];
                 $n1 = 0;
                 foreach ($map['Ports'] as $item1) {
-                    $model->ports[$n1++] = $item1;
+                    $model->ports[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -477,7 +489,8 @@ class data extends Model
                 $model->versionDetails = [];
                 $n1 = 0;
                 foreach ($map['VersionDetails'] as $item1) {
-                    $model->versionDetails[$n1++] = versionDetails::fromMap($item1);
+                    $model->versionDetails[$n1] = versionDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -487,7 +500,8 @@ class data extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
-                    $model->versions[$n1++] = versions::fromMap($item1);
+                    $model->versions[$n1] = versions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

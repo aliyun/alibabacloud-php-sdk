@@ -165,7 +165,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
                 $res['Paths'] = [];
                 $n1 = 0;
                 foreach ($this->paths as $item1) {
-                    $res['Paths'][$n1++] = $item1;
+                    $res['Paths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +184,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
                 $res['RouteIds'] = [];
                 $n1 = 0;
                 foreach ($this->routeIds as $item1) {
-                    $res['RouteIds'][$n1++] = $item1;
+                    $res['RouteIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +254,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
                 $model->paths = [];
                 $n1 = 0;
                 foreach ($map['Paths'] as $item1) {
-                    $model->paths[$n1++] = $item1;
+                    $model->paths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +273,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
                 $model->routeIds = [];
                 $n1 = 0;
                 foreach ($map['RouteIds'] as $item1) {
-                    $model->routeIds[$n1++] = $item1;
+                    $model->routeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

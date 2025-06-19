@@ -85,7 +85,8 @@ class ListNacosHistoryConfigsResponseBody extends Model
                 $res['HistoryItems'] = [];
                 $n1 = 0;
                 foreach ($this->historyItems as $item1) {
-                    $res['HistoryItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HistoryItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class ListNacosHistoryConfigsResponseBody extends Model
                 $model->historyItems = [];
                 $n1 = 0;
                 foreach ($map['HistoryItems'] as $item1) {
-                    $model->historyItems[$n1++] = historyItems::fromMap($item1);
+                    $model->historyItems[$n1] = historyItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

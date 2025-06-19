@@ -147,7 +147,8 @@ class data extends Model
                 $res['GroupList'] = [];
                 $n1 = 0;
                 foreach ($this->groupList as $item1) {
-                    $res['GroupList'][$n1++] = $item1;
+                    $res['GroupList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class data extends Model
                 $res['PathList'] = [];
                 $n1 = 0;
                 foreach ($this->pathList as $item1) {
-                    $res['PathList'][$n1++] = $item1;
+                    $res['PathList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +232,8 @@ class data extends Model
                 $model->groupList = [];
                 $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
-                    $model->groupList[$n1++] = $item1;
+                    $model->groupList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +259,8 @@ class data extends Model
                 $model->pathList = [];
                 $n1 = 0;
                 foreach ($map['PathList'] as $item1) {
-                    $model->pathList[$n1++] = $item1;
+                    $model->pathList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

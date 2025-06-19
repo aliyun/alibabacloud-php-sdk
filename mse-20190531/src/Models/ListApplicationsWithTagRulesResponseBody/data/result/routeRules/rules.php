@@ -43,7 +43,8 @@ class rules extends Model
                 $res['dubbo'] = [];
                 $n1 = 0;
                 foreach ($this->dubbo as $item1) {
-                    $res['dubbo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dubbo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class rules extends Model
                 $res['springcloud'] = [];
                 $n1 = 0;
                 foreach ($this->springcloud as $item1) {
-                    $res['springcloud'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['springcloud'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class rules extends Model
                 $model->dubbo = [];
                 $n1 = 0;
                 foreach ($map['dubbo'] as $item1) {
-                    $model->dubbo[$n1++] = dubbo::fromMap($item1);
+                    $model->dubbo[$n1] = dubbo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class rules extends Model
                 $model->springcloud = [];
                 $n1 = 0;
                 foreach ($map['springcloud'] as $item1) {
-                    $model->springcloud[$n1++] = springcloud::fromMap($item1);
+                    $model->springcloud[$n1] = springcloud::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

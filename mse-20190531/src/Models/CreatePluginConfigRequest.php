@@ -92,7 +92,8 @@ class CreatePluginConfigRequest extends Model
                 $res['ResourceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIdList as $item1) {
-                    $res['ResourceIdList'][$n1++] = $item1;
+                    $res['ResourceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class CreatePluginConfigRequest extends Model
                 $model->resourceIdList = [];
                 $n1 = 0;
                 foreach ($map['ResourceIdList'] as $item1) {
-                    $model->resourceIdList[$n1++] = $item1;
+                    $model->resourceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -82,7 +82,8 @@ class tls extends Model
                 $res['SubjectAltNames'] = [];
                 $n1 = 0;
                 foreach ($this->subjectAltNames as $item1) {
-                    $res['SubjectAltNames'][$n1++] = $item1;
+                    $res['SubjectAltNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class tls extends Model
                 $model->subjectAltNames = [];
                 $n1 = 0;
                 foreach ($map['SubjectAltNames'] as $item1) {
-                    $model->subjectAltNames[$n1++] = $item1;
+                    $model->subjectAltNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

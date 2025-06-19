@@ -58,7 +58,8 @@ class ListSentinelBlockFallbackDefinitionsRequest extends Model
                 $res['ClassificationSet'] = [];
                 $n1 = 0;
                 foreach ($this->classificationSet as $item1) {
-                    $res['ClassificationSet'][$n1++] = $item1;
+                    $res['ClassificationSet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListSentinelBlockFallbackDefinitionsRequest extends Model
                 $model->classificationSet = [];
                 $n1 = 0;
                 foreach ($map['ClassificationSet'] as $item1) {
-                    $model->classificationSet[$n1++] = $item1;
+                    $model->classificationSet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

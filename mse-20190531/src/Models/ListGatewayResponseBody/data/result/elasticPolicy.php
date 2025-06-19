@@ -75,7 +75,8 @@ class elasticPolicy extends Model
                 $res['EnableScaleTimePolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->enableScaleTimePolicyList as $item1) {
-                    $res['EnableScaleTimePolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EnableScaleTimePolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class elasticPolicy extends Model
                 $res['TimePolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->timePolicyList as $item1) {
-                    $res['TimePolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimePolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class elasticPolicy extends Model
                 $model->enableScaleTimePolicyList = [];
                 $n1 = 0;
                 foreach ($map['EnableScaleTimePolicyList'] as $item1) {
-                    $model->enableScaleTimePolicyList[$n1++] = enableScaleTimePolicyList::fromMap($item1);
+                    $model->enableScaleTimePolicyList[$n1] = enableScaleTimePolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class elasticPolicy extends Model
                 $model->timePolicyList = [];
                 $n1 = 0;
                 foreach ($map['TimePolicyList'] as $item1) {
-                    $model->timePolicyList[$n1++] = timePolicyList::fromMap($item1);
+                    $model->timePolicyList[$n1] = timePolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

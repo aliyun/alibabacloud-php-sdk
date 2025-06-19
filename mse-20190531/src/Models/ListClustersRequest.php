@@ -53,6 +53,11 @@ class ListClustersRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterAliasName' => 'ClusterAliasName',
@@ -63,6 +68,7 @@ class ListClustersRequest extends Model
         'requestPars' => 'RequestPars',
         'resourceGroupId' => 'ResourceGroupId',
         'tag' => 'Tag',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -113,9 +119,14 @@ class ListClustersRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -166,9 +177,14 @@ class ListClustersRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

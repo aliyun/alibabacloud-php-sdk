@@ -55,7 +55,8 @@ class data extends Model
                 $res['FailData'] = [];
                 $n1 = 0;
                 foreach ($this->failData as $item1) {
-                    $res['FailData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class data extends Model
                 $res['SkipData'] = [];
                 $n1 = 0;
                 foreach ($this->skipData as $item1) {
-                    $res['SkipData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SkipData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class data extends Model
                 $model->failData = [];
                 $n1 = 0;
                 foreach ($map['FailData'] as $item1) {
-                    $model->failData[$n1++] = failData::fromMap($item1);
+                    $model->failData[$n1] = failData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class data extends Model
                 $model->skipData = [];
                 $n1 = 0;
                 foreach ($map['SkipData'] as $item1) {
-                    $model->skipData[$n1++] = skipData::fromMap($item1);
+                    $model->skipData[$n1] = skipData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -180,7 +180,8 @@ class AddGatewayAuthRequest extends Model
                 $res['AuthResourceList'] = [];
                 $n1 = 0;
                 foreach ($this->authResourceList as $item1) {
-                    $res['AuthResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthResourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +239,8 @@ class AddGatewayAuthRequest extends Model
                 $res['ScopesList'] = [];
                 $n1 = 0;
                 foreach ($this->scopesList as $item1) {
-                    $res['ScopesList'][$n1++] = $item1;
+                    $res['ScopesList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -295,7 +297,8 @@ class AddGatewayAuthRequest extends Model
                 $model->authResourceList = [];
                 $n1 = 0;
                 foreach ($map['AuthResourceList'] as $item1) {
-                    $model->authResourceList[$n1++] = authResourceList::fromMap($item1);
+                    $model->authResourceList[$n1] = authResourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -353,7 +356,8 @@ class AddGatewayAuthRequest extends Model
                 $model->scopesList = [];
                 $n1 = 0;
                 foreach ($map['ScopesList'] as $item1) {
-                    $model->scopesList[$n1++] = $item1;
+                    $model->scopesList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

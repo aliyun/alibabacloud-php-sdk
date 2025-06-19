@@ -10799,6 +10799,10 @@ class Mse extends OpenApiClient
             @$query['Tag'] = $request->tag;
         }
 
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

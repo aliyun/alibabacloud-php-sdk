@@ -78,7 +78,8 @@ class mothedMapList extends Model
                 $res['ParamMapsList'] = [];
                 $n1 = 0;
                 foreach ($this->paramMapsList as $item1) {
-                    $res['ParamMapsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParamMapsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class mothedMapList extends Model
                 $res['PassThroughList'] = [];
                 $n1 = 0;
                 foreach ($this->passThroughList as $item1) {
-                    $res['PassThroughList'][$n1++] = $item1;
+                    $res['PassThroughList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +127,8 @@ class mothedMapList extends Model
                 $model->paramMapsList = [];
                 $n1 = 0;
                 foreach ($map['ParamMapsList'] as $item1) {
-                    $model->paramMapsList[$n1++] = paramMapsList::fromMap($item1);
+                    $model->paramMapsList[$n1] = paramMapsList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +142,8 @@ class mothedMapList extends Model
                 $model->passThroughList = [];
                 $n1 = 0;
                 foreach ($map['PassThroughList'] as $item1) {
-                    $model->passThroughList[$n1++] = $item1;
+                    $model->passThroughList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

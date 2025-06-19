@@ -106,7 +106,8 @@ class argumentItems extends Model
                 $res['nameList'] = [];
                 $n1 = 0;
                 foreach ($this->nameList as $item1) {
-                    $res['nameList'][$n1++] = $item1;
+                    $res['nameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class argumentItems extends Model
                 $model->nameList = [];
                 $n1 = 0;
                 foreach ($map['nameList'] as $item1) {
-                    $model->nameList[$n1++] = $item1;
+                    $model->nameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

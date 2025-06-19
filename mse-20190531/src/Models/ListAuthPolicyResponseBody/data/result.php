@@ -123,7 +123,8 @@ class result extends Model
                 $res['AuthRule'] = [];
                 $n1 = 0;
                 foreach ($this->authRule as $item1) {
-                    $res['AuthRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +197,8 @@ class result extends Model
                 $model->authRule = [];
                 $n1 = 0;
                 foreach ($map['AuthRule'] as $item1) {
-                    $model->authRule[$n1++] = authRule::fromMap($item1);
+                    $model->authRule[$n1] = authRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

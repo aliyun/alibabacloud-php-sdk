@@ -88,7 +88,8 @@ class services extends Model
                 $res['SourceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceIdList as $item1) {
-                    $res['SourceIdList'][$n1++] = $item1;
+                    $res['SourceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class services extends Model
                 $model->sourceIdList = [];
                 $n1 = 0;
                 foreach ($map['SourceIdList'] as $item1) {
-                    $model->sourceIdList[$n1++] = $item1;
+                    $model->sourceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

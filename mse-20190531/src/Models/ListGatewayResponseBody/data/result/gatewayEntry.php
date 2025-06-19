@@ -66,7 +66,8 @@ class gatewayEntry extends Model
                 $res['HttpPorts'] = [];
                 $n1 = 0;
                 foreach ($this->httpPorts as $item1) {
-                    $res['HttpPorts'][$n1++] = $item1;
+                    $res['HttpPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -76,7 +77,8 @@ class gatewayEntry extends Model
                 $res['HttpsPorts'] = [];
                 $n1 = 0;
                 foreach ($this->httpsPorts as $item1) {
-                    $res['HttpsPorts'][$n1++] = $item1;
+                    $res['HttpsPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +88,8 @@ class gatewayEntry extends Model
                 $res['IpList'] = [];
                 $n1 = 0;
                 foreach ($this->ipList as $item1) {
-                    $res['IpList'][$n1++] = $item1;
+                    $res['IpList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +118,8 @@ class gatewayEntry extends Model
                 $model->httpPorts = [];
                 $n1 = 0;
                 foreach ($map['HttpPorts'] as $item1) {
-                    $model->httpPorts[$n1++] = $item1;
+                    $model->httpPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +129,8 @@ class gatewayEntry extends Model
                 $model->httpsPorts = [];
                 $n1 = 0;
                 foreach ($map['HttpsPorts'] as $item1) {
-                    $model->httpsPorts[$n1++] = $item1;
+                    $model->httpsPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +140,8 @@ class gatewayEntry extends Model
                 $model->ipList = [];
                 $n1 = 0;
                 foreach ($map['IpList'] as $item1) {
-                    $model->ipList[$n1++] = $item1;
+                    $model->ipList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -101,7 +101,8 @@ class ImportServicesRequest extends Model
                 $res['ServiceList'] = [];
                 $n1 = 0;
                 foreach ($this->serviceList as $item1) {
-                    $res['ServiceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class ImportServicesRequest extends Model
                 $model->serviceList = [];
                 $n1 = 0;
                 foreach ($map['ServiceList'] as $item1) {
-                    $model->serviceList[$n1++] = serviceList::fromMap($item1);
+                    $model->serviceList[$n1] = serviceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

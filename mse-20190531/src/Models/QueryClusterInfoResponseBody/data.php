@@ -369,7 +369,8 @@ class data extends Model
                 $res['ExpectZones'] = [];
                 $n1 = 0;
                 foreach ($this->expectZones as $item1) {
-                    $res['ExpectZones'][$n1++] = $item1;
+                    $res['ExpectZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -399,7 +400,8 @@ class data extends Model
                 $res['InstanceModels'] = [];
                 $n1 = 0;
                 foreach ($this->instanceModels as $item1) {
-                    $res['InstanceModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -573,7 +575,8 @@ class data extends Model
                 $model->expectZones = [];
                 $n1 = 0;
                 foreach ($map['ExpectZones'] as $item1) {
-                    $model->expectZones[$n1++] = $item1;
+                    $model->expectZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -603,7 +606,8 @@ class data extends Model
                 $model->instanceModels = [];
                 $n1 = 0;
                 foreach ($map['InstanceModels'] as $item1) {
-                    $model->instanceModels[$n1++] = instanceModels::fromMap($item1);
+                    $model->instanceModels[$n1] = instanceModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

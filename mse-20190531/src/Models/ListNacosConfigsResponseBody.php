@@ -91,7 +91,8 @@ class ListNacosConfigsResponseBody extends Model
                 $res['Configurations'] = [];
                 $n1 = 0;
                 foreach ($this->configurations as $item1) {
-                    $res['Configurations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Configurations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class ListNacosConfigsResponseBody extends Model
                 $model->configurations = [];
                 $n1 = 0;
                 foreach ($map['Configurations'] as $item1) {
-                    $model->configurations[$n1++] = configurations::fromMap($item1);
+                    $model->configurations[$n1] = configurations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

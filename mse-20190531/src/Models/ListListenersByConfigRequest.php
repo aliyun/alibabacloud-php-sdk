@@ -77,7 +77,8 @@ class ListListenersByConfigRequest extends Model
                 $res['ExtGrayRules'] = [];
                 $n1 = 0;
                 foreach ($this->extGrayRules as $item1) {
-                    $res['ExtGrayRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExtGrayRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class ListListenersByConfigRequest extends Model
                 $model->extGrayRules = [];
                 $n1 = 0;
                 foreach ($map['ExtGrayRules'] as $item1) {
-                    $model->extGrayRules[$n1++] = extGrayRules::fromMap($item1);
+                    $model->extGrayRules[$n1] = extGrayRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

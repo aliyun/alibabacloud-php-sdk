@@ -91,7 +91,8 @@ class springcloud extends Model
                 $res['restItems'] = [];
                 $n1 = 0;
                 foreach ($this->restItems as $item1) {
-                    $res['restItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['restItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class springcloud extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = $item1;
+                    $res['tags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +129,8 @@ class springcloud extends Model
                 $res['paths'] = [];
                 $n1 = 0;
                 foreach ($this->paths as $item1) {
-                    $res['paths'][$n1++] = $item1;
+                    $res['paths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +159,8 @@ class springcloud extends Model
                 $model->restItems = [];
                 $n1 = 0;
                 foreach ($map['restItems'] as $item1) {
-                    $model->restItems[$n1++] = restItems::fromMap($item1);
+                    $model->restItems[$n1] = restItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +186,8 @@ class springcloud extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +197,8 @@ class springcloud extends Model
                 $model->paths = [];
                 $n1 = 0;
                 foreach ($map['paths'] as $item1) {
-                    $model->paths[$n1++] = $item1;
+                    $model->paths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
