@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class Catalog extends Model
+class Namespace_ extends Model
 {
     /**
      * @var int
@@ -26,6 +26,11 @@ class Catalog extends Model
     /**
      * @var string
      */
+    public $location;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -37,16 +42,6 @@ class Catalog extends Model
      * @var string
      */
     public $owner;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
 
     /**
      * @var int
@@ -61,11 +56,10 @@ class Catalog extends Model
         'createdAt' => 'createdAt',
         'createdBy' => 'createdBy',
         'id' => 'id',
+        'location' => 'location',
         'name' => 'name',
         'options' => 'options',
         'owner' => 'owner',
-        'status' => 'status',
-        'type' => 'type',
         'updatedAt' => 'updatedAt',
         'updatedBy' => 'updatedBy',
     ];
@@ -93,6 +87,10 @@ class Catalog extends Model
             $res['id'] = $this->id;
         }
 
+        if (null !== $this->location) {
+            $res['location'] = $this->location;
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -108,14 +106,6 @@ class Catalog extends Model
 
         if (null !== $this->owner) {
             $res['owner'] = $this->owner;
-        }
-
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
         }
 
         if (null !== $this->updatedAt) {
@@ -149,6 +139,10 @@ class Catalog extends Model
             $model->id = $map['id'];
         }
 
+        if (isset($map['location'])) {
+            $model->location = $map['location'];
+        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
@@ -164,14 +158,6 @@ class Catalog extends Model
 
         if (isset($map['owner'])) {
             $model->owner = $map['owner'];
-        }
-
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
         }
 
         if (isset($map['updatedAt'])) {

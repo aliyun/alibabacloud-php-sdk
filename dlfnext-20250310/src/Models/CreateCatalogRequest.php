@@ -22,10 +22,16 @@ class CreateCatalogRequest extends Model
      * @var string[]
      */
     public $options;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'name' => 'name',
         'optimizationConfig' => 'optimizationConfig',
         'options' => 'options',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -64,6 +70,10 @@ class CreateCatalogRequest extends Model
             }
         }
 
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -95,6 +105,10 @@ class CreateCatalogRequest extends Model
                     $model->options[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

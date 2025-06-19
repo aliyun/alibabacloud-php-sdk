@@ -69,7 +69,8 @@ class Schema extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class Schema extends Model
                 $res['partitionKeys'] = [];
                 $n1 = 0;
                 foreach ($this->partitionKeys as $item1) {
-                    $res['partitionKeys'][$n1++] = $item1;
+                    $res['partitionKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class Schema extends Model
                 $res['primaryKeys'] = [];
                 $n1 = 0;
                 foreach ($this->primaryKeys as $item1) {
-                    $res['primaryKeys'][$n1++] = $item1;
+                    $res['primaryKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +126,8 @@ class Schema extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = DataField::fromMap($item1);
+                    $model->fields[$n1] = DataField::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +146,8 @@ class Schema extends Model
                 $model->partitionKeys = [];
                 $n1 = 0;
                 foreach ($map['partitionKeys'] as $item1) {
-                    $model->partitionKeys[$n1++] = $item1;
+                    $model->partitionKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +157,8 @@ class Schema extends Model
                 $model->primaryKeys = [];
                 $n1 = 0;
                 foreach ($map['primaryKeys'] as $item1) {
-                    $model->primaryKeys[$n1++] = $item1;
+                    $model->primaryKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class ListRolesResponseBody extends Model
                 $res['roles'] = [];
                 $n1 = 0;
                 foreach ($this->roles as $item1) {
-                    $res['roles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['roles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ListRolesResponseBody extends Model
                 $model->roles = [];
                 $n1 = 0;
                 foreach ($map['roles'] as $item1) {
-                    $model->roles[$n1++] = Role::fromMap($item1);
+                    $model->roles[$n1] = Role::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

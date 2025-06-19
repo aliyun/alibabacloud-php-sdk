@@ -48,7 +48,8 @@ class BatchGrantPermissionsResponseBody extends Model
                 $res['failurePermissions'] = [];
                 $n1 = 0;
                 foreach ($this->failurePermissions as $item1) {
-                    $res['failurePermissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['failurePermissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class BatchGrantPermissionsResponseBody extends Model
                 $model->failurePermissions = [];
                 $n1 = 0;
                 foreach ($map['failurePermissions'] as $item1) {
-                    $model->failurePermissions[$n1++] = FailurePermission::fromMap($item1);
+                    $model->failurePermissions[$n1] = FailurePermission::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

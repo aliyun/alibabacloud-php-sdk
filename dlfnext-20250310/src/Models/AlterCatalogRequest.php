@@ -41,7 +41,8 @@ class AlterCatalogRequest extends Model
                 $res['removals'] = [];
                 $n1 = 0;
                 foreach ($this->removals as $item1) {
-                    $res['removals'][$n1++] = $item1;
+                    $res['removals'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class AlterCatalogRequest extends Model
                 $model->removals = [];
                 $n1 = 0;
                 foreach ($map['removals'] as $item1) {
-                    $model->removals[$n1++] = $item1;
+                    $model->removals[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

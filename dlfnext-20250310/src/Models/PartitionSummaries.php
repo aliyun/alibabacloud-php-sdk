@@ -42,7 +42,8 @@ class PartitionSummaries extends Model
                 $res['partitions'] = [];
                 $n1 = 0;
                 foreach ($this->partitions as $item1) {
-                    $res['partitions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['partitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class PartitionSummaries extends Model
                 $model->partitions = [];
                 $n1 = 0;
                 foreach ($map['partitions'] as $item1) {
-                    $model->partitions[$n1++] = PartitionSummary::fromMap($item1);
+                    $model->partitions[$n1] = PartitionSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -119,7 +119,8 @@ class FullSchemaChange extends Model
                 $res['fieldNames'] = [];
                 $n1 = 0;
                 foreach ($this->fieldNames as $item1) {
-                    $res['fieldNames'][$n1++] = $item1;
+                    $res['fieldNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +185,8 @@ class FullSchemaChange extends Model
                 $model->fieldNames = [];
                 $n1 = 0;
                 foreach ($map['fieldNames'] as $item1) {
-                    $model->fieldNames[$n1++] = $item1;
+                    $model->fieldNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

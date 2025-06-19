@@ -50,7 +50,8 @@ class AlterCatalogResponseBody extends Model
                 $res['missing'] = [];
                 $n1 = 0;
                 foreach ($this->missing as $item1) {
-                    $res['missing'][$n1++] = $item1;
+                    $res['missing'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class AlterCatalogResponseBody extends Model
                 $res['removed'] = [];
                 $n1 = 0;
                 foreach ($this->removed as $item1) {
-                    $res['removed'][$n1++] = $item1;
+                    $res['removed'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class AlterCatalogResponseBody extends Model
                 $res['updated'] = [];
                 $n1 = 0;
                 foreach ($this->updated as $item1) {
-                    $res['updated'][$n1++] = $item1;
+                    $res['updated'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class AlterCatalogResponseBody extends Model
                 $model->missing = [];
                 $n1 = 0;
                 foreach ($map['missing'] as $item1) {
-                    $model->missing[$n1++] = $item1;
+                    $model->missing[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class AlterCatalogResponseBody extends Model
                 $model->removed = [];
                 $n1 = 0;
                 foreach ($map['removed'] as $item1) {
-                    $model->removed[$n1++] = $item1;
+                    $model->removed[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class AlterCatalogResponseBody extends Model
                 $model->updated = [];
                 $n1 = 0;
                 foreach ($map['updated'] as $item1) {
-                    $model->updated[$n1++] = $item1;
+                    $model->updated[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

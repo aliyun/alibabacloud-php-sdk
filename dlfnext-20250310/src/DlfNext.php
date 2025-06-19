@@ -318,6 +318,10 @@ class DlfNext extends OpenApiClient
             @$body['options'] = $request->options;
         }
 
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),

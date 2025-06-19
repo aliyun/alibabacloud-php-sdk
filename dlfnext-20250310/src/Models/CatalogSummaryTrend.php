@@ -68,7 +68,8 @@ class CatalogSummaryTrend extends Model
                 $res['apiVisitCount'] = [];
                 $n1 = 0;
                 foreach ($this->apiVisitCount as $item1) {
-                    $res['apiVisitCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['apiVisitCount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class CatalogSummaryTrend extends Model
                 $res['throughput'] = [];
                 $n1 = 0;
                 foreach ($this->throughput as $item1) {
-                    $res['throughput'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['throughput'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class CatalogSummaryTrend extends Model
                 $res['totalFileCount'] = [];
                 $n1 = 0;
                 foreach ($this->totalFileCount as $item1) {
-                    $res['totalFileCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['totalFileCount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class CatalogSummaryTrend extends Model
                 $res['totalFileSizeInBytes'] = [];
                 $n1 = 0;
                 foreach ($this->totalFileSizeInBytes as $item1) {
-                    $res['totalFileSizeInBytes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['totalFileSizeInBytes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +112,8 @@ class CatalogSummaryTrend extends Model
                 $res['totalMetaCount'] = [];
                 $n1 = 0;
                 foreach ($this->totalMetaCount as $item1) {
-                    $res['totalMetaCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['totalMetaCount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +134,8 @@ class CatalogSummaryTrend extends Model
                 $model->apiVisitCount = [];
                 $n1 = 0;
                 foreach ($map['apiVisitCount'] as $item1) {
-                    $model->apiVisitCount[$n1++] = DateSummary::fromMap($item1);
+                    $model->apiVisitCount[$n1] = DateSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +145,8 @@ class CatalogSummaryTrend extends Model
                 $model->throughput = [];
                 $n1 = 0;
                 foreach ($map['throughput'] as $item1) {
-                    $model->throughput[$n1++] = DateSummary::fromMap($item1);
+                    $model->throughput[$n1] = DateSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +156,8 @@ class CatalogSummaryTrend extends Model
                 $model->totalFileCount = [];
                 $n1 = 0;
                 foreach ($map['totalFileCount'] as $item1) {
-                    $model->totalFileCount[$n1++] = DateSummary::fromMap($item1);
+                    $model->totalFileCount[$n1] = DateSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +167,8 @@ class CatalogSummaryTrend extends Model
                 $model->totalFileSizeInBytes = [];
                 $n1 = 0;
                 foreach ($map['totalFileSizeInBytes'] as $item1) {
-                    $model->totalFileSizeInBytes[$n1++] = DateSummary::fromMap($item1);
+                    $model->totalFileSizeInBytes[$n1] = DateSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +178,8 @@ class CatalogSummaryTrend extends Model
                 $model->totalMetaCount = [];
                 $n1 = 0;
                 foreach ($map['totalMetaCount'] as $item1) {
-                    $model->totalMetaCount[$n1++] = DateSummary::fromMap($item1);
+                    $model->totalMetaCount[$n1] = DateSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -69,7 +69,8 @@ class FullDataType extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class FullDataType extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = DataField::fromMap($item1);
+                    $model->fields[$n1] = DataField::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

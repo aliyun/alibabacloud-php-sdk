@@ -38,7 +38,8 @@ class ListCatalogsResponseBody extends Model
                 $res['catalogs'] = [];
                 $n1 = 0;
                 foreach ($this->catalogs as $item1) {
-                    $res['catalogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['catalogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListCatalogsResponseBody extends Model
                 $model->catalogs = [];
                 $n1 = 0;
                 foreach ($map['catalogs'] as $item1) {
-                    $model->catalogs[$n1++] = Catalog::fromMap($item1);
+                    $model->catalogs[$n1] = Catalog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

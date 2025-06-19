@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class Catalog extends Model
+class IcebergTable extends Model
 {
     /**
      * @var int
@@ -19,6 +19,11 @@ class Catalog extends Model
     public $createdBy;
 
     /**
+     * @var IcebergTableMetadata
+     */
+    public $icebergTableMetadata;
+
+    /**
      * @var string
      */
     public $id;
@@ -29,11 +34,6 @@ class Catalog extends Model
     public $name;
 
     /**
-     * @var string[]
-     */
-    public $options;
-
-    /**
      * @var string
      */
     public $owner;
@@ -41,12 +41,7 @@ class Catalog extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $path;
 
     /**
      * @var int
@@ -57,23 +52,28 @@ class Catalog extends Model
      * @var string
      */
     public $updatedBy;
+
+    /**
+     * @var int
+     */
+    public $version;
     protected $_name = [
         'createdAt' => 'createdAt',
         'createdBy' => 'createdBy',
+        'icebergTableMetadata' => 'icebergTableMetadata',
         'id' => 'id',
         'name' => 'name',
-        'options' => 'options',
         'owner' => 'owner',
-        'status' => 'status',
-        'type' => 'type',
+        'path' => 'path',
         'updatedAt' => 'updatedAt',
         'updatedBy' => 'updatedBy',
+        'version' => 'version',
     ];
 
     public function validate()
     {
-        if (\is_array($this->options)) {
-            Model::validateArray($this->options);
+        if (null !== $this->icebergTableMetadata) {
+            $this->icebergTableMetadata->validate();
         }
         parent::validate();
     }
@@ -89,6 +89,10 @@ class Catalog extends Model
             $res['createdBy'] = $this->createdBy;
         }
 
+        if (null !== $this->icebergTableMetadata) {
+            $res['icebergTableMetadata'] = null !== $this->icebergTableMetadata ? $this->icebergTableMetadata->toArray($noStream) : $this->icebergTableMetadata;
+        }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -97,25 +101,12 @@ class Catalog extends Model
             $res['name'] = $this->name;
         }
 
-        if (null !== $this->options) {
-            if (\is_array($this->options)) {
-                $res['options'] = [];
-                foreach ($this->options as $key1 => $value1) {
-                    $res['options'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->owner) {
             $res['owner'] = $this->owner;
         }
 
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->path) {
+            $res['path'] = $this->path;
         }
 
         if (null !== $this->updatedAt) {
@@ -124,6 +115,10 @@ class Catalog extends Model
 
         if (null !== $this->updatedBy) {
             $res['updatedBy'] = $this->updatedBy;
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -145,6 +140,10 @@ class Catalog extends Model
             $model->createdBy = $map['createdBy'];
         }
 
+        if (isset($map['icebergTableMetadata'])) {
+            $model->icebergTableMetadata = IcebergTableMetadata::fromMap($map['icebergTableMetadata']);
+        }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
@@ -153,25 +152,12 @@ class Catalog extends Model
             $model->name = $map['name'];
         }
 
-        if (isset($map['options'])) {
-            if (!empty($map['options'])) {
-                $model->options = [];
-                foreach ($map['options'] as $key1 => $value1) {
-                    $model->options[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['owner'])) {
             $model->owner = $map['owner'];
         }
 
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['path'])) {
+            $model->path = $map['path'];
         }
 
         if (isset($map['updatedAt'])) {
@@ -180,6 +166,10 @@ class Catalog extends Model
 
         if (isset($map['updatedBy'])) {
             $model->updatedBy = $map['updatedBy'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

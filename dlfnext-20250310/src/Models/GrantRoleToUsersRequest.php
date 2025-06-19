@@ -42,7 +42,8 @@ class GrantRoleToUsersRequest extends Model
                 $res['userPrincipals'] = [];
                 $n1 = 0;
                 foreach ($this->userPrincipals as $item1) {
-                    $res['userPrincipals'][$n1++] = $item1;
+                    $res['userPrincipals'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class GrantRoleToUsersRequest extends Model
                 $model->userPrincipals = [];
                 $n1 = 0;
                 foreach ($map['userPrincipals'] as $item1) {
-                    $model->userPrincipals[$n1++] = $item1;
+                    $model->userPrincipals[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
