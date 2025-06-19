@@ -18,6 +18,9 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseTemplateRequest;
@@ -43,6 +46,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseTemplateRequest;
@@ -804,6 +809,121 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCloudResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建防护对象
+     *
+     * @param tmpReq - CreateDefenseResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDefenseResourceResponse
+     *
+     * @param CreateDefenseResourceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDefenseResourceResponse
+     */
+    public function createDefenseResourceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDefenseResourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customHeaders) {
+            $request->customHeadersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customHeaders, 'CustomHeaders', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->customHeadersShrink) {
+            @$query['CustomHeaders'] = $request->customHeadersShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->detail) {
+            @$query['Detail'] = $request->detail;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
+        }
+
+        if (null !== $request->pattern) {
+            @$query['Pattern'] = $request->pattern;
+        }
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceGroup) {
+            @$query['ResourceGroup'] = $request->resourceGroup;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->resourceOrigin) {
+            @$query['ResourceOrigin'] = $request->resourceOrigin;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->xffStatus) {
+            @$query['XffStatus'] = $request->xffStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDefenseResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建防护对象
+     *
+     * @param request - CreateDefenseResourceRequest
+     *
+     * @returns CreateDefenseResourceResponse
+     *
+     * @param CreateDefenseResourceRequest $request
+     *
+     * @return CreateDefenseResourceResponse
+     */
+    public function createDefenseResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDefenseResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -1778,6 +1898,75 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloudResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除单个防护对象
+     *
+     * @param request - DeleteDefenseResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDefenseResourceResponse
+     *
+     * @param DeleteDefenseResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDefenseResourceResponse
+     */
+    public function deleteDefenseResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDefenseResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除单个防护对象
+     *
+     * @param request - DeleteDefenseResourceRequest
+     *
+     * @returns DeleteDefenseResourceResponse
+     *
+     * @param DeleteDefenseResourceRequest $request
+     *
+     * @return DeleteDefenseResourceResponse
+     */
+    public function deleteDefenseResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDefenseResourceWithOptions($request, $runtime);
     }
 
     /**
