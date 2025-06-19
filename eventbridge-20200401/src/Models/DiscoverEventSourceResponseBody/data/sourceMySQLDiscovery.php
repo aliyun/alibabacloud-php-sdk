@@ -15,6 +15,16 @@ class sourceMySQLDiscovery extends Model
     public $databaseNames;
 
     /**
+     * @var int
+     */
+    public $estimatedRows;
+
+    /**
+     * @var int
+     */
+    public $expireLogsDays;
+
+    /**
      * @var string
      */
     public $simpleData;
@@ -28,11 +38,19 @@ class sourceMySQLDiscovery extends Model
      * @var tableSchema
      */
     public $tableSchema;
+
+    /**
+     * @var int
+     */
+    public $waitTimeout;
     protected $_name = [
         'databaseNames' => 'DatabaseNames',
+        'estimatedRows' => 'EstimatedRows',
+        'expireLogsDays' => 'ExpireLogsDays',
         'simpleData' => 'SimpleData',
         'tableNames' => 'TableNames',
         'tableSchema' => 'TableSchema',
+        'waitTimeout' => 'WaitTimeout',
     ];
 
     public function validate()
@@ -63,6 +81,14 @@ class sourceMySQLDiscovery extends Model
             }
         }
 
+        if (null !== $this->estimatedRows) {
+            $res['EstimatedRows'] = $this->estimatedRows;
+        }
+
+        if (null !== $this->expireLogsDays) {
+            $res['ExpireLogsDays'] = $this->expireLogsDays;
+        }
+
         if (null !== $this->simpleData) {
             $res['SimpleData'] = $this->simpleData;
         }
@@ -80,6 +106,10 @@ class sourceMySQLDiscovery extends Model
 
         if (null !== $this->tableSchema) {
             $res['TableSchema'] = null !== $this->tableSchema ? $this->tableSchema->toArray($noStream) : $this->tableSchema;
+        }
+
+        if (null !== $this->waitTimeout) {
+            $res['WaitTimeout'] = $this->waitTimeout;
         }
 
         return $res;
@@ -104,6 +134,14 @@ class sourceMySQLDiscovery extends Model
             }
         }
 
+        if (isset($map['EstimatedRows'])) {
+            $model->estimatedRows = $map['EstimatedRows'];
+        }
+
+        if (isset($map['ExpireLogsDays'])) {
+            $model->expireLogsDays = $map['ExpireLogsDays'];
+        }
+
         if (isset($map['SimpleData'])) {
             $model->simpleData = $map['SimpleData'];
         }
@@ -121,6 +159,10 @@ class sourceMySQLDiscovery extends Model
 
         if (isset($map['TableSchema'])) {
             $model->tableSchema = tableSchema::fromMap($map['TableSchema']);
+        }
+
+        if (isset($map['WaitTimeout'])) {
+            $model->waitTimeout = $map['WaitTimeout'];
         }
 
         return $model;
