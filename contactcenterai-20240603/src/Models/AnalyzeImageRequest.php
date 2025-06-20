@@ -53,7 +53,8 @@ class AnalyzeImageRequest extends Model
                 $res['imageUrls'] = [];
                 $n1 = 0;
                 foreach ($this->imageUrls as $item1) {
-                    $res['imageUrls'][$n1++] = $item1;
+                    $res['imageUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class AnalyzeImageRequest extends Model
                 $res['resultTypes'] = [];
                 $n1 = 0;
                 foreach ($this->resultTypes as $item1) {
-                    $res['resultTypes'][$n1++] = $item1;
+                    $res['resultTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class AnalyzeImageRequest extends Model
                 $model->imageUrls = [];
                 $n1 = 0;
                 foreach ($map['imageUrls'] as $item1) {
-                    $model->imageUrls[$n1++] = $item1;
+                    $model->imageUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +109,8 @@ class AnalyzeImageRequest extends Model
                 $model->resultTypes = [];
                 $n1 = 0;
                 foreach ($map['resultTypes'] as $item1) {
-                    $model->resultTypes[$n1++] = $item1;
+                    $model->resultTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

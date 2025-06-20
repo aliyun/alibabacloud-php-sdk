@@ -63,7 +63,8 @@ class data extends Model
                 $res['asrResult'] = [];
                 $n1 = 0;
                 foreach ($this->asrResult as $item1) {
-                    $res['asrResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['asrResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class data extends Model
                 $model->asrResult = [];
                 $n1 = 0;
                 foreach ($map['asrResult'] as $item1) {
-                    $model->asrResult[$n1++] = asrResult::fromMap($item1);
+                    $model->asrResult[$n1] = asrResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -137,7 +137,8 @@ class AnalyzeConversationRequest extends Model
                 $res['categoryTags'] = [];
                 $n1 = 0;
                 foreach ($this->categoryTags as $item1) {
-                    $res['categoryTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['categoryTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class AnalyzeConversationRequest extends Model
                 $res['examples'] = [];
                 $n1 = 0;
                 foreach ($this->examples as $item1) {
-                    $res['examples'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['examples'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +167,8 @@ class AnalyzeConversationRequest extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +186,8 @@ class AnalyzeConversationRequest extends Model
                 $res['resultTypes'] = [];
                 $n1 = 0;
                 foreach ($this->resultTypes as $item1) {
-                    $res['resultTypes'][$n1++] = $item1;
+                    $res['resultTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +213,8 @@ class AnalyzeConversationRequest extends Model
                 $res['timeConstraintList'] = [];
                 $n1 = 0;
                 foreach ($this->timeConstraintList as $item1) {
-                    $res['timeConstraintList'][$n1++] = $item1;
+                    $res['timeConstraintList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +224,8 @@ class AnalyzeConversationRequest extends Model
                 $res['userProfiles'] = [];
                 $n1 = 0;
                 foreach ($this->userProfiles as $item1) {
-                    $res['userProfiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['userProfiles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -240,7 +246,8 @@ class AnalyzeConversationRequest extends Model
                 $model->categoryTags = [];
                 $n1 = 0;
                 foreach ($map['categoryTags'] as $item1) {
-                    $model->categoryTags[$n1++] = categoryTags::fromMap($item1);
+                    $model->categoryTags[$n1] = categoryTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +265,8 @@ class AnalyzeConversationRequest extends Model
                 $model->examples = [];
                 $n1 = 0;
                 foreach ($map['examples'] as $item1) {
-                    $model->examples[$n1++] = examples::fromMap($item1);
+                    $model->examples[$n1] = examples::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +276,8 @@ class AnalyzeConversationRequest extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = fields::fromMap($item1);
+                    $model->fields[$n1] = fields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -286,7 +295,8 @@ class AnalyzeConversationRequest extends Model
                 $model->resultTypes = [];
                 $n1 = 0;
                 foreach ($map['resultTypes'] as $item1) {
-                    $model->resultTypes[$n1++] = $item1;
+                    $model->resultTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +322,8 @@ class AnalyzeConversationRequest extends Model
                 $model->timeConstraintList = [];
                 $n1 = 0;
                 foreach ($map['timeConstraintList'] as $item1) {
-                    $model->timeConstraintList[$n1++] = $item1;
+                    $model->timeConstraintList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -322,7 +333,8 @@ class AnalyzeConversationRequest extends Model
                 $model->userProfiles = [];
                 $n1 = 0;
                 foreach ($map['userProfiles'] as $item1) {
-                    $model->userProfiles[$n1++] = userProfiles::fromMap($item1);
+                    $model->userProfiles[$n1] = userProfiles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

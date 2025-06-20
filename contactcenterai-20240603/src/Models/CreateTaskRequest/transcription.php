@@ -31,6 +31,11 @@ class transcription extends Model
     /**
      * @var string
      */
+    public $languageHints;
+
+    /**
+     * @var string
+     */
     public $level;
 
     /**
@@ -62,6 +67,7 @@ class transcription extends Model
         'autoSplit' => 'autoSplit',
         'clientChannel' => 'clientChannel',
         'fileName' => 'fileName',
+        'languageHints' => 'languageHints',
         'level' => 'level',
         'roleIdentification' => 'roleIdentification',
         'serviceChannel' => 'serviceChannel',
@@ -97,6 +103,10 @@ class transcription extends Model
             $res['fileName'] = $this->fileName;
         }
 
+        if (null !== $this->languageHints) {
+            $res['languageHints'] = $this->languageHints;
+        }
+
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
@@ -114,7 +124,8 @@ class transcription extends Model
                 $res['serviceChannelKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->serviceChannelKeywords as $item1) {
-                    $res['serviceChannelKeywords'][$n1++] = $item1;
+                    $res['serviceChannelKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,6 +165,10 @@ class transcription extends Model
             $model->fileName = $map['fileName'];
         }
 
+        if (isset($map['languageHints'])) {
+            $model->languageHints = $map['languageHints'];
+        }
+
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
@@ -171,7 +186,8 @@ class transcription extends Model
                 $model->serviceChannelKeywords = [];
                 $n1 = 0;
                 foreach ($map['serviceChannelKeywords'] as $item1) {
-                    $model->serviceChannelKeywords[$n1++] = $item1;
+                    $model->serviceChannelKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

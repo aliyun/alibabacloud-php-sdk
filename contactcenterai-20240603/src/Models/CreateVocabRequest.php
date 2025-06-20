@@ -69,7 +69,8 @@ class CreateVocabRequest extends Model
                 $res['wordWeightList'] = [];
                 $n1 = 0;
                 foreach ($this->wordWeightList as $item1) {
-                    $res['wordWeightList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['wordWeightList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class CreateVocabRequest extends Model
                 $model->wordWeightList = [];
                 $n1 = 0;
                 foreach ($map['wordWeightList'] as $item1) {
-                    $model->wordWeightList[$n1++] = wordWeightList::fromMap($item1);
+                    $model->wordWeightList[$n1] = wordWeightList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

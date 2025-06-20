@@ -43,7 +43,8 @@ class examples extends Model
                 $res['sentences'] = [];
                 $n1 = 0;
                 foreach ($this->sentences as $item1) {
-                    $res['sentences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sentences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class examples extends Model
                 $model->sentences = [];
                 $n1 = 0;
                 foreach ($map['sentences'] as $item1) {
-                    $model->sentences[$n1++] = sentences::fromMap($item1);
+                    $model->sentences[$n1] = sentences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

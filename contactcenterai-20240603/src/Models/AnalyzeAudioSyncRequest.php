@@ -115,7 +115,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $res['categoryTags'] = [];
                 $n1 = 0;
                 foreach ($this->categoryTags as $item1) {
-                    $res['categoryTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['categoryTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +149,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $res['resultTypes'] = [];
                 $n1 = 0;
                 foreach ($this->resultTypes as $item1) {
-                    $res['resultTypes'][$n1++] = $item1;
+                    $res['resultTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +168,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $res['templateIds'] = [];
                 $n1 = 0;
                 foreach ($this->templateIds as $item1) {
-                    $res['templateIds'][$n1++] = $item1;
+                    $res['templateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +183,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $res['variables'] = [];
                 $n1 = 0;
                 foreach ($this->variables as $item1) {
-                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +205,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $model->categoryTags = [];
                 $n1 = 0;
                 foreach ($map['categoryTags'] as $item1) {
-                    $model->categoryTags[$n1++] = categoryTags::fromMap($item1);
+                    $model->categoryTags[$n1] = categoryTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +220,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = fields::fromMap($item1);
+                    $model->fields[$n1] = fields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +239,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $model->resultTypes = [];
                 $n1 = 0;
                 foreach ($map['resultTypes'] as $item1) {
-                    $model->resultTypes[$n1++] = $item1;
+                    $model->resultTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -250,7 +258,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $model->templateIds = [];
                 $n1 = 0;
                 foreach ($map['templateIds'] as $item1) {
-                    $model->templateIds[$n1++] = $item1;
+                    $model->templateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -264,7 +273,8 @@ class AnalyzeAudioSyncRequest extends Model
                 $model->variables = [];
                 $n1 = 0;
                 foreach ($map['variables'] as $item1) {
-                    $model->variables[$n1++] = variables::fromMap($item1);
+                    $model->variables[$n1] = variables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

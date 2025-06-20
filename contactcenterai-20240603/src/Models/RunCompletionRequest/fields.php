@@ -59,7 +59,8 @@ class fields extends Model
                 $res['EnumValues'] = [];
                 $n1 = 0;
                 foreach ($this->enumValues as $item1) {
-                    $res['EnumValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EnumValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class fields extends Model
                 $model->enumValues = [];
                 $n1 = 0;
                 foreach ($map['EnumValues'] as $item1) {
-                    $model->enumValues[$n1++] = enumValues::fromMap($item1);
+                    $model->enumValues[$n1] = enumValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

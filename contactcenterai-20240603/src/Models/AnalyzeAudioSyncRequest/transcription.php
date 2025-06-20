@@ -104,7 +104,8 @@ class transcription extends Model
                 $res['serviceChannelKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->serviceChannelKeywords as $item1) {
-                    $res['serviceChannelKeywords'][$n1++] = $item1;
+                    $res['serviceChannelKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +158,8 @@ class transcription extends Model
                 $model->serviceChannelKeywords = [];
                 $n1 = 0;
                 foreach ($map['serviceChannelKeywords'] as $item1) {
-                    $model->serviceChannelKeywords[$n1++] = $item1;
+                    $model->serviceChannelKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

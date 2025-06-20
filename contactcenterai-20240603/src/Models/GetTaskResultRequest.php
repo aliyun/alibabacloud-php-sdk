@@ -38,7 +38,8 @@ class GetTaskResultRequest extends Model
                 $res['requiredFieldList'] = [];
                 $n1 = 0;
                 foreach ($this->requiredFieldList as $item1) {
-                    $res['requiredFieldList'][$n1++] = $item1;
+                    $res['requiredFieldList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetTaskResultRequest extends Model
                 $model->requiredFieldList = [];
                 $n1 = 0;
                 foreach ($map['requiredFieldList'] as $item1) {
-                    $model->requiredFieldList[$n1++] = $item1;
+                    $model->requiredFieldList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
