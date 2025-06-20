@@ -51,7 +51,8 @@ class accountComplianceResult extends Model
                 $res['AccountCompliances'] = [];
                 $n1 = 0;
                 foreach ($this->accountCompliances as $item1) {
-                    $res['AccountCompliances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccountCompliances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class accountComplianceResult extends Model
                 $model->accountCompliances = [];
                 $n1 = 0;
                 foreach ($map['AccountCompliances'] as $item1) {
-                    $model->accountCompliances[$n1++] = accountCompliances::fromMap($item1);
+                    $model->accountCompliances[$n1] = accountCompliances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

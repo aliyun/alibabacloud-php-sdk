@@ -54,7 +54,8 @@ class TagResourcesShrinkRequest extends Model
                 $res['ResourceId'] = [];
                 $n1 = 0;
                 foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1++] = $item1;
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class TagResourcesShrinkRequest extends Model
                 $model->resourceId = [];
                 $n1 = 0;
                 foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1++] = $item1;
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

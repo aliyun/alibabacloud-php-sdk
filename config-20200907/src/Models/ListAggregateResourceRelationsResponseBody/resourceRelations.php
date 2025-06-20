@@ -53,7 +53,8 @@ class resourceRelations extends Model
                 $res['ResourceRelationList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceRelationList as $item1) {
-                    $res['ResourceRelationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceRelationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class resourceRelations extends Model
                 $model->resourceRelationList = [];
                 $n1 = 0;
                 foreach ($map['ResourceRelationList'] as $item1) {
-                    $model->resourceRelationList[$n1++] = resourceRelationList::fromMap($item1);
+                    $model->resourceRelationList[$n1] = resourceRelationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

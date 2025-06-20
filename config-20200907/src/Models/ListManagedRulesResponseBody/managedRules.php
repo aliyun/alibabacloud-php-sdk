@@ -51,7 +51,8 @@ class managedRules extends Model
                 $res['ManagedRuleList'] = [];
                 $n1 = 0;
                 foreach ($this->managedRuleList as $item1) {
-                    $res['ManagedRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ManagedRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class managedRules extends Model
                 $model->managedRuleList = [];
                 $n1 = 0;
                 foreach ($map['ManagedRuleList'] as $item1) {
-                    $model->managedRuleList[$n1++] = managedRuleList::fromMap($item1);
+                    $model->managedRuleList[$n1] = managedRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

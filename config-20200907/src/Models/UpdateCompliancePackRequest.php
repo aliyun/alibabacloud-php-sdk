@@ -153,7 +153,8 @@ class UpdateCompliancePackRequest extends Model
                 $res['ConfigRules'] = [];
                 $n1 = 0;
                 foreach ($this->configRules as $item1) {
-                    $res['ConfigRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +180,8 @@ class UpdateCompliancePackRequest extends Model
                 $res['ExcludeTagsScope'] = [];
                 $n1 = 0;
                 foreach ($this->excludeTagsScope as $item1) {
-                    $res['ExcludeTagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExcludeTagsScope'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +207,8 @@ class UpdateCompliancePackRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -223,7 +226,8 @@ class UpdateCompliancePackRequest extends Model
                 $res['TagsScope'] = [];
                 $n1 = 0;
                 foreach ($this->tagsScope as $item1) {
-                    $res['TagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagsScope'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +260,8 @@ class UpdateCompliancePackRequest extends Model
                 $model->configRules = [];
                 $n1 = 0;
                 foreach ($map['ConfigRules'] as $item1) {
-                    $model->configRules[$n1++] = configRules::fromMap($item1);
+                    $model->configRules[$n1] = configRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -282,7 +287,8 @@ class UpdateCompliancePackRequest extends Model
                 $model->excludeTagsScope = [];
                 $n1 = 0;
                 foreach ($map['ExcludeTagsScope'] as $item1) {
-                    $model->excludeTagsScope[$n1++] = excludeTagsScope::fromMap($item1);
+                    $model->excludeTagsScope[$n1] = excludeTagsScope::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +314,8 @@ class UpdateCompliancePackRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -326,7 +333,8 @@ class UpdateCompliancePackRequest extends Model
                 $model->tagsScope = [];
                 $n1 = 0;
                 foreach ($map['TagsScope'] as $item1) {
-                    $model->tagsScope[$n1++] = tagsScope::fromMap($item1);
+                    $model->tagsScope[$n1] = tagsScope::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

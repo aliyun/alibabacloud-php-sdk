@@ -106,7 +106,8 @@ class managedRuleList extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = $item1;
+                    $res['Labels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class managedRuleList extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = $item1;
+                    $model->labels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

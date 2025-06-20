@@ -77,7 +77,8 @@ class compliancePackTemplates extends Model
                 $res['ConfigRules'] = [];
                 $n1 = 0;
                 foreach ($this->configRules as $item1) {
-                    $res['ConfigRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class compliancePackTemplates extends Model
                 $model->configRules = [];
                 $n1 = 0;
                 foreach ($map['ConfigRules'] as $item1) {
-                    $model->configRules[$n1++] = configRules::fromMap($item1);
+                    $model->configRules[$n1] = configRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

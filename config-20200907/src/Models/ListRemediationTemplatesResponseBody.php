@@ -65,7 +65,8 @@ class ListRemediationTemplatesResponseBody extends Model
                 $res['RemediationTemplates'] = [];
                 $n1 = 0;
                 foreach ($this->remediationTemplates as $item1) {
-                    $res['RemediationTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemediationTemplates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListRemediationTemplatesResponseBody extends Model
                 $model->remediationTemplates = [];
                 $n1 = 0;
                 foreach ($map['RemediationTemplates'] as $item1) {
-                    $model->remediationTemplates[$n1++] = remediationTemplates::fromMap($item1);
+                    $model->remediationTemplates[$n1] = remediationTemplates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

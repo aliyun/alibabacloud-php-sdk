@@ -39,7 +39,8 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
                 $res['ConfigRuleSummaries'] = [];
                 $n1 = 0;
                 foreach ($this->configRuleSummaries as $item1) {
-                    $res['ConfigRuleSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigRuleSummaries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
                 $model->configRuleSummaries = [];
                 $n1 = 0;
                 foreach ($map['ConfigRuleSummaries'] as $item1) {
-                    $model->configRuleSummaries[$n1++] = configRuleSummaries::fromMap($item1);
+                    $model->configRuleSummaries[$n1] = configRuleSummaries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

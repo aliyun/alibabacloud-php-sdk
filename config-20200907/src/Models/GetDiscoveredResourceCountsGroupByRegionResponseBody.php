@@ -39,7 +39,8 @@ class GetDiscoveredResourceCountsGroupByRegionResponseBody extends Model
                 $res['DiscoveredResourceCountsSummary'] = [];
                 $n1 = 0;
                 foreach ($this->discoveredResourceCountsSummary as $item1) {
-                    $res['DiscoveredResourceCountsSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiscoveredResourceCountsSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetDiscoveredResourceCountsGroupByRegionResponseBody extends Model
                 $model->discoveredResourceCountsSummary = [];
                 $n1 = 0;
                 foreach ($map['DiscoveredResourceCountsSummary'] as $item1) {
-                    $model->discoveredResourceCountsSummary[$n1++] = discoveredResourceCountsSummary::fromMap($item1);
+                    $model->discoveredResourceCountsSummary[$n1] = discoveredResourceCountsSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

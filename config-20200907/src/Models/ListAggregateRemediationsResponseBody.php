@@ -39,7 +39,8 @@ class ListAggregateRemediationsResponseBody extends Model
                 $res['Remediations'] = [];
                 $n1 = 0;
                 foreach ($this->remediations as $item1) {
-                    $res['Remediations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Remediations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAggregateRemediationsResponseBody extends Model
                 $model->remediations = [];
                 $n1 = 0;
                 foreach ($map['Remediations'] as $item1) {
-                    $model->remediations[$n1++] = remediations::fromMap($item1);
+                    $model->remediations[$n1] = remediations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

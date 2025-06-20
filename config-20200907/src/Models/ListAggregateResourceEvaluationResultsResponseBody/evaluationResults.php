@@ -45,7 +45,8 @@ class evaluationResults extends Model
                 $res['EvaluationResultList'] = [];
                 $n1 = 0;
                 foreach ($this->evaluationResultList as $item1) {
-                    $res['EvaluationResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EvaluationResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class evaluationResults extends Model
                 $model->evaluationResultList = [];
                 $n1 = 0;
                 foreach ($map['EvaluationResultList'] as $item1) {
-                    $model->evaluationResultList[$n1++] = evaluationResultList::fromMap($item1);
+                    $model->evaluationResultList[$n1] = evaluationResultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

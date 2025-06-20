@@ -32,7 +32,8 @@ class scope extends Model
                 $res['ComplianceResourceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->complianceResourceTypes as $item1) {
-                    $res['ComplianceResourceTypes'][$n1++] = $item1;
+                    $res['ComplianceResourceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class scope extends Model
                 $model->complianceResourceTypes = [];
                 $n1 = 0;
                 foreach ($map['ComplianceResourceTypes'] as $item1) {
-                    $model->complianceResourceTypes[$n1++] = $item1;
+                    $model->complianceResourceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

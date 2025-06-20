@@ -71,7 +71,8 @@ class configRules extends Model
                 $res['ConfigRuleParameters'] = [];
                 $n1 = 0;
                 foreach ($this->configRuleParameters as $item1) {
-                    $res['ConfigRuleParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigRuleParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class configRules extends Model
                 $model->configRuleParameters = [];
                 $n1 = 0;
                 foreach ($map['ConfigRuleParameters'] as $item1) {
-                    $model->configRuleParameters[$n1++] = configRuleParameters::fromMap($item1);
+                    $model->configRuleParameters[$n1] = configRuleParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

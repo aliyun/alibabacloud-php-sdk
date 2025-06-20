@@ -66,7 +66,8 @@ class ResourceDirectoryFolderNode extends Model
                 $res['Children'] = [];
                 $n1 = 0;
                 foreach ($this->children as $item1) {
-                    $res['Children'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Children'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class ResourceDirectoryFolderNode extends Model
                 $model->children = [];
                 $n1 = 0;
                 foreach ($map['Children'] as $item1) {
-                    $model->children[$n1++] = self::fromMap($item1);
+                    $model->children[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

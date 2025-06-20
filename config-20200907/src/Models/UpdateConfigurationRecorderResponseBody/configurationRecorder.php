@@ -42,7 +42,8 @@ class configurationRecorder extends Model
                 $res['ResourceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
-                    $res['ResourceTypes'][$n1++] = $item1;
+                    $res['ResourceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class configurationRecorder extends Model
                 $model->resourceTypes = [];
                 $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
-                    $model->resourceTypes[$n1++] = $item1;
+                    $model->resourceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

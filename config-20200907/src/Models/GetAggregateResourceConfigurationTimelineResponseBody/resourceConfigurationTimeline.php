@@ -45,7 +45,8 @@ class resourceConfigurationTimeline extends Model
                 $res['ConfigurationList'] = [];
                 $n1 = 0;
                 foreach ($this->configurationList as $item1) {
-                    $res['ConfigurationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigurationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class resourceConfigurationTimeline extends Model
                 $model->configurationList = [];
                 $n1 = 0;
                 foreach ($map['ConfigurationList'] as $item1) {
-                    $model->configurationList[$n1++] = configurationList::fromMap($item1);
+                    $model->configurationList[$n1] = configurationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

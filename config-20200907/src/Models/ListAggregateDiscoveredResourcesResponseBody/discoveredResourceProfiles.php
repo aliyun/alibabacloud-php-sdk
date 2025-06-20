@@ -51,7 +51,8 @@ class discoveredResourceProfiles extends Model
                 $res['DiscoveredResourceProfileList'] = [];
                 $n1 = 0;
                 foreach ($this->discoveredResourceProfileList as $item1) {
-                    $res['DiscoveredResourceProfileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiscoveredResourceProfileList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class discoveredResourceProfiles extends Model
                 $model->discoveredResourceProfileList = [];
                 $n1 = 0;
                 foreach ($map['DiscoveredResourceProfileList'] as $item1) {
-                    $model->discoveredResourceProfileList[$n1++] = discoveredResourceProfileList::fromMap($item1);
+                    $model->discoveredResourceProfileList[$n1] = discoveredResourceProfileList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

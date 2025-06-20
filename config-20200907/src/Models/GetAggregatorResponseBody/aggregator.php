@@ -105,7 +105,8 @@ class aggregator extends Model
                 $res['AggregatorAccounts'] = [];
                 $n1 = 0;
                 foreach ($this->aggregatorAccounts as $item1) {
-                    $res['AggregatorAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AggregatorAccounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class aggregator extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +174,8 @@ class aggregator extends Model
                 $model->aggregatorAccounts = [];
                 $n1 = 0;
                 foreach ($map['AggregatorAccounts'] as $item1) {
-                    $model->aggregatorAccounts[$n1++] = aggregatorAccounts::fromMap($item1);
+                    $model->aggregatorAccounts[$n1] = aggregatorAccounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +213,8 @@ class aggregator extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -69,9 +69,19 @@ class discoveredResourceProfileList extends Model
     public $updateTime;
 
     /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
      * @var int
      */
     public $version;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'accountId' => 'AccountId',
         'availabilityZone' => 'AvailabilityZone',
@@ -85,7 +95,9 @@ class discoveredResourceProfileList extends Model
         'resourceType' => 'ResourceType',
         'tags' => 'Tags',
         'updateTime' => 'UpdateTime',
+        'vSwitchId' => 'VSwitchId',
         'version' => 'Version',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -144,8 +156,16 @@ class discoveredResourceProfileList extends Model
             $res['UpdateTime'] = $this->updateTime;
         }
 
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -207,8 +227,16 @@ class discoveredResourceProfileList extends Model
             $model->updateTime = $map['UpdateTime'];
         }
 
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

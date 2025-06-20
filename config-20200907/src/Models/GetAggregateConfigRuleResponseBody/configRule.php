@@ -342,7 +342,8 @@ class configRule extends Model
                 $res['ExcludeTagsScope'] = [];
                 $n1 = 0;
                 foreach ($this->excludeTagsScope as $item1) {
-                    $res['ExcludeTagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExcludeTagsScope'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -421,7 +422,8 @@ class configRule extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -431,7 +433,8 @@ class configRule extends Model
                 $res['TagsScope'] = [];
                 $n1 = 0;
                 foreach ($this->tagsScope as $item1) {
-                    $res['TagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagsScope'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -520,7 +523,8 @@ class configRule extends Model
                 $model->excludeTagsScope = [];
                 $n1 = 0;
                 foreach ($map['ExcludeTagsScope'] as $item1) {
-                    $model->excludeTagsScope[$n1++] = excludeTagsScope::fromMap($item1);
+                    $model->excludeTagsScope[$n1] = excludeTagsScope::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -599,7 +603,8 @@ class configRule extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -609,7 +614,8 @@ class configRule extends Model
                 $model->tagsScope = [];
                 $n1 = 0;
                 foreach ($map['TagsScope'] as $item1) {
-                    $model->tagsScope[$n1++] = tagsScope::fromMap($item1);
+                    $model->tagsScope[$n1] = tagsScope::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

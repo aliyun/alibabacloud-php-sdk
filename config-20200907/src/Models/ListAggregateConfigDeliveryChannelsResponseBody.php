@@ -39,7 +39,8 @@ class ListAggregateConfigDeliveryChannelsResponseBody extends Model
                 $res['DeliveryChannels'] = [];
                 $n1 = 0;
                 foreach ($this->deliveryChannels as $item1) {
-                    $res['DeliveryChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeliveryChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAggregateConfigDeliveryChannelsResponseBody extends Model
                 $model->deliveryChannels = [];
                 $n1 = 0;
                 foreach ($map['DeliveryChannels'] as $item1) {
-                    $model->deliveryChannels[$n1++] = deliveryChannels::fromMap($item1);
+                    $model->deliveryChannels[$n1] = deliveryChannels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -53,7 +53,8 @@ class source extends Model
                 $res['SourceDetails'] = [];
                 $n1 = 0;
                 foreach ($this->sourceDetails as $item1) {
-                    $res['SourceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class source extends Model
                 $model->sourceDetails = [];
                 $n1 = 0;
                 foreach ($map['SourceDetails'] as $item1) {
-                    $model->sourceDetails[$n1++] = sourceDetails::fromMap($item1);
+                    $model->sourceDetails[$n1] = sourceDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

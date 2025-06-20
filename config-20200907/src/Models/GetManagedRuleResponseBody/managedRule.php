@@ -125,7 +125,8 @@ class managedRule extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = $item1;
+                    $res['Labels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class managedRule extends Model
                 $res['SourceDetails'] = [];
                 $n1 = 0;
                 foreach ($this->sourceDetails as $item1) {
-                    $res['SourceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +200,8 @@ class managedRule extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = $item1;
+                    $model->labels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +228,8 @@ class managedRule extends Model
                 $model->sourceDetails = [];
                 $n1 = 0;
                 foreach ($map['SourceDetails'] as $item1) {
-                    $model->sourceDetails[$n1++] = sourceDetails::fromMap($item1);
+                    $model->sourceDetails[$n1] = sourceDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

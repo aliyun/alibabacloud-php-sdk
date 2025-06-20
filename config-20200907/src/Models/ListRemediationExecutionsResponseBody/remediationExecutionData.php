@@ -53,7 +53,8 @@ class remediationExecutionData extends Model
                 $res['RemediationExecutions'] = [];
                 $n1 = 0;
                 foreach ($this->remediationExecutions as $item1) {
-                    $res['RemediationExecutions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemediationExecutions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class remediationExecutionData extends Model
                 $model->remediationExecutions = [];
                 $n1 = 0;
                 foreach ($map['RemediationExecutions'] as $item1) {
-                    $model->remediationExecutions[$n1++] = remediationExecutions::fromMap($item1);
+                    $model->remediationExecutions[$n1] = remediationExecutions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

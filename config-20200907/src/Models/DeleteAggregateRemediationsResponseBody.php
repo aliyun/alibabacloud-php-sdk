@@ -39,7 +39,8 @@ class DeleteAggregateRemediationsResponseBody extends Model
                 $res['RemediationDeleteResults'] = [];
                 $n1 = 0;
                 foreach ($this->remediationDeleteResults as $item1) {
-                    $res['RemediationDeleteResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemediationDeleteResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DeleteAggregateRemediationsResponseBody extends Model
                 $model->remediationDeleteResults = [];
                 $n1 = 0;
                 foreach ($map['RemediationDeleteResults'] as $item1) {
-                    $model->remediationDeleteResults[$n1++] = remediationDeleteResults::fromMap($item1);
+                    $model->remediationDeleteResults[$n1] = remediationDeleteResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

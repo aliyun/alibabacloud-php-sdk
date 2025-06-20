@@ -43,7 +43,8 @@ class EvaluatePreConfigRulesResponseBody extends Model
                 $res['ResourceEvaluations'] = [];
                 $n1 = 0;
                 foreach ($this->resourceEvaluations as $item1) {
-                    $res['ResourceEvaluations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceEvaluations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class EvaluatePreConfigRulesResponseBody extends Model
                 $model->resourceEvaluations = [];
                 $n1 = 0;
                 foreach ($map['ResourceEvaluations'] as $item1) {
-                    $model->resourceEvaluations[$n1++] = resourceEvaluations::fromMap($item1);
+                    $model->resourceEvaluations[$n1] = resourceEvaluations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

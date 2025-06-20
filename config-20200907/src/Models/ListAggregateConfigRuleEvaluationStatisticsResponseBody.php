@@ -39,7 +39,8 @@ class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends Model
                 $res['EvaluationResults'] = [];
                 $n1 = 0;
                 foreach ($this->evaluationResults as $item1) {
-                    $res['EvaluationResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EvaluationResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends Model
                 $model->evaluationResults = [];
                 $n1 = 0;
                 foreach ($map['EvaluationResults'] as $item1) {
-                    $model->evaluationResults[$n1++] = evaluationResults::fromMap($item1);
+                    $model->evaluationResults[$n1] = evaluationResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

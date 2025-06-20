@@ -39,7 +39,8 @@ class aggregatorsResult extends Model
                 $res['Aggregators'] = [];
                 $n1 = 0;
                 foreach ($this->aggregators as $item1) {
-                    $res['Aggregators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Aggregators'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class aggregatorsResult extends Model
                 $model->aggregators = [];
                 $n1 = 0;
                 foreach ($map['Aggregators'] as $item1) {
-                    $model->aggregators[$n1++] = aggregators::fromMap($item1);
+                    $model->aggregators[$n1] = aggregators::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

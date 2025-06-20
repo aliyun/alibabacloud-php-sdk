@@ -67,6 +67,16 @@ class discoveredResourceDetail extends Model
      * @var string
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'accountId' => 'AccountId',
         'availabilityZone' => 'AvailabilityZone',
@@ -80,6 +90,8 @@ class discoveredResourceDetail extends Model
         'resourceStatus' => 'ResourceStatus',
         'resourceType' => 'ResourceType',
         'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -136,6 +148,14 @@ class discoveredResourceDetail extends Model
 
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -195,6 +215,14 @@ class discoveredResourceDetail extends Model
 
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

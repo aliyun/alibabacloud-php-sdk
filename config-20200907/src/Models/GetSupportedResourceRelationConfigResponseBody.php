@@ -43,7 +43,8 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
                 $res['ResourceRelationConfigList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceRelationConfigList as $item1) {
-                    $res['ResourceRelationConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceRelationConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
                 $model->resourceRelationConfigList = [];
                 $n1 = 0;
                 foreach ($map['ResourceRelationConfigList'] as $item1) {
-                    $model->resourceRelationConfigList[$n1++] = resourceRelationConfigList::fromMap($item1);
+                    $model->resourceRelationConfigList[$n1] = resourceRelationConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

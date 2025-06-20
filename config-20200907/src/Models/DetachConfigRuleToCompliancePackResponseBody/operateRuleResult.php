@@ -33,7 +33,8 @@ class operateRuleResult extends Model
                 $res['OperateRuleItemList'] = [];
                 $n1 = 0;
                 foreach ($this->operateRuleItemList as $item1) {
-                    $res['OperateRuleItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperateRuleItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class operateRuleResult extends Model
                 $model->operateRuleItemList = [];
                 $n1 = 0;
                 foreach ($map['OperateRuleItemList'] as $item1) {
-                    $model->operateRuleItemList[$n1++] = operateRuleItemList::fromMap($item1);
+                    $model->operateRuleItemList[$n1] = operateRuleItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

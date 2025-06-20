@@ -41,7 +41,8 @@ class queryResultList extends Model
                 $res['Columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = $item1;
+                    $res['Columns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class queryResultList extends Model
                 $res['Values'] = [];
                 $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class queryResultList extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = $item1;
+                    $model->columns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class queryResultList extends Model
                 $model->values = [];
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

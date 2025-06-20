@@ -45,7 +45,8 @@ class resourceComplianceTimeline extends Model
                 $res['ComplianceList'] = [];
                 $n1 = 0;
                 foreach ($this->complianceList as $item1) {
-                    $res['ComplianceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComplianceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class resourceComplianceTimeline extends Model
                 $model->complianceList = [];
                 $n1 = 0;
                 foreach ($map['ComplianceList'] as $item1) {
-                    $model->complianceList[$n1++] = complianceList::fromMap($item1);
+                    $model->complianceList[$n1] = complianceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

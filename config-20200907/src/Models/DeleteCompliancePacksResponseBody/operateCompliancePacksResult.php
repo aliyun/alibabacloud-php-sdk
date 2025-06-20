@@ -33,7 +33,8 @@ class operateCompliancePacksResult extends Model
                 $res['OperateCompliancePacks'] = [];
                 $n1 = 0;
                 foreach ($this->operateCompliancePacks as $item1) {
-                    $res['OperateCompliancePacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperateCompliancePacks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class operateCompliancePacksResult extends Model
                 $model->operateCompliancePacks = [];
                 $n1 = 0;
                 foreach ($map['OperateCompliancePacks'] as $item1) {
-                    $model->operateCompliancePacks[$n1++] = operateCompliancePacks::fromMap($item1);
+                    $model->operateCompliancePacks[$n1] = operateCompliancePacks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

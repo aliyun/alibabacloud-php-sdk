@@ -51,7 +51,8 @@ class ListPreManagedRulesResponseBody extends Model
                 $res['ManagedRules'] = [];
                 $n1 = 0;
                 foreach ($this->managedRules as $item1) {
-                    $res['ManagedRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ManagedRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListPreManagedRulesResponseBody extends Model
                 $model->managedRules = [];
                 $n1 = 0;
                 foreach ($map['ManagedRules'] as $item1) {
-                    $model->managedRules[$n1++] = managedRules::fromMap($item1);
+                    $model->managedRules[$n1] = managedRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
