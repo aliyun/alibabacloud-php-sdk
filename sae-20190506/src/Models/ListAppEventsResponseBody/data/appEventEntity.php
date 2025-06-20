@@ -11,6 +11,11 @@ class appEventEntity extends Model
     /**
      * @var string
      */
+    public $causeAnalysis;
+
+    /**
+     * @var string
+     */
     public $eventType;
 
     /**
@@ -43,6 +48,7 @@ class appEventEntity extends Model
      */
     public $reason;
     protected $_name = [
+        'causeAnalysis' => 'CauseAnalysis',
         'eventType' => 'EventType',
         'firstTimestamp' => 'FirstTimestamp',
         'lastTimestamp' => 'LastTimestamp',
@@ -60,6 +66,10 @@ class appEventEntity extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->causeAnalysis) {
+            $res['CauseAnalysis'] = $this->causeAnalysis;
+        }
+
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
@@ -99,6 +109,10 @@ class appEventEntity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CauseAnalysis'])) {
+            $model->causeAnalysis = $map['CauseAnalysis'];
+        }
+
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
