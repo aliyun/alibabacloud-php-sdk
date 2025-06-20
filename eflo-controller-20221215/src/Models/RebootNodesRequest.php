@@ -52,7 +52,8 @@ class RebootNodesRequest extends Model
                 $res['Nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = $item1;
+                    $res['Nodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class RebootNodesRequest extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = $item1;
+                    $model->nodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

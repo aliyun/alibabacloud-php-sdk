@@ -33,7 +33,8 @@ class invokeNodes extends Model
                 $res['InvokeNode'] = [];
                 $n1 = 0;
                 foreach ($this->invokeNode as $item1) {
-                    $res['InvokeNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InvokeNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class invokeNodes extends Model
                 $model->invokeNode = [];
                 $n1 = 0;
                 foreach ($map['InvokeNode'] as $item1) {
-                    $model->invokeNode[$n1++] = invokeNode::fromMap($item1);
+                    $model->invokeNode[$n1] = invokeNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

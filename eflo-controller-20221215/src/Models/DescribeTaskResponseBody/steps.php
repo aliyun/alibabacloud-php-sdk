@@ -99,7 +99,8 @@ class steps extends Model
                 $res['SubTasks'] = [];
                 $n1 = 0;
                 foreach ($this->subTasks as $item1) {
-                    $res['SubTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class steps extends Model
                 $model->subTasks = [];
                 $n1 = 0;
                 foreach ($map['SubTasks'] as $item1) {
-                    $model->subTasks[$n1++] = subTasks::fromMap($item1);
+                    $model->subTasks[$n1] = subTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

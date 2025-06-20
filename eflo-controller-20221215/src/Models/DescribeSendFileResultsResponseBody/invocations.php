@@ -33,7 +33,8 @@ class invocations extends Model
                 $res['Invocation'] = [];
                 $n1 = 0;
                 foreach ($this->invocation as $item1) {
-                    $res['Invocation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Invocation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class invocations extends Model
                 $model->invocation = [];
                 $n1 = 0;
                 foreach ($map['Invocation'] as $item1) {
-                    $model->invocation[$n1++] = invocation::fromMap($item1);
+                    $model->invocation[$n1] = invocation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -106,7 +106,8 @@ class DescribeTaskResponseBody extends Model
                 $res['NodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class DescribeTaskResponseBody extends Model
                 $res['Steps'] = [];
                 $n1 = 0;
                 foreach ($this->steps as $item1) {
-                    $res['Steps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Steps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +171,8 @@ class DescribeTaskResponseBody extends Model
                 $model->nodeIds = [];
                 $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +186,8 @@ class DescribeTaskResponseBody extends Model
                 $model->steps = [];
                 $n1 = 0;
                 foreach ($map['Steps'] as $item1) {
-                    $model->steps[$n1++] = steps::fromMap($item1);
+                    $model->steps[$n1] = steps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

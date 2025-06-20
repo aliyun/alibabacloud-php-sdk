@@ -33,7 +33,8 @@ class ListMachineNetworkInfoRequest extends Model
                 $res['MachineHpnInfo'] = [];
                 $n1 = 0;
                 foreach ($this->machineHpnInfo as $item1) {
-                    $res['MachineHpnInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MachineHpnInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ListMachineNetworkInfoRequest extends Model
                 $model->machineHpnInfo = [];
                 $n1 = 0;
                 foreach ($map['MachineHpnInfo'] as $item1) {
-                    $model->machineHpnInfo[$n1++] = machineHpnInfo::fromMap($item1);
+                    $model->machineHpnInfo[$n1] = machineHpnInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

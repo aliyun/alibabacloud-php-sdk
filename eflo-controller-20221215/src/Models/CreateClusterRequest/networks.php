@@ -83,7 +83,8 @@ class networks extends Model
                 $res['IpAllocationPolicy'] = [];
                 $n1 = 0;
                 foreach ($this->ipAllocationPolicy as $item1) {
-                    $res['IpAllocationPolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpAllocationPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class networks extends Model
                 $model->ipAllocationPolicy = [];
                 $n1 = 0;
                 foreach ($map['IpAllocationPolicy'] as $item1) {
-                    $model->ipAllocationPolicy[$n1++] = ipAllocationPolicy::fromMap($item1);
+                    $model->ipAllocationPolicy[$n1] = ipAllocationPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

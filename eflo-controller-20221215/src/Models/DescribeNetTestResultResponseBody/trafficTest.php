@@ -78,7 +78,8 @@ class trafficTest extends Model
                 $res['Clients'] = [];
                 $n1 = 0;
                 foreach ($this->clients as $item1) {
-                    $res['Clients'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Clients'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class trafficTest extends Model
                 $res['Servers'] = [];
                 $n1 = 0;
                 foreach ($this->servers as $item1) {
-                    $res['Servers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Servers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +131,8 @@ class trafficTest extends Model
                 $model->clients = [];
                 $n1 = 0;
                 foreach ($map['Clients'] as $item1) {
-                    $model->clients[$n1++] = clients::fromMap($item1);
+                    $model->clients[$n1] = clients::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +158,8 @@ class trafficTest extends Model
                 $model->servers = [];
                 $n1 = 0;
                 foreach ($map['Servers'] as $item1) {
-                    $model->servers[$n1++] = servers::fromMap($item1);
+                    $model->servers[$n1] = servers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class machineTypePolicy extends Model
                 $res['Bonds'] = [];
                 $n1 = 0;
                 foreach ($this->bonds as $item1) {
-                    $res['Bonds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Bonds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class machineTypePolicy extends Model
                 $model->bonds = [];
                 $n1 = 0;
                 foreach ($map['Bonds'] as $item1) {
-                    $model->bonds[$n1++] = bonds::fromMap($item1);
+                    $model->bonds[$n1] = bonds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

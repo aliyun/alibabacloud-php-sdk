@@ -55,7 +55,8 @@ class ListNetTestResultsResponseBody extends Model
                 $res['NetTestResults'] = [];
                 $n1 = 0;
                 foreach ($this->netTestResults as $item1) {
-                    $res['NetTestResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetTestResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListNetTestResultsResponseBody extends Model
                 $model->netTestResults = [];
                 $n1 = 0;
                 foreach ($map['NetTestResults'] as $item1) {
-                    $model->netTestResults[$n1++] = netTestResults::fromMap($item1);
+                    $model->netTestResults[$n1] = netTestResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

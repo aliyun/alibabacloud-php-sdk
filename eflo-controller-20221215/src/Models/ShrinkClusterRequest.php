@@ -53,7 +53,8 @@ class ShrinkClusterRequest extends Model
                 $res['NodeGroups'] = [];
                 $n1 = 0;
                 foreach ($this->nodeGroups as $item1) {
-                    $res['NodeGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ShrinkClusterRequest extends Model
                 $model->nodeGroups = [];
                 $n1 = 0;
                 foreach ($map['NodeGroups'] as $item1) {
-                    $model->nodeGroups[$n1++] = nodeGroups::fromMap($item1);
+                    $model->nodeGroups[$n1] = nodeGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

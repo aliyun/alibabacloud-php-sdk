@@ -93,7 +93,8 @@ class newVpdInfo extends Model
                 $res['VpdSubnets'] = [];
                 $n1 = 0;
                 foreach ($this->vpdSubnets as $item1) {
-                    $res['VpdSubnets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpdSubnets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class newVpdInfo extends Model
                 $model->vpdSubnets = [];
                 $n1 = 0;
                 foreach ($map['VpdSubnets'] as $item1) {
-                    $model->vpdSubnets[$n1++] = vpdSubnets::fromMap($item1);
+                    $model->vpdSubnets[$n1] = vpdSubnets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class delayTest extends Model
                 $res['Hosts'] = [];
                 $n1 = 0;
                 foreach ($this->hosts as $item1) {
-                    $res['Hosts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Hosts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,7 +60,8 @@ class delayTest extends Model
                 $model->hosts = [];
                 $n1 = 0;
                 foreach ($map['Hosts'] as $item1) {
-                    $model->hosts[$n1++] = hosts::fromMap($item1);
+                    $model->hosts[$n1] = hosts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

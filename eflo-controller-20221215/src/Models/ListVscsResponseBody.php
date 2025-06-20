@@ -73,7 +73,8 @@ class ListVscsResponseBody extends Model
                 $res['Vscs'] = [];
                 $n1 = 0;
                 foreach ($this->vscs as $item1) {
-                    $res['Vscs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Vscs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListVscsResponseBody extends Model
                 $model->vscs = [];
                 $n1 = 0;
                 foreach ($map['Vscs'] as $item1) {
-                    $model->vscs[$n1++] = vscs::fromMap($item1);
+                    $model->vscs[$n1] = vscs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

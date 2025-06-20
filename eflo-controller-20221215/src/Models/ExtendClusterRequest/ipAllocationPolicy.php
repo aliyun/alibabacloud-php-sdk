@@ -57,7 +57,8 @@ class ipAllocationPolicy extends Model
                 $res['MachineTypePolicy'] = [];
                 $n1 = 0;
                 foreach ($this->machineTypePolicy as $item1) {
-                    $res['MachineTypePolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MachineTypePolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ipAllocationPolicy extends Model
                 $res['NodePolicy'] = [];
                 $n1 = 0;
                 foreach ($this->nodePolicy as $item1) {
-                    $res['NodePolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodePolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class ipAllocationPolicy extends Model
                 $model->machineTypePolicy = [];
                 $n1 = 0;
                 foreach ($map['MachineTypePolicy'] as $item1) {
-                    $model->machineTypePolicy[$n1++] = machineTypePolicy::fromMap($item1);
+                    $model->machineTypePolicy[$n1] = machineTypePolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class ipAllocationPolicy extends Model
                 $model->nodePolicy = [];
                 $n1 = 0;
                 foreach ($map['NodePolicy'] as $item1) {
-                    $model->nodePolicy[$n1++] = nodePolicy::fromMap($item1);
+                    $model->nodePolicy[$n1] = nodePolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

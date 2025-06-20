@@ -169,7 +169,8 @@ class DescribeNodeResponseBody extends Model
                 $res['Disks'] = [];
                 $n1 = 0;
                 foreach ($this->disks as $item1) {
-                    $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +208,8 @@ class DescribeNodeResponseBody extends Model
                 $res['Networks'] = [];
                 $n1 = 0;
                 foreach ($this->networks as $item1) {
-                    $res['Networks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Networks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +278,8 @@ class DescribeNodeResponseBody extends Model
                 $model->disks = [];
                 $n1 = 0;
                 foreach ($map['Disks'] as $item1) {
-                    $model->disks[$n1++] = disks::fromMap($item1);
+                    $model->disks[$n1] = disks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +317,8 @@ class DescribeNodeResponseBody extends Model
                 $model->networks = [];
                 $n1 = 0;
                 foreach ($map['Networks'] as $item1) {
-                    $model->networks[$n1++] = networks::fromMap($item1);
+                    $model->networks[$n1] = networks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

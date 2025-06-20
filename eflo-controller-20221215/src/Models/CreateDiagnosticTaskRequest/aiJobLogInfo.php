@@ -45,7 +45,8 @@ class aiJobLogInfo extends Model
                 $res['AiJobLogs'] = [];
                 $n1 = 0;
                 foreach ($this->aiJobLogs as $item1) {
-                    $res['AiJobLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AiJobLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class aiJobLogInfo extends Model
                 $model->aiJobLogs = [];
                 $n1 = 0;
                 foreach ($map['AiJobLogs'] as $item1) {
-                    $model->aiJobLogs[$n1++] = aiJobLogs::fromMap($item1);
+                    $model->aiJobLogs[$n1] = aiJobLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

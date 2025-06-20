@@ -126,7 +126,8 @@ class CreateClusterRequest extends Model
                 $res['Components'] = [];
                 $n1 = 0;
                 foreach ($this->components as $item1) {
-                    $res['Components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class CreateClusterRequest extends Model
                 $res['NimizVSwitches'] = [];
                 $n1 = 0;
                 foreach ($this->nimizVSwitches as $item1) {
-                    $res['NimizVSwitches'][$n1++] = $item1;
+                    $res['NimizVSwitches'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +160,8 @@ class CreateClusterRequest extends Model
                 $res['NodeGroups'] = [];
                 $n1 = 0;
                 foreach ($this->nodeGroups as $item1) {
-                    $res['NodeGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +179,8 @@ class CreateClusterRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +213,8 @@ class CreateClusterRequest extends Model
                 $model->components = [];
                 $n1 = 0;
                 foreach ($map['Components'] as $item1) {
-                    $model->components[$n1++] = components::fromMap($item1);
+                    $model->components[$n1] = components::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +236,8 @@ class CreateClusterRequest extends Model
                 $model->nimizVSwitches = [];
                 $n1 = 0;
                 foreach ($map['NimizVSwitches'] as $item1) {
-                    $model->nimizVSwitches[$n1++] = $item1;
+                    $model->nimizVSwitches[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -241,7 +247,8 @@ class CreateClusterRequest extends Model
                 $model->nodeGroups = [];
                 $n1 = 0;
                 foreach ($map['NodeGroups'] as $item1) {
-                    $model->nodeGroups[$n1++] = nodeGroups::fromMap($item1);
+                    $model->nodeGroups[$n1] = nodeGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +266,8 @@ class CreateClusterRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class ListUserClusterTypesResponseBody extends Model
                 $res['ClusterTypes'] = [];
                 $n1 = 0;
                 foreach ($this->clusterTypes as $item1) {
-                    $res['ClusterTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListUserClusterTypesResponseBody extends Model
                 $model->clusterTypes = [];
                 $n1 = 0;
                 foreach ($map['ClusterTypes'] as $item1) {
-                    $model->clusterTypes[$n1++] = clusterTypes::fromMap($item1);
+                    $model->clusterTypes[$n1] = clusterTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

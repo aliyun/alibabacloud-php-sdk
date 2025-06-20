@@ -45,7 +45,8 @@ class ListMachineTypesResponseBody extends Model
                 $res['MachineTypes'] = [];
                 $n1 = 0;
                 foreach ($this->machineTypes as $item1) {
-                    $res['MachineTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MachineTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListMachineTypesResponseBody extends Model
                 $model->machineTypes = [];
                 $n1 = 0;
                 foreach ($map['MachineTypes'] as $item1) {
-                    $model->machineTypes[$n1++] = machineTypes::fromMap($item1);
+                    $model->machineTypes[$n1] = machineTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

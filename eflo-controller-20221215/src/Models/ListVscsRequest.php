@@ -74,7 +74,8 @@ class ListVscsRequest extends Model
                 $res['NodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListVscsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +123,8 @@ class ListVscsRequest extends Model
                 $model->nodeIds = [];
                 $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +138,8 @@ class ListVscsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

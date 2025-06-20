@@ -95,7 +95,8 @@ class DescribeDiagnosticResultResponseBody extends Model
                 $res['DiagnosticResults'] = [];
                 $n1 = 0;
                 foreach ($this->diagnosticResults as $item1) {
-                    $res['DiagnosticResults'][$n1++] = $item1;
+                    $res['DiagnosticResults'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class DescribeDiagnosticResultResponseBody extends Model
                 $res['NodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +156,8 @@ class DescribeDiagnosticResultResponseBody extends Model
                 $model->diagnosticResults = [];
                 $n1 = 0;
                 foreach ($map['DiagnosticResults'] as $item1) {
-                    $model->diagnosticResults[$n1++] = $item1;
+                    $model->diagnosticResults[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +179,8 @@ class DescribeDiagnosticResultResponseBody extends Model
                 $model->nodeIds = [];
                 $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

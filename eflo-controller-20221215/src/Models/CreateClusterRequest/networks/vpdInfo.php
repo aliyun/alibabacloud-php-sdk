@@ -42,7 +42,8 @@ class vpdInfo extends Model
                 $res['VpdSubnets'] = [];
                 $n1 = 0;
                 foreach ($this->vpdSubnets as $item1) {
-                    $res['VpdSubnets'][$n1++] = $item1;
+                    $res['VpdSubnets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class vpdInfo extends Model
                 $model->vpdSubnets = [];
                 $n1 = 0;
                 foreach ($map['VpdSubnets'] as $item1) {
-                    $model->vpdSubnets[$n1++] = $item1;
+                    $model->vpdSubnets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

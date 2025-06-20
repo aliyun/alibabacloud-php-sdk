@@ -42,7 +42,8 @@ class componentConfig extends Model
                 $res['NodeUnits'] = [];
                 $n1 = 0;
                 foreach ($this->nodeUnits as $item1) {
-                    $res['NodeUnits'][$n1++] = $item1;
+                    $res['NodeUnits'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class componentConfig extends Model
                 $model->nodeUnits = [];
                 $n1 = 0;
                 foreach ($map['NodeUnits'] as $item1) {
-                    $model->nodeUnits[$n1++] = $item1;
+                    $model->nodeUnits[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

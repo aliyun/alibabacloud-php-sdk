@@ -78,7 +78,8 @@ class ExtendClusterRequest extends Model
                 $res['IpAllocationPolicy'] = [];
                 $n1 = 0;
                 foreach ($this->ipAllocationPolicy as $item1) {
-                    $res['IpAllocationPolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpAllocationPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ExtendClusterRequest extends Model
                 $res['NodeGroups'] = [];
                 $n1 = 0;
                 foreach ($this->nodeGroups as $item1) {
-                    $res['NodeGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class ExtendClusterRequest extends Model
                 $res['VpdSubnets'] = [];
                 $n1 = 0;
                 foreach ($this->vpdSubnets as $item1) {
-                    $res['VpdSubnets'][$n1++] = $item1;
+                    $res['VpdSubnets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +134,8 @@ class ExtendClusterRequest extends Model
                 $model->ipAllocationPolicy = [];
                 $n1 = 0;
                 foreach ($map['IpAllocationPolicy'] as $item1) {
-                    $model->ipAllocationPolicy[$n1++] = ipAllocationPolicy::fromMap($item1);
+                    $model->ipAllocationPolicy[$n1] = ipAllocationPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +145,8 @@ class ExtendClusterRequest extends Model
                 $model->nodeGroups = [];
                 $n1 = 0;
                 foreach ($map['NodeGroups'] as $item1) {
-                    $model->nodeGroups[$n1++] = nodeGroups::fromMap($item1);
+                    $model->nodeGroups[$n1] = nodeGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +160,8 @@ class ExtendClusterRequest extends Model
                 $model->vpdSubnets = [];
                 $n1 = 0;
                 foreach ($map['VpdSubnets'] as $item1) {
-                    $model->vpdSubnets[$n1++] = $item1;
+                    $model->vpdSubnets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

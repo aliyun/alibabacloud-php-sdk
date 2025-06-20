@@ -51,7 +51,8 @@ class ListDiagnosticResultsResponseBody extends Model
                 $res['DiagnosticResults'] = [];
                 $n1 = 0;
                 foreach ($this->diagnosticResults as $item1) {
-                    $res['DiagnosticResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiagnosticResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListDiagnosticResultsResponseBody extends Model
                 $model->diagnosticResults = [];
                 $n1 = 0;
                 foreach ($map['DiagnosticResults'] as $item1) {
-                    $model->diagnosticResults[$n1++] = diagnosticResults::fromMap($item1);
+                    $model->diagnosticResults[$n1] = diagnosticResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

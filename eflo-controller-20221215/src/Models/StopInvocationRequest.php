@@ -42,7 +42,8 @@ class StopInvocationRequest extends Model
                 $res['NodeIdList'] = [];
                 $n1 = 0;
                 foreach ($this->nodeIdList as $item1) {
-                    $res['NodeIdList'][$n1++] = $item1;
+                    $res['NodeIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class StopInvocationRequest extends Model
                 $model->nodeIdList = [];
                 $n1 = 0;
                 foreach ($map['NodeIdList'] as $item1) {
-                    $model->nodeIdList[$n1++] = $item1;
+                    $model->nodeIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
