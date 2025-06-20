@@ -62,7 +62,8 @@ class ListMultiAccountResourceGroupsRequest extends Model
                 $res['ResourceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroupIds as $item1) {
-                    $res['ResourceGroupIds'][$n1++] = $item1;
+                    $res['ResourceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class ListMultiAccountResourceGroupsRequest extends Model
                 $model->resourceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroupIds'] as $item1) {
-                    $model->resourceGroupIds[$n1++] = $item1;
+                    $model->resourceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

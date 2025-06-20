@@ -7,12 +7,20 @@ namespace AlibabaCloud\SDK\ResourceCenter\V20221201;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\AssociateDefaultFilterRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\AssociateDefaultFilterResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateDeliveryChannelResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateFilterRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateFilterResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateMultiAccountDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateMultiAccountDeliveryChannelResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateSavedQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteDeliveryChannelResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteFilterRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteFilterResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteMultiAccountDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteMultiAccountDeliveryChannelResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteSavedQueryResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DisableMultiAccountResourceCenterResponse;
@@ -24,8 +32,16 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteMultiAccountSQLQuery
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteMultiAccountSQLQueryResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteSQLQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteSQLQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetDeliveryChannelResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetDeliveryChannelStatisticsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetDeliveryChannelStatisticsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetExampleQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetExampleQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountDeliveryChannelResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountDeliveryChannelStatisticsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountDeliveryChannelStatisticsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceCenterServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceConfigurationRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceConfigurationResponse;
@@ -36,9 +52,13 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetSavedQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListDeliveryChannelsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListDeliveryChannelsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListFiltersResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountDeliveryChannelsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountDeliveryChannelsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceRelationshipsRequest;
@@ -61,8 +81,12 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResources
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateDeliveryChannelResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateFilterRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateFilterResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateMultiAccountDeliveryChannelRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateMultiAccountDeliveryChannelResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -139,11 +163,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateDefaultFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -162,6 +183,79 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->associateDefaultFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建投递渠道.
+     *
+     * @param request - CreateDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDeliveryChannelResponse
+     *
+     * @param CreateDeliveryChannelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDeliveryChannelResponse
+     */
+    public function createDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelDescription) {
+            @$query['DeliveryChannelDescription'] = $request->deliveryChannelDescription;
+        }
+
+        if (null !== $request->deliveryChannelFilter) {
+            @$query['DeliveryChannelFilter'] = $request->deliveryChannelFilter;
+        }
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+
+        if (null !== $request->resourceChangeDelivery) {
+            @$query['ResourceChangeDelivery'] = $request->resourceChangeDelivery;
+        }
+
+        if (null !== $request->resourceSnapshotDelivery) {
+            @$query['ResourceSnapshotDelivery'] = $request->resourceSnapshotDelivery;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建投递渠道.
+     *
+     * @param request - CreateDeliveryChannelRequest
+     *
+     * @returns CreateDeliveryChannelResponse
+     *
+     * @param CreateDeliveryChannelRequest $request
+     *
+     * @return CreateDeliveryChannelResponse
+     */
+    public function createDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -203,11 +297,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -226,6 +317,79 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建多账号投递渠道.
+     *
+     * @param request - CreateMultiAccountDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMultiAccountDeliveryChannelResponse
+     *
+     * @param CreateMultiAccountDeliveryChannelRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateMultiAccountDeliveryChannelResponse
+     */
+    public function createMultiAccountDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelDescription) {
+            @$query['DeliveryChannelDescription'] = $request->deliveryChannelDescription;
+        }
+
+        if (null !== $request->deliveryChannelFilter) {
+            @$query['DeliveryChannelFilter'] = $request->deliveryChannelFilter;
+        }
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+
+        if (null !== $request->resourceChangeDelivery) {
+            @$query['ResourceChangeDelivery'] = $request->resourceChangeDelivery;
+        }
+
+        if (null !== $request->resourceSnapshotDelivery) {
+            @$query['ResourceSnapshotDelivery'] = $request->resourceSnapshotDelivery;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMultiAccountDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMultiAccountDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建多账号投递渠道.
+     *
+     * @param request - CreateMultiAccountDeliveryChannelRequest
+     *
+     * @returns CreateMultiAccountDeliveryChannelResponse
+     *
+     * @param CreateMultiAccountDeliveryChannelRequest $request
+     *
+     * @return CreateMultiAccountDeliveryChannelResponse
+     */
+    public function createMultiAccountDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMultiAccountDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -271,11 +435,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -294,6 +455,63 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSavedQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除投递渠道.
+     *
+     * @param request - DeleteDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDeliveryChannelResponse
+     *
+     * @param DeleteDeliveryChannelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDeliveryChannelResponse
+     */
+    public function deleteDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除投递渠道.
+     *
+     * @param request - DeleteDeliveryChannelRequest
+     *
+     * @returns DeleteDeliveryChannelResponse
+     *
+     * @param DeleteDeliveryChannelRequest $request
+     *
+     * @return DeleteDeliveryChannelResponse
+     */
+    public function deleteDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -331,11 +549,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -354,6 +569,63 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除多账号投递渠道.
+     *
+     * @param request - DeleteMultiAccountDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMultiAccountDeliveryChannelResponse
+     *
+     * @param DeleteMultiAccountDeliveryChannelRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteMultiAccountDeliveryChannelResponse
+     */
+    public function deleteMultiAccountDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMultiAccountDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMultiAccountDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除多账号投递渠道.
+     *
+     * @param request - DeleteMultiAccountDeliveryChannelRequest
+     *
+     * @returns DeleteMultiAccountDeliveryChannelResponse
+     *
+     * @param DeleteMultiAccountDeliveryChannelRequest $request
+     *
+     * @return DeleteMultiAccountDeliveryChannelResponse
+     */
+    public function deleteMultiAccountDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMultiAccountDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -391,11 +663,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -442,11 +711,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableMultiAccountResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -489,11 +755,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -536,11 +799,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisassociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisassociateDefaultFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisassociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,11 +846,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableMultiAccountResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -636,11 +893,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -704,11 +958,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteMultiAccountSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteMultiAccountSQLQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteMultiAccountSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -776,11 +1027,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteSQLQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -799,6 +1047,120 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeSQLQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询投递渠道.
+     *
+     * @param request - GetDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeliveryChannelResponse
+     *
+     * @param GetDeliveryChannelRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDeliveryChannelResponse
+     */
+    public function getDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询投递渠道.
+     *
+     * @param request - GetDeliveryChannelRequest
+     *
+     * @returns GetDeliveryChannelResponse
+     *
+     * @param GetDeliveryChannelRequest $request
+     *
+     * @return GetDeliveryChannelResponse
+     */
+    public function getDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeliveryChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询投递渠道统计信息.
+     *
+     * @param request - GetDeliveryChannelStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeliveryChannelStatisticsResponse
+     *
+     * @param GetDeliveryChannelStatisticsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDeliveryChannelStatisticsResponse
+     */
+    public function getDeliveryChannelStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeliveryChannelStatistics',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeliveryChannelStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询投递渠道统计信息.
+     *
+     * @param request - GetDeliveryChannelStatisticsRequest
+     *
+     * @returns GetDeliveryChannelStatisticsResponse
+     *
+     * @param GetDeliveryChannelStatisticsRequest $request
+     *
+     * @return GetDeliveryChannelStatisticsResponse
+     */
+    public function getDeliveryChannelStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeliveryChannelStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -836,11 +1198,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetExampleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetExampleQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetExampleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -859,6 +1218,120 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getExampleQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询多账号投递渠道.
+     *
+     * @param request - GetMultiAccountDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMultiAccountDeliveryChannelResponse
+     *
+     * @param GetMultiAccountDeliveryChannelRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetMultiAccountDeliveryChannelResponse
+     */
+    public function getMultiAccountDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMultiAccountDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMultiAccountDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多账号投递渠道.
+     *
+     * @param request - GetMultiAccountDeliveryChannelRequest
+     *
+     * @returns GetMultiAccountDeliveryChannelResponse
+     *
+     * @param GetMultiAccountDeliveryChannelRequest $request
+     *
+     * @return GetMultiAccountDeliveryChannelResponse
+     */
+    public function getMultiAccountDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMultiAccountDeliveryChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询多账号投递渠道统计信息.
+     *
+     * @param request - GetMultiAccountDeliveryChannelStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMultiAccountDeliveryChannelStatisticsResponse
+     *
+     * @param GetMultiAccountDeliveryChannelStatisticsRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetMultiAccountDeliveryChannelStatisticsResponse
+     */
+    public function getMultiAccountDeliveryChannelStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMultiAccountDeliveryChannelStatistics',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMultiAccountDeliveryChannelStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多账号投递渠道统计信息.
+     *
+     * @param request - GetMultiAccountDeliveryChannelStatisticsRequest
+     *
+     * @returns GetMultiAccountDeliveryChannelStatisticsResponse
+     *
+     * @param GetMultiAccountDeliveryChannelStatisticsRequest $request
+     *
+     * @return GetMultiAccountDeliveryChannelStatisticsResponse
+     */
+    public function getMultiAccountDeliveryChannelStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMultiAccountDeliveryChannelStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -887,11 +1360,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMultiAccountResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMultiAccountResourceCenterServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMultiAccountResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -955,11 +1425,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMultiAccountResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMultiAccountResourceConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMultiAccountResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1006,11 +1473,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceCenterServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1070,11 +1534,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1134,11 +1595,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceCountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1194,11 +1652,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1217,6 +1672,67 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSavedQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出投递渠道.
+     *
+     * @param request - ListDeliveryChannelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeliveryChannelsResponse
+     *
+     * @param ListDeliveryChannelsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDeliveryChannelsResponse
+     */
+    public function listDeliveryChannelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDeliveryChannels',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出投递渠道.
+     *
+     * @param request - ListDeliveryChannelsRequest
+     *
+     * @returns ListDeliveryChannelsResponse
+     *
+     * @param ListDeliveryChannelsRequest $request
+     *
+     * @return ListDeliveryChannelsResponse
+     */
+    public function listDeliveryChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeliveryChannelsWithOptions($request, $runtime);
     }
 
     /**
@@ -1258,11 +1774,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListExampleQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListExampleQueriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListExampleQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1309,11 +1822,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFiltersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1328,6 +1838,67 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFiltersWithOptions($runtime);
+    }
+
+    /**
+     * 列出多账号投递渠道.
+     *
+     * @param request - ListMultiAccountDeliveryChannelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultiAccountDeliveryChannelsResponse
+     *
+     * @param ListMultiAccountDeliveryChannelsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListMultiAccountDeliveryChannelsResponse
+     */
+    public function listMultiAccountDeliveryChannelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultiAccountDeliveryChannels',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMultiAccountDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出多账号投递渠道.
+     *
+     * @param request - ListMultiAccountDeliveryChannelsRequest
+     *
+     * @returns ListMultiAccountDeliveryChannelsResponse
+     *
+     * @param ListMultiAccountDeliveryChannelsRequest $request
+     *
+     * @return ListMultiAccountDeliveryChannelsResponse
+     */
+    public function listMultiAccountDeliveryChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultiAccountDeliveryChannelsWithOptions($request, $runtime);
     }
 
     /**
@@ -1377,11 +1948,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMultiAccountResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMultiAccountResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMultiAccountResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1403,7 +1971,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 跨账号列出资源关系.
+     * Queries the relationships between resources within the management account or members of your resource directory.
+     *
+     * @remarks
+     *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+     * *   By default, the operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the search. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
      *
      * @param request - ListMultiAccountResourceRelationshipsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1461,15 +2035,18 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMultiAccountResourceRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMultiAccountResourceRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMultiAccountResourceRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 跨账号列出资源关系.
+     * Queries the relationships between resources within the management account or members of your resource directory.
+     *
+     * @remarks
+     *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+     * *   By default, the operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the search. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
      *
      * @param request - ListMultiAccountResourceRelationshipsRequest
      *
@@ -1487,7 +2064,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     * Queries the tag keys of resources within the management account or a member of your resource directory.
      *
      * @param request - ListMultiAccountTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,15 +2114,12 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMultiAccountTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMultiAccountTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMultiAccountTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     * Queries the tag keys of resources within the management account or a member of your resource directory.
      *
      * @param request - ListMultiAccountTagKeysRequest
      *
@@ -1617,11 +2191,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMultiAccountTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMultiAccountTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMultiAccountTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1643,7 +2214,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 列出资源关系.
+     * Queries a list of resource relationships on which the current account has access permissions.
+     *
+     * @remarks
+     *   You can call this operation to query only the resource relationships on which the current account has access permissions.
+     * *   By default, this operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the query scope. For information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only entries that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Entries that meet any value of the filter condition are returned.
      *
      * @param request - ListResourceRelationshipsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1697,15 +2274,18 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 列出资源关系.
+     * Queries a list of resource relationships on which the current account has access permissions.
+     *
+     * @remarks
+     *   You can call this operation to query only the resource relationships on which the current account has access permissions.
+     * *   By default, this operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the query scope. For information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only entries that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Entries that meet any value of the filter condition are returned.
      *
      * @param request - ListResourceRelationshipsRequest
      *
@@ -1765,11 +2345,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1829,11 +2406,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSavedQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSavedQueriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSavedQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1901,11 +2475,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1977,11 +2548,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2061,11 +2629,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchMultiAccountResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchMultiAccountResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchMultiAccountResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2152,11 +2717,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2182,6 +2744,83 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新投递渠道.
+     *
+     * @param request - UpdateDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDeliveryChannelResponse
+     *
+     * @param UpdateDeliveryChannelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDeliveryChannelResponse
+     */
+    public function updateDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelDescription) {
+            @$query['DeliveryChannelDescription'] = $request->deliveryChannelDescription;
+        }
+
+        if (null !== $request->deliveryChannelFilter) {
+            @$query['DeliveryChannelFilter'] = $request->deliveryChannelFilter;
+        }
+
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+
+        if (null !== $request->resourceChangeDelivery) {
+            @$query['ResourceChangeDelivery'] = $request->resourceChangeDelivery;
+        }
+
+        if (null !== $request->resourceSnapshotDelivery) {
+            @$query['ResourceSnapshotDelivery'] = $request->resourceSnapshotDelivery;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新投递渠道.
+     *
+     * @param request - UpdateDeliveryChannelRequest
+     *
+     * @returns UpdateDeliveryChannelResponse
+     *
+     * @param UpdateDeliveryChannelRequest $request
+     *
+     * @return UpdateDeliveryChannelResponse
+     */
+    public function updateDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -2223,11 +2862,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2246,6 +2882,83 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新多账号投递渠道.
+     *
+     * @param request - UpdateMultiAccountDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMultiAccountDeliveryChannelResponse
+     *
+     * @param UpdateMultiAccountDeliveryChannelRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateMultiAccountDeliveryChannelResponse
+     */
+    public function updateMultiAccountDeliveryChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryChannelDescription) {
+            @$query['DeliveryChannelDescription'] = $request->deliveryChannelDescription;
+        }
+
+        if (null !== $request->deliveryChannelFilter) {
+            @$query['DeliveryChannelFilter'] = $request->deliveryChannelFilter;
+        }
+
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
+        }
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
+        }
+
+        if (null !== $request->resourceChangeDelivery) {
+            @$query['ResourceChangeDelivery'] = $request->resourceChangeDelivery;
+        }
+
+        if (null !== $request->resourceSnapshotDelivery) {
+            @$query['ResourceSnapshotDelivery'] = $request->resourceSnapshotDelivery;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMultiAccountDeliveryChannel',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMultiAccountDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新多账号投递渠道.
+     *
+     * @param request - UpdateMultiAccountDeliveryChannelRequest
+     *
+     * @returns UpdateMultiAccountDeliveryChannelResponse
+     *
+     * @param UpdateMultiAccountDeliveryChannelRequest $request
+     *
+     * @return UpdateMultiAccountDeliveryChannelResponse
+     */
+    public function updateMultiAccountDeliveryChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMultiAccountDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -2295,11 +3008,8 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

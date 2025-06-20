@@ -51,7 +51,8 @@ class ListExampleQueriesResponseBody extends Model
                 $res['ExampleQueries'] = [];
                 $n1 = 0;
                 foreach ($this->exampleQueries as $item1) {
-                    $res['ExampleQueries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExampleQueries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListExampleQueriesResponseBody extends Model
                 $model->exampleQueries = [];
                 $n1 = 0;
                 foreach ($map['ExampleQueries'] as $item1) {
-                    $model->exampleQueries[$n1++] = exampleQueries::fromMap($item1);
+                    $model->exampleQueries[$n1] = exampleQueries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -61,7 +61,8 @@ class SearchResourcesResponseBody extends Model
                 $res['Filters'] = [];
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class SearchResourcesResponseBody extends Model
                 $res['Resources'] = [];
                 $n1 = 0;
                 foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Resources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class SearchResourcesResponseBody extends Model
                 $model->filters = [];
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class SearchResourcesResponseBody extends Model
                 $model->resources = [];
                 $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = resources::fromMap($item1);
+                    $model->resources[$n1] = resources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

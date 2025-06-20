@@ -55,7 +55,8 @@ class GetResourceCountsResponseBody extends Model
                 $res['Filters'] = [];
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class GetResourceCountsResponseBody extends Model
                 $res['ResourceCounts'] = [];
                 $n1 = 0;
                 foreach ($this->resourceCounts as $item1) {
-                    $res['ResourceCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceCounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class GetResourceCountsResponseBody extends Model
                 $model->filters = [];
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class GetResourceCountsResponseBody extends Model
                 $model->resourceCounts = [];
                 $n1 = 0;
                 foreach ($map['ResourceCounts'] as $item1) {
-                    $model->resourceCounts[$n1++] = resourceCounts::fromMap($item1);
+                    $model->resourceCounts[$n1] = resourceCounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

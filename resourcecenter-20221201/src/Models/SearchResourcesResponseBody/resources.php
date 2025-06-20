@@ -118,7 +118,8 @@ class resources extends Model
                 $res['IpAddressAttributes'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddressAttributes as $item1) {
-                    $res['IpAddressAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpAddressAttributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +129,8 @@ class resources extends Model
                 $res['IpAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddresses as $item1) {
-                    $res['IpAddresses'][$n1++] = $item1;
+                    $res['IpAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +160,8 @@ class resources extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +198,8 @@ class resources extends Model
                 $model->ipAddressAttributes = [];
                 $n1 = 0;
                 foreach ($map['IpAddressAttributes'] as $item1) {
-                    $model->ipAddressAttributes[$n1++] = ipAddressAttributes::fromMap($item1);
+                    $model->ipAddressAttributes[$n1] = ipAddressAttributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +209,8 @@ class resources extends Model
                 $model->ipAddresses = [];
                 $n1 = 0;
                 foreach ($map['IpAddresses'] as $item1) {
-                    $model->ipAddresses[$n1++] = $item1;
+                    $model->ipAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +240,8 @@ class resources extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

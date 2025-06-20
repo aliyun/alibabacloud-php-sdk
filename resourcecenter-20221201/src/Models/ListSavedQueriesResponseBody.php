@@ -63,7 +63,8 @@ class ListSavedQueriesResponseBody extends Model
                 $res['SavedQueries'] = [];
                 $n1 = 0;
                 foreach ($this->savedQueries as $item1) {
-                    $res['SavedQueries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SavedQueries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class ListSavedQueriesResponseBody extends Model
                 $model->savedQueries = [];
                 $n1 = 0;
                 foreach ($map['SavedQueries'] as $item1) {
-                    $model->savedQueries[$n1++] = savedQueries::fromMap($item1);
+                    $model->savedQueries[$n1] = savedQueries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

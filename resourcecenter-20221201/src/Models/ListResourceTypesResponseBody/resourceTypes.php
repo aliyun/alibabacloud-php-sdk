@@ -73,7 +73,8 @@ class resourceTypes extends Model
                 $res['FilterKeys'] = [];
                 $n1 = 0;
                 foreach ($this->filterKeys as $item1) {
-                    $res['FilterKeys'][$n1++] = $item1;
+                    $res['FilterKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class resourceTypes extends Model
                 $res['RelatedResourceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->relatedResourceTypes as $item1) {
-                    $res['RelatedResourceTypes'][$n1++] = $item1;
+                    $res['RelatedResourceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +122,8 @@ class resourceTypes extends Model
                 $model->filterKeys = [];
                 $n1 = 0;
                 foreach ($map['FilterKeys'] as $item1) {
-                    $model->filterKeys[$n1++] = $item1;
+                    $model->filterKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +137,8 @@ class resourceTypes extends Model
                 $model->relatedResourceTypes = [];
                 $n1 = 0;
                 foreach ($map['RelatedResourceTypes'] as $item1) {
-                    $model->relatedResourceTypes[$n1++] = $item1;
+                    $model->relatedResourceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

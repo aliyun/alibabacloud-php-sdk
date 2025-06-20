@@ -75,7 +75,8 @@ class ListResourceRelationshipsRequest extends Model
                 $res['RelatedResourceFilter'] = [];
                 $n1 = 0;
                 foreach ($this->relatedResourceFilter as $item1) {
-                    $res['RelatedResourceFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelatedResourceFilter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class ListResourceRelationshipsRequest extends Model
                 $model->relatedResourceFilter = [];
                 $n1 = 0;
                 foreach ($map['RelatedResourceFilter'] as $item1) {
-                    $model->relatedResourceFilter[$n1++] = relatedResourceFilter::fromMap($item1);
+                    $model->relatedResourceFilter[$n1] = relatedResourceFilter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

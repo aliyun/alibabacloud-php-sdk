@@ -48,7 +48,8 @@ class ListResourceTypesRequest extends Model
                 $res['Query'] = [];
                 $n1 = 0;
                 foreach ($this->query as $item1) {
-                    $res['Query'][$n1++] = $item1;
+                    $res['Query'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListResourceTypesRequest extends Model
                 $model->query = [];
                 $n1 = 0;
                 foreach ($map['Query'] as $item1) {
-                    $model->query[$n1++] = $item1;
+                    $model->query[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
