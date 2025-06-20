@@ -88,6 +88,7 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SetSuppressionListLevelRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SetSuppressionListLevelResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailAdvanceRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionRequest;
@@ -95,6 +96,14 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserShrinkRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -3418,6 +3427,10 @@ class Dm extends OpenApiClient
             @$query['AddressType'] = $request->addressType;
         }
 
+        if (null !== $request->attachments) {
+            @$query['Attachments'] = $request->attachments;
+        }
+
         if (null !== $request->clickTrace) {
             @$query['ClickTrace'] = $request->clickTrace;
         }
@@ -3520,6 +3533,95 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->singleSendMailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SingleSendMailAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SingleSendMailResponse
+     */
+    public function singleSendMailAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'Dm',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $singleSendMailReq = new SingleSendMailRequest([]);
+        Utils::convert($request, $singleSendMailReq);
+        if (null !== $request->attachments) {
+            $i0 = 0;
+
+            foreach ($request->attachments as $item0) {
+                if (null !== $item0->attachmentUrlObject) {
+                    $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+                    $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+                    $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+                    $ossClient = new OSS($ossConfig);
+                    $fileObj = new FileField([
+                        'filename' => $authResponse->body->objectKey,
+                        'content' => $item0->attachmentUrlObject,
+                        'contentType' => '',
+                    ]);
+                    $ossHeader = new header([
+                        'accessKeyId' => $authResponse->body->accessKeyId,
+                        'policy' => $authResponse->body->encodedPolicy,
+                        'signature' => $authResponse->body->signature,
+                        'key' => $authResponse->body->objectKey,
+                        'file' => $fileObj,
+                        'successActionStatus' => '201',
+                    ]);
+                    $uploadRequest = new PostObjectRequest([
+                        'bucketName' => $authResponse->body->bucket,
+                        'header' => $ossHeader,
+                    ]);
+                    $ossClient->postObject($uploadRequest, $ossRuntime);
+                    $tmp = @$singleSendMailReq->attachments[$i0];
+                    $tmp->attachmentUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                    ++$i0;
+                }
+            }
+        }
+
+        return $this->singleSendMailWithOptions($singleSendMailReq, $runtime);
     }
 
     /**

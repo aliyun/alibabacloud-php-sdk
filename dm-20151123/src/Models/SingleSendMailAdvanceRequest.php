@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest\attachments;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailAdvanceRequest\attachments;
 
-class SingleSendMailRequest extends Model
+class SingleSendMailAdvanceRequest extends Model
 {
     /**
      * @var string
