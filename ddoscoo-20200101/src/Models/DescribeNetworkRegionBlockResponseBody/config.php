@@ -47,7 +47,8 @@ class config extends Model
                 $res['Countries'] = [];
                 $n1 = 0;
                 foreach ($this->countries as $item1) {
-                    $res['Countries'][$n1++] = $item1;
+                    $res['Countries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class config extends Model
                 $res['Provinces'] = [];
                 $n1 = 0;
                 foreach ($this->provinces as $item1) {
-                    $res['Provinces'][$n1++] = $item1;
+                    $res['Provinces'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class config extends Model
                 $model->countries = [];
                 $n1 = 0;
                 foreach ($map['Countries'] as $item1) {
-                    $model->countries[$n1++] = $item1;
+                    $model->countries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class config extends Model
                 $model->provinces = [];
                 $n1 = 0;
                 foreach ($map['Provinces'] as $item1) {
-                    $model->provinces[$n1++] = $item1;
+                    $model->provinces[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

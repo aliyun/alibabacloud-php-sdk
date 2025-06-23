@@ -49,7 +49,8 @@ class DescribeSlaEventListResponseBody extends Model
                 $res['SlaEvent'] = [];
                 $n1 = 0;
                 foreach ($this->slaEvent as $item1) {
-                    $res['SlaEvent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlaEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeSlaEventListResponseBody extends Model
                 $model->slaEvent = [];
                 $n1 = 0;
                 foreach ($map['SlaEvent'] as $item1) {
-                    $model->slaEvent[$n1++] = slaEvent::fromMap($item1);
+                    $model->slaEvent[$n1] = slaEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class DescribeDomainQPSListResponseBody extends Model
                 $res['DomainQPSList'] = [];
                 $n1 = 0;
                 foreach ($this->domainQPSList as $item1) {
-                    $res['DomainQPSList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainQPSList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainQPSListResponseBody extends Model
                 $model->domainQPSList = [];
                 $n1 = 0;
                 foreach ($map['DomainQPSList'] as $item1) {
-                    $model->domainQPSList[$n1++] = domainQPSList::fromMap($item1);
+                    $model->domainQPSList[$n1] = domainQPSList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

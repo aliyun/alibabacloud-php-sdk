@@ -39,7 +39,8 @@ class DescribeDDosEventSrcIpResponseBody extends Model
                 $res['Ips'] = [];
                 $n1 = 0;
                 foreach ($this->ips as $item1) {
-                    $res['Ips'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ips'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDDosEventSrcIpResponseBody extends Model
                 $model->ips = [];
                 $n1 = 0;
                 foreach ($map['Ips'] as $item1) {
-                    $model->ips[$n1++] = ips::fromMap($item1);
+                    $model->ips[$n1] = ips::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

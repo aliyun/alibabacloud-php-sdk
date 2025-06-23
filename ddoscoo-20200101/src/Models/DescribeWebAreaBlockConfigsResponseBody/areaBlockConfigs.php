@@ -43,7 +43,8 @@ class areaBlockConfigs extends Model
                 $res['RegionList'] = [];
                 $n1 = 0;
                 foreach ($this->regionList as $item1) {
-                    $res['RegionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class areaBlockConfigs extends Model
                 $model->regionList = [];
                 $n1 = 0;
                 foreach ($map['RegionList'] as $item1) {
-                    $model->regionList[$n1++] = regionList::fromMap($item1);
+                    $model->regionList[$n1] = regionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

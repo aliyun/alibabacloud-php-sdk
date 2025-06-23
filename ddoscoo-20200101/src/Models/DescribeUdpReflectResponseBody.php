@@ -42,7 +42,8 @@ class DescribeUdpReflectResponseBody extends Model
                 $res['UdpSports'] = [];
                 $n1 = 0;
                 foreach ($this->udpSports as $item1) {
-                    $res['UdpSports'][$n1++] = $item1;
+                    $res['UdpSports'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DescribeUdpReflectResponseBody extends Model
                 $model->udpSports = [];
                 $n1 = 0;
                 foreach ($map['UdpSports'] as $item1) {
-                    $model->udpSports[$n1++] = $item1;
+                    $model->udpSports[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

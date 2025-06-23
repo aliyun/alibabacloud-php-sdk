@@ -48,7 +48,8 @@ class ModifyWebAreaBlockRequest extends Model
                 $res['Regions'] = [];
                 $n1 = 0;
                 foreach ($this->regions as $item1) {
-                    $res['Regions'][$n1++] = $item1;
+                    $res['Regions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ModifyWebAreaBlockRequest extends Model
                 $model->regions = [];
                 $n1 = 0;
                 foreach ($map['Regions'] as $item1) {
-                    $model->regions[$n1++] = $item1;
+                    $model->regions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

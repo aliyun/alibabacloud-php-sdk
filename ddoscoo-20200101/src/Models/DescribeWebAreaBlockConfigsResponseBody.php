@@ -39,7 +39,8 @@ class DescribeWebAreaBlockConfigsResponseBody extends Model
                 $res['AreaBlockConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->areaBlockConfigs as $item1) {
-                    $res['AreaBlockConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AreaBlockConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeWebAreaBlockConfigsResponseBody extends Model
                 $model->areaBlockConfigs = [];
                 $n1 = 0;
                 foreach ($map['AreaBlockConfigs'] as $item1) {
-                    $model->areaBlockConfigs[$n1++] = areaBlockConfigs::fromMap($item1);
+                    $model->areaBlockConfigs[$n1] = areaBlockConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

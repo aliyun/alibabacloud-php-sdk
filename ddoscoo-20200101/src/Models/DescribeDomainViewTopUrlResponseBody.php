@@ -43,7 +43,8 @@ class DescribeDomainViewTopUrlResponseBody extends Model
                 $res['UrlList'] = [];
                 $n1 = 0;
                 foreach ($this->urlList as $item1) {
-                    $res['UrlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UrlList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeDomainViewTopUrlResponseBody extends Model
                 $model->urlList = [];
                 $n1 = 0;
                 foreach ($map['UrlList'] as $item1) {
-                    $model->urlList[$n1++] = urlList::fromMap($item1);
+                    $model->urlList[$n1] = urlList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

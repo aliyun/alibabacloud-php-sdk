@@ -39,7 +39,8 @@ class DescribeDomainH2FingerprintResponseBody extends Model
                 $res['DomainH2Fp'] = [];
                 $n1 = 0;
                 foreach ($this->domainH2Fp as $item1) {
-                    $res['DomainH2Fp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainH2Fp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainH2FingerprintResponseBody extends Model
                 $model->domainH2Fp = [];
                 $n1 = 0;
                 foreach ($map['DomainH2Fp'] as $item1) {
-                    $model->domainH2Fp[$n1++] = domainH2Fp::fromMap($item1);
+                    $model->domainH2Fp[$n1] = domainH2Fp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

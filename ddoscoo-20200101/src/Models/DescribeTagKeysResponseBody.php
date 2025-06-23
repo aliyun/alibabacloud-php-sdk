@@ -69,7 +69,8 @@ class DescribeTagKeysResponseBody extends Model
                 $res['TagKeys'] = [];
                 $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
-                    $res['TagKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class DescribeTagKeysResponseBody extends Model
                 $model->tagKeys = [];
                 $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
-                    $model->tagKeys[$n1++] = tagKeys::fromMap($item1);
+                    $model->tagKeys[$n1] = tagKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

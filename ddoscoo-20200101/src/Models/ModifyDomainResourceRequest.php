@@ -77,7 +77,8 @@ class ModifyDomainResourceRequest extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class ModifyDomainResourceRequest extends Model
                 $res['ProxyTypes'] = [];
                 $n1 = 0;
                 foreach ($this->proxyTypes as $item1) {
-                    $res['ProxyTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProxyTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class ModifyDomainResourceRequest extends Model
                 $res['RealServers'] = [];
                 $n1 = 0;
                 foreach ($this->realServers as $item1) {
-                    $res['RealServers'][$n1++] = $item1;
+                    $res['RealServers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +133,8 @@ class ModifyDomainResourceRequest extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +144,8 @@ class ModifyDomainResourceRequest extends Model
                 $model->proxyTypes = [];
                 $n1 = 0;
                 foreach ($map['ProxyTypes'] as $item1) {
-                    $model->proxyTypes[$n1++] = proxyTypes::fromMap($item1);
+                    $model->proxyTypes[$n1] = proxyTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +155,8 @@ class ModifyDomainResourceRequest extends Model
                 $model->realServers = [];
                 $n1 = 0;
                 foreach ($map['RealServers'] as $item1) {
-                    $model->realServers[$n1++] = $item1;
+                    $model->realServers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

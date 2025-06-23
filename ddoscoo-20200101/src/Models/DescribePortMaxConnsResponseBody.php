@@ -39,7 +39,8 @@ class DescribePortMaxConnsResponseBody extends Model
                 $res['PortMaxConns'] = [];
                 $n1 = 0;
                 foreach ($this->portMaxConns as $item1) {
-                    $res['PortMaxConns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PortMaxConns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribePortMaxConnsResponseBody extends Model
                 $model->portMaxConns = [];
                 $n1 = 0;
                 foreach ($map['PortMaxConns'] as $item1) {
-                    $model->portMaxConns[$n1++] = portMaxConns::fromMap($item1);
+                    $model->portMaxConns[$n1] = portMaxConns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

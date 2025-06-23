@@ -43,7 +43,8 @@ class DescribePortCcAttackTopIPResponseBody extends Model
                 $res['TopIp'] = [];
                 $n1 = 0;
                 foreach ($this->topIp as $item1) {
-                    $res['TopIp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopIp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribePortCcAttackTopIPResponseBody extends Model
                 $model->topIp = [];
                 $n1 = 0;
                 foreach ($map['TopIp'] as $item1) {
-                    $model->topIp[$n1++] = topIp::fromMap($item1);
+                    $model->topIp[$n1] = topIp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

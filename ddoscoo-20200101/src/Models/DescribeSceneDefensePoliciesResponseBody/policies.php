@@ -101,7 +101,8 @@ class policies extends Model
                 $res['RuntimePolicies'] = [];
                 $n1 = 0;
                 foreach ($this->runtimePolicies as $item1) {
-                    $res['RuntimePolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuntimePolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class policies extends Model
                 $model->runtimePolicies = [];
                 $n1 = 0;
                 foreach ($map['RuntimePolicies'] as $item1) {
-                    $model->runtimePolicies[$n1++] = runtimePolicies::fromMap($item1);
+                    $model->runtimePolicies[$n1] = runtimePolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

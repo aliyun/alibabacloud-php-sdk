@@ -51,7 +51,8 @@ class domainCacheConfigs extends Model
                 $res['CustomRules'] = [];
                 $n1 = 0;
                 foreach ($this->customRules as $item1) {
-                    $res['CustomRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class domainCacheConfigs extends Model
                 $model->customRules = [];
                 $n1 = 0;
                 foreach ($map['CustomRules'] as $item1) {
-                    $model->customRules[$n1++] = customRules::fromMap($item1);
+                    $model->customRules[$n1] = customRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

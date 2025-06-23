@@ -52,7 +52,8 @@ class DeleteWebCacheCustomRuleRequest extends Model
                 $res['RuleNames'] = [];
                 $n1 = 0;
                 foreach ($this->ruleNames as $item1) {
-                    $res['RuleNames'][$n1++] = $item1;
+                    $res['RuleNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DeleteWebCacheCustomRuleRequest extends Model
                 $model->ruleNames = [];
                 $n1 = 0;
                 foreach ($map['RuleNames'] as $item1) {
-                    $model->ruleNames[$n1++] = $item1;
+                    $model->ruleNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

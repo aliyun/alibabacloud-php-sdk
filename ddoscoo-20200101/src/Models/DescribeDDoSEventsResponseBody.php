@@ -45,7 +45,8 @@ class DescribeDDoSEventsResponseBody extends Model
                 $res['DDoSEvents'] = [];
                 $n1 = 0;
                 foreach ($this->DDoSEvents as $item1) {
-                    $res['DDoSEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DDoSEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeDDoSEventsResponseBody extends Model
                 $model->DDoSEvents = [];
                 $n1 = 0;
                 foreach ($map['DDoSEvents'] as $item1) {
-                    $model->DDoSEvents[$n1++] = DDoSEvents::fromMap($item1);
+                    $model->DDoSEvents[$n1] = DDoSEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class DescribeWebInstanceRelationsResponseBody extends Model
                 $res['WebInstanceRelations'] = [];
                 $n1 = 0;
                 foreach ($this->webInstanceRelations as $item1) {
-                    $res['WebInstanceRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WebInstanceRelations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeWebInstanceRelationsResponseBody extends Model
                 $model->webInstanceRelations = [];
                 $n1 = 0;
                 foreach ($map['WebInstanceRelations'] as $item1) {
-                    $model->webInstanceRelations[$n1++] = webInstanceRelations::fromMap($item1);
+                    $model->webInstanceRelations[$n1] = webInstanceRelations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

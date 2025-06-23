@@ -53,7 +53,8 @@ class ConfigWebIpSetRequest extends Model
                 $res['BlackList'] = [];
                 $n1 = 0;
                 foreach ($this->blackList as $item1) {
-                    $res['BlackList'][$n1++] = $item1;
+                    $res['BlackList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class ConfigWebIpSetRequest extends Model
                 $res['WhiteList'] = [];
                 $n1 = 0;
                 foreach ($this->whiteList as $item1) {
-                    $res['WhiteList'][$n1++] = $item1;
+                    $res['WhiteList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class ConfigWebIpSetRequest extends Model
                 $model->blackList = [];
                 $n1 = 0;
                 foreach ($map['BlackList'] as $item1) {
-                    $model->blackList[$n1++] = $item1;
+                    $model->blackList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class ConfigWebIpSetRequest extends Model
                 $model->whiteList = [];
                 $n1 = 0;
                 foreach ($map['WhiteList'] as $item1) {
-                    $model->whiteList[$n1++] = $item1;
+                    $model->whiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

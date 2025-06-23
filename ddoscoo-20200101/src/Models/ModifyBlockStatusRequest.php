@@ -58,7 +58,8 @@ class ModifyBlockStatusRequest extends Model
                 $res['Lines'] = [];
                 $n1 = 0;
                 foreach ($this->lines as $item1) {
-                    $res['Lines'][$n1++] = $item1;
+                    $res['Lines'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ModifyBlockStatusRequest extends Model
                 $model->lines = [];
                 $n1 = 0;
                 foreach ($map['Lines'] as $item1) {
-                    $model->lines[$n1++] = $item1;
+                    $model->lines[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

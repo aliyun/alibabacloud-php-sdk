@@ -43,7 +43,8 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
                 $res['SourceProvinces'] = [];
                 $n1 = 0;
                 foreach ($this->sourceProvinces as $item1) {
-                    $res['SourceProvinces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceProvinces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
                 $model->sourceProvinces = [];
                 $n1 = 0;
                 foreach ($map['SourceProvinces'] as $item1) {
-                    $model->sourceProvinces[$n1++] = sourceProvinces::fromMap($item1);
+                    $model->sourceProvinces[$n1] = sourceProvinces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

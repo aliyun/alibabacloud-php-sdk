@@ -39,7 +39,8 @@ class DescribePortAutoCcStatusResponseBody extends Model
                 $res['PortAutoCcStatus'] = [];
                 $n1 = 0;
                 foreach ($this->portAutoCcStatus as $item1) {
-                    $res['PortAutoCcStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PortAutoCcStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribePortAutoCcStatusResponseBody extends Model
                 $model->portAutoCcStatus = [];
                 $n1 = 0;
                 foreach ($map['PortAutoCcStatus'] as $item1) {
-                    $model->portAutoCcStatus[$n1++] = portAutoCcStatus::fromMap($item1);
+                    $model->portAutoCcStatus[$n1] = portAutoCcStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

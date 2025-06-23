@@ -45,7 +45,8 @@ class DescribeDefenseRecordsResponseBody extends Model
                 $res['DefenseRecords'] = [];
                 $n1 = 0;
                 foreach ($this->defenseRecords as $item1) {
-                    $res['DefenseRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DefenseRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeDefenseRecordsResponseBody extends Model
                 $model->defenseRecords = [];
                 $n1 = 0;
                 foreach ($map['DefenseRecords'] as $item1) {
-                    $model->defenseRecords[$n1++] = defenseRecords::fromMap($item1);
+                    $model->defenseRecords[$n1] = defenseRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

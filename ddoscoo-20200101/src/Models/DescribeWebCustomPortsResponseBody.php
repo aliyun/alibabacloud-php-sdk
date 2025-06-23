@@ -43,7 +43,8 @@ class DescribeWebCustomPortsResponseBody extends Model
                 $res['WebCustomPorts'] = [];
                 $n1 = 0;
                 foreach ($this->webCustomPorts as $item1) {
-                    $res['WebCustomPorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WebCustomPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeWebCustomPortsResponseBody extends Model
                 $model->webCustomPorts = [];
                 $n1 = 0;
                 foreach ($map['WebCustomPorts'] as $item1) {
-                    $model->webCustomPorts[$n1++] = webCustomPorts::fromMap($item1);
+                    $model->webCustomPorts[$n1] = webCustomPorts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

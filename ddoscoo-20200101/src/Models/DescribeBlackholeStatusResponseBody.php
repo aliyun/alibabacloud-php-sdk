@@ -39,7 +39,8 @@ class DescribeBlackholeStatusResponseBody extends Model
                 $res['BlackholeStatus'] = [];
                 $n1 = 0;
                 foreach ($this->blackholeStatus as $item1) {
-                    $res['BlackholeStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BlackholeStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeBlackholeStatusResponseBody extends Model
                 $model->blackholeStatus = [];
                 $n1 = 0;
                 foreach ($map['BlackholeStatus'] as $item1) {
-                    $model->blackholeStatus[$n1++] = blackholeStatus::fromMap($item1);
+                    $model->blackholeStatus[$n1] = blackholeStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

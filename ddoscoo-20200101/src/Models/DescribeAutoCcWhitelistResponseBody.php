@@ -45,7 +45,8 @@ class DescribeAutoCcWhitelistResponseBody extends Model
                 $res['AutoCcWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->autoCcWhitelist as $item1) {
-                    $res['AutoCcWhitelist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoCcWhitelist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeAutoCcWhitelistResponseBody extends Model
                 $model->autoCcWhitelist = [];
                 $n1 = 0;
                 foreach ($map['AutoCcWhitelist'] as $item1) {
-                    $model->autoCcWhitelist[$n1++] = autoCcWhitelist::fromMap($item1);
+                    $model->autoCcWhitelist[$n1] = autoCcWhitelist::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

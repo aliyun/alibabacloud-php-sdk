@@ -49,7 +49,8 @@ class DescribeSchedulerRulesResponseBody extends Model
                 $res['SchedulerRules'] = [];
                 $n1 = 0;
                 foreach ($this->schedulerRules as $item1) {
-                    $res['SchedulerRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SchedulerRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeSchedulerRulesResponseBody extends Model
                 $model->schedulerRules = [];
                 $n1 = 0;
                 foreach ($map['SchedulerRules'] as $item1) {
-                    $model->schedulerRules[$n1++] = schedulerRules::fromMap($item1);
+                    $model->schedulerRules[$n1] = schedulerRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

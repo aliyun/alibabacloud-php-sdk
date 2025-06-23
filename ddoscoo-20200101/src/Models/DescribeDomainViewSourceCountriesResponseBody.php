@@ -43,7 +43,8 @@ class DescribeDomainViewSourceCountriesResponseBody extends Model
                 $res['SourceCountrys'] = [];
                 $n1 = 0;
                 foreach ($this->sourceCountrys as $item1) {
-                    $res['SourceCountrys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceCountrys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeDomainViewSourceCountriesResponseBody extends Model
                 $model->sourceCountrys = [];
                 $n1 = 0;
                 foreach ($map['SourceCountrys'] as $item1) {
-                    $model->sourceCountrys[$n1++] = sourceCountrys::fromMap($item1);
+                    $model->sourceCountrys[$n1] = sourceCountrys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

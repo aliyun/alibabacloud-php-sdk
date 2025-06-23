@@ -39,7 +39,8 @@ class DescribeDomainTopUserAgentResponseBody extends Model
                 $res['DomainTopUa'] = [];
                 $n1 = 0;
                 foreach ($this->domainTopUa as $item1) {
-                    $res['DomainTopUa'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainTopUa'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainTopUserAgentResponseBody extends Model
                 $model->domainTopUa = [];
                 $n1 = 0;
                 foreach ($map['DomainTopUa'] as $item1) {
-                    $model->domainTopUa[$n1++] = domainTopUa::fromMap($item1);
+                    $model->domainTopUa[$n1] = domainTopUa::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

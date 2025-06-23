@@ -39,7 +39,8 @@ class DescribeInstanceStatisticsResponseBody extends Model
                 $res['InstanceStatistics'] = [];
                 $n1 = 0;
                 foreach ($this->instanceStatistics as $item1) {
-                    $res['InstanceStatistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceStatistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeInstanceStatisticsResponseBody extends Model
                 $model->instanceStatistics = [];
                 $n1 = 0;
                 foreach ($map['InstanceStatistics'] as $item1) {
-                    $model->instanceStatistics[$n1++] = instanceStatistics::fromMap($item1);
+                    $model->instanceStatistics[$n1] = instanceStatistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

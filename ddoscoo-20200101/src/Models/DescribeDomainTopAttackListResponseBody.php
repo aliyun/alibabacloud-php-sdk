@@ -39,7 +39,8 @@ class DescribeDomainTopAttackListResponseBody extends Model
                 $res['AttackList'] = [];
                 $n1 = 0;
                 foreach ($this->attackList as $item1) {
-                    $res['AttackList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AttackList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainTopAttackListResponseBody extends Model
                 $model->attackList = [];
                 $n1 = 0;
                 foreach ($map['AttackList'] as $item1) {
-                    $model->attackList[$n1++] = attackList::fromMap($item1);
+                    $model->attackList[$n1] = attackList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

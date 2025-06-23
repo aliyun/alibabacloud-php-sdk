@@ -109,7 +109,8 @@ class ruleDetail extends Model
                 $res['Condition'] = [];
                 $n1 = 0;
                 foreach ($this->condition as $item1) {
-                    $res['Condition'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Condition'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class ruleDetail extends Model
                 $model->condition = [];
                 $n1 = 0;
                 foreach ($map['Condition'] as $item1) {
-                    $model->condition[$n1++] = condition::fromMap($item1);
+                    $model->condition[$n1] = condition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -69,7 +69,8 @@ class healthCheckStatus extends Model
                 $res['RealServerStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->realServerStatusList as $item1) {
-                    $res['RealServerStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RealServerStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class healthCheckStatus extends Model
                 $model->realServerStatusList = [];
                 $n1 = 0;
                 foreach ($map['RealServerStatusList'] as $item1) {
-                    $model->realServerStatusList[$n1++] = realServerStatusList::fromMap($item1);
+                    $model->realServerStatusList[$n1] = realServerStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class DescribeWebCacheConfigsResponseBody extends Model
                 $res['DomainCacheConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->domainCacheConfigs as $item1) {
-                    $res['DomainCacheConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainCacheConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeWebCacheConfigsResponseBody extends Model
                 $model->domainCacheConfigs = [];
                 $n1 = 0;
                 foreach ($map['DomainCacheConfigs'] as $item1) {
-                    $model->domainCacheConfigs[$n1++] = domainCacheConfigs::fromMap($item1);
+                    $model->domainCacheConfigs[$n1] = domainCacheConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

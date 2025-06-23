@@ -39,7 +39,8 @@ class DescribeElasticQpsRecordResponseBody extends Model
                 $res['ElasticQpsList'] = [];
                 $n1 = 0;
                 foreach ($this->elasticQpsList as $item1) {
-                    $res['ElasticQpsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ElasticQpsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeElasticQpsRecordResponseBody extends Model
                 $model->elasticQpsList = [];
                 $n1 = 0;
                 foreach ($map['ElasticQpsList'] as $item1) {
-                    $model->elasticQpsList[$n1++] = elasticQpsList::fromMap($item1);
+                    $model->elasticQpsList[$n1] = elasticQpsList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

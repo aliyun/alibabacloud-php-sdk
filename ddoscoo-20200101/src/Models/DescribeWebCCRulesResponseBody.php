@@ -53,7 +53,8 @@ class DescribeWebCCRulesResponseBody extends Model
                 $res['WebCCRules'] = [];
                 $n1 = 0;
                 foreach ($this->webCCRules as $item1) {
-                    $res['WebCCRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WebCCRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DescribeWebCCRulesResponseBody extends Model
                 $model->webCCRules = [];
                 $n1 = 0;
                 foreach ($map['WebCCRules'] as $item1) {
-                    $model->webCCRules[$n1++] = webCCRules::fromMap($item1);
+                    $model->webCCRules[$n1] = webCCRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

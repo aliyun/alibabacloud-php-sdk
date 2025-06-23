@@ -39,7 +39,8 @@ class DescribeWebPreciseAccessRuleResponseBody extends Model
                 $res['PreciseAccessConfigList'] = [];
                 $n1 = 0;
                 foreach ($this->preciseAccessConfigList as $item1) {
-                    $res['PreciseAccessConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PreciseAccessConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeWebPreciseAccessRuleResponseBody extends Model
                 $model->preciseAccessConfigList = [];
                 $n1 = 0;
                 foreach ($map['PreciseAccessConfigList'] as $item1) {
-                    $model->preciseAccessConfigList[$n1++] = preciseAccessConfigList::fromMap($item1);
+                    $model->preciseAccessConfigList[$n1] = preciseAccessConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

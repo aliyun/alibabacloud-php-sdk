@@ -38,7 +38,8 @@ class DescribeBackSourceCidrResponseBody extends Model
                 $res['Cidrs'] = [];
                 $n1 = 0;
                 foreach ($this->cidrs as $item1) {
-                    $res['Cidrs'][$n1++] = $item1;
+                    $res['Cidrs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeBackSourceCidrResponseBody extends Model
                 $model->cidrs = [];
                 $n1 = 0;
                 foreach ($map['Cidrs'] as $item1) {
-                    $model->cidrs[$n1++] = $item1;
+                    $model->cidrs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class DescribePortConnsListResponseBody extends Model
                 $res['ConnsList'] = [];
                 $n1 = 0;
                 foreach ($this->connsList as $item1) {
-                    $res['ConnsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConnsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribePortConnsListResponseBody extends Model
                 $model->connsList = [];
                 $n1 = 0;
                 foreach ($map['ConnsList'] as $item1) {
-                    $model->connsList[$n1++] = connsList::fromMap($item1);
+                    $model->connsList[$n1] = connsList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

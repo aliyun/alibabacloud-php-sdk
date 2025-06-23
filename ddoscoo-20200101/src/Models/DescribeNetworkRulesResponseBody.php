@@ -45,7 +45,8 @@ class DescribeNetworkRulesResponseBody extends Model
                 $res['NetworkRules'] = [];
                 $n1 = 0;
                 foreach ($this->networkRules as $item1) {
-                    $res['NetworkRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeNetworkRulesResponseBody extends Model
                 $model->networkRules = [];
                 $n1 = 0;
                 foreach ($map['NetworkRules'] as $item1) {
-                    $model->networkRules[$n1++] = networkRules::fromMap($item1);
+                    $model->networkRules[$n1] = networkRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

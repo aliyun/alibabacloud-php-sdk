@@ -39,7 +39,8 @@ class DescribeCnameReusesResponseBody extends Model
                 $res['CnameReuses'] = [];
                 $n1 = 0;
                 foreach ($this->cnameReuses as $item1) {
-                    $res['CnameReuses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CnameReuses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeCnameReusesResponseBody extends Model
                 $model->cnameReuses = [];
                 $n1 = 0;
                 foreach ($map['CnameReuses'] as $item1) {
-                    $model->cnameReuses[$n1++] = cnameReuses::fromMap($item1);
+                    $model->cnameReuses[$n1] = cnameReuses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

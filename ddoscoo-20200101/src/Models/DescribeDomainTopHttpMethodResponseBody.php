@@ -39,7 +39,8 @@ class DescribeDomainTopHttpMethodResponseBody extends Model
                 $res['DomainTopMethod'] = [];
                 $n1 = 0;
                 foreach ($this->domainTopMethod as $item1) {
-                    $res['DomainTopMethod'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainTopMethod'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainTopHttpMethodResponseBody extends Model
                 $model->domainTopMethod = [];
                 $n1 = 0;
                 foreach ($map['DomainTopMethod'] as $item1) {
-                    $model->domainTopMethod[$n1++] = domainTopMethod::fromMap($item1);
+                    $model->domainTopMethod[$n1] = domainTopMethod::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

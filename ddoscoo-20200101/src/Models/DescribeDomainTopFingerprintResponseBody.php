@@ -39,7 +39,8 @@ class DescribeDomainTopFingerprintResponseBody extends Model
                 $res['DomainTopFp'] = [];
                 $n1 = 0;
                 foreach ($this->domainTopFp as $item1) {
-                    $res['DomainTopFp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainTopFp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainTopFingerprintResponseBody extends Model
                 $model->domainTopFp = [];
                 $n1 = 0;
                 foreach ($map['DomainTopFp'] as $item1) {
-                    $model->domainTopFp[$n1++] = domainTopFp::fromMap($item1);
+                    $model->domainTopFp[$n1] = domainTopFp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

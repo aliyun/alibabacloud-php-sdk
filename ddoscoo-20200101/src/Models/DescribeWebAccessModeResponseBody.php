@@ -39,7 +39,8 @@ class DescribeWebAccessModeResponseBody extends Model
                 $res['DomainModes'] = [];
                 $n1 = 0;
                 foreach ($this->domainModes as $item1) {
-                    $res['DomainModes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainModes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeWebAccessModeResponseBody extends Model
                 $model->domainModes = [];
                 $n1 = 0;
                 foreach ($map['DomainModes'] as $item1) {
-                    $model->domainModes[$n1++] = domainModes::fromMap($item1);
+                    $model->domainModes[$n1] = domainModes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

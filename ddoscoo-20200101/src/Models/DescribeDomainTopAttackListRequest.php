@@ -14,6 +14,11 @@ class DescribeDomainTopAttackListRequest extends Model
     public $endTime;
 
     /**
+     * @var int
+     */
+    public $interval;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -24,6 +29,7 @@ class DescribeDomainTopAttackListRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime' => 'EndTime',
+        'interval' => 'Interval',
         'resourceGroupId' => 'ResourceGroupId',
         'startTime' => 'StartTime',
     ];
@@ -38,6 +44,10 @@ class DescribeDomainTopAttackListRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -61,6 +71,10 @@ class DescribeDomainTopAttackListRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
 
         if (isset($map['ResourceGroupId'])) {

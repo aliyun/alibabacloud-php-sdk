@@ -39,7 +39,8 @@ class DescribeDDosEventIspResponseBody extends Model
                 $res['Isps'] = [];
                 $n1 = 0;
                 foreach ($this->isps as $item1) {
-                    $res['Isps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Isps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDDosEventIspResponseBody extends Model
                 $model->isps = [];
                 $n1 = 0;
                 foreach ($map['Isps'] as $item1) {
-                    $model->isps[$n1++] = isps::fromMap($item1);
+                    $model->isps[$n1] = isps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -82,7 +82,8 @@ class ModifyPortRequest extends Model
                 $res['RealServers'] = [];
                 $n1 = 0;
                 foreach ($this->realServers as $item1) {
-                    $res['RealServers'][$n1++] = $item1;
+                    $res['RealServers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class ModifyPortRequest extends Model
                 $model->realServers = [];
                 $n1 = 0;
                 foreach ($map['RealServers'] as $item1) {
-                    $model->realServers[$n1++] = $item1;
+                    $model->realServers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

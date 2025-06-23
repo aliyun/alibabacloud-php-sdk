@@ -45,7 +45,8 @@ class DescribeAsyncTasksResponseBody extends Model
                 $res['AsyncTasks'] = [];
                 $n1 = 0;
                 foreach ($this->asyncTasks as $item1) {
-                    $res['AsyncTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AsyncTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeAsyncTasksResponseBody extends Model
                 $model->asyncTasks = [];
                 $n1 = 0;
                 foreach ($map['AsyncTasks'] as $item1) {
-                    $model->asyncTasks[$n1++] = asyncTasks::fromMap($item1);
+                    $model->asyncTasks[$n1] = asyncTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

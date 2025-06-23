@@ -45,7 +45,8 @@ class DescribeOpEntitiesResponseBody extends Model
                 $res['OpEntities'] = [];
                 $n1 = 0;
                 foreach ($this->opEntities as $item1) {
-                    $res['OpEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OpEntities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeOpEntitiesResponseBody extends Model
                 $model->opEntities = [];
                 $n1 = 0;
                 foreach ($map['OpEntities'] as $item1) {
-                    $model->opEntities[$n1++] = opEntities::fromMap($item1);
+                    $model->opEntities[$n1] = opEntities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

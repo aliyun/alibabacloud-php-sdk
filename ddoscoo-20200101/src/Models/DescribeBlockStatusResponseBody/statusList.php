@@ -39,7 +39,8 @@ class statusList extends Model
                 $res['BlockStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->blockStatusList as $item1) {
-                    $res['BlockStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BlockStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class statusList extends Model
                 $model->blockStatusList = [];
                 $n1 = 0;
                 foreach ($map['BlockStatusList'] as $item1) {
-                    $model->blockStatusList[$n1++] = blockStatusList::fromMap($item1);
+                    $model->blockStatusList[$n1] = blockStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

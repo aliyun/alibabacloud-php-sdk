@@ -76,7 +76,8 @@ class DescribeWebRulesRequest extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class DescribeWebRulesRequest extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

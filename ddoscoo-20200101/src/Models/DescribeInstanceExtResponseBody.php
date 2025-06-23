@@ -45,7 +45,8 @@ class DescribeInstanceExtResponseBody extends Model
                 $res['InstanceExtSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->instanceExtSpecs as $item1) {
-                    $res['InstanceExtSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceExtSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeInstanceExtResponseBody extends Model
                 $model->instanceExtSpecs = [];
                 $n1 = 0;
                 foreach ($map['InstanceExtSpecs'] as $item1) {
-                    $model->instanceExtSpecs[$n1++] = instanceExtSpecs::fromMap($item1);
+                    $model->instanceExtSpecs[$n1] = instanceExtSpecs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

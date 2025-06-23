@@ -109,7 +109,8 @@ class DescribeLayer4RulePolicyResponseBody extends Model
                 $res['PriRealServers'] = [];
                 $n1 = 0;
                 foreach ($this->priRealServers as $item1) {
-                    $res['PriRealServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PriRealServers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class DescribeLayer4RulePolicyResponseBody extends Model
                 $res['SecRealServers'] = [];
                 $n1 = 0;
                 foreach ($this->secRealServers as $item1) {
-                    $res['SecRealServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecRealServers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +170,8 @@ class DescribeLayer4RulePolicyResponseBody extends Model
                 $model->priRealServers = [];
                 $n1 = 0;
                 foreach ($map['PriRealServers'] as $item1) {
-                    $model->priRealServers[$n1++] = priRealServers::fromMap($item1);
+                    $model->priRealServers[$n1] = priRealServers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +185,8 @@ class DescribeLayer4RulePolicyResponseBody extends Model
                 $model->secRealServers = [];
                 $n1 = 0;
                 foreach ($map['SecRealServers'] as $item1) {
-                    $model->secRealServers[$n1++] = secRealServers::fromMap($item1);
+                    $model->secRealServers[$n1] = secRealServers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

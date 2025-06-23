@@ -49,7 +49,8 @@ class DescribeWebAccessLogDispatchStatusResponseBody extends Model
                 $res['SlsConfigStatus'] = [];
                 $n1 = 0;
                 foreach ($this->slsConfigStatus as $item1) {
-                    $res['SlsConfigStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlsConfigStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeWebAccessLogDispatchStatusResponseBody extends Model
                 $model->slsConfigStatus = [];
                 $n1 = 0;
                 foreach ($map['SlsConfigStatus'] as $item1) {
-                    $model->slsConfigStatus[$n1++] = slsConfigStatus::fromMap($item1);
+                    $model->slsConfigStatus[$n1] = slsConfigStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

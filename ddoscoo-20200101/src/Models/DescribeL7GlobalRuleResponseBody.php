@@ -39,7 +39,8 @@ class DescribeL7GlobalRuleResponseBody extends Model
                 $res['GlobalRules'] = [];
                 $n1 = 0;
                 foreach ($this->globalRules as $item1) {
-                    $res['GlobalRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GlobalRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeL7GlobalRuleResponseBody extends Model
                 $model->globalRules = [];
                 $n1 = 0;
                 foreach ($map['GlobalRules'] as $item1) {
-                    $model->globalRules[$n1++] = globalRules::fromMap($item1);
+                    $model->globalRules[$n1] = globalRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

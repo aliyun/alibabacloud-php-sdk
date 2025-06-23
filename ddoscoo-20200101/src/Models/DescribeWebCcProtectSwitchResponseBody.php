@@ -39,7 +39,8 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
                 $res['ProtectSwitchList'] = [];
                 $n1 = 0;
                 foreach ($this->protectSwitchList as $item1) {
-                    $res['ProtectSwitchList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProtectSwitchList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
                 $model->protectSwitchList = [];
                 $n1 = 0;
                 foreach ($map['ProtectSwitchList'] as $item1) {
-                    $model->protectSwitchList[$n1++] = protectSwitchList::fromMap($item1);
+                    $model->protectSwitchList[$n1] = protectSwitchList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -60,7 +60,8 @@ class conditionList extends Model
                 $res['ContentList'] = [];
                 $n1 = 0;
                 foreach ($this->contentList as $item1) {
-                    $res['ContentList'][$n1++] = $item1;
+                    $res['ContentList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class conditionList extends Model
                 $model->contentList = [];
                 $n1 = 0;
                 foreach ($map['ContentList'] as $item1) {
-                    $model->contentList[$n1++] = $item1;
+                    $model->contentList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

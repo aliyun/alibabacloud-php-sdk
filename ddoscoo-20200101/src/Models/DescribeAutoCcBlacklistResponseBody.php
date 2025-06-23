@@ -45,7 +45,8 @@ class DescribeAutoCcBlacklistResponseBody extends Model
                 $res['AutoCcBlacklist'] = [];
                 $n1 = 0;
                 foreach ($this->autoCcBlacklist as $item1) {
-                    $res['AutoCcBlacklist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoCcBlacklist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeAutoCcBlacklistResponseBody extends Model
                 $model->autoCcBlacklist = [];
                 $n1 = 0;
                 foreach ($map['AutoCcBlacklist'] as $item1) {
-                    $model->autoCcBlacklist[$n1++] = autoCcBlacklist::fromMap($item1);
+                    $model->autoCcBlacklist[$n1] = autoCcBlacklist::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

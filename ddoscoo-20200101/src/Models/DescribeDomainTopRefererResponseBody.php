@@ -39,7 +39,8 @@ class DescribeDomainTopRefererResponseBody extends Model
                 $res['DomainTopReferer'] = [];
                 $n1 = 0;
                 foreach ($this->domainTopReferer as $item1) {
-                    $res['DomainTopReferer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainTopReferer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainTopRefererResponseBody extends Model
                 $model->domainTopReferer = [];
                 $n1 = 0;
                 foreach ($map['DomainTopReferer'] as $item1) {
-                    $model->domainTopReferer[$n1++] = domainTopReferer::fromMap($item1);
+                    $model->domainTopReferer[$n1] = domainTopReferer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

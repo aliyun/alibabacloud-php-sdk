@@ -45,7 +45,8 @@ class DescribeSceneDefenseObjectsResponseBody extends Model
                 $res['Objects'] = [];
                 $n1 = 0;
                 foreach ($this->objects as $item1) {
-                    $res['Objects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Objects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeSceneDefenseObjectsResponseBody extends Model
                 $model->objects = [];
                 $n1 = 0;
                 foreach ($map['Objects'] as $item1) {
-                    $model->objects[$n1++] = objects::fromMap($item1);
+                    $model->objects[$n1] = objects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -194,7 +194,8 @@ class webRules extends Model
                 $res['BlackList'] = [];
                 $n1 = 0;
                 foreach ($this->blackList as $item1) {
-                    $res['BlackList'][$n1++] = $item1;
+                    $res['BlackList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +229,8 @@ class webRules extends Model
                 $res['CustomCiphers'] = [];
                 $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
-                    $res['CustomCiphers'][$n1++] = $item1;
+                    $res['CustomCiphers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +272,8 @@ class webRules extends Model
                 $res['ProxyTypes'] = [];
                 $n1 = 0;
                 foreach ($this->proxyTypes as $item1) {
-                    $res['ProxyTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProxyTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +291,8 @@ class webRules extends Model
                 $res['RealServers'] = [];
                 $n1 = 0;
                 foreach ($this->realServers as $item1) {
-                    $res['RealServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RealServers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +318,8 @@ class webRules extends Model
                 $res['WhiteList'] = [];
                 $n1 = 0;
                 foreach ($this->whiteList as $item1) {
-                    $res['WhiteList'][$n1++] = $item1;
+                    $res['WhiteList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -335,7 +340,8 @@ class webRules extends Model
                 $model->blackList = [];
                 $n1 = 0;
                 foreach ($map['BlackList'] as $item1) {
-                    $model->blackList[$n1++] = $item1;
+                    $model->blackList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -369,7 +375,8 @@ class webRules extends Model
                 $model->customCiphers = [];
                 $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
-                    $model->customCiphers[$n1++] = $item1;
+                    $model->customCiphers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -411,7 +418,8 @@ class webRules extends Model
                 $model->proxyTypes = [];
                 $n1 = 0;
                 foreach ($map['ProxyTypes'] as $item1) {
-                    $model->proxyTypes[$n1++] = proxyTypes::fromMap($item1);
+                    $model->proxyTypes[$n1] = proxyTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -429,7 +437,8 @@ class webRules extends Model
                 $model->realServers = [];
                 $n1 = 0;
                 foreach ($map['RealServers'] as $item1) {
-                    $model->realServers[$n1++] = realServers::fromMap($item1);
+                    $model->realServers[$n1] = realServers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -455,7 +464,8 @@ class webRules extends Model
                 $model->whiteList = [];
                 $n1 = 0;
                 foreach ($map['WhiteList'] as $item1) {
-                    $model->whiteList[$n1++] = $item1;
+                    $model->whiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
