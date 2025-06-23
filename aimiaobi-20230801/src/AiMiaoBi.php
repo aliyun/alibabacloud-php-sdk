@@ -488,7 +488,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成剪辑视频.
+     * 生成剪辑视频任务
      *
      * @param tmpReq - AsyncCreateClipsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -569,7 +569,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成剪辑视频.
+     * 生成剪辑视频任务
      *
      * @param request - AsyncCreateClipsTaskRequest
      *

@@ -15,6 +15,11 @@ class chatConfig extends Model
     public $enableThinking;
 
     /**
+     * @var string[]
+     */
+    public $excludeGenerateOptions;
+
+    /**
      * @var string
      */
     public $generateLevel;
@@ -35,6 +40,7 @@ class chatConfig extends Model
     public $searchParam;
     protected $_name = [
         'enableThinking' => 'EnableThinking',
+        'excludeGenerateOptions' => 'ExcludeGenerateOptions',
         'generateLevel' => 'GenerateLevel',
         'generateTechnology' => 'GenerateTechnology',
         'searchModels' => 'SearchModels',
@@ -43,6 +49,9 @@ class chatConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->excludeGenerateOptions)) {
+            Model::validateArray($this->excludeGenerateOptions);
+        }
         if (\is_array($this->searchModels)) {
             Model::validateArray($this->searchModels);
         }
@@ -57,6 +66,17 @@ class chatConfig extends Model
         $res = [];
         if (null !== $this->enableThinking) {
             $res['EnableThinking'] = $this->enableThinking;
+        }
+
+        if (null !== $this->excludeGenerateOptions) {
+            if (\is_array($this->excludeGenerateOptions)) {
+                $res['ExcludeGenerateOptions'] = [];
+                $n1 = 0;
+                foreach ($this->excludeGenerateOptions as $item1) {
+                    $res['ExcludeGenerateOptions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->generateLevel) {
@@ -95,6 +115,17 @@ class chatConfig extends Model
         $model = new self();
         if (isset($map['EnableThinking'])) {
             $model->enableThinking = $map['EnableThinking'];
+        }
+
+        if (isset($map['ExcludeGenerateOptions'])) {
+            if (!empty($map['ExcludeGenerateOptions'])) {
+                $model->excludeGenerateOptions = [];
+                $n1 = 0;
+                foreach ($map['ExcludeGenerateOptions'] as $item1) {
+                    $model->excludeGenerateOptions[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['GenerateLevel'])) {
