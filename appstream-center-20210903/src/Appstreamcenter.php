@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210903;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\GetConnectionTicketRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\GetConnectionTicketResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\ListPublishedAppInfoRequest;
@@ -24,11 +23,10 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\StopAppResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\StopAppResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\UnbindRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\UnbindResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Appstreamcenter extends OpenApiClient
 {
@@ -54,102 +52,136 @@ class Appstreamcenter extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 获取连接信息
-     *  *
-     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取连接信息.
      *
-     * @return GetConnectionTicketResponse GetConnectionTicketResponse
+     * @param request - GetConnectionTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnectionTicketResponse
+     *
+     * @param GetConnectionTicketRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetConnectionTicketResponse
      */
     public function getConnectionTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $body['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$body['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appInstanceGroupId)) {
-            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-        if (!Utils::isUnset($request->appInstanceId)) {
-            $body['AppInstanceId'] = $request->appInstanceId;
+
+        if (null !== $request->appInstanceId) {
+            @$body['AppInstanceId'] = $request->appInstanceId;
         }
-        if (!Utils::isUnset($request->appVersion)) {
-            $body['AppVersion'] = $request->appVersion;
+
+        if (null !== $request->appPolicyId) {
+            @$body['AppPolicyId'] = $request->appPolicyId;
         }
-        if (!Utils::isUnset($request->autoConnectInQueue)) {
-            $body['AutoConnectInQueue'] = $request->autoConnectInQueue;
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $body['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->autoConnectInQueue) {
+            @$body['AutoConnectInQueue'] = $request->autoConnectInQueue;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $body['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->connectionProperties)) {
-            $body['ConnectionProperties'] = $request->connectionProperties;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->connectionProperties) {
+            @$body['ConnectionProperties'] = $request->connectionProperties;
         }
-        if (!Utils::isUnset($request->environmentConfig)) {
-            $body['EnvironmentConfig'] = $request->environmentConfig;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->environmentConfig) {
+            @$body['EnvironmentConfig'] = $request->environmentConfig;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->param)) {
-            $body['Param'] = $request->param;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->param) {
+            @$body['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetConnectionTicket',
@@ -162,19 +194,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConnectionTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取连接信息
-     *  *
-     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
+     * 获取连接信息.
      *
-     * @return GetConnectionTicketResponse GetConnectionTicketResponse
+     * @param request - GetConnectionTicketRequest
+     *
+     * @returns GetConnectionTicketResponse
+     *
+     * @param GetConnectionTicketRequest $request
+     *
+     * @return GetConnectionTicketResponse
      */
     public function getConnectionTicket($request)
     {
@@ -184,64 +217,84 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 已上架应用列表
-     *  *
-     * @param ListPublishedAppInfoRequest $request ListPublishedAppInfoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 已上架应用列表.
      *
-     * @return ListPublishedAppInfoResponse ListPublishedAppInfoResponse
+     * @param request - ListPublishedAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPublishedAppInfoResponse
+     *
+     * @param ListPublishedAppInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPublishedAppInfoResponse
      */
     public function listPublishedAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
+
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->categoryType)) {
-            $query['CategoryType'] = $request->categoryType;
+
+        if (null !== $request->categoryType) {
+            @$query['CategoryType'] = $request->categoryType;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $query['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $query['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$query['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->orderParam)) {
-            $query['OrderParam'] = $request->orderParam;
+
+        if (null !== $request->orderParam) {
+            @$query['OrderParam'] = $request->orderParam;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sortType)) {
-            $query['SortType'] = $request->sortType;
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPublishedAppInfo',
@@ -254,19 +307,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListPublishedAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPublishedAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPublishedAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 已上架应用列表
-     *  *
-     * @param ListPublishedAppInfoRequest $request ListPublishedAppInfoRequest
+     * 已上架应用列表.
      *
-     * @return ListPublishedAppInfoResponse ListPublishedAppInfoResponse
+     * @param request - ListPublishedAppInfoRequest
+     *
+     * @returns ListPublishedAppInfoResponse
+     *
+     * @param ListPublishedAppInfoRequest $request
+     *
+     * @return ListPublishedAppInfoResponse
      */
     public function listPublishedAppInfo($request)
     {
@@ -276,55 +330,72 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 运行中应用列表
-     *  *
-     * @param ListRunningAppsRequest $request ListRunningAppsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 运行中应用列表.
      *
-     * @return ListRunningAppsResponse ListRunningAppsResponse
+     * @param request - ListRunningAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRunningAppsResponse
+     *
+     * @param ListRunningAppsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListRunningAppsResponse
      */
     public function listRunningAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $query['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $query['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$query['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $query['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRunningApps',
@@ -337,19 +408,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListRunningAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRunningAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRunningAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 运行中应用列表
-     *  *
-     * @param ListRunningAppsRequest $request ListRunningAppsRequest
+     * 运行中应用列表.
      *
-     * @return ListRunningAppsResponse ListRunningAppsResponse
+     * @param request - ListRunningAppsRequest
+     *
+     * @returns ListRunningAppsResponse
+     *
+     * @param ListRunningAppsRequest $request
+     *
+     * @return ListRunningAppsResponse
      */
     public function listRunningApps($request)
     {
@@ -359,58 +431,76 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 重置应用资源
-     *  *
-     * @param ResetAppResourcesRequest $request ResetAppResourcesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 重置应用资源.
      *
-     * @return ResetAppResourcesResponse ResetAppResourcesResponse
+     * @param request - ResetAppResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetAppResourcesResponse
+     *
+     * @param ResetAppResourcesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResetAppResourcesResponse
      */
     public function resetAppResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appInstanceGroupId)) {
-            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $body['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $body['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$body['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ResetAppResources',
@@ -423,19 +513,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResetAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAppResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 重置应用资源
-     *  *
-     * @param ResetAppResourcesRequest $request ResetAppResourcesRequest
+     * 重置应用资源.
      *
-     * @return ResetAppResourcesResponse ResetAppResourcesResponse
+     * @param request - ResetAppResourcesRequest
+     *
+     * @returns ResetAppResourcesResponse
+     *
+     * @param ResetAppResourcesRequest $request
+     *
+     * @return ResetAppResourcesResponse
      */
     public function resetAppResources($request)
     {
@@ -445,58 +536,76 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 重启应用资源
-     *  *
-     * @param RestartAppResourcesRequest $request RestartAppResourcesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 重启应用资源.
      *
-     * @return RestartAppResourcesResponse RestartAppResourcesResponse
+     * @param request - RestartAppResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartAppResourcesResponse
+     *
+     * @param RestartAppResourcesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RestartAppResourcesResponse
      */
     public function restartAppResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appInstanceGroupId)) {
-            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $body['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $body['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$body['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RestartAppResources',
@@ -509,19 +618,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestartAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartAppResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 重启应用资源
-     *  *
-     * @param RestartAppResourcesRequest $request RestartAppResourcesRequest
+     * 重启应用资源.
      *
-     * @return RestartAppResourcesResponse RestartAppResourcesResponse
+     * @param request - RestartAppResourcesRequest
+     *
+     * @returns RestartAppResourcesResponse
+     *
+     * @param RestartAppResourcesRequest $request
+     *
+     * @return RestartAppResourcesResponse
      */
     public function restartAppResources($request)
     {
@@ -531,58 +641,76 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 启动应用资源
-     *  *
-     * @param StartAppResourcesRequest $request StartAppResourcesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 启动应用资源.
      *
-     * @return StartAppResourcesResponse StartAppResourcesResponse
+     * @param request - StartAppResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAppResourcesResponse
+     *
+     * @param StartAppResourcesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StartAppResourcesResponse
      */
     public function startAppResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appInstanceGroupId)) {
-            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $body['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $body['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$body['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StartAppResources',
@@ -595,19 +723,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StartAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartAppResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 启动应用资源
-     *  *
-     * @param StartAppResourcesRequest $request StartAppResourcesRequest
+     * 启动应用资源.
      *
-     * @return StartAppResourcesResponse StartAppResourcesResponse
+     * @param request - StartAppResourcesRequest
+     *
+     * @returns StartAppResourcesResponse
+     *
+     * @param StartAppResourcesRequest $request
+     *
+     * @return StartAppResourcesResponse
      */
     public function startAppResources($request)
     {
@@ -617,82 +746,108 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 停止应用
-     *  *
-     * @param StopAppRequest $request StopAppRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 停止应用.
      *
-     * @return StopAppResponse StopAppResponse
+     * @param request - StopAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAppResponse
+     *
+     * @param StopAppRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopAppResponse
      */
     public function stopAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $body['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$body['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->apiType)) {
-            $body['ApiType'] = $request->apiType;
+
+        if (null !== $request->apiType) {
+            @$body['ApiType'] = $request->apiType;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appInstanceGroupId)) {
-            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-        if (!Utils::isUnset($request->appInstanceId)) {
-            $body['AppInstanceId'] = $request->appInstanceId;
+
+        if (null !== $request->appInstanceId) {
+            @$body['AppInstanceId'] = $request->appInstanceId;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $body['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->clientChannel)) {
-            $body['ClientChannel'] = $request->clientChannel;
+
+        if (null !== $request->clientChannel) {
+            @$body['ClientChannel'] = $request->clientChannel;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->forceStop)) {
-            $body['ForceStop'] = $request->forceStop;
+
+        if (null !== $request->forceStop) {
+            @$body['ForceStop'] = $request->forceStop;
         }
-        if (!Utils::isUnset($request->idpId)) {
-            $body['IdpId'] = $request->idpId;
+
+        if (null !== $request->idpId) {
+            @$body['IdpId'] = $request->idpId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
-        if (!Utils::isUnset($request->wyId)) {
-            $body['WyId'] = $request->wyId;
+
+        if (null !== $request->wyId) {
+            @$body['WyId'] = $request->wyId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StopApp',
@@ -705,19 +860,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止应用
-     *  *
-     * @param StopAppRequest $request StopAppRequest
+     * 停止应用.
      *
-     * @return StopAppResponse StopAppResponse
+     * @param request - StopAppRequest
+     *
+     * @returns StopAppResponse
+     *
+     * @param StopAppRequest $request
+     *
+     * @return StopAppResponse
      */
     public function stopApp($request)
     {
@@ -727,58 +883,76 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 关闭应用资源
-     *  *
-     * @param StopAppResourcesRequest $request StopAppResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 关闭应用资源.
      *
-     * @return StopAppResourcesResponse StopAppResourcesResponse
+     * @param request - StopAppResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAppResourcesResponse
+     *
+     * @param StopAppResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopAppResourcesResponse
      */
     public function stopAppResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appInstanceGroupId)) {
-            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $body['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $body['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$body['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StopAppResources',
@@ -791,19 +965,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopAppResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 关闭应用资源
-     *  *
-     * @param StopAppResourcesRequest $request StopAppResourcesRequest
+     * 关闭应用资源.
      *
-     * @return StopAppResourcesResponse StopAppResourcesResponse
+     * @param request - StopAppResourcesRequest
+     *
+     * @returns StopAppResourcesResponse
+     *
+     * @param StopAppResourcesRequest $request
+     *
+     * @return StopAppResourcesResponse
      */
     public function stopAppResources($request)
     {
@@ -813,58 +988,76 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 解绑实例
-     *  *
-     * @param UnbindRequest  $request UnbindRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 解绑实例.
      *
-     * @return UnbindResponse UnbindResponse
+     * @param request - UnbindRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindResponse
+     *
+     * @param UnbindRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return UnbindResponse
      */
     public function unbindWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appInstanceGroupId)) {
-            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-        if (!Utils::isUnset($request->appInstanceId)) {
-            $body['AppInstanceId'] = $request->appInstanceId;
+
+        if (null !== $request->appInstanceId) {
+            @$body['AppInstanceId'] = $request->appInstanceId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Unbind',
@@ -877,19 +1070,20 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnbindResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑实例
-     *  *
-     * @param UnbindRequest $request UnbindRequest
+     * 解绑实例.
      *
-     * @return UnbindResponse UnbindResponse
+     * @param request - UnbindRequest
+     *
+     * @returns UnbindResponse
+     *
+     * @param UnbindRequest $request
+     *
+     * @return UnbindResponse
      */
     public function unbind($request)
     {

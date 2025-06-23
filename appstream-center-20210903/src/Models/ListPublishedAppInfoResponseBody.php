@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\ListPublishedAppInfoResponseBody\appModels;
-use AlibabaCloud\Tea\Model;
 
 class ListPublishedAppInfoResponseBody extends Model
 {
     /**
-     * @description appModels
-     *
      * @var appModels[]
      */
     public $appModels;
 
     /**
-     * @example 2NVfhLfgy5b3J5iJyoLQ6x4EULMg1hbhgB9NfnvdK9oj5zwxd17j4TuQkZze3RvhEvBinZYjknujF3Q1M
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
-     * @example DB70F8FE-63A3-587B-8560-CEC258E8B944
-     *
      * @var string
      */
     public $requestId;
@@ -37,23 +29,32 @@ class ListPublishedAppInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appModels)) {
+            Model::validateArray($this->appModels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appModels) {
-            $res['AppModels'] = [];
-            if (null !== $this->appModels && \is_array($this->appModels)) {
-                $n = 0;
-                foreach ($this->appModels as $item) {
-                    $res['AppModels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appModels)) {
+                $res['AppModels'] = [];
+                $n1 = 0;
+                foreach ($this->appModels as $item1) {
+                    $res['AppModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -61,26 +62,29 @@ class ListPublishedAppInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPublishedAppInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppModels'])) {
             if (!empty($map['AppModels'])) {
                 $model->appModels = [];
-                $n = 0;
-                foreach ($map['AppModels'] as $item) {
-                    $model->appModels[$n++] = null !== $item ? appModels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AppModels'] as $item1) {
+                    $model->appModels[$n1] = appModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopAppResponseBody extends Model
 {
     /**
-     * @example 83A9075B-C646-59A9-8232-CAE41AF4B9E3
-     *
      * @var string
      */
     public $requestId;
@@ -18,9 +16,12 @@ class StopAppResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class StopAppResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopAppResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

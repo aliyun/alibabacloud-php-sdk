@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\GetConnectionTicketResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bindQueueInfo extends Model
 {
@@ -52,29 +52,38 @@ class bindQueueInfo extends Model
         'waitTime' => 'WaitTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queueStatus) {
             $res['QueueStatus'] = $this->queueStatus;
         }
+
         if (null !== $this->rank) {
             $res['Rank'] = $this->rank;
         }
+
         if (null !== $this->readyTimeout) {
             $res['ReadyTimeout'] = $this->readyTimeout;
         }
+
         if (null !== $this->remainingTime) {
             $res['RemainingTime'] = $this->remainingTime;
         }
+
         if (null !== $this->requestKey) {
             $res['RequestKey'] = $this->requestKey;
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
         if (null !== $this->waitTime) {
             $res['WaitTime'] = $this->waitTime;
         }
@@ -82,32 +91,38 @@ class bindQueueInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindQueueInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QueueStatus'])) {
             $model->queueStatus = $map['QueueStatus'];
         }
+
         if (isset($map['Rank'])) {
             $model->rank = $map['Rank'];
         }
+
         if (isset($map['ReadyTimeout'])) {
             $model->readyTimeout = $map['ReadyTimeout'];
         }
+
         if (isset($map['RemainingTime'])) {
             $model->remainingTime = $map['RemainingTime'];
         }
+
         if (isset($map['RequestKey'])) {
             $model->requestKey = $map['RequestKey'];
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
         if (isset($map['WaitTime'])) {
             $model->waitTime = $map['WaitTime'];
         }
