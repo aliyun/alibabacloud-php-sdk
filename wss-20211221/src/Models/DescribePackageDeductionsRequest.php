@@ -39,6 +39,11 @@ class DescribePackageDeductionsRequest extends Model
     public $resourceType;
 
     /**
+     * @var string[]
+     */
+    public $resourceTypes;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -49,6 +54,7 @@ class DescribePackageDeductionsRequest extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'resourceType' => 'ResourceType',
+        'resourceTypes' => 'ResourceTypes',
         'startTime' => 'StartTime',
     ];
 
@@ -59,6 +65,9 @@ class DescribePackageDeductionsRequest extends Model
         }
         if (\is_array($this->packageIds)) {
             Model::validateArray($this->packageIds);
+        }
+        if (\is_array($this->resourceTypes)) {
+            Model::validateArray($this->resourceTypes);
         }
         parent::validate();
     }
@@ -75,7 +84,8 @@ class DescribePackageDeductionsRequest extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +95,8 @@ class DescribePackageDeductionsRequest extends Model
                 $res['PackageIds'] = [];
                 $n1 = 0;
                 foreach ($this->packageIds as $item1) {
-                    $res['PackageIds'][$n1++] = $item1;
+                    $res['PackageIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,6 +111,17 @@ class DescribePackageDeductionsRequest extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->resourceTypes) {
+            if (\is_array($this->resourceTypes)) {
+                $res['ResourceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->resourceTypes as $item1) {
+                    $res['ResourceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->startTime) {
@@ -126,7 +148,8 @@ class DescribePackageDeductionsRequest extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +159,8 @@ class DescribePackageDeductionsRequest extends Model
                 $model->packageIds = [];
                 $n1 = 0;
                 foreach ($map['PackageIds'] as $item1) {
-                    $model->packageIds[$n1++] = $item1;
+                    $model->packageIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,6 +175,17 @@ class DescribePackageDeductionsRequest extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['ResourceTypes'])) {
+            if (!empty($map['ResourceTypes'])) {
+                $model->resourceTypes = [];
+                $n1 = 0;
+                foreach ($map['ResourceTypes'] as $item1) {
+                    $model->resourceTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['StartTime'])) {

@@ -49,7 +49,8 @@ class priceDetails extends Model
                 $res['ModuleDetails'] = [];
                 $n1 = 0;
                 foreach ($this->moduleDetails as $item1) {
-                    $res['ModuleDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModuleDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class priceDetails extends Model
                 $model->moduleDetails = [];
                 $n1 = 0;
                 foreach ($map['ModuleDetails'] as $item1) {
-                    $model->moduleDetails[$n1++] = moduleDetails::fromMap($item1);
+                    $model->moduleDetails[$n1] = moduleDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class DescribeMultiPriceRequest extends Model
                 $res['OrderItems'] = [];
                 $n1 = 0;
                 foreach ($this->orderItems as $item1) {
-                    $res['OrderItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OrderItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeMultiPriceRequest extends Model
                 $model->orderItems = [];
                 $n1 = 0;
                 foreach ($map['OrderItems'] as $item1) {
-                    $model->orderItems[$n1++] = orderItems::fromMap($item1);
+                    $model->orderItems[$n1] = orderItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

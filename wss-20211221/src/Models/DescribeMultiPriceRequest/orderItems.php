@@ -85,7 +85,8 @@ class orderItems extends Model
                 $res['Components'] = [];
                 $n1 = 0;
                 foreach ($this->components as $item1) {
-                    $res['Components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class orderItems extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +119,8 @@ class orderItems extends Model
                 $res['ResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['ResourceIds'][$n1++] = $item1;
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +149,8 @@ class orderItems extends Model
                 $model->components = [];
                 $n1 = 0;
                 foreach ($map['Components'] as $item1) {
-                    $model->components[$n1++] = components::fromMap($item1);
+                    $model->components[$n1] = components::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +160,8 @@ class orderItems extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +183,8 @@ class orderItems extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

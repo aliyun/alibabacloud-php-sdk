@@ -130,6 +130,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 查询物流地址
+     *
      * @param request - DescribeDeliveryAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -158,6 +160,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 查询物流地址
+     *
      * @returns DescribeDeliveryAddressResponse
      *
      * @return DescribeDeliveryAddressResponse
@@ -170,6 +174,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 批量询价.
+     *
      * @param request - DescribeMultiPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -219,6 +225,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 批量询价.
+     *
      * @param request - DescribeMultiPriceRequest
      *
      * @returns DescribeMultiPriceResponse
@@ -275,6 +283,10 @@ class Wss extends OpenApiClient
             @$query['ResourceType'] = $request->resourceType;
         }
 
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
@@ -316,6 +328,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 更新实例属性.
+     *
      * @param request - ModifyInstancePropertiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -369,6 +383,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 更新实例属性.
+     *
      * @param request - ModifyInstancePropertiesRequest
      *
      * @returns ModifyInstancePropertiesResponse

@@ -36,7 +36,17 @@ class deductions extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $instanceState;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
 
     /**
      * @var int
@@ -61,6 +71,11 @@ class deductions extends Model
     /**
      * @var string
      */
+    public $sessionId;
+
+    /**
+     * @var string
+     */
     public $staTime;
 
     /**
@@ -72,20 +87,29 @@ class deductions extends Model
      * @var int
      */
     public $usedTime;
+
+    /**
+     * @var int
+     */
+    public $usedTimeWithScale;
     protected $_name = [
         'cpu' => 'Cpu',
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
         'desktopType' => 'DesktopType',
         'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'instanceState' => 'InstanceState',
+        'instanceType' => 'InstanceType',
         'memory' => 'Memory',
         'osType' => 'OsType',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
+        'sessionId' => 'SessionId',
         'staTime' => 'StaTime',
         'usedCoreTime' => 'UsedCoreTime',
         'usedTime' => 'UsedTime',
+        'usedTimeWithScale' => 'UsedTimeWithScale',
     ];
 
     public function validate()
@@ -116,8 +140,16 @@ class deductions extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->instanceState) {
             $res['InstanceState'] = $this->instanceState;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         if (null !== $this->memory) {
@@ -136,6 +168,10 @@ class deductions extends Model
             $res['ResourceType'] = $this->resourceType;
         }
 
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
+        }
+
         if (null !== $this->staTime) {
             $res['StaTime'] = $this->staTime;
         }
@@ -146,6 +182,10 @@ class deductions extends Model
 
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
+        }
+
+        if (null !== $this->usedTimeWithScale) {
+            $res['UsedTimeWithScale'] = $this->usedTimeWithScale;
         }
 
         return $res;
@@ -179,8 +219,16 @@ class deductions extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['InstanceState'])) {
             $model->instanceState = $map['InstanceState'];
+        }
+
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         if (isset($map['Memory'])) {
@@ -199,6 +247,10 @@ class deductions extends Model
             $model->resourceType = $map['ResourceType'];
         }
 
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
+        }
+
         if (isset($map['StaTime'])) {
             $model->staTime = $map['StaTime'];
         }
@@ -209,6 +261,10 @@ class deductions extends Model
 
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
+        }
+
+        if (isset($map['UsedTimeWithScale'])) {
+            $model->usedTimeWithScale = $map['UsedTimeWithScale'];
         }
 
         return $model;

@@ -69,7 +69,8 @@ class DescribePackageDeductionsResponseBody extends Model
                 $res['Deductions'] = [];
                 $n1 = 0;
                 foreach ($this->deductions as $item1) {
-                    $res['Deductions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Deductions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class DescribePackageDeductionsResponseBody extends Model
                 $model->deductions = [];
                 $n1 = 0;
                 foreach ($map['Deductions'] as $item1) {
-                    $model->deductions[$n1++] = deductions::fromMap($item1);
+                    $model->deductions[$n1] = deductions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
