@@ -51,6 +51,11 @@ class DescDomainResponseBody extends Model
     /**
      * @var int
      */
+    public $dkimRsaLength;
+
+    /**
+     * @var int
+     */
     public $dmarcAuthStatus;
 
     /**
@@ -161,6 +166,7 @@ class DescDomainResponseBody extends Model
         'dkimAuthStatus' => 'DkimAuthStatus',
         'dkimPublicKey' => 'DkimPublicKey',
         'dkimRR' => 'DkimRR',
+        'dkimRsaLength' => 'DkimRsaLength',
         'dmarcAuthStatus' => 'DmarcAuthStatus',
         'dmarcHostRecord' => 'DmarcHostRecord',
         'dmarcRecord' => 'DmarcRecord',
@@ -222,6 +228,10 @@ class DescDomainResponseBody extends Model
 
         if (null !== $this->dkimRR) {
             $res['DkimRR'] = $this->dkimRR;
+        }
+
+        if (null !== $this->dkimRsaLength) {
+            $res['DkimRsaLength'] = $this->dkimRsaLength;
         }
 
         if (null !== $this->dmarcAuthStatus) {
@@ -349,6 +359,10 @@ class DescDomainResponseBody extends Model
 
         if (isset($map['DkimRR'])) {
             $model->dkimRR = $map['DkimRR'];
+        }
+
+        if (isset($map['DkimRsaLength'])) {
+            $model->dkimRsaLength = $map['DkimRsaLength'];
         }
 
         if (isset($map['DmarcAuthStatus'])) {

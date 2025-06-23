@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\ApproveReplyMailAddressRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ApproveReplyMailAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\BatchSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\BatchSendMailResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ChangeDomainDkimRecordRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ChangeDomainDkimRecordResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CheckDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CheckDomainResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CheckReplyToMailAddressRequest;
@@ -392,6 +394,79 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchSendMailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改域名DKIM记录.
+     *
+     * @param request - ChangeDomainDkimRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeDomainDkimRecordResponse
+     *
+     * @param ChangeDomainDkimRecordRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ChangeDomainDkimRecordResponse
+     */
+    public function changeDomainDkimRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dkimRsaLength) {
+            @$query['DkimRsaLength'] = $request->dkimRsaLength;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeDomainDkimRecord',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeDomainDkimRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改域名DKIM记录.
+     *
+     * @param request - ChangeDomainDkimRecordRequest
+     *
+     * @returns ChangeDomainDkimRecordResponse
+     *
+     * @param ChangeDomainDkimRecordRequest $request
+     *
+     * @return ChangeDomainDkimRecordResponse
+     */
+    public function changeDomainDkimRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeDomainDkimRecordWithOptions($request, $runtime);
     }
 
     /**
