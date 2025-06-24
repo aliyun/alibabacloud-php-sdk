@@ -65,7 +65,8 @@ class data extends Model
                 $res['ScaleRecords'] = [];
                 $n1 = 0;
                 foreach ($this->scaleRecords as $item1) {
-                    $res['ScaleRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScaleRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class data extends Model
                 $model->scaleRecords = [];
                 $n1 = 0;
                 foreach ($map['ScaleRecords'] as $item1) {
-                    $model->scaleRecords[$n1++] = scaleRecords::fromMap($item1);
+                    $model->scaleRecords[$n1] = scaleRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

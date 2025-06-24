@@ -298,7 +298,8 @@ class GetLindormV2InstanceResponseBody extends Model
                 $res['EngineList'] = [];
                 $n1 = 0;
                 foreach ($this->engineList as $item1) {
-                    $res['EngineList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EngineList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -392,7 +393,8 @@ class GetLindormV2InstanceResponseBody extends Model
                 $res['WhiteIpList'] = [];
                 $n1 = 0;
                 foreach ($this->whiteIpList as $item1) {
-                    $res['WhiteIpList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WhiteIpList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -470,7 +472,8 @@ class GetLindormV2InstanceResponseBody extends Model
                 $model->engineList = [];
                 $n1 = 0;
                 foreach ($map['EngineList'] as $item1) {
-                    $model->engineList[$n1++] = engineList::fromMap($item1);
+                    $model->engineList[$n1] = engineList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -564,7 +567,8 @@ class GetLindormV2InstanceResponseBody extends Model
                 $model->whiteIpList = [];
                 $n1 = 0;
                 foreach ($map['WhiteIpList'] as $item1) {
-                    $model->whiteIpList[$n1++] = whiteIpList::fromMap($item1);
+                    $model->whiteIpList[$n1] = whiteIpList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

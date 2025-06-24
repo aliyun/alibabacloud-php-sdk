@@ -57,7 +57,8 @@ class GetLindormInstanceListResponseBody extends Model
                 $res['InstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceList as $item1) {
-                    $res['InstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class GetLindormInstanceListResponseBody extends Model
                 $model->instanceList = [];
                 $n1 = 0;
                 foreach ($map['InstanceList'] as $item1) {
-                    $model->instanceList[$n1++] = instanceList::fromMap($item1);
+                    $model->instanceList[$n1] = instanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -67,7 +67,8 @@ class engineList extends Model
                 $res['ConnectAddressList'] = [];
                 $n1 = 0;
                 foreach ($this->connectAddressList as $item1) {
-                    $res['ConnectAddressList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConnectAddressList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class engineList extends Model
                 $res['NodeGroup'] = [];
                 $n1 = 0;
                 foreach ($this->nodeGroup as $item1) {
-                    $res['NodeGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +116,8 @@ class engineList extends Model
                 $model->connectAddressList = [];
                 $n1 = 0;
                 foreach ($map['ConnectAddressList'] as $item1) {
-                    $model->connectAddressList[$n1++] = connectAddressList::fromMap($item1);
+                    $model->connectAddressList[$n1] = connectAddressList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class engineList extends Model
                 $model->nodeGroup = [];
                 $n1 = 0;
                 foreach ($map['NodeGroup'] as $item1) {
-                    $model->nodeGroup[$n1++] = nodeGroup::fromMap($item1);
+                    $model->nodeGroup[$n1] = nodeGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

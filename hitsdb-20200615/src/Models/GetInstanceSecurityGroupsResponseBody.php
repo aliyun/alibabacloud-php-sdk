@@ -62,7 +62,8 @@ class GetInstanceSecurityGroupsResponseBody extends Model
                 $res['SecurityGroups'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroups as $item1) {
-                    $res['SecurityGroups'][$n1++] = $item1;
+                    $res['SecurityGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class GetInstanceSecurityGroupsResponseBody extends Model
                 $model->securityGroups = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroups'] as $item1) {
-                    $model->securityGroups[$n1++] = $item1;
+                    $model->securityGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -42,11 +42,12 @@ class storageUsage extends Model
                 $n1 = 0;
                 foreach ($this->capacityByDiskCategory as $item1) {
                     if (\is_array($item1)) {
-                        $res['CapacityByDiskCategory'][$n1++] = [];
+                        $res['CapacityByDiskCategory'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['CapacityByDiskCategory'][$n1++][$key2] = $value2;
+                            $res['CapacityByDiskCategory'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -77,11 +78,12 @@ class storageUsage extends Model
                 $n1 = 0;
                 foreach ($map['CapacityByDiskCategory'] as $item1) {
                     if (!empty($item1)) {
-                        $model->capacityByDiskCategory[$n1++] = [];
+                        $model->capacityByDiskCategory[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->capacityByDiskCategory[$n1++][$key2] = $value2;
+                            $model->capacityByDiskCategory[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

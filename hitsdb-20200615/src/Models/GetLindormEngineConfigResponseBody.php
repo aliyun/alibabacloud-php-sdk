@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthResponseBody\authInfos;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormEngineConfigResponseBody\engineConfigs;
 
-class GetEngineDefaultAuthResponseBody extends Model
+class GetLindormEngineConfigResponseBody extends Model
 {
     /**
      * @var string
@@ -15,14 +15,9 @@ class GetEngineDefaultAuthResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @var authInfos[]
+     * @var engineConfigs[]
      */
-    public $authInfos;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $engineConfigs;
 
     /**
      * @var string
@@ -30,15 +25,14 @@ class GetEngineDefaultAuthResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'authInfos' => 'AuthInfos',
-        'instanceId' => 'InstanceId',
+        'engineConfigs' => 'EngineConfigs',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->authInfos)) {
-            Model::validateArray($this->authInfos);
+        if (\is_array($this->engineConfigs)) {
+            Model::validateArray($this->engineConfigs);
         }
         parent::validate();
     }
@@ -50,19 +44,15 @@ class GetEngineDefaultAuthResponseBody extends Model
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
 
-        if (null !== $this->authInfos) {
-            if (\is_array($this->authInfos)) {
-                $res['AuthInfos'] = [];
+        if (null !== $this->engineConfigs) {
+            if (\is_array($this->engineConfigs)) {
+                $res['EngineConfigs'] = [];
                 $n1 = 0;
-                foreach ($this->authInfos as $item1) {
-                    $res['AuthInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->engineConfigs as $item1) {
+                    $res['EngineConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->requestId) {
@@ -84,19 +74,15 @@ class GetEngineDefaultAuthResponseBody extends Model
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
 
-        if (isset($map['AuthInfos'])) {
-            if (!empty($map['AuthInfos'])) {
-                $model->authInfos = [];
+        if (isset($map['EngineConfigs'])) {
+            if (!empty($map['EngineConfigs'])) {
+                $model->engineConfigs = [];
                 $n1 = 0;
-                foreach ($map['AuthInfos'] as $item1) {
-                    $model->authInfos[$n1] = authInfos::fromMap($item1);
+                foreach ($map['EngineConfigs'] as $item1) {
+                    $model->engineConfigs[$n1] = engineConfigs::fromMap($item1);
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['RequestId'])) {

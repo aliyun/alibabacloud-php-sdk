@@ -5,14 +5,18 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesRequest\tag;
 
-class ListTagResourcesRequest extends Model
+class GetLindormEngineConfigRequest extends Model
 {
     /**
      * @var string
      */
-    public $nextToken;
+    public $engineType;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -30,11 +34,6 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @var string[]
-     */
-    public $resourceId;
-
-    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -47,46 +46,32 @@ class ListTagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
     public $securityToken;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
-        'nextToken' => 'NextToken',
+        'engineType' => 'EngineType',
+        'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
-        'resourceId' => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'resourceType' => 'ResourceType',
         'securityToken' => 'SecurityToken',
-        'tag' => 'Tag',
     ];
 
     public function validate()
     {
-        if (\is_array($this->resourceId)) {
-            Model::validateArray($this->resourceId);
-        }
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->ownerAccount) {
@@ -101,17 +86,6 @@ class ListTagResourcesRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->resourceId) {
-            if (\is_array($this->resourceId)) {
-                $res['ResourceId'] = [];
-                $n1 = 0;
-                foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -120,23 +94,8 @@ class ListTagResourcesRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-
-        if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         return $res;
@@ -150,8 +109,12 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -166,17 +129,6 @@ class ListTagResourcesRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['ResourceId'])) {
-            if (!empty($map['ResourceId'])) {
-                $model->resourceId = [];
-                $n1 = 0;
-                foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -185,23 +137,8 @@ class ListTagResourcesRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1] = tag::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         return $model;

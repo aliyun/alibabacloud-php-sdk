@@ -71,7 +71,8 @@ class resourceGroupList extends Model
                 $res['JmIpList'] = [];
                 $n1 = 0;
                 foreach ($this->jmIpList as $item1) {
-                    $res['JmIpList'][$n1++] = $item1;
+                    $res['JmIpList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class resourceGroupList extends Model
                 $res['SgIpList'] = [];
                 $n1 = 0;
                 foreach ($this->sgIpList as $item1) {
-                    $res['SgIpList'][$n1++] = $item1;
+                    $res['SgIpList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class resourceGroupList extends Model
                 $model->jmIpList = [];
                 $n1 = 0;
                 foreach ($map['JmIpList'] as $item1) {
-                    $model->jmIpList[$n1++] = $item1;
+                    $model->jmIpList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class resourceGroupList extends Model
                 $model->sgIpList = [];
                 $n1 = 0;
                 foreach ($map['SgIpList'] as $item1) {
-                    $model->sgIpList[$n1++] = $item1;
+                    $model->sgIpList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

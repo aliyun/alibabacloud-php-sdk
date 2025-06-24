@@ -39,7 +39,8 @@ class GetLdpsNamespacedQuotaResponseBody extends Model
                 $res['NamespacedQuotas'] = [];
                 $n1 = 0;
                 foreach ($this->namespacedQuotas as $item1) {
-                    $res['NamespacedQuotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NamespacedQuotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetLdpsNamespacedQuotaResponseBody extends Model
                 $model->namespacedQuotas = [];
                 $n1 = 0;
                 foreach ($map['NamespacedQuotas'] as $item1) {
-                    $model->namespacedQuotas[$n1++] = namespacedQuotas::fromMap($item1);
+                    $model->namespacedQuotas[$n1] = namespacedQuotas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

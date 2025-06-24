@@ -55,7 +55,8 @@ class GetLindormV2InstanceEngineListResponseBody extends Model
                 $res['EngineList'] = [];
                 $n1 = 0;
                 foreach ($this->engineList as $item1) {
-                    $res['EngineList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EngineList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class GetLindormV2InstanceEngineListResponseBody extends Model
                 $model->engineList = [];
                 $n1 = 0;
                 foreach ($map['EngineList'] as $item1) {
-                    $model->engineList[$n1++] = engineList::fromMap($item1);
+                    $model->engineList[$n1] = engineList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

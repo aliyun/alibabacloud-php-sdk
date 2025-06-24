@@ -43,7 +43,8 @@ class engineList extends Model
                 $res['NetInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->netInfoList as $item1) {
-                    $res['NetInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class engineList extends Model
                 $model->netInfoList = [];
                 $n1 = 0;
                 foreach ($map['NetInfoList'] as $item1) {
-                    $model->netInfoList[$n1++] = netInfoList::fromMap($item1);
+                    $model->netInfoList[$n1] = netInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

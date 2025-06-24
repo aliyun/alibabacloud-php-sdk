@@ -215,7 +215,8 @@ class GetLindormFsUsedDetailResponseBody extends Model
                 $res['LStorageUsageList'] = [];
                 $n1 = 0;
                 foreach ($this->LStorageUsageList as $item1) {
-                    $res['LStorageUsageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LStorageUsageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +313,8 @@ class GetLindormFsUsedDetailResponseBody extends Model
                 $model->LStorageUsageList = [];
                 $n1 = 0;
                 foreach ($map['LStorageUsageList'] as $item1) {
-                    $model->LStorageUsageList[$n1++] = LStorageUsageList::fromMap($item1);
+                    $model->LStorageUsageList[$n1] = LStorageUsageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

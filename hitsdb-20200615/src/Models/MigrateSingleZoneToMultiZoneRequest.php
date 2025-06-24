@@ -5,34 +5,23 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyLindormV2InstanceRequest\nodeGroupList;
 
-class ModifyLindormV2InstanceRequest extends Model
+class MigrateSingleZoneToMultiZoneRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $cloudStorageSize;
+    public $arbitraryVSwitchId;
 
     /**
      * @var string
      */
-    public $cloudStorageType;
-
-    /**
-     * @var string
-     */
-    public $engineType;
+    public $arbitraryZoneId;
 
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var nodeGroupList[]
-     */
-    public $nodeGroupList;
 
     /**
      * @var string
@@ -43,11 +32,6 @@ class ModifyLindormV2InstanceRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var string
@@ -67,58 +51,43 @@ class ModifyLindormV2InstanceRequest extends Model
     /**
      * @var string
      */
-    public $upgradeType;
+    public $standbyVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $standbyZoneId;
     protected $_name = [
-        'cloudStorageSize' => 'CloudStorageSize',
-        'cloudStorageType' => 'CloudStorageType',
-        'engineType' => 'EngineType',
+        'arbitraryVSwitchId' => 'ArbitraryVSwitchId',
+        'arbitraryZoneId' => 'ArbitraryZoneId',
         'instanceId' => 'InstanceId',
-        'nodeGroupList' => 'NodeGroupList',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
-        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
-        'upgradeType' => 'UpgradeType',
+        'standbyVSwitchId' => 'StandbyVSwitchId',
+        'standbyZoneId' => 'StandbyZoneId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->nodeGroupList)) {
-            Model::validateArray($this->nodeGroupList);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cloudStorageSize) {
-            $res['CloudStorageSize'] = $this->cloudStorageSize;
+        if (null !== $this->arbitraryVSwitchId) {
+            $res['ArbitraryVSwitchId'] = $this->arbitraryVSwitchId;
         }
 
-        if (null !== $this->cloudStorageType) {
-            $res['CloudStorageType'] = $this->cloudStorageType;
-        }
-
-        if (null !== $this->engineType) {
-            $res['EngineType'] = $this->engineType;
+        if (null !== $this->arbitraryZoneId) {
+            $res['ArbitraryZoneId'] = $this->arbitraryZoneId;
         }
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-
-        if (null !== $this->nodeGroupList) {
-            if (\is_array($this->nodeGroupList)) {
-                $res['NodeGroupList'] = [];
-                $n1 = 0;
-                foreach ($this->nodeGroupList as $item1) {
-                    $res['NodeGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->ownerAccount) {
@@ -127,10 +96,6 @@ class ModifyLindormV2InstanceRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -145,8 +110,12 @@ class ModifyLindormV2InstanceRequest extends Model
             $res['SecurityToken'] = $this->securityToken;
         }
 
-        if (null !== $this->upgradeType) {
-            $res['UpgradeType'] = $this->upgradeType;
+        if (null !== $this->standbyVSwitchId) {
+            $res['StandbyVSwitchId'] = $this->standbyVSwitchId;
+        }
+
+        if (null !== $this->standbyZoneId) {
+            $res['StandbyZoneId'] = $this->standbyZoneId;
         }
 
         return $res;
@@ -160,31 +129,16 @@ class ModifyLindormV2InstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CloudStorageSize'])) {
-            $model->cloudStorageSize = $map['CloudStorageSize'];
+        if (isset($map['ArbitraryVSwitchId'])) {
+            $model->arbitraryVSwitchId = $map['ArbitraryVSwitchId'];
         }
 
-        if (isset($map['CloudStorageType'])) {
-            $model->cloudStorageType = $map['CloudStorageType'];
-        }
-
-        if (isset($map['EngineType'])) {
-            $model->engineType = $map['EngineType'];
+        if (isset($map['ArbitraryZoneId'])) {
+            $model->arbitraryZoneId = $map['ArbitraryZoneId'];
         }
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-
-        if (isset($map['NodeGroupList'])) {
-            if (!empty($map['NodeGroupList'])) {
-                $model->nodeGroupList = [];
-                $n1 = 0;
-                foreach ($map['NodeGroupList'] as $item1) {
-                    $model->nodeGroupList[$n1] = nodeGroupList::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -193,10 +147,6 @@ class ModifyLindormV2InstanceRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -211,8 +161,12 @@ class ModifyLindormV2InstanceRequest extends Model
             $model->securityToken = $map['SecurityToken'];
         }
 
-        if (isset($map['UpgradeType'])) {
-            $model->upgradeType = $map['UpgradeType'];
+        if (isset($map['StandbyVSwitchId'])) {
+            $model->standbyVSwitchId = $map['StandbyVSwitchId'];
+        }
+
+        if (isset($map['StandbyZoneId'])) {
+            $model->standbyZoneId = $map['StandbyZoneId'];
         }
 
         return $model;

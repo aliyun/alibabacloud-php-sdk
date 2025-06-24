@@ -135,7 +135,8 @@ class data extends Model
                 $res['ScaleRuleList'] = [];
                 $n1 = 0;
                 foreach ($this->scaleRuleList as $item1) {
-                    $res['ScaleRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScaleRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +201,8 @@ class data extends Model
                 $model->scaleRuleList = [];
                 $n1 = 0;
                 foreach ($map['ScaleRuleList'] as $item1) {
-                    $model->scaleRuleList[$n1++] = scaleRuleList::fromMap($item1);
+                    $model->scaleRuleList[$n1] = scaleRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

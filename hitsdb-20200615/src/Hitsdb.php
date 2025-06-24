@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsResourceCostRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsResourceCostResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormEngineConfigRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormEngineConfigResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormFsUsedDetailRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormFsUsedDetailResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceEngineListRequest;
@@ -76,6 +78,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\MigrateSingleZoneToMultiZoneRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\MigrateSingleZoneToMultiZoneResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingConfigRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingConfigResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingRuleRequest;
@@ -2240,6 +2244,91 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 获取Lindorm引擎配置.
+     *
+     * @param request - GetLindormEngineConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLindormEngineConfigResponse
+     *
+     * @param GetLindormEngineConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetLindormEngineConfigResponse
+     */
+    public function getLindormEngineConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLindormEngineConfig',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLindormEngineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Lindorm引擎配置.
+     *
+     * @param request - GetLindormEngineConfigRequest
+     *
+     * @returns GetLindormEngineConfigResponse
+     *
+     * @param GetLindormEngineConfigRequest $request
+     *
+     * @return GetLindormEngineConfigResponse
+     */
+    public function getLindormEngineConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLindormEngineConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of each storage type in a Lindorm instance.
      *
      * @remarks
@@ -3288,6 +3377,99 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 单可用区迁移多可用区基础版.
+     *
+     * @param request - MigrateSingleZoneToMultiZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MigrateSingleZoneToMultiZoneResponse
+     *
+     * @param MigrateSingleZoneToMultiZoneRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return MigrateSingleZoneToMultiZoneResponse
+     */
+    public function migrateSingleZoneToMultiZoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->arbitraryVSwitchId) {
+            @$query['ArbitraryVSwitchId'] = $request->arbitraryVSwitchId;
+        }
+
+        if (null !== $request->arbitraryZoneId) {
+            @$query['ArbitraryZoneId'] = $request->arbitraryZoneId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->standbyVSwitchId) {
+            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+        }
+
+        if (null !== $request->standbyZoneId) {
+            @$query['StandbyZoneId'] = $request->standbyZoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MigrateSingleZoneToMultiZone',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MigrateSingleZoneToMultiZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 单可用区迁移多可用区基础版.
+     *
+     * @param request - MigrateSingleZoneToMultiZoneRequest
+     *
+     * @returns MigrateSingleZoneToMultiZoneResponse
+     *
+     * @param MigrateSingleZoneToMultiZoneRequest $request
+     *
+     * @return MigrateSingleZoneToMultiZoneResponse
+     */
+    public function migrateSingleZoneToMultiZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->migrateSingleZoneToMultiZoneWithOptions($request, $runtime);
     }
 
     /**

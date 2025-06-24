@@ -43,7 +43,8 @@ class engineList extends Model
                 $res['NodeGroupList'] = [];
                 $n1 = 0;
                 foreach ($this->nodeGroupList as $item1) {
-                    $res['NodeGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class engineList extends Model
                 $model->nodeGroupList = [];
                 $n1 = 0;
                 foreach ($map['NodeGroupList'] as $item1) {
-                    $model->nodeGroupList[$n1++] = nodeGroupList::fromMap($item1);
+                    $model->nodeGroupList[$n1] = nodeGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
