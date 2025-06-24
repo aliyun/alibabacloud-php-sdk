@@ -77,7 +77,8 @@ class ListChatappTemplateResponseBody extends Model
                 $res['ListTemplate'] = [];
                 $n1 = 0;
                 foreach ($this->listTemplate as $item1) {
-                    $res['ListTemplate'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ListTemplate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class ListChatappTemplateResponseBody extends Model
                 $model->listTemplate = [];
                 $n1 = 0;
                 foreach ($map['ListTemplate'] as $item1) {
-                    $model->listTemplate[$n1++] = listTemplate::fromMap($item1);
+                    $model->listTemplate[$n1] = listTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

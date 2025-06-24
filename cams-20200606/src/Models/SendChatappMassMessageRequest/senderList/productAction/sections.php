@@ -39,7 +39,8 @@ class sections extends Model
                 $res['ProductItems'] = [];
                 $n1 = 0;
                 foreach ($this->productItems as $item1) {
-                    $res['ProductItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProductItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class sections extends Model
                 $model->productItems = [];
                 $n1 = 0;
                 foreach ($map['ProductItems'] as $item1) {
-                    $model->productItems[$n1++] = productItems::fromMap($item1);
+                    $model->productItems[$n1] = productItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

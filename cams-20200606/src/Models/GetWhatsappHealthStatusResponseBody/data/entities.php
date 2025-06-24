@@ -87,7 +87,8 @@ class entities extends Model
                 $res['Errors'] = [];
                 $n1 = 0;
                 foreach ($this->errors as $item1) {
-                    $res['Errors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Errors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class entities extends Model
                 $model->errors = [];
                 $n1 = 0;
                 foreach ($map['Errors'] as $item1) {
-                    $model->errors[$n1++] = errors::fromMap($item1);
+                    $model->errors[$n1] = errors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -105,7 +105,8 @@ class knowledge extends Model
                 $res['RelatedKnowledges'] = [];
                 $n1 = 0;
                 foreach ($this->relatedKnowledges as $item1) {
-                    $res['RelatedKnowledges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelatedKnowledges'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class knowledge extends Model
                 $model->relatedKnowledges = [];
                 $n1 = 0;
                 foreach ($map['RelatedKnowledges'] as $item1) {
-                    $model->relatedKnowledges[$n1++] = relatedKnowledges::fromMap($item1);
+                    $model->relatedKnowledges[$n1] = relatedKnowledges::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -161,7 +161,8 @@ class buttons extends Model
                 $res['SupportedApps'] = [];
                 $n1 = 0;
                 foreach ($this->supportedApps as $item1) {
-                    $res['SupportedApps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedApps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +239,8 @@ class buttons extends Model
                 $model->supportedApps = [];
                 $n1 = 0;
                 foreach ($map['SupportedApps'] as $item1) {
-                    $model->supportedApps[$n1++] = supportedApps::fromMap($item1);
+                    $model->supportedApps[$n1] = supportedApps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

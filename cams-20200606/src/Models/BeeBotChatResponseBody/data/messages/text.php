@@ -165,7 +165,8 @@ class text extends Model
                 $res['Slots'] = [];
                 $n1 = 0;
                 foreach ($this->slots as $item1) {
-                    $res['Slots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Slots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +245,8 @@ class text extends Model
                 $model->slots = [];
                 $n1 = 0;
                 foreach ($map['Slots'] as $item1) {
-                    $model->slots[$n1++] = slots::fromMap($item1);
+                    $model->slots[$n1] = slots::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

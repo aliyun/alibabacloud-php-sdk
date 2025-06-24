@@ -75,7 +75,8 @@ class QueryChatappPhoneNumbersResponseBody extends Model
                 $res['PhoneNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->phoneNumbers as $item1) {
-                    $res['PhoneNumbers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PhoneNumbers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class QueryChatappPhoneNumbersResponseBody extends Model
                 $model->phoneNumbers = [];
                 $n1 = 0;
                 foreach ($map['PhoneNumbers'] as $item1) {
-                    $model->phoneNumbers[$n1++] = phoneNumbers::fromMap($item1);
+                    $model->phoneNumbers[$n1] = phoneNumbers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

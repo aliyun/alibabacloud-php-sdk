@@ -7,6 +7,10 @@ namespace AlibabaCloud\SDK\Cams\V20200606;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatappPhoneNumberRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatappPhoneNumberResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupInviteLinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupInviteLinkResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateShrinkRequest;
@@ -41,6 +45,13 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\CreatePhoneMessageQrdlRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreatePhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupInviteLinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupInviteLinkResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupParticipantsRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupParticipantsResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupParticipantsShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeletePhoneMessageQrdlRequest;
@@ -89,6 +100,12 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowShrinkRequest;
@@ -132,6 +149,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\TriggerChatFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\TriggerChatFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatGroupRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatGroupResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateConversationalAutomationRequest;
@@ -182,6 +201,172 @@ class Cams extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * AddChatGroup.
+     *
+     * @param request - AddChatGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddChatGroupResponse
+     *
+     * @param AddChatGroupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddChatGroupResponse
+     */
+    public function addChatGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddChatGroup',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddChatGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AddChatGroup.
+     *
+     * @param request - AddChatGroupRequest
+     *
+     * @returns AddChatGroupResponse
+     *
+     * @param AddChatGroupRequest $request
+     *
+     * @return AddChatGroupResponse
+     */
+    public function addChatGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addChatGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * AddChatGroupInviteLink.
+     *
+     * @param request - AddChatGroupInviteLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddChatGroupInviteLinkResponse
+     *
+     * @param AddChatGroupInviteLinkRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddChatGroupInviteLinkResponse
+     */
+    public function addChatGroupInviteLinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddChatGroupInviteLink',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddChatGroupInviteLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AddChatGroupInviteLink.
+     *
+     * @param request - AddChatGroupInviteLinkRequest
+     *
+     * @returns AddChatGroupInviteLinkResponse
+     *
+     * @param AddChatGroupInviteLinkRequest $request
+     *
+     * @return AddChatGroupInviteLinkResponse
+     */
+    public function addChatGroupInviteLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addChatGroupInviteLinkWithOptions($request, $runtime);
     }
 
     /**
@@ -1393,6 +1578,259 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPhoneMessageQrdlWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteChatGroup.
+     *
+     * @param request - DeleteChatGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChatGroupResponse
+     *
+     * @param DeleteChatGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteChatGroupResponse
+     */
+    public function deleteChatGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteChatGroup',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteChatGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteChatGroup.
+     *
+     * @param request - DeleteChatGroupRequest
+     *
+     * @returns DeleteChatGroupResponse
+     *
+     * @param DeleteChatGroupRequest $request
+     *
+     * @return DeleteChatGroupResponse
+     */
+    public function deleteChatGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChatGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteChatGroupInviteLink.
+     *
+     * @param request - DeleteChatGroupInviteLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChatGroupInviteLinkResponse
+     *
+     * @param DeleteChatGroupInviteLinkRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteChatGroupInviteLinkResponse
+     */
+    public function deleteChatGroupInviteLinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteChatGroupInviteLink',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteChatGroupInviteLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteChatGroupInviteLink.
+     *
+     * @param request - DeleteChatGroupInviteLinkRequest
+     *
+     * @returns DeleteChatGroupInviteLinkResponse
+     *
+     * @param DeleteChatGroupInviteLinkRequest $request
+     *
+     * @return DeleteChatGroupInviteLinkResponse
+     */
+    public function deleteChatGroupInviteLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChatGroupInviteLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteChatGroupParticipants.
+     *
+     * @param tmpReq - DeleteChatGroupParticipantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChatGroupParticipantsResponse
+     *
+     * @param DeleteChatGroupParticipantsRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteChatGroupParticipantsResponse
+     */
+    public function deleteChatGroupParticipantsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteChatGroupParticipantsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->list) {
+            $request->listShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->list, 'List', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->listShrink) {
+            @$query['List'] = $request->listShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteChatGroupParticipants',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteChatGroupParticipantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteChatGroupParticipants.
+     *
+     * @param request - DeleteChatGroupParticipantsRequest
+     *
+     * @returns DeleteChatGroupParticipantsResponse
+     *
+     * @param DeleteChatGroupParticipantsRequest $request
+     *
+     * @return DeleteChatGroupParticipantsResponse
+     */
+    public function deleteChatGroupParticipants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChatGroupParticipantsWithOptions($request, $runtime);
     }
 
     /**
@@ -3113,6 +3551,192 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * ListChatGroup.
+     *
+     * @param tmpReq - ListChatGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChatGroupResponse
+     *
+     * @param ListChatGroupRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListChatGroupResponse
+     */
+    public function listChatGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListChatGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->groupStatus) {
+            @$query['GroupStatus'] = $request->groupStatus;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageShrink) {
+            @$query['Page'] = $request->pageShrink;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatGroup',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListChatGroup.
+     *
+     * @param request - ListChatGroupRequest
+     *
+     * @returns ListChatGroupResponse
+     *
+     * @param ListChatGroupRequest $request
+     *
+     * @return ListChatGroupResponse
+     */
+    public function listChatGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChatGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListChatGroupParticipants.
+     *
+     * @param tmpReq - ListChatGroupParticipantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChatGroupParticipantsResponse
+     *
+     * @param ListChatGroupParticipantsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListChatGroupParticipantsResponse
+     */
+    public function listChatGroupParticipantsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListChatGroupParticipantsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageShrink) {
+            @$query['Page'] = $request->pageShrink;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatGroupParticipants',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatGroupParticipantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListChatGroupParticipants.
+     *
+     * @param request - ListChatGroupParticipantsRequest
+     *
+     * @returns ListChatGroupParticipantsResponse
+     *
+     * @param ListChatGroupParticipantsRequest $request
+     *
+     * @return ListChatGroupParticipantsResponse
+     */
+    public function listChatGroupParticipants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChatGroupParticipantsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries message templates.
      *
      * @remarks
@@ -4592,6 +5216,10 @@ class Cams extends OpenApiClient
             @$body['ProductAction'] = $request->productActionShrink;
         }
 
+        if (null !== $request->recipientType) {
+            @$body['RecipientType'] = $request->recipientType;
+        }
+
         if (null !== $request->tag) {
             @$body['Tag'] = $request->tag;
         }
@@ -4931,6 +5559,99 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAccountWebhookWithOptions($request, $runtime);
+    }
+
+    /**
+     * UpdateChatGroup.
+     *
+     * @param request - UpdateChatGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChatGroupResponse
+     *
+     * @param UpdateChatGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateChatGroupResponse
+     */
+    public function updateChatGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->profilePictureFile) {
+            @$query['ProfilePictureFile'] = $request->profilePictureFile;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateChatGroup',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateChatGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateChatGroup.
+     *
+     * @param request - UpdateChatGroupRequest
+     *
+     * @returns UpdateChatGroupResponse
+     *
+     * @param UpdateChatGroupRequest $request
+     *
+     * @return UpdateChatGroupResponse
+     */
+    public function updateChatGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateChatGroupWithOptions($request, $runtime);
     }
 
     /**

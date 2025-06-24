@@ -71,7 +71,8 @@ class senderList extends Model
                 $res['Payload'] = [];
                 $n1 = 0;
                 foreach ($this->payload as $item1) {
-                    $res['Payload'][$n1++] = $item1;
+                    $res['Payload'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class senderList extends Model
                 $model->payload = [];
                 $n1 = 0;
                 foreach ($map['Payload'] as $item1) {
-                    $model->payload[$n1++] = $item1;
+                    $model->payload[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

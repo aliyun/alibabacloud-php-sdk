@@ -98,6 +98,11 @@ class SendChatappMessageRequest extends Model
     /**
      * @var string
      */
+    public $recipientType;
+
+    /**
+     * @var string
+     */
     public $tag;
 
     /**
@@ -157,6 +162,7 @@ class SendChatappMessageRequest extends Model
         'messageType' => 'MessageType',
         'payload' => 'Payload',
         'productAction' => 'ProductAction',
+        'recipientType' => 'RecipientType',
         'tag' => 'Tag',
         'taskId' => 'TaskId',
         'templateCode' => 'TemplateCode',
@@ -253,13 +259,18 @@ class SendChatappMessageRequest extends Model
                 $res['Payload'] = [];
                 $n1 = 0;
                 foreach ($this->payload as $item1) {
-                    $res['Payload'][$n1++] = $item1;
+                    $res['Payload'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->productAction) {
             $res['ProductAction'] = null !== $this->productAction ? $this->productAction->toArray($noStream) : $this->productAction;
+        }
+
+        if (null !== $this->recipientType) {
+            $res['RecipientType'] = $this->recipientType;
         }
 
         if (null !== $this->tag) {
@@ -379,13 +390,18 @@ class SendChatappMessageRequest extends Model
                 $model->payload = [];
                 $n1 = 0;
                 foreach ($map['Payload'] as $item1) {
-                    $model->payload[$n1++] = $item1;
+                    $model->payload[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['ProductAction'])) {
             $model->productAction = productAction::fromMap($map['ProductAction']);
+        }
+
+        if (isset($map['RecipientType'])) {
+            $model->recipientType = $map['RecipientType'];
         }
 
         if (isset($map['Tag'])) {

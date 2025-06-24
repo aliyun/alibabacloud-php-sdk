@@ -57,7 +57,8 @@ class cardComponents extends Model
                 $res['Buttons'] = [];
                 $n1 = 0;
                 foreach ($this->buttons as $item1) {
-                    $res['Buttons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Buttons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class cardComponents extends Model
                 $model->buttons = [];
                 $n1 = 0;
                 foreach ($map['Buttons'] as $item1) {
-                    $model->buttons[$n1++] = buttons::fromMap($item1);
+                    $model->buttons[$n1] = buttons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

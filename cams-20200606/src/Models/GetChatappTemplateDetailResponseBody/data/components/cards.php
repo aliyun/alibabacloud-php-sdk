@@ -33,7 +33,8 @@ class cards extends Model
                 $res['CardComponents'] = [];
                 $n1 = 0;
                 foreach ($this->cardComponents as $item1) {
-                    $res['CardComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CardComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cards extends Model
                 $model->cardComponents = [];
                 $n1 = 0;
                 foreach ($map['CardComponents'] as $item1) {
-                    $model->cardComponents[$n1++] = cardComponents::fromMap($item1);
+                    $model->cardComponents[$n1] = cardComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

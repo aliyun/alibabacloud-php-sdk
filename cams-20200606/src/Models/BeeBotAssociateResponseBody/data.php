@@ -45,7 +45,8 @@ class data extends Model
                 $res['Associate'] = [];
                 $n1 = 0;
                 foreach ($this->associate as $item1) {
-                    $res['Associate'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Associate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class data extends Model
                 $model->associate = [];
                 $n1 = 0;
                 foreach ($map['Associate'] as $item1) {
-                    $model->associate[$n1++] = associate::fromMap($item1);
+                    $model->associate[$n1] = associate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

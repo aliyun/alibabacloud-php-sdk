@@ -73,7 +73,8 @@ class ChatappEmbedSignUpResponseBody extends Model
                 $res['Wabas'] = [];
                 $n1 = 0;
                 foreach ($this->wabas as $item1) {
-                    $res['Wabas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Wabas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ChatappEmbedSignUpResponseBody extends Model
                 $model->wabas = [];
                 $n1 = 0;
                 foreach ($map['Wabas'] as $item1) {
-                    $model->wabas[$n1++] = wabas::fromMap($item1);
+                    $model->wabas[$n1] = wabas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

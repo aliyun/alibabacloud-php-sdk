@@ -78,7 +78,8 @@ class UpdateConversationalAutomationRequest extends Model
                 $res['Commands'] = [];
                 $n1 = 0;
                 foreach ($this->commands as $item1) {
-                    $res['Commands'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Commands'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class UpdateConversationalAutomationRequest extends Model
                 $res['Prompts'] = [];
                 $n1 = 0;
                 foreach ($this->prompts as $item1) {
-                    $res['Prompts'][$n1++] = $item1;
+                    $res['Prompts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +135,8 @@ class UpdateConversationalAutomationRequest extends Model
                 $model->commands = [];
                 $n1 = 0;
                 foreach ($map['Commands'] as $item1) {
-                    $model->commands[$n1++] = commands::fromMap($item1);
+                    $model->commands[$n1] = commands::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +162,8 @@ class UpdateConversationalAutomationRequest extends Model
                 $model->prompts = [];
                 $n1 = 0;
                 foreach ($map['Prompts'] as $item1) {
-                    $model->prompts[$n1++] = $item1;
+                    $model->prompts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

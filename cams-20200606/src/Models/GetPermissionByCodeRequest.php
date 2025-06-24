@@ -52,7 +52,8 @@ class GetPermissionByCodeRequest extends Model
                 $res['Permissions'] = [];
                 $n1 = 0;
                 foreach ($this->permissions as $item1) {
-                    $res['Permissions'][$n1++] = $item1;
+                    $res['Permissions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class GetPermissionByCodeRequest extends Model
                 $model->permissions = [];
                 $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
-                    $model->permissions[$n1++] = $item1;
+                    $model->permissions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

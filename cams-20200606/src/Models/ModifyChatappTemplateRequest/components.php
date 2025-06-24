@@ -119,7 +119,8 @@ class components extends Model
                 $res['Buttons'] = [];
                 $n1 = 0;
                 foreach ($this->buttons as $item1) {
-                    $res['Buttons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Buttons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class components extends Model
                 $res['Cards'] = [];
                 $n1 = 0;
                 foreach ($this->cards as $item1) {
-                    $res['Cards'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Cards'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +200,8 @@ class components extends Model
                 $model->buttons = [];
                 $n1 = 0;
                 foreach ($map['Buttons'] as $item1) {
-                    $model->buttons[$n1++] = buttons::fromMap($item1);
+                    $model->buttons[$n1] = buttons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +215,8 @@ class components extends Model
                 $model->cards = [];
                 $n1 = 0;
                 foreach ($map['Cards'] as $item1) {
-                    $model->cards[$n1++] = cards::fromMap($item1);
+                    $model->cards[$n1] = cards::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

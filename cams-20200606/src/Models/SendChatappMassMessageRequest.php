@@ -173,7 +173,8 @@ class SendChatappMassMessageRequest extends Model
                 $res['SenderList'] = [];
                 $n1 = 0;
                 foreach ($this->senderList as $item1) {
-                    $res['SenderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SenderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +259,8 @@ class SendChatappMassMessageRequest extends Model
                 $model->senderList = [];
                 $n1 = 0;
                 foreach ($map['SenderList'] as $item1) {
-                    $model->senderList[$n1++] = senderList::fromMap($item1);
+                    $model->senderList[$n1] = senderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

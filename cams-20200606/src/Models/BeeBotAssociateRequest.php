@@ -80,7 +80,8 @@ class BeeBotAssociateRequest extends Model
                 $res['Perspective'] = [];
                 $n1 = 0;
                 foreach ($this->perspective as $item1) {
-                    $res['Perspective'][$n1++] = $item1;
+                    $res['Perspective'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class BeeBotAssociateRequest extends Model
                 $model->perspective = [];
                 $n1 = 0;
                 foreach ($map['Perspective'] as $item1) {
-                    $model->perspective[$n1++] = $item1;
+                    $model->perspective[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -96,6 +96,11 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $recipientType;
+
+    /**
+     * @var string
+     */
     public $tag;
 
     /**
@@ -155,6 +160,7 @@ class SendChatappMessageShrinkRequest extends Model
         'messageType' => 'MessageType',
         'payloadShrink' => 'Payload',
         'productActionShrink' => 'ProductAction',
+        'recipientType' => 'RecipientType',
         'tag' => 'Tag',
         'taskId' => 'TaskId',
         'templateCode' => 'TemplateCode',
@@ -240,6 +246,10 @@ class SendChatappMessageShrinkRequest extends Model
 
         if (null !== $this->productActionShrink) {
             $res['ProductAction'] = $this->productActionShrink;
+        }
+
+        if (null !== $this->recipientType) {
+            $res['RecipientType'] = $this->recipientType;
         }
 
         if (null !== $this->tag) {
@@ -355,6 +365,10 @@ class SendChatappMessageShrinkRequest extends Model
 
         if (isset($map['ProductAction'])) {
             $model->productActionShrink = $map['ProductAction'];
+        }
+
+        if (isset($map['RecipientType'])) {
+            $model->recipientType = $map['RecipientType'];
         }
 
         if (isset($map['Tag'])) {

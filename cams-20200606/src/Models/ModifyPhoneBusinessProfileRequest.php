@@ -142,7 +142,8 @@ class ModifyPhoneBusinessProfileRequest extends Model
                 $res['Websites'] = [];
                 $n1 = 0;
                 foreach ($this->websites as $item1) {
-                    $res['Websites'][$n1++] = $item1;
+                    $res['Websites'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +208,8 @@ class ModifyPhoneBusinessProfileRequest extends Model
                 $model->websites = [];
                 $n1 = 0;
                 foreach ($map['Websites'] as $item1) {
-                    $model->websites[$n1++] = $item1;
+                    $model->websites[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

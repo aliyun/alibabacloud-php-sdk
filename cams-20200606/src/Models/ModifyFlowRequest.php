@@ -50,7 +50,8 @@ class ModifyFlowRequest extends Model
                 $res['Categories'] = [];
                 $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['Categories'][$n1++] = $item1;
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class ModifyFlowRequest extends Model
                 $model->categories = [];
                 $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
-                    $model->categories[$n1++] = $item1;
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -124,7 +124,8 @@ class data extends Model
                 $res['Components'] = [];
                 $n1 = 0;
                 foreach ($this->components as $item1) {
-                    $res['Components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +199,8 @@ class data extends Model
                 $model->components = [];
                 $n1 = 0;
                 foreach ($map['Components'] as $item1) {
-                    $model->components[$n1++] = components::fromMap($item1);
+                    $model->components[$n1] = components::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
