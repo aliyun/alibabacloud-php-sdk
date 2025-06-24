@@ -33,7 +33,8 @@ class list_ extends Model
                 $res['cloudbenchTasks'] = [];
                 $n1 = 0;
                 foreach ($this->cloudbenchTasks as $item1) {
-                    $res['cloudbenchTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cloudbenchTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class list_ extends Model
                 $model->cloudbenchTasks = [];
                 $n1 = 0;
                 foreach ($map['cloudbenchTasks'] as $item1) {
-                    $model->cloudbenchTasks[$n1++] = cloudbenchTasks::fromMap($item1);
+                    $model->cloudbenchTasks[$n1] = cloudbenchTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

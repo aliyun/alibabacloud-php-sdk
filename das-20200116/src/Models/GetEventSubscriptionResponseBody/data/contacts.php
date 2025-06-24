@@ -76,7 +76,8 @@ class contacts extends Model
                 $res['groups'] = [];
                 $n1 = 0;
                 foreach ($this->groups as $item1) {
-                    $res['groups'][$n1++] = $item1;
+                    $res['groups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class contacts extends Model
                 $model->groups = [];
                 $n1 = 0;
                 foreach ($map['groups'] as $item1) {
-                    $model->groups[$n1++] = $item1;
+                    $model->groups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

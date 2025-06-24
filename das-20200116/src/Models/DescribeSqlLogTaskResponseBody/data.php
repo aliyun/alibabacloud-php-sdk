@@ -119,7 +119,8 @@ class data extends Model
                 $res['Filters'] = [];
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class data extends Model
                 $res['Queries'] = [];
                 $n1 = 0;
                 foreach ($this->queries as $item1) {
-                    $res['Queries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Queries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +192,8 @@ class data extends Model
                 $model->filters = [];
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +207,8 @@ class data extends Model
                 $model->queries = [];
                 $n1 = 0;
                 foreach ($map['Queries'] as $item1) {
-                    $model->queries[$n1++] = queries::fromMap($item1);
+                    $model->queries[$n1] = queries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

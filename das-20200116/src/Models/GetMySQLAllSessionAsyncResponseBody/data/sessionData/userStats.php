@@ -67,7 +67,8 @@ class userStats extends Model
                 $res['ThreadIdList'] = [];
                 $n1 = 0;
                 foreach ($this->threadIdList as $item1) {
-                    $res['ThreadIdList'][$n1++] = $item1;
+                    $res['ThreadIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class userStats extends Model
                 $res['UserList'] = [];
                 $n1 = 0;
                 foreach ($this->userList as $item1) {
-                    $res['UserList'][$n1++] = $item1;
+                    $res['UserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +112,8 @@ class userStats extends Model
                 $model->threadIdList = [];
                 $n1 = 0;
                 foreach ($map['ThreadIdList'] as $item1) {
-                    $model->threadIdList[$n1++] = $item1;
+                    $model->threadIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +127,8 @@ class userStats extends Model
                 $model->userList = [];
                 $n1 = 0;
                 foreach ($map['UserList'] as $item1) {
-                    $model->userList[$n1++] = $item1;
+                    $model->userList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

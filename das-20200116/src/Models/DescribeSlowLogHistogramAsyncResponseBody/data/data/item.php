@@ -48,7 +48,8 @@ class item extends Model
                 $res['Count'] = [];
                 $n1 = 0;
                 foreach ($this->count as $item1) {
-                    $res['Count'][$n1++] = $item1;
+                    $res['Count'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -58,7 +59,8 @@ class item extends Model
                 $res['InsItems'] = [];
                 $n1 = 0;
                 foreach ($this->insItems as $item1) {
-                    $res['InsItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InsItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class item extends Model
                 $model->count = [];
                 $n1 = 0;
                 foreach ($map['Count'] as $item1) {
-                    $model->count[$n1++] = $item1;
+                    $model->count[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class item extends Model
                 $model->insItems = [];
                 $n1 = 0;
                 foreach ($map['InsItems'] as $item1) {
-                    $model->insItems[$n1++] = insItems::fromMap($item1);
+                    $model->insItems[$n1] = insItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

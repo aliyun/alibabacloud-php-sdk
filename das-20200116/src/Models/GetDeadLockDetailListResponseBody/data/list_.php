@@ -145,7 +145,8 @@ class list_ extends Model
                 $res['BlockProcessList'] = [];
                 $n1 = 0;
                 foreach ($this->blockProcessList as $item1) {
-                    $res['BlockProcessList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BlockProcessList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +239,8 @@ class list_ extends Model
                 $model->blockProcessList = [];
                 $n1 = 0;
                 foreach ($map['BlockProcessList'] as $item1) {
-                    $model->blockProcessList[$n1++] = blockProcessList::fromMap($item1);
+                    $model->blockProcessList[$n1] = blockProcessList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class list_ extends Model
                 $res['T'] = [];
                 $n1 = 0;
                 foreach ($this->t as $item1) {
-                    $res['T'][$n1++] = $item1;
+                    $res['T'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class list_ extends Model
                 $model->t = [];
                 $n1 = 0;
                 foreach ($map['T'] as $item1) {
-                    $model->t[$n1++] = $item1;
+                    $model->t[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

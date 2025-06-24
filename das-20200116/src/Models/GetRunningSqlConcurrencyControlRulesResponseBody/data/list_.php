@@ -33,7 +33,8 @@ class list_ extends Model
                 $res['runningRules'] = [];
                 $n1 = 0;
                 foreach ($this->runningRules as $item1) {
-                    $res['runningRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['runningRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class list_ extends Model
                 $model->runningRules = [];
                 $n1 = 0;
                 foreach ($map['runningRules'] as $item1) {
-                    $model->runningRules[$n1++] = runningRules::fromMap($item1);
+                    $model->runningRules[$n1] = runningRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

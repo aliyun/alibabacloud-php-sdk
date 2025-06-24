@@ -33,7 +33,8 @@ class bigKeys extends Model
                 $res['BigKey'] = [];
                 $n1 = 0;
                 foreach ($this->bigKey as $item1) {
-                    $res['BigKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BigKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class bigKeys extends Model
                 $model->bigKey = [];
                 $n1 = 0;
                 foreach ($map['BigKey'] as $item1) {
-                    $model->bigKey[$n1++] = bigKey::fromMap($item1);
+                    $model->bigKey[$n1] = bigKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -44,7 +44,8 @@ class insItems extends Model
                 $res['Count'] = [];
                 $n1 = 0;
                 foreach ($this->count as $item1) {
-                    $res['Count'][$n1++] = $item1;
+                    $res['Count'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class insItems extends Model
                 $model->count = [];
                 $n1 = 0;
                 foreach ($map['Count'] as $item1) {
-                    $model->count[$n1++] = $item1;
+                    $model->count[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

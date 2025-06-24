@@ -33,7 +33,8 @@ class data extends Model
                 $res['HotKey'] = [];
                 $n1 = 0;
                 foreach ($this->hotKey as $item1) {
-                    $res['HotKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HotKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->hotKey = [];
                 $n1 = 0;
                 foreach ($map['HotKey'] as $item1) {
-                    $model->hotKey[$n1++] = hotKey::fromMap($item1);
+                    $model->hotKey[$n1] = hotKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

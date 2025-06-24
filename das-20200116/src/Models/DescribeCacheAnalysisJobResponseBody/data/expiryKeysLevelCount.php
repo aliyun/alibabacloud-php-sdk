@@ -33,7 +33,8 @@ class expiryKeysLevelCount extends Model
                 $res['ExpiryLevel'] = [];
                 $n1 = 0;
                 foreach ($this->expiryLevel as $item1) {
-                    $res['ExpiryLevel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExpiryLevel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class expiryKeysLevelCount extends Model
                 $model->expiryLevel = [];
                 $n1 = 0;
                 foreach ($map['ExpiryLevel'] as $item1) {
-                    $model->expiryLevel[$n1++] = expiryLevel::fromMap($item1);
+                    $model->expiryLevel[$n1] = expiryLevel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

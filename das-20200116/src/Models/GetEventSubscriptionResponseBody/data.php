@@ -142,7 +142,8 @@ class data extends Model
                 $res['contactGroups'] = [];
                 $n1 = 0;
                 foreach ($this->contactGroups as $item1) {
-                    $res['contactGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['contactGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class data extends Model
                 $res['contacts'] = [];
                 $n1 = 0;
                 foreach ($this->contacts as $item1) {
-                    $res['contacts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['contacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +172,8 @@ class data extends Model
                 $res['eventSendGroup'] = [];
                 $n1 = 0;
                 foreach ($this->eventSendGroup as $item1) {
-                    $res['eventSendGroup'][$n1++] = $item1;
+                    $res['eventSendGroup'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +238,8 @@ class data extends Model
                 $model->contactGroups = [];
                 $n1 = 0;
                 foreach ($map['contactGroups'] as $item1) {
-                    $model->contactGroups[$n1++] = contactGroups::fromMap($item1);
+                    $model->contactGroups[$n1] = contactGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +253,8 @@ class data extends Model
                 $model->contacts = [];
                 $n1 = 0;
                 foreach ($map['contacts'] as $item1) {
-                    $model->contacts[$n1++] = contacts::fromMap($item1);
+                    $model->contacts[$n1] = contacts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -263,7 +268,8 @@ class data extends Model
                 $model->eventSendGroup = [];
                 $n1 = 0;
                 foreach ($map['eventSendGroup'] as $item1) {
-                    $model->eventSendGroup[$n1++] = $item1;
+                    $model->eventSendGroup[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

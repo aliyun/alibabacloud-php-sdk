@@ -33,7 +33,8 @@ class subResults extends Model
                 $res['ResourceSyncSubResult'] = [];
                 $n1 = 0;
                 foreach ($this->resourceSyncSubResult as $item1) {
-                    $res['ResourceSyncSubResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceSyncSubResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class subResults extends Model
                 $model->resourceSyncSubResult = [];
                 $n1 = 0;
                 foreach ($map['ResourceSyncSubResult'] as $item1) {
-                    $model->resourceSyncSubResult[$n1++] = resourceSyncSubResult::fromMap($item1);
+                    $model->resourceSyncSubResult[$n1] = resourceSyncSubResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

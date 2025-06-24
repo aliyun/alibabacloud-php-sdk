@@ -65,7 +65,8 @@ class data extends Model
                 $res['ConfigFailInstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->configFailInstanceList as $item1) {
-                    $res['ConfigFailInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigFailInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class data extends Model
                 $res['ConfigSuccessInstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->configSuccessInstanceList as $item1) {
-                    $res['ConfigSuccessInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigSuccessInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +110,8 @@ class data extends Model
                 $model->configFailInstanceList = [];
                 $n1 = 0;
                 foreach ($map['ConfigFailInstanceList'] as $item1) {
-                    $model->configFailInstanceList[$n1++] = configFailInstanceList::fromMap($item1);
+                    $model->configFailInstanceList[$n1] = configFailInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class data extends Model
                 $model->configSuccessInstanceList = [];
                 $n1 = 0;
                 foreach ($map['ConfigSuccessInstanceList'] as $item1) {
-                    $model->configSuccessInstanceList[$n1++] = configSuccessInstanceList::fromMap($item1);
+                    $model->configSuccessInstanceList[$n1] = configSuccessInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

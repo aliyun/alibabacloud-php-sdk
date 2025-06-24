@@ -937,7 +937,8 @@ class logs extends Model
                 $res['Trend'] = [];
                 $n1 = 0;
                 foreach ($this->trend as $item1) {
-                    $res['Trend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Trend'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1318,7 +1319,8 @@ class logs extends Model
                 $model->trend = [];
                 $n1 = 0;
                 foreach ($map['Trend'] as $item1) {
-                    $model->trend[$n1++] = trend::fromMap($item1);
+                    $model->trend[$n1] = trend::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

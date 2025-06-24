@@ -76,11 +76,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->bandwidth as $item1) {
                     if (\is_array($item1)) {
-                        $res['Bandwidth'][$n1++] = [];
+                        $res['Bandwidth'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Bandwidth'][$n1++][$key2] = $value2;
+                            $res['Bandwidth'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -95,11 +96,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->resource as $item1) {
                     if (\is_array($item1)) {
-                        $res['Resource'][$n1++] = [];
+                        $res['Resource'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Resource'][$n1++][$key2] = $value2;
+                            $res['Resource'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -110,11 +112,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->shard as $item1) {
                     if (\is_array($item1)) {
-                        $res['Shard'][$n1++] = [];
+                        $res['Shard'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Shard'][$n1++][$key2] = $value2;
+                            $res['Shard'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +127,8 @@ class data extends Model
                 $res['SpecHistory'] = [];
                 $n1 = 0;
                 foreach ($this->specHistory as $item1) {
-                    $res['SpecHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpecHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,11 +139,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->storage as $item1) {
                     if (\is_array($item1)) {
-                        $res['Storage'][$n1++] = [];
+                        $res['Storage'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Storage'][$n1++][$key2] = $value2;
+                            $res['Storage'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -161,11 +166,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['Bandwidth'] as $item1) {
                     if (!empty($item1)) {
-                        $model->bandwidth[$n1++] = [];
+                        $model->bandwidth[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->bandwidth[$n1++][$key2] = $value2;
+                            $model->bandwidth[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -180,11 +186,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['Resource'] as $item1) {
                     if (!empty($item1)) {
-                        $model->resource[$n1++] = [];
+                        $model->resource[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->resource[$n1++][$key2] = $value2;
+                            $model->resource[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -195,11 +202,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['Shard'] as $item1) {
                     if (!empty($item1)) {
-                        $model->shard[$n1++] = [];
+                        $model->shard[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->shard[$n1++][$key2] = $value2;
+                            $model->shard[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +217,8 @@ class data extends Model
                 $model->specHistory = [];
                 $n1 = 0;
                 foreach ($map['SpecHistory'] as $item1) {
-                    $model->specHistory[$n1++] = specHistory::fromMap($item1);
+                    $model->specHistory[$n1] = specHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -220,11 +229,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['Storage'] as $item1) {
                     if (!empty($item1)) {
-                        $model->storage[$n1++] = [];
+                        $model->storage[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->storage[$n1++][$key2] = $value2;
+                            $model->storage[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

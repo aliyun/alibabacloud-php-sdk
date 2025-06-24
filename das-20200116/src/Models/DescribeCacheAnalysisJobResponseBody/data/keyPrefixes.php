@@ -33,7 +33,8 @@ class keyPrefixes extends Model
                 $res['Prefix'] = [];
                 $n1 = 0;
                 foreach ($this->prefix as $item1) {
-                    $res['Prefix'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Prefix'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class keyPrefixes extends Model
                 $model->prefix = [];
                 $n1 = 0;
                 foreach ($map['Prefix'] as $item1) {
-                    $model->prefix[$n1++] = prefix::fromMap($item1);
+                    $model->prefix[$n1] = prefix::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -57,7 +57,8 @@ class data extends Model
                 $res['AutoIncrementUsageList'] = [];
                 $n1 = 0;
                 foreach ($this->autoIncrementUsageList as $item1) {
-                    $res['AutoIncrementUsageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoIncrementUsageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class data extends Model
                 $model->autoIncrementUsageList = [];
                 $n1 = 0;
                 foreach ($map['AutoIncrementUsageList'] as $item1) {
-                    $model->autoIncrementUsageList[$n1++] = autoIncrementUsageList::fromMap($item1);
+                    $model->autoIncrementUsageList[$n1] = autoIncrementUsageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

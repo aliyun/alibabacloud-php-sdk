@@ -7018,7 +7018,23 @@ class DAS extends OpenApiClient
     public function getQueryOptimizeExecErrorSampleWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sqlId) {
+            @$query['SqlId'] = $request->sqlId;
+        }
+
+        if (null !== $request->time) {
+            @$query['Time'] = $request->time;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7027,7 +7043,7 @@ class DAS extends OpenApiClient
             'version' => '2020-01-16',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -7228,7 +7244,71 @@ class DAS extends OpenApiClient
     public function getQueryOptimizeShareUrlWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->asc) {
+            @$query['Asc'] = $request->asc;
+        }
+
+        if (null !== $request->dbNames) {
+            @$query['DbNames'] = $request->dbNames;
+        }
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->keywords) {
+            @$query['Keywords'] = $request->keywords;
+        }
+
+        if (null !== $request->logicalOperator) {
+            @$query['LogicalOperator'] = $request->logicalOperator;
+        }
+
+        if (null !== $request->onlyOptimizedSql) {
+            @$query['OnlyOptimizedSql'] = $request->onlyOptimizedSql;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
+        }
+
+        if (null !== $request->sqlIds) {
+            @$query['SqlIds'] = $request->sqlIds;
+        }
+
+        if (null !== $request->tagNames) {
+            @$query['TagNames'] = $request->tagNames;
+        }
+
+        if (null !== $request->time) {
+            @$query['Time'] = $request->time;
+        }
+
+        if (null !== $request->user) {
+            @$query['User'] = $request->user;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7237,7 +7317,7 @@ class DAS extends OpenApiClient
             'version' => '2020-01-16',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -7297,7 +7377,23 @@ class DAS extends OpenApiClient
     public function getQueryOptimizeSolutionWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
+        }
+
+        if (null !== $request->sqlId) {
+            @$query['SqlId'] = $request->sqlId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7306,7 +7402,7 @@ class DAS extends OpenApiClient
             'version' => '2020-01-16',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -7366,7 +7462,19 @@ class DAS extends OpenApiClient
     public function getQueryOptimizeTagWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sqlId) {
+            @$query['SqlId'] = $request->sqlId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7375,7 +7483,7 @@ class DAS extends OpenApiClient
             'version' => '2020-01-16',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',

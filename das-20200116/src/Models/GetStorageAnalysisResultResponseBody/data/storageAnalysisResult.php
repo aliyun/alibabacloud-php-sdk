@@ -101,7 +101,8 @@ class storageAnalysisResult extends Model
                 $res['NeedOptimizeItemList'] = [];
                 $n1 = 0;
                 foreach ($this->needOptimizeItemList as $item1) {
-                    $res['NeedOptimizeItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NeedOptimizeItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class storageAnalysisResult extends Model
                 $res['TableStats'] = [];
                 $n1 = 0;
                 foreach ($this->tableStats as $item1) {
-                    $res['TableStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +162,8 @@ class storageAnalysisResult extends Model
                 $model->needOptimizeItemList = [];
                 $n1 = 0;
                 foreach ($map['NeedOptimizeItemList'] as $item1) {
-                    $model->needOptimizeItemList[$n1++] = needOptimizeItemList::fromMap($item1);
+                    $model->needOptimizeItemList[$n1] = needOptimizeItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +173,8 @@ class storageAnalysisResult extends Model
                 $model->tableStats = [];
                 $n1 = 0;
                 foreach ($map['TableStats'] as $item1) {
-                    $model->tableStats[$n1++] = tableStats::fromMap($item1);
+                    $model->tableStats[$n1] = tableStats::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

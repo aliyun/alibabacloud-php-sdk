@@ -55,7 +55,8 @@ class data extends Model
                 $res['Sessions'] = [];
                 $n1 = 0;
                 foreach ($this->sessions as $item1) {
-                    $res['Sessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sessions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -65,7 +66,8 @@ class data extends Model
                 $res['SourceStats'] = [];
                 $n1 = 0;
                 foreach ($this->sourceStats as $item1) {
-                    $res['SourceStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class data extends Model
                 $model->sessions = [];
                 $n1 = 0;
                 foreach ($map['Sessions'] as $item1) {
-                    $model->sessions[$n1++] = sessions::fromMap($item1);
+                    $model->sessions[$n1] = sessions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +107,8 @@ class data extends Model
                 $model->sourceStats = [];
                 $n1 = 0;
                 foreach ($map['SourceStats'] as $item1) {
-                    $model->sourceStats[$n1++] = sourceStats::fromMap($item1);
+                    $model->sourceStats[$n1] = sourceStats::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

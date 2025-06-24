@@ -96,7 +96,8 @@ class data extends Model
                 $res['EnableAutoResourceOptimizeList'] = [];
                 $n1 = 0;
                 foreach ($this->enableAutoResourceOptimizeList as $item1) {
-                    $res['EnableAutoResourceOptimizeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EnableAutoResourceOptimizeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class data extends Model
                 $res['HasEnableRuleButNotDasProList'] = [];
                 $n1 = 0;
                 foreach ($this->hasEnableRuleButNotDasProList as $item1) {
-                    $res['HasEnableRuleButNotDasProList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HasEnableRuleButNotDasProList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +126,8 @@ class data extends Model
                 $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList as $item1) {
-                    $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'][$n1++] = $item1;
+                    $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +145,8 @@ class data extends Model
                 $res['TurnOffAutoResourceOptimizeList'] = [];
                 $n1 = 0;
                 foreach ($this->turnOffAutoResourceOptimizeList as $item1) {
-                    $res['TurnOffAutoResourceOptimizeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TurnOffAutoResourceOptimizeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +171,8 @@ class data extends Model
                 $model->enableAutoResourceOptimizeList = [];
                 $n1 = 0;
                 foreach ($map['EnableAutoResourceOptimizeList'] as $item1) {
-                    $model->enableAutoResourceOptimizeList[$n1++] = enableAutoResourceOptimizeList::fromMap($item1);
+                    $model->enableAutoResourceOptimizeList[$n1] = enableAutoResourceOptimizeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +186,8 @@ class data extends Model
                 $model->hasEnableRuleButNotDasProList = [];
                 $n1 = 0;
                 foreach ($map['HasEnableRuleButNotDasProList'] as $item1) {
-                    $model->hasEnableRuleButNotDasProList[$n1++] = hasEnableRuleButNotDasProList::fromMap($item1);
+                    $model->hasEnableRuleButNotDasProList[$n1] = hasEnableRuleButNotDasProList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +201,8 @@ class data extends Model
                 $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList = [];
                 $n1 = 0;
                 foreach ($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'] as $item1) {
-                    $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList[$n1++] = $item1;
+                    $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +220,8 @@ class data extends Model
                 $model->turnOffAutoResourceOptimizeList = [];
                 $n1 = 0;
                 foreach ($map['TurnOffAutoResourceOptimizeList'] as $item1) {
-                    $model->turnOffAutoResourceOptimizeList[$n1++] = turnOffAutoResourceOptimizeList::fromMap($item1);
+                    $model->turnOffAutoResourceOptimizeList[$n1] = turnOffAutoResourceOptimizeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

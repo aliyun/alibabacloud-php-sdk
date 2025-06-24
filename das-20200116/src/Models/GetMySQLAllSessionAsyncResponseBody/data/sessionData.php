@@ -91,7 +91,8 @@ class sessionData extends Model
                 $res['ClientStats'] = [];
                 $n1 = 0;
                 foreach ($this->clientStats as $item1) {
-                    $res['ClientStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClientStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class sessionData extends Model
                 $res['DbStats'] = [];
                 $n1 = 0;
                 foreach ($this->dbStats as $item1) {
-                    $res['DbStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DbStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +117,8 @@ class sessionData extends Model
                 $res['SessionList'] = [];
                 $n1 = 0;
                 foreach ($this->sessionList as $item1) {
-                    $res['SessionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SessionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +136,8 @@ class sessionData extends Model
                 $res['UserStats'] = [];
                 $n1 = 0;
                 foreach ($this->userStats as $item1) {
-                    $res['UserStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +162,8 @@ class sessionData extends Model
                 $model->clientStats = [];
                 $n1 = 0;
                 foreach ($map['ClientStats'] as $item1) {
-                    $model->clientStats[$n1++] = clientStats::fromMap($item1);
+                    $model->clientStats[$n1] = clientStats::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +173,8 @@ class sessionData extends Model
                 $model->dbStats = [];
                 $n1 = 0;
                 foreach ($map['DbStats'] as $item1) {
-                    $model->dbStats[$n1++] = dbStats::fromMap($item1);
+                    $model->dbStats[$n1] = dbStats::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +188,8 @@ class sessionData extends Model
                 $model->sessionList = [];
                 $n1 = 0;
                 foreach ($map['SessionList'] as $item1) {
-                    $model->sessionList[$n1++] = sessionList::fromMap($item1);
+                    $model->sessionList[$n1] = sessionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +207,8 @@ class sessionData extends Model
                 $model->userStats = [];
                 $n1 = 0;
                 foreach ($map['UserStats'] as $item1) {
-                    $model->userStats[$n1++] = userStats::fromMap($item1);
+                    $model->userStats[$n1] = userStats::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

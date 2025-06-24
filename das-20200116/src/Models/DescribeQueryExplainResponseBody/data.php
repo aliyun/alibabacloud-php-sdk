@@ -254,7 +254,8 @@ class data extends Model
                 $res['IndexList'] = [];
                 $n1 = 0;
                 foreach ($this->indexList as $item1) {
-                    $res['IndexList'][$n1++] = $item1;
+                    $res['IndexList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +277,8 @@ class data extends Model
                 $res['LogicalPlanList'] = [];
                 $n1 = 0;
                 foreach ($this->logicalPlanList as $item1) {
-                    $res['LogicalPlanList'][$n1++] = $item1;
+                    $res['LogicalPlanList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +340,8 @@ class data extends Model
                 $res['TableList'] = [];
                 $n1 = 0;
                 foreach ($this->tableList as $item1) {
-                    $res['TableList'][$n1++] = $item1;
+                    $res['TableList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -407,7 +410,8 @@ class data extends Model
                 $model->indexList = [];
                 $n1 = 0;
                 foreach ($map['IndexList'] as $item1) {
-                    $model->indexList[$n1++] = $item1;
+                    $model->indexList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -429,7 +433,8 @@ class data extends Model
                 $model->logicalPlanList = [];
                 $n1 = 0;
                 foreach ($map['LogicalPlanList'] as $item1) {
-                    $model->logicalPlanList[$n1++] = $item1;
+                    $model->logicalPlanList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -491,7 +496,8 @@ class data extends Model
                 $model->tableList = [];
                 $n1 = 0;
                 foreach ($map['TableList'] as $item1) {
-                    $model->tableList[$n1++] = $item1;
+                    $model->tableList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
