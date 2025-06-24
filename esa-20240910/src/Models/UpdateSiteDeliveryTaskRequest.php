@@ -24,6 +24,11 @@ class UpdateSiteDeliveryTaskRequest extends Model
     public $fieldName;
 
     /**
+     * @var string
+     */
+    public $filterVer;
+
+    /**
      * @var int
      */
     public $siteId;
@@ -36,6 +41,7 @@ class UpdateSiteDeliveryTaskRequest extends Model
         'businessType' => 'BusinessType',
         'discardRate' => 'DiscardRate',
         'fieldName' => 'FieldName',
+        'filterVer' => 'FilterVer',
         'siteId' => 'SiteId',
         'taskName' => 'TaskName',
     ];
@@ -58,6 +64,10 @@ class UpdateSiteDeliveryTaskRequest extends Model
 
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
+        }
+
+        if (null !== $this->filterVer) {
+            $res['FilterVer'] = $this->filterVer;
         }
 
         if (null !== $this->siteId) {
@@ -89,6 +99,10 @@ class UpdateSiteDeliveryTaskRequest extends Model
 
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
+        }
+
+        if (isset($map['FilterVer'])) {
+            $model->filterVer = $map['FilterVer'];
         }
 
         if (isset($map['SiteId'])) {

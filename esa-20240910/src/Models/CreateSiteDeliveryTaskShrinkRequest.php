@@ -36,6 +36,11 @@ class CreateSiteDeliveryTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $filterVer;
+
+    /**
+     * @var string
+     */
     public $httpDeliveryShrink;
 
     /**
@@ -73,6 +78,7 @@ class CreateSiteDeliveryTaskShrinkRequest extends Model
         'deliveryType' => 'DeliveryType',
         'discardRate' => 'DiscardRate',
         'fieldName' => 'FieldName',
+        'filterVer' => 'FilterVer',
         'httpDeliveryShrink' => 'HttpDelivery',
         'kafkaDeliveryShrink' => 'KafkaDelivery',
         'ossDeliveryShrink' => 'OssDelivery',
@@ -108,6 +114,10 @@ class CreateSiteDeliveryTaskShrinkRequest extends Model
 
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
+        }
+
+        if (null !== $this->filterVer) {
+            $res['FilterVer'] = $this->filterVer;
         }
 
         if (null !== $this->httpDeliveryShrink) {
@@ -167,6 +177,10 @@ class CreateSiteDeliveryTaskShrinkRequest extends Model
 
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
+        }
+
+        if (isset($map['FilterVer'])) {
+            $model->filterVer = $map['FilterVer'];
         }
 
         if (isset($map['HttpDelivery'])) {

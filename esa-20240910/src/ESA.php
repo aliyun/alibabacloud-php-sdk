@@ -120,6 +120,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSlrRoleForRealtimeLogResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUrlObservationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskShrinkRequest;
@@ -213,6 +215,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteOriginClientCertificateReque
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteOriginClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUrlObservationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVideoProcessingRequest;
@@ -435,6 +439,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutinePlansResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpRequestHeaderModificationRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpRequestHeaderModificationRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpResponseHeaderModificationRulesRequest;
@@ -503,6 +509,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUploadTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUploadTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUrlObservationsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUrlObservationsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserDeliveryTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesRequest;
@@ -579,6 +587,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheReserveSpecRequest;
@@ -671,6 +681,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUrlObservationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusRequest;
@@ -4908,6 +4920,10 @@ class ESA extends OpenApiClient
             @$body['FieldName'] = $request->fieldName;
         }
 
+        if (null !== $request->filterVer) {
+            @$body['FilterVer'] = $request->filterVer;
+        }
+
         if (null !== $request->httpDeliveryShrink) {
             @$body['HttpDelivery'] = $request->httpDeliveryShrink;
         }
@@ -5017,6 +5033,71 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 创建网页监测配置.
+     *
+     * @param request - CreateUrlObservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUrlObservationResponse
+     *
+     * @param CreateUrlObservationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateUrlObservationResponse
+     */
+    public function createUrlObservationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sdkType) {
+            @$query['SdkType'] = $request->sdkType;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUrlObservation',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUrlObservationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网页监测配置.
+     *
+     * @param request - CreateUrlObservationRequest
+     *
+     * @returns CreateUrlObservationResponse
+     *
+     * @param CreateUrlObservationRequest $request
+     *
+     * @return CreateUrlObservationResponse
+     */
+    public function createUrlObservation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUrlObservationWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a log delivery task to ship logs to the specified destination.
      *
      * @remarks
@@ -5088,6 +5169,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->fieldName) {
             @$body['FieldName'] = $request->fieldName;
+        }
+
+        if (null !== $request->filterVer) {
+            @$body['FilterVer'] = $request->filterVer;
         }
 
         if (null !== $request->httpDeliveryShrink) {
@@ -7993,6 +8078,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSiteOriginClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除网页监测配置.
+     *
+     * @param request - DeleteUrlObservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUrlObservationResponse
+     *
+     * @param DeleteUrlObservationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteUrlObservationResponse
+     */
+    public function deleteUrlObservationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUrlObservation',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUrlObservationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网页监测配置.
+     *
+     * @param request - DeleteUrlObservationRequest
+     *
+     * @returns DeleteUrlObservationResponse
+     *
+     * @param DeleteUrlObservationRequest $request
+     *
+     * @return DeleteUrlObservationResponse
+     */
+    public function deleteUrlObservation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUrlObservationWithOptions($request, $runtime);
     }
 
     /**
@@ -14035,6 +14181,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 批量查询IP是否为VIP.
+     *
+     * @param request - ListESAIPInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListESAIPInfoResponse
+     *
+     * @param ListESAIPInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListESAIPInfoResponse
+     */
+    public function listESAIPInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListESAIPInfo',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListESAIPInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询IP是否为VIP.
+     *
+     * @param request - ListESAIPInfoRequest
+     *
+     * @returns ListESAIPInfoResponse
+     *
+     * @param ListESAIPInfoRequest $request
+     *
+     * @return ListESAIPInfoResponse
+     */
+    public function listESAIPInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listESAIPInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists domain names that are associated with a containerized application.
      *
      * @param request - ListEdgeContainerAppRecordsRequest
@@ -16287,6 +16486,75 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUploadTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询网页观测配置列表.
+     *
+     * @param request - ListUrlObservationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUrlObservationsResponse
+     *
+     * @param ListUrlObservationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUrlObservationsResponse
+     */
+    public function listUrlObservationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUrlObservations',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUrlObservationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网页观测配置列表.
+     *
+     * @param request - ListUrlObservationsRequest
+     *
+     * @returns ListUrlObservationsResponse
+     *
+     * @param ListUrlObservationsRequest $request
+     *
+     * @return ListUrlObservationsResponse
+     */
+    public function listUrlObservations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUrlObservationsWithOptions($request, $runtime);
     }
 
     /**
@@ -18747,6 +19015,83 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopScheduledPreloadExecutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds one or more tags to resources.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds one or more tags to resources.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -21830,6 +22175,10 @@ class ESA extends OpenApiClient
             @$body['FieldName'] = $request->fieldName;
         }
 
+        if (null !== $request->filterVer) {
+            @$body['FilterVer'] = $request->filterVer;
+        }
+
         if (null !== $request->siteId) {
             @$body['SiteId'] = $request->siteId;
         }
@@ -22172,6 +22521,71 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 更新网页监测配置.
+     *
+     * @param request - UpdateUrlObservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUrlObservationResponse
+     *
+     * @param UpdateUrlObservationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateUrlObservationResponse
+     */
+    public function updateUrlObservationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->sdkType) {
+            @$query['SdkType'] = $request->sdkType;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUrlObservation',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUrlObservationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网页监测配置.
+     *
+     * @param request - UpdateUrlObservationRequest
+     *
+     * @returns UpdateUrlObservationResponse
+     *
+     * @param UpdateUrlObservationRequest $request
+     *
+     * @return UpdateUrlObservationResponse
+     */
+    public function updateUrlObservation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUrlObservationWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
      *
      * @param request - UpdateUserDeliveryTaskRequest
@@ -22202,6 +22616,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->fieldName) {
             @$body['FieldName'] = $request->fieldName;
+        }
+
+        if (null !== $request->filterVer) {
+            @$body['FilterVer'] = $request->filterVer;
         }
 
         if (null !== $request->taskName) {

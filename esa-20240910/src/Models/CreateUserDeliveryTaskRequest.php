@@ -44,6 +44,11 @@ class CreateUserDeliveryTaskRequest extends Model
     public $fieldName;
 
     /**
+     * @var string
+     */
+    public $filterVer;
+
+    /**
      * @var httpDelivery
      */
     public $httpDelivery;
@@ -79,6 +84,7 @@ class CreateUserDeliveryTaskRequest extends Model
         'details' => 'Details',
         'discardRate' => 'DiscardRate',
         'fieldName' => 'FieldName',
+        'filterVer' => 'FilterVer',
         'httpDelivery' => 'HttpDelivery',
         'kafkaDelivery' => 'KafkaDelivery',
         'ossDelivery' => 'OssDelivery',
@@ -132,6 +138,10 @@ class CreateUserDeliveryTaskRequest extends Model
 
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
+        }
+
+        if (null !== $this->filterVer) {
+            $res['FilterVer'] = $this->filterVer;
         }
 
         if (null !== $this->httpDelivery) {
@@ -191,6 +201,10 @@ class CreateUserDeliveryTaskRequest extends Model
 
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
+        }
+
+        if (isset($map['FilterVer'])) {
+            $model->filterVer = $map['FilterVer'];
         }
 
         if (isset($map['HttpDelivery'])) {

@@ -27,6 +27,11 @@ class httpDelivery extends Model
     public $headerParam;
 
     /**
+     * @var bool
+     */
+    public $lastLogSplit;
+
+    /**
      * @var string
      */
     public $logBodyPrefix;
@@ -35,6 +40,16 @@ class httpDelivery extends Model
      * @var string
      */
     public $logBodySuffix;
+
+    /**
+     * @var bool
+     */
+    public $logSplit;
+
+    /**
+     * @var string
+     */
+    public $logSplitWords;
 
     /**
      * @var int
@@ -74,8 +89,11 @@ class httpDelivery extends Model
         'compress' => 'Compress',
         'destUrl' => 'DestUrl',
         'headerParam' => 'HeaderParam',
+        'lastLogSplit' => 'LastLogSplit',
         'logBodyPrefix' => 'LogBodyPrefix',
         'logBodySuffix' => 'LogBodySuffix',
+        'logSplit' => 'LogSplit',
+        'logSplitWords' => 'LogSplitWords',
         'maxBatchMB' => 'MaxBatchMB',
         'maxBatchSize' => 'MaxBatchSize',
         'maxRetry' => 'MaxRetry',
@@ -119,12 +137,24 @@ class httpDelivery extends Model
             }
         }
 
+        if (null !== $this->lastLogSplit) {
+            $res['LastLogSplit'] = $this->lastLogSplit;
+        }
+
         if (null !== $this->logBodyPrefix) {
             $res['LogBodyPrefix'] = $this->logBodyPrefix;
         }
 
         if (null !== $this->logBodySuffix) {
             $res['LogBodySuffix'] = $this->logBodySuffix;
+        }
+
+        if (null !== $this->logSplit) {
+            $res['LogSplit'] = $this->logSplit;
+        }
+
+        if (null !== $this->logSplitWords) {
+            $res['LogSplitWords'] = $this->logSplitWords;
         }
 
         if (null !== $this->maxBatchMB) {
@@ -188,12 +218,24 @@ class httpDelivery extends Model
             }
         }
 
+        if (isset($map['LastLogSplit'])) {
+            $model->lastLogSplit = $map['LastLogSplit'];
+        }
+
         if (isset($map['LogBodyPrefix'])) {
             $model->logBodyPrefix = $map['LogBodyPrefix'];
         }
 
         if (isset($map['LogBodySuffix'])) {
             $model->logBodySuffix = $map['LogBodySuffix'];
+        }
+
+        if (isset($map['LogSplit'])) {
+            $model->logSplit = $map['LogSplit'];
+        }
+
+        if (isset($map['LogSplitWords'])) {
+            $model->logSplitWords = $map['LogSplitWords'];
         }
 
         if (isset($map['MaxBatchMB'])) {

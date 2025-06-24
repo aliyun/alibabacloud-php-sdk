@@ -46,6 +46,16 @@ class GetUserDeliveryTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $filterVer;
+
+    /**
+     * @var string
+     */
+    public $rawRule;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -70,6 +80,8 @@ class GetUserDeliveryTaskResponseBody extends Model
         'discardRate' => 'DiscardRate',
         'fieldList' => 'FieldList',
         'filterRules' => 'FilterRules',
+        'filterVer' => 'FilterVer',
+        'rawRule' => 'RawRule',
         'requestId' => 'RequestId',
         'sinkConfig' => 'SinkConfig',
         'status' => 'Status',
@@ -110,6 +122,14 @@ class GetUserDeliveryTaskResponseBody extends Model
 
         if (null !== $this->filterRules) {
             $res['FilterRules'] = $this->filterRules;
+        }
+
+        if (null !== $this->filterVer) {
+            $res['FilterVer'] = $this->filterVer;
+        }
+
+        if (null !== $this->rawRule) {
+            $res['RawRule'] = $this->rawRule;
         }
 
         if (null !== $this->requestId) {
@@ -165,6 +185,14 @@ class GetUserDeliveryTaskResponseBody extends Model
 
         if (isset($map['FilterRules'])) {
             $model->filterRules = $map['FilterRules'];
+        }
+
+        if (isset($map['FilterVer'])) {
+            $model->filterVer = $map['FilterVer'];
+        }
+
+        if (isset($map['RawRule'])) {
+            $model->rawRule = $map['RawRule'];
         }
 
         if (isset($map['RequestId'])) {

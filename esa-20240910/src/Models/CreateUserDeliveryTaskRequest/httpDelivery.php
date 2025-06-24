@@ -27,7 +27,7 @@ class httpDelivery extends Model
     public $headerParam;
 
     /**
-     * @var string
+     * @var bool
      */
     public $lastLogSplit;
 
@@ -42,7 +42,7 @@ class httpDelivery extends Model
     public $logBodySuffix;
 
     /**
-     * @var string
+     * @var bool
      */
     public $logSplit;
 
@@ -50,11 +50,6 @@ class httpDelivery extends Model
      * @var string
      */
     public $logSplitWords;
-
-    /**
-     * @var int
-     */
-    public $maxBackoffMS;
 
     /**
      * @var int
@@ -72,19 +67,9 @@ class httpDelivery extends Model
     public $maxRetry;
 
     /**
-     * @var int
-     */
-    public $minBackoffMS;
-
-    /**
      * @var HttpDeliveryQueryParamValue[]
      */
     public $queryParam;
-
-    /**
-     * @var string
-     */
-    public $responseBodyKey;
 
     /**
      * @var bool
@@ -99,11 +84,6 @@ class httpDelivery extends Model
     /**
      * @var int
      */
-    public $successCode;
-
-    /**
-     * @var int
-     */
     public $transformTimeout;
     protected $_name = [
         'compress' => 'Compress',
@@ -114,16 +94,12 @@ class httpDelivery extends Model
         'logBodySuffix' => 'LogBodySuffix',
         'logSplit' => 'LogSplit',
         'logSplitWords' => 'LogSplitWords',
-        'maxBackoffMS' => 'MaxBackoffMS',
         'maxBatchMB' => 'MaxBatchMB',
         'maxBatchSize' => 'MaxBatchSize',
         'maxRetry' => 'MaxRetry',
-        'minBackoffMS' => 'MinBackoffMS',
         'queryParam' => 'QueryParam',
-        'responseBodyKey' => 'ResponseBodyKey',
         'standardAuthOn' => 'StandardAuthOn',
         'standardAuthParam' => 'StandardAuthParam',
-        'successCode' => 'SuccessCode',
         'transformTimeout' => 'TransformTimeout',
     ];
 
@@ -181,10 +157,6 @@ class httpDelivery extends Model
             $res['LogSplitWords'] = $this->logSplitWords;
         }
 
-        if (null !== $this->maxBackoffMS) {
-            $res['MaxBackoffMS'] = $this->maxBackoffMS;
-        }
-
         if (null !== $this->maxBatchMB) {
             $res['MaxBatchMB'] = $this->maxBatchMB;
         }
@@ -197,10 +169,6 @@ class httpDelivery extends Model
             $res['MaxRetry'] = $this->maxRetry;
         }
 
-        if (null !== $this->minBackoffMS) {
-            $res['MinBackoffMS'] = $this->minBackoffMS;
-        }
-
         if (null !== $this->queryParam) {
             if (\is_array($this->queryParam)) {
                 $res['QueryParam'] = [];
@@ -210,20 +178,12 @@ class httpDelivery extends Model
             }
         }
 
-        if (null !== $this->responseBodyKey) {
-            $res['ResponseBodyKey'] = $this->responseBodyKey;
-        }
-
         if (null !== $this->standardAuthOn) {
             $res['StandardAuthOn'] = $this->standardAuthOn;
         }
 
         if (null !== $this->standardAuthParam) {
             $res['StandardAuthParam'] = null !== $this->standardAuthParam ? $this->standardAuthParam->toArray($noStream) : $this->standardAuthParam;
-        }
-
-        if (null !== $this->successCode) {
-            $res['SuccessCode'] = $this->successCode;
         }
 
         if (null !== $this->transformTimeout) {
@@ -278,10 +238,6 @@ class httpDelivery extends Model
             $model->logSplitWords = $map['LogSplitWords'];
         }
 
-        if (isset($map['MaxBackoffMS'])) {
-            $model->maxBackoffMS = $map['MaxBackoffMS'];
-        }
-
         if (isset($map['MaxBatchMB'])) {
             $model->maxBatchMB = $map['MaxBatchMB'];
         }
@@ -294,10 +250,6 @@ class httpDelivery extends Model
             $model->maxRetry = $map['MaxRetry'];
         }
 
-        if (isset($map['MinBackoffMS'])) {
-            $model->minBackoffMS = $map['MinBackoffMS'];
-        }
-
         if (isset($map['QueryParam'])) {
             if (!empty($map['QueryParam'])) {
                 $model->queryParam = [];
@@ -307,20 +259,12 @@ class httpDelivery extends Model
             }
         }
 
-        if (isset($map['ResponseBodyKey'])) {
-            $model->responseBodyKey = $map['ResponseBodyKey'];
-        }
-
         if (isset($map['StandardAuthOn'])) {
             $model->standardAuthOn = $map['StandardAuthOn'];
         }
 
         if (isset($map['StandardAuthParam'])) {
             $model->standardAuthParam = standardAuthParam::fromMap($map['StandardAuthParam']);
-        }
-
-        if (isset($map['SuccessCode'])) {
-            $model->successCode = $map['SuccessCode'];
         }
 
         if (isset($map['TransformTimeout'])) {

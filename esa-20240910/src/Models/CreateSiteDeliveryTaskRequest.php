@@ -39,6 +39,11 @@ class CreateSiteDeliveryTaskRequest extends Model
     public $fieldName;
 
     /**
+     * @var string
+     */
+    public $filterVer;
+
+    /**
      * @var httpDelivery
      */
     public $httpDelivery;
@@ -78,6 +83,7 @@ class CreateSiteDeliveryTaskRequest extends Model
         'deliveryType' => 'DeliveryType',
         'discardRate' => 'DiscardRate',
         'fieldName' => 'FieldName',
+        'filterVer' => 'FilterVer',
         'httpDelivery' => 'HttpDelivery',
         'kafkaDelivery' => 'KafkaDelivery',
         'ossDelivery' => 'OssDelivery',
@@ -128,6 +134,10 @@ class CreateSiteDeliveryTaskRequest extends Model
 
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
+        }
+
+        if (null !== $this->filterVer) {
+            $res['FilterVer'] = $this->filterVer;
         }
 
         if (null !== $this->httpDelivery) {
@@ -187,6 +197,10 @@ class CreateSiteDeliveryTaskRequest extends Model
 
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
+        }
+
+        if (isset($map['FilterVer'])) {
+            $model->filterVer = $map['FilterVer'];
         }
 
         if (isset($map['HttpDelivery'])) {
