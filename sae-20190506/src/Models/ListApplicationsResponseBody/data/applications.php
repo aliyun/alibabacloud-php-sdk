@@ -71,6 +71,11 @@ class applications extends Model
     public $instances;
 
     /**
+     * @var bool
+     */
+    public $isStateful;
+
+    /**
      * @var int
      */
     public $mem;
@@ -124,6 +129,11 @@ class applications extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'appDeletingStatus' => 'AppDeletingStatus',
         'appDescription' => 'AppDescription',
@@ -137,6 +147,7 @@ class applications extends Model
         'enableIdle' => 'EnableIdle',
         'imageUrl' => 'ImageUrl',
         'instances' => 'Instances',
+        'isStateful' => 'IsStateful',
         'mem' => 'Mem',
         'mseEnabled' => 'MseEnabled',
         'mseNamespaceId' => 'MseNamespaceId',
@@ -148,6 +159,7 @@ class applications extends Model
         'regionId' => 'RegionId',
         'runningInstances' => 'RunningInstances',
         'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -219,6 +231,10 @@ class applications extends Model
             $res['Instances'] = $this->instances;
         }
 
+        if (null !== $this->isStateful) {
+            $res['IsStateful'] = $this->isStateful;
+        }
+
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
         }
@@ -268,6 +284,10 @@ class applications extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -336,6 +356,10 @@ class applications extends Model
             $model->instances = $map['Instances'];
         }
 
+        if (isset($map['IsStateful'])) {
+            $model->isStateful = $map['IsStateful'];
+        }
+
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
         }
@@ -385,6 +409,10 @@ class applications extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

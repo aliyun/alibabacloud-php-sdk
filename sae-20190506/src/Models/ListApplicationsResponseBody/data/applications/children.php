@@ -50,6 +50,11 @@ class children extends Model
     public $instances;
 
     /**
+     * @var bool
+     */
+    public $isStateful;
+
+    /**
      * @var int
      */
     public $mem;
@@ -112,6 +117,7 @@ class children extends Model
         'baseAppId' => 'BaseAppId',
         'cpu' => 'Cpu',
         'instances' => 'Instances',
+        'isStateful' => 'IsStateful',
         'mem' => 'Mem',
         'mseEnabled' => 'MseEnabled',
         'namespaceId' => 'NamespaceId',
@@ -166,6 +172,10 @@ class children extends Model
 
         if (null !== $this->instances) {
             $res['Instances'] = $this->instances;
+        }
+
+        if (null !== $this->isStateful) {
+            $res['IsStateful'] = $this->isStateful;
         }
 
         if (null !== $this->mem) {
@@ -260,6 +270,10 @@ class children extends Model
 
         if (isset($map['Instances'])) {
             $model->instances = $map['Instances'];
+        }
+
+        if (isset($map['IsStateful'])) {
+            $model->isStateful = $map['IsStateful'];
         }
 
         if (isset($map['Mem'])) {
