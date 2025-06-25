@@ -208,7 +208,8 @@ class postPaidDesktops extends Model
                 $res['EndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1++] = $item1;
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +223,8 @@ class postPaidDesktops extends Model
                 $res['EndUserNames'] = [];
                 $n1 = 0;
                 foreach ($this->endUserNames as $item1) {
-                    $res['EndUserNames'][$n1++] = $item1;
+                    $res['EndUserNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +254,8 @@ class postPaidDesktops extends Model
                 $res['ManagementFlags'] = [];
                 $n1 = 0;
                 foreach ($this->managementFlags as $item1) {
-                    $res['ManagementFlags'][$n1++] = $item1;
+                    $res['ManagementFlags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -333,7 +336,8 @@ class postPaidDesktops extends Model
                 $model->endUserIds = [];
                 $n1 = 0;
                 foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1++] = $item1;
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -347,7 +351,8 @@ class postPaidDesktops extends Model
                 $model->endUserNames = [];
                 $n1 = 0;
                 foreach ($map['EndUserNames'] as $item1) {
-                    $model->endUserNames[$n1++] = $item1;
+                    $model->endUserNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -377,7 +382,8 @@ class postPaidDesktops extends Model
                 $model->managementFlags = [];
                 $n1 = 0;
                 foreach ($map['ManagementFlags'] as $item1) {
-                    $model->managementFlags[$n1++] = $item1;
+                    $model->managementFlags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

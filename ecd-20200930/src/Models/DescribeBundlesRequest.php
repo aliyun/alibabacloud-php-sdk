@@ -155,7 +155,8 @@ class DescribeBundlesRequest extends Model
                 $res['BundleId'] = [];
                 $n1 = 0;
                 foreach ($this->bundleId as $item1) {
-                    $res['BundleId'][$n1++] = $item1;
+                    $res['BundleId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +198,8 @@ class DescribeBundlesRequest extends Model
                 $res['ImageId'] = [];
                 $n1 = 0;
                 foreach ($this->imageId as $item1) {
-                    $res['ImageId'][$n1++] = $item1;
+                    $res['ImageId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +264,8 @@ class DescribeBundlesRequest extends Model
                 $model->bundleId = [];
                 $n1 = 0;
                 foreach ($map['BundleId'] as $item1) {
-                    $model->bundleId[$n1++] = $item1;
+                    $model->bundleId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +307,8 @@ class DescribeBundlesRequest extends Model
                 $model->imageId = [];
                 $n1 = 0;
                 foreach ($map['ImageId'] as $item1) {
-                    $model->imageId[$n1++] = $item1;
+                    $model->imageId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

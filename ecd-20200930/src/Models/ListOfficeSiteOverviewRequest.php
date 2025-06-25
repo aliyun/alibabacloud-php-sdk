@@ -74,7 +74,8 @@ class ListOfficeSiteOverviewRequest extends Model
                 $res['OfficeSiteId'] = [];
                 $n1 = 0;
                 foreach ($this->officeSiteId as $item1) {
-                    $res['OfficeSiteId'][$n1++] = $item1;
+                    $res['OfficeSiteId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class ListOfficeSiteOverviewRequest extends Model
                 $model->officeSiteId = [];
                 $n1 = 0;
                 foreach ($map['OfficeSiteId'] as $item1) {
-                    $model->officeSiteId[$n1++] = $item1;
+                    $model->officeSiteId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

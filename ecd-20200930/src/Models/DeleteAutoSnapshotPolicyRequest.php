@@ -38,7 +38,8 @@ class DeleteAutoSnapshotPolicyRequest extends Model
                 $res['PolicyId'] = [];
                 $n1 = 0;
                 foreach ($this->policyId as $item1) {
-                    $res['PolicyId'][$n1++] = $item1;
+                    $res['PolicyId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteAutoSnapshotPolicyRequest extends Model
                 $model->policyId = [];
                 $n1 = 0;
                 foreach ($map['PolicyId'] as $item1) {
-                    $model->policyId[$n1++] = $item1;
+                    $model->policyId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

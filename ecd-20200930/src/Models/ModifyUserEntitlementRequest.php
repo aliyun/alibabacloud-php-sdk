@@ -56,7 +56,8 @@ class ModifyUserEntitlementRequest extends Model
                 $res['AuthorizeDesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->authorizeDesktopId as $item1) {
-                    $res['AuthorizeDesktopId'][$n1++] = $item1;
+                    $res['AuthorizeDesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -66,7 +67,8 @@ class ModifyUserEntitlementRequest extends Model
                 $res['EndUserId'] = [];
                 $n1 = 0;
                 foreach ($this->endUserId as $item1) {
-                    $res['EndUserId'][$n1++] = $item1;
+                    $res['EndUserId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,7 +82,8 @@ class ModifyUserEntitlementRequest extends Model
                 $res['RevokeDesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->revokeDesktopId as $item1) {
-                    $res['RevokeDesktopId'][$n1++] = $item1;
+                    $res['RevokeDesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +104,8 @@ class ModifyUserEntitlementRequest extends Model
                 $model->authorizeDesktopId = [];
                 $n1 = 0;
                 foreach ($map['AuthorizeDesktopId'] as $item1) {
-                    $model->authorizeDesktopId[$n1++] = $item1;
+                    $model->authorizeDesktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +115,8 @@ class ModifyUserEntitlementRequest extends Model
                 $model->endUserId = [];
                 $n1 = 0;
                 foreach ($map['EndUserId'] as $item1) {
-                    $model->endUserId[$n1++] = $item1;
+                    $model->endUserId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +130,8 @@ class ModifyUserEntitlementRequest extends Model
                 $model->revokeDesktopId = [];
                 $n1 = 0;
                 foreach ($map['RevokeDesktopId'] as $item1) {
-                    $model->revokeDesktopId[$n1++] = $item1;
+                    $model->revokeDesktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

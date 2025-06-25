@@ -38,7 +38,8 @@ class DeleteBundlesRequest extends Model
                 $res['BundleId'] = [];
                 $n1 = 0;
                 foreach ($this->bundleId as $item1) {
-                    $res['BundleId'][$n1++] = $item1;
+                    $res['BundleId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteBundlesRequest extends Model
                 $model->bundleId = [];
                 $n1 = 0;
                 foreach ($map['BundleId'] as $item1) {
-                    $model->bundleId[$n1++] = $item1;
+                    $model->bundleId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

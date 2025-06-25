@@ -54,7 +54,8 @@ class ModifyDesktopTimerRequest extends Model
                 $res['DesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
+                    $res['DesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ModifyDesktopTimerRequest extends Model
                 $res['DesktopTimers'] = [];
                 $n1 = 0;
                 foreach ($this->desktopTimers as $item1) {
-                    $res['DesktopTimers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesktopTimers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class ModifyDesktopTimerRequest extends Model
                 $model->desktopId = [];
                 $n1 = 0;
                 foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
+                    $model->desktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class ModifyDesktopTimerRequest extends Model
                 $model->desktopTimers = [];
                 $n1 = 0;
                 foreach ($map['DesktopTimers'] as $item1) {
-                    $model->desktopTimers[$n1++] = desktopTimers::fromMap($item1);
+                    $model->desktopTimers[$n1] = desktopTimers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

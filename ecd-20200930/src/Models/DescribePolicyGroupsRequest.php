@@ -77,7 +77,8 @@ class DescribePolicyGroupsRequest extends Model
                 $res['ExternalPolicyGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->externalPolicyGroupIds as $item1) {
-                    $res['ExternalPolicyGroupIds'][$n1++] = $item1;
+                    $res['ExternalPolicyGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class DescribePolicyGroupsRequest extends Model
                 $res['PolicyGroupId'] = [];
                 $n1 = 0;
                 foreach ($this->policyGroupId as $item1) {
-                    $res['PolicyGroupId'][$n1++] = $item1;
+                    $res['PolicyGroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class DescribePolicyGroupsRequest extends Model
                 $model->externalPolicyGroupIds = [];
                 $n1 = 0;
                 foreach ($map['ExternalPolicyGroupIds'] as $item1) {
-                    $model->externalPolicyGroupIds[$n1++] = $item1;
+                    $model->externalPolicyGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +161,8 @@ class DescribePolicyGroupsRequest extends Model
                 $model->policyGroupId = [];
                 $n1 = 0;
                 foreach ($map['PolicyGroupId'] as $item1) {
-                    $model->policyGroupId[$n1++] = $item1;
+                    $model->policyGroupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

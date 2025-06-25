@@ -144,7 +144,8 @@ class desktopTypes extends Model
                 $res['Scopes'] = [];
                 $n1 = 0;
                 foreach ($this->scopes as $item1) {
-                    $res['Scopes'][$n1++] = $item1;
+                    $res['Scopes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +214,8 @@ class desktopTypes extends Model
                 $model->scopes = [];
                 $n1 = 0;
                 foreach ($map['Scopes'] as $item1) {
-                    $model->scopes[$n1++] = $item1;
+                    $model->scopes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

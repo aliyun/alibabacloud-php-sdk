@@ -45,7 +45,8 @@ class DescribeNetworkPackagesResponseBody extends Model
                 $res['NetworkPackages'] = [];
                 $n1 = 0;
                 foreach ($this->networkPackages as $item1) {
-                    $res['NetworkPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkPackages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeNetworkPackagesResponseBody extends Model
                 $model->networkPackages = [];
                 $n1 = 0;
                 foreach ($map['NetworkPackages'] as $item1) {
-                    $model->networkPackages[$n1++] = networkPackages::fromMap($item1);
+                    $model->networkPackages[$n1] = networkPackages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

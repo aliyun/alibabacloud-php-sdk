@@ -88,7 +88,8 @@ class DescribeFotaTasksRequest extends Model
                 $res['TaskUid'] = [];
                 $n1 = 0;
                 foreach ($this->taskUid as $item1) {
-                    $res['TaskUid'][$n1++] = $item1;
+                    $res['TaskUid'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class DescribeFotaTasksRequest extends Model
                 $model->taskUid = [];
                 $n1 = 0;
                 foreach ($map['TaskUid'] as $item1) {
-                    $model->taskUid[$n1++] = $item1;
+                    $model->taskUid[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

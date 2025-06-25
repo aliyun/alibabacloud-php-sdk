@@ -49,7 +49,8 @@ class ListUserAdOrganizationUnitsResponseBody extends Model
                 $res['OUNames'] = [];
                 $n1 = 0;
                 foreach ($this->OUNames as $item1) {
-                    $res['OUNames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OUNames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListUserAdOrganizationUnitsResponseBody extends Model
                 $model->OUNames = [];
                 $n1 = 0;
                 foreach ($map['OUNames'] as $item1) {
-                    $model->OUNames[$n1++] = OUNames::fromMap($item1);
+                    $model->OUNames[$n1] = OUNames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

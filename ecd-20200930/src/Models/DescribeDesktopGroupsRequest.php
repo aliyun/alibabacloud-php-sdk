@@ -156,7 +156,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $res['BundleId'] = [];
                 $n1 = 0;
                 foreach ($this->bundleId as $item1) {
-                    $res['BundleId'][$n1++] = $item1;
+                    $res['BundleId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $res['DesktopGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->desktopGroupIds as $item1) {
-                    $res['DesktopGroupIds'][$n1++] = $item1;
+                    $res['DesktopGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +186,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $res['EndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1++] = $item1;
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +197,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $res['ExcludedEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->excludedEndUserIds as $item1) {
-                    $res['ExcludedEndUserIds'][$n1++] = $item1;
+                    $res['ExcludedEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +208,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $res['ImageId'] = [];
                 $n1 = 0;
                 foreach ($this->imageId as $item1) {
-                    $res['ImageId'][$n1++] = $item1;
+                    $res['ImageId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +263,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -279,7 +285,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $model->bundleId = [];
                 $n1 = 0;
                 foreach ($map['BundleId'] as $item1) {
-                    $model->bundleId[$n1++] = $item1;
+                    $model->bundleId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -293,7 +300,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $model->desktopGroupIds = [];
                 $n1 = 0;
                 foreach ($map['DesktopGroupIds'] as $item1) {
-                    $model->desktopGroupIds[$n1++] = $item1;
+                    $model->desktopGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -307,7 +315,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $model->endUserIds = [];
                 $n1 = 0;
                 foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1++] = $item1;
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -317,7 +326,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $model->excludedEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['ExcludedEndUserIds'] as $item1) {
-                    $model->excludedEndUserIds[$n1++] = $item1;
+                    $model->excludedEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -327,7 +337,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $model->imageId = [];
                 $n1 = 0;
                 foreach ($map['ImageId'] as $item1) {
-                    $model->imageId[$n1++] = $item1;
+                    $model->imageId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -381,7 +392,8 @@ class DescribeDesktopGroupsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

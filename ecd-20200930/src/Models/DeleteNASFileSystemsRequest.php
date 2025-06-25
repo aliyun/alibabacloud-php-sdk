@@ -38,7 +38,8 @@ class DeleteNASFileSystemsRequest extends Model
                 $res['FileSystemId'] = [];
                 $n1 = 0;
                 foreach ($this->fileSystemId as $item1) {
-                    $res['FileSystemId'][$n1++] = $item1;
+                    $res['FileSystemId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteNASFileSystemsRequest extends Model
                 $model->fileSystemId = [];
                 $n1 = 0;
                 foreach ($map['FileSystemId'] as $item1) {
-                    $model->fileSystemId[$n1++] = $item1;
+                    $model->fileSystemId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

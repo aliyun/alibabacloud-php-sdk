@@ -39,7 +39,8 @@ class ModifyDesktopsPolicyGroupResponseBody extends Model
                 $res['ModifyResults'] = [];
                 $n1 = 0;
                 foreach ($this->modifyResults as $item1) {
-                    $res['ModifyResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModifyResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ModifyDesktopsPolicyGroupResponseBody extends Model
                 $model->modifyResults = [];
                 $n1 = 0;
                 foreach ($map['ModifyResults'] as $item1) {
-                    $model->modifyResults[$n1++] = modifyResults::fromMap($item1);
+                    $model->modifyResults[$n1] = modifyResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

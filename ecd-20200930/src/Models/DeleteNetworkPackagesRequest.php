@@ -44,7 +44,8 @@ class DeleteNetworkPackagesRequest extends Model
                 $res['NetworkPackageId'] = [];
                 $n1 = 0;
                 foreach ($this->networkPackageId as $item1) {
-                    $res['NetworkPackageId'][$n1++] = $item1;
+                    $res['NetworkPackageId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class DeleteNetworkPackagesRequest extends Model
                 $model->networkPackageId = [];
                 $n1 = 0;
                 foreach ($map['NetworkPackageId'] as $item1) {
-                    $model->networkPackageId[$n1++] = $item1;
+                    $model->networkPackageId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

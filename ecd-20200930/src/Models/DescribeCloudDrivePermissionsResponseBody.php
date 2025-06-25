@@ -39,7 +39,8 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
                 $res['CloudDrivePermissionModels'] = [];
                 $n1 = 0;
                 foreach ($this->cloudDrivePermissionModels as $item1) {
-                    $res['CloudDrivePermissionModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CloudDrivePermissionModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
                 $model->cloudDrivePermissionModels = [];
                 $n1 = 0;
                 foreach ($map['CloudDrivePermissionModels'] as $item1) {
-                    $model->cloudDrivePermissionModels[$n1++] = cloudDrivePermissionModels::fromMap($item1);
+                    $model->cloudDrivePermissionModels[$n1] = cloudDrivePermissionModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

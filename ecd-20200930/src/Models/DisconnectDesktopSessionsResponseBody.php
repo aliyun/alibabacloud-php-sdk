@@ -39,7 +39,8 @@ class DisconnectDesktopSessionsResponseBody extends Model
                 $res['InvalidSessions'] = [];
                 $n1 = 0;
                 foreach ($this->invalidSessions as $item1) {
-                    $res['InvalidSessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InvalidSessions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DisconnectDesktopSessionsResponseBody extends Model
                 $model->invalidSessions = [];
                 $n1 = 0;
                 foreach ($map['InvalidSessions'] as $item1) {
-                    $model->invalidSessions[$n1++] = invalidSessions::fromMap($item1);
+                    $model->invalidSessions[$n1] = invalidSessions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

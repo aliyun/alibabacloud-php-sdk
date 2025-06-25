@@ -125,7 +125,8 @@ class ModifyADConnectorOfficeSiteRequest extends Model
                 $res['DnsAddress'] = [];
                 $n1 = 0;
                 foreach ($this->dnsAddress as $item1) {
-                    $res['DnsAddress'][$n1++] = $item1;
+                    $res['DnsAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class ModifyADConnectorOfficeSiteRequest extends Model
                 $res['SubDomainDnsAddress'] = [];
                 $n1 = 0;
                 foreach ($this->subDomainDnsAddress as $item1) {
-                    $res['SubDomainDnsAddress'][$n1++] = $item1;
+                    $res['SubDomainDnsAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +206,8 @@ class ModifyADConnectorOfficeSiteRequest extends Model
                 $model->dnsAddress = [];
                 $n1 = 0;
                 foreach ($map['DnsAddress'] as $item1) {
-                    $model->dnsAddress[$n1++] = $item1;
+                    $model->dnsAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -246,7 +249,8 @@ class ModifyADConnectorOfficeSiteRequest extends Model
                 $model->subDomainDnsAddress = [];
                 $n1 = 0;
                 foreach ($map['SubDomainDnsAddress'] as $item1) {
-                    $model->subDomainDnsAddress[$n1++] = $item1;
+                    $model->subDomainDnsAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

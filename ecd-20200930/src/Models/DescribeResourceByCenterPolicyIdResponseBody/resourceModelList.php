@@ -135,7 +135,8 @@ class resourceModelList extends Model
                 $res['AppModelList'] = [];
                 $n1 = 0;
                 foreach ($this->appModelList as $item1) {
-                    $res['AppModelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppModelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +225,8 @@ class resourceModelList extends Model
                 $model->appModelList = [];
                 $n1 = 0;
                 foreach ($map['AppModelList'] as $item1) {
-                    $model->appModelList[$n1++] = appModelList::fromMap($item1);
+                    $model->appModelList[$n1] = appModelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

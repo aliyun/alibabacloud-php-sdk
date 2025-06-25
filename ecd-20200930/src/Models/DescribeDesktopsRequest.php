@@ -269,7 +269,8 @@ class DescribeDesktopsRequest extends Model
                 $res['DesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
+                    $res['DesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -287,7 +288,8 @@ class DescribeDesktopsRequest extends Model
                 $res['DesktopStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->desktopStatusList as $item1) {
-                    $res['DesktopStatusList'][$n1++] = $item1;
+                    $res['DesktopStatusList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -305,7 +307,8 @@ class DescribeDesktopsRequest extends Model
                 $res['EndUserId'] = [];
                 $n1 = 0;
                 foreach ($this->endUserId as $item1) {
-                    $res['EndUserId'][$n1++] = $item1;
+                    $res['EndUserId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -315,7 +318,8 @@ class DescribeDesktopsRequest extends Model
                 $res['ExcludedEndUserId'] = [];
                 $n1 = 0;
                 foreach ($this->excludedEndUserId as $item1) {
-                    $res['ExcludedEndUserId'][$n1++] = $item1;
+                    $res['ExcludedEndUserId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -345,7 +349,8 @@ class DescribeDesktopsRequest extends Model
                 $res['ImageId'] = [];
                 $n1 = 0;
                 foreach ($this->imageId as $item1) {
-                    $res['ImageId'][$n1++] = $item1;
+                    $res['ImageId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +388,8 @@ class DescribeDesktopsRequest extends Model
                 $res['OsTypes'] = [];
                 $n1 = 0;
                 foreach ($this->osTypes as $item1) {
-                    $res['OsTypes'][$n1++] = $item1;
+                    $res['OsTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -433,7 +439,8 @@ class DescribeDesktopsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -466,7 +473,8 @@ class DescribeDesktopsRequest extends Model
                 $model->desktopId = [];
                 $n1 = 0;
                 foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
+                    $model->desktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -484,7 +492,8 @@ class DescribeDesktopsRequest extends Model
                 $model->desktopStatusList = [];
                 $n1 = 0;
                 foreach ($map['DesktopStatusList'] as $item1) {
-                    $model->desktopStatusList[$n1++] = $item1;
+                    $model->desktopStatusList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -502,7 +511,8 @@ class DescribeDesktopsRequest extends Model
                 $model->endUserId = [];
                 $n1 = 0;
                 foreach ($map['EndUserId'] as $item1) {
-                    $model->endUserId[$n1++] = $item1;
+                    $model->endUserId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -512,7 +522,8 @@ class DescribeDesktopsRequest extends Model
                 $model->excludedEndUserId = [];
                 $n1 = 0;
                 foreach ($map['ExcludedEndUserId'] as $item1) {
-                    $model->excludedEndUserId[$n1++] = $item1;
+                    $model->excludedEndUserId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -542,7 +553,8 @@ class DescribeDesktopsRequest extends Model
                 $model->imageId = [];
                 $n1 = 0;
                 foreach ($map['ImageId'] as $item1) {
-                    $model->imageId[$n1++] = $item1;
+                    $model->imageId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -580,7 +592,8 @@ class DescribeDesktopsRequest extends Model
                 $model->osTypes = [];
                 $n1 = 0;
                 foreach ($map['OsTypes'] as $item1) {
-                    $model->osTypes[$n1++] = $item1;
+                    $model->osTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -630,7 +643,8 @@ class DescribeDesktopsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

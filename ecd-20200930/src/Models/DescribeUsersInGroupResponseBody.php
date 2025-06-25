@@ -69,7 +69,8 @@ class DescribeUsersInGroupResponseBody extends Model
                 $res['EndUsers'] = [];
                 $n1 = 0;
                 foreach ($this->endUsers as $item1) {
-                    $res['EndUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EndUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class DescribeUsersInGroupResponseBody extends Model
                 $model->endUsers = [];
                 $n1 = 0;
                 foreach ($map['EndUsers'] as $item1) {
-                    $model->endUsers[$n1++] = endUsers::fromMap($item1);
+                    $model->endUsers[$n1] = endUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

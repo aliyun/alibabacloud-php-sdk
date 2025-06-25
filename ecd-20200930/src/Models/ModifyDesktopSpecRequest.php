@@ -117,7 +117,8 @@ class ModifyDesktopSpecRequest extends Model
                 $res['ResourceSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->resourceSpecs as $item1) {
-                    $res['ResourceSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +179,8 @@ class ModifyDesktopSpecRequest extends Model
                 $model->resourceSpecs = [];
                 $n1 = 0;
                 foreach ($map['ResourceSpecs'] as $item1) {
-                    $model->resourceSpecs[$n1++] = resourceSpecs::fromMap($item1);
+                    $model->resourceSpecs[$n1] = resourceSpecs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

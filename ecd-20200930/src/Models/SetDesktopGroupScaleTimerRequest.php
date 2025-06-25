@@ -53,7 +53,8 @@ class SetDesktopGroupScaleTimerRequest extends Model
                 $res['ScaleTimerInfos'] = [];
                 $n1 = 0;
                 foreach ($this->scaleTimerInfos as $item1) {
-                    $res['ScaleTimerInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScaleTimerInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class SetDesktopGroupScaleTimerRequest extends Model
                 $model->scaleTimerInfos = [];
                 $n1 = 0;
                 foreach ($map['ScaleTimerInfos'] as $item1) {
-                    $model->scaleTimerInfos[$n1++] = scaleTimerInfos::fromMap($item1);
+                    $model->scaleTimerInfos[$n1] = scaleTimerInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

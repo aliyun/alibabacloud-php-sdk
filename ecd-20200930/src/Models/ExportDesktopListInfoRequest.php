@@ -127,7 +127,8 @@ class ExportDesktopListInfoRequest extends Model
                 $res['DesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
+                    $res['DesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class ExportDesktopListInfoRequest extends Model
                 $res['EndUserId'] = [];
                 $n1 = 0;
                 foreach ($this->endUserId as $item1) {
-                    $res['EndUserId'][$n1++] = $item1;
+                    $res['EndUserId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +189,8 @@ class ExportDesktopListInfoRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +219,8 @@ class ExportDesktopListInfoRequest extends Model
                 $model->desktopId = [];
                 $n1 = 0;
                 foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
+                    $model->desktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +238,8 @@ class ExportDesktopListInfoRequest extends Model
                 $model->endUserId = [];
                 $n1 = 0;
                 foreach ($map['EndUserId'] as $item1) {
-                    $model->endUserId[$n1++] = $item1;
+                    $model->endUserId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +281,8 @@ class ExportDesktopListInfoRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

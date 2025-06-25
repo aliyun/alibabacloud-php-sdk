@@ -39,7 +39,8 @@ class DescribeUsersPasswordResponseBody extends Model
                 $res['DesktopUsers'] = [];
                 $n1 = 0;
                 foreach ($this->desktopUsers as $item1) {
-                    $res['DesktopUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesktopUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeUsersPasswordResponseBody extends Model
                 $model->desktopUsers = [];
                 $n1 = 0;
                 foreach ($map['DesktopUsers'] as $item1) {
-                    $model->desktopUsers[$n1++] = desktopUsers::fromMap($item1);
+                    $model->desktopUsers[$n1] = desktopUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

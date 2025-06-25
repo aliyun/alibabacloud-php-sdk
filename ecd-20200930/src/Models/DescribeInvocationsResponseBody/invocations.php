@@ -109,7 +109,8 @@ class invocations extends Model
                 $res['InvokeDesktops'] = [];
                 $n1 = 0;
                 foreach ($this->invokeDesktops as $item1) {
-                    $res['InvokeDesktops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InvokeDesktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +163,8 @@ class invocations extends Model
                 $model->invokeDesktops = [];
                 $n1 = 0;
                 foreach ($map['InvokeDesktops'] as $item1) {
-                    $model->invokeDesktops[$n1++] = invokeDesktops::fromMap($item1);
+                    $model->invokeDesktops[$n1] = invokeDesktops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class ListFilePermissionResponseBody extends Model
                 $res['FilePermissions'] = [];
                 $n1 = 0;
                 foreach ($this->filePermissions as $item1) {
-                    $res['FilePermissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FilePermissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListFilePermissionResponseBody extends Model
                 $model->filePermissions = [];
                 $n1 = 0;
                 foreach ($map['FilePermissions'] as $item1) {
-                    $model->filePermissions[$n1++] = FilePermissionMember::fromMap($item1);
+                    $model->filePermissions[$n1] = FilePermissionMember::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

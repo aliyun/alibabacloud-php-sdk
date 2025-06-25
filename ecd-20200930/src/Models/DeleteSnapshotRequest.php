@@ -42,7 +42,8 @@ class DeleteSnapshotRequest extends Model
                 $res['SnapshotId'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotId as $item1) {
-                    $res['SnapshotId'][$n1++] = $item1;
+                    $res['SnapshotId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DeleteSnapshotRequest extends Model
                 $model->snapshotId = [];
                 $n1 = 0;
                 foreach ($map['SnapshotId'] as $item1) {
-                    $model->snapshotId[$n1++] = $item1;
+                    $model->snapshotId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

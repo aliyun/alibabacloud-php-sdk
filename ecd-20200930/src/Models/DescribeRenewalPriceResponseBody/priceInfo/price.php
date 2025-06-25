@@ -87,7 +87,8 @@ class price extends Model
                 $res['Promotions'] = [];
                 $n1 = 0;
                 foreach ($this->promotions as $item1) {
-                    $res['Promotions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Promotions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class price extends Model
                 $model->promotions = [];
                 $n1 = 0;
                 foreach ($map['Promotions'] as $item1) {
-                    $model->promotions[$n1++] = promotions::fromMap($item1);
+                    $model->promotions[$n1] = promotions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

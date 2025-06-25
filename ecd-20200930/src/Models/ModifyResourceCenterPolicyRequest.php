@@ -65,7 +65,8 @@ class ModifyResourceCenterPolicyRequest extends Model
                 $res['PolicyGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->policyGroupIds as $item1) {
-                    $res['PolicyGroupIds'][$n1++] = $item1;
+                    $res['PolicyGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class ModifyResourceCenterPolicyRequest extends Model
                 $res['ResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['ResourceIds'][$n1++] = $item1;
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class ModifyResourceCenterPolicyRequest extends Model
                 $model->policyGroupIds = [];
                 $n1 = 0;
                 foreach ($map['PolicyGroupIds'] as $item1) {
-                    $model->policyGroupIds[$n1++] = $item1;
+                    $model->policyGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +133,8 @@ class ModifyResourceCenterPolicyRequest extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

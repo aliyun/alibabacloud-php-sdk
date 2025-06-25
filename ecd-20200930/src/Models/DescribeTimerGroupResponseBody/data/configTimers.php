@@ -120,7 +120,8 @@ class configTimers extends Model
                 $res['ProcessWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->processWhitelist as $item1) {
-                    $res['ProcessWhitelist'][$n1++] = $item1;
+                    $res['ProcessWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class configTimers extends Model
                 $res['SegmentTimers'] = [];
                 $n1 = 0;
                 foreach ($this->segmentTimers as $item1) {
-                    $res['SegmentTimers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SegmentTimers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +189,8 @@ class configTimers extends Model
                 $model->processWhitelist = [];
                 $n1 = 0;
                 foreach ($map['ProcessWhitelist'] as $item1) {
-                    $model->processWhitelist[$n1++] = $item1;
+                    $model->processWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +204,8 @@ class configTimers extends Model
                 $model->segmentTimers = [];
                 $n1 = 0;
                 foreach ($map['SegmentTimers'] as $item1) {
-                    $model->segmentTimers[$n1++] = segmentTimers::fromMap($item1);
+                    $model->segmentTimers[$n1] = segmentTimers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

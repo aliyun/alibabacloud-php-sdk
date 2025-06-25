@@ -43,7 +43,8 @@ class devices extends Model
                 $res['EndUserList'] = [];
                 $n1 = 0;
                 foreach ($this->endUserList as $item1) {
-                    $res['EndUserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EndUserList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class devices extends Model
                 $model->endUserList = [];
                 $n1 = 0;
                 foreach ($map['EndUserList'] as $item1) {
-                    $model->endUserList[$n1++] = endUserList::fromMap($item1);
+                    $model->endUserList[$n1] = endUserList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

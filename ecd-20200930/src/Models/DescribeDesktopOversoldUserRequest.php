@@ -88,7 +88,8 @@ class DescribeDesktopOversoldUserRequest extends Model
                 $res['UserDesktopIds'] = [];
                 $n1 = 0;
                 foreach ($this->userDesktopIds as $item1) {
-                    $res['UserDesktopIds'][$n1++] = $item1;
+                    $res['UserDesktopIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class DescribeDesktopOversoldUserRequest extends Model
                 $model->userDesktopIds = [];
                 $n1 = 0;
                 foreach ($map['UserDesktopIds'] as $item1) {
-                    $model->userDesktopIds[$n1++] = $item1;
+                    $model->userDesktopIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

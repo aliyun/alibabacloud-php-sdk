@@ -38,7 +38,8 @@ class DescribeImagePermissionResponseBody extends Model
                 $res['AliUids'] = [];
                 $n1 = 0;
                 foreach ($this->aliUids as $item1) {
-                    $res['AliUids'][$n1++] = $item1;
+                    $res['AliUids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeImagePermissionResponseBody extends Model
                 $model->aliUids = [];
                 $n1 = 0;
                 foreach ($map['AliUids'] as $item1) {
-                    $model->aliUids[$n1++] = $item1;
+                    $model->aliUids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -112,7 +112,8 @@ class segmentTimers extends Model
                 $res['ProcessWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->processWhitelist as $item1) {
-                    $res['ProcessWhitelist'][$n1++] = $item1;
+                    $res['ProcessWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class segmentTimers extends Model
                 $model->processWhitelist = [];
                 $n1 = 0;
                 foreach ($map['ProcessWhitelist'] as $item1) {
-                    $model->processWhitelist[$n1++] = $item1;
+                    $model->processWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

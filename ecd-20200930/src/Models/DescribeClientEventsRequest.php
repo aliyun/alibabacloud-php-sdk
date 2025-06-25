@@ -150,7 +150,8 @@ class DescribeClientEventsRequest extends Model
                 $res['EventTypes'] = [];
                 $n1 = 0;
                 foreach ($this->eventTypes as $item1) {
-                    $res['EventTypes'][$n1++] = $item1;
+                    $res['EventTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +232,8 @@ class DescribeClientEventsRequest extends Model
                 $model->eventTypes = [];
                 $n1 = 0;
                 foreach ($map['EventTypes'] as $item1) {
-                    $model->eventTypes[$n1++] = $item1;
+                    $model->eventTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

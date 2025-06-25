@@ -125,7 +125,8 @@ class applications extends Model
                 $res['ProcessData'] = [];
                 $n1 = 0;
                 foreach ($this->processData as $item1) {
-                    $res['ProcessData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProcessData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +187,8 @@ class applications extends Model
                 $model->processData = [];
                 $n1 = 0;
                 foreach ($map['ProcessData'] as $item1) {
-                    $model->processData[$n1++] = processData::fromMap($item1);
+                    $model->processData[$n1] = processData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

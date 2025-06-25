@@ -132,7 +132,8 @@ class DescribeImagesRequest extends Model
                 $res['ImageId'] = [];
                 $n1 = 0;
                 foreach ($this->imageId as $item1) {
-                    $res['ImageId'][$n1++] = $item1;
+                    $res['ImageId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +210,8 @@ class DescribeImagesRequest extends Model
                 $model->imageId = [];
                 $n1 = 0;
                 foreach ($map['ImageId'] as $item1) {
-                    $model->imageId[$n1++] = $item1;
+                    $model->imageId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

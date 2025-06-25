@@ -39,7 +39,8 @@ class DescribeCustomizedListHeadersResponseBody extends Model
                 $res['Headers'] = [];
                 $n1 = 0;
                 foreach ($this->headers as $item1) {
-                    $res['Headers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Headers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeCustomizedListHeadersResponseBody extends Model
                 $model->headers = [];
                 $n1 = 0;
                 foreach ($map['Headers'] as $item1) {
-                    $model->headers[$n1++] = headers::fromMap($item1);
+                    $model->headers[$n1] = headers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

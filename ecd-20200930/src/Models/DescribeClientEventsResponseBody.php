@@ -45,7 +45,8 @@ class DescribeClientEventsResponseBody extends Model
                 $res['Events'] = [];
                 $n1 = 0;
                 foreach ($this->events as $item1) {
-                    $res['Events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Events'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeClientEventsResponseBody extends Model
                 $model->events = [];
                 $n1 = 0;
                 foreach ($map['Events'] as $item1) {
-                    $model->events[$n1++] = events::fromMap($item1);
+                    $model->events[$n1] = events::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

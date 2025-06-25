@@ -103,7 +103,8 @@ class cloudDriveGroups extends Model
                 $res['AdminUserInfos'] = [];
                 $n1 = 0;
                 foreach ($this->adminUserInfos as $item1) {
-                    $res['AdminUserInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdminUserInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +169,8 @@ class cloudDriveGroups extends Model
                 $model->adminUserInfos = [];
                 $n1 = 0;
                 foreach ($map['AdminUserInfos'] as $item1) {
-                    $model->adminUserInfos[$n1++] = adminUserInfos::fromMap($item1);
+                    $model->adminUserInfos[$n1] = adminUserInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

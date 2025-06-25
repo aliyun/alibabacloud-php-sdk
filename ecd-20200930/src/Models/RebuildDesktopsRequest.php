@@ -66,7 +66,8 @@ class RebuildDesktopsRequest extends Model
                 $res['DesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
+                    $res['DesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class RebuildDesktopsRequest extends Model
                 $model->desktopId = [];
                 $n1 = 0;
                 foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
+                    $model->desktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

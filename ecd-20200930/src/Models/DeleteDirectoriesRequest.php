@@ -38,7 +38,8 @@ class DeleteDirectoriesRequest extends Model
                 $res['DirectoryId'] = [];
                 $n1 = 0;
                 foreach ($this->directoryId as $item1) {
-                    $res['DirectoryId'][$n1++] = $item1;
+                    $res['DirectoryId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteDirectoriesRequest extends Model
                 $model->directoryId = [];
                 $n1 = 0;
                 foreach ($map['DirectoryId'] as $item1) {
-                    $model->directoryId[$n1++] = $item1;
+                    $model->directoryId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

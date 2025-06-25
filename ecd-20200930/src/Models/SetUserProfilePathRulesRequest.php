@@ -59,7 +59,8 @@ class SetUserProfilePathRulesRequest extends Model
                 $res['UserProfilePathRule'] = [];
                 $n1 = 0;
                 foreach ($this->userProfilePathRule as $item1) {
-                    $res['UserProfilePathRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserProfilePathRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class SetUserProfilePathRulesRequest extends Model
                 $model->userProfilePathRule = [];
                 $n1 = 0;
                 foreach ($map['UserProfilePathRule'] as $item1) {
-                    $model->userProfilePathRule[$n1++] = userProfilePathRule::fromMap($item1);
+                    $model->userProfilePathRule[$n1] = userProfilePathRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

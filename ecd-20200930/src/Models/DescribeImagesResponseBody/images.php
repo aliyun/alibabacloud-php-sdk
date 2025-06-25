@@ -220,7 +220,8 @@ class images extends Model
                 $res['SupportedLanguages'] = [];
                 $n1 = 0;
                 foreach ($this->supportedLanguages as $item1) {
-                    $res['SupportedLanguages'][$n1++] = $item1;
+                    $res['SupportedLanguages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -321,7 +322,8 @@ class images extends Model
                 $model->supportedLanguages = [];
                 $n1 = 0;
                 foreach ($map['SupportedLanguages'] as $item1) {
-                    $model->supportedLanguages[$n1++] = $item1;
+                    $model->supportedLanguages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

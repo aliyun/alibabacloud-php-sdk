@@ -177,7 +177,8 @@ class fileSystems extends Model
                 $res['AppInstanceGroups'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceGroups as $item1) {
-                    $res['AppInstanceGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppInstanceGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +200,8 @@ class fileSystems extends Model
                 $res['DesktopGroups'] = [];
                 $n1 = 0;
                 foreach ($this->desktopGroups as $item1) {
-                    $res['DesktopGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesktopGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +251,8 @@ class fileSystems extends Model
                 $res['OfficeSites'] = [];
                 $n1 = 0;
                 foreach ($this->officeSites as $item1) {
-                    $res['OfficeSites'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OfficeSites'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -298,7 +301,8 @@ class fileSystems extends Model
                 $model->appInstanceGroups = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceGroups'] as $item1) {
-                    $model->appInstanceGroups[$n1++] = appInstanceGroups::fromMap($item1);
+                    $model->appInstanceGroups[$n1] = appInstanceGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -320,7 +324,8 @@ class fileSystems extends Model
                 $model->desktopGroups = [];
                 $n1 = 0;
                 foreach ($map['DesktopGroups'] as $item1) {
-                    $model->desktopGroups[$n1++] = desktopGroups::fromMap($item1);
+                    $model->desktopGroups[$n1] = desktopGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -370,7 +375,8 @@ class fileSystems extends Model
                 $model->officeSites = [];
                 $n1 = 0;
                 foreach ($map['OfficeSites'] as $item1) {
-                    $model->officeSites[$n1++] = officeSites::fromMap($item1);
+                    $model->officeSites[$n1] = officeSites::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

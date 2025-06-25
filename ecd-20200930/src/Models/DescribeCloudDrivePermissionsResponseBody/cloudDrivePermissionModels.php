@@ -38,7 +38,8 @@ class cloudDrivePermissionModels extends Model
                 $res['EndUsers'] = [];
                 $n1 = 0;
                 foreach ($this->endUsers as $item1) {
-                    $res['EndUsers'][$n1++] = $item1;
+                    $res['EndUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class cloudDrivePermissionModels extends Model
                 $model->endUsers = [];
                 $n1 = 0;
                 foreach ($map['EndUsers'] as $item1) {
-                    $model->endUsers[$n1++] = $item1;
+                    $model->endUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

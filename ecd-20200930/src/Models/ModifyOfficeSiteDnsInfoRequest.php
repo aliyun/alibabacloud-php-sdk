@@ -44,7 +44,8 @@ class ModifyOfficeSiteDnsInfoRequest extends Model
                 $res['DnsAddress'] = [];
                 $n1 = 0;
                 foreach ($this->dnsAddress as $item1) {
-                    $res['DnsAddress'][$n1++] = $item1;
+                    $res['DnsAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ModifyOfficeSiteDnsInfoRequest extends Model
                 $model->dnsAddress = [];
                 $n1 = 0;
                 foreach ($map['DnsAddress'] as $item1) {
-                    $model->dnsAddress[$n1++] = $item1;
+                    $model->dnsAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

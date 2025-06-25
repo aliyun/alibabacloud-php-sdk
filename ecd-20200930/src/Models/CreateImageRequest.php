@@ -93,7 +93,8 @@ class CreateImageRequest extends Model
                 $res['DataSnapshotIds'] = [];
                 $n1 = 0;
                 foreach ($this->dataSnapshotIds as $item1) {
-                    $res['DataSnapshotIds'][$n1++] = $item1;
+                    $res['DataSnapshotIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class CreateImageRequest extends Model
                 $res['SnapshotIds'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotIds as $item1) {
-                    $res['SnapshotIds'][$n1++] = $item1;
+                    $res['SnapshotIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class CreateImageRequest extends Model
                 $model->dataSnapshotIds = [];
                 $n1 = 0;
                 foreach ($map['DataSnapshotIds'] as $item1) {
-                    $model->dataSnapshotIds[$n1++] = $item1;
+                    $model->dataSnapshotIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +197,8 @@ class CreateImageRequest extends Model
                 $model->snapshotIds = [];
                 $n1 = 0;
                 foreach ($map['SnapshotIds'] as $item1) {
-                    $model->snapshotIds[$n1++] = $item1;
+                    $model->snapshotIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

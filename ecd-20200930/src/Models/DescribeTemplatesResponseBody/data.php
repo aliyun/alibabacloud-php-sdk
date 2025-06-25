@@ -159,7 +159,8 @@ class data extends Model
                 $res['DataDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->dataDiskList as $item1) {
-                    $res['DataDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +202,8 @@ class data extends Model
                 $res['RegionConfigList'] = [];
                 $n1 = 0;
                 foreach ($this->regionConfigList as $item1) {
-                    $res['RegionConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +221,8 @@ class data extends Model
                 $res['ResourceTagList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTagList as $item1) {
-                    $res['ResourceTagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceTagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +232,8 @@ class data extends Model
                 $res['SiteConfigList'] = [];
                 $n1 = 0;
                 foreach ($this->siteConfigList as $item1) {
-                    $res['SiteConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SiteConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +278,8 @@ class data extends Model
                 $model->dataDiskList = [];
                 $n1 = 0;
                 foreach ($map['DataDiskList'] as $item1) {
-                    $model->dataDiskList[$n1++] = dataDiskList::fromMap($item1);
+                    $model->dataDiskList[$n1] = dataDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -316,7 +321,8 @@ class data extends Model
                 $model->regionConfigList = [];
                 $n1 = 0;
                 foreach ($map['RegionConfigList'] as $item1) {
-                    $model->regionConfigList[$n1++] = regionConfigList::fromMap($item1);
+                    $model->regionConfigList[$n1] = regionConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -334,7 +340,8 @@ class data extends Model
                 $model->resourceTagList = [];
                 $n1 = 0;
                 foreach ($map['ResourceTagList'] as $item1) {
-                    $model->resourceTagList[$n1++] = resourceTagList::fromMap($item1);
+                    $model->resourceTagList[$n1] = resourceTagList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -344,7 +351,8 @@ class data extends Model
                 $model->siteConfigList = [];
                 $n1 = 0;
                 foreach ($map['SiteConfigList'] as $item1) {
-                    $model->siteConfigList[$n1++] = siteConfigList::fromMap($item1);
+                    $model->siteConfigList[$n1] = siteConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

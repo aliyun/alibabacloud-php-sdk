@@ -63,7 +63,8 @@ class DescribeDesktopsResponseBody extends Model
                 $res['Desktops'] = [];
                 $n1 = 0;
                 foreach ($this->desktops as $item1) {
-                    $res['Desktops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Desktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeDesktopsResponseBody extends Model
                 $model->desktops = [];
                 $n1 = 0;
                 foreach ($map['Desktops'] as $item1) {
-                    $model->desktops[$n1++] = desktops::fromMap($item1);
+                    $model->desktops[$n1] = desktops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

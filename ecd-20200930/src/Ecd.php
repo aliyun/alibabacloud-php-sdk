@@ -3186,6 +3186,10 @@ class Ecd extends OpenApiClient
             @$query['CameraRedirect'] = $request->cameraRedirect;
         }
 
+        if (null !== $request->clientControlMenu) {
+            @$query['ClientControlMenu'] = $request->clientControlMenu;
+        }
+
         if (null !== $request->clientType) {
             @$query['ClientType'] = $request->clientType;
         }
@@ -3196,6 +3200,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->colorEnhancement) {
             @$query['ColorEnhancement'] = $request->colorEnhancement;
+        }
+
+        if (null !== $request->cpdDriveClipboard) {
+            @$query['CpdDriveClipboard'] = $request->cpdDriveClipboard;
         }
 
         if (null !== $request->cpuDownGradeDuration) {
@@ -3268,6 +3276,18 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->fileMigrate) {
             @$query['FileMigrate'] = $request->fileMigrate;
+        }
+
+        if (null !== $request->fileTransferAddress) {
+            @$query['FileTransferAddress'] = $request->fileTransferAddress;
+        }
+
+        if (null !== $request->fileTransferSpeed) {
+            @$query['FileTransferSpeed'] = $request->fileTransferSpeed;
+        }
+
+        if (null !== $request->fileTransferSpeedLocation) {
+            @$query['FileTransferSpeedLocation'] = $request->fileTransferSpeedLocation;
         }
 
         if (null !== $request->gpuAcceleration) {
@@ -3446,6 +3466,10 @@ class Ecd extends OpenApiClient
             @$query['ScopeValue'] = $request->scopeValue;
         }
 
+        if (null !== $request->screenDisplayMode) {
+            @$query['ScreenDisplayMode'] = $request->screenDisplayMode;
+        }
+
         if (null !== $request->sessionMaxRateKbps) {
             @$query['SessionMaxRateKbps'] = $request->sessionMaxRateKbps;
         }
@@ -3476,6 +3500,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->usbSupplyRedirectRule) {
             @$query['UsbSupplyRedirectRule'] = $request->usbSupplyRedirectRule;
+        }
+
+        if (null !== $request->useTime) {
+            @$query['UseTime'] = $request->useTime;
         }
 
         if (null !== $request->videoEncAvgKbps) {
@@ -14643,6 +14671,10 @@ class Ecd extends OpenApiClient
             @$query['CameraRedirect'] = $request->cameraRedirect;
         }
 
+        if (null !== $request->clientControlMenu) {
+            @$query['ClientControlMenu'] = $request->clientControlMenu;
+        }
+
         if (null !== $request->clientType) {
             @$query['ClientType'] = $request->clientType;
         }
@@ -14653,6 +14685,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->colorEnhancement) {
             @$query['ColorEnhancement'] = $request->colorEnhancement;
+        }
+
+        if (null !== $request->cpdDriveClipboard) {
+            @$query['CpdDriveClipboard'] = $request->cpdDriveClipboard;
         }
 
         if (null !== $request->cpuDownGradeDuration) {
@@ -14725,6 +14761,18 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->fileMigrate) {
             @$query['FileMigrate'] = $request->fileMigrate;
+        }
+
+        if (null !== $request->fileTransferAddress) {
+            @$query['FileTransferAddress'] = $request->fileTransferAddress;
+        }
+
+        if (null !== $request->fileTransferSpeed) {
+            @$query['FileTransferSpeed'] = $request->fileTransferSpeed;
+        }
+
+        if (null !== $request->fileTransferSpeedLocation) {
+            @$query['FileTransferSpeedLocation'] = $request->fileTransferSpeedLocation;
         }
 
         if (null !== $request->gpuAcceleration) {
@@ -14915,6 +14963,10 @@ class Ecd extends OpenApiClient
             @$query['ScopeValue'] = $request->scopeValue;
         }
 
+        if (null !== $request->screenDisplayMode) {
+            @$query['ScreenDisplayMode'] = $request->screenDisplayMode;
+        }
+
         if (null !== $request->sessionMaxRateKbps) {
             @$query['SessionMaxRateKbps'] = $request->sessionMaxRateKbps;
         }
@@ -14945,6 +14997,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->usbSupplyRedirectRule) {
             @$query['UsbSupplyRedirectRule'] = $request->usbSupplyRedirectRule;
+        }
+
+        if (null !== $request->useTime) {
+            @$query['UseTime'] = $request->useTime;
         }
 
         if (null !== $request->videoEncAvgKbps) {
@@ -17635,7 +17691,7 @@ class Ecd extends OpenApiClient
      * Modifies the basic information of a custom cloud computer template, including the template name and template description.
      *
      * @remarks
-     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
      *
      * @param request - ModifyTemplateBaseInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17685,7 +17741,7 @@ class Ecd extends OpenApiClient
      * Modifies the basic information of a custom cloud computer template, including the template name and template description.
      *
      * @remarks
-     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
      *
      * @param request - ModifyTemplateBaseInfoRequest
      *

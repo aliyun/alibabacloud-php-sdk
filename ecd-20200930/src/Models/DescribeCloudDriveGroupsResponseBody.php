@@ -57,7 +57,8 @@ class DescribeCloudDriveGroupsResponseBody extends Model
                 $res['CloudDriveGroups'] = [];
                 $n1 = 0;
                 foreach ($this->cloudDriveGroups as $item1) {
-                    $res['CloudDriveGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CloudDriveGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeCloudDriveGroupsResponseBody extends Model
                 $model->cloudDriveGroups = [];
                 $n1 = 0;
                 foreach ($map['CloudDriveGroups'] as $item1) {
-                    $model->cloudDriveGroups[$n1++] = cloudDriveGroups::fromMap($item1);
+                    $model->cloudDriveGroups[$n1] = cloudDriveGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class DescribeBundlesResponseBody extends Model
                 $res['Bundles'] = [];
                 $n1 = 0;
                 foreach ($this->bundles as $item1) {
-                    $res['Bundles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Bundles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeBundlesResponseBody extends Model
                 $model->bundles = [];
                 $n1 = 0;
                 foreach ($map['Bundles'] as $item1) {
-                    $model->bundles[$n1++] = bundles::fromMap($item1);
+                    $model->bundles[$n1] = bundles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

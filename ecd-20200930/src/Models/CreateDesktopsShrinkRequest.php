@@ -282,7 +282,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $res['BundleModels'] = [];
                 $n1 = 0;
                 foreach ($this->bundleModels as $item1) {
-                    $res['BundleModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BundleModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +313,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $res['DesktopTimers'] = [];
                 $n1 = 0;
                 foreach ($this->desktopTimers as $item1) {
-                    $res['DesktopTimers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesktopTimers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -326,7 +328,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $res['EndUserId'] = [];
                 $n1 = 0;
                 foreach ($this->endUserId as $item1) {
-                    $res['EndUserId'][$n1++] = $item1;
+                    $res['EndUserId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -392,7 +395,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -410,7 +414,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $res['UserCommands'] = [];
                 $n1 = 0;
                 foreach ($this->userCommands as $item1) {
-                    $res['UserCommands'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserCommands'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -467,7 +472,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $model->bundleModels = [];
                 $n1 = 0;
                 foreach ($map['BundleModels'] as $item1) {
-                    $model->bundleModels[$n1++] = bundleModels::fromMap($item1);
+                    $model->bundleModels[$n1] = bundleModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -497,7 +503,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $model->desktopTimers = [];
                 $n1 = 0;
                 foreach ($map['DesktopTimers'] as $item1) {
-                    $model->desktopTimers[$n1++] = desktopTimers::fromMap($item1);
+                    $model->desktopTimers[$n1] = desktopTimers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -511,7 +518,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $model->endUserId = [];
                 $n1 = 0;
                 foreach ($map['EndUserId'] as $item1) {
-                    $model->endUserId[$n1++] = $item1;
+                    $model->endUserId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -577,7 +585,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -595,7 +604,8 @@ class CreateDesktopsShrinkRequest extends Model
                 $model->userCommands = [];
                 $n1 = 0;
                 foreach ($map['UserCommands'] as $item1) {
-                    $model->userCommands[$n1++] = userCommands::fromMap($item1);
+                    $model->userCommands[$n1] = userCommands::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

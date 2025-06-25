@@ -57,7 +57,8 @@ class ModifyTimerGroupRequest extends Model
                 $res['ConfigTimers'] = [];
                 $n1 = 0;
                 foreach ($this->configTimers as $item1) {
-                    $res['ConfigTimers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigTimers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ModifyTimerGroupRequest extends Model
                 $model->configTimers = [];
                 $n1 = 0;
                 foreach ($map['ConfigTimers'] as $item1) {
-                    $model->configTimers[$n1++] = configTimers::fromMap($item1);
+                    $model->configTimers[$n1] = configTimers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

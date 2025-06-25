@@ -50,7 +50,8 @@ class CancelCoordinationForMonitoringRequest extends Model
                 $res['CoIds'] = [];
                 $n1 = 0;
                 foreach ($this->coIds as $item1) {
-                    $res['CoIds'][$n1++] = $item1;
+                    $res['CoIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class CancelCoordinationForMonitoringRequest extends Model
                 $model->coIds = [];
                 $n1 = 0;
                 foreach ($map['CoIds'] as $item1) {
-                    $model->coIds[$n1++] = $item1;
+                    $model->coIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

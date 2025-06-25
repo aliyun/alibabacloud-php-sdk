@@ -51,7 +51,8 @@ class CreateADConnectorDirectoryResponseBody extends Model
                 $res['AdConnectors'] = [];
                 $n1 = 0;
                 foreach ($this->adConnectors as $item1) {
-                    $res['AdConnectors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdConnectors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class CreateADConnectorDirectoryResponseBody extends Model
                 $model->adConnectors = [];
                 $n1 = 0;
                 foreach ($map['AdConnectors'] as $item1) {
-                    $model->adConnectors[$n1++] = adConnectors::fromMap($item1);
+                    $model->adConnectors[$n1] = adConnectors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

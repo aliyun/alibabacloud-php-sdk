@@ -53,7 +53,8 @@ class ModifyImagePermissionRequest extends Model
                 $res['AddAccount'] = [];
                 $n1 = 0;
                 foreach ($this->addAccount as $item1) {
-                    $res['AddAccount'][$n1++] = $item1;
+                    $res['AddAccount'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class ModifyImagePermissionRequest extends Model
                 $res['RemoveAccount'] = [];
                 $n1 = 0;
                 foreach ($this->removeAccount as $item1) {
-                    $res['RemoveAccount'][$n1++] = $item1;
+                    $res['RemoveAccount'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class ModifyImagePermissionRequest extends Model
                 $model->addAccount = [];
                 $n1 = 0;
                 foreach ($map['AddAccount'] as $item1) {
-                    $model->addAccount[$n1++] = $item1;
+                    $model->addAccount[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class ModifyImagePermissionRequest extends Model
                 $model->removeAccount = [];
                 $n1 = 0;
                 foreach ($map['RemoveAccount'] as $item1) {
-                    $model->removeAccount[$n1++] = $item1;
+                    $model->removeAccount[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

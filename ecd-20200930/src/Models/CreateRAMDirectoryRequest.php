@@ -82,7 +82,8 @@ class CreateRAMDirectoryRequest extends Model
                 $res['VSwitchId'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchId as $item1) {
-                    $res['VSwitchId'][$n1++] = $item1;
+                    $res['VSwitchId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class CreateRAMDirectoryRequest extends Model
                 $model->vSwitchId = [];
                 $n1 = 0;
                 foreach ($map['VSwitchId'] as $item1) {
-                    $model->vSwitchId[$n1++] = $item1;
+                    $model->vSwitchId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -55,7 +55,8 @@ class DescribeOfficeSitesResponseBody extends Model
                 $res['OfficeSites'] = [];
                 $n1 = 0;
                 foreach ($this->officeSites as $item1) {
-                    $res['OfficeSites'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OfficeSites'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class DescribeOfficeSitesResponseBody extends Model
                 $model->officeSites = [];
                 $n1 = 0;
                 foreach ($map['OfficeSites'] as $item1) {
-                    $model->officeSites[$n1++] = officeSites::fromMap($item1);
+                    $model->officeSites[$n1] = officeSites::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

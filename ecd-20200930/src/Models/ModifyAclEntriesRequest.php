@@ -58,7 +58,8 @@ class ModifyAclEntriesRequest extends Model
                 $res['SourceId'] = [];
                 $n1 = 0;
                 foreach ($this->sourceId as $item1) {
-                    $res['SourceId'][$n1++] = $item1;
+                    $res['SourceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ModifyAclEntriesRequest extends Model
                 $model->sourceId = [];
                 $n1 = 0;
                 foreach ($map['SourceId'] as $item1) {
-                    $model->sourceId[$n1++] = $item1;
+                    $model->sourceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -371,7 +371,8 @@ class desktopGroups extends Model
                 $res['CountPerStatus'] = [];
                 $n1 = 0;
                 foreach ($this->countPerStatus as $item1) {
-                    $res['CountPerStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CountPerStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -505,7 +506,8 @@ class desktopGroups extends Model
                 $res['PolicyGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->policyGroupIdList as $item1) {
-                    $res['PolicyGroupIdList'][$n1++] = $item1;
+                    $res['PolicyGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -519,7 +521,8 @@ class desktopGroups extends Model
                 $res['PolicyGroupNameList'] = [];
                 $n1 = 0;
                 foreach ($this->policyGroupNameList as $item1) {
-                    $res['PolicyGroupNameList'][$n1++] = $item1;
+                    $res['PolicyGroupNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -561,7 +564,8 @@ class desktopGroups extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -618,7 +622,8 @@ class desktopGroups extends Model
                 $model->countPerStatus = [];
                 $n1 = 0;
                 foreach ($map['CountPerStatus'] as $item1) {
-                    $model->countPerStatus[$n1++] = countPerStatus::fromMap($item1);
+                    $model->countPerStatus[$n1] = countPerStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -752,7 +757,8 @@ class desktopGroups extends Model
                 $model->policyGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['PolicyGroupIdList'] as $item1) {
-                    $model->policyGroupIdList[$n1++] = $item1;
+                    $model->policyGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -766,7 +772,8 @@ class desktopGroups extends Model
                 $model->policyGroupNameList = [];
                 $n1 = 0;
                 foreach ($map['PolicyGroupNameList'] as $item1) {
-                    $model->policyGroupNameList[$n1++] = $item1;
+                    $model->policyGroupNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -808,7 +815,8 @@ class desktopGroups extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

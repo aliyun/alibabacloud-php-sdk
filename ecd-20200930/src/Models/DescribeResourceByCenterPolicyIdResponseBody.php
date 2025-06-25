@@ -63,7 +63,8 @@ class DescribeResourceByCenterPolicyIdResponseBody extends Model
                 $res['ResourceModelList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceModelList as $item1) {
-                    $res['ResourceModelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceModelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class DescribeResourceByCenterPolicyIdResponseBody extends Model
                 $model->resourceModelList = [];
                 $n1 = 0;
                 foreach ($map['ResourceModelList'] as $item1) {
-                    $model->resourceModelList[$n1++] = resourceModelList::fromMap($item1);
+                    $model->resourceModelList[$n1] = resourceModelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

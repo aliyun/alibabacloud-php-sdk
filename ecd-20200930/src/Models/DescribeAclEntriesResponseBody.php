@@ -45,7 +45,8 @@ class DescribeAclEntriesResponseBody extends Model
                 $res['AclEntries'] = [];
                 $n1 = 0;
                 foreach ($this->aclEntries as $item1) {
-                    $res['AclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AclEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeAclEntriesResponseBody extends Model
                 $model->aclEntries = [];
                 $n1 = 0;
                 foreach ($map['AclEntries'] as $item1) {
-                    $model->aclEntries[$n1++] = aclEntries::fromMap($item1);
+                    $model->aclEntries[$n1] = aclEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

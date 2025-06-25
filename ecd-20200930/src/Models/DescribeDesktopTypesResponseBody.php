@@ -39,7 +39,8 @@ class DescribeDesktopTypesResponseBody extends Model
                 $res['DesktopTypes'] = [];
                 $n1 = 0;
                 foreach ($this->desktopTypes as $item1) {
-                    $res['DesktopTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesktopTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDesktopTypesResponseBody extends Model
                 $model->desktopTypes = [];
                 $n1 = 0;
                 foreach ($map['DesktopTypes'] as $item1) {
-                    $model->desktopTypes[$n1++] = desktopTypes::fromMap($item1);
+                    $model->desktopTypes[$n1] = desktopTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

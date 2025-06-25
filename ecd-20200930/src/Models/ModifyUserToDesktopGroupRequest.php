@@ -57,7 +57,8 @@ class ModifyUserToDesktopGroupRequest extends Model
                 $res['NewEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->newEndUserIds as $item1) {
-                    $res['NewEndUserIds'][$n1++] = $item1;
+                    $res['NewEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ModifyUserToDesktopGroupRequest extends Model
                 $res['OldEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->oldEndUserIds as $item1) {
-                    $res['OldEndUserIds'][$n1++] = $item1;
+                    $res['OldEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +98,8 @@ class ModifyUserToDesktopGroupRequest extends Model
                 $model->newEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['NewEndUserIds'] as $item1) {
-                    $model->newEndUserIds[$n1++] = $item1;
+                    $model->newEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +109,8 @@ class ModifyUserToDesktopGroupRequest extends Model
                 $model->oldEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['OldEndUserIds'] as $item1) {
-                    $model->oldEndUserIds[$n1++] = $item1;
+                    $model->oldEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

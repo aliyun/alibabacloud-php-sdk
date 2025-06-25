@@ -128,7 +128,8 @@ class networkPackages extends Model
                 $res['EipAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->eipAddresses as $item1) {
-                    $res['EipAddresses'][$n1++] = $item1;
+                    $res['EipAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class networkPackages extends Model
                 $model->eipAddresses = [];
                 $n1 = 0;
                 foreach ($map['EipAddresses'] as $item1) {
-                    $model->eipAddresses[$n1++] = $item1;
+                    $model->eipAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

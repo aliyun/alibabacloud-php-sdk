@@ -45,7 +45,8 @@ class DescribeCloudDriveUsersResponseBody extends Model
                 $res['CloudDriveUsers'] = [];
                 $n1 = 0;
                 foreach ($this->cloudDriveUsers as $item1) {
-                    $res['CloudDriveUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CloudDriveUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeCloudDriveUsersResponseBody extends Model
                 $model->cloudDriveUsers = [];
                 $n1 = 0;
                 foreach ($map['CloudDriveUsers'] as $item1) {
-                    $model->cloudDriveUsers[$n1++] = cloudDriveUsers::fromMap($item1);
+                    $model->cloudDriveUsers[$n1] = cloudDriveUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

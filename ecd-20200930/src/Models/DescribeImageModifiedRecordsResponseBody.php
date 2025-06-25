@@ -51,7 +51,8 @@ class DescribeImageModifiedRecordsResponseBody extends Model
                 $res['ImageModifiedRecords'] = [];
                 $n1 = 0;
                 foreach ($this->imageModifiedRecords as $item1) {
-                    $res['ImageModifiedRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageModifiedRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeImageModifiedRecordsResponseBody extends Model
                 $model->imageModifiedRecords = [];
                 $n1 = 0;
                 foreach ($map['ImageModifiedRecords'] as $item1) {
-                    $model->imageModifiedRecords[$n1++] = imageModifiedRecords::fromMap($item1);
+                    $model->imageModifiedRecords[$n1] = imageModifiedRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

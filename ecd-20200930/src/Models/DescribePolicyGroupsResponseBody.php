@@ -67,7 +67,8 @@ class DescribePolicyGroupsResponseBody extends Model
                 $res['DescribePolicyGroups'] = [];
                 $n1 = 0;
                 foreach ($this->describePolicyGroups as $item1) {
-                    $res['DescribePolicyGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DescribePolicyGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class DescribePolicyGroupsResponseBody extends Model
                 $model->describePolicyGroups = [];
                 $n1 = 0;
                 foreach ($map['DescribePolicyGroups'] as $item1) {
-                    $model->describePolicyGroups[$n1++] = describePolicyGroups::fromMap($item1);
+                    $model->describePolicyGroups[$n1] = describePolicyGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

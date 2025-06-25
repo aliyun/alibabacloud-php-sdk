@@ -69,7 +69,8 @@ class RemoveUserFromDesktopGroupRequest extends Model
                 $res['DesktopGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->desktopGroupIds as $item1) {
-                    $res['DesktopGroupIds'][$n1++] = $item1;
+                    $res['DesktopGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class RemoveUserFromDesktopGroupRequest extends Model
                 $res['EndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1++] = $item1;
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +118,8 @@ class RemoveUserFromDesktopGroupRequest extends Model
                 $model->desktopGroupIds = [];
                 $n1 = 0;
                 foreach ($map['DesktopGroupIds'] as $item1) {
-                    $model->desktopGroupIds[$n1++] = $item1;
+                    $model->desktopGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class RemoveUserFromDesktopGroupRequest extends Model
                 $model->endUserIds = [];
                 $n1 = 0;
                 foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1++] = $item1;
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -52,7 +52,8 @@ class DescribeDesktopOversoldGroupRequest extends Model
                 $res['OversoldGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->oversoldGroupIds as $item1) {
-                    $res['OversoldGroupIds'][$n1++] = $item1;
+                    $res['OversoldGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DescribeDesktopOversoldGroupRequest extends Model
                 $model->oversoldGroupIds = [];
                 $n1 = 0;
                 foreach ($map['OversoldGroupIds'] as $item1) {
-                    $model->oversoldGroupIds[$n1++] = $item1;
+                    $model->oversoldGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

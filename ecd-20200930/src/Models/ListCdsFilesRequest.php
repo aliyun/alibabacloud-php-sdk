@@ -94,7 +94,8 @@ class ListCdsFilesRequest extends Model
                 $res['FileIds'] = [];
                 $n1 = 0;
                 foreach ($this->fileIds as $item1) {
-                    $res['FileIds'][$n1++] = $item1;
+                    $res['FileIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class ListCdsFilesRequest extends Model
                 $model->fileIds = [];
                 $n1 = 0;
                 foreach ($map['FileIds'] as $item1) {
-                    $model->fileIds[$n1++] = $item1;
+                    $model->fileIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

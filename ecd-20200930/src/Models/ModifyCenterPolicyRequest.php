@@ -49,6 +49,11 @@ class ModifyCenterPolicyRequest extends Model
     public $cameraRedirect;
 
     /**
+     * @var string
+     */
+    public $clientControlMenu;
+
+    /**
      * @var clientType[]
      */
     public $clientType;
@@ -62,6 +67,11 @@ class ModifyCenterPolicyRequest extends Model
      * @var string
      */
     public $colorEnhancement;
+
+    /**
+     * @var string
+     */
+    public $cpdDriveClipboard;
 
     /**
      * @var int
@@ -152,6 +162,21 @@ class ModifyCenterPolicyRequest extends Model
      * @var string
      */
     public $fileMigrate;
+
+    /**
+     * @var string
+     */
+    public $fileTransferAddress;
+
+    /**
+     * @var string
+     */
+    public $fileTransferSpeed;
+
+    /**
+     * @var string
+     */
+    public $fileTransferSpeedLocation;
 
     /**
      * @var string
@@ -389,6 +414,11 @@ class ModifyCenterPolicyRequest extends Model
     public $scopeValue;
 
     /**
+     * @var string
+     */
+    public $screenDisplayMode;
+
+    /**
      * @var int
      */
     public $sessionMaxRateKbps;
@@ -427,6 +457,11 @@ class ModifyCenterPolicyRequest extends Model
      * @var usbSupplyRedirectRule[]
      */
     public $usbSupplyRedirectRule;
+
+    /**
+     * @var string
+     */
+    public $useTime;
 
     /**
      * @var int
@@ -544,9 +579,11 @@ class ModifyCenterPolicyRequest extends Model
         'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
         'businessType' => 'BusinessType',
         'cameraRedirect' => 'CameraRedirect',
+        'clientControlMenu' => 'ClientControlMenu',
         'clientType' => 'ClientType',
         'clipboard' => 'Clipboard',
         'colorEnhancement' => 'ColorEnhancement',
+        'cpdDriveClipboard' => 'CpdDriveClipboard',
         'cpuDownGradeDuration' => 'CpuDownGradeDuration',
         'cpuProcessors' => 'CpuProcessors',
         'cpuProtectedMode' => 'CpuProtectedMode',
@@ -565,6 +602,9 @@ class ModifyCenterPolicyRequest extends Model
         'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
         'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
         'fileMigrate' => 'FileMigrate',
+        'fileTransferAddress' => 'FileTransferAddress',
+        'fileTransferSpeed' => 'FileTransferSpeed',
+        'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
         'gpuAcceleration' => 'GpuAcceleration',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
@@ -612,6 +652,7 @@ class ModifyCenterPolicyRequest extends Model
         'safeMenu' => 'SafeMenu',
         'scope' => 'Scope',
         'scopeValue' => 'ScopeValue',
+        'screenDisplayMode' => 'ScreenDisplayMode',
         'sessionMaxRateKbps' => 'SessionMaxRateKbps',
         'smoothEnhancement' => 'SmoothEnhancement',
         'statusMonitor' => 'StatusMonitor',
@@ -620,6 +661,7 @@ class ModifyCenterPolicyRequest extends Model
         'taskbar' => 'Taskbar',
         'usbRedirect' => 'UsbRedirect',
         'usbSupplyRedirectRule' => 'UsbSupplyRedirectRule',
+        'useTime' => 'UseTime',
         'videoEncAvgKbps' => 'VideoEncAvgKbps',
         'videoEncMaxQP' => 'VideoEncMaxQP',
         'videoEncMinQP' => 'VideoEncMinQP',
@@ -713,7 +755,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['AuthorizeAccessPolicyRule'] = [];
                 $n1 = 0;
                 foreach ($this->authorizeAccessPolicyRule as $item1) {
-                    $res['AuthorizeAccessPolicyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizeAccessPolicyRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -723,7 +766,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['AuthorizeSecurityPolicyRule'] = [];
                 $n1 = 0;
                 foreach ($this->authorizeSecurityPolicyRule as $item1) {
-                    $res['AuthorizeSecurityPolicyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizeSecurityPolicyRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -736,12 +780,17 @@ class ModifyCenterPolicyRequest extends Model
             $res['CameraRedirect'] = $this->cameraRedirect;
         }
 
+        if (null !== $this->clientControlMenu) {
+            $res['ClientControlMenu'] = $this->clientControlMenu;
+        }
+
         if (null !== $this->clientType) {
             if (\is_array($this->clientType)) {
                 $res['ClientType'] = [];
                 $n1 = 0;
                 foreach ($this->clientType as $item1) {
-                    $res['ClientType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClientType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -754,6 +803,10 @@ class ModifyCenterPolicyRequest extends Model
             $res['ColorEnhancement'] = $this->colorEnhancement;
         }
 
+        if (null !== $this->cpdDriveClipboard) {
+            $res['CpdDriveClipboard'] = $this->cpdDriveClipboard;
+        }
+
         if (null !== $this->cpuDownGradeDuration) {
             $res['CpuDownGradeDuration'] = $this->cpuDownGradeDuration;
         }
@@ -763,7 +816,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['CpuProcessors'] = [];
                 $n1 = 0;
                 foreach ($this->cpuProcessors as $item1) {
-                    $res['CpuProcessors'][$n1++] = $item1;
+                    $res['CpuProcessors'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -793,7 +847,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['DeviceRedirects'] = [];
                 $n1 = 0;
                 foreach ($this->deviceRedirects as $item1) {
-                    $res['DeviceRedirects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceRedirects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -803,7 +858,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['DeviceRules'] = [];
                 $n1 = 0;
                 foreach ($this->deviceRules as $item1) {
-                    $res['DeviceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -825,7 +881,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['DomainResolveRule'] = [];
                 $n1 = 0;
                 foreach ($this->domainResolveRule as $item1) {
-                    $res['DomainResolveRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainResolveRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -848,6 +905,18 @@ class ModifyCenterPolicyRequest extends Model
 
         if (null !== $this->fileMigrate) {
             $res['FileMigrate'] = $this->fileMigrate;
+        }
+
+        if (null !== $this->fileTransferAddress) {
+            $res['FileTransferAddress'] = $this->fileTransferAddress;
+        }
+
+        if (null !== $this->fileTransferSpeed) {
+            $res['FileTransferSpeed'] = $this->fileTransferSpeed;
+        }
+
+        if (null !== $this->fileTransferSpeedLocation) {
+            $res['FileTransferSpeedLocation'] = $this->fileTransferSpeedLocation;
         }
 
         if (null !== $this->gpuAcceleration) {
@@ -883,7 +952,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['MemoryProcessors'] = [];
                 $n1 = 0;
                 foreach ($this->memoryProcessors as $item1) {
-                    $res['MemoryProcessors'][$n1++] = $item1;
+                    $res['MemoryProcessors'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -925,7 +995,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['NetRedirectRule'] = [];
                 $n1 = 0;
                 foreach ($this->netRedirectRule as $item1) {
-                    $res['NetRedirectRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetRedirectRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -959,7 +1030,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['RecordEventFilePaths'] = [];
                 $n1 = 0;
                 foreach ($this->recordEventFilePaths as $item1) {
-                    $res['RecordEventFilePaths'][$n1++] = $item1;
+                    $res['RecordEventFilePaths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -969,7 +1041,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['RecordEventRegisters'] = [];
                 $n1 = 0;
                 foreach ($this->recordEventRegisters as $item1) {
-                    $res['RecordEventRegisters'][$n1++] = $item1;
+                    $res['RecordEventRegisters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -979,7 +1052,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['RecordEvents'] = [];
                 $n1 = 0;
                 foreach ($this->recordEvents as $item1) {
-                    $res['RecordEvents'][$n1++] = $item1;
+                    $res['RecordEvents'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1053,7 +1127,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['RevokeAccessPolicyRule'] = [];
                 $n1 = 0;
                 foreach ($this->revokeAccessPolicyRule as $item1) {
-                    $res['RevokeAccessPolicyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RevokeAccessPolicyRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1063,7 +1138,8 @@ class ModifyCenterPolicyRequest extends Model
                 $res['RevokeSecurityPolicyRule'] = [];
                 $n1 = 0;
                 foreach ($this->revokeSecurityPolicyRule as $item1) {
-                    $res['RevokeSecurityPolicyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RevokeSecurityPolicyRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1081,9 +1157,14 @@ class ModifyCenterPolicyRequest extends Model
                 $res['ScopeValue'] = [];
                 $n1 = 0;
                 foreach ($this->scopeValue as $item1) {
-                    $res['ScopeValue'][$n1++] = $item1;
+                    $res['ScopeValue'][$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->screenDisplayMode) {
+            $res['ScreenDisplayMode'] = $this->screenDisplayMode;
         }
 
         if (null !== $this->sessionMaxRateKbps) {
@@ -1119,9 +1200,14 @@ class ModifyCenterPolicyRequest extends Model
                 $res['UsbSupplyRedirectRule'] = [];
                 $n1 = 0;
                 foreach ($this->usbSupplyRedirectRule as $item1) {
-                    $res['UsbSupplyRedirectRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UsbSupplyRedirectRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->useTime) {
+            $res['UseTime'] = $this->useTime;
         }
 
         if (null !== $this->videoEncAvgKbps) {
@@ -1236,7 +1322,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->authorizeAccessPolicyRule = [];
                 $n1 = 0;
                 foreach ($map['AuthorizeAccessPolicyRule'] as $item1) {
-                    $model->authorizeAccessPolicyRule[$n1++] = authorizeAccessPolicyRule::fromMap($item1);
+                    $model->authorizeAccessPolicyRule[$n1] = authorizeAccessPolicyRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1246,7 +1333,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->authorizeSecurityPolicyRule = [];
                 $n1 = 0;
                 foreach ($map['AuthorizeSecurityPolicyRule'] as $item1) {
-                    $model->authorizeSecurityPolicyRule[$n1++] = authorizeSecurityPolicyRule::fromMap($item1);
+                    $model->authorizeSecurityPolicyRule[$n1] = authorizeSecurityPolicyRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1259,12 +1347,17 @@ class ModifyCenterPolicyRequest extends Model
             $model->cameraRedirect = $map['CameraRedirect'];
         }
 
+        if (isset($map['ClientControlMenu'])) {
+            $model->clientControlMenu = $map['ClientControlMenu'];
+        }
+
         if (isset($map['ClientType'])) {
             if (!empty($map['ClientType'])) {
                 $model->clientType = [];
                 $n1 = 0;
                 foreach ($map['ClientType'] as $item1) {
-                    $model->clientType[$n1++] = clientType::fromMap($item1);
+                    $model->clientType[$n1] = clientType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1277,6 +1370,10 @@ class ModifyCenterPolicyRequest extends Model
             $model->colorEnhancement = $map['ColorEnhancement'];
         }
 
+        if (isset($map['CpdDriveClipboard'])) {
+            $model->cpdDriveClipboard = $map['CpdDriveClipboard'];
+        }
+
         if (isset($map['CpuDownGradeDuration'])) {
             $model->cpuDownGradeDuration = $map['CpuDownGradeDuration'];
         }
@@ -1286,7 +1383,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->cpuProcessors = [];
                 $n1 = 0;
                 foreach ($map['CpuProcessors'] as $item1) {
-                    $model->cpuProcessors[$n1++] = $item1;
+                    $model->cpuProcessors[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1316,7 +1414,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->deviceRedirects = [];
                 $n1 = 0;
                 foreach ($map['DeviceRedirects'] as $item1) {
-                    $model->deviceRedirects[$n1++] = deviceRedirects::fromMap($item1);
+                    $model->deviceRedirects[$n1] = deviceRedirects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1326,7 +1425,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->deviceRules = [];
                 $n1 = 0;
                 foreach ($map['DeviceRules'] as $item1) {
-                    $model->deviceRules[$n1++] = deviceRules::fromMap($item1);
+                    $model->deviceRules[$n1] = deviceRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1348,7 +1448,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->domainResolveRule = [];
                 $n1 = 0;
                 foreach ($map['DomainResolveRule'] as $item1) {
-                    $model->domainResolveRule[$n1++] = domainResolveRule::fromMap($item1);
+                    $model->domainResolveRule[$n1] = domainResolveRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1371,6 +1472,18 @@ class ModifyCenterPolicyRequest extends Model
 
         if (isset($map['FileMigrate'])) {
             $model->fileMigrate = $map['FileMigrate'];
+        }
+
+        if (isset($map['FileTransferAddress'])) {
+            $model->fileTransferAddress = $map['FileTransferAddress'];
+        }
+
+        if (isset($map['FileTransferSpeed'])) {
+            $model->fileTransferSpeed = $map['FileTransferSpeed'];
+        }
+
+        if (isset($map['FileTransferSpeedLocation'])) {
+            $model->fileTransferSpeedLocation = $map['FileTransferSpeedLocation'];
         }
 
         if (isset($map['GpuAcceleration'])) {
@@ -1406,7 +1519,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->memoryProcessors = [];
                 $n1 = 0;
                 foreach ($map['MemoryProcessors'] as $item1) {
-                    $model->memoryProcessors[$n1++] = $item1;
+                    $model->memoryProcessors[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1448,7 +1562,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->netRedirectRule = [];
                 $n1 = 0;
                 foreach ($map['NetRedirectRule'] as $item1) {
-                    $model->netRedirectRule[$n1++] = netRedirectRule::fromMap($item1);
+                    $model->netRedirectRule[$n1] = netRedirectRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1482,7 +1597,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->recordEventFilePaths = [];
                 $n1 = 0;
                 foreach ($map['RecordEventFilePaths'] as $item1) {
-                    $model->recordEventFilePaths[$n1++] = $item1;
+                    $model->recordEventFilePaths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1492,7 +1608,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->recordEventRegisters = [];
                 $n1 = 0;
                 foreach ($map['RecordEventRegisters'] as $item1) {
-                    $model->recordEventRegisters[$n1++] = $item1;
+                    $model->recordEventRegisters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1502,7 +1619,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->recordEvents = [];
                 $n1 = 0;
                 foreach ($map['RecordEvents'] as $item1) {
-                    $model->recordEvents[$n1++] = $item1;
+                    $model->recordEvents[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1576,7 +1694,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->revokeAccessPolicyRule = [];
                 $n1 = 0;
                 foreach ($map['RevokeAccessPolicyRule'] as $item1) {
-                    $model->revokeAccessPolicyRule[$n1++] = revokeAccessPolicyRule::fromMap($item1);
+                    $model->revokeAccessPolicyRule[$n1] = revokeAccessPolicyRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1586,7 +1705,8 @@ class ModifyCenterPolicyRequest extends Model
                 $model->revokeSecurityPolicyRule = [];
                 $n1 = 0;
                 foreach ($map['RevokeSecurityPolicyRule'] as $item1) {
-                    $model->revokeSecurityPolicyRule[$n1++] = revokeSecurityPolicyRule::fromMap($item1);
+                    $model->revokeSecurityPolicyRule[$n1] = revokeSecurityPolicyRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1604,9 +1724,14 @@ class ModifyCenterPolicyRequest extends Model
                 $model->scopeValue = [];
                 $n1 = 0;
                 foreach ($map['ScopeValue'] as $item1) {
-                    $model->scopeValue[$n1++] = $item1;
+                    $model->scopeValue[$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ScreenDisplayMode'])) {
+            $model->screenDisplayMode = $map['ScreenDisplayMode'];
         }
 
         if (isset($map['SessionMaxRateKbps'])) {
@@ -1642,9 +1767,14 @@ class ModifyCenterPolicyRequest extends Model
                 $model->usbSupplyRedirectRule = [];
                 $n1 = 0;
                 foreach ($map['UsbSupplyRedirectRule'] as $item1) {
-                    $model->usbSupplyRedirectRule[$n1++] = usbSupplyRedirectRule::fromMap($item1);
+                    $model->usbSupplyRedirectRule[$n1] = usbSupplyRedirectRule::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UseTime'])) {
+            $model->useTime = $map['UseTime'];
         }
 
         if (isset($map['VideoEncAvgKbps'])) {

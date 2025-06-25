@@ -53,7 +53,8 @@ class DisconnectDesktopSessionsRequest extends Model
                 $res['Sessions'] = [];
                 $n1 = 0;
                 foreach ($this->sessions as $item1) {
-                    $res['Sessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sessions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DisconnectDesktopSessionsRequest extends Model
                 $model->sessions = [];
                 $n1 = 0;
                 foreach ($map['Sessions'] as $item1) {
-                    $model->sessions[$n1++] = sessions::fromMap($item1);
+                    $model->sessions[$n1] = sessions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

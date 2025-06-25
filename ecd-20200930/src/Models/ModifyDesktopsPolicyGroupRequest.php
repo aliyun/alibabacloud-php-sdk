@@ -53,7 +53,8 @@ class ModifyDesktopsPolicyGroupRequest extends Model
                 $res['DesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
+                    $res['DesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ModifyDesktopsPolicyGroupRequest extends Model
                 $res['PolicyGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->policyGroupIds as $item1) {
-                    $res['PolicyGroupIds'][$n1++] = $item1;
+                    $res['PolicyGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class ModifyDesktopsPolicyGroupRequest extends Model
                 $model->desktopId = [];
                 $n1 = 0;
                 foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
+                    $model->desktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +109,8 @@ class ModifyDesktopsPolicyGroupRequest extends Model
                 $model->policyGroupIds = [];
                 $n1 = 0;
                 foreach ($map['PolicyGroupIds'] as $item1) {
-                    $model->policyGroupIds[$n1++] = $item1;
+                    $model->policyGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

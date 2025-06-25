@@ -177,7 +177,8 @@ class endUsers extends Model
                 $res['UserSetPropertiesModels'] = [];
                 $n1 = 0;
                 foreach ($this->userSetPropertiesModels as $item1) {
-                    $res['UserSetPropertiesModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserSetPropertiesModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -254,7 +255,8 @@ class endUsers extends Model
                 $model->userSetPropertiesModels = [];
                 $n1 = 0;
                 foreach ($map['UserSetPropertiesModels'] as $item1) {
-                    $model->userSetPropertiesModels[$n1++] = userSetPropertiesModels::fromMap($item1);
+                    $model->userSetPropertiesModels[$n1] = userSetPropertiesModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

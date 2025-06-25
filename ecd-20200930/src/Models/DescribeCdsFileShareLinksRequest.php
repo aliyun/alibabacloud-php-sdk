@@ -72,7 +72,8 @@ class DescribeCdsFileShareLinksRequest extends Model
                 $res['Creators'] = [];
                 $n1 = 0;
                 foreach ($this->creators as $item1) {
-                    $res['Creators'][$n1++] = $item1;
+                    $res['Creators'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class DescribeCdsFileShareLinksRequest extends Model
                 $model->creators = [];
                 $n1 = 0;
                 foreach ($map['Creators'] as $item1) {
-                    $model->creators[$n1++] = $item1;
+                    $model->creators[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

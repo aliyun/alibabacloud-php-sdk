@@ -48,7 +48,8 @@ class AddDevicesRequest extends Model
                 $res['DeviceIds'] = [];
                 $n1 = 0;
                 foreach ($this->deviceIds as $item1) {
-                    $res['DeviceIds'][$n1++] = $item1;
+                    $res['DeviceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class AddDevicesRequest extends Model
                 $model->deviceIds = [];
                 $n1 = 0;
                 foreach ($map['DeviceIds'] as $item1) {
-                    $model->deviceIds[$n1++] = $item1;
+                    $model->deviceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

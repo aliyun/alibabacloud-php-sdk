@@ -48,7 +48,8 @@ class DisableDesktopsInGroupRequest extends Model
                 $res['DesktopIds'] = [];
                 $n1 = 0;
                 foreach ($this->desktopIds as $item1) {
-                    $res['DesktopIds'][$n1++] = $item1;
+                    $res['DesktopIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class DisableDesktopsInGroupRequest extends Model
                 $model->desktopIds = [];
                 $n1 = 0;
                 foreach ($map['DesktopIds'] as $item1) {
-                    $model->desktopIds[$n1++] = $item1;
+                    $model->desktopIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

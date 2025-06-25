@@ -47,7 +47,8 @@ class userProfilePathRule extends Model
                 $res['WhitePaths'] = [];
                 $n1 = 0;
                 foreach ($this->whitePaths as $item1) {
-                    $res['WhitePaths'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WhitePaths'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class userProfilePathRule extends Model
                 $model->whitePaths = [];
                 $n1 = 0;
                 foreach ($map['WhitePaths'] as $item1) {
-                    $model->whitePaths[$n1++] = whitePaths::fromMap($item1);
+                    $model->whitePaths[$n1] = whitePaths::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

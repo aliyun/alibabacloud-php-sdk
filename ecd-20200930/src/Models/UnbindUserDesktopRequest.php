@@ -68,7 +68,8 @@ class UnbindUserDesktopRequest extends Model
                 $res['DesktopAgentIds'] = [];
                 $n1 = 0;
                 foreach ($this->desktopAgentIds as $item1) {
-                    $res['DesktopAgentIds'][$n1++] = $item1;
+                    $res['DesktopAgentIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class UnbindUserDesktopRequest extends Model
                 $res['DesktopIds'] = [];
                 $n1 = 0;
                 foreach ($this->desktopIds as $item1) {
-                    $res['DesktopIds'][$n1++] = $item1;
+                    $res['DesktopIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class UnbindUserDesktopRequest extends Model
                 $res['UserDesktopIds'] = [];
                 $n1 = 0;
                 foreach ($this->userDesktopIds as $item1) {
-                    $res['UserDesktopIds'][$n1++] = $item1;
+                    $res['UserDesktopIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +124,8 @@ class UnbindUserDesktopRequest extends Model
                 $model->desktopAgentIds = [];
                 $n1 = 0;
                 foreach ($map['DesktopAgentIds'] as $item1) {
-                    $model->desktopAgentIds[$n1++] = $item1;
+                    $model->desktopAgentIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +139,8 @@ class UnbindUserDesktopRequest extends Model
                 $model->desktopIds = [];
                 $n1 = 0;
                 foreach ($map['DesktopIds'] as $item1) {
-                    $model->desktopIds[$n1++] = $item1;
+                    $model->desktopIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +158,8 @@ class UnbindUserDesktopRequest extends Model
                 $model->userDesktopIds = [];
                 $n1 = 0;
                 foreach ($map['UserDesktopIds'] as $item1) {
-                    $model->userDesktopIds[$n1++] = $item1;
+                    $model->userDesktopIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

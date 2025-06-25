@@ -45,7 +45,8 @@ class DescribeUserConnectionRecordsResponseBody extends Model
                 $res['ConnectionRecords'] = [];
                 $n1 = 0;
                 foreach ($this->connectionRecords as $item1) {
-                    $res['ConnectionRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConnectionRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeUserConnectionRecordsResponseBody extends Model
                 $model->connectionRecords = [];
                 $n1 = 0;
                 foreach ($map['ConnectionRecords'] as $item1) {
-                    $model->connectionRecords[$n1++] = connectionRecords::fromMap($item1);
+                    $model->connectionRecords[$n1] = connectionRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

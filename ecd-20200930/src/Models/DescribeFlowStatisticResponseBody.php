@@ -49,7 +49,8 @@ class DescribeFlowStatisticResponseBody extends Model
                 $res['DesktopFlowStatistic'] = [];
                 $n1 = 0;
                 foreach ($this->desktopFlowStatistic as $item1) {
-                    $res['DesktopFlowStatistic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesktopFlowStatistic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeFlowStatisticResponseBody extends Model
                 $model->desktopFlowStatistic = [];
                 $n1 = 0;
                 foreach ($map['DesktopFlowStatistic'] as $item1) {
-                    $model->desktopFlowStatistic[$n1++] = desktopFlowStatistic::fromMap($item1);
+                    $model->desktopFlowStatistic[$n1] = desktopFlowStatistic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

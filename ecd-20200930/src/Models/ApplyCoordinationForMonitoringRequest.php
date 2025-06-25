@@ -79,7 +79,8 @@ class ApplyCoordinationForMonitoringRequest extends Model
                 $res['ResourceCandidates'] = [];
                 $n1 = 0;
                 foreach ($this->resourceCandidates as $item1) {
-                    $res['ResourceCandidates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceCandidates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class ApplyCoordinationForMonitoringRequest extends Model
                 $model->resourceCandidates = [];
                 $n1 = 0;
                 foreach ($map['ResourceCandidates'] as $item1) {
-                    $model->resourceCandidates[$n1++] = resourceCandidates::fromMap($item1);
+                    $model->resourceCandidates[$n1] = resourceCandidates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

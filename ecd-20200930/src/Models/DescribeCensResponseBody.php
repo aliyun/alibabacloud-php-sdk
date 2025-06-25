@@ -57,7 +57,8 @@ class DescribeCensResponseBody extends Model
                 $res['Cens'] = [];
                 $n1 = 0;
                 foreach ($this->cens as $item1) {
-                    $res['Cens'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Cens'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeCensResponseBody extends Model
                 $model->cens = [];
                 $n1 = 0;
                 foreach ($map['Cens'] as $item1) {
-                    $model->cens[$n1++] = cens::fromMap($item1);
+                    $model->cens[$n1] = cens::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

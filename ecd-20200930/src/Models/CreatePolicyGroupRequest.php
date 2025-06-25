@@ -407,7 +407,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['AuthorizeAccessPolicyRule'] = [];
                 $n1 = 0;
                 foreach ($this->authorizeAccessPolicyRule as $item1) {
-                    $res['AuthorizeAccessPolicyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizeAccessPolicyRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -417,7 +418,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['AuthorizeSecurityPolicyRule'] = [];
                 $n1 = 0;
                 foreach ($this->authorizeSecurityPolicyRule as $item1) {
-                    $res['AuthorizeSecurityPolicyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizeSecurityPolicyRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -431,7 +433,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['ClientType'] = [];
                 $n1 = 0;
                 foreach ($this->clientType as $item1) {
-                    $res['ClientType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClientType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -445,7 +448,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['DeviceRedirects'] = [];
                 $n1 = 0;
                 foreach ($this->deviceRedirects as $item1) {
-                    $res['DeviceRedirects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceRedirects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -455,7 +459,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['DeviceRules'] = [];
                 $n1 = 0;
                 foreach ($this->deviceRules as $item1) {
-                    $res['DeviceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -469,7 +474,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['DomainResolveRule'] = [];
                 $n1 = 0;
                 foreach ($this->domainResolveRule as $item1) {
-                    $res['DomainResolveRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainResolveRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -527,7 +533,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['PreemptLoginUser'] = [];
                 $n1 = 0;
                 foreach ($this->preemptLoginUser as $item1) {
-                    $res['PreemptLoginUser'][$n1++] = $item1;
+                    $res['PreemptLoginUser'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -597,7 +604,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['ScopeValue'] = [];
                 $n1 = 0;
                 foreach ($this->scopeValue as $item1) {
-                    $res['ScopeValue'][$n1++] = $item1;
+                    $res['ScopeValue'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -611,7 +619,8 @@ class CreatePolicyGroupRequest extends Model
                 $res['UsbSupplyRedirectRule'] = [];
                 $n1 = 0;
                 foreach ($this->usbSupplyRedirectRule as $item1) {
-                    $res['UsbSupplyRedirectRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UsbSupplyRedirectRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -700,7 +709,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->authorizeAccessPolicyRule = [];
                 $n1 = 0;
                 foreach ($map['AuthorizeAccessPolicyRule'] as $item1) {
-                    $model->authorizeAccessPolicyRule[$n1++] = authorizeAccessPolicyRule::fromMap($item1);
+                    $model->authorizeAccessPolicyRule[$n1] = authorizeAccessPolicyRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -710,7 +720,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->authorizeSecurityPolicyRule = [];
                 $n1 = 0;
                 foreach ($map['AuthorizeSecurityPolicyRule'] as $item1) {
-                    $model->authorizeSecurityPolicyRule[$n1++] = authorizeSecurityPolicyRule::fromMap($item1);
+                    $model->authorizeSecurityPolicyRule[$n1] = authorizeSecurityPolicyRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -724,7 +735,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->clientType = [];
                 $n1 = 0;
                 foreach ($map['ClientType'] as $item1) {
-                    $model->clientType[$n1++] = clientType::fromMap($item1);
+                    $model->clientType[$n1] = clientType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -738,7 +750,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->deviceRedirects = [];
                 $n1 = 0;
                 foreach ($map['DeviceRedirects'] as $item1) {
-                    $model->deviceRedirects[$n1++] = deviceRedirects::fromMap($item1);
+                    $model->deviceRedirects[$n1] = deviceRedirects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -748,7 +761,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->deviceRules = [];
                 $n1 = 0;
                 foreach ($map['DeviceRules'] as $item1) {
-                    $model->deviceRules[$n1++] = deviceRules::fromMap($item1);
+                    $model->deviceRules[$n1] = deviceRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -762,7 +776,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->domainResolveRule = [];
                 $n1 = 0;
                 foreach ($map['DomainResolveRule'] as $item1) {
-                    $model->domainResolveRule[$n1++] = domainResolveRule::fromMap($item1);
+                    $model->domainResolveRule[$n1] = domainResolveRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -820,7 +835,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->preemptLoginUser = [];
                 $n1 = 0;
                 foreach ($map['PreemptLoginUser'] as $item1) {
-                    $model->preemptLoginUser[$n1++] = $item1;
+                    $model->preemptLoginUser[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -890,7 +906,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->scopeValue = [];
                 $n1 = 0;
                 foreach ($map['ScopeValue'] as $item1) {
-                    $model->scopeValue[$n1++] = $item1;
+                    $model->scopeValue[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -904,7 +921,8 @@ class CreatePolicyGroupRequest extends Model
                 $model->usbSupplyRedirectRule = [];
                 $n1 = 0;
                 foreach ($map['UsbSupplyRedirectRule'] as $item1) {
-                    $model->usbSupplyRedirectRule[$n1++] = usbSupplyRedirectRule::fromMap($item1);
+                    $model->usbSupplyRedirectRule[$n1] = usbSupplyRedirectRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

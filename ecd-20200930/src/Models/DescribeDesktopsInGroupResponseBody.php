@@ -105,7 +105,8 @@ class DescribeDesktopsInGroupResponseBody extends Model
                 $res['PaidDesktops'] = [];
                 $n1 = 0;
                 foreach ($this->paidDesktops as $item1) {
-                    $res['PaidDesktops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PaidDesktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class DescribeDesktopsInGroupResponseBody extends Model
                 $res['PostPaidDesktops'] = [];
                 $n1 = 0;
                 foreach ($this->postPaidDesktops as $item1) {
-                    $res['PostPaidDesktops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PostPaidDesktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +174,8 @@ class DescribeDesktopsInGroupResponseBody extends Model
                 $model->paidDesktops = [];
                 $n1 = 0;
                 foreach ($map['PaidDesktops'] as $item1) {
-                    $model->paidDesktops[$n1++] = paidDesktops::fromMap($item1);
+                    $model->paidDesktops[$n1] = paidDesktops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +189,8 @@ class DescribeDesktopsInGroupResponseBody extends Model
                 $model->postPaidDesktops = [];
                 $n1 = 0;
                 foreach ($map['PostPaidDesktops'] as $item1) {
-                    $model->postPaidDesktops[$n1++] = postPaidDesktops::fromMap($item1);
+                    $model->postPaidDesktops[$n1] = postPaidDesktops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

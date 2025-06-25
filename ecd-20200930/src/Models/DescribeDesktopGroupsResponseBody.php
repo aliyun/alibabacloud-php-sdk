@@ -45,7 +45,8 @@ class DescribeDesktopGroupsResponseBody extends Model
                 $res['DesktopGroups'] = [];
                 $n1 = 0;
                 foreach ($this->desktopGroups as $item1) {
-                    $res['DesktopGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DesktopGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeDesktopGroupsResponseBody extends Model
                 $model->desktopGroups = [];
                 $n1 = 0;
                 foreach ($map['DesktopGroups'] as $item1) {
-                    $model->desktopGroups[$n1++] = desktopGroups::fromMap($item1);
+                    $model->desktopGroups[$n1] = desktopGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

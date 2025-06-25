@@ -106,7 +106,8 @@ class desktops extends Model
                 $res['ManagementFlag'] = [];
                 $n1 = 0;
                 foreach ($this->managementFlag as $item1) {
-                    $res['ManagementFlag'][$n1++] = $item1;
+                    $res['ManagementFlag'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class desktops extends Model
                 $model->managementFlag = [];
                 $n1 = 0;
                 foreach ($map['ManagementFlag'] as $item1) {
-                    $model->managementFlag[$n1++] = $item1;
+                    $model->managementFlag[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

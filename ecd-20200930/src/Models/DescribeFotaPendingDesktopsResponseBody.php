@@ -61,7 +61,8 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
                 $res['FotaPendingDesktops'] = [];
                 $n1 = 0;
                 foreach ($this->fotaPendingDesktops as $item1) {
-                    $res['FotaPendingDesktops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FotaPendingDesktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
                 $model->fotaPendingDesktops = [];
                 $n1 = 0;
                 foreach ($map['FotaPendingDesktops'] as $item1) {
-                    $model->fotaPendingDesktops[$n1++] = fotaPendingDesktops::fromMap($item1);
+                    $model->fotaPendingDesktops[$n1] = fotaPendingDesktops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

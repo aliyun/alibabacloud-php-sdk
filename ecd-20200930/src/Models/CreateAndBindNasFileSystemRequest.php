@@ -86,7 +86,8 @@ class CreateAndBindNasFileSystemRequest extends Model
                 $res['EndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1++] = $item1;
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +136,8 @@ class CreateAndBindNasFileSystemRequest extends Model
                 $model->endUserIds = [];
                 $n1 = 0;
                 foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1++] = $item1;
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

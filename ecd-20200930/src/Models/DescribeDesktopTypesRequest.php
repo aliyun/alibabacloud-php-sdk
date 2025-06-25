@@ -163,7 +163,8 @@ class DescribeDesktopTypesRequest extends Model
                 $res['DesktopTypeIdList'] = [];
                 $n1 = 0;
                 foreach ($this->desktopTypeIdList as $item1) {
-                    $res['DesktopTypeIdList'][$n1++] = $item1;
+                    $res['DesktopTypeIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +210,8 @@ class DescribeDesktopTypesRequest extends Model
                 $res['ScopeSet'] = [];
                 $n1 = 0;
                 foreach ($this->scopeSet as $item1) {
-                    $res['ScopeSet'][$n1++] = $item1;
+                    $res['ScopeSet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +264,8 @@ class DescribeDesktopTypesRequest extends Model
                 $model->desktopTypeIdList = [];
                 $n1 = 0;
                 foreach ($map['DesktopTypeIdList'] as $item1) {
-                    $model->desktopTypeIdList[$n1++] = $item1;
+                    $model->desktopTypeIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +311,8 @@ class DescribeDesktopTypesRequest extends Model
                 $model->scopeSet = [];
                 $n1 = 0;
                 foreach ($map['ScopeSet'] as $item1) {
-                    $model->scopeSet[$n1++] = $item1;
+                    $model->scopeSet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

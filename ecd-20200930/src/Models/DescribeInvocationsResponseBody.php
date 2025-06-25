@@ -45,7 +45,8 @@ class DescribeInvocationsResponseBody extends Model
                 $res['Invocations'] = [];
                 $n1 = 0;
                 foreach ($this->invocations as $item1) {
-                    $res['Invocations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Invocations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeInvocationsResponseBody extends Model
                 $model->invocations = [];
                 $n1 = 0;
                 foreach ($map['Invocations'] as $item1) {
-                    $model->invocations[$n1++] = invocations::fromMap($item1);
+                    $model->invocations[$n1] = invocations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

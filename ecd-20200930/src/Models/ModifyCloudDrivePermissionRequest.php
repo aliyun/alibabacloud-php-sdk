@@ -66,7 +66,8 @@ class ModifyCloudDrivePermissionRequest extends Model
                 $res['DownloadEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->downloadEndUserIds as $item1) {
-                    $res['DownloadEndUserIds'][$n1++] = $item1;
+                    $res['DownloadEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -76,7 +77,8 @@ class ModifyCloudDrivePermissionRequest extends Model
                 $res['DownloadUploadEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->downloadUploadEndUserIds as $item1) {
-                    $res['DownloadUploadEndUserIds'][$n1++] = $item1;
+                    $res['DownloadUploadEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +88,8 @@ class ModifyCloudDrivePermissionRequest extends Model
                 $res['NoDownloadNoUploadEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->noDownloadNoUploadEndUserIds as $item1) {
-                    $res['NoDownloadNoUploadEndUserIds'][$n1++] = $item1;
+                    $res['NoDownloadNoUploadEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +118,8 @@ class ModifyCloudDrivePermissionRequest extends Model
                 $model->downloadEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['DownloadEndUserIds'] as $item1) {
-                    $model->downloadEndUserIds[$n1++] = $item1;
+                    $model->downloadEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +129,8 @@ class ModifyCloudDrivePermissionRequest extends Model
                 $model->downloadUploadEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['DownloadUploadEndUserIds'] as $item1) {
-                    $model->downloadUploadEndUserIds[$n1++] = $item1;
+                    $model->downloadUploadEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +140,8 @@ class ModifyCloudDrivePermissionRequest extends Model
                 $model->noDownloadNoUploadEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['NoDownloadNoUploadEndUserIds'] as $item1) {
-                    $model->noDownloadNoUploadEndUserIds[$n1++] = $item1;
+                    $model->noDownloadNoUploadEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

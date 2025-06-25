@@ -53,7 +53,8 @@ class DescribeVirtualMFADevicesResponseBody extends Model
                 $res['VirtualMFADevices'] = [];
                 $n1 = 0;
                 foreach ($this->virtualMFADevices as $item1) {
-                    $res['VirtualMFADevices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VirtualMFADevices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DescribeVirtualMFADevicesResponseBody extends Model
                 $model->virtualMFADevices = [];
                 $n1 = 0;
                 foreach ($map['VirtualMFADevices'] as $item1) {
-                    $model->virtualMFADevices[$n1++] = virtualMFADevices::fromMap($item1);
+                    $model->virtualMFADevices[$n1] = virtualMFADevices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

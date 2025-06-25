@@ -38,7 +38,8 @@ class MigrateImageProtocolResponseBody extends Model
                 $res['FailedIds'] = [];
                 $n1 = 0;
                 foreach ($this->failedIds as $item1) {
-                    $res['FailedIds'][$n1++] = $item1;
+                    $res['FailedIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class MigrateImageProtocolResponseBody extends Model
                 $model->failedIds = [];
                 $n1 = 0;
                 foreach ($map['FailedIds'] as $item1) {
-                    $model->failedIds[$n1++] = $item1;
+                    $model->failedIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

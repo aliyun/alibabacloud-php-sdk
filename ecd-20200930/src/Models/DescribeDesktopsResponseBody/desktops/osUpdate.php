@@ -53,7 +53,8 @@ class osUpdate extends Model
                 $res['Packages'] = [];
                 $n1 = 0;
                 foreach ($this->packages as $item1) {
-                    $res['Packages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Packages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class osUpdate extends Model
                 $model->packages = [];
                 $n1 = 0;
                 foreach ($map['Packages'] as $item1) {
-                    $model->packages[$n1++] = packages::fromMap($item1);
+                    $model->packages[$n1] = packages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

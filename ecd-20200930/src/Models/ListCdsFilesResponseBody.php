@@ -77,7 +77,8 @@ class ListCdsFilesResponseBody extends Model
                 $res['FileModels'] = [];
                 $n1 = 0;
                 foreach ($this->fileModels as $item1) {
-                    $res['FileModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FileModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class ListCdsFilesResponseBody extends Model
                 $model->fileModels = [];
                 $n1 = 0;
                 foreach ($map['FileModels'] as $item1) {
-                    $model->fileModels[$n1++] = fileModels::fromMap($item1);
+                    $model->fileModels[$n1] = fileModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

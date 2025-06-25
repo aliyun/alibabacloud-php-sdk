@@ -39,7 +39,8 @@ class ApplyCoordinationForMonitoringResponseBody extends Model
                 $res['CoordinateFlowModels'] = [];
                 $n1 = 0;
                 foreach ($this->coordinateFlowModels as $item1) {
-                    $res['CoordinateFlowModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CoordinateFlowModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ApplyCoordinationForMonitoringResponseBody extends Model
                 $model->coordinateFlowModels = [];
                 $n1 = 0;
                 foreach ($map['CoordinateFlowModels'] as $item1) {
-                    $model->coordinateFlowModels[$n1++] = coordinateFlowModels::fromMap($item1);
+                    $model->coordinateFlowModels[$n1] = coordinateFlowModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

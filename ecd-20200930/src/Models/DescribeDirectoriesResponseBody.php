@@ -55,7 +55,8 @@ class DescribeDirectoriesResponseBody extends Model
                 $res['Directories'] = [];
                 $n1 = 0;
                 foreach ($this->directories as $item1) {
-                    $res['Directories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Directories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class DescribeDirectoriesResponseBody extends Model
                 $model->directories = [];
                 $n1 = 0;
                 foreach ($map['Directories'] as $item1) {
-                    $model->directories[$n1++] = directories::fromMap($item1);
+                    $model->directories[$n1] = directories::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

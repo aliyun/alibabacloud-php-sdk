@@ -38,7 +38,8 @@ class RenewDesktopGroupResponseBody extends Model
                 $res['OrderId'] = [];
                 $n1 = 0;
                 foreach ($this->orderId as $item1) {
-                    $res['OrderId'][$n1++] = $item1;
+                    $res['OrderId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class RenewDesktopGroupResponseBody extends Model
                 $model->orderId = [];
                 $n1 = 0;
                 foreach ($map['OrderId'] as $item1) {
-                    $model->orderId[$n1++] = $item1;
+                    $model->orderId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

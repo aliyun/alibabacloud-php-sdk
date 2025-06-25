@@ -57,7 +57,8 @@ class CreateDesktopGroupResponseBody extends Model
                 $res['DesktopGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->desktopGroupIds as $item1) {
-                    $res['DesktopGroupIds'][$n1++] = $item1;
+                    $res['DesktopGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class CreateDesktopGroupResponseBody extends Model
                 $res['OrderIds'] = [];
                 $n1 = 0;
                 foreach ($this->orderIds as $item1) {
-                    $res['OrderIds'][$n1++] = $item1;
+                    $res['OrderIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +98,8 @@ class CreateDesktopGroupResponseBody extends Model
                 $model->desktopGroupIds = [];
                 $n1 = 0;
                 foreach ($map['DesktopGroupIds'] as $item1) {
-                    $model->desktopGroupIds[$n1++] = $item1;
+                    $model->desktopGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +109,8 @@ class CreateDesktopGroupResponseBody extends Model
                 $model->orderIds = [];
                 $n1 = 0;
                 foreach ($map['OrderIds'] as $item1) {
-                    $model->orderIds[$n1++] = $item1;
+                    $model->orderIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

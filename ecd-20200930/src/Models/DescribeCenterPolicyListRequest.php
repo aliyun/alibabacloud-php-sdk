@@ -74,7 +74,8 @@ class DescribeCenterPolicyListRequest extends Model
                 $res['PolicyGroupId'] = [];
                 $n1 = 0;
                 foreach ($this->policyGroupId as $item1) {
-                    $res['PolicyGroupId'][$n1++] = $item1;
+                    $res['PolicyGroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class DescribeCenterPolicyListRequest extends Model
                 $model->policyGroupId = [];
                 $n1 = 0;
                 foreach ($map['PolicyGroupId'] as $item1) {
-                    $model->policyGroupId[$n1++] = $item1;
+                    $model->policyGroupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

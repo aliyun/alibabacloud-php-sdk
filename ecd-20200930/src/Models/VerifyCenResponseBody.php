@@ -54,7 +54,8 @@ class VerifyCenResponseBody extends Model
                 $res['CidrBlocks'] = [];
                 $n1 = 0;
                 foreach ($this->cidrBlocks as $item1) {
-                    $res['CidrBlocks'][$n1++] = $item1;
+                    $res['CidrBlocks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class VerifyCenResponseBody extends Model
                 $res['RouteEntries'] = [];
                 $n1 = 0;
                 foreach ($this->routeEntries as $item1) {
-                    $res['RouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class VerifyCenResponseBody extends Model
                 $model->cidrBlocks = [];
                 $n1 = 0;
                 foreach ($map['CidrBlocks'] as $item1) {
-                    $model->cidrBlocks[$n1++] = $item1;
+                    $model->cidrBlocks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +110,8 @@ class VerifyCenResponseBody extends Model
                 $model->routeEntries = [];
                 $n1 = 0;
                 foreach ($map['RouteEntries'] as $item1) {
-                    $model->routeEntries[$n1++] = routeEntries::fromMap($item1);
+                    $model->routeEntries[$n1] = routeEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

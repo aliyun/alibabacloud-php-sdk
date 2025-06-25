@@ -122,7 +122,8 @@ class CreateBundleRequest extends Model
                 $res['UserDiskSizeGib'] = [];
                 $n1 = 0;
                 foreach ($this->userDiskSizeGib as $item1) {
-                    $res['UserDiskSizeGib'][$n1++] = $item1;
+                    $res['UserDiskSizeGib'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +180,8 @@ class CreateBundleRequest extends Model
                 $model->userDiskSizeGib = [];
                 $n1 = 0;
                 foreach ($map['UserDiskSizeGib'] as $item1) {
-                    $model->userDiskSizeGib[$n1++] = $item1;
+                    $model->userDiskSizeGib[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

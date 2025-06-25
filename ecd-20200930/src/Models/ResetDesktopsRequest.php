@@ -81,7 +81,8 @@ class ResetDesktopsRequest extends Model
                 $res['DesktopGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->desktopGroupIds as $item1) {
-                    $res['DesktopGroupIds'][$n1++] = $item1;
+                    $res['DesktopGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ResetDesktopsRequest extends Model
                 $res['DesktopId'] = [];
                 $n1 = 0;
                 foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
+                    $res['DesktopId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class ResetDesktopsRequest extends Model
                 $model->desktopGroupIds = [];
                 $n1 = 0;
                 foreach ($map['DesktopGroupIds'] as $item1) {
-                    $model->desktopGroupIds[$n1++] = $item1;
+                    $model->desktopGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +149,8 @@ class ResetDesktopsRequest extends Model
                 $model->desktopId = [];
                 $n1 = 0;
                 foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
+                    $model->desktopId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

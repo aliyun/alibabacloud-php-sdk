@@ -61,7 +61,8 @@ class DescribeFotaTasksResponseBody extends Model
                 $res['FotaTasks'] = [];
                 $n1 = 0;
                 foreach ($this->fotaTasks as $item1) {
-                    $res['FotaTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FotaTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class DescribeFotaTasksResponseBody extends Model
                 $model->fotaTasks = [];
                 $n1 = 0;
                 foreach ($map['FotaTasks'] as $item1) {
-                    $model->fotaTasks[$n1++] = fotaTasks::fromMap($item1);
+                    $model->fotaTasks[$n1] = fotaTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

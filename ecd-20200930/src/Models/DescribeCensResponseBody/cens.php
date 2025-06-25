@@ -105,7 +105,8 @@ class cens extends Model
                 $res['PackageIds'] = [];
                 $n1 = 0;
                 foreach ($this->packageIds as $item1) {
-                    $res['PackageIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PackageIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class cens extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +166,8 @@ class cens extends Model
                 $model->packageIds = [];
                 $n1 = 0;
                 foreach ($map['PackageIds'] as $item1) {
-                    $model->packageIds[$n1++] = packageIds::fromMap($item1);
+                    $model->packageIds[$n1] = packageIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +185,8 @@ class cens extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

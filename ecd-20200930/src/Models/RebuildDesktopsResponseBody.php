@@ -39,7 +39,8 @@ class RebuildDesktopsResponseBody extends Model
                 $res['RebuildResults'] = [];
                 $n1 = 0;
                 foreach ($this->rebuildResults as $item1) {
-                    $res['RebuildResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RebuildResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class RebuildDesktopsResponseBody extends Model
                 $model->rebuildResults = [];
                 $n1 = 0;
                 foreach ($map['RebuildResults'] as $item1) {
-                    $model->rebuildResults[$n1++] = rebuildResults::fromMap($item1);
+                    $model->rebuildResults[$n1] = rebuildResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class UnbindConfigGroupRequest extends Model
                 $res['ResourceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->resourceInfos as $item1) {
-                    $res['ResourceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class UnbindConfigGroupRequest extends Model
                 $model->resourceInfos = [];
                 $n1 = 0;
                 foreach ($map['ResourceInfos'] as $item1) {
-                    $model->resourceInfos[$n1++] = resourceInfos::fromMap($item1);
+                    $model->resourceInfos[$n1] = resourceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

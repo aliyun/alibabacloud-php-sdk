@@ -60,7 +60,8 @@ class ModifyCloudDriveGroupsRequest extends Model
                 $res['GroupId'] = [];
                 $n1 = 0;
                 foreach ($this->groupId as $item1) {
-                    $res['GroupId'][$n1++] = $item1;
+                    $res['GroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class ModifyCloudDriveGroupsRequest extends Model
                 $model->groupId = [];
                 $n1 = 0;
                 foreach ($map['GroupId'] as $item1) {
-                    $model->groupId[$n1++] = $item1;
+                    $model->groupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
