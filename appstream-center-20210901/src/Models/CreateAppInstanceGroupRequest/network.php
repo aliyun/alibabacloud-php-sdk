@@ -70,7 +70,8 @@ class network extends Model
                 $res['DomainRules'] = [];
                 $n1 = 0;
                 foreach ($this->domainRules as $item1) {
-                    $res['DomainRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class network extends Model
                 $res['Routes'] = [];
                 $n1 = 0;
                 foreach ($this->routes as $item1) {
-                    $res['Routes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Routes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class network extends Model
                 $res['VSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +126,8 @@ class network extends Model
                 $model->domainRules = [];
                 $n1 = 0;
                 foreach ($map['DomainRules'] as $item1) {
-                    $model->domainRules[$n1++] = domainRules::fromMap($item1);
+                    $model->domainRules[$n1] = domainRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +145,8 @@ class network extends Model
                 $model->routes = [];
                 $n1 = 0;
                 foreach ($map['Routes'] as $item1) {
-                    $model->routes[$n1++] = routes::fromMap($item1);
+                    $model->routes[$n1] = routes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +160,8 @@ class network extends Model
                 $model->vSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

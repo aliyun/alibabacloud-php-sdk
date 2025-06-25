@@ -57,7 +57,8 @@ class ListAppInstancesResponseBody extends Model
                 $res['AppInstanceModels'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceModels as $item1) {
-                    $res['AppInstanceModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppInstanceModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListAppInstancesResponseBody extends Model
                 $model->appInstanceModels = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceModels'] as $item1) {
-                    $model->appInstanceModels[$n1++] = appInstanceModels::fromMap($item1);
+                    $model->appInstanceModels[$n1] = appInstanceModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

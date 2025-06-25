@@ -6,17 +6,22 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListAccessPagesRequest extends Model
+class ListAuthorizedUserGroupsRequest extends Model
 {
     /**
      * @var string
      */
-    public $accessPageId;
+    public $appInstanceGroupId;
 
     /**
      * @var string
      */
-    public $accessPageName;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
 
     /**
      * @var int
@@ -31,19 +36,14 @@ class ListAccessPagesRequest extends Model
     /**
      * @var string
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $sortType;
+    public $productType;
     protected $_name = [
-        'accessPageId' => 'AccessPageId',
-        'accessPageName' => 'AccessPageName',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
-        'projectId' => 'ProjectId',
-        'sortType' => 'SortType',
+        'productType' => 'ProductType',
     ];
 
     public function validate()
@@ -54,12 +54,16 @@ class ListAccessPagesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accessPageId) {
-            $res['AccessPageId'] = $this->accessPageId;
+        if (null !== $this->appInstanceGroupId) {
+            $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
 
-        if (null !== $this->accessPageName) {
-            $res['AccessPageName'] = $this->accessPageName;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
 
         if (null !== $this->pageNumber) {
@@ -70,12 +74,8 @@ class ListAccessPagesRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-
-        if (null !== $this->sortType) {
-            $res['SortType'] = $this->sortType;
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         return $res;
@@ -89,12 +89,16 @@ class ListAccessPagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessPageId'])) {
-            $model->accessPageId = $map['AccessPageId'];
+        if (isset($map['AppInstanceGroupId'])) {
+            $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
 
-        if (isset($map['AccessPageName'])) {
-            $model->accessPageName = $map['AccessPageName'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -105,12 +109,8 @@ class ListAccessPagesRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-
-        if (isset($map['SortType'])) {
-            $model->sortType = $map['SortType'];
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         return $model;

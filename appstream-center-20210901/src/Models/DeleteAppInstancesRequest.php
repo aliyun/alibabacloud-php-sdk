@@ -48,7 +48,8 @@ class DeleteAppInstancesRequest extends Model
                 $res['AppInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceIds as $item1) {
-                    $res['AppInstanceIds'][$n1++] = $item1;
+                    $res['AppInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class DeleteAppInstancesRequest extends Model
                 $model->appInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceIds'] as $item1) {
-                    $model->appInstanceIds[$n1++] = $item1;
+                    $model->appInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

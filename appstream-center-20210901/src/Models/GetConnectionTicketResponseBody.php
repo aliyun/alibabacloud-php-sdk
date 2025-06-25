@@ -26,6 +26,11 @@ class GetConnectionTicketResponseBody extends Model
     /**
      * @var string
      */
+    public $avatarId;
+
+    /**
+     * @var string
+     */
     public $bizRegionId;
 
     /**
@@ -61,6 +66,7 @@ class GetConnectionTicketResponseBody extends Model
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId' => 'AppInstanceId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
+        'avatarId' => 'AvatarId',
         'bizRegionId' => 'BizRegionId',
         'osType' => 'OsType',
         'requestId' => 'RequestId',
@@ -88,6 +94,10 @@ class GetConnectionTicketResponseBody extends Model
 
         if (null !== $this->appInstancePersistentId) {
             $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
+        }
+
+        if (null !== $this->avatarId) {
+            $res['AvatarId'] = $this->avatarId;
         }
 
         if (null !== $this->bizRegionId) {
@@ -139,6 +149,10 @@ class GetConnectionTicketResponseBody extends Model
 
         if (isset($map['AppInstancePersistentId'])) {
             $model->appInstancePersistentId = $map['AppInstancePersistentId'];
+        }
+
+        if (isset($map['AvatarId'])) {
+            $model->avatarId = $map['AvatarId'];
         }
 
         if (isset($map['BizRegionId'])) {

@@ -14,6 +14,11 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRespon
 class appInstanceGroupModels extends Model
 {
     /**
+     * @var string
+     */
+    public $accessType;
+
+    /**
      * @var int
      */
     public $amount;
@@ -57,6 +62,11 @@ class appInstanceGroupModels extends Model
      * @var apps[]
      */
     public $apps;
+
+    /**
+     * @var string
+     */
+    public $authMode;
 
     /**
      * @var string
@@ -183,6 +193,7 @@ class appInstanceGroupModels extends Model
      */
     public $tags;
     protected $_name = [
+        'accessType' => 'AccessType',
         'amount' => 'Amount',
         'appCenterImageId' => 'AppCenterImageId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
@@ -192,6 +203,7 @@ class appInstanceGroupModels extends Model
         'appPolicyImageCheck' => 'AppPolicyImageCheck',
         'appPolicyVersion' => 'AppPolicyVersion',
         'apps' => 'Apps',
+        'authMode' => 'AuthMode',
         'chargeResourceMode' => 'ChargeResourceMode',
         'chargeType' => 'ChargeType',
         'expiredTime' => 'ExpiredTime',
@@ -242,6 +254,10 @@ class appInstanceGroupModels extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
+        }
+
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
@@ -279,9 +295,14 @@ class appInstanceGroupModels extends Model
                 $res['Apps'] = [];
                 $n1 = 0;
                 foreach ($this->apps as $item1) {
-                    $res['Apps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Apps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->authMode) {
+            $res['AuthMode'] = $this->authMode;
         }
 
         if (null !== $this->chargeResourceMode) {
@@ -313,7 +334,8 @@ class appInstanceGroupModels extends Model
                 $res['NodePool'] = [];
                 $n1 = 0;
                 foreach ($this->nodePool as $item1) {
-                    $res['NodePool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodePool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -359,7 +381,8 @@ class appInstanceGroupModels extends Model
                 $res['ResourceTags'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTags as $item1) {
-                    $res['ResourceTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -397,7 +420,8 @@ class appInstanceGroupModels extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -413,6 +437,10 @@ class appInstanceGroupModels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
+        }
+
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
@@ -450,9 +478,14 @@ class appInstanceGroupModels extends Model
                 $model->apps = [];
                 $n1 = 0;
                 foreach ($map['Apps'] as $item1) {
-                    $model->apps[$n1++] = apps::fromMap($item1);
+                    $model->apps[$n1] = apps::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['AuthMode'])) {
+            $model->authMode = $map['AuthMode'];
         }
 
         if (isset($map['ChargeResourceMode'])) {
@@ -484,7 +517,8 @@ class appInstanceGroupModels extends Model
                 $model->nodePool = [];
                 $n1 = 0;
                 foreach ($map['NodePool'] as $item1) {
-                    $model->nodePool[$n1++] = nodePool::fromMap($item1);
+                    $model->nodePool[$n1] = nodePool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -530,7 +564,8 @@ class appInstanceGroupModels extends Model
                 $model->resourceTags = [];
                 $n1 = 0;
                 foreach ($map['ResourceTags'] as $item1) {
-                    $model->resourceTags[$n1++] = resourceTags::fromMap($item1);
+                    $model->resourceTags[$n1] = resourceTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -568,7 +603,8 @@ class appInstanceGroupModels extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

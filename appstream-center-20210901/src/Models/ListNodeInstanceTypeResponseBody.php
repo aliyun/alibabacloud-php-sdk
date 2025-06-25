@@ -57,7 +57,8 @@ class ListNodeInstanceTypeResponseBody extends Model
                 $res['NodeInstanceTypeModels'] = [];
                 $n1 = 0;
                 foreach ($this->nodeInstanceTypeModels as $item1) {
-                    $res['NodeInstanceTypeModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeInstanceTypeModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListNodeInstanceTypeResponseBody extends Model
                 $model->nodeInstanceTypeModels = [];
                 $n1 = 0;
                 foreach ($map['NodeInstanceTypeModels'] as $item1) {
-                    $model->nodeInstanceTypeModels[$n1++] = nodeInstanceTypeModels::fromMap($item1);
+                    $model->nodeInstanceTypeModels[$n1] = nodeInstanceTypeModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

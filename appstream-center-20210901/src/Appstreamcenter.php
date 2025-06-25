@@ -5,32 +5,20 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageSetAclRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageSetAclResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskResponse;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackagePriceRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackagePriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupShrinkRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuySessionPackageRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuySessionPackageResponse;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAccessPageRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAccessPageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupResponse;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAccessPageRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAccessPageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAccessPageSessionRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAccessPageSessionResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
@@ -43,12 +31,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceResponse;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAccessPagesRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAccessPagesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeRequest;
@@ -61,8 +49,6 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPersistentAppInstances
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPersistentAppInstancesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsResponse;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesRequest;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponse;
@@ -132,79 +118,6 @@ class Appstreamcenter extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * 更新访问管理.
-     *
-     * @param request - AccessPageSetAclRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AccessPageSetAclResponse
-     *
-     * @param AccessPageSetAclRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AccessPageSetAclResponse
-     */
-    public function accessPageSetAclWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->accessMode) {
-            @$query['AccessMode'] = $request->accessMode;
-        }
-
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
-        }
-
-        if (null !== $request->accessPageName) {
-            @$query['AccessPageName'] = $request->accessPageName;
-        }
-
-        if (null !== $request->effectTime) {
-            @$query['EffectTime'] = $request->effectTime;
-        }
-
-        if (null !== $request->unit) {
-            @$query['Unit'] = $request->unit;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'AccessPageSetAcl',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return AccessPageSetAclResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 更新访问管理.
-     *
-     * @param request - AccessPageSetAclRequest
-     *
-     * @returns AccessPageSetAclResponse
-     *
-     * @param AccessPageSetAclRequest $request
-     *
-     * @return AccessPageSetAclResponse
-     */
-    public function accessPageSetAcl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->accessPageSetAclWithOptions($request, $runtime);
     }
 
     /**
@@ -281,91 +194,6 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 会话包收费查询.
-     *
-     * @param request - AskSessionPackagePriceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AskSessionPackagePriceResponse
-     *
-     * @param AskSessionPackagePriceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AskSessionPackagePriceResponse
-     */
-    public function askSessionPackagePriceWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
-        }
-
-        if (null !== $request->maxSessions) {
-            @$query['MaxSessions'] = $request->maxSessions;
-        }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
-        }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
-        }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
-        }
-
-        if (null !== $request->sessionPackageType) {
-            @$query['SessionPackageType'] = $request->sessionPackageType;
-        }
-
-        if (null !== $request->sessionSpec) {
-            @$query['SessionSpec'] = $request->sessionSpec;
-        }
-
-        if (null !== $request->sessionType) {
-            @$query['SessionType'] = $request->sessionType;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'AskSessionPackagePrice',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return AskSessionPackagePriceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 会话包收费查询.
-     *
-     * @param request - AskSessionPackagePriceRequest
-     *
-     * @returns AskSessionPackagePriceResponse
-     *
-     * @param AskSessionPackagePriceRequest $request
-     *
-     * @return AskSessionPackagePriceResponse
-     */
-    public function askSessionPackagePrice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->askSessionPackagePriceWithOptions($request, $runtime);
-    }
-
-    /**
      * 授权用户.
      *
      * @param tmpReq - AuthorizeInstanceGroupRequest
@@ -397,12 +225,24 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $bodyFlat = [];
+        if (null !== $request->authorizeUserGroupIds) {
+            @$bodyFlat['AuthorizeUserGroupIds'] = $request->authorizeUserGroupIds;
+        }
+
         if (null !== $request->authorizeUserIds) {
             @$bodyFlat['AuthorizeUserIds'] = $request->authorizeUserIds;
         }
 
+        if (null !== $request->avatarId) {
+            @$body['AvatarId'] = $request->avatarId;
+        }
+
         if (null !== $request->productType) {
             @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->unAuthorizeUserGroupIds) {
+            @$bodyFlat['UnAuthorizeUserGroupIds'] = $request->unAuthorizeUserGroupIds;
         }
 
         if (null !== $request->unAuthorizeUserIds) {
@@ -449,180 +289,6 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeInstanceGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * 配置会话包.
-     *
-     * @param request - BuySessionPackageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BuySessionPackageResponse
-     *
-     * @param BuySessionPackageRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return BuySessionPackageResponse
-     */
-    public function buySessionPackageWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
-        }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
-        }
-
-        if (null !== $request->maxSessions) {
-            @$query['MaxSessions'] = $request->maxSessions;
-        }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
-        }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
-        }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
-        }
-
-        if (null !== $request->sessionPackageName) {
-            @$query['SessionPackageName'] = $request->sessionPackageName;
-        }
-
-        if (null !== $request->sessionPackageType) {
-            @$query['SessionPackageType'] = $request->sessionPackageType;
-        }
-
-        if (null !== $request->sessionSpec) {
-            @$query['SessionSpec'] = $request->sessionSpec;
-        }
-
-        if (null !== $request->sessionType) {
-            @$query['SessionType'] = $request->sessionType;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'BuySessionPackage',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return BuySessionPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 配置会话包.
-     *
-     * @param request - BuySessionPackageRequest
-     *
-     * @returns BuySessionPackageResponse
-     *
-     * @param BuySessionPackageRequest $request
-     *
-     * @return BuySessionPackageResponse
-     */
-    public function buySessionPackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->buySessionPackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * 创建访问页面.
-     *
-     * @param request - CreateAccessPageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAccessPageResponse
-     *
-     * @param CreateAccessPageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateAccessPageResponse
-     */
-    public function createAccessPageWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->accessPageName) {
-            @$query['AccessPageName'] = $request->accessPageName;
-        }
-
-        if (null !== $request->cloudEnvId) {
-            @$query['CloudEnvId'] = $request->cloudEnvId;
-        }
-
-        if (null !== $request->effectTime) {
-            @$query['EffectTime'] = $request->effectTime;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
-        }
-
-        if (null !== $request->projectName) {
-            @$query['ProjectName'] = $request->projectName;
-        }
-
-        if (null !== $request->unit) {
-            @$query['Unit'] = $request->unit;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CreateAccessPage',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateAccessPageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 创建访问页面.
-     *
-     * @param request - CreateAccessPageRequest
-     *
-     * @returns CreateAccessPageResponse
-     *
-     * @param CreateAccessPageRequest $request
-     *
-     * @return CreateAccessPageResponse
-     */
-    public function createAccessPage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAccessPageWithOptions($request, $runtime);
     }
 
     /**
@@ -888,63 +554,6 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 删除访问页面.
-     *
-     * @param request - DeleteAccessPageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAccessPageResponse
-     *
-     * @param DeleteAccessPageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteAccessPageResponse
-     */
-    public function deleteAccessPageWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteAccessPage',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DeleteAccessPageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 删除访问页面.
-     *
-     * @param request - DeleteAccessPageRequest
-     *
-     * @returns DeleteAccessPageResponse
-     *
-     * @param DeleteAccessPageRequest $request
-     *
-     * @return DeleteAccessPageResponse
-     */
-    public function deleteAccessPage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAccessPageWithOptions($request, $runtime);
-    }
-
-    /**
      * Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
      *
      * @remarks
@@ -1083,71 +692,6 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 访客进入访问页面的匿名api.
-     *
-     * @param request - GetAccessPageSessionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAccessPageSessionResponse
-     *
-     * @param GetAccessPageSessionRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetAccessPageSessionResponse
-     */
-    public function getAccessPageSessionWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
-        }
-
-        if (null !== $request->accessPageToken) {
-            @$query['AccessPageToken'] = $request->accessPageToken;
-        }
-
-        if (null !== $request->externalUserId) {
-            @$query['ExternalUserId'] = $request->externalUserId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetAccessPageSession',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'Anonymous',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetAccessPageSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 访客进入访问页面的匿名api.
-     *
-     * @param request - GetAccessPageSessionRequest
-     *
-     * @returns GetAccessPageSessionResponse
-     *
-     * @param GetAccessPageSessionRequest $request
-     *
-     * @return GetAccessPageSessionResponse
-     */
-    public function getAccessPageSession($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAccessPageSessionWithOptions($request, $runtime);
-    }
-
-    /**
      * 获取交付组详情.
      *
      * @param request - GetAppInstanceGroupRequest
@@ -1248,6 +792,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->appInstancePersistentId) {
             @$body['AppInstancePersistentId'] = $request->appInstancePersistentId;
+        }
+
+        if (null !== $request->appPolicyId) {
+            @$body['AppPolicyId'] = $request->appPolicyId;
         }
 
         if (null !== $request->appStartParam) {
@@ -1588,83 +1136,6 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 访问页面分页查询.
-     *
-     * @param request - ListAccessPagesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAccessPagesResponse
-     *
-     * @param ListAccessPagesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListAccessPagesResponse
-     */
-    public function listAccessPagesWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
-        }
-
-        if (null !== $request->accessPageName) {
-            @$query['AccessPageName'] = $request->accessPageName;
-        }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
-        }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
-        }
-
-        if (null !== $request->sortType) {
-            @$query['SortType'] = $request->sortType;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ListAccessPages',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ListAccessPagesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 访问页面分页查询.
-     *
-     * @param request - ListAccessPagesRequest
-     *
-     * @returns ListAccessPagesResponse
-     *
-     * @param ListAccessPagesRequest $request
-     *
-     * @return ListAccessPagesResponse
-     */
-    public function listAccessPages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAccessPagesWithOptions($request, $runtime);
-    }
-
-    /**
      * Queries the details of multiple delivery groups that meet the query conditions.
      *
      * @param request - ListAppInstanceGroupRequest
@@ -1852,6 +1323,83 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过交付组查询展示授权的用户组列表.
+     *
+     * @param request - ListAuthorizedUserGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizedUserGroupsResponse
+     *
+     * @param ListAuthorizedUserGroupsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAuthorizedUserGroupsResponse
+     */
+    public function listAuthorizedUserGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizedUserGroups',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizedUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过交付组查询展示授权的用户组列表.
+     *
+     * @param request - ListAuthorizedUserGroupsRequest
+     *
+     * @returns ListAuthorizedUserGroupsResponse
+     *
+     * @param ListAuthorizedUserGroupsRequest $request
+     *
+     * @return ListAuthorizedUserGroupsResponse
+     */
+    public function listAuthorizedUserGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedUserGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -2320,87 +1868,6 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * 项目的会话包列表.
-     *
-     * @param request - ListSessionPackagesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListSessionPackagesResponse
-     *
-     * @param ListSessionPackagesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListSessionPackagesResponse
-     */
-    public function listSessionPackagesWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
-        }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
-        }
-
-        if (null !== $request->sessionPackageId) {
-            @$query['SessionPackageId'] = $request->sessionPackageId;
-        }
-
-        if (null !== $request->sessionPackageName) {
-            @$query['SessionPackageName'] = $request->sessionPackageName;
-        }
-
-        if (null !== $request->sortType) {
-            @$query['SortType'] = $request->sortType;
-        }
-
-        if (null !== $request->stateList) {
-            @$query['StateList'] = $request->stateList;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ListSessionPackages',
-            'version' => '2021-09-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ListSessionPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 项目的会话包列表.
-     *
-     * @param request - ListSessionPackagesRequest
-     *
-     * @returns ListSessionPackagesResponse
-     *
-     * @param ListSessionPackagesRequest $request
-     *
-     * @return ListSessionPackagesResponse
-     */
-    public function listSessionPackages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSessionPackagesWithOptions($request, $runtime);
     }
 
     /**

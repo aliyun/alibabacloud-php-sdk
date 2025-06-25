@@ -98,7 +98,8 @@ class persistentAppInstanceModels extends Model
                 $res['AuthorizedUsers'] = [];
                 $n1 = 0;
                 foreach ($this->authorizedUsers as $item1) {
-                    $res['AuthorizedUsers'][$n1++] = $item1;
+                    $res['AuthorizedUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class persistentAppInstanceModels extends Model
                 $model->authorizedUsers = [];
                 $n1 = 0;
                 foreach ($map['AuthorizedUsers'] as $item1) {
-                    $model->authorizedUsers[$n1++] = $item1;
+                    $model->authorizedUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

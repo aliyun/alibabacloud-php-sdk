@@ -39,7 +39,8 @@ class TagCloudResourcesResponseBody extends Model
                 $res['FailedResources'] = [];
                 $n1 = 0;
                 foreach ($this->failedResources as $item1) {
-                    $res['FailedResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class TagCloudResourcesResponseBody extends Model
                 $model->failedResources = [];
                 $n1 = 0;
                 foreach ($map['FailedResources'] as $item1) {
-                    $model->failedResources[$n1++] = failedResources::fromMap($item1);
+                    $model->failedResources[$n1] = failedResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

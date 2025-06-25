@@ -105,7 +105,8 @@ class nodePoolStrategy extends Model
                 $res['RecurrenceSchedules'] = [];
                 $n1 = 0;
                 foreach ($this->recurrenceSchedules as $item1) {
-                    $res['RecurrenceSchedules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecurrenceSchedules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +167,8 @@ class nodePoolStrategy extends Model
                 $model->recurrenceSchedules = [];
                 $n1 = 0;
                 foreach ($map['RecurrenceSchedules'] as $item1) {
-                    $model->recurrenceSchedules[$n1++] = recurrenceSchedules::fromMap($item1);
+                    $model->recurrenceSchedules[$n1] = recurrenceSchedules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

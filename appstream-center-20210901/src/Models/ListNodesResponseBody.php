@@ -61,7 +61,8 @@ class ListNodesResponseBody extends Model
                 $res['NodeModels'] = [];
                 $n1 = 0;
                 foreach ($this->nodeModels as $item1) {
-                    $res['NodeModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class ListNodesResponseBody extends Model
                 $model->nodeModels = [];
                 $n1 = 0;
                 foreach ($map['NodeModels'] as $item1) {
-                    $model->nodeModels[$n1++] = nodeModels::fromMap($item1);
+                    $model->nodeModels[$n1] = nodeModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

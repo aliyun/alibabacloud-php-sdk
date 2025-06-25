@@ -42,7 +42,8 @@ class storagePolicy extends Model
                 $res['StorageTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->storageTypeList as $item1) {
-                    $res['StorageTypeList'][$n1++] = $item1;
+                    $res['StorageTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class storagePolicy extends Model
                 $model->storageTypeList = [];
                 $n1 = 0;
                 foreach ($map['StorageTypeList'] as $item1) {
-                    $model->storageTypeList[$n1++] = $item1;
+                    $model->storageTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

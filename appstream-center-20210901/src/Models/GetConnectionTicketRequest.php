@@ -36,6 +36,11 @@ class GetConnectionTicketRequest extends Model
     /**
      * @var string
      */
+    public $appPolicyId;
+
+    /**
+     * @var string
+     */
     public $appStartParam;
 
     /**
@@ -68,6 +73,7 @@ class GetConnectionTicketRequest extends Model
         'appInstanceGroupIdList' => 'AppInstanceGroupIdList',
         'appInstanceId' => 'AppInstanceId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
+        'appPolicyId' => 'AppPolicyId',
         'appStartParam' => 'AppStartParam',
         'appVersion' => 'AppVersion',
         'bizRegionId' => 'BizRegionId',
@@ -100,7 +106,8 @@ class GetConnectionTicketRequest extends Model
                 $res['AppInstanceGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceGroupIdList as $item1) {
-                    $res['AppInstanceGroupIdList'][$n1++] = $item1;
+                    $res['AppInstanceGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,6 +118,10 @@ class GetConnectionTicketRequest extends Model
 
         if (null !== $this->appInstancePersistentId) {
             $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
+        }
+
+        if (null !== $this->appPolicyId) {
+            $res['AppPolicyId'] = $this->appPolicyId;
         }
 
         if (null !== $this->appStartParam) {
@@ -161,7 +172,8 @@ class GetConnectionTicketRequest extends Model
                 $model->appInstanceGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceGroupIdList'] as $item1) {
-                    $model->appInstanceGroupIdList[$n1++] = $item1;
+                    $model->appInstanceGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,6 +184,10 @@ class GetConnectionTicketRequest extends Model
 
         if (isset($map['AppInstancePersistentId'])) {
             $model->appInstancePersistentId = $map['AppInstancePersistentId'];
+        }
+
+        if (isset($map['AppPolicyId'])) {
+            $model->appPolicyId = $map['AppPolicyId'];
         }
 
         if (isset($map['AppStartParam'])) {

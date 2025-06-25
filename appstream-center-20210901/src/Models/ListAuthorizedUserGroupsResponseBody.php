@@ -5,15 +5,10 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesResponseBody\data;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsResponseBody\userGroups;
 
-class ListSessionPackagesResponseBody extends Model
+class ListAuthorizedUserGroupsResponseBody extends Model
 {
-    /**
-     * @var data[]
-     */
-    public $data;
-
     /**
      * @var int
      */
@@ -33,18 +28,23 @@ class ListSessionPackagesResponseBody extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var userGroups[]
+     */
+    public $userGroups;
     protected $_name = [
-        'data' => 'Data',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
+        'userGroups' => 'UserGroups',
     ];
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
+        if (\is_array($this->userGroups)) {
+            Model::validateArray($this->userGroups);
         }
         parent::validate();
     }
@@ -52,16 +52,6 @@ class ListSessionPackagesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -78,6 +68,17 @@ class ListSessionPackagesResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
 
+        if (null !== $this->userGroups) {
+            if (\is_array($this->userGroups)) {
+                $res['UserGroups'] = [];
+                $n1 = 0;
+                foreach ($this->userGroups as $item1) {
+                    $res['UserGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         return $res;
     }
 
@@ -89,16 +90,6 @@ class ListSessionPackagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
-                }
-            }
-        }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -113,6 +104,17 @@ class ListSessionPackagesResponseBody extends Model
 
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+
+        if (isset($map['UserGroups'])) {
+            if (!empty($map['UserGroups'])) {
+                $model->userGroups = [];
+                $n1 = 0;
+                foreach ($map['UserGroups'] as $item1) {
+                    $model->userGroups[$n1] = userGroups::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

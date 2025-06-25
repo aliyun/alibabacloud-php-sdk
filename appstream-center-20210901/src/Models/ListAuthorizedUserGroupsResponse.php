@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class AccessPageSetAclResponse extends Model
+class ListAuthorizedUserGroupsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AccessPageSetAclResponse extends Model
     public $statusCode;
 
     /**
-     * @var AccessPageSetAclResponseBody
+     * @var ListAuthorizedUserGroupsResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class AccessPageSetAclResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = AccessPageSetAclResponseBody::fromMap($map['body']);
+            $model->body = ListAuthorizedUserGroupsResponseBody::fromMap($map['body']);
         }
 
         return $model;

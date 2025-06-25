@@ -52,7 +52,8 @@ class recurrenceSchedules extends Model
                 $res['RecurrenceValues'] = [];
                 $n1 = 0;
                 foreach ($this->recurrenceValues as $item1) {
-                    $res['RecurrenceValues'][$n1++] = $item1;
+                    $res['RecurrenceValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class recurrenceSchedules extends Model
                 $res['TimerPeriods'] = [];
                 $n1 = 0;
                 foreach ($this->timerPeriods as $item1) {
-                    $res['TimerPeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimerPeriods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +89,8 @@ class recurrenceSchedules extends Model
                 $model->recurrenceValues = [];
                 $n1 = 0;
                 foreach ($map['RecurrenceValues'] as $item1) {
-                    $model->recurrenceValues[$n1++] = $item1;
+                    $model->recurrenceValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class recurrenceSchedules extends Model
                 $model->timerPeriods = [];
                 $n1 = 0;
                 foreach ($map['TimerPeriods'] as $item1) {
-                    $model->timerPeriods[$n1++] = timerPeriods::fromMap($item1);
+                    $model->timerPeriods[$n1] = timerPeriods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

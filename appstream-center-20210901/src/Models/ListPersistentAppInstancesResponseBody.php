@@ -65,7 +65,8 @@ class ListPersistentAppInstancesResponseBody extends Model
                 $res['PersistentAppInstanceModels'] = [];
                 $n1 = 0;
                 foreach ($this->persistentAppInstanceModels as $item1) {
-                    $res['PersistentAppInstanceModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PersistentAppInstanceModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListPersistentAppInstancesResponseBody extends Model
                 $model->persistentAppInstanceModels = [];
                 $n1 = 0;
                 foreach ($map['PersistentAppInstanceModels'] as $item1) {
-                    $model->persistentAppInstanceModels[$n1++] = persistentAppInstanceModels::fromMap($item1);
+                    $model->persistentAppInstanceModels[$n1] = persistentAppInstanceModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

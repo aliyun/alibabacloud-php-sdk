@@ -57,7 +57,8 @@ class ListAppInstanceGroupResponseBody extends Model
                 $res['AppInstanceGroupModels'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceGroupModels as $item1) {
-                    $res['AppInstanceGroupModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppInstanceGroupModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListAppInstanceGroupResponseBody extends Model
                 $model->appInstanceGroupModels = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceGroupModels'] as $item1) {
-                    $model->appInstanceGroupModels[$n1++] = appInstanceGroupModels::fromMap($item1);
+                    $model->appInstanceGroupModels[$n1] = appInstanceGroupModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

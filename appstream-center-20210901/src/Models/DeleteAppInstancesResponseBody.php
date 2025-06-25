@@ -39,7 +39,8 @@ class DeleteAppInstancesResponseBody extends Model
                 $res['DeleteAppInstanceModels'] = [];
                 $n1 = 0;
                 foreach ($this->deleteAppInstanceModels as $item1) {
-                    $res['DeleteAppInstanceModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeleteAppInstanceModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DeleteAppInstancesResponseBody extends Model
                 $model->deleteAppInstanceModels = [];
                 $n1 = 0;
                 foreach ($map['DeleteAppInstanceModels'] as $item1) {
-                    $model->deleteAppInstanceModels[$n1++] = deleteAppInstanceModels::fromMap($item1);
+                    $model->deleteAppInstanceModels[$n1] = deleteAppInstanceModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

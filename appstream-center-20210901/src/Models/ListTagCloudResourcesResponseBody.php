@@ -59,7 +59,8 @@ class ListTagCloudResourcesResponseBody extends Model
                 $res['ResourceTags'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTags as $item1) {
-                    $res['ResourceTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class ListTagCloudResourcesResponseBody extends Model
                 $model->resourceTags = [];
                 $n1 = 0;
                 foreach ($map['ResourceTags'] as $item1) {
-                    $model->resourceTags[$n1++] = resourceTags::fromMap($item1);
+                    $model->resourceTags[$n1] = resourceTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

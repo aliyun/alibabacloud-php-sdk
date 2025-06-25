@@ -60,7 +60,8 @@ class ListPersistentAppInstancesRequest extends Model
                 $res['AppInstancePersistentIds'] = [];
                 $n1 = 0;
                 foreach ($this->appInstancePersistentIds as $item1) {
-                    $res['AppInstancePersistentIds'][$n1++] = $item1;
+                    $res['AppInstancePersistentIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class ListPersistentAppInstancesRequest extends Model
                 $model->appInstancePersistentIds = [];
                 $n1 = 0;
                 foreach ($map['AppInstancePersistentIds'] as $item1) {
-                    $model->appInstancePersistentIds[$n1++] = $item1;
+                    $model->appInstancePersistentIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

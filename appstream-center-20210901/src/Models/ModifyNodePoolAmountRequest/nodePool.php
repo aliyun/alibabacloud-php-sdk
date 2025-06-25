@@ -52,7 +52,8 @@ class nodePool extends Model
                 $res['PrePaidNodeAmountModifyNodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->prePaidNodeAmountModifyNodeIds as $item1) {
-                    $res['PrePaidNodeAmountModifyNodeIds'][$n1++] = $item1;
+                    $res['PrePaidNodeAmountModifyNodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class nodePool extends Model
                 $model->prePaidNodeAmountModifyNodeIds = [];
                 $n1 = 0;
                 foreach ($map['PrePaidNodeAmountModifyNodeIds'] as $item1) {
-                    $model->prePaidNodeAmountModifyNodeIds[$n1++] = $item1;
+                    $model->prePaidNodeAmountModifyNodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

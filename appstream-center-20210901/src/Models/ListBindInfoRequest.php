@@ -80,7 +80,8 @@ class ListBindInfoRequest extends Model
                 $res['AppIdList'] = [];
                 $n1 = 0;
                 foreach ($this->appIdList as $item1) {
-                    $res['AppIdList'][$n1++] = $item1;
+                    $res['AppIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,7 +91,8 @@ class ListBindInfoRequest extends Model
                 $res['AppInstanceGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceGroupIdList as $item1) {
-                    $res['AppInstanceGroupIdList'][$n1++] = $item1;
+                    $res['AppInstanceGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class ListBindInfoRequest extends Model
                 $res['AppInstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceIdList as $item1) {
-                    $res['AppInstanceIdList'][$n1++] = $item1;
+                    $res['AppInstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +121,8 @@ class ListBindInfoRequest extends Model
                 $res['UserIdList'] = [];
                 $n1 = 0;
                 foreach ($this->userIdList as $item1) {
-                    $res['UserIdList'][$n1++] = $item1;
+                    $res['UserIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +132,8 @@ class ListBindInfoRequest extends Model
                 $res['WyIdList'] = [];
                 $n1 = 0;
                 foreach ($this->wyIdList as $item1) {
-                    $res['WyIdList'][$n1++] = $item1;
+                    $res['WyIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +154,8 @@ class ListBindInfoRequest extends Model
                 $model->appIdList = [];
                 $n1 = 0;
                 foreach ($map['AppIdList'] as $item1) {
-                    $model->appIdList[$n1++] = $item1;
+                    $model->appIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +165,8 @@ class ListBindInfoRequest extends Model
                 $model->appInstanceGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceGroupIdList'] as $item1) {
-                    $model->appInstanceGroupIdList[$n1++] = $item1;
+                    $model->appInstanceGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +176,8 @@ class ListBindInfoRequest extends Model
                 $model->appInstanceIdList = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceIdList'] as $item1) {
-                    $model->appInstanceIdList[$n1++] = $item1;
+                    $model->appInstanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +195,8 @@ class ListBindInfoRequest extends Model
                 $model->userIdList = [];
                 $n1 = 0;
                 foreach ($map['UserIdList'] as $item1) {
-                    $model->userIdList[$n1++] = $item1;
+                    $model->userIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +206,8 @@ class ListBindInfoRequest extends Model
                 $model->wyIdList = [];
                 $n1 = 0;
                 foreach ($map['WyIdList'] as $item1) {
-                    $model->wyIdList[$n1++] = $item1;
+                    $model->wyIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -88,7 +88,8 @@ class ListAppInstancesRequest extends Model
                 $res['AppInstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->appInstanceIdList as $item1) {
-                    $res['AppInstanceIdList'][$n1++] = $item1;
+                    $res['AppInstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListAppInstancesRequest extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +122,8 @@ class ListAppInstancesRequest extends Model
                 $res['UserIdList'] = [];
                 $n1 = 0;
                 foreach ($this->userIdList as $item1) {
-                    $res['UserIdList'][$n1++] = $item1;
+                    $res['UserIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +152,8 @@ class ListAppInstancesRequest extends Model
                 $model->appInstanceIdList = [];
                 $n1 = 0;
                 foreach ($map['AppInstanceIdList'] as $item1) {
-                    $model->appInstanceIdList[$n1++] = $item1;
+                    $model->appInstanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +175,8 @@ class ListAppInstancesRequest extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +186,8 @@ class ListAppInstancesRequest extends Model
                 $model->userIdList = [];
                 $n1 = 0;
                 foreach ($map['UserIdList'] as $item1) {
-                    $model->userIdList[$n1++] = $item1;
+                    $model->userIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

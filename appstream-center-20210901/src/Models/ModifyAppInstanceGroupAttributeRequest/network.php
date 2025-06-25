@@ -33,7 +33,8 @@ class network extends Model
                 $res['DomainRules'] = [];
                 $n1 = 0;
                 foreach ($this->domainRules as $item1) {
-                    $res['DomainRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class network extends Model
                 $model->domainRules = [];
                 $n1 = 0;
                 foreach ($map['DomainRules'] as $item1) {
-                    $model->domainRules[$n1++] = domainRules::fromMap($item1);
+                    $model->domainRules[$n1] = domainRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
