@@ -33,7 +33,8 @@ class stepList extends Model
                 $res['StepList'] = [];
                 $n1 = 0;
                 foreach ($this->stepList as $item1) {
-                    $res['StepList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StepList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class stepList extends Model
                 $model->stepList = [];
                 $n1 = 0;
                 foreach ($map['StepList'] as $item1) {
-                    $model->stepList[$n1++] = self::fromMap($item1);
+                    $model->stepList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

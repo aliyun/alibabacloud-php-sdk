@@ -51,7 +51,8 @@ class DescribeKernelVersionResponseBody extends Model
                 $res['AvailableKernelVersions'] = [];
                 $n1 = 0;
                 foreach ($this->availableKernelVersions as $item1) {
-                    $res['AvailableKernelVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableKernelVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeKernelVersionResponseBody extends Model
                 $model->availableKernelVersions = [];
                 $n1 = 0;
                 foreach ($map['AvailableKernelVersions'] as $item1) {
-                    $model->availableKernelVersions[$n1++] = availableKernelVersions::fromMap($item1);
+                    $model->availableKernelVersions[$n1] = availableKernelVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

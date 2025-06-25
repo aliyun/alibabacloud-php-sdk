@@ -75,7 +75,8 @@ class DescribeSQLPatternsResponseBody extends Model
                 $res['PatternDetails'] = [];
                 $n1 = 0;
                 foreach ($this->patternDetails as $item1) {
-                    $res['PatternDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PatternDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class DescribeSQLPatternsResponseBody extends Model
                 $model->patternDetails = [];
                 $n1 = 0;
                 foreach ($map['PatternDetails'] as $item1) {
-                    $model->patternDetails[$n1++] = patternDetails::fromMap($item1);
+                    $model->patternDetails[$n1] = patternDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

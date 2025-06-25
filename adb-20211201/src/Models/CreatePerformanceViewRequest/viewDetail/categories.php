@@ -43,7 +43,8 @@ class categories extends Model
                 $res['Keys'] = [];
                 $n1 = 0;
                 foreach ($this->keys as $item1) {
-                    $res['Keys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Keys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class categories extends Model
                 $model->keys = [];
                 $n1 = 0;
                 foreach ($map['Keys'] as $item1) {
-                    $model->keys[$n1++] = keys::fromMap($item1);
+                    $model->keys[$n1] = keys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

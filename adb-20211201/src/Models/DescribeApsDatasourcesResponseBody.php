@@ -57,7 +57,8 @@ class DescribeApsDatasourcesResponseBody extends Model
                 $res['ApsDatasources'] = [];
                 $n1 = 0;
                 foreach ($this->apsDatasources as $item1) {
-                    $res['ApsDatasources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApsDatasources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeApsDatasourcesResponseBody extends Model
                 $model->apsDatasources = [];
                 $n1 = 0;
                 foreach ($map['ApsDatasources'] as $item1) {
-                    $model->apsDatasources[$n1++] = apsDatasources::fromMap($item1);
+                    $model->apsDatasources[$n1] = apsDatasources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

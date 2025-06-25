@@ -53,7 +53,8 @@ class rayConfig extends Model
                 $res['WorkerGroups'] = [];
                 $n1 = 0;
                 foreach ($this->workerGroups as $item1) {
-                    $res['WorkerGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WorkerGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class rayConfig extends Model
                 $model->workerGroups = [];
                 $n1 = 0;
                 foreach ($map['WorkerGroups'] as $item1) {
-                    $model->workerGroups[$n1++] = workerGroups::fromMap($item1);
+                    $model->workerGroups[$n1] = workerGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

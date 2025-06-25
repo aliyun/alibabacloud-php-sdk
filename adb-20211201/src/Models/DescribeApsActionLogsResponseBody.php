@@ -79,7 +79,8 @@ class DescribeApsActionLogsResponseBody extends Model
                 $res['ActionLogs'] = [];
                 $n1 = 0;
                 foreach ($this->actionLogs as $item1) {
-                    $res['ActionLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ActionLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +129,8 @@ class DescribeApsActionLogsResponseBody extends Model
                 $model->actionLogs = [];
                 $n1 = 0;
                 foreach ($map['ActionLogs'] as $item1) {
-                    $model->actionLogs[$n1++] = actionLogs::fromMap($item1);
+                    $model->actionLogs[$n1] = actionLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -265,7 +265,8 @@ class groupsInfo extends Model
                 $res['Rules'] = [];
                 $n1 = 0;
                 foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -387,7 +388,8 @@ class groupsInfo extends Model
                 $model->rules = [];
                 $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                    $model->rules[$n1] = rules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

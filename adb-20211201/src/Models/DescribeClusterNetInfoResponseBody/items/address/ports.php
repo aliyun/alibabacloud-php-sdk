@@ -32,7 +32,8 @@ class ports extends Model
                 $res['ports'] = [];
                 $n1 = 0;
                 foreach ($this->ports as $item1) {
-                    $res['ports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ports extends Model
                 $model->ports = [];
                 $n1 = 0;
                 foreach ($map['ports'] as $item1) {
-                    $model->ports[$n1++] = ports\ports::fromMap($item1);
+                    $model->ports[$n1] = ports\ports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

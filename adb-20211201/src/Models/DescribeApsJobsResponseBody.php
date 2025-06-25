@@ -81,7 +81,8 @@ class DescribeApsJobsResponseBody extends Model
                 $res['APSJobs'] = [];
                 $n1 = 0;
                 foreach ($this->APSJobs as $item1) {
-                    $res['APSJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['APSJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class DescribeApsJobsResponseBody extends Model
                 $model->APSJobs = [];
                 $n1 = 0;
                 foreach ($map['APSJobs'] as $item1) {
-                    $model->APSJobs[$n1++] = APSJobs::fromMap($item1);
+                    $model->APSJobs[$n1] = APSJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -66,7 +66,8 @@ class DescribeAvailableAdvicesResponseBody extends Model
                 $res['Items'] = [];
                 $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class DescribeAvailableAdvicesResponseBody extends Model
                 $res['SchemaTableNames'] = [];
                 $n1 = 0;
                 foreach ($this->schemaTableNames as $item1) {
-                    $res['SchemaTableNames'][$n1++] = $item1;
+                    $res['SchemaTableNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +115,8 @@ class DescribeAvailableAdvicesResponseBody extends Model
                 $model->items = [];
                 $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +138,8 @@ class DescribeAvailableAdvicesResponseBody extends Model
                 $model->schemaTableNames = [];
                 $n1 = 0;
                 foreach ($map['SchemaTableNames'] as $item1) {
-                    $model->schemaTableNames[$n1++] = $item1;
+                    $model->schemaTableNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

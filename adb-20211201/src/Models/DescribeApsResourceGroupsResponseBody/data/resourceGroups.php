@@ -72,7 +72,8 @@ class resourceGroups extends Model
                 $res['CuOptions'] = [];
                 $n1 = 0;
                 foreach ($this->cuOptions as $item1) {
-                    $res['CuOptions'][$n1++] = $item1;
+                    $res['CuOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class resourceGroups extends Model
                 $model->cuOptions = [];
                 $n1 = 0;
                 foreach ($map['CuOptions'] as $item1) {
-                    $model->cuOptions[$n1++] = $item1;
+                    $model->cuOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

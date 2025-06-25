@@ -72,7 +72,8 @@ class DescribeAdbMySqlTablesResponseBody extends Model
                 $res['Tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = $item1;
+                    $res['Tables'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class DescribeAdbMySqlTablesResponseBody extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = $item1;
+                    $model->tables[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class data extends Model
                 $res['TableSummaryModels'] = [];
                 $n1 = 0;
                 foreach ($this->tableSummaryModels as $item1) {
-                    $res['TableSummaryModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableSummaryModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class data extends Model
                 $model->tableSummaryModels = [];
                 $n1 = 0;
                 foreach ($map['TableSummaryModels'] as $item1) {
-                    $model->tableSummaryModels[$n1++] = TableSummaryModel::fromMap($item1);
+                    $model->tableSummaryModels[$n1] = TableSummaryModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

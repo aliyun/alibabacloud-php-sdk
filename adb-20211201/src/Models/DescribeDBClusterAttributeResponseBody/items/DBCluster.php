@@ -13,6 +13,16 @@ class DBCluster extends Model
     /**
      * @var int
      */
+    public $AINodeNumber;
+
+    /**
+     * @var string
+     */
+    public $AINodeSpec;
+
+    /**
+     * @var int
+     */
     public $clickhouseEngineCacheSize;
 
     /**
@@ -240,6 +250,8 @@ class DBCluster extends Model
      */
     public $zoneId;
     protected $_name = [
+        'AINodeNumber' => 'AINodeNumber',
+        'AINodeSpec' => 'AINodeSpec',
         'clickhouseEngineCacheSize' => 'ClickhouseEngineCacheSize',
         'clickhouseEngineEnabled' => 'ClickhouseEngineEnabled',
         'commodityCode' => 'CommodityCode',
@@ -305,6 +317,14 @@ class DBCluster extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->AINodeNumber) {
+            $res['AINodeNumber'] = $this->AINodeNumber;
+        }
+
+        if (null !== $this->AINodeSpec) {
+            $res['AINodeSpec'] = $this->AINodeSpec;
+        }
+
         if (null !== $this->clickhouseEngineCacheSize) {
             $res['ClickhouseEngineCacheSize'] = $this->clickhouseEngineCacheSize;
         }
@@ -505,6 +525,14 @@ class DBCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AINodeNumber'])) {
+            $model->AINodeNumber = $map['AINodeNumber'];
+        }
+
+        if (isset($map['AINodeSpec'])) {
+            $model->AINodeSpec = $map['AINodeSpec'];
+        }
+
         if (isset($map['ClickhouseEngineCacheSize'])) {
             $model->clickhouseEngineCacheSize = $map['ClickhouseEngineCacheSize'];
         }

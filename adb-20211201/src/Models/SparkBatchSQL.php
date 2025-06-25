@@ -138,7 +138,8 @@ class SparkBatchSQL extends Model
                 $res['Statements'] = [];
                 $n1 = 0;
                 foreach ($this->statements as $item1) {
-                    $res['Statements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Statements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class SparkBatchSQL extends Model
                 $model->statements = [];
                 $n1 = 0;
                 foreach ($map['Statements'] as $item1) {
-                    $model->statements[$n1++] = SparkBatchSQLStatement::fromMap($item1);
+                    $model->statements[$n1] = SparkBatchSQLStatement::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

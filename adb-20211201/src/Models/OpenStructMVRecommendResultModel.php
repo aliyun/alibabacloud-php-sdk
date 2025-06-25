@@ -66,7 +66,8 @@ class OpenStructMVRecommendResultModel extends Model
                 $res['BaseTables'] = [];
                 $n1 = 0;
                 foreach ($this->baseTables as $item1) {
-                    $res['BaseTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BaseTables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class OpenStructMVRecommendResultModel extends Model
                 $model->baseTables = [];
                 $n1 = 0;
                 foreach ($map['BaseTables'] as $item1) {
-                    $model->baseTables[$n1++] = OpenStructMvBaseTableDetailModel::fromMap($item1);
+                    $model->baseTables[$n1] = OpenStructMvBaseTableDetailModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

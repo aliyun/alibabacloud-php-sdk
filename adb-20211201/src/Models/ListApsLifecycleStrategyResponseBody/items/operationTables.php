@@ -52,7 +52,8 @@ class operationTables extends Model
                 $res['TableNames'] = [];
                 $n1 = 0;
                 foreach ($this->tableNames as $item1) {
-                    $res['TableNames'][$n1++] = $item1;
+                    $res['TableNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class operationTables extends Model
                 $model->tableNames = [];
                 $n1 = 0;
                 foreach ($map['TableNames'] as $item1) {
-                    $model->tableNames[$n1++] = $item1;
+                    $model->tableNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

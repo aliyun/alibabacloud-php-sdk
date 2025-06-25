@@ -77,7 +77,8 @@ class DescribeInclinedTablesResponseBody extends Model
                 $res['DetectionItems'] = [];
                 $n1 = 0;
                 foreach ($this->detectionItems as $item1) {
-                    $res['DetectionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DetectionItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class DescribeInclinedTablesResponseBody extends Model
                 $model->detectionItems = [];
                 $n1 = 0;
                 foreach ($map['DetectionItems'] as $item1) {
-                    $model->detectionItems[$n1++] = detectionItems::fromMap($item1);
+                    $model->detectionItems[$n1] = detectionItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

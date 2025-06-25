@@ -238,7 +238,8 @@ class CreateApsSlsADBJobRequest extends Model
                 $res['Columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -301,11 +302,12 @@ class CreateApsSlsADBJobRequest extends Model
                 $n1 = 0;
                 foreach ($this->partitionSpecs as $item1) {
                     if (\is_array($item1)) {
-                        $res['PartitionSpecs'][$n1++] = [];
+                        $res['PartitionSpecs'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['PartitionSpecs'][$n1++][$key2] = $value2;
+                            $res['PartitionSpecs'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -394,7 +396,8 @@ class CreateApsSlsADBJobRequest extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = columns::fromMap($item1);
+                    $model->columns[$n1] = columns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -457,11 +460,12 @@ class CreateApsSlsADBJobRequest extends Model
                 $n1 = 0;
                 foreach ($map['PartitionSpecs'] as $item1) {
                     if (!empty($item1)) {
-                        $model->partitionSpecs[$n1++] = [];
+                        $model->partitionSpecs[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->partitionSpecs[$n1++][$key2] = $value2;
+                            $model->partitionSpecs[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

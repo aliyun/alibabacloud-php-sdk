@@ -53,7 +53,8 @@ class DescribePerformanceViewsResponseBody extends Model
                 $res['Views'] = [];
                 $n1 = 0;
                 foreach ($this->views as $item1) {
-                    $res['Views'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Views'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DescribePerformanceViewsResponseBody extends Model
                 $model->views = [];
                 $n1 = 0;
                 foreach ($map['Views'] as $item1) {
-                    $model->views[$n1++] = views::fromMap($item1);
+                    $model->views[$n1] = views::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

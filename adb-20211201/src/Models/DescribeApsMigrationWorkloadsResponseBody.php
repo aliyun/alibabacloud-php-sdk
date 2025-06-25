@@ -57,7 +57,8 @@ class DescribeApsMigrationWorkloadsResponseBody extends Model
                 $res['MigrationWorkloads'] = [];
                 $n1 = 0;
                 foreach ($this->migrationWorkloads as $item1) {
-                    $res['MigrationWorkloads'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MigrationWorkloads'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeApsMigrationWorkloadsResponseBody extends Model
                 $model->migrationWorkloads = [];
                 $n1 = 0;
                 foreach ($map['MigrationWorkloads'] as $item1) {
-                    $model->migrationWorkloads[$n1++] = migrationWorkloads::fromMap($item1);
+                    $model->migrationWorkloads[$n1] = migrationWorkloads::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

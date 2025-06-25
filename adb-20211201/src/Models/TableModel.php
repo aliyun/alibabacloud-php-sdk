@@ -351,7 +351,8 @@ class TableModel extends Model
                 $res['Cols'] = [];
                 $n1 = 0;
                 foreach ($this->cols as $item1) {
-                    $res['Cols'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Cols'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -385,7 +386,8 @@ class TableModel extends Model
                 $res['DistributeColumns'] = [];
                 $n1 = 0;
                 foreach ($this->distributeColumns as $item1) {
-                    $res['DistributeColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DistributeColumns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -407,7 +409,8 @@ class TableModel extends Model
                 $res['Indexes'] = [];
                 $n1 = 0;
                 foreach ($this->indexes as $item1) {
-                    $res['Indexes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Indexes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -446,7 +449,8 @@ class TableModel extends Model
                 $res['PartitionKeys'] = [];
                 $n1 = 0;
                 foreach ($this->partitionKeys as $item1) {
-                    $res['PartitionKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PartitionKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -476,7 +480,8 @@ class TableModel extends Model
                 $res['RouteColumns'] = [];
                 $n1 = 0;
                 foreach ($this->routeColumns as $item1) {
-                    $res['RouteColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteColumns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -589,7 +594,8 @@ class TableModel extends Model
                 $model->cols = [];
                 $n1 = 0;
                 foreach ($map['Cols'] as $item1) {
-                    $model->cols[$n1++] = FieldSchemaModel::fromMap($item1);
+                    $model->cols[$n1] = FieldSchemaModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -623,7 +629,8 @@ class TableModel extends Model
                 $model->distributeColumns = [];
                 $n1 = 0;
                 foreach ($map['DistributeColumns'] as $item1) {
-                    $model->distributeColumns[$n1++] = FieldSchemaModel::fromMap($item1);
+                    $model->distributeColumns[$n1] = FieldSchemaModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -645,7 +652,8 @@ class TableModel extends Model
                 $model->indexes = [];
                 $n1 = 0;
                 foreach ($map['Indexes'] as $item1) {
-                    $model->indexes[$n1++] = CstoreIndexModel::fromMap($item1);
+                    $model->indexes[$n1] = CstoreIndexModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -684,7 +692,8 @@ class TableModel extends Model
                 $model->partitionKeys = [];
                 $n1 = 0;
                 foreach ($map['PartitionKeys'] as $item1) {
-                    $model->partitionKeys[$n1++] = FieldSchemaModel::fromMap($item1);
+                    $model->partitionKeys[$n1] = FieldSchemaModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -714,7 +723,8 @@ class TableModel extends Model
                 $model->routeColumns = [];
                 $n1 = 0;
                 foreach ($map['RouteColumns'] as $item1) {
-                    $model->routeColumns[$n1++] = FieldSchemaModel::fromMap($item1);
+                    $model->routeColumns[$n1] = FieldSchemaModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

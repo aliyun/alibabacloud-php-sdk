@@ -51,7 +51,8 @@ class data extends Model
                 $res['AttemptInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->attemptInfoList as $item1) {
-                    $res['AttemptInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AttemptInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->attemptInfoList = [];
                 $n1 = 0;
                 foreach ($map['AttemptInfoList'] as $item1) {
-                    $model->attemptInfoList[$n1++] = SparkAttemptInfo::fromMap($item1);
+                    $model->attemptInfoList[$n1] = SparkAttemptInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

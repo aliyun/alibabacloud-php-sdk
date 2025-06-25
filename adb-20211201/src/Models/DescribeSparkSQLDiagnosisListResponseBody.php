@@ -79,7 +79,8 @@ class DescribeSparkSQLDiagnosisListResponseBody extends Model
                 $res['SQLDiagnosisList'] = [];
                 $n1 = 0;
                 foreach ($this->SQLDiagnosisList as $item1) {
-                    $res['SQLDiagnosisList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SQLDiagnosisList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class DescribeSparkSQLDiagnosisListResponseBody extends Model
                 $model->SQLDiagnosisList = [];
                 $n1 = 0;
                 foreach ($map['SQLDiagnosisList'] as $item1) {
-                    $model->SQLDiagnosisList[$n1++] = SQLDiagnosisList::fromMap($item1);
+                    $model->SQLDiagnosisList[$n1] = SQLDiagnosisList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

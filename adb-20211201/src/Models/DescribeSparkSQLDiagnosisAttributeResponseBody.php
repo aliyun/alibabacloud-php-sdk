@@ -89,7 +89,8 @@ class DescribeSparkSQLDiagnosisAttributeResponseBody extends Model
                 $res['DiagnosisInfos'] = [];
                 $n1 = 0;
                 foreach ($this->diagnosisInfos as $item1) {
-                    $res['DiagnosisInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiagnosisInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class DescribeSparkSQLDiagnosisAttributeResponseBody extends Model
                 $model->diagnosisInfos = [];
                 $n1 = 0;
                 foreach ($map['DiagnosisInfos'] as $item1) {
-                    $model->diagnosisInfos[$n1++] = Adb4MysqlSparkDiagnosisInfo::fromMap($item1);
+                    $model->diagnosisInfos[$n1] = Adb4MysqlSparkDiagnosisInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

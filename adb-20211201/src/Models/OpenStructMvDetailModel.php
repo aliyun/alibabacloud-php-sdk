@@ -99,12 +99,14 @@ class OpenStructMvDetailModel extends Model
                 $n1 = 0;
                 foreach ($this->baseTableNames as $item1) {
                     if (\is_array($item1)) {
-                        $res['BaseTableNames'][$n1++] = [];
+                        $res['BaseTableNames'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['BaseTableNames'][$n1++][$n2++] = $item2;
+                            $res['BaseTableNames'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -170,12 +172,14 @@ class OpenStructMvDetailModel extends Model
                 $n1 = 0;
                 foreach ($map['BaseTableNames'] as $item1) {
                     if (!empty($item1)) {
-                        $model->baseTableNames[$n1++] = [];
+                        $model->baseTableNames[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->baseTableNames[$n1++][$n2++] = $item2;
+                            $model->baseTableNames[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

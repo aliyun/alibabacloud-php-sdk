@@ -116,7 +116,8 @@ class DescribeSparkAppDiagnosisInfoResponseBody extends Model
                 $res['DiagnosisInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->diagnosisInfoList as $item1) {
-                    $res['DiagnosisInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiagnosisInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +186,8 @@ class DescribeSparkAppDiagnosisInfoResponseBody extends Model
                 $model->diagnosisInfoList = [];
                 $n1 = 0;
                 foreach ($map['DiagnosisInfoList'] as $item1) {
-                    $model->diagnosisInfoList[$n1++] = Adb4MysqlSparkDiagnosisInfo::fromMap($item1);
+                    $model->diagnosisInfoList[$n1] = Adb4MysqlSparkDiagnosisInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

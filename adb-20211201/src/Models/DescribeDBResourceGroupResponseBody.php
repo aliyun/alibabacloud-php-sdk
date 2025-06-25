@@ -39,7 +39,8 @@ class DescribeDBResourceGroupResponseBody extends Model
                 $res['GroupsInfo'] = [];
                 $n1 = 0;
                 foreach ($this->groupsInfo as $item1) {
-                    $res['GroupsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDBResourceGroupResponseBody extends Model
                 $model->groupsInfo = [];
                 $n1 = 0;
                 foreach ($map['GroupsInfo'] as $item1) {
-                    $model->groupsInfo[$n1++] = groupsInfo::fromMap($item1);
+                    $model->groupsInfo[$n1] = groupsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

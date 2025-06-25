@@ -42,7 +42,8 @@ class operatorListSortedByMetrics extends Model
                 $res['OperatorListSortedByExclusiveTime'] = [];
                 $n1 = 0;
                 foreach ($this->operatorListSortedByExclusiveTime as $item1) {
-                    $res['OperatorListSortedByExclusiveTime'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperatorListSortedByExclusiveTime'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class operatorListSortedByMetrics extends Model
                 $res['OperatorListSortedByMaxMemory'] = [];
                 $n1 = 0;
                 foreach ($this->operatorListSortedByMaxMemory as $item1) {
-                    $res['OperatorListSortedByMaxMemory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperatorListSortedByMaxMemory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class operatorListSortedByMetrics extends Model
                 $model->operatorListSortedByExclusiveTime = [];
                 $n1 = 0;
                 foreach ($map['OperatorListSortedByExclusiveTime'] as $item1) {
-                    $model->operatorListSortedByExclusiveTime[$n1++] = SparkOperatorInfo::fromMap($item1);
+                    $model->operatorListSortedByExclusiveTime[$n1] = SparkOperatorInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class operatorListSortedByMetrics extends Model
                 $model->operatorListSortedByMaxMemory = [];
                 $n1 = 0;
                 foreach ($map['OperatorListSortedByMaxMemory'] as $item1) {
-                    $model->operatorListSortedByMaxMemory[$n1++] = SparkOperatorInfo::fromMap($item1);
+                    $model->operatorListSortedByMaxMemory[$n1] = SparkOperatorInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -72,7 +72,8 @@ class data extends Model
                 $res['Instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['Instances'][$n1++] = $item1;
+                    $res['Instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class data extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
-                    $model->instances[$n1++] = $item1;
+                    $model->instances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

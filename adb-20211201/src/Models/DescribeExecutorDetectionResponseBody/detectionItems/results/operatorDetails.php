@@ -43,7 +43,8 @@ class operatorDetails extends Model
                 $res['SearchResults'] = [];
                 $n1 = 0;
                 foreach ($this->searchResults as $item1) {
-                    $res['SearchResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class operatorDetails extends Model
                 $model->searchResults = [];
                 $n1 = 0;
                 foreach ($map['SearchResults'] as $item1) {
-                    $model->searchResults[$n1++] = searchResults::fromMap($item1);
+                    $model->searchResults[$n1] = searchResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

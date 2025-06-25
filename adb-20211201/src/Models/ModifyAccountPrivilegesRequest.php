@@ -55,7 +55,8 @@ class ModifyAccountPrivilegesRequest extends Model
                 $res['AccountPrivileges'] = [];
                 $n1 = 0;
                 foreach ($this->accountPrivileges as $item1) {
-                    $res['AccountPrivileges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccountPrivileges'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ModifyAccountPrivilegesRequest extends Model
                 $model->accountPrivileges = [];
                 $n1 = 0;
                 foreach ($map['AccountPrivileges'] as $item1) {
-                    $model->accountPrivileges[$n1++] = accountPrivileges::fromMap($item1);
+                    $model->accountPrivileges[$n1] = accountPrivileges::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

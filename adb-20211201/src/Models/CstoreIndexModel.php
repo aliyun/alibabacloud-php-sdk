@@ -86,7 +86,8 @@ class CstoreIndexModel extends Model
                 $res['ColumnOrds'] = [];
                 $n1 = 0;
                 foreach ($this->columnOrds as $item1) {
-                    $res['ColumnOrds'][$n1++] = $item1;
+                    $res['ColumnOrds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class CstoreIndexModel extends Model
                 $res['IndexColumns'] = [];
                 $n1 = 0;
                 foreach ($this->indexColumns as $item1) {
-                    $res['IndexColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IndexColumns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +152,8 @@ class CstoreIndexModel extends Model
                 $model->columnOrds = [];
                 $n1 = 0;
                 foreach ($map['ColumnOrds'] as $item1) {
-                    $model->columnOrds[$n1++] = $item1;
+                    $model->columnOrds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +171,8 @@ class CstoreIndexModel extends Model
                 $model->indexColumns = [];
                 $n1 = 0;
                 foreach ($map['IndexColumns'] as $item1) {
-                    $model->indexColumns[$n1++] = FieldSchemaModel::fromMap($item1);
+                    $model->indexColumns[$n1] = FieldSchemaModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

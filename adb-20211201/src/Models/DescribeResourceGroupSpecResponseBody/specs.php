@@ -50,7 +50,8 @@ class specs extends Model
                 $res['AllocateUnits'] = [];
                 $n1 = 0;
                 foreach ($this->allocateUnits as $item1) {
-                    $res['AllocateUnits'][$n1++] = $item1;
+                    $res['AllocateUnits'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class specs extends Model
                 $model->allocateUnits = [];
                 $n1 = 0;
                 foreach ($map['AllocateUnits'] as $item1) {
-                    $model->allocateUnits[$n1++] = $item1;
+                    $model->allocateUnits[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -58,7 +58,8 @@ class DescribeAdbMySqlSchemasResponseBody extends Model
                 $res['Schemas'] = [];
                 $n1 = 0;
                 foreach ($this->schemas as $item1) {
-                    $res['Schemas'][$n1++] = $item1;
+                    $res['Schemas'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class DescribeAdbMySqlSchemasResponseBody extends Model
                 $model->schemas = [];
                 $n1 = 0;
                 foreach ($map['Schemas'] as $item1) {
-                    $model->schemas[$n1++] = $item1;
+                    $model->schemas[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

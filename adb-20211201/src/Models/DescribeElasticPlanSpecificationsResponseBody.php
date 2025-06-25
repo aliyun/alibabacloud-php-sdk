@@ -68,7 +68,8 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
                 $res['Specifications'] = [];
                 $n1 = 0;
                 foreach ($this->specifications as $item1) {
-                    $res['Specifications'][$n1++] = $item1;
+                    $res['Specifications'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
                 $model->specifications = [];
                 $n1 = 0;
                 foreach ($map['Specifications'] as $item1) {
-                    $model->specifications[$n1++] = $item1;
+                    $model->specifications[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -56,7 +56,8 @@ class data extends Model
                 $res['Privileges'] = [];
                 $n1 = 0;
                 foreach ($this->privileges as $item1) {
-                    $res['Privileges'][$n1++] = $item1;
+                    $res['Privileges'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class data extends Model
                 $model->privileges = [];
                 $n1 = 0;
                 foreach ($map['Privileges'] as $item1) {
-                    $model->privileges[$n1++] = $item1;
+                    $model->privileges[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

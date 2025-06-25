@@ -217,7 +217,8 @@ class querys extends Model
                 $res['QueryProperties'] = [];
                 $n1 = 0;
                 foreach ($this->queryProperties as $item1) {
-                    $res['QueryProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueryProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -334,7 +335,8 @@ class querys extends Model
                 $model->queryProperties = [];
                 $n1 = 0;
                 foreach ($map['QueryProperties'] as $item1) {
-                    $model->queryProperties[$n1++] = queryProperties::fromMap($item1);
+                    $model->queryProperties[$n1] = queryProperties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

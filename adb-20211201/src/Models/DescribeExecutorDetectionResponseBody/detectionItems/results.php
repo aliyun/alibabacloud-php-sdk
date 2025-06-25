@@ -43,7 +43,8 @@ class results extends Model
                 $res['OperatorAgg'] = [];
                 $n1 = 0;
                 foreach ($this->operatorAgg as $item1) {
-                    $res['OperatorAgg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperatorAgg'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class results extends Model
                 $res['OperatorDetails'] = [];
                 $n1 = 0;
                 foreach ($this->operatorDetails as $item1) {
-                    $res['OperatorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperatorDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class results extends Model
                 $model->operatorAgg = [];
                 $n1 = 0;
                 foreach ($map['OperatorAgg'] as $item1) {
-                    $model->operatorAgg[$n1++] = operatorAgg::fromMap($item1);
+                    $model->operatorAgg[$n1] = operatorAgg::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class results extends Model
                 $model->operatorDetails = [];
                 $n1 = 0;
                 foreach ($map['OperatorDetails'] as $item1) {
-                    $model->operatorDetails[$n1++] = operatorDetails::fromMap($item1);
+                    $model->operatorDetails[$n1] = operatorDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

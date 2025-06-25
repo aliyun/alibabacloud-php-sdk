@@ -42,7 +42,8 @@ class DescribeDBClusterStatusResponseBody extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DescribeDBClusterStatusResponseBody extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

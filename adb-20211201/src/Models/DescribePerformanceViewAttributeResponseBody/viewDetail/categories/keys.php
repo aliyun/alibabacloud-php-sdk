@@ -63,7 +63,8 @@ class keys extends Model
                 $res['Engine'] = [];
                 $n1 = 0;
                 foreach ($this->engine as $item1) {
-                    $res['Engine'][$n1++] = $item1;
+                    $res['Engine'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class keys extends Model
                 $res['GroupType'] = [];
                 $n1 = 0;
                 foreach ($this->groupType as $item1) {
-                    $res['GroupType'][$n1++] = $item1;
+                    $res['GroupType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +108,8 @@ class keys extends Model
                 $model->engine = [];
                 $n1 = 0;
                 foreach ($map['Engine'] as $item1) {
-                    $model->engine[$n1++] = $item1;
+                    $model->engine[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class keys extends Model
                 $model->groupType = [];
                 $n1 = 0;
                 foreach ($map['GroupType'] as $item1) {
-                    $model->groupType[$n1++] = $item1;
+                    $model->groupType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

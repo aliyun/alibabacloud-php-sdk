@@ -57,7 +57,8 @@ class DescribeApsProgressResponseBody extends Model
                 $res['ApsHiveProgress'] = [];
                 $n1 = 0;
                 foreach ($this->apsHiveProgress as $item1) {
-                    $res['ApsHiveProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApsHiveProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeApsProgressResponseBody extends Model
                 $model->apsHiveProgress = [];
                 $n1 = 0;
                 foreach ($map['ApsHiveProgress'] as $item1) {
-                    $model->apsHiveProgress[$n1++] = apsHiveProgress::fromMap($item1);
+                    $model->apsHiveProgress[$n1] = apsHiveProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
