@@ -1,3 +1,6 @@
+2025-06-25 Version: 2.4.3
+- Generated php 2020-01-16 for DAS.
+
 2025-06-24 Version: 2.4.2
 - Generated php 2020-01-16 for DAS.
 
