@@ -333,6 +333,10 @@ class BPStudio extends OpenApiClient
             $request->instancesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
         }
 
+        if (null !== $tmpReq->processVariables) {
+            $request->processVariablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->processVariables, 'ProcessVariables', 'json');
+        }
+
         if (null !== $tmpReq->variables) {
             $request->variablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
         }
@@ -356,6 +360,10 @@ class BPStudio extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->processVariablesShrink) {
+            @$body['ProcessVariables'] = $request->processVariablesShrink;
         }
 
         if (null !== $request->resourceGroupId) {

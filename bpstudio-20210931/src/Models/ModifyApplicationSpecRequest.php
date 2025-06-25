@@ -43,7 +43,8 @@ class ModifyApplicationSpecRequest extends Model
                 $res['InstanceSpec'] = [];
                 $n1 = 0;
                 foreach ($this->instanceSpec as $item1) {
-                    $res['InstanceSpec'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceSpec'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ModifyApplicationSpecRequest extends Model
                 $model->instanceSpec = [];
                 $n1 = 0;
                 foreach ($map['InstanceSpec'] as $item1) {
-                    $model->instanceSpec[$n1++] = instanceSpec::fromMap($item1);
+                    $model->instanceSpec[$n1] = instanceSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

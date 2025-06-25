@@ -45,7 +45,8 @@ class data extends Model
                 $res['PriceList'] = [];
                 $n1 = 0;
                 foreach ($this->priceList as $item1) {
-                    $res['PriceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PriceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class data extends Model
                 $model->priceList = [];
                 $n1 = 0;
                 foreach ($map['PriceList'] as $item1) {
-                    $model->priceList[$n1++] = priceList::fromMap($item1);
+                    $model->priceList[$n1] = priceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

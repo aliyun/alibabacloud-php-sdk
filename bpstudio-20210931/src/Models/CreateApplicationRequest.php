@@ -35,6 +35,11 @@ class CreateApplicationRequest extends Model
     public $name;
 
     /**
+     * @var mixed[]
+     */
+    public $processVariables;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -54,6 +59,7 @@ class CreateApplicationRequest extends Model
         'configuration' => 'Configuration',
         'instances' => 'Instances',
         'name' => 'Name',
+        'processVariables' => 'ProcessVariables',
         'resourceGroupId' => 'ResourceGroupId',
         'templateId' => 'TemplateId',
         'variables' => 'Variables',
@@ -66,6 +72,9 @@ class CreateApplicationRequest extends Model
         }
         if (\is_array($this->instances)) {
             Model::validateArray($this->instances);
+        }
+        if (\is_array($this->processVariables)) {
+            Model::validateArray($this->processVariables);
         }
         if (\is_array($this->variables)) {
             Model::validateArray($this->variables);
@@ -98,13 +107,23 @@ class CreateApplicationRequest extends Model
                 $res['Instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->processVariables) {
+            if (\is_array($this->processVariables)) {
+                $res['ProcessVariables'] = [];
+                foreach ($this->processVariables as $key1 => $value1) {
+                    $res['ProcessVariables'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->resourceGroupId) {
@@ -157,13 +176,23 @@ class CreateApplicationRequest extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
-                    $model->instances[$n1++] = instances::fromMap($item1);
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ProcessVariables'])) {
+            if (!empty($map['ProcessVariables'])) {
+                $model->processVariables = [];
+                foreach ($map['ProcessVariables'] as $key1 => $value1) {
+                    $model->processVariables[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['ResourceGroupId'])) {

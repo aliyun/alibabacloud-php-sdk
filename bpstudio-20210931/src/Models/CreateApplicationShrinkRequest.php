@@ -36,6 +36,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $processVariablesShrink;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -53,6 +58,7 @@ class CreateApplicationShrinkRequest extends Model
         'configurationShrink' => 'Configuration',
         'instancesShrink' => 'Instances',
         'name' => 'Name',
+        'processVariablesShrink' => 'ProcessVariables',
         'resourceGroupId' => 'ResourceGroupId',
         'templateId' => 'TemplateId',
         'variablesShrink' => 'Variables',
@@ -84,6 +90,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->processVariablesShrink) {
+            $res['ProcessVariables'] = $this->processVariablesShrink;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -127,6 +137,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ProcessVariables'])) {
+            $model->processVariablesShrink = $map['ProcessVariables'];
         }
 
         if (isset($map['ResourceGroupId'])) {

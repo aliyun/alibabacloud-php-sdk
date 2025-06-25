@@ -127,7 +127,8 @@ class data extends Model
                 $res['Checklist'] = [];
                 $n1 = 0;
                 foreach ($this->checklist as $item1) {
-                    $res['Checklist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Checklist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class data extends Model
                 $res['ComplianceList'] = [];
                 $n1 = 0;
                 foreach ($this->complianceList as $item1) {
-                    $res['ComplianceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComplianceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +173,8 @@ class data extends Model
                 $res['PriceList'] = [];
                 $n1 = 0;
                 foreach ($this->priceList as $item1) {
-                    $res['PriceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PriceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +188,8 @@ class data extends Model
                 $res['ResourceList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceList as $item1) {
-                    $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +222,8 @@ class data extends Model
                 $model->checklist = [];
                 $n1 = 0;
                 foreach ($map['Checklist'] as $item1) {
-                    $model->checklist[$n1++] = checklist::fromMap($item1);
+                    $model->checklist[$n1] = checklist::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +233,8 @@ class data extends Model
                 $model->complianceList = [];
                 $n1 = 0;
                 foreach ($map['ComplianceList'] as $item1) {
-                    $model->complianceList[$n1++] = complianceList::fromMap($item1);
+                    $model->complianceList[$n1] = complianceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +268,8 @@ class data extends Model
                 $model->priceList = [];
                 $n1 = 0;
                 foreach ($map['PriceList'] as $item1) {
-                    $model->priceList[$n1++] = priceList::fromMap($item1);
+                    $model->priceList[$n1] = priceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +283,8 @@ class data extends Model
                 $model->resourceList = [];
                 $n1 = 0;
                 foreach ($map['ResourceList'] as $item1) {
-                    $model->resourceList[$n1++] = resourceList::fromMap($item1);
+                    $model->resourceList[$n1] = resourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
