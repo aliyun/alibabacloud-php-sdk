@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody\instanceAttribute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ports extends Model
 {
     /**
-     * @description The custom port.
-     *
-     * > Only the SSH and RDP ports can be changed. If no custom O\\&M port is specified for the bastion host, the value of StandardPort is returned.
-     *
-     * @example 600xx
-     *
      * @var int
      */
     public $customPort;
 
     /**
-     * @description The standard port of the bastion host. Valid values:
-     *
-     *   **SSH**: 60022.
-     *   **RDP**: 63389.
-     *   **HTTPS**: 443.
-     *
-     * @example 60022
-     *
      * @var int
      */
     public $standardPort;
@@ -36,14 +22,18 @@ class ports extends Model
         'standardPort' => 'StandardPort',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customPort) {
             $res['CustomPort'] = $this->customPort;
         }
+
         if (null !== $this->standardPort) {
             $res['StandardPort'] = $this->standardPort;
         }
@@ -51,17 +41,18 @@ class ports extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ports
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomPort'])) {
             $model->customPort = $map['CustomPort'];
         }
+
         if (isset($map['StandardPort'])) {
             $model->standardPort = $map['StandardPort'];
         }

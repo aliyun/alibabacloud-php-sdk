@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseResponseBody\database;
-use AlibabaCloud\Tea\Model;
 
 class GetDatabaseResponseBody extends Model
 {
     /**
-     * @description The returned detailed information about the database.
-     *
      * @var database
      */
     public $database;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4D72B883-9D15-5B05-B987-DFD10EB1FFB4
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetDatabaseResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->database) {
+            $this->database->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
-            $res['Database'] = null !== $this->database ? $this->database->toMap() : null;
+            $res['Database'] = null !== $this->database ? $this->database->toArray($noStream) : $this->database;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetDatabaseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDatabaseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Database'])) {
             $model->database = database::fromMap($map['Database']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

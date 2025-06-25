@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNetworkDomainRequest extends Model
 {
     /**
-     * @description The ID of the bastion host whose network domain you want to delete.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost_std_intl-sg-uq833e2dz02
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the network domain to be deleted.
-     *
-     * This parameter is required.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $networkDomainId;
 
     /**
-     * @description The region ID of the bastion host whose network domain you want to delete.
-     *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -48,17 +28,22 @@ class DeleteNetworkDomainRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->networkDomainId) {
             $res['NetworkDomainId'] = $this->networkDomainId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -66,20 +51,22 @@ class DeleteNetworkDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNetworkDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NetworkDomainId'])) {
             $model->networkDomainId = $map['NetworkDomainId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

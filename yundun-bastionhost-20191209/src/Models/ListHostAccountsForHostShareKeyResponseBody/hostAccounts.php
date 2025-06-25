@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForHostShareKeyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostAccounts extends Model
 {
     /**
-     * @description The name of the host account.
-     *
-     * @example root1234
-     *
      * @var string
      */
     public $hostAccountName;
 
     /**
-     * @description The ID of the host.
-     *
-     * @example 1113
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description The ID of the host account.
-     *
-     * @example 1235
-     *
      * @var string
      */
     public $hostsAccountId;
 
     /**
-     * @description The O\\&M protocol.
-     *
-     * @example SSH
-     *
      * @var string
      */
     public $protocolName;
@@ -50,20 +34,26 @@ class hostAccounts extends Model
         'protocolName' => 'ProtocolName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostAccountName) {
             $res['HostAccountName'] = $this->hostAccountName;
         }
+
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
         }
+
         if (null !== $this->hostsAccountId) {
             $res['HostsAccountId'] = $this->hostsAccountId;
         }
+
         if (null !== $this->protocolName) {
             $res['ProtocolName'] = $this->protocolName;
         }
@@ -71,23 +61,26 @@ class hostAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostAccountName'])) {
             $model->hostAccountName = $map['HostAccountName'];
         }
+
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
         }
+
         if (isset($map['HostsAccountId'])) {
             $model->hostsAccountId = $map['HostsAccountId'];
         }
+
         if (isset($map['ProtocolName'])) {
             $model->protocolName = $map['ProtocolName'];
         }

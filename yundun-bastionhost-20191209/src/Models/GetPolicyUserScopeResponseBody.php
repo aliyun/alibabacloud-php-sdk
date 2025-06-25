@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyUserScopeResponseBody\userScope;
-use AlibabaCloud\Tea\Model;
 
 class GetPolicyUserScopeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The users to whom the control policy applies.
-     *
      * @var userScope
      */
     public $userScope;
@@ -29,32 +23,40 @@ class GetPolicyUserScopeResponseBody extends Model
         'userScope' => 'UserScope',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->userScope) {
+            $this->userScope->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userScope) {
-            $res['UserScope'] = null !== $this->userScope ? $this->userScope->toMap() : null;
+            $res['UserScope'] = null !== $this->userScope ? $this->userScope->toArray($noStream) : $this->userScope;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPolicyUserScopeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserScope'])) {
             $model->userScope = userScope::fromMap($map['UserScope']);
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRuleResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example BFA818E3-0A53-51F4-8DB5-AF2A62A6D042
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The authorization rule ID.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $ruleId;
@@ -30,14 +22,18 @@ class CreateRuleResponseBody extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -45,17 +41,18 @@ class CreateRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

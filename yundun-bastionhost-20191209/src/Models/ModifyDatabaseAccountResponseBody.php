@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDatabaseAccountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 850FA4B4-5BD2-5269-903E-3B7E07E6C975
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ModifyDatabaseAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ModifyDatabaseAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDatabaseAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

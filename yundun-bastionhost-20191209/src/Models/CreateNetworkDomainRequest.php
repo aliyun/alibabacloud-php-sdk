@@ -4,70 +4,37 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateNetworkDomainRequest\proxies;
-use AlibabaCloud\Tea\Model;
 
 class CreateNetworkDomainRequest extends Model
 {
     /**
-     * @description The remarks of the network domain. The remarks can be up to 500 characters in length.
-     *
-     * @example comment
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The ID of the bastion host for which you want to create a network domain.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost-cn-lbj3bw4ma02
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the network domain that you want to create. The name can be up to 128 characters in length.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $networkDomainName;
 
     /**
-     * @description The connection mode of the network domain to be created. Valid values:
-     *
-     *   Direct
-     *   Proxy
-     *
-     * This parameter is required.
-     *
-     * @example Proxy
-     *
      * @var string
      */
     public $networkDomainType;
 
     /**
-     * @description The information about the proxy servers.
-     *
      * @var proxies[]
      */
     public $proxies;
 
     /**
-     * @description The region ID of the bastion host for which you want to create a network domain.
-     *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -80,32 +47,44 @@ class CreateNetworkDomainRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->proxies)) {
+            Model::validateArray($this->proxies);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->networkDomainName) {
             $res['NetworkDomainName'] = $this->networkDomainName;
         }
+
         if (null !== $this->networkDomainType) {
             $res['NetworkDomainType'] = $this->networkDomainType;
         }
+
         if (null !== $this->proxies) {
-            $res['Proxies'] = [];
-            if (null !== $this->proxies && \is_array($this->proxies)) {
-                $n = 0;
-                foreach ($this->proxies as $item) {
-                    $res['Proxies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->proxies)) {
+                $res['Proxies'] = [];
+                $n1 = 0;
+                foreach ($this->proxies as $item1) {
+                    $res['Proxies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -113,35 +92,41 @@ class CreateNetworkDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNetworkDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NetworkDomainName'])) {
             $model->networkDomainName = $map['NetworkDomainName'];
         }
+
         if (isset($map['NetworkDomainType'])) {
             $model->networkDomainType = $map['NetworkDomainType'];
         }
+
         if (isset($map['Proxies'])) {
             if (!empty($map['Proxies'])) {
                 $model->proxies = [];
-                $n = 0;
-                foreach ($map['Proxies'] as $item) {
-                    $model->proxies[$n++] = null !== $item ? proxies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Proxies'] as $item1) {
+                    $model->proxies[$n1] = proxies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

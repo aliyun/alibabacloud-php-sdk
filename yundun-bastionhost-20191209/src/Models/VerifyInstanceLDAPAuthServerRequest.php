@@ -4,86 +4,56 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyInstanceLDAPAuthServerRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cn=Manager,dc=test,dc=com
-     *
      * @var string
      */
     public $account;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example dc=test,dc=com
-     *
      * @var string
      */
     public $baseDN;
 
     /**
-     * @example (objectClass=top)
-     *
      * @var string
      */
     public $filter;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example bastionhost-cn-st220aw****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $isSSL;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 389
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $server;
 
     /**
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $standbyServer;
@@ -100,38 +70,50 @@ class VerifyInstanceLDAPAuthServerRequest extends Model
         'standbyServer' => 'StandbyServer',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
+
         if (null !== $this->baseDN) {
             $res['BaseDN'] = $this->baseDN;
         }
+
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->isSSL) {
             $res['IsSSL'] = $this->isSSL;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->server) {
             $res['Server'] = $this->server;
         }
+
         if (null !== $this->standbyServer) {
             $res['StandbyServer'] = $this->standbyServer;
         }
@@ -139,41 +121,50 @@ class VerifyInstanceLDAPAuthServerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyInstanceLDAPAuthServerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
+
         if (isset($map['BaseDN'])) {
             $model->baseDN = $map['BaseDN'];
         }
+
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IsSSL'])) {
             $model->isSSL = $map['IsSSL'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Server'])) {
             $model->server = $map['Server'];
         }
+
         if (isset($map['StandbyServer'])) {
             $model->standbyServer = $map['StandbyServer'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody\instanceAttribute;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description The attribute information about the bastion host.
-     *
      * @var instanceAttribute
      */
     public $instanceAttribute;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 082FAB35-6AB9-4FD5-8750-D36673548E76
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeInstanceAttributeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instanceAttribute) {
+            $this->instanceAttribute->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceAttribute) {
-            $res['InstanceAttribute'] = null !== $this->instanceAttribute ? $this->instanceAttribute->toMap() : null;
+            $res['InstanceAttribute'] = null !== $this->instanceAttribute ? $this->instanceAttribute->toArray($noStream) : $this->instanceAttribute;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeInstanceAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceAttribute'])) {
             $model->instanceAttribute = instanceAttribute::fromMap($map['InstanceAttribute']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

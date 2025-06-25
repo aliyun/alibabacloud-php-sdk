@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDatabaseResponseBody extends Model
 {
     /**
-     * @description The database ID.
-     *
-     * @example 334
-     *
      * @var string
      */
     public $databaseId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 98EDD923-236C-5A88-88E7-4979A91B9325
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateDatabaseResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateDatabaseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDatabaseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

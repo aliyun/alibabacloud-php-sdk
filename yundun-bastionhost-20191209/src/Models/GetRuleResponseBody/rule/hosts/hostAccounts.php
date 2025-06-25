@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponseBody\rule\hosts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostAccounts extends Model
 {
     /**
-     * @description The ID of the host account that the policy authorizes users to manage.
-     *
-     * @example 9
-     *
      * @var string
      */
     public $hostAccountId;
@@ -20,9 +16,12 @@ class hostAccounts extends Model
         'hostAccountId' => 'HostAccountId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostAccountId) {
@@ -32,11 +31,11 @@ class hostAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

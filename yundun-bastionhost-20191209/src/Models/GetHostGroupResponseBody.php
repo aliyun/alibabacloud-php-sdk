@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostGroupResponseBody\hostGroup;
-use AlibabaCloud\Tea\Model;
 
 class GetHostGroupResponseBody extends Model
 {
     /**
-     * @description The returned detailed information about the asset group.
-     *
      * @var hostGroup
      */
     public $hostGroup;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetHostGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->hostGroup) {
+            $this->hostGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostGroup) {
-            $res['HostGroup'] = null !== $this->hostGroup ? $this->hostGroup->toMap() : null;
+            $res['HostGroup'] = null !== $this->hostGroup ? $this->hostGroup->toArray($noStream) : $this->hostGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetHostGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHostGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostGroup'])) {
             $model->hostGroup = hostGroup::fromMap($map['HostGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

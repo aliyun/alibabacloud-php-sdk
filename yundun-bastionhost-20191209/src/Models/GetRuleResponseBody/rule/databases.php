@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponseBody\rule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponseBody\rule\databases\databaseAccounts;
-use AlibabaCloud\Tea\Model;
 
 class databases extends Model
 {
     /**
-     * @description The database accounts on which permissions are granted by using the authorization rule.
-     *
      * @var databaseAccounts[]
      */
     public $databaseAccounts;
 
     /**
-     * @description The ID of the database that the policy authorizes users to manage.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $databaseId;
@@ -29,20 +23,28 @@ class databases extends Model
         'databaseId' => 'DatabaseId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databaseAccounts)) {
+            Model::validateArray($this->databaseAccounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseAccounts) {
-            $res['DatabaseAccounts'] = [];
-            if (null !== $this->databaseAccounts && \is_array($this->databaseAccounts)) {
-                $n = 0;
-                foreach ($this->databaseAccounts as $item) {
-                    $res['DatabaseAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->databaseAccounts)) {
+                $res['DatabaseAccounts'] = [];
+                $n1 = 0;
+                foreach ($this->databaseAccounts as $item1) {
+                    $res['DatabaseAccounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
@@ -50,23 +52,25 @@ class databases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseAccounts'])) {
             if (!empty($map['DatabaseAccounts'])) {
                 $model->databaseAccounts = [];
-                $n = 0;
-                foreach ($map['DatabaseAccounts'] as $item) {
-                    $model->databaseAccounts[$n++] = null !== $item ? databaseAccounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DatabaseAccounts'] as $item1) {
+                    $model->databaseAccounts[$n1] = databaseAccounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }

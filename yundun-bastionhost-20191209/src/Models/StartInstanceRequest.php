@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartInstanceRequest extends Model
 {
@@ -19,34 +19,16 @@ class StartInstanceRequest extends Model
     public $enablePortalPrivateAccess;
 
     /**
-     * @description The ID of the bastion host that you want to enable.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost-cn-78v1gh****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description An array consisting of the IDs of security groups to which the bastion host is added.
-     *
-     * This parameter is required.
-     *
-     * @example sg-bp1aiupc4yjqgmm****
-     *
      * @var string[]
      */
     public $securityGroupIds;
@@ -57,10 +39,6 @@ class StartInstanceRequest extends Model
     public $slaveVswitchId;
 
     /**
-     * @description The ID of the vSwitch to which the bastion host belongs.
-     *
-     * @example vsw-bp1xfwzzfti0kjbf****
-     *
      * @var string
      */
     public $vswitchId;
@@ -74,29 +52,58 @@ class StartInstanceRequest extends Model
         'vswitchId' => 'VswitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clientSecurityGroupIds)) {
+            Model::validateArray($this->clientSecurityGroupIds);
+        }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientSecurityGroupIds) {
-            $res['ClientSecurityGroupIds'] = $this->clientSecurityGroupIds;
+            if (\is_array($this->clientSecurityGroupIds)) {
+                $res['ClientSecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->clientSecurityGroupIds as $item1) {
+                    $res['ClientSecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->enablePortalPrivateAccess) {
             $res['EnablePortalPrivateAccess'] = $this->enablePortalPrivateAccess;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->slaveVswitchId) {
             $res['SlaveVswitchId'] = $this->slaveVswitchId;
         }
+
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
@@ -104,36 +111,52 @@ class StartInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientSecurityGroupIds'])) {
             if (!empty($map['ClientSecurityGroupIds'])) {
-                $model->clientSecurityGroupIds = $map['ClientSecurityGroupIds'];
+                $model->clientSecurityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['ClientSecurityGroupIds'] as $item1) {
+                    $model->clientSecurityGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['EnablePortalPrivateAccess'])) {
             $model->enablePortalPrivateAccess = $map['EnablePortalPrivateAccess'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SlaveVswitchId'])) {
             $model->slaveVswitchId = $map['SlaveVswitchId'];
         }
+
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
         }

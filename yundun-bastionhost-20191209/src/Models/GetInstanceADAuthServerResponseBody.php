@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceADAuthServerResponseBody\AD;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceADAuthServerResponseBody extends Model
 {
     /**
-     * @description The settings of AD authentication.
-     *
      * @var AD
      */
     public $AD;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 89398CFB-4EB6-4C7E-BB3C-EF213AC8FA50
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetInstanceADAuthServerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->AD) {
+            $this->AD->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AD) {
-            $res['AD'] = null !== $this->AD ? $this->AD->toMap() : null;
+            $res['AD'] = null !== $this->AD ? $this->AD->toArray($noStream) : $this->AD;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetInstanceADAuthServerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceADAuthServerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AD'])) {
             $model->AD = AD::fromMap($map['AD']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

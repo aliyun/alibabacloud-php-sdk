@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListHostGroupAccountNamesForUserResponseBody extends Model
 {
     /**
-     * @description An array that consists of the names of host accounts.
-     *
      * @var string[]
      */
     public $hostAccountNames;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,28 @@ class ListHostGroupAccountNamesForUserResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hostAccountNames)) {
+            Model::validateArray($this->hostAccountNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostAccountNames) {
-            $res['HostAccountNames'] = $this->hostAccountNames;
+            if (\is_array($this->hostAccountNames)) {
+                $res['HostAccountNames'] = [];
+                $n1 = 0;
+                foreach ($this->hostAccountNames as $item1) {
+                    $res['HostAccountNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,19 +51,25 @@ class ListHostGroupAccountNamesForUserResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHostGroupAccountNamesForUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostAccountNames'])) {
             if (!empty($map['HostAccountNames'])) {
-                $model->hostAccountNames = $map['HostAccountNames'];
+                $model->hostAccountNames = [];
+                $n1 = 0;
+                foreach ($map['HostAccountNames'] as $item1) {
+                    $model->hostAccountNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostGroupAccountsToUserResponseBody\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostAccountNames extends Model
 {
     /**
-     * @description The return code that indicates whether the user was authorized to manage the host account. Valid values:
-     *
-     *   **OK**: The call was successful.
-     *   **UNEXPECTED**: An unknown error occurred.
-     *   **INVALID_ARGUMENT**: A request parameter is invalid.
-     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The name of the host account.
-     *
-     * @example root
-     *
      * @var string
      */
     public $hostAccountName;
 
     /**
-     * @description This parameter is deprecated.
-     *
      * @var string
      */
     public $message;
@@ -44,17 +28,22 @@ class hostAccountNames extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->hostAccountName) {
             $res['HostAccountName'] = $this->hostAccountName;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -62,20 +51,22 @@ class hostAccountNames extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostAccountNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HostAccountName'])) {
             $model->hostAccountName = $map['HostAccountName'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

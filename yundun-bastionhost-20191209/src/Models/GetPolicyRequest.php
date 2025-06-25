@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPolicyRequest extends Model
 {
     /**
-     * @description The ID of the bastion host to which the control policy to query belongs.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost-cn-zvp2d3syb0g
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the control policy that you want to query.
-     *
-     * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
-     *
-     * This parameter is required.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $policyId;
 
     /**
-     * @description The region ID of the bastion host to which the control policy to query belongs.
-     *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -50,17 +28,22 @@ class GetPolicyRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -68,20 +51,22 @@ class GetPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

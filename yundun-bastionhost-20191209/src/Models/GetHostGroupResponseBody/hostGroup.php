@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostGroup extends Model
 {
     /**
-     * @description The remarks of the asset group.
-     *
-     * @example Description
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The asset group ID.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $hostGroupId;
 
     /**
-     * @description The name of the asset group.
-     *
-     * @example Host group 1
-     *
      * @var string
      */
     public $hostGroupName;
@@ -40,17 +28,22 @@ class hostGroup extends Model
         'hostGroupName' => 'HostGroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
         }
+
         if (null !== $this->hostGroupName) {
             $res['HostGroupName'] = $this->hostGroupName;
         }
@@ -58,20 +51,22 @@ class hostGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
         }
+
         if (isset($map['HostGroupName'])) {
             $model->hostGroupName = $map['HostGroupName'];
         }

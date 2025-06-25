@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceStoreInfoResponseBody extends Model
 {
     /**
-     * @example 102400
-     *
      * @var int
      */
     public $max;
 
     /**
-     * @example 5EAB922E-F476-5DFA-9290-313C608E724B
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1024
-     *
      * @var int
      */
     public $usage;
@@ -34,17 +28,22 @@ class GetInstanceStoreInfoResponseBody extends Model
         'usage' => 'Usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -52,20 +51,22 @@ class GetInstanceStoreInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceStoreInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

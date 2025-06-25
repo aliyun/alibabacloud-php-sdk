@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody\instanceAttribute\ports;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody\instanceAttribute\whiteListPolicies;
-use AlibabaCloud\Tea\Model;
 
 class instanceAttribute extends Model
 {
@@ -16,60 +16,36 @@ class instanceAttribute extends Model
     public $appOperationModule;
 
     /**
-     * @description The IDs of authorized security groups.
-     *
      * @var string[]
      */
     public $authorizedSecurityGroups;
 
     /**
-     * @description The total bandwidth of the bastion host.
-     *
-     * @example 30
-     *
      * @var string
      */
     public $bandwidth;
 
     /**
-     * @description The bandwidth plan ID.
-     *
-     * @example 5
-     *
      * @var string
      */
     public $bandwidthPackage;
 
     /**
-     * @description The status of the database O&M feature.
-     *
-     * @example Disable
-     *
      * @var string
      */
     public $dbOperationModule;
 
     /**
-     * @description The description of the instance.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the Elastic Network Interface (ENI).
-     *
-     * @example eni-bp1455jrzwm7moaxxxxx
-     *
      * @var string
      */
     public $eniInstanceId;
 
     /**
-     * @description The time when the instance expires.
-     *
-     * @example 1578326400000
-     *
      * @var int
      */
     public $expireTime;
@@ -85,45 +61,21 @@ class instanceAttribute extends Model
     public $IDaaSModule;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example bastionhost-cn-78v1ghxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The status of the instance. Valid values:
-     *
-     *   PENDING: The instance is not initialized.
-     *   CREATING: The instance is being created.
-     *   RUNNING: The instance is running.
-     *   EXPIRED: The instance expired.
-     *   CREATE_FAILED: The instance fails to be created.
-     *   UPGRADING: The configurations of the instance are being changed.
-     *   UPGRADE_FAILED: The configurations of the instance fail to be changed.
-     *
-     * @example RUNNING
-     *
      * @var string
      */
     public $instanceStatus;
 
     /**
-     * @description The public endpoint.
-     *
-     * @example drawvxalwb-public.bastionhost.aliyuncs.com
-     *
      * @var string
      */
     public $internetEndpoint;
 
     /**
-     * @description The private endpoint.
-     *
-     * @example drawvxalwb.bastionhost.aliyuncs.com
-     *
      * @var string
      */
     public $intranetEndpoint;
@@ -134,85 +86,51 @@ class instanceAttribute extends Model
     public $kmsSecretModule;
 
     /**
-     * @description The license code.
-     *
-     * @example bhah_ent_50_asset
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @description The status of the automatic password change feature.
-     *
-     * - **Enable**
-     * - **Disable**
-     *
-     * @example Enable
-     *
      * @var string
      */
     public $modifyPasswordModule;
 
     /**
-     * @description The status of the network domain feature.
-     *
-     * - **Enable**
-     * - **Disable**
-     *
-     * @example Enable
-     *
      * @var string
      */
     public $networkProxyModule;
 
     /**
-     * @description An array that consists of the O&M ports of the bastion host.
-     *
      * @var ports[]
      */
     public $ports;
 
     /**
-     * @description An array that consists of the egress private IP addresses of the bastion host.
-     *
      * @var string[]
      */
     public $privateExportIps;
 
     /**
-     * @description The private IP addresses that are allowed to access the instance.
-     *
      * @var string[]
      */
     public $privateWhiteList;
 
     /**
-     * @description An array that consists of the egress public IP addresses of the bastion host.
-     *
      * @var string[]
      */
     public $publicExportIps;
 
     /**
-     * @description The public IP address.
-     *
      * @var string[]
      */
     public $publicIps;
 
     /**
-     * @description Indicates whether the Bastionhost instance can be accessed over the Internet.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $publicNetworkAccess;
 
     /**
-     * @description The public IP addresses that are allowed to access the instance.
-     *
      * @var string[]
      */
     public $publicWhiteList;
@@ -223,19 +141,11 @@ class instanceAttribute extends Model
     public $RDModule;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
-     *
-     * @example rg-aekzc427dbl2shy
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -251,8 +161,6 @@ class instanceAttribute extends Model
     public $scriptDeliverModule;
 
     /**
-     * @description The IDs of the security groups to which the instance belongs.
-     *
      * @var string[]
      */
     public $securityGroupIds;
@@ -263,49 +171,26 @@ class instanceAttribute extends Model
     public $slaveVswitchId;
 
     /**
-     * @description The time when the instance started.
-     *
-     * @example 1577681345000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The storage capacity of the bastion host. Unit: bytes.
-     *
-     * @example 2199023255552
-     *
      * @var int
      */
     public $storage;
 
     /**
-     * @description The ID of the VPC to which the instance belongs.
-     *
-     * @example vpc-bp1c85tzgqu1bf5bxxxxx
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The ID of the vSwitch to which the instance connects.
-     *
-     * @example vsw-bp1xfwzzfti0kjbfxxxxx
-     *
      * @var string
      */
     public $vswitchId;
 
     /**
-     * @description The status of the web terminal.
-     *
-     * - **Enable**
-     * - **Disable**
-     *
-     * @example Enable
-     *
      * @var string
      */
     public $webTerminalModule;
@@ -355,134 +240,262 @@ class instanceAttribute extends Model
         'whiteListPolicies' => 'WhiteListPolicies',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authorizedSecurityGroups)) {
+            Model::validateArray($this->authorizedSecurityGroups);
+        }
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        if (\is_array($this->privateExportIps)) {
+            Model::validateArray($this->privateExportIps);
+        }
+        if (\is_array($this->privateWhiteList)) {
+            Model::validateArray($this->privateWhiteList);
+        }
+        if (\is_array($this->publicExportIps)) {
+            Model::validateArray($this->publicExportIps);
+        }
+        if (\is_array($this->publicIps)) {
+            Model::validateArray($this->publicIps);
+        }
+        if (\is_array($this->publicWhiteList)) {
+            Model::validateArray($this->publicWhiteList);
+        }
+        if (\is_array($this->routerRules)) {
+            Model::validateArray($this->routerRules);
+        }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
+        }
+        if (\is_array($this->whiteListPolicies)) {
+            Model::validateArray($this->whiteListPolicies);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appOperationModule) {
             $res['AppOperationModule'] = $this->appOperationModule;
         }
+
         if (null !== $this->authorizedSecurityGroups) {
-            $res['AuthorizedSecurityGroups'] = $this->authorizedSecurityGroups;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->bandwidthPackage) {
-            $res['BandwidthPackage'] = $this->bandwidthPackage;
-        }
-        if (null !== $this->dbOperationModule) {
-            $res['DbOperationModule'] = $this->dbOperationModule;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->eniInstanceId) {
-            $res['EniInstanceId'] = $this->eniInstanceId;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->HSMModule) {
-            $res['HSMModule'] = $this->HSMModule;
-        }
-        if (null !== $this->IDaaSModule) {
-            $res['IDaaSModule'] = $this->IDaaSModule;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceStatus) {
-            $res['InstanceStatus'] = $this->instanceStatus;
-        }
-        if (null !== $this->internetEndpoint) {
-            $res['InternetEndpoint'] = $this->internetEndpoint;
-        }
-        if (null !== $this->intranetEndpoint) {
-            $res['IntranetEndpoint'] = $this->intranetEndpoint;
-        }
-        if (null !== $this->kmsSecretModule) {
-            $res['KmsSecretModule'] = $this->kmsSecretModule;
-        }
-        if (null !== $this->licenseCode) {
-            $res['LicenseCode'] = $this->licenseCode;
-        }
-        if (null !== $this->modifyPasswordModule) {
-            $res['ModifyPasswordModule'] = $this->modifyPasswordModule;
-        }
-        if (null !== $this->networkProxyModule) {
-            $res['NetworkProxyModule'] = $this->networkProxyModule;
-        }
-        if (null !== $this->ports) {
-            $res['Ports'] = [];
-            if (null !== $this->ports && \is_array($this->ports)) {
-                $n = 0;
-                foreach ($this->ports as $item) {
-                    $res['Ports'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authorizedSecurityGroups)) {
+                $res['AuthorizedSecurityGroups'] = [];
+                $n1 = 0;
+                foreach ($this->authorizedSecurityGroups as $item1) {
+                    $res['AuthorizedSecurityGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+
+        if (null !== $this->bandwidthPackage) {
+            $res['BandwidthPackage'] = $this->bandwidthPackage;
+        }
+
+        if (null !== $this->dbOperationModule) {
+            $res['DbOperationModule'] = $this->dbOperationModule;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->eniInstanceId) {
+            $res['EniInstanceId'] = $this->eniInstanceId;
+        }
+
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->HSMModule) {
+            $res['HSMModule'] = $this->HSMModule;
+        }
+
+        if (null !== $this->IDaaSModule) {
+            $res['IDaaSModule'] = $this->IDaaSModule;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceStatus) {
+            $res['InstanceStatus'] = $this->instanceStatus;
+        }
+
+        if (null !== $this->internetEndpoint) {
+            $res['InternetEndpoint'] = $this->internetEndpoint;
+        }
+
+        if (null !== $this->intranetEndpoint) {
+            $res['IntranetEndpoint'] = $this->intranetEndpoint;
+        }
+
+        if (null !== $this->kmsSecretModule) {
+            $res['KmsSecretModule'] = $this->kmsSecretModule;
+        }
+
+        if (null !== $this->licenseCode) {
+            $res['LicenseCode'] = $this->licenseCode;
+        }
+
+        if (null !== $this->modifyPasswordModule) {
+            $res['ModifyPasswordModule'] = $this->modifyPasswordModule;
+        }
+
+        if (null !== $this->networkProxyModule) {
+            $res['NetworkProxyModule'] = $this->networkProxyModule;
+        }
+
+        if (null !== $this->ports) {
+            if (\is_array($this->ports)) {
+                $res['Ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['Ports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->privateExportIps) {
-            $res['PrivateExportIps'] = $this->privateExportIps;
+            if (\is_array($this->privateExportIps)) {
+                $res['PrivateExportIps'] = [];
+                $n1 = 0;
+                foreach ($this->privateExportIps as $item1) {
+                    $res['PrivateExportIps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->privateWhiteList) {
-            $res['PrivateWhiteList'] = $this->privateWhiteList;
+            if (\is_array($this->privateWhiteList)) {
+                $res['PrivateWhiteList'] = [];
+                $n1 = 0;
+                foreach ($this->privateWhiteList as $item1) {
+                    $res['PrivateWhiteList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->publicExportIps) {
-            $res['PublicExportIps'] = $this->publicExportIps;
+            if (\is_array($this->publicExportIps)) {
+                $res['PublicExportIps'] = [];
+                $n1 = 0;
+                foreach ($this->publicExportIps as $item1) {
+                    $res['PublicExportIps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->publicIps) {
-            $res['PublicIps'] = $this->publicIps;
+            if (\is_array($this->publicIps)) {
+                $res['PublicIps'] = [];
+                $n1 = 0;
+                foreach ($this->publicIps as $item1) {
+                    $res['PublicIps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->publicNetworkAccess) {
             $res['PublicNetworkAccess'] = $this->publicNetworkAccess;
         }
+
         if (null !== $this->publicWhiteList) {
-            $res['PublicWhiteList'] = $this->publicWhiteList;
+            if (\is_array($this->publicWhiteList)) {
+                $res['PublicWhiteList'] = [];
+                $n1 = 0;
+                foreach ($this->publicWhiteList as $item1) {
+                    $res['PublicWhiteList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->RDModule) {
             $res['RDModule'] = $this->RDModule;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->routerRules) {
-            $res['RouterRules'] = $this->routerRules;
+            if (\is_array($this->routerRules)) {
+                $res['RouterRules'] = [];
+                $n1 = 0;
+                foreach ($this->routerRules as $item1) {
+                    $res['RouterRules'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->scriptDeliverModule) {
             $res['ScriptDeliverModule'] = $this->scriptDeliverModule;
         }
+
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->slaveVswitchId) {
             $res['SlaveVswitchId'] = $this->slaveVswitchId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->storage) {
             $res['Storage'] = $this->storage;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
+
         if (null !== $this->webTerminalModule) {
             $res['WebTerminalModule'] = $this->webTerminalModule;
         }
+
         if (null !== $this->whiteListPolicies) {
-            $res['WhiteListPolicies'] = [];
-            if (null !== $this->whiteListPolicies && \is_array($this->whiteListPolicies)) {
-                $n = 0;
-                foreach ($this->whiteListPolicies as $item) {
-                    $res['WhiteListPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->whiteListPolicies)) {
+                $res['WhiteListPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->whiteListPolicies as $item1) {
+                    $res['WhiteListPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -490,153 +503,232 @@ class instanceAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppOperationModule'])) {
             $model->appOperationModule = $map['AppOperationModule'];
         }
+
         if (isset($map['AuthorizedSecurityGroups'])) {
             if (!empty($map['AuthorizedSecurityGroups'])) {
-                $model->authorizedSecurityGroups = $map['AuthorizedSecurityGroups'];
-            }
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['BandwidthPackage'])) {
-            $model->bandwidthPackage = $map['BandwidthPackage'];
-        }
-        if (isset($map['DbOperationModule'])) {
-            $model->dbOperationModule = $map['DbOperationModule'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['EniInstanceId'])) {
-            $model->eniInstanceId = $map['EniInstanceId'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['HSMModule'])) {
-            $model->HSMModule = $map['HSMModule'];
-        }
-        if (isset($map['IDaaSModule'])) {
-            $model->IDaaSModule = $map['IDaaSModule'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceStatus'])) {
-            $model->instanceStatus = $map['InstanceStatus'];
-        }
-        if (isset($map['InternetEndpoint'])) {
-            $model->internetEndpoint = $map['InternetEndpoint'];
-        }
-        if (isset($map['IntranetEndpoint'])) {
-            $model->intranetEndpoint = $map['IntranetEndpoint'];
-        }
-        if (isset($map['KmsSecretModule'])) {
-            $model->kmsSecretModule = $map['KmsSecretModule'];
-        }
-        if (isset($map['LicenseCode'])) {
-            $model->licenseCode = $map['LicenseCode'];
-        }
-        if (isset($map['ModifyPasswordModule'])) {
-            $model->modifyPasswordModule = $map['ModifyPasswordModule'];
-        }
-        if (isset($map['NetworkProxyModule'])) {
-            $model->networkProxyModule = $map['NetworkProxyModule'];
-        }
-        if (isset($map['Ports'])) {
-            if (!empty($map['Ports'])) {
-                $model->ports = [];
-                $n = 0;
-                foreach ($map['Ports'] as $item) {
-                    $model->ports[$n++] = null !== $item ? ports::fromMap($item) : $item;
+                $model->authorizedSecurityGroups = [];
+                $n1 = 0;
+                foreach ($map['AuthorizedSecurityGroups'] as $item1) {
+                    $model->authorizedSecurityGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+
+        if (isset($map['BandwidthPackage'])) {
+            $model->bandwidthPackage = $map['BandwidthPackage'];
+        }
+
+        if (isset($map['DbOperationModule'])) {
+            $model->dbOperationModule = $map['DbOperationModule'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
+        if (isset($map['EniInstanceId'])) {
+            $model->eniInstanceId = $map['EniInstanceId'];
+        }
+
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['HSMModule'])) {
+            $model->HSMModule = $map['HSMModule'];
+        }
+
+        if (isset($map['IDaaSModule'])) {
+            $model->IDaaSModule = $map['IDaaSModule'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceStatus'])) {
+            $model->instanceStatus = $map['InstanceStatus'];
+        }
+
+        if (isset($map['InternetEndpoint'])) {
+            $model->internetEndpoint = $map['InternetEndpoint'];
+        }
+
+        if (isset($map['IntranetEndpoint'])) {
+            $model->intranetEndpoint = $map['IntranetEndpoint'];
+        }
+
+        if (isset($map['KmsSecretModule'])) {
+            $model->kmsSecretModule = $map['KmsSecretModule'];
+        }
+
+        if (isset($map['LicenseCode'])) {
+            $model->licenseCode = $map['LicenseCode'];
+        }
+
+        if (isset($map['ModifyPasswordModule'])) {
+            $model->modifyPasswordModule = $map['ModifyPasswordModule'];
+        }
+
+        if (isset($map['NetworkProxyModule'])) {
+            $model->networkProxyModule = $map['NetworkProxyModule'];
+        }
+
+        if (isset($map['Ports'])) {
+            if (!empty($map['Ports'])) {
+                $model->ports = [];
+                $n1 = 0;
+                foreach ($map['Ports'] as $item1) {
+                    $model->ports[$n1] = ports::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['PrivateExportIps'])) {
             if (!empty($map['PrivateExportIps'])) {
-                $model->privateExportIps = $map['PrivateExportIps'];
+                $model->privateExportIps = [];
+                $n1 = 0;
+                foreach ($map['PrivateExportIps'] as $item1) {
+                    $model->privateExportIps[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PrivateWhiteList'])) {
             if (!empty($map['PrivateWhiteList'])) {
-                $model->privateWhiteList = $map['PrivateWhiteList'];
+                $model->privateWhiteList = [];
+                $n1 = 0;
+                foreach ($map['PrivateWhiteList'] as $item1) {
+                    $model->privateWhiteList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PublicExportIps'])) {
             if (!empty($map['PublicExportIps'])) {
-                $model->publicExportIps = $map['PublicExportIps'];
+                $model->publicExportIps = [];
+                $n1 = 0;
+                foreach ($map['PublicExportIps'] as $item1) {
+                    $model->publicExportIps[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PublicIps'])) {
             if (!empty($map['PublicIps'])) {
-                $model->publicIps = $map['PublicIps'];
+                $model->publicIps = [];
+                $n1 = 0;
+                foreach ($map['PublicIps'] as $item1) {
+                    $model->publicIps[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PublicNetworkAccess'])) {
             $model->publicNetworkAccess = $map['PublicNetworkAccess'];
         }
+
         if (isset($map['PublicWhiteList'])) {
             if (!empty($map['PublicWhiteList'])) {
-                $model->publicWhiteList = $map['PublicWhiteList'];
+                $model->publicWhiteList = [];
+                $n1 = 0;
+                foreach ($map['PublicWhiteList'] as $item1) {
+                    $model->publicWhiteList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RDModule'])) {
             $model->RDModule = $map['RDModule'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['RouterRules'])) {
             if (!empty($map['RouterRules'])) {
-                $model->routerRules = $map['RouterRules'];
+                $model->routerRules = [];
+                $n1 = 0;
+                foreach ($map['RouterRules'] as $item1) {
+                    $model->routerRules[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ScriptDeliverModule'])) {
             $model->scriptDeliverModule = $map['ScriptDeliverModule'];
         }
+
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SlaveVswitchId'])) {
             $model->slaveVswitchId = $map['SlaveVswitchId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Storage'])) {
             $model->storage = $map['Storage'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
         }
+
         if (isset($map['WebTerminalModule'])) {
             $model->webTerminalModule = $map['WebTerminalModule'];
         }
+
         if (isset($map['WhiteListPolicies'])) {
             if (!empty($map['WhiteListPolicies'])) {
                 $model->whiteListPolicies = [];
-                $n = 0;
-                foreach ($map['WhiteListPolicies'] as $item) {
-                    $model->whiteListPolicies[$n++] = null !== $item ? whiteListPolicies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WhiteListPolicies'] as $item1) {
+                    $model->whiteListPolicies[$n1] = whiteListPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

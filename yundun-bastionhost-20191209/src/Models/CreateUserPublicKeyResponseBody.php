@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateUserPublicKeyResponseBody extends Model
 {
     /**
-     * @description The ID of the public key.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $publicKeyId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 5EAB922E-F476-5DFA-9290-313C608E724B
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateUserPublicKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publicKeyId) {
             $res['PublicKeyId'] = $this->publicKeyId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateUserPublicKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUserPublicKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PublicKeyId'])) {
             $model->publicKeyId = $map['PublicKeyId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

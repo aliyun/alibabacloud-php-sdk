@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAccessTimeRangeConfigRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAccessTimeRangeConfigRequest\accessTimeRangeConfig\effectiveTime;
-use AlibabaCloud\Tea\Model;
 
 class accessTimeRangeConfig extends Model
 {
     /**
-     * @description The details about the periods during which users can log on to the assets.
-     *
      * @var effectiveTime[]
      */
     public $effectiveTime;
@@ -19,17 +17,24 @@ class accessTimeRangeConfig extends Model
         'effectiveTime' => 'EffectiveTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->effectiveTime)) {
+            Model::validateArray($this->effectiveTime);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = [];
-            if (null !== $this->effectiveTime && \is_array($this->effectiveTime)) {
-                $n = 0;
-                foreach ($this->effectiveTime as $item) {
-                    $res['EffectiveTime'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->effectiveTime)) {
+                $res['EffectiveTime'] = [];
+                $n1 = 0;
+                foreach ($this->effectiveTime as $item1) {
+                    $res['EffectiveTime'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class accessTimeRangeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessTimeRangeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectiveTime'])) {
             if (!empty($map['EffectiveTime'])) {
                 $model->effectiveTime = [];
-                $n = 0;
-                foreach ($map['EffectiveTime'] as $item) {
-                    $model->effectiveTime[$n++] = null !== $item ? effectiveTime::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EffectiveTime'] as $item1) {
+                    $model->effectiveTime[$n1] = effectiveTime::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

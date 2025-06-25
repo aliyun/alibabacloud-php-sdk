@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationHostAccountsResponseBody\hostAccounts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SSHConfig extends Model
 {
     /**
-     * @description Indicates whether SFTP channels are enabled for the account.
-     *
      * @var bool
      */
     public $enableSFTPChannel;
 
     /**
-     * @description Indicates whether SSH channels are enabled for the account.
-     *
      * @var bool
      */
     public $enableSSHChannel;
@@ -26,14 +22,18 @@ class SSHConfig extends Model
         'enableSSHChannel' => 'EnableSSHChannel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableSFTPChannel) {
             $res['EnableSFTPChannel'] = $this->enableSFTPChannel;
         }
+
         if (null !== $this->enableSSHChannel) {
             $res['EnableSSHChannel'] = $this->enableSSHChannel;
         }
@@ -41,17 +41,18 @@ class SSHConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SSHConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableSFTPChannel'])) {
             $model->enableSFTPChannel = $map['EnableSFTPChannel'];
         }
+
         if (isset($map['EnableSSHChannel'])) {
             $model->enableSSHChannel = $map['EnableSSHChannel'];
         }

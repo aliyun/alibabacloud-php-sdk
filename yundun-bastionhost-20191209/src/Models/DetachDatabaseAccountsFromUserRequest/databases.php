@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachDatabaseAccountsFromUserRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class databases extends Model
 {
     /**
-     * @description An array that consists of database account IDs.
-     *
      * @var string[]
      */
     public $databaseAccountIds;
 
     /**
-     * @description The ID of the database on which you want to revoke permissions.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $databaseId;
@@ -28,14 +22,28 @@ class databases extends Model
         'databaseId' => 'DatabaseId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databaseAccountIds)) {
+            Model::validateArray($this->databaseAccountIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseAccountIds) {
-            $res['DatabaseAccountIds'] = $this->databaseAccountIds;
+            if (\is_array($this->databaseAccountIds)) {
+                $res['DatabaseAccountIds'] = [];
+                $n1 = 0;
+                foreach ($this->databaseAccountIds as $item1) {
+                    $res['DatabaseAccountIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
@@ -43,19 +51,25 @@ class databases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseAccountIds'])) {
             if (!empty($map['DatabaseAccountIds'])) {
-                $model->databaseAccountIds = $map['DatabaseAccountIds'];
+                $model->databaseAccountIds = [];
+                $n1 = 0;
+                foreach ($map['DatabaseAccountIds'] as $item1) {
+                    $model->databaseAccountIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }

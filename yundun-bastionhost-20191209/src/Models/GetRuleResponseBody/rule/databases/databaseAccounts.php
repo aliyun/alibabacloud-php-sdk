@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponseBody\rule\databases;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class databaseAccounts extends Model
 {
     /**
-     * @description The ID of the database account that the policy authorizes users to manage.
-     *
-     * @example 5
-     *
      * @var string
      */
     public $databaseAccountId;
@@ -20,9 +16,12 @@ class databaseAccounts extends Model
         'databaseAccountId' => 'DatabaseAccountId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseAccountId) {
@@ -32,11 +31,11 @@ class databaseAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databaseAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

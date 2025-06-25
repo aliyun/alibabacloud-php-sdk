@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListApproveCommandsResponseBody\approveCommands;
-use AlibabaCloud\Tea\Model;
 
 class ListApproveCommandsResponseBody extends Model
 {
     /**
-     * @description The commands to be reviewed.
-     *
      * @var approveCommands[]
      */
     public $approveCommands;
 
     /**
-     * @description The request ID.
-     *
-     * @example E3EF7711-766D-5888-997B-EFBA76809229
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of commands to be reviewed.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class ListApproveCommandsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->approveCommands)) {
+            Model::validateArray($this->approveCommands);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approveCommands) {
-            $res['ApproveCommands'] = [];
-            if (null !== $this->approveCommands && \is_array($this->approveCommands)) {
-                $n = 0;
-                foreach ($this->approveCommands as $item) {
-                    $res['ApproveCommands'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->approveCommands)) {
+                $res['ApproveCommands'] = [];
+                $n1 = 0;
+                foreach ($this->approveCommands as $item1) {
+                    $res['ApproveCommands'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class ListApproveCommandsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListApproveCommandsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApproveCommands'])) {
             if (!empty($map['ApproveCommands'])) {
                 $model->approveCommands = [];
-                $n = 0;
-                foreach ($map['ApproveCommands'] as $item) {
-                    $model->approveCommands[$n++] = null !== $item ? approveCommands::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApproveCommands'] as $item1) {
+                    $model->approveCommands[$n1] = approveCommands::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

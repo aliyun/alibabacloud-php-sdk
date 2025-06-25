@@ -4,38 +4,22 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceWhiteListRequest\whiteListPolicies;
-use AlibabaCloud\Tea\Model;
 
 class ConfigInstanceWhiteListRequest extends Model
 {
     /**
-     * @description The ID of the bastion host for which you want to configure a whitelist of public IP addresses.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost-cn-78v1gh****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The IP address whitelist that you want to configure.
-     *
-     * @example 10.162.XX.XX
-     *
      * @var string[]
      */
     public $whiteList;
@@ -51,26 +35,46 @@ class ConfigInstanceWhiteListRequest extends Model
         'whiteListPolicies' => 'WhiteListPolicies',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->whiteList)) {
+            Model::validateArray($this->whiteList);
+        }
+        if (\is_array($this->whiteListPolicies)) {
+            Model::validateArray($this->whiteListPolicies);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->whiteList) {
-            $res['WhiteList'] = $this->whiteList;
+            if (\is_array($this->whiteList)) {
+                $res['WhiteList'] = [];
+                $n1 = 0;
+                foreach ($this->whiteList as $item1) {
+                    $res['WhiteList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->whiteListPolicies) {
-            $res['WhiteListPolicies'] = [];
-            if (null !== $this->whiteListPolicies && \is_array($this->whiteListPolicies)) {
-                $n = 0;
-                foreach ($this->whiteListPolicies as $item) {
-                    $res['WhiteListPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->whiteListPolicies)) {
+                $res['WhiteListPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->whiteListPolicies as $item1) {
+                    $res['WhiteListPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,31 +82,40 @@ class ConfigInstanceWhiteListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigInstanceWhiteListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['WhiteList'])) {
             if (!empty($map['WhiteList'])) {
-                $model->whiteList = $map['WhiteList'];
+                $model->whiteList = [];
+                $n1 = 0;
+                foreach ($map['WhiteList'] as $item1) {
+                    $model->whiteList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['WhiteListPolicies'])) {
             if (!empty($map['WhiteListPolicies'])) {
                 $model->whiteListPolicies = [];
-                $n = 0;
-                foreach ($map['WhiteListPolicies'] as $item) {
-                    $model->whiteListPolicies[$n++] = null !== $item ? whiteListPolicies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WhiteListPolicies'] as $item1) {
+                    $model->whiteListPolicies[$n1] = whiteListPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

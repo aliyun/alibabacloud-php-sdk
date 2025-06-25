@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostShareKeyResponseBody\hostShareKey;
-use AlibabaCloud\Tea\Model;
 
 class GetHostShareKeyResponseBody extends Model
 {
     /**
-     * @description The returned information about the shared key.
-     *
      * @var hostShareKey
      */
     public $hostShareKey;
 
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetHostShareKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->hostShareKey) {
+            $this->hostShareKey->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostShareKey) {
-            $res['HostShareKey'] = null !== $this->hostShareKey ? $this->hostShareKey->toMap() : null;
+            $res['HostShareKey'] = null !== $this->hostShareKey ? $this->hostShareKey->toArray($noStream) : $this->hostShareKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetHostShareKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHostShareKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostShareKey'])) {
             $model->hostShareKey = hostShareKey::fromMap($map['HostShareKey']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

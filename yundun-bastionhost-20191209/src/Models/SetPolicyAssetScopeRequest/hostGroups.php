@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAssetScopeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostGroups extends Model
 {
     /**
-     * @description The asset accounts to which the control policy applies.
-     *
-     * > This parameter is required if AccountScopeType is set to AccountName.
-     *
      * @var string[]
      */
     public $accountNames;
 
     /**
-     * @description The scope of asset accounts to which the control policy applies. Valid values:
-     *
-     * **All**: The control policy applies to all accounts in the asset group.
-     * **AccountName**: The control policy applies to specified accounts in the asset group.
-     *
-     * @example All
-     *
      * @var string
      */
     public $accountScopeType;
 
     /**
-     * @description The asset group ID.
-     *
-     * @example 86
-     *
      * @var string
      */
     public $hostGroupId;
@@ -43,17 +28,32 @@ class hostGroups extends Model
         'hostGroupId' => 'HostGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->accountNames)) {
+            Model::validateArray($this->accountNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountNames) {
-            $res['AccountNames'] = $this->accountNames;
+            if (\is_array($this->accountNames)) {
+                $res['AccountNames'] = [];
+                $n1 = 0;
+                foreach ($this->accountNames as $item1) {
+                    $res['AccountNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->accountScopeType) {
             $res['AccountScopeType'] = $this->accountScopeType;
         }
+
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
         }
@@ -61,22 +61,29 @@ class hostGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountNames'])) {
             if (!empty($map['AccountNames'])) {
-                $model->accountNames = $map['AccountNames'];
+                $model->accountNames = [];
+                $n1 = 0;
+                foreach ($map['AccountNames'] as $item1) {
+                    $model->accountNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['AccountScopeType'])) {
             $model->accountScopeType = $map['AccountScopeType'];
         }
+
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyCommandConfigRequest\commandConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class approval extends Model
 {
     /**
-     * @description The commands that can be run only after approval.
-     *
      * @var string[]
      */
     public $commands;
@@ -18,29 +16,47 @@ class approval extends Model
         'commands' => 'Commands',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->commands)) {
+            Model::validateArray($this->commands);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commands) {
-            $res['Commands'] = $this->commands;
+            if (\is_array($this->commands)) {
+                $res['Commands'] = [];
+                $n1 = 0;
+                foreach ($this->commands as $item1) {
+                    $res['Commands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return approval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
-                $model->commands = $map['Commands'];
+                $model->commands = [];
+                $n1 = 0;
+                foreach ($map['Commands'] as $item1) {
+                    $model->commands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyCommandConfigRequest\commandConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deny extends Model
 {
     /**
-     * @description The type of command control. Valid values:
-     *
-     *   **black**: blacklist mode.
-     *   **white**: whitelist mode.
-     *
-     * This parameter is required.
-     *
-     * @example white
-     *
      * @var string
      */
     public $aclType;
 
     /**
-     * @description The commands to be controlled.
-     *
-     * > This parameter is required if AclType is set to white.
-     *
      * @var string[]
      */
     public $commands;
@@ -35,35 +22,55 @@ class deny extends Model
         'commands' => 'Commands',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->commands)) {
+            Model::validateArray($this->commands);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
+
         if (null !== $this->commands) {
-            $res['Commands'] = $this->commands;
+            if (\is_array($this->commands)) {
+                $res['Commands'] = [];
+                $n1 = 0;
+                foreach ($this->commands as $item1) {
+                    $res['Commands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deny
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }
+
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
-                $model->commands = $map['Commands'];
+                $model->commands = [];
+                $n1 = 0;
+                foreach ($map['Commands'] as $item1) {
+                    $model->commands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

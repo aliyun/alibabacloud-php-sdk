@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationTicketsResponseBody\operationTickets;
-use AlibabaCloud\Tea\Model;
 
 class ListOperationTicketsResponseBody extends Model
 {
     /**
-     * @description The O\\&M applications to be reviewed.
-     *
      * @var operationTickets[]
      */
     public $operationTickets;
 
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of O\\&M applications to be reviewed.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class ListOperationTicketsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->operationTickets)) {
+            Model::validateArray($this->operationTickets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationTickets) {
-            $res['OperationTickets'] = [];
-            if (null !== $this->operationTickets && \is_array($this->operationTickets)) {
-                $n = 0;
-                foreach ($this->operationTickets as $item) {
-                    $res['OperationTickets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operationTickets)) {
+                $res['OperationTickets'] = [];
+                $n1 = 0;
+                foreach ($this->operationTickets as $item1) {
+                    $res['OperationTickets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class ListOperationTicketsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOperationTicketsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationTickets'])) {
             if (!empty($map['OperationTickets'])) {
                 $model->operationTickets = [];
-                $n = 0;
-                foreach ($map['OperationTickets'] as $item) {
-                    $model->operationTickets[$n++] = null !== $item ? operationTickets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OperationTickets'] as $item1) {
+                    $model->operationTickets[$n1] = operationTickets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

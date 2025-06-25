@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GenerateAssetOperationTokenResponseBody\assetOperationToken;
-use AlibabaCloud\Tea\Model;
 
 class GenerateAssetOperationTokenResponseBody extends Model
 {
     /**
-     * @description The data returned.
-     *
      * @var assetOperationToken
      */
     public $assetOperationToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GenerateAssetOperationTokenResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->assetOperationToken) {
+            $this->assetOperationToken->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetOperationToken) {
-            $res['AssetOperationToken'] = null !== $this->assetOperationToken ? $this->assetOperationToken->toMap() : null;
+            $res['AssetOperationToken'] = null !== $this->assetOperationToken ? $this->assetOperationToken->toArray($noStream) : $this->assetOperationToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GenerateAssetOperationTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateAssetOperationTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetOperationToken'])) {
             $model->assetOperationToken = assetOperationToken::fromMap($map['AssetOperationToken']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

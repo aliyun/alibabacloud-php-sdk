@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostAccountsFromHostShareKeyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class results extends Model
 {
     /**
-     * @description The error code returned. If **OK** is returned, the disassociation was successful. If a different error code is returned, the disassociation failed.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The ID of the host account.
-     *
-     * @example 12407
-     *
      * @var string
      */
     public $hostAccountId;
 
     /**
-     * @description The ID of the shared key.
-     *
-     * @example 11
-     *
      * @var string
      */
     public $hostShareKeyId;
 
     /**
-     * @description The error message returned.
-     *
-     * @example The host account does not exist
-     *
      * @var string
      */
     public $message;
@@ -50,20 +34,26 @@ class results extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->hostAccountId) {
             $res['HostAccountId'] = $this->hostAccountId;
         }
+
         if (null !== $this->hostShareKeyId) {
             $res['HostShareKeyId'] = $this->hostShareKeyId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -71,23 +61,26 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HostAccountId'])) {
             $model->hostAccountId = $map['HostAccountId'];
         }
+
         if (isset($map['HostShareKeyId'])) {
             $model->hostShareKeyId = $map['HostShareKeyId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

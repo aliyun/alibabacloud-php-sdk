@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForUserResponseBody\hostAccounts;
-use AlibabaCloud\Tea\Model;
 
 class ListHostAccountsForUserResponseBody extends Model
 {
     /**
-     * @description An array that consists of the queried host accounts.
-     *
      * @var hostAccounts[]
      */
     public $hostAccounts;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of host accounts that were queried.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class ListHostAccountsForUserResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hostAccounts)) {
+            Model::validateArray($this->hostAccounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostAccounts) {
-            $res['HostAccounts'] = [];
-            if (null !== $this->hostAccounts && \is_array($this->hostAccounts)) {
-                $n = 0;
-                foreach ($this->hostAccounts as $item) {
-                    $res['HostAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hostAccounts)) {
+                $res['HostAccounts'] = [];
+                $n1 = 0;
+                foreach ($this->hostAccounts as $item1) {
+                    $res['HostAccounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class ListHostAccountsForUserResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHostAccountsForUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostAccounts'])) {
             if (!empty($map['HostAccounts'])) {
                 $model->hostAccounts = [];
-                $n = 0;
-                foreach ($map['HostAccounts'] as $item) {
-                    $model->hostAccounts[$n++] = null !== $item ? hostAccounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HostAccounts'] as $item1) {
+                    $model->hostAccounts[$n1] = hostAccounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

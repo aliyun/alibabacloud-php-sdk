@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateNetworkDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the network domain.
-     *
-     * @example 31
-     *
      * @var string
      */
     public $networkDomainId;
 
     /**
-     * @description The request ID.
-     *
-     * @example A2873E9C-A7EA-5735-845C-65D3792623D2
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateNetworkDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkDomainId) {
             $res['NetworkDomainId'] = $this->networkDomainId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateNetworkDomainResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNetworkDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkDomainId'])) {
             $model->networkDomainId = $map['NetworkDomainId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

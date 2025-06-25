@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupResponseBody\userGroup;
-use AlibabaCloud\Tea\Model;
 
 class GetUserGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the user group returned.
-     *
      * @var userGroup
      */
     public $userGroup;
@@ -29,32 +23,40 @@ class GetUserGroupResponseBody extends Model
         'userGroup' => 'UserGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->userGroup) {
+            $this->userGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userGroup) {
-            $res['UserGroup'] = null !== $this->userGroup ? $this->userGroup->toMap() : null;
+            $res['UserGroup'] = null !== $this->userGroup ? $this->userGroup->toArray($noStream) : $this->userGroup;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserGroup'])) {
             $model->userGroup = userGroup::fromMap($map['UserGroup']);
         }

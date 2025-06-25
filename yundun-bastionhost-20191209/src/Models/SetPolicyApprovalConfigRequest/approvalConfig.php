@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyApprovalConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class approvalConfig extends Model
 {
     /**
-     * @description Specifies whether to enable O&M approval in the control policy. Valid values:
-     *
-     * **On**: enables O&M approval.
-     * **Off**: disables O&M approval.
-     *
-     * This parameter is required.
-     *
-     * @example On
-     *
      * @var string
      */
     public $switchStatus;
@@ -25,9 +16,12 @@ class approvalConfig extends Model
         'switchStatus' => 'SwitchStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->switchStatus) {
@@ -37,11 +31,11 @@ class approvalConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return approvalConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

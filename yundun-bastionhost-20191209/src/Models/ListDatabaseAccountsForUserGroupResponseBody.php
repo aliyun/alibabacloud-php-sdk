@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsForUserGroupResponseBody\databaseAccounts;
-use AlibabaCloud\Tea\Model;
 
 class ListDatabaseAccountsForUserGroupResponseBody extends Model
 {
     /**
-     * @description The database accounts returned.
-     *
      * @var databaseAccounts[]
      */
     public $databaseAccounts;
 
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of database accounts returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class ListDatabaseAccountsForUserGroupResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databaseAccounts)) {
+            Model::validateArray($this->databaseAccounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseAccounts) {
-            $res['DatabaseAccounts'] = [];
-            if (null !== $this->databaseAccounts && \is_array($this->databaseAccounts)) {
-                $n = 0;
-                foreach ($this->databaseAccounts as $item) {
-                    $res['DatabaseAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->databaseAccounts)) {
+                $res['DatabaseAccounts'] = [];
+                $n1 = 0;
+                foreach ($this->databaseAccounts as $item1) {
+                    $res['DatabaseAccounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class ListDatabaseAccountsForUserGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDatabaseAccountsForUserGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseAccounts'])) {
             if (!empty($map['DatabaseAccounts'])) {
                 $model->databaseAccounts = [];
-                $n = 0;
-                foreach ($map['DatabaseAccounts'] as $item) {
-                    $model->databaseAccounts[$n++] = null !== $item ? databaseAccounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DatabaseAccounts'] as $item1) {
+                    $model->databaseAccounts[$n1] = databaseAccounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

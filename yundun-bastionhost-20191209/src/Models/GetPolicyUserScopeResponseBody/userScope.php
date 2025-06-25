@@ -4,32 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyUserScopeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userScope extends Model
 {
     /**
-     * @description The scope of users to whom the control policy applies.
-     *   If **All** is returned for this parameter, the control policy applies to all users.
-     *
-     *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of UserGroupIds and UserIds.
-     *
-     * @example All
-     *
      * @var string
      */
     public $scopeType;
 
     /**
-     * @description The user groups to which the control policy applies.
-     *
      * @var string[]
      */
     public $userGroupIds;
 
     /**
-     * @description The users to whom the control policy applies.
-     *
      * @var string[]
      */
     public $userIds;
@@ -39,43 +28,80 @@ class userScope extends Model
         'userIds' => 'UserIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userGroupIds)) {
+            Model::validateArray($this->userGroupIds);
+        }
+        if (\is_array($this->userIds)) {
+            Model::validateArray($this->userIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scopeType) {
             $res['ScopeType'] = $this->scopeType;
         }
+
         if (null !== $this->userGroupIds) {
-            $res['UserGroupIds'] = $this->userGroupIds;
+            if (\is_array($this->userGroupIds)) {
+                $res['UserGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->userGroupIds as $item1) {
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->userIds) {
-            $res['UserIds'] = $this->userIds;
+            if (\is_array($this->userIds)) {
+                $res['UserIds'] = [];
+                $n1 = 0;
+                foreach ($this->userIds as $item1) {
+                    $res['UserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userScope
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScopeType'])) {
             $model->scopeType = $map['ScopeType'];
         }
+
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
-                $model->userGroupIds = $map['UserGroupIds'];
+                $model->userGroupIds = [];
+                $n1 = 0;
+                foreach ($map['UserGroupIds'] as $item1) {
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = $map['UserIds'];
+                $model->userIds = [];
+                $n1 = 0;
+                foreach ($map['UserIds'] as $item1) {
+                    $model->userIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

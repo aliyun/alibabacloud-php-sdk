@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponseBody\rule;
-use AlibabaCloud\Tea\Model;
 
 class GetRuleResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned information about the authorization rule.
-     *
      * @var rule
      */
     public $rule;
@@ -29,32 +23,40 @@ class GetRuleResponseBody extends Model
         'rule' => 'Rule',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->rule) {
+            $this->rule->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->rule) {
-            $res['Rule'] = null !== $this->rule ? $this->rule->toMap() : null;
+            $res['Rule'] = null !== $this->rule ? $this->rule->toArray($noStream) : $this->rule;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Rule'])) {
             $model->rule = rule::fromMap($map['Rule']);
         }

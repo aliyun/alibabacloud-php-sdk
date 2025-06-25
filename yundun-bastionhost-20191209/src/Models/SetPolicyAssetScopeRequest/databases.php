@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAssetScopeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class databases extends Model
 {
     /**
-     * @description The scope of database accounts to which the control policy applies. Valid values:
-     *
-     *   **All**: The control policy applies to all database accounts of the database.
-     *   **AccountId**: The control policy applies to specified database accounts of the database.
-     *
-     * @example AccountId
-     *
      * @var string
      */
     public $accountScopeType;
 
     /**
-     * @description The database accounts to which the control policy applies.
-     *
-     * >  This parameter is required if AccountScopeType is set to AccountId.
-     *
      * @var string[]
      */
     public $databaseAccountIds;
 
     /**
-     * @description The database ID.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $databaseId;
@@ -43,17 +28,32 @@ class databases extends Model
         'databaseId' => 'DatabaseId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databaseAccountIds)) {
+            Model::validateArray($this->databaseAccountIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountScopeType) {
             $res['AccountScopeType'] = $this->accountScopeType;
         }
+
         if (null !== $this->databaseAccountIds) {
-            $res['DatabaseAccountIds'] = $this->databaseAccountIds;
+            if (\is_array($this->databaseAccountIds)) {
+                $res['DatabaseAccountIds'] = [];
+                $n1 = 0;
+                foreach ($this->databaseAccountIds as $item1) {
+                    $res['DatabaseAccountIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
@@ -61,22 +61,29 @@ class databases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountScopeType'])) {
             $model->accountScopeType = $map['AccountScopeType'];
         }
+
         if (isset($map['DatabaseAccountIds'])) {
             if (!empty($map['DatabaseAccountIds'])) {
-                $model->databaseAccountIds = $map['DatabaseAccountIds'];
+                $model->databaseAccountIds = [];
+                $n1 = 0;
+                foreach ($map['DatabaseAccountIds'] as $item1) {
+                    $model->databaseAccountIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }

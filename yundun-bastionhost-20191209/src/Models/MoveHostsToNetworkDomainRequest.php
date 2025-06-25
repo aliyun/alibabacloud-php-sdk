@@ -4,52 +4,26 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MoveHostsToNetworkDomainRequest extends Model
 {
     /**
-     * @description The IDs of the hosts that you want to add to the network domain.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $hostIds;
 
     /**
-     * @description The bastion host ID.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost-cn-uax2zmx8005
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the network domain to which you want to add hosts.
-     *
-     * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
-     *
-     * This parameter is required.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $networkDomainId;
 
     /**
-     * @description The region ID of the bastion host.
-     *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -60,20 +34,36 @@ class MoveHostsToNetworkDomainRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hostIds)) {
+            Model::validateArray($this->hostIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostIds) {
-            $res['HostIds'] = $this->hostIds;
+            if (\is_array($this->hostIds)) {
+                $res['HostIds'] = [];
+                $n1 = 0;
+                foreach ($this->hostIds as $item1) {
+                    $res['HostIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->networkDomainId) {
             $res['NetworkDomainId'] = $this->networkDomainId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -81,25 +71,33 @@ class MoveHostsToNetworkDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MoveHostsToNetworkDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostIds'])) {
             if (!empty($map['HostIds'])) {
-                $model->hostIds = $map['HostIds'];
+                $model->hostIds = [];
+                $n1 = 0;
+                foreach ($map['HostIds'] as $item1) {
+                    $model->hostIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NetworkDomainId'])) {
             $model->networkDomainId = $map['NetworkDomainId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

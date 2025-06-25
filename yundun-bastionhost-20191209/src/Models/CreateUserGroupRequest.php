@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateUserGroupRequest extends Model
 {
     /**
-     * @description The description of the user group. The description can be up to 500 characters in length.
-     *
-     * @example comment
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The ID of the bastion host for which you want to create a user group.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost-cn-st220aw****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host for which you want to create a user group.
-     *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the user group that you want to create. This name can be a up to 128 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example group
-     *
      * @var string
      */
     public $userGroupName;
@@ -58,20 +34,26 @@ class CreateUserGroupRequest extends Model
         'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->userGroupName) {
             $res['UserGroupName'] = $this->userGroupName;
         }
@@ -79,23 +61,26 @@ class CreateUserGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUserGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['UserGroupName'])) {
             $model->userGroupName = $map['UserGroupName'];
         }

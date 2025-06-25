@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceLDAPAuthServerResponseBody\LDAP;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceLDAPAuthServerResponseBody extends Model
 {
     /**
-     * @description The settings of LDAP authentication.
-     *
      * @var LDAP
      */
     public $LDAP;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 1C60E741-102D-5E8F-9710-B06D3F0183FE
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetInstanceLDAPAuthServerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->LDAP) {
+            $this->LDAP->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->LDAP) {
-            $res['LDAP'] = null !== $this->LDAP ? $this->LDAP->toMap() : null;
+            $res['LDAP'] = null !== $this->LDAP ? $this->LDAP->toArray($noStream) : $this->LDAP;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetInstanceLDAPAuthServerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceLDAPAuthServerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LDAP'])) {
             $model->LDAP = LDAP::fromMap($map['LDAP']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

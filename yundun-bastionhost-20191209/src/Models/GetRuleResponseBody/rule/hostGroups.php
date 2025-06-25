@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponseBody\rule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostGroups extends Model
 {
     /**
-     * @description The asset accounts on which permissions are granted by using the authorization rule.
-     *
      * @var string[]
      */
     public $hostAccountNames;
 
     /**
-     * @description The ID of the asset group that the policy authorizes users to manage.
-     *
-     * @example 7
-     *
      * @var string
      */
     public $hostGroupId;
@@ -28,14 +22,28 @@ class hostGroups extends Model
         'hostGroupId' => 'HostGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hostAccountNames)) {
+            Model::validateArray($this->hostAccountNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostAccountNames) {
-            $res['HostAccountNames'] = $this->hostAccountNames;
+            if (\is_array($this->hostAccountNames)) {
+                $res['HostAccountNames'] = [];
+                $n1 = 0;
+                foreach ($this->hostAccountNames as $item1) {
+                    $res['HostAccountNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
         }
@@ -43,19 +51,25 @@ class hostGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostAccountNames'])) {
             if (!empty($map['HostAccountNames'])) {
-                $model->hostAccountNames = $map['HostAccountNames'];
+                $model->hostAccountNames = [];
+                $n1 = 0;
+                foreach ($map['HostAccountNames'] as $item1) {
+                    $model->hostAccountNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyAssetScopeResponseBody\assetScope;
-use AlibabaCloud\Tea\Model;
 
 class GetPolicyAssetScopeResponseBody extends Model
 {
     /**
-     * @description The assets to which the control policy applies.
-     *
      * @var assetScope
      */
     public $assetScope;
 
     /**
-     * @description The request ID.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetPolicyAssetScopeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->assetScope) {
+            $this->assetScope->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetScope) {
-            $res['AssetScope'] = null !== $this->assetScope ? $this->assetScope->toMap() : null;
+            $res['AssetScope'] = null !== $this->assetScope ? $this->assetScope->toArray($noStream) : $this->assetScope;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetPolicyAssetScopeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPolicyAssetScopeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetScope'])) {
             $model->assetScope = assetScope::fromMap($map['AssetScope']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

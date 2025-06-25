@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostAccountResponseBody\hostAccount;
-use AlibabaCloud\Tea\Model;
 
 class GetHostAccountResponseBody extends Model
 {
     /**
-     * @description The details of the host account that was queried.
-     *
      * @var hostAccount
      */
     public $hostAccount;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetHostAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->hostAccount) {
+            $this->hostAccount->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostAccount) {
-            $res['HostAccount'] = null !== $this->hostAccount ? $this->hostAccount->toMap() : null;
+            $res['HostAccount'] = null !== $this->hostAccount ? $this->hostAccount->toArray($noStream) : $this->hostAccount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetHostAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHostAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostAccount'])) {
             $model->hostAccount = hostAccount::fromMap($map['HostAccount']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

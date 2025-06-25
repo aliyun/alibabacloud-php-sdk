@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceWhiteListRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class whiteListPolicies extends Model
 {
@@ -22,14 +22,18 @@ class whiteListPolicies extends Model
         'entry' => 'Entry',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->entry) {
             $res['Entry'] = $this->entry;
         }
@@ -37,17 +41,18 @@ class whiteListPolicies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return whiteListPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Entry'])) {
             $model->entry = $map['Entry'];
         }

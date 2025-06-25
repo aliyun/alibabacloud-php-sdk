@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostAccountsFromUserGroupResponseBody\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostAccounts extends Model
 {
     /**
-     * @description The return code that indicates whether permissions on the specified host account were revoked from the user group. Valid values:
-     *
-     *   **OK**: The call was successful.
-     *   **UNEXPECTED**: An unknown error occurred.
-     *   **INVALID_ARGUMENT**: A request parameter is invalid.
-     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The ID of the host account.
-     *
-     * @example １
-     *
      * @var string
      */
     public $hostAccountId;
 
     /**
-     * @description This parameter is deprecated.
-     *
      * @var string
      */
     public $message;
@@ -44,17 +28,22 @@ class hostAccounts extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->hostAccountId) {
             $res['HostAccountId'] = $this->hostAccountId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -62,20 +51,22 @@ class hostAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HostAccountId'])) {
             $model->hostAccountId = $map['HostAccountId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

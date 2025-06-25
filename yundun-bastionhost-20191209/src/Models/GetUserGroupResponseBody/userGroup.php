@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userGroup extends Model
 {
     /**
-     * @description The description of the user group.
-     *
-     * @example comment
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The ID of the group.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $userGroupId;
 
     /**
-     * @description The name of the user group.
-     *
-     * @example UserGroup01
-     *
      * @var string
      */
     public $userGroupName;
@@ -40,17 +28,22 @@ class userGroup extends Model
         'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
+
         if (null !== $this->userGroupName) {
             $res['UserGroupName'] = $this->userGroupName;
         }
@@ -58,20 +51,22 @@ class userGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
         }
+
         if (isset($map['UserGroupName'])) {
             $model->userGroupName = $map['UserGroupName'];
         }

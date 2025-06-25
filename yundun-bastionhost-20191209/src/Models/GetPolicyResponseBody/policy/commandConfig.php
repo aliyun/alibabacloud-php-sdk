@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyResponseBody\policy;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyResponseBody\policy\commandConfig\approval;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyResponseBody\policy\commandConfig\deny;
-use AlibabaCloud\Tea\Model;
 
 class commandConfig extends Model
 {
     /**
-     * @description The details of the command approval settings.
-     *
      * @var approval
      */
     public $approval;
 
     /**
-     * @description The details of the command control setting.
-     *
      * @var deny
      */
     public $deny;
@@ -28,32 +24,43 @@ class commandConfig extends Model
         'deny' => 'Deny',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->approval) {
+            $this->approval->validate();
+        }
+        if (null !== $this->deny) {
+            $this->deny->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approval) {
-            $res['Approval'] = null !== $this->approval ? $this->approval->toMap() : null;
+            $res['Approval'] = null !== $this->approval ? $this->approval->toArray($noStream) : $this->approval;
         }
+
         if (null !== $this->deny) {
-            $res['Deny'] = null !== $this->deny ? $this->deny->toMap() : null;
+            $res['Deny'] = null !== $this->deny ? $this->deny->toArray($noStream) : $this->deny;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commandConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Approval'])) {
             $model->approval = approval::fromMap($map['Approval']);
         }
+
         if (isset($map['Deny'])) {
             $model->deny = deny::fromMap($map['Deny']);
         }

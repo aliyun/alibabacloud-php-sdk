@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseAccountResponseBody\databaseAccount;
-use AlibabaCloud\Tea\Model;
 
 class GetDatabaseAccountResponseBody extends Model
 {
     /**
-     * @description The returned information about the database account.
-     *
      * @var databaseAccount
      */
     public $databaseAccount;
 
     /**
-     * @description The request ID.
-     *
-     * @example FA06D274-8D0A-59FB-8B7E-584C0EEBBFFF
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetDatabaseAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->databaseAccount) {
+            $this->databaseAccount->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseAccount) {
-            $res['DatabaseAccount'] = null !== $this->databaseAccount ? $this->databaseAccount->toMap() : null;
+            $res['DatabaseAccount'] = null !== $this->databaseAccount ? $this->databaseAccount->toArray($noStream) : $this->databaseAccount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetDatabaseAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDatabaseAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseAccount'])) {
             $model->databaseAccount = databaseAccount::fromMap($map['DatabaseAccount']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

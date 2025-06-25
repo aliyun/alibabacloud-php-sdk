@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyResponseBody\policy\accessTimeRangeConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class effectiveTime extends Model
 {
     /**
-     * @description The days of a week on which logons are allowed.
-     *
      * @var string[]
      */
     public $days;
 
     /**
-     * @description The time periods during which logons are allowed.
-     *
      * @var string[]
      */
     public $hours;
@@ -26,37 +22,72 @@ class effectiveTime extends Model
         'hours' => 'Hours',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->days)) {
+            Model::validateArray($this->days);
+        }
+        if (\is_array($this->hours)) {
+            Model::validateArray($this->hours);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->days) {
-            $res['Days'] = $this->days;
+            if (\is_array($this->days)) {
+                $res['Days'] = [];
+                $n1 = 0;
+                foreach ($this->days as $item1) {
+                    $res['Days'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->hours) {
-            $res['Hours'] = $this->hours;
+            if (\is_array($this->hours)) {
+                $res['Hours'] = [];
+                $n1 = 0;
+                foreach ($this->hours as $item1) {
+                    $res['Hours'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return effectiveTime
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Days'])) {
             if (!empty($map['Days'])) {
-                $model->days = $map['Days'];
+                $model->days = [];
+                $n1 = 0;
+                foreach ($map['Days'] as $item1) {
+                    $model->days[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Hours'])) {
             if (!empty($map['Hours'])) {
-                $model->hours = $map['Hours'];
+                $model->hours = [];
+                $n1 = 0;
+                foreach ($map['Hours'] as $item1) {
+                    $model->hours[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

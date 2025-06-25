@@ -4,51 +4,26 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigInstanceSecurityGroupsRequest extends Model
 {
     /**
-     * @description An array that consists of the IDs of authorized security groups.
-     *
-     * This parameter is required.
-     *
-     * @example sg-bp14u00sh39jvw5****
-     *
      * @var string[]
      */
     public $authorizedSecurityGroups;
 
     /**
-     * @description The ID of the bastion host.
-     *
-     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
-     *
-     * This parameter is required.
-     *
-     * @example bastionhost-cn-78v1gh****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The region ID of the bastion host.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -59,20 +34,36 @@ class ConfigInstanceSecurityGroupsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authorizedSecurityGroups)) {
+            Model::validateArray($this->authorizedSecurityGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizedSecurityGroups) {
-            $res['AuthorizedSecurityGroups'] = $this->authorizedSecurityGroups;
+            if (\is_array($this->authorizedSecurityGroups)) {
+                $res['AuthorizedSecurityGroups'] = [];
+                $n1 = 0;
+                foreach ($this->authorizedSecurityGroups as $item1) {
+                    $res['AuthorizedSecurityGroups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -80,25 +71,33 @@ class ConfigInstanceSecurityGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigInstanceSecurityGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizedSecurityGroups'])) {
             if (!empty($map['AuthorizedSecurityGroups'])) {
-                $model->authorizedSecurityGroups = $map['AuthorizedSecurityGroups'];
+                $model->authorizedSecurityGroups = [];
+                $n1 = 0;
+                foreach ($map['AuthorizedSecurityGroups'] as $item1) {
+                    $model->authorizedSecurityGroups[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

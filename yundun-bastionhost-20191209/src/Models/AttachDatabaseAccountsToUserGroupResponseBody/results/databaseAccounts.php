@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachDatabaseAccountsToUserGroupResponseBody\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class databaseAccounts extends Model
 {
     /**
-     * @description The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The database account ID.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $databaseAccountId;
 
     /**
-     * @description The error message returned.
-     *
      * @var string
      */
     public $message;
@@ -38,17 +28,22 @@ class databaseAccounts extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->databaseAccountId) {
             $res['DatabaseAccountId'] = $this->databaseAccountId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -56,20 +51,22 @@ class databaseAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databaseAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DatabaseAccountId'])) {
             $model->databaseAccountId = $map['DatabaseAccountId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

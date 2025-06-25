@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyProtocolConfigRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyProtocolConfigRequest\protocolConfig\RDP;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyProtocolConfigRequest\protocolConfig\SSH;
-use AlibabaCloud\Tea\Model;
 
 class protocolConfig extends Model
 {
     /**
-     * @description The settings of the Remote Desktop Protocol (RDP) options.
-     *
      * @var RDP
      */
     public $RDP;
 
     /**
-     * @description The settings of the SSH and SSH Fine Transfer Protocol (SFTP) options.
-     *
      * @var SSH
      */
     public $SSH;
@@ -28,32 +24,43 @@ class protocolConfig extends Model
         'SSH' => 'SSH',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->RDP) {
+            $this->RDP->validate();
+        }
+        if (null !== $this->SSH) {
+            $this->SSH->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->RDP) {
-            $res['RDP'] = null !== $this->RDP ? $this->RDP->toMap() : null;
+            $res['RDP'] = null !== $this->RDP ? $this->RDP->toArray($noStream) : $this->RDP;
         }
+
         if (null !== $this->SSH) {
-            $res['SSH'] = null !== $this->SSH ? $this->SSH->toMap() : null;
+            $res['SSH'] = null !== $this->SSH ? $this->SSH->toArray($noStream) : $this->SSH;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return protocolConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RDP'])) {
             $model->RDP = RDP::fromMap($map['RDP']);
         }
+
         if (isset($map['SSH'])) {
             $model->SSH = SSH::fromMap($map['SSH']);
         }

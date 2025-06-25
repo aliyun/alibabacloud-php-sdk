@@ -4,35 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyIPAclConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IPAclConfig extends Model
 {
     /**
-     * @description The mode of access control on source IP addresses. Valid values:
-     *
-     *   **black**: blacklist mode.
-     *   **white**: whitelist mode.
-     *
-     * This parameter is required.
-     *
-     * @example white
-     *
      * @var string
      */
     public $aclType;
 
     /**
-     * @description The source IP addresses in the blacklist or whitelist.
-     *
-     * >
-     *
-     *   This parameter is required if AclType is set to white.
-     *
-     *   If AclType is set to black but you do not want to add IP addresses to the blacklist, you can leave IPs empty.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $IPs;
@@ -41,35 +22,55 @@ class IPAclConfig extends Model
         'IPs' => 'IPs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->IPs)) {
+            Model::validateArray($this->IPs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
+
         if (null !== $this->IPs) {
-            $res['IPs'] = $this->IPs;
+            if (\is_array($this->IPs)) {
+                $res['IPs'] = [];
+                $n1 = 0;
+                foreach ($this->IPs as $item1) {
+                    $res['IPs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IPAclConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }
+
         if (isset($map['IPs'])) {
             if (!empty($map['IPs'])) {
-                $model->IPs = $map['IPs'];
+                $model->IPs = [];
+                $n1 = 0;
+                foreach ($map['IPs'] as $item1) {
+                    $model->IPs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

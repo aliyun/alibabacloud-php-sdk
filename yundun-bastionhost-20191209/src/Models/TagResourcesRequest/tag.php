@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\TagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key of the bastion host. You can specify up to 20 tags for the bastion host.
-     *
-     * > - Thekey cannot be an empty string. The key can be up to 128 characters in length.
-     * > - It cannot start with **aliyun** or **acs:**, and cannot contain **http://** or **https://**.
-     *
-     * @example operation
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value of the bastion host.\\
-     * You can specify up to 20 tags for the bastion host.
-     *
-     * > *   The value can be a string of up to 128 characters or an empty string.
-     * > *   It cannot start with **aliyun** or **acs:**, and cannot contain **http://** or **https://**.
-     *
-     * @example operation_test
-     *
      * @var string
      */
     public $value;
@@ -37,14 +22,18 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -52,17 +41,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
