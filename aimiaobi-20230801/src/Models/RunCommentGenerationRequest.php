@@ -31,6 +31,11 @@ class RunCommentGenerationRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $numComments;
 
     /**
@@ -67,6 +72,7 @@ class RunCommentGenerationRequest extends Model
         'extraInfo' => 'ExtraInfo',
         'length' => 'Length',
         'lengthRange' => 'LengthRange',
+        'modelId' => 'ModelId',
         'numComments' => 'NumComments',
         'sentiment' => 'Sentiment',
         'sessionId' => 'SessionId',
@@ -112,6 +118,10 @@ class RunCommentGenerationRequest extends Model
                     $res['LengthRange'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
 
         if (null !== $this->numComments) {
@@ -182,6 +192,10 @@ class RunCommentGenerationRequest extends Model
                     $model->lengthRange[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
 
         if (isset($map['NumComments'])) {

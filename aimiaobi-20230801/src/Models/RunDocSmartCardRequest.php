@@ -16,6 +16,11 @@ class RunDocSmartCardRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $prompt;
 
     /**
@@ -29,6 +34,7 @@ class RunDocSmartCardRequest extends Model
     public $workspaceId;
     protected $_name = [
         'docId' => 'DocId',
+        'modelName' => 'ModelName',
         'prompt' => 'Prompt',
         'sessionId' => 'SessionId',
         'workspaceId' => 'WorkspaceId',
@@ -44,6 +50,10 @@ class RunDocSmartCardRequest extends Model
         $res = [];
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->prompt) {
@@ -71,6 +81,10 @@ class RunDocSmartCardRequest extends Model
         $model = new self();
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['Prompt'])) {

@@ -7951,6 +7951,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['LengthRange'] = $request->lengthRangeShrink;
         }
 
+        if (null !== $request->modelId) {
+            @$body['ModelId'] = $request->modelId;
+        }
+
         if (null !== $request->numComments) {
             @$body['NumComments'] = $request->numComments;
         }
@@ -8275,6 +8279,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['DocId'] = $request->docId;
         }
 
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
+        }
+
         if (null !== $request->nodeNumber) {
             @$body['NodeNumber'] = $request->nodeNumber;
         }
@@ -8366,6 +8374,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->keyPointPrompt) {
             @$body['KeyPointPrompt'] = $request->keyPointPrompt;
+        }
+
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
         }
 
         if (null !== $request->sessionId) {
@@ -8463,6 +8475,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['DocIds'] = $request->docIdsShrink;
         }
 
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
+        }
+
         if (null !== $request->query) {
             @$body['Query'] = $request->query;
         }
@@ -8538,6 +8554,10 @@ class AiMiaoBi extends OpenApiClient
         $body = [];
         if (null !== $request->docId) {
             @$body['DocId'] = $request->docId;
+        }
+
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
         }
 
         if (null !== $request->prompt) {
@@ -8694,6 +8714,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['DocId'] = $request->docId;
         }
 
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
+        }
+
         if (null !== $request->recommendContent) {
             @$body['RecommendContent'] = $request->recommendContent;
         }
@@ -8763,6 +8787,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->modelId) {
+            @$body['ModelId'] = $request->modelId;
+        }
+
         if (null !== $request->prompt) {
             @$body['Prompt'] = $request->prompt;
         }
@@ -8913,6 +8941,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['DocId'] = $request->docId;
         }
 
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
+        }
+
         if (null !== $request->referenceContent) {
             @$body['ReferenceContent'] = $request->referenceContent;
         }
@@ -8980,6 +9012,10 @@ class AiMiaoBi extends OpenApiClient
         $body = [];
         if (null !== $request->docId) {
             @$body['DocId'] = $request->docId;
+        }
+
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
         }
 
         if (null !== $request->prompt) {
@@ -9134,6 +9170,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->keyPointPrompt) {
             @$body['KeyPointPrompt'] = $request->keyPointPrompt;
+        }
+
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
         }
 
         if (null !== $request->sessionId) {

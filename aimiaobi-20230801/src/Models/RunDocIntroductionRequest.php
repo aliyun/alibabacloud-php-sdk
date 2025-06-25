@@ -31,6 +31,11 @@ class RunDocIntroductionRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -52,6 +57,7 @@ class RunDocIntroductionRequest extends Model
         'docId' => 'DocId',
         'introductionPrompt' => 'IntroductionPrompt',
         'keyPointPrompt' => 'KeyPointPrompt',
+        'modelName' => 'ModelName',
         'sessionId' => 'SessionId',
         'summaryPrompt' => 'SummaryPrompt',
         'workspaceId' => 'WorkspaceId',
@@ -80,6 +86,10 @@ class RunDocIntroductionRequest extends Model
 
         if (null !== $this->keyPointPrompt) {
             $res['KeyPointPrompt'] = $this->keyPointPrompt;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->sessionId) {
@@ -123,6 +133,10 @@ class RunDocIntroductionRequest extends Model
 
         if (isset($map['KeyPointPrompt'])) {
             $model->keyPointPrompt = $map['KeyPointPrompt'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['SessionId'])) {

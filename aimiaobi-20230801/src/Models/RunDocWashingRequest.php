@@ -11,6 +11,11 @@ class RunDocWashingRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $prompt;
 
     /**
@@ -48,6 +53,7 @@ class RunDocWashingRequest extends Model
      */
     public $writingTypeRefDoc;
     protected $_name = [
+        'modelId' => 'ModelId',
         'prompt' => 'Prompt',
         'referenceContent' => 'ReferenceContent',
         'sessionId' => 'SessionId',
@@ -66,6 +72,10 @@ class RunDocWashingRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
+        }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
@@ -109,6 +119,10 @@ class RunDocWashingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
+        }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }

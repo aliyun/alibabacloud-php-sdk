@@ -31,6 +31,11 @@ class RunCommentGenerationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $numComments;
 
     /**
@@ -67,6 +72,7 @@ class RunCommentGenerationShrinkRequest extends Model
         'extraInfo' => 'ExtraInfo',
         'length' => 'Length',
         'lengthRangeShrink' => 'LengthRange',
+        'modelId' => 'ModelId',
         'numComments' => 'NumComments',
         'sentimentShrink' => 'Sentiment',
         'sessionId' => 'SessionId',
@@ -98,6 +104,10 @@ class RunCommentGenerationShrinkRequest extends Model
 
         if (null !== $this->lengthRangeShrink) {
             $res['LengthRange'] = $this->lengthRangeShrink;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
 
         if (null !== $this->numComments) {
@@ -153,6 +163,10 @@ class RunCommentGenerationShrinkRequest extends Model
 
         if (isset($map['LengthRange'])) {
             $model->lengthRangeShrink = $map['LengthRange'];
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
 
         if (isset($map['NumComments'])) {

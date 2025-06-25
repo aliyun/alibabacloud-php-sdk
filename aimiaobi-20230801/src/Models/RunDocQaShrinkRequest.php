@@ -26,6 +26,11 @@ class RunDocQaShrinkRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $query;
 
     /**
@@ -51,6 +56,7 @@ class RunDocQaShrinkRequest extends Model
         'categoryIdsShrink' => 'CategoryIds',
         'conversationContextsShrink' => 'ConversationContexts',
         'docIdsShrink' => 'DocIds',
+        'modelName' => 'ModelName',
         'query' => 'Query',
         'referenceContent' => 'ReferenceContent',
         'searchSource' => 'SearchSource',
@@ -76,6 +82,10 @@ class RunDocQaShrinkRequest extends Model
 
         if (null !== $this->docIdsShrink) {
             $res['DocIds'] = $this->docIdsShrink;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->query) {
@@ -119,6 +129,10 @@ class RunDocQaShrinkRequest extends Model
 
         if (isset($map['DocIds'])) {
             $model->docIdsShrink = $map['DocIds'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['Query'])) {

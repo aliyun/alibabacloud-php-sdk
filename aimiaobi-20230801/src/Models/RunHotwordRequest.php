@@ -16,6 +16,11 @@ class RunHotwordRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $prompt;
 
     /**
@@ -34,6 +39,7 @@ class RunHotwordRequest extends Model
     public $workspaceId;
     protected $_name = [
         'docId' => 'DocId',
+        'modelName' => 'ModelName',
         'prompt' => 'Prompt',
         'referenceContent' => 'ReferenceContent',
         'sessionId' => 'SessionId',
@@ -50,6 +56,10 @@ class RunHotwordRequest extends Model
         $res = [];
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->prompt) {
@@ -81,6 +91,10 @@ class RunHotwordRequest extends Model
         $model = new self();
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['Prompt'])) {

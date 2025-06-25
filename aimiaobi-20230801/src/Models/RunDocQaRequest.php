@@ -27,6 +27,11 @@ class RunDocQaRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $query;
 
     /**
@@ -52,6 +57,7 @@ class RunDocQaRequest extends Model
         'categoryIds' => 'CategoryIds',
         'conversationContexts' => 'ConversationContexts',
         'docIds' => 'DocIds',
+        'modelName' => 'ModelName',
         'query' => 'Query',
         'referenceContent' => 'ReferenceContent',
         'searchSource' => 'SearchSource',
@@ -107,6 +113,10 @@ class RunDocQaRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->query) {
@@ -171,6 +181,10 @@ class RunDocQaRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['Query'])) {

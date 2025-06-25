@@ -19,6 +19,11 @@ class RunDocBrainmapRequest extends Model
     public $docId;
 
     /**
+     * @var string
+     */
+    public $modelName;
+
+    /**
      * @var int
      */
     public $nodeNumber;
@@ -50,6 +55,7 @@ class RunDocBrainmapRequest extends Model
     protected $_name = [
         'cleanCache' => 'CleanCache',
         'docId' => 'DocId',
+        'modelName' => 'ModelName',
         'nodeNumber' => 'NodeNumber',
         'prompt' => 'Prompt',
         'sessionId' => 'SessionId',
@@ -72,6 +78,10 @@ class RunDocBrainmapRequest extends Model
 
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->nodeNumber) {
@@ -115,6 +125,10 @@ class RunDocBrainmapRequest extends Model
 
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['NodeNumber'])) {

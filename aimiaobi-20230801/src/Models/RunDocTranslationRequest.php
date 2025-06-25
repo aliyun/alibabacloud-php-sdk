@@ -21,6 +21,11 @@ class RunDocTranslationRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $recommendContent;
 
     /**
@@ -40,6 +45,7 @@ class RunDocTranslationRequest extends Model
     protected $_name = [
         'cleanCache' => 'CleanCache',
         'docId' => 'DocId',
+        'modelName' => 'ModelName',
         'recommendContent' => 'RecommendContent',
         'sessionId' => 'SessionId',
         'transType' => 'TransType',
@@ -60,6 +66,10 @@ class RunDocTranslationRequest extends Model
 
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->recommendContent) {
@@ -95,6 +105,10 @@ class RunDocTranslationRequest extends Model
 
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['RecommendContent'])) {
