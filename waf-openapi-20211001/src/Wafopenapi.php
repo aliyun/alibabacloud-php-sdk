@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CopyDefenseTemplateRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CopyDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateApiExportRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateApiExportResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCertsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCertsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceShrinkRequest;
@@ -144,6 +146,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDNSRecordRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDNSRecordResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainUsedPortsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainUsedPortsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowChartRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowChartResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceRequest;
@@ -718,6 +722,83 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApiExportWithOptions($request, $runtime);
+    }
+
+    /**
+     * Uploads a certificate that uses an internationally accepted algorithm for a domain name added to Web Application Firewall (WAF) in CNAME record mode.
+     *
+     * @param request - CreateCertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCertsResponse
+     *
+     * @param CreateCertsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateCertsResponse
+     */
+    public function createCertsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certContent) {
+            @$query['CertContent'] = $request->certContent;
+        }
+
+        if (null !== $request->certKey) {
+            @$query['CertKey'] = $request->certKey;
+        }
+
+        if (null !== $request->certName) {
+            @$query['CertName'] = $request->certName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCerts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uploads a certificate that uses an internationally accepted algorithm for a domain name added to Web Application Firewall (WAF) in CNAME record mode.
+     *
+     * @param request - CreateCertsRequest
+     *
+     * @returns CreateCertsResponse
+     *
+     * @param CreateCertsRequest $request
+     *
+     * @return CreateCertsResponse
+     */
+    public function createCerts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCertsWithOptions($request, $runtime);
     }
 
     /**
@@ -5851,6 +5932,67 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询域名已使用的端口.
+     *
+     * @param request - DescribeDomainUsedPortsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDomainUsedPortsResponse
+     *
+     * @param DescribeDomainUsedPortsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDomainUsedPortsResponse
+     */
+    public function describeDomainUsedPortsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDomainUsedPorts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDomainUsedPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询域名已使用的端口.
+     *
+     * @param request - DescribeDomainUsedPortsRequest
+     *
+     * @returns DescribeDomainUsedPortsResponse
+     *
+     * @param DescribeDomainUsedPortsRequest $request
+     *
+     * @return DescribeDomainUsedPortsResponse
+     */
+    public function describeDomainUsedPorts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainUsedPortsWithOptions($request, $runtime);
     }
 
     /**
