@@ -43,7 +43,8 @@ class SqlOutput extends Model
                 $res['rows'] = [];
                 $n1 = 0;
                 foreach ($this->rows as $item1) {
-                    $res['rows'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rows'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class SqlOutput extends Model
                 $model->rows = [];
                 $n1 = 0;
                 foreach ($map['rows'] as $item1) {
-                    $model->rows[$n1++] = rows::fromMap($item1);
+                    $model->rows[$n1] = rows::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

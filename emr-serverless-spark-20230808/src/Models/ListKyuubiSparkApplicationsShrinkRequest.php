@@ -24,9 +24,29 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
     public $maxResults;
 
     /**
+     * @var int
+     */
+    public $minDuration;
+
+    /**
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $orderByShrink;
+
+    /**
+     * @var string
+     */
+    public $resourceQueueId;
+
+    /**
+     * @var string
+     */
+    public $sort;
 
     /**
      * @var string
@@ -36,7 +56,11 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
         'applicationId' => 'applicationId',
         'applicationName' => 'applicationName',
         'maxResults' => 'maxResults',
+        'minDuration' => 'minDuration',
         'nextToken' => 'nextToken',
+        'orderByShrink' => 'orderBy',
+        'resourceQueueId' => 'resourceQueueId',
+        'sort' => 'sort',
         'startTimeShrink' => 'startTime',
     ];
 
@@ -60,8 +84,24 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
             $res['maxResults'] = $this->maxResults;
         }
 
+        if (null !== $this->minDuration) {
+            $res['minDuration'] = $this->minDuration;
+        }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->orderByShrink) {
+            $res['orderBy'] = $this->orderByShrink;
+        }
+
+        if (null !== $this->resourceQueueId) {
+            $res['resourceQueueId'] = $this->resourceQueueId;
+        }
+
+        if (null !== $this->sort) {
+            $res['sort'] = $this->sort;
         }
 
         if (null !== $this->startTimeShrink) {
@@ -91,8 +131,24 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
             $model->maxResults = $map['maxResults'];
         }
 
+        if (isset($map['minDuration'])) {
+            $model->minDuration = $map['minDuration'];
+        }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['orderBy'])) {
+            $model->orderByShrink = $map['orderBy'];
+        }
+
+        if (isset($map['resourceQueueId'])) {
+            $model->resourceQueueId = $map['resourceQueueId'];
+        }
+
+        if (isset($map['sort'])) {
+            $model->sort = $map['sort'];
         }
 
         if (isset($map['startTime'])) {

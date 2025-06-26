@@ -162,7 +162,8 @@ class UpdateProcessDefinitionWithScheduleRequest extends Model
                 $res['globalParams'] = [];
                 $n1 = 0;
                 foreach ($this->globalParams as $item1) {
-                    $res['globalParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['globalParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +218,8 @@ class UpdateProcessDefinitionWithScheduleRequest extends Model
                 $res['taskDefinitionJson'] = [];
                 $n1 = 0;
                 foreach ($this->taskDefinitionJson as $item1) {
-                    $res['taskDefinitionJson'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['taskDefinitionJson'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +233,8 @@ class UpdateProcessDefinitionWithScheduleRequest extends Model
                 $res['taskRelationJson'] = [];
                 $n1 = 0;
                 foreach ($this->taskRelationJson as $item1) {
-                    $res['taskRelationJson'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['taskRelationJson'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +271,8 @@ class UpdateProcessDefinitionWithScheduleRequest extends Model
                 $model->globalParams = [];
                 $n1 = 0;
                 foreach ($map['globalParams'] as $item1) {
-                    $model->globalParams[$n1++] = globalParams::fromMap($item1);
+                    $model->globalParams[$n1] = globalParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -323,7 +327,8 @@ class UpdateProcessDefinitionWithScheduleRequest extends Model
                 $model->taskDefinitionJson = [];
                 $n1 = 0;
                 foreach ($map['taskDefinitionJson'] as $item1) {
-                    $model->taskDefinitionJson[$n1++] = taskDefinitionJson::fromMap($item1);
+                    $model->taskDefinitionJson[$n1] = taskDefinitionJson::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -337,7 +342,8 @@ class UpdateProcessDefinitionWithScheduleRequest extends Model
                 $model->taskRelationJson = [];
                 $n1 = 0;
                 foreach ($map['taskRelationJson'] as $item1) {
-                    $model->taskRelationJson[$n1++] = taskRelationJson::fromMap($item1);
+                    $model->taskRelationJson[$n1] = taskRelationJson::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -66,7 +66,8 @@ class data extends Model
                 $res['executionTime'] = [];
                 $n1 = 0;
                 foreach ($this->executionTime as $item1) {
-                    $res['executionTime'][$n1++] = $item1;
+                    $res['executionTime'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $res['sqlOutputs'] = [];
                 $n1 = 0;
                 foreach ($this->sqlOutputs as $item1) {
-                    $res['sqlOutputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sqlOutputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +115,8 @@ class data extends Model
                 $model->executionTime = [];
                 $n1 = 0;
                 foreach ($map['executionTime'] as $item1) {
-                    $model->executionTime[$n1++] = $item1;
+                    $model->executionTime[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +134,8 @@ class data extends Model
                 $model->sqlOutputs = [];
                 $n1 = 0;
                 foreach ($map['sqlOutputs'] as $item1) {
-                    $model->sqlOutputs[$n1++] = sqlOutputs::fromMap($item1);
+                    $model->sqlOutputs[$n1] = sqlOutputs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

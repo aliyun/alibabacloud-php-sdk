@@ -315,7 +315,8 @@ class Task extends Model
                 $res['archives'] = [];
                 $n1 = 0;
                 foreach ($this->archives as $item1) {
-                    $res['archives'][$n1++] = $item1;
+                    $res['archives'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -373,7 +374,8 @@ class Task extends Model
                 $res['extraArtifactIds'] = [];
                 $n1 = 0;
                 foreach ($this->extraArtifactIds as $item1) {
-                    $res['extraArtifactIds'][$n1++] = $item1;
+                    $res['extraArtifactIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -387,7 +389,8 @@ class Task extends Model
                 $res['files'] = [];
                 $n1 = 0;
                 foreach ($this->files as $item1) {
-                    $res['files'][$n1++] = $item1;
+                    $res['files'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -421,7 +424,8 @@ class Task extends Model
                 $res['jars'] = [];
                 $n1 = 0;
                 foreach ($this->jars as $item1) {
-                    $res['jars'][$n1++] = $item1;
+                    $res['jars'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -456,7 +460,8 @@ class Task extends Model
                 $res['pyFiles'] = [];
                 $n1 = 0;
                 foreach ($this->pyFiles as $item1) {
-                    $res['pyFiles'][$n1++] = $item1;
+                    $res['pyFiles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -474,7 +479,8 @@ class Task extends Model
                 $res['sparkConf'] = [];
                 $n1 = 0;
                 foreach ($this->sparkConf as $item1) {
-                    $res['sparkConf'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sparkConf'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -548,7 +554,8 @@ class Task extends Model
                 $model->archives = [];
                 $n1 = 0;
                 foreach ($map['archives'] as $item1) {
-                    $model->archives[$n1++] = $item1;
+                    $model->archives[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -606,7 +613,8 @@ class Task extends Model
                 $model->extraArtifactIds = [];
                 $n1 = 0;
                 foreach ($map['extraArtifactIds'] as $item1) {
-                    $model->extraArtifactIds[$n1++] = $item1;
+                    $model->extraArtifactIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -620,7 +628,8 @@ class Task extends Model
                 $model->files = [];
                 $n1 = 0;
                 foreach ($map['files'] as $item1) {
-                    $model->files[$n1++] = $item1;
+                    $model->files[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -654,7 +663,8 @@ class Task extends Model
                 $model->jars = [];
                 $n1 = 0;
                 foreach ($map['jars'] as $item1) {
-                    $model->jars[$n1++] = $item1;
+                    $model->jars[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -689,7 +699,8 @@ class Task extends Model
                 $model->pyFiles = [];
                 $n1 = 0;
                 foreach ($map['pyFiles'] as $item1) {
-                    $model->pyFiles[$n1++] = $item1;
+                    $model->pyFiles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -707,7 +718,8 @@ class Task extends Model
                 $model->sparkConf = [];
                 $n1 = 0;
                 foreach ($map['sparkConf'] as $item1) {
-                    $model->sparkConf[$n1++] = SparkConf::fromMap($item1);
+                    $model->sparkConf[$n1] = SparkConf::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

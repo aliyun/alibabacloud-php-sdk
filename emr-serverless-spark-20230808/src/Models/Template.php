@@ -170,7 +170,8 @@ class Template extends Model
                 $res['sparkConf'] = [];
                 $n1 = 0;
                 foreach ($this->sparkConf as $item1) {
-                    $res['sparkConf'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sparkConf'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +260,8 @@ class Template extends Model
                 $model->sparkConf = [];
                 $n1 = 0;
                 foreach ($map['sparkConf'] as $item1) {
-                    $model->sparkConf[$n1++] = SparkConf::fromMap($item1);
+                    $model->sparkConf[$n1] = SparkConf::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

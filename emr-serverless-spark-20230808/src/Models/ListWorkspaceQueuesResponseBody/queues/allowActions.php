@@ -64,7 +64,8 @@ class allowActions extends Model
                 $res['dependencies'] = [];
                 $n1 = 0;
                 foreach ($this->dependencies as $item1) {
-                    $res['dependencies'][$n1++] = $item1;
+                    $res['dependencies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class allowActions extends Model
                 $model->dependencies = [];
                 $n1 = 0;
                 foreach ($map['dependencies'] as $item1) {
-                    $model->dependencies[$n1++] = $item1;
+                    $model->dependencies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

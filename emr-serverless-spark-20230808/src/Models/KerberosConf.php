@@ -106,7 +106,8 @@ class KerberosConf extends Model
                 $res['keytabs'] = [];
                 $n1 = 0;
                 foreach ($this->keytabs as $item1) {
-                    $res['keytabs'][$n1++] = $item1;
+                    $res['keytabs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class KerberosConf extends Model
                 $model->keytabs = [];
                 $n1 = 0;
                 foreach ($map['keytabs'] as $item1) {
-                    $model->keytabs[$n1++] = $item1;
+                    $model->keytabs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

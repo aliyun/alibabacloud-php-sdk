@@ -38,9 +38,12 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRespons
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiServicesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
@@ -1314,6 +1317,10 @@ class Emrserverlessspark extends OpenApiClient
             @$query['endTime'] = $request->endTimeShrink;
         }
 
+        if (null !== $request->isWorkflow) {
+            @$query['isWorkflow'] = $request->isWorkflow;
+        }
+
         if (null !== $request->jobRunDeploymentId) {
             @$query['jobRunDeploymentId'] = $request->jobRunDeploymentId;
         }
@@ -1398,6 +1405,57 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * ListKyuubiServices.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKyuubiServicesResponse
+     *
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListKyuubiServicesResponse
+     */
+    public function listKyuubiServicesWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListKyuubiServices',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/kyuubi/' . Url::percentEncode($workspaceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKyuubiServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListKyuubiServices.
+     *
+     * @returns ListKyuubiServicesResponse
+     *
+     * @param string $workspaceId
+     *
+     * @return ListKyuubiServicesResponse
+     */
+    public function listKyuubiServices($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listKyuubiServicesWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
      * Queries the applications that are submitted by using a Kyuubi gateway.
      *
      * @param tmpReq - ListKyuubiSparkApplicationsRequest
@@ -1419,6 +1477,10 @@ class Emrserverlessspark extends OpenApiClient
         $tmpReq->validate();
         $request = new ListKyuubiSparkApplicationsShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->orderBy) {
+            $request->orderByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderBy, 'orderBy', 'json');
+        }
+
         if (null !== $tmpReq->startTime) {
             $request->startTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->startTime, 'startTime', 'json');
         }
@@ -1436,8 +1498,24 @@ class Emrserverlessspark extends OpenApiClient
             @$query['maxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->minDuration) {
+            @$query['minDuration'] = $request->minDuration;
+        }
+
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderByShrink) {
+            @$query['orderBy'] = $request->orderByShrink;
+        }
+
+        if (null !== $request->resourceQueueId) {
+            @$query['resourceQueueId'] = $request->resourceQueueId;
+        }
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
 
         if (null !== $request->startTimeShrink) {
@@ -1482,6 +1560,71 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listKyuubiSparkApplicationsWithOptions($workspaceId, $kyuubiServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出compute的token.
+     *
+     * @param request - ListKyuubiTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKyuubiTokenResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $kyuubiServiceId
+     * @param ListKyuubiTokenRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListKyuubiTokenResponse
+     */
+    public function listKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKyuubiToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/kyuubiService/' . Url::percentEncode($kyuubiServiceId) . '/token',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKyuubiTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出compute的token.
+     *
+     * @param request - ListKyuubiTokenRequest
+     *
+     * @returns ListKyuubiTokenResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $kyuubiServiceId
+     * @param ListKyuubiTokenRequest $request
+     *
+     * @return ListKyuubiTokenResponse
+     */
+    public function listKyuubiToken($workspaceId, $kyuubiServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $request, $headers, $runtime);
     }
 
     /**

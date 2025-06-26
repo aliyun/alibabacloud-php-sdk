@@ -30,6 +30,11 @@ class sessionCluster extends Model
     /**
      * @var string
      */
+    public $connectionToken;
+
+    /**
+     * @var string
+     */
     public $displayReleaseVersion;
 
     /**
@@ -135,6 +140,7 @@ class sessionCluster extends Model
         'applicationConfigs' => 'applicationConfigs',
         'autoStartConfiguration' => 'autoStartConfiguration',
         'autoStopConfiguration' => 'autoStopConfiguration',
+        'connectionToken' => 'connectionToken',
         'displayReleaseVersion' => 'displayReleaseVersion',
         'domain' => 'domain',
         'domainInner' => 'domainInner',
@@ -183,7 +189,8 @@ class sessionCluster extends Model
                 $res['applicationConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->applicationConfigs as $item1) {
-                    $res['applicationConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['applicationConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,6 +201,10 @@ class sessionCluster extends Model
 
         if (null !== $this->autoStopConfiguration) {
             $res['autoStopConfiguration'] = null !== $this->autoStopConfiguration ? $this->autoStopConfiguration->toArray($noStream) : $this->autoStopConfiguration;
+        }
+
+        if (null !== $this->connectionToken) {
+            $res['connectionToken'] = $this->connectionToken;
         }
 
         if (null !== $this->displayReleaseVersion) {
@@ -296,7 +307,8 @@ class sessionCluster extends Model
                 $model->applicationConfigs = [];
                 $n1 = 0;
                 foreach ($map['applicationConfigs'] as $item1) {
-                    $model->applicationConfigs[$n1++] = applicationConfigs::fromMap($item1);
+                    $model->applicationConfigs[$n1] = applicationConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -307,6 +319,10 @@ class sessionCluster extends Model
 
         if (isset($map['autoStopConfiguration'])) {
             $model->autoStopConfiguration = autoStopConfiguration::fromMap($map['autoStopConfiguration']);
+        }
+
+        if (isset($map['connectionToken'])) {
+            $model->connectionToken = $map['connectionToken'];
         }
 
         if (isset($map['displayReleaseVersion'])) {

@@ -111,7 +111,8 @@ class Artifact extends Model
                 $res['fullPath'] = [];
                 $n1 = 0;
                 foreach ($this->fullPath as $item1) {
-                    $res['fullPath'][$n1++] = $item1;
+                    $res['fullPath'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +173,8 @@ class Artifact extends Model
                 $model->fullPath = [];
                 $n1 = 0;
                 foreach ($map['fullPath'] as $item1) {
-                    $model->fullPath[$n1++] = $item1;
+                    $model->fullPath[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

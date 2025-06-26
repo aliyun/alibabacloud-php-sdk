@@ -139,7 +139,8 @@ class taskParams extends Model
                 $res['localParams'] = [];
                 $n1 = 0;
                 foreach ($this->localParams as $item1) {
-                    $res['localParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['localParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class taskParams extends Model
                 $res['sparkConf'] = [];
                 $n1 = 0;
                 foreach ($this->sparkConf as $item1) {
-                    $res['sparkConf'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sparkConf'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +228,8 @@ class taskParams extends Model
                 $model->localParams = [];
                 $n1 = 0;
                 foreach ($map['localParams'] as $item1) {
-                    $model->localParams[$n1++] = localParams::fromMap($item1);
+                    $model->localParams[$n1] = localParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -240,7 +243,8 @@ class taskParams extends Model
                 $model->sparkConf = [];
                 $n1 = 0;
                 foreach ($map['sparkConf'] as $item1) {
-                    $model->sparkConf[$n1++] = sparkConf::fromMap($item1);
+                    $model->sparkConf[$n1] = sparkConf::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

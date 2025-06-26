@@ -107,7 +107,8 @@ class CreateSessionClusterRequest extends Model
                 $res['applicationConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->applicationConfigs as $item1) {
-                    $res['applicationConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['applicationConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +173,8 @@ class CreateSessionClusterRequest extends Model
                 $model->applicationConfigs = [];
                 $n1 = 0;
                 foreach ($map['applicationConfigs'] as $item1) {
-                    $model->applicationConfigs[$n1++] = applicationConfigs::fromMap($item1);
+                    $model->applicationConfigs[$n1] = applicationConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

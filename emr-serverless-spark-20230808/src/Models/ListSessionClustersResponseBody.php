@@ -69,7 +69,8 @@ class ListSessionClustersResponseBody extends Model
                 $res['sessionClusters'] = [];
                 $n1 = 0;
                 foreach ($this->sessionClusters as $item1) {
-                    $res['sessionClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sessionClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListSessionClustersResponseBody extends Model
                 $model->sessionClusters = [];
                 $n1 = 0;
                 foreach ($map['sessionClusters'] as $item1) {
-                    $model->sessionClusters[$n1++] = sessionClusters::fromMap($item1);
+                    $model->sessionClusters[$n1] = sessionClusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

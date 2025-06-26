@@ -60,7 +60,8 @@ class EditWorkspaceQueueRequest extends Model
                 $res['environments'] = [];
                 $n1 = 0;
                 foreach ($this->environments as $item1) {
-                    $res['environments'][$n1++] = $item1;
+                    $res['environments'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class EditWorkspaceQueueRequest extends Model
                 $model->environments = [];
                 $n1 = 0;
                 foreach ($map['environments'] as $item1) {
-                    $model->environments[$n1++] = $item1;
+                    $model->environments[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

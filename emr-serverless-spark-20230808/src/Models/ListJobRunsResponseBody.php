@@ -57,7 +57,8 @@ class ListJobRunsResponseBody extends Model
                 $res['jobRuns'] = [];
                 $n1 = 0;
                 foreach ($this->jobRuns as $item1) {
-                    $res['jobRuns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['jobRuns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListJobRunsResponseBody extends Model
                 $model->jobRuns = [];
                 $n1 = 0;
                 foreach ($map['jobRuns'] as $item1) {
-                    $model->jobRuns[$n1++] = jobRuns::fromMap($item1);
+                    $model->jobRuns[$n1] = jobRuns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

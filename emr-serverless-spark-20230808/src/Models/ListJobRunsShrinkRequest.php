@@ -21,6 +21,11 @@ class ListJobRunsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $isWorkflow;
+
+    /**
+     * @var string
+     */
     public $jobRunDeploymentId;
 
     /**
@@ -75,6 +80,7 @@ class ListJobRunsShrinkRequest extends Model
     protected $_name = [
         'creator' => 'creator',
         'endTimeShrink' => 'endTime',
+        'isWorkflow' => 'isWorkflow',
         'jobRunDeploymentId' => 'jobRunDeploymentId',
         'jobRunId' => 'jobRunId',
         'maxResults' => 'maxResults',
@@ -102,6 +108,10 @@ class ListJobRunsShrinkRequest extends Model
 
         if (null !== $this->endTimeShrink) {
             $res['endTime'] = $this->endTimeShrink;
+        }
+
+        if (null !== $this->isWorkflow) {
+            $res['isWorkflow'] = $this->isWorkflow;
         }
 
         if (null !== $this->jobRunDeploymentId) {
@@ -165,6 +175,10 @@ class ListJobRunsShrinkRequest extends Model
 
         if (isset($map['endTime'])) {
             $model->endTimeShrink = $map['endTime'];
+        }
+
+        if (isset($map['isWorkflow'])) {
+            $model->isWorkflow = $map['isWorkflow'];
         }
 
         if (isset($map['jobRunDeploymentId'])) {

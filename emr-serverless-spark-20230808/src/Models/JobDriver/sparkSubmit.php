@@ -48,7 +48,8 @@ class sparkSubmit extends Model
                 $res['entryPointArguments'] = [];
                 $n1 = 0;
                 foreach ($this->entryPointArguments as $item1) {
-                    $res['entryPointArguments'][$n1++] = $item1;
+                    $res['entryPointArguments'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class sparkSubmit extends Model
                 $model->entryPointArguments = [];
                 $n1 = 0;
                 foreach ($map['entryPointArguments'] as $item1) {
-                    $model->entryPointArguments[$n1++] = $item1;
+                    $model->entryPointArguments[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

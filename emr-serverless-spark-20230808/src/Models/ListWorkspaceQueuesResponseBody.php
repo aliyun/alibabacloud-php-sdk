@@ -65,7 +65,8 @@ class ListWorkspaceQueuesResponseBody extends Model
                 $res['queues'] = [];
                 $n1 = 0;
                 foreach ($this->queues as $item1) {
-                    $res['queues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['queues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListWorkspaceQueuesResponseBody extends Model
                 $model->queues = [];
                 $n1 = 0;
                 foreach ($map['queues'] as $item1) {
-                    $model->queues[$n1++] = queues::fromMap($item1);
+                    $model->queues[$n1] = queues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

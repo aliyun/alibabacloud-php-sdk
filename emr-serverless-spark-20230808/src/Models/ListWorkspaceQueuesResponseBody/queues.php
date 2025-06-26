@@ -120,7 +120,8 @@ class queues extends Model
                 $res['allowActions'] = [];
                 $n1 = 0;
                 foreach ($this->allowActions as $item1) {
-                    $res['allowActions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['allowActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class queues extends Model
                 $res['environments'] = [];
                 $n1 = 0;
                 foreach ($this->environments as $item1) {
-                    $res['environments'][$n1++] = $item1;
+                    $res['environments'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +205,8 @@ class queues extends Model
                 $model->allowActions = [];
                 $n1 = 0;
                 foreach ($map['allowActions'] as $item1) {
-                    $model->allowActions[$n1++] = allowActions::fromMap($item1);
+                    $model->allowActions[$n1] = allowActions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +224,8 @@ class queues extends Model
                 $model->environments = [];
                 $n1 = 0;
                 foreach ($map['environments'] as $item1) {
-                    $model->environments[$n1++] = $item1;
+                    $model->environments[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

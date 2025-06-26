@@ -90,7 +90,8 @@ class releaseVersions extends Model
                 $res['cpuArchitectures'] = [];
                 $n1 = 0;
                 foreach ($this->cpuArchitectures as $item1) {
-                    $res['cpuArchitectures'][$n1++] = $item1;
+                    $res['cpuArchitectures'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class releaseVersions extends Model
                 $model->cpuArchitectures = [];
                 $n1 = 0;
                 foreach ($map['cpuArchitectures'] as $item1) {
-                    $model->cpuArchitectures[$n1++] = $item1;
+                    $model->cpuArchitectures[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

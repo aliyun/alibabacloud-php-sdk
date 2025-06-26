@@ -65,7 +65,8 @@ class ListReleaseVersionsResponseBody extends Model
                 $res['releaseVersions'] = [];
                 $n1 = 0;
                 foreach ($this->releaseVersions as $item1) {
-                    $res['releaseVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['releaseVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListReleaseVersionsResponseBody extends Model
                 $model->releaseVersions = [];
                 $n1 = 0;
                 foreach ($map['releaseVersions'] as $item1) {
-                    $model->releaseVersions[$n1++] = releaseVersions::fromMap($item1);
+                    $model->releaseVersions[$n1] = releaseVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -25,9 +25,29 @@ class ListKyuubiSparkApplicationsRequest extends Model
     public $maxResults;
 
     /**
+     * @var int
+     */
+    public $minDuration;
+
+    /**
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string[]
+     */
+    public $orderBy;
+
+    /**
+     * @var string
+     */
+    public $resourceQueueId;
+
+    /**
+     * @var string
+     */
+    public $sort;
 
     /**
      * @var startTime
@@ -37,12 +57,19 @@ class ListKyuubiSparkApplicationsRequest extends Model
         'applicationId' => 'applicationId',
         'applicationName' => 'applicationName',
         'maxResults' => 'maxResults',
+        'minDuration' => 'minDuration',
         'nextToken' => 'nextToken',
+        'orderBy' => 'orderBy',
+        'resourceQueueId' => 'resourceQueueId',
+        'sort' => 'sort',
         'startTime' => 'startTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->orderBy)) {
+            Model::validateArray($this->orderBy);
+        }
         if (null !== $this->startTime) {
             $this->startTime->validate();
         }
@@ -64,8 +91,31 @@ class ListKyuubiSparkApplicationsRequest extends Model
             $res['maxResults'] = $this->maxResults;
         }
 
+        if (null !== $this->minDuration) {
+            $res['minDuration'] = $this->minDuration;
+        }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->orderBy) {
+            if (\is_array($this->orderBy)) {
+                $res['orderBy'] = [];
+                $n1 = 0;
+                foreach ($this->orderBy as $item1) {
+                    $res['orderBy'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceQueueId) {
+            $res['resourceQueueId'] = $this->resourceQueueId;
+        }
+
+        if (null !== $this->sort) {
+            $res['sort'] = $this->sort;
         }
 
         if (null !== $this->startTime) {
@@ -95,8 +145,31 @@ class ListKyuubiSparkApplicationsRequest extends Model
             $model->maxResults = $map['maxResults'];
         }
 
+        if (isset($map['minDuration'])) {
+            $model->minDuration = $map['minDuration'];
+        }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['orderBy'])) {
+            if (!empty($map['orderBy'])) {
+                $model->orderBy = [];
+                $n1 = 0;
+                foreach ($map['orderBy'] as $item1) {
+                    $model->orderBy[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['resourceQueueId'])) {
+            $model->resourceQueueId = $map['resourceQueueId'];
+        }
+
+        if (isset($map['sort'])) {
+            $model->sort = $map['sort'];
         }
 
         if (isset($map['startTime'])) {

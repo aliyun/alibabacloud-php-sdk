@@ -48,7 +48,8 @@ class GrantRoleToUsersRequest extends Model
                 $res['userArns'] = [];
                 $n1 = 0;
                 foreach ($this->userArns as $item1) {
-                    $res['userArns'][$n1++] = $item1;
+                    $res['userArns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class GrantRoleToUsersRequest extends Model
                 $model->userArns = [];
                 $n1 = 0;
                 foreach ($map['userArns'] as $item1) {
-                    $model->userArns[$n1++] = $item1;
+                    $model->userArns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

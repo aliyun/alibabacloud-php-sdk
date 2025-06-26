@@ -24,6 +24,11 @@ class ListJobRunsRequest extends Model
     /**
      * @var string
      */
+    public $isWorkflow;
+
+    /**
+     * @var string
+     */
     public $jobRunDeploymentId;
 
     /**
@@ -78,6 +83,7 @@ class ListJobRunsRequest extends Model
     protected $_name = [
         'creator' => 'creator',
         'endTime' => 'endTime',
+        'isWorkflow' => 'isWorkflow',
         'jobRunDeploymentId' => 'jobRunDeploymentId',
         'jobRunId' => 'jobRunId',
         'maxResults' => 'maxResults',
@@ -117,6 +123,10 @@ class ListJobRunsRequest extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = null !== $this->endTime ? $this->endTime->toArray($noStream) : $this->endTime;
+        }
+
+        if (null !== $this->isWorkflow) {
+            $res['isWorkflow'] = $this->isWorkflow;
         }
 
         if (null !== $this->jobRunDeploymentId) {
@@ -160,7 +170,8 @@ class ListJobRunsRequest extends Model
                 $res['states'] = [];
                 $n1 = 0;
                 foreach ($this->states as $item1) {
-                    $res['states'][$n1++] = $item1;
+                    $res['states'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +181,8 @@ class ListJobRunsRequest extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,6 +204,10 @@ class ListJobRunsRequest extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = endTime::fromMap($map['endTime']);
+        }
+
+        if (isset($map['isWorkflow'])) {
+            $model->isWorkflow = $map['isWorkflow'];
         }
 
         if (isset($map['jobRunDeploymentId'])) {
@@ -235,7 +251,8 @@ class ListJobRunsRequest extends Model
                 $model->states = [];
                 $n1 = 0;
                 foreach ($map['states'] as $item1) {
-                    $model->states[$n1++] = $item1;
+                    $model->states[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +262,8 @@ class ListJobRunsRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

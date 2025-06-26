@@ -44,7 +44,8 @@ class AddMembersRequest extends Model
                 $res['memberArns'] = [];
                 $n1 = 0;
                 foreach ($this->memberArns as $item1) {
-                    $res['memberArns'][$n1++] = $item1;
+                    $res['memberArns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class AddMembersRequest extends Model
                 $model->memberArns = [];
                 $n1 = 0;
                 foreach ($map['memberArns'] as $item1) {
-                    $model->memberArns[$n1++] = $item1;
+                    $model->memberArns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
