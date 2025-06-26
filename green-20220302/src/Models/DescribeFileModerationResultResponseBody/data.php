@@ -75,7 +75,8 @@ class data extends Model
                 $res['PageResult'] = [];
                 $n1 = 0;
                 foreach ($this->pageResult as $item1) {
-                    $res['PageResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PageResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class data extends Model
                 $model->pageResult = [];
                 $n1 = 0;
                 foreach ($map['PageResult'] as $item1) {
-                    $model->pageResult[$n1++] = pageResult::fromMap($item1);
+                    $model->pageResult[$n1] = pageResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

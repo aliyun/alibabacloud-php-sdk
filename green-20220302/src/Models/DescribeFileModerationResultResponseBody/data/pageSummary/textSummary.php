@@ -43,7 +43,8 @@ class textSummary extends Model
                 $res['TextLabels'] = [];
                 $n1 = 0;
                 foreach ($this->textLabels as $item1) {
-                    $res['TextLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TextLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class textSummary extends Model
                 $model->textLabels = [];
                 $n1 = 0;
                 foreach ($map['TextLabels'] as $item1) {
-                    $model->textLabels[$n1++] = textLabels::fromMap($item1);
+                    $model->textLabels[$n1] = textLabels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

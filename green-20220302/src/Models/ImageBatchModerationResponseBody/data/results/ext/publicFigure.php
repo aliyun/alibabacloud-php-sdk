@@ -53,7 +53,8 @@ class publicFigure extends Model
                 $res['Location'] = [];
                 $n1 = 0;
                 foreach ($this->location as $item1) {
-                    $res['Location'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Location'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class publicFigure extends Model
                 $model->location = [];
                 $n1 = 0;
                 foreach ($map['Location'] as $item1) {
-                    $model->location[$n1++] = location::fromMap($item1);
+                    $model->location[$n1] = location::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

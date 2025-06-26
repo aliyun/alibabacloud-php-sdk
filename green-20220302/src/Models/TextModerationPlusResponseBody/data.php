@@ -99,7 +99,8 @@ class data extends Model
                 $res['Advice'] = [];
                 $n1 = 0;
                 foreach ($this->advice as $item1) {
-                    $res['Advice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Advice'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class data extends Model
                 $res['AttackResult'] = [];
                 $n1 = 0;
                 foreach ($this->attackResult as $item1) {
-                    $res['AttackResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AttackResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +133,8 @@ class data extends Model
                 $res['Result'] = [];
                 $n1 = 0;
                 foreach ($this->result as $item1) {
-                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +156,8 @@ class data extends Model
                 $res['SensitiveResult'] = [];
                 $n1 = 0;
                 foreach ($this->sensitiveResult as $item1) {
-                    $res['SensitiveResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SensitiveResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +178,8 @@ class data extends Model
                 $model->advice = [];
                 $n1 = 0;
                 foreach ($map['Advice'] as $item1) {
-                    $model->advice[$n1++] = advice::fromMap($item1);
+                    $model->advice[$n1] = advice::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +193,8 @@ class data extends Model
                 $model->attackResult = [];
                 $n1 = 0;
                 foreach ($map['AttackResult'] as $item1) {
-                    $model->attackResult[$n1++] = attackResult::fromMap($item1);
+                    $model->attackResult[$n1] = attackResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +212,8 @@ class data extends Model
                 $model->result = [];
                 $n1 = 0;
                 foreach ($map['Result'] as $item1) {
-                    $model->result[$n1++] = result::fromMap($item1);
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +235,8 @@ class data extends Model
                 $model->sensitiveResult = [];
                 $n1 = 0;
                 foreach ($map['SensitiveResult'] as $item1) {
-                    $model->sensitiveResult[$n1++] = sensitiveResult::fromMap($item1);
+                    $model->sensitiveResult[$n1] = sensitiveResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

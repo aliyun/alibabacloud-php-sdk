@@ -52,7 +52,8 @@ class textInImage extends Model
                 $res['CustomText'] = [];
                 $n1 = 0;
                 foreach ($this->customText as $item1) {
-                    $res['CustomText'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomText'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class textInImage extends Model
                 $res['OcrResult'] = [];
                 $n1 = 0;
                 foreach ($this->ocrResult as $item1) {
-                    $res['OcrResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OcrResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class textInImage extends Model
                 $res['RiskWord'] = [];
                 $n1 = 0;
                 foreach ($this->riskWord as $item1) {
-                    $res['RiskWord'][$n1++] = $item1;
+                    $res['RiskWord'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class textInImage extends Model
                 $model->customText = [];
                 $n1 = 0;
                 foreach ($map['CustomText'] as $item1) {
-                    $model->customText[$n1++] = customText::fromMap($item1);
+                    $model->customText[$n1] = customText::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +107,8 @@ class textInImage extends Model
                 $model->ocrResult = [];
                 $n1 = 0;
                 foreach ($map['OcrResult'] as $item1) {
-                    $model->ocrResult[$n1++] = ocrResult::fromMap($item1);
+                    $model->ocrResult[$n1] = ocrResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +118,8 @@ class textInImage extends Model
                 $model->riskWord = [];
                 $n1 = 0;
                 foreach ($map['RiskWord'] as $item1) {
-                    $model->riskWord[$n1++] = $item1;
+                    $model->riskWord[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

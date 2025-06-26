@@ -61,7 +61,8 @@ class result extends Model
                 $res['CustomizedHit'] = [];
                 $n1 = 0;
                 foreach ($this->customizedHit as $item1) {
-                    $res['CustomizedHit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomizedHit'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class result extends Model
                 $model->customizedHit = [];
                 $n1 = 0;
                 foreach ($map['CustomizedHit'] as $item1) {
-                    $model->customizedHit[$n1++] = customizedHit::fromMap($item1);
+                    $model->customizedHit[$n1] = customizedHit::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class frameResult extends Model
                 $res['FrameSummarys'] = [];
                 $n1 = 0;
                 foreach ($this->frameSummarys as $item1) {
-                    $res['FrameSummarys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FrameSummarys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class frameResult extends Model
                 $res['Frames'] = [];
                 $n1 = 0;
                 foreach ($this->frames as $item1) {
-                    $res['Frames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Frames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class frameResult extends Model
                 $model->frameSummarys = [];
                 $n1 = 0;
                 foreach ($map['FrameSummarys'] as $item1) {
-                    $model->frameSummarys[$n1++] = frameSummarys::fromMap($item1);
+                    $model->frameSummarys[$n1] = frameSummarys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class frameResult extends Model
                 $model->frames = [];
                 $n1 = 0;
                 foreach ($map['Frames'] as $item1) {
-                    $model->frames[$n1++] = frames::fromMap($item1);
+                    $model->frames[$n1] = frames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

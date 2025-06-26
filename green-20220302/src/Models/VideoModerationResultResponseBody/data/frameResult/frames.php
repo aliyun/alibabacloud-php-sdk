@@ -61,7 +61,8 @@ class frames extends Model
                 $res['Results'] = [];
                 $n1 = 0;
                 foreach ($this->results as $item1) {
-                    $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class frames extends Model
                 $model->results = [];
                 $n1 = 0;
                 foreach ($map['Results'] as $item1) {
-                    $model->results[$n1++] = results::fromMap($item1);
+                    $model->results[$n1] = results::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

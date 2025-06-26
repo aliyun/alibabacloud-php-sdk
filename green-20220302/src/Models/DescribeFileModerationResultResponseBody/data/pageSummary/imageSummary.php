@@ -39,7 +39,8 @@ class imageSummary extends Model
                 $res['ImageLabels'] = [];
                 $n1 = 0;
                 foreach ($this->imageLabels as $item1) {
-                    $res['ImageLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class imageSummary extends Model
                 $model->imageLabels = [];
                 $n1 = 0;
                 foreach ($map['ImageLabels'] as $item1) {
-                    $model->imageLabels[$n1++] = imageLabels::fromMap($item1);
+                    $model->imageLabels[$n1] = imageLabels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -58,7 +58,8 @@ class sensitiveResult extends Model
                 $res['SensitiveData'] = [];
                 $n1 = 0;
                 foreach ($this->sensitiveData as $item1) {
-                    $res['SensitiveData'][$n1++] = $item1;
+                    $res['SensitiveData'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class sensitiveResult extends Model
                 $model->sensitiveData = [];
                 $n1 = 0;
                 foreach ($map['SensitiveData'] as $item1) {
-                    $model->sensitiveData[$n1++] = $item1;
+                    $model->sensitiveData[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

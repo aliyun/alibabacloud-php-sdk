@@ -49,7 +49,8 @@ class audioResult extends Model
                 $res['AudioSummarys'] = [];
                 $n1 = 0;
                 foreach ($this->audioSummarys as $item1) {
-                    $res['AudioSummarys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioSummarys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class audioResult extends Model
                 $res['SliceDetails'] = [];
                 $n1 = 0;
                 foreach ($this->sliceDetails as $item1) {
-                    $res['SliceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SliceDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class audioResult extends Model
                 $model->audioSummarys = [];
                 $n1 = 0;
                 foreach ($map['AudioSummarys'] as $item1) {
-                    $model->audioSummarys[$n1++] = audioSummarys::fromMap($item1);
+                    $model->audioSummarys[$n1] = audioSummarys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class audioResult extends Model
                 $model->sliceDetails = [];
                 $n1 = 0;
                 foreach ($map['SliceDetails'] as $item1) {
-                    $model->sliceDetails[$n1++] = sliceDetails::fromMap($item1);
+                    $model->sliceDetails[$n1] = sliceDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

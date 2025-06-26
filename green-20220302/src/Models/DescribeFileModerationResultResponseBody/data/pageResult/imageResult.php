@@ -65,7 +65,8 @@ class imageResult extends Model
                 $res['LabelResult'] = [];
                 $n1 = 0;
                 foreach ($this->labelResult as $item1) {
-                    $res['LabelResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LabelResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class imageResult extends Model
                 $model->labelResult = [];
                 $n1 = 0;
                 foreach ($map['LabelResult'] as $item1) {
-                    $model->labelResult[$n1++] = labelResult::fromMap($item1);
+                    $model->labelResult[$n1] = labelResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

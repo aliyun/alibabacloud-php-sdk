@@ -53,7 +53,8 @@ class data extends Model
                 $res['CustomImage'] = [];
                 $n1 = 0;
                 foreach ($this->customImage as $item1) {
-                    $res['CustomImage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomImage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class data extends Model
                 $res['PublicFigure'] = [];
                 $n1 = 0;
                 foreach ($this->publicFigure as $item1) {
-                    $res['PublicFigure'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PublicFigure'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class data extends Model
                 $model->customImage = [];
                 $n1 = 0;
                 foreach ($map['CustomImage'] as $item1) {
-                    $model->customImage[$n1++] = customImage::fromMap($item1);
+                    $model->customImage[$n1] = customImage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class data extends Model
                 $model->publicFigure = [];
                 $n1 = 0;
                 foreach ($map['PublicFigure'] as $item1) {
-                    $model->publicFigure[$n1++] = publicFigure::fromMap($item1);
+                    $model->publicFigure[$n1] = publicFigure::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

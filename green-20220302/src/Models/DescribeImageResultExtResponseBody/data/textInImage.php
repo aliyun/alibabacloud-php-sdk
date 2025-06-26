@@ -51,7 +51,8 @@ class textInImage extends Model
                 $res['CustomTexts'] = [];
                 $n1 = 0;
                 foreach ($this->customTexts as $item1) {
-                    $res['CustomTexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomTexts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class textInImage extends Model
                 $res['OcrDatas'] = [];
                 $n1 = 0;
                 foreach ($this->ocrDatas as $item1) {
-                    $res['OcrDatas'][$n1++] = $item1;
+                    $res['OcrDatas'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +73,8 @@ class textInImage extends Model
                 $res['RiskWords'] = [];
                 $n1 = 0;
                 foreach ($this->riskWords as $item1) {
-                    $res['RiskWords'][$n1++] = $item1;
+                    $res['RiskWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class textInImage extends Model
                 $model->customTexts = [];
                 $n1 = 0;
                 foreach ($map['CustomTexts'] as $item1) {
-                    $model->customTexts[$n1++] = customTexts::fromMap($item1);
+                    $model->customTexts[$n1] = customTexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +106,8 @@ class textInImage extends Model
                 $model->ocrDatas = [];
                 $n1 = 0;
                 foreach ($map['OcrDatas'] as $item1) {
-                    $model->ocrDatas[$n1++] = $item1;
+                    $model->ocrDatas[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +117,8 @@ class textInImage extends Model
                 $model->riskWords = [];
                 $n1 = 0;
                 foreach ($map['RiskWords'] as $item1) {
-                    $model->riskWords[$n1++] = $item1;
+                    $model->riskWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

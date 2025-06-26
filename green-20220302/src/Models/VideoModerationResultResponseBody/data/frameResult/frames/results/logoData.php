@@ -47,7 +47,8 @@ class logoData extends Model
                 $res['Logo'] = [];
                 $n1 = 0;
                 foreach ($this->logo as $item1) {
-                    $res['Logo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Logo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class logoData extends Model
                 $model->logo = [];
                 $n1 = 0;
                 foreach ($map['Logo'] as $item1) {
-                    $model->logo[$n1++] = logo::fromMap($item1);
+                    $model->logo[$n1] = logo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
