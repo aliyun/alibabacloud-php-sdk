@@ -70,7 +70,8 @@ class IllustrationTask extends Model
                 $res['illustrationIds'] = [];
                 $n1 = 0;
                 foreach ($this->illustrationIds as $item1) {
-                    $res['illustrationIds'][$n1++] = $item1;
+                    $res['illustrationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class IllustrationTask extends Model
                 $model->illustrationIds = [];
                 $n1 = 0;
                 foreach ($map['illustrationIds'] as $item1) {
-                    $model->illustrationIds[$n1++] = $item1;
+                    $model->illustrationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class BatchGetTrainTaskResponseBody extends Model
                 $res['voiceList'] = [];
                 $n1 = 0;
                 foreach ($this->voiceList as $item1) {
-                    $res['voiceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['voiceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class BatchGetTrainTaskResponseBody extends Model
                 $model->voiceList = [];
                 $n1 = 0;
                 foreach ($map['voiceList'] as $item1) {
-                    $model->voiceList[$n1++] = voiceList::fromMap($item1);
+                    $model->voiceList[$n1] = voiceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -62,7 +62,8 @@ class BatchCreateAICoachTaskRequest extends Model
                 $res['studentIds'] = [];
                 $n1 = 0;
                 foreach ($this->studentIds as $item1) {
-                    $res['studentIds'][$n1++] = $item1;
+                    $res['studentIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class BatchCreateAICoachTaskRequest extends Model
                 $res['studentList'] = [];
                 $n1 = 0;
                 foreach ($this->studentList as $item1) {
-                    $res['studentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['studentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +103,8 @@ class BatchCreateAICoachTaskRequest extends Model
                 $model->studentIds = [];
                 $n1 = 0;
                 foreach ($map['studentIds'] as $item1) {
-                    $model->studentIds[$n1++] = $item1;
+                    $model->studentIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class BatchCreateAICoachTaskRequest extends Model
                 $model->studentList = [];
                 $n1 = 0;
                 foreach ($map['studentList'] as $item1) {
-                    $model->studentList[$n1++] = studentList::fromMap($item1);
+                    $model->studentList[$n1] = studentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

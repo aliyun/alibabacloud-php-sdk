@@ -43,7 +43,8 @@ class textModeTypes extends Model
                 $res['textStyles'] = [];
                 $n1 = 0;
                 foreach ($this->textStyles as $item1) {
-                    $res['textStyles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['textStyles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class textModeTypes extends Model
                 $model->textStyles = [];
                 $n1 = 0;
                 foreach ($map['textStyles'] as $item1) {
-                    $model->textStyles[$n1++] = textStyles::fromMap($item1);
+                    $model->textStyles[$n1] = textStyles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

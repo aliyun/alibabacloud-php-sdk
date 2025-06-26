@@ -58,7 +58,8 @@ class CreateVideoClipTaskRequest extends Model
                 $res['ossKeys'] = [];
                 $n1 = 0;
                 foreach ($this->ossKeys as $item1) {
-                    $res['ossKeys'][$n1++] = $item1;
+                    $res['ossKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class CreateVideoClipTaskRequest extends Model
                 $model->ossKeys = [];
                 $n1 = 0;
                 foreach ($map['ossKeys'] as $item1) {
-                    $model->ossKeys[$n1++] = $item1;
+                    $model->ossKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

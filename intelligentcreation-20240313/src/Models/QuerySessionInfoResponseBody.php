@@ -45,7 +45,8 @@ class QuerySessionInfoResponseBody extends Model
                 $res['queryResourceInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->queryResourceInfoList as $item1) {
-                    $res['queryResourceInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['queryResourceInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class QuerySessionInfoResponseBody extends Model
                 $model->queryResourceInfoList = [];
                 $n1 = 0;
                 foreach ($map['queryResourceInfoList'] as $item1) {
-                    $model->queryResourceInfoList[$n1++] = queryResourceInfoList::fromMap($item1);
+                    $model->queryResourceInfoList[$n1] = queryResourceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

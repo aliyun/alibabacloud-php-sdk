@@ -45,12 +45,14 @@ class CreateIndividuationTextTaskRequest extends Model
                 $n1 = 0;
                 foreach ($this->crowdPack as $item1) {
                     if (\is_array($item1)) {
-                        $res['crowdPack'][$n1++] = [];
+                        $res['crowdPack'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['crowdPack'][$n1++][$n2++] = $item2;
+                            $res['crowdPack'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -80,12 +82,14 @@ class CreateIndividuationTextTaskRequest extends Model
                 $n1 = 0;
                 foreach ($map['crowdPack'] as $item1) {
                     if (!empty($item1)) {
-                        $model->crowdPack[$n1++] = [];
+                        $model->crowdPack[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->crowdPack[$n1++][$n2++] = $item2;
+                            $model->crowdPack[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

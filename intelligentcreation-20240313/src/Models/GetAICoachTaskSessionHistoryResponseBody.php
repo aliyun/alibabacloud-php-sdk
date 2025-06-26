@@ -87,7 +87,8 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
                 $res['conversationList'] = [];
                 $n1 = 0;
                 foreach ($this->conversationList as $item1) {
-                    $res['conversationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['conversationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +145,8 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
                 $model->conversationList = [];
                 $n1 = 0;
                 foreach ($map['conversationList'] as $item1) {
-                    $model->conversationList[$n1++] = conversationList::fromMap($item1);
+                    $model->conversationList[$n1] = conversationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

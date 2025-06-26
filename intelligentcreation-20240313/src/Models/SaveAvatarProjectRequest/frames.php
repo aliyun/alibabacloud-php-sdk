@@ -53,7 +53,8 @@ class frames extends Model
                 $res['layers'] = [];
                 $n1 = 0;
                 foreach ($this->layers as $item1) {
-                    $res['layers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['layers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class frames extends Model
                 $model->layers = [];
                 $n1 = 0;
                 foreach ($map['layers'] as $item1) {
-                    $model->layers[$n1++] = layers::fromMap($item1);
+                    $model->layers[$n1] = layers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

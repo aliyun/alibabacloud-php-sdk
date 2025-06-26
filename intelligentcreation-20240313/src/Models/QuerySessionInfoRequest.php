@@ -62,7 +62,8 @@ class QuerySessionInfoRequest extends Model
                 $res['statusList'] = [];
                 $n1 = 0;
                 foreach ($this->statusList as $item1) {
-                    $res['statusList'][$n1++] = $item1;
+                    $res['statusList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class QuerySessionInfoRequest extends Model
                 $model->statusList = [];
                 $n1 = 0;
                 foreach ($map['statusList'] as $item1) {
-                    $model->statusList[$n1++] = $item1;
+                    $model->statusList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

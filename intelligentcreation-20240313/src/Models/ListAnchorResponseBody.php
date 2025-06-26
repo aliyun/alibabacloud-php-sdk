@@ -80,7 +80,8 @@ class ListAnchorResponseBody extends Model
                 $res['list'] = [];
                 $n1 = 0;
                 foreach ($this->list as $item1) {
-                    $res['list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class ListAnchorResponseBody extends Model
                 $model->list = [];
                 $n1 = 0;
                 foreach ($map['list'] as $item1) {
-                    $model->list[$n1++] = AnchorResponse::fromMap($item1);
+                    $model->list[$n1] = AnchorResponse::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

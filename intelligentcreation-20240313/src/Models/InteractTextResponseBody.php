@@ -83,7 +83,8 @@ class InteractTextResponseBody extends Model
                 $res['relatedImages'] = [];
                 $n1 = 0;
                 foreach ($this->relatedImages as $item1) {
-                    $res['relatedImages'][$n1++] = $item1;
+                    $res['relatedImages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class InteractTextResponseBody extends Model
                 $res['relatedVideos'] = [];
                 $n1 = 0;
                 foreach ($this->relatedVideos as $item1) {
-                    $res['relatedVideos'][$n1++] = $item1;
+                    $res['relatedVideos'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +136,8 @@ class InteractTextResponseBody extends Model
                 $model->relatedImages = [];
                 $n1 = 0;
                 foreach ($map['relatedImages'] as $item1) {
-                    $model->relatedImages[$n1++] = $item1;
+                    $model->relatedImages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +147,8 @@ class InteractTextResponseBody extends Model
                 $model->relatedVideos = [];
                 $n1 = 0;
                 foreach ($map['relatedVideos'] as $item1) {
-                    $model->relatedVideos[$n1++] = $item1;
+                    $model->relatedVideos[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

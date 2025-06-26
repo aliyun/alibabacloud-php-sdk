@@ -32,7 +32,8 @@ class ListAvatarProjectRequest extends Model
                 $res['projectIdList'] = [];
                 $n1 = 0;
                 foreach ($this->projectIdList as $item1) {
-                    $res['projectIdList'][$n1++] = $item1;
+                    $res['projectIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ListAvatarProjectRequest extends Model
                 $model->projectIdList = [];
                 $n1 = 0;
                 foreach ($map['projectIdList'] as $item1) {
-                    $model->projectIdList[$n1++] = $item1;
+                    $model->projectIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

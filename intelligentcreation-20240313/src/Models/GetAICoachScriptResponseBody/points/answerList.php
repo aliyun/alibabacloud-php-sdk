@@ -82,7 +82,8 @@ class answerList extends Model
                 $res['answerValues'] = [];
                 $n1 = 0;
                 foreach ($this->answerValues as $item1) {
-                    $res['answerValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['answerValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class answerList extends Model
                 $res['nameList'] = [];
                 $n1 = 0;
                 foreach ($this->nameList as $item1) {
-                    $res['nameList'][$n1++] = $item1;
+                    $res['nameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +116,8 @@ class answerList extends Model
                 $res['parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +146,8 @@ class answerList extends Model
                 $model->answerValues = [];
                 $n1 = 0;
                 foreach ($map['answerValues'] as $item1) {
-                    $model->answerValues[$n1++] = answerValues::fromMap($item1);
+                    $model->answerValues[$n1] = answerValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +165,8 @@ class answerList extends Model
                 $model->nameList = [];
                 $n1 = 0;
                 foreach ($map['nameList'] as $item1) {
-                    $model->nameList[$n1++] = $item1;
+                    $model->nameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,7 +180,8 @@ class answerList extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

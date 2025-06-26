@@ -54,7 +54,8 @@ class pointDeductionRuleList extends Model
                 $res['punishmentTypes'] = [];
                 $n1 = 0;
                 foreach ($this->punishmentTypes as $item1) {
-                    $res['punishmentTypes'][$n1++] = $item1;
+                    $res['punishmentTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class pointDeductionRuleList extends Model
                 $model->punishmentTypes = [];
                 $n1 = 0;
                 foreach ($map['punishmentTypes'] as $item1) {
-                    $model->punishmentTypes[$n1++] = $item1;
+                    $model->punishmentTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

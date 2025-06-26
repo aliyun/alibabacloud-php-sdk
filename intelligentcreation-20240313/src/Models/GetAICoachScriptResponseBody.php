@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\checkCheatConfig;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\completeStrategy;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\customReplyRules;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\expressivenessList;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\pointDeductionRuleList;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\points;
@@ -45,6 +46,11 @@ class GetAICoachScriptResponseBody extends Model
      * @var string
      */
     public $coverUrl;
+
+    /**
+     * @var customReplyRules[]
+     */
+    public $customReplyRules;
 
     /**
      * @var int
@@ -207,6 +213,7 @@ class GetAICoachScriptResponseBody extends Model
         'closingRemarks' => 'closingRemarks',
         'completeStrategy' => 'completeStrategy',
         'coverUrl' => 'coverUrl',
+        'customReplyRules' => 'customReplyRules',
         'dialogueInputTextLimit' => 'dialogueInputTextLimit',
         'dialogueTextFlag' => 'dialogueTextFlag',
         'dialogueTipFlag' => 'dialogueTipFlag',
@@ -247,6 +254,9 @@ class GetAICoachScriptResponseBody extends Model
         }
         if (null !== $this->completeStrategy) {
             $this->completeStrategy->validate();
+        }
+        if (\is_array($this->customReplyRules)) {
+            Model::validateArray($this->customReplyRules);
         }
         if (\is_array($this->expressiveness)) {
             Model::validateArray($this->expressiveness);
@@ -302,6 +312,17 @@ class GetAICoachScriptResponseBody extends Model
             $res['coverUrl'] = $this->coverUrl;
         }
 
+        if (null !== $this->customReplyRules) {
+            if (\is_array($this->customReplyRules)) {
+                $res['customReplyRules'] = [];
+                $n1 = 0;
+                foreach ($this->customReplyRules as $item1) {
+                    $res['customReplyRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->dialogueInputTextLimit) {
             $res['dialogueInputTextLimit'] = $this->dialogueInputTextLimit;
         }
@@ -336,7 +357,8 @@ class GetAICoachScriptResponseBody extends Model
                 $res['expressivenessList'] = [];
                 $n1 = 0;
                 foreach ($this->expressivenessList as $item1) {
-                    $res['expressivenessList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['expressivenessList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -366,7 +388,8 @@ class GetAICoachScriptResponseBody extends Model
                 $res['interactionInputTypes'] = [];
                 $n1 = 0;
                 foreach ($this->interactionInputTypes as $item1) {
-                    $res['interactionInputTypes'][$n1++] = $item1;
+                    $res['interactionInputTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -396,7 +419,8 @@ class GetAICoachScriptResponseBody extends Model
                 $res['pointDeductionRuleList'] = [];
                 $n1 = 0;
                 foreach ($this->pointDeductionRuleList as $item1) {
-                    $res['pointDeductionRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['pointDeductionRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -406,7 +430,8 @@ class GetAICoachScriptResponseBody extends Model
                 $res['points'] = [];
                 $n1 = 0;
                 foreach ($this->points as $item1) {
-                    $res['points'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['points'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -420,7 +445,8 @@ class GetAICoachScriptResponseBody extends Model
                 $res['sampleDialogueList'] = [];
                 $n1 = 0;
                 foreach ($this->sampleDialogueList as $item1) {
-                    $res['sampleDialogueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sampleDialogueList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -496,6 +522,17 @@ class GetAICoachScriptResponseBody extends Model
             $model->coverUrl = $map['coverUrl'];
         }
 
+        if (isset($map['customReplyRules'])) {
+            if (!empty($map['customReplyRules'])) {
+                $model->customReplyRules = [];
+                $n1 = 0;
+                foreach ($map['customReplyRules'] as $item1) {
+                    $model->customReplyRules[$n1] = customReplyRules::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['dialogueInputTextLimit'])) {
             $model->dialogueInputTextLimit = $map['dialogueInputTextLimit'];
         }
@@ -530,7 +567,8 @@ class GetAICoachScriptResponseBody extends Model
                 $model->expressivenessList = [];
                 $n1 = 0;
                 foreach ($map['expressivenessList'] as $item1) {
-                    $model->expressivenessList[$n1++] = expressivenessList::fromMap($item1);
+                    $model->expressivenessList[$n1] = expressivenessList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -560,7 +598,8 @@ class GetAICoachScriptResponseBody extends Model
                 $model->interactionInputTypes = [];
                 $n1 = 0;
                 foreach ($map['interactionInputTypes'] as $item1) {
-                    $model->interactionInputTypes[$n1++] = $item1;
+                    $model->interactionInputTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -590,7 +629,8 @@ class GetAICoachScriptResponseBody extends Model
                 $model->pointDeductionRuleList = [];
                 $n1 = 0;
                 foreach ($map['pointDeductionRuleList'] as $item1) {
-                    $model->pointDeductionRuleList[$n1++] = pointDeductionRuleList::fromMap($item1);
+                    $model->pointDeductionRuleList[$n1] = pointDeductionRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -600,7 +640,8 @@ class GetAICoachScriptResponseBody extends Model
                 $model->points = [];
                 $n1 = 0;
                 foreach ($map['points'] as $item1) {
-                    $model->points[$n1++] = points::fromMap($item1);
+                    $model->points[$n1] = points::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -614,7 +655,8 @@ class GetAICoachScriptResponseBody extends Model
                 $model->sampleDialogueList = [];
                 $n1 = 0;
                 foreach ($map['sampleDialogueList'] as $item1) {
-                    $model->sampleDialogueList[$n1++] = sampleDialogueList::fromMap($item1);
+                    $model->sampleDialogueList[$n1] = sampleDialogueList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -109,7 +109,8 @@ class SelectImageTaskResponseBody extends Model
                 $res['imageInfos'] = [];
                 $n1 = 0;
                 foreach ($this->imageInfos as $item1) {
-                    $res['imageInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['imageInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class SelectImageTaskResponseBody extends Model
                 $model->imageInfos = [];
                 $n1 = 0;
                 foreach ($map['imageInfos'] as $item1) {
-                    $model->imageInfos[$n1++] = imageInfos::fromMap($item1);
+                    $model->imageInfos[$n1] = imageInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

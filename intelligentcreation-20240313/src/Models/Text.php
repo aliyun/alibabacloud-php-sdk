@@ -167,7 +167,8 @@ class Text extends Model
                 $res['illustrationTaskIdList'] = [];
                 $n1 = 0;
                 foreach ($this->illustrationTaskIdList as $item1) {
-                    $res['illustrationTaskIdList'][$n1++] = $item1;
+                    $res['illustrationTaskIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +210,8 @@ class Text extends Model
                 $res['textThemes'] = [];
                 $n1 = 0;
                 foreach ($this->textThemes as $item1) {
-                    $res['textThemes'][$n1++] = $item1;
+                    $res['textThemes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -266,7 +268,8 @@ class Text extends Model
                 $model->illustrationTaskIdList = [];
                 $n1 = 0;
                 foreach ($map['illustrationTaskIdList'] as $item1) {
-                    $model->illustrationTaskIdList[$n1++] = $item1;
+                    $model->illustrationTaskIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +311,8 @@ class Text extends Model
                 $model->textThemes = [];
                 $n1 = 0;
                 foreach ($map['textThemes'] as $item1) {
-                    $model->textThemes[$n1++] = $item1;
+                    $model->textThemes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

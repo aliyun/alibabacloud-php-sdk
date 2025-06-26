@@ -72,7 +72,8 @@ class points extends Model
                 $res['answerList'] = [];
                 $n1 = 0;
                 foreach ($this->answerList as $item1) {
-                    $res['answerList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['answerList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class points extends Model
                 $res['knowledgeList'] = [];
                 $n1 = 0;
                 foreach ($this->knowledgeList as $item1) {
-                    $res['knowledgeList'][$n1++] = $item1;
+                    $res['knowledgeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +125,8 @@ class points extends Model
                 $model->answerList = [];
                 $n1 = 0;
                 foreach ($map['answerList'] as $item1) {
-                    $model->answerList[$n1++] = answerList::fromMap($item1);
+                    $model->answerList[$n1] = answerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +136,8 @@ class points extends Model
                 $model->knowledgeList = [];
                 $n1 = 0;
                 foreach ($map['knowledgeList'] as $item1) {
-                    $model->knowledgeList[$n1++] = $item1;
+                    $model->knowledgeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

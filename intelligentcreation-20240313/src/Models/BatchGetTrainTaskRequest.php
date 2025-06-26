@@ -42,7 +42,8 @@ class BatchGetTrainTaskRequest extends Model
                 $res['taskIdList'] = [];
                 $n1 = 0;
                 foreach ($this->taskIdList as $item1) {
-                    $res['taskIdList'][$n1++] = $item1;
+                    $res['taskIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class BatchGetTrainTaskRequest extends Model
                 $model->taskIdList = [];
                 $n1 = 0;
                 foreach ($map['taskIdList'] as $item1) {
-                    $model->taskIdList[$n1++] = $item1;
+                    $model->taskIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

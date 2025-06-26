@@ -69,7 +69,8 @@ class QueryIndividuationTextTaskResponseBody extends Model
                 $res['textList'] = [];
                 $n1 = 0;
                 foreach ($this->textList as $item1) {
-                    $res['textList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['textList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class QueryIndividuationTextTaskResponseBody extends Model
                 $model->textList = [];
                 $n1 = 0;
                 foreach ($map['textList'] as $item1) {
-                    $model->textList[$n1++] = textList::fromMap($item1);
+                    $model->textList[$n1] = textList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

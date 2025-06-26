@@ -73,7 +73,8 @@ class taskList extends Model
                 $res['videoList'] = [];
                 $n1 = 0;
                 foreach ($this->videoList as $item1) {
-                    $res['videoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['videoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class taskList extends Model
                 $model->videoList = [];
                 $n1 = 0;
                 foreach ($map['videoList'] as $item1) {
-                    $model->videoList[$n1++] = videoList::fromMap($item1);
+                    $model->videoList[$n1] = videoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

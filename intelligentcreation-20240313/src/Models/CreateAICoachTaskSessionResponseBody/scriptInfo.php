@@ -136,7 +136,8 @@ class scriptInfo extends Model
                 $res['inputTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->inputTypeList as $item1) {
-                    $res['inputTypeList'][$n1++] = $item1;
+                    $res['inputTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +214,8 @@ class scriptInfo extends Model
                 $model->inputTypeList = [];
                 $n1 = 0;
                 foreach ($map['inputTypeList'] as $item1) {
-                    $model->inputTypeList[$n1++] = $item1;
+                    $model->inputTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class TextThemeListResult extends Model
                 $res['textThemeList'] = [];
                 $n1 = 0;
                 foreach ($this->textThemeList as $item1) {
-                    $res['textThemeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['textThemeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class TextThemeListResult extends Model
                 $model->textThemeList = [];
                 $n1 = 0;
                 foreach ($map['textThemeList'] as $item1) {
-                    $model->textThemeList[$n1++] = TextTheme::fromMap($item1);
+                    $model->textThemeList[$n1] = TextTheme::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

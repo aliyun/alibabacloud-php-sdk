@@ -113,7 +113,8 @@ class CreateRealisticPortraitRequest extends Model
                 $res['ages'] = [];
                 $n1 = 0;
                 foreach ($this->ages as $item1) {
-                    $res['ages'][$n1++] = $item1;
+                    $res['ages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +136,8 @@ class CreateRealisticPortraitRequest extends Model
                 $res['face'] = [];
                 $n1 = 0;
                 foreach ($this->face as $item1) {
-                    $res['face'][$n1++] = $item1;
+                    $res['face'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +194,8 @@ class CreateRealisticPortraitRequest extends Model
                 $model->ages = [];
                 $n1 = 0;
                 foreach ($map['ages'] as $item1) {
-                    $model->ages[$n1++] = $item1;
+                    $model->ages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +217,8 @@ class CreateRealisticPortraitRequest extends Model
                 $model->face = [];
                 $n1 = 0;
                 foreach ($map['face'] as $item1) {
-                    $model->face[$n1++] = $item1;
+                    $model->face[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

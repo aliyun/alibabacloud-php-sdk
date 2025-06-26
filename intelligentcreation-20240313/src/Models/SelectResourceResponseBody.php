@@ -53,7 +53,8 @@ class SelectResourceResponseBody extends Model
                 $res['resourceInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceInfoList as $item1) {
-                    $res['resourceInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['resourceInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class SelectResourceResponseBody extends Model
                 $model->resourceInfoList = [];
                 $n1 = 0;
                 foreach ($map['resourceInfoList'] as $item1) {
-                    $model->resourceInfoList[$n1++] = resourceInfoList::fromMap($item1);
+                    $model->resourceInfoList[$n1] = resourceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

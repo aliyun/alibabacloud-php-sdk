@@ -185,7 +185,8 @@ class TextTask extends Model
                 $res['relatedRagIds'] = [];
                 $n1 = 0;
                 foreach ($this->relatedRagIds as $item1) {
-                    $res['relatedRagIds'][$n1++] = $item1;
+                    $res['relatedRagIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class TextTask extends Model
                 $res['textIds'] = [];
                 $n1 = 0;
                 foreach ($this->textIds as $item1) {
-                    $res['textIds'][$n1++] = $item1;
+                    $res['textIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +227,8 @@ class TextTask extends Model
                 $res['texts'] = [];
                 $n1 = 0;
                 foreach ($this->texts as $item1) {
-                    $res['texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['texts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -290,7 +293,8 @@ class TextTask extends Model
                 $model->relatedRagIds = [];
                 $n1 = 0;
                 foreach ($map['relatedRagIds'] as $item1) {
-                    $model->relatedRagIds[$n1++] = $item1;
+                    $model->relatedRagIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +312,8 @@ class TextTask extends Model
                 $model->textIds = [];
                 $n1 = 0;
                 foreach ($map['textIds'] as $item1) {
-                    $model->textIds[$n1++] = $item1;
+                    $model->textIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -330,7 +335,8 @@ class TextTask extends Model
                 $model->texts = [];
                 $n1 = 0;
                 foreach ($map['texts'] as $item1) {
-                    $model->texts[$n1++] = Text::fromMap($item1);
+                    $model->texts[$n1] = Text::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

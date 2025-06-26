@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScrip
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\completeStrategy;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\customReplyRules;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\sampleDialogueList;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\scoreConfig;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\weights;
@@ -36,6 +37,11 @@ class list_ extends Model
      * @var string
      */
     public $coverUrl;
+
+    /**
+     * @var customReplyRules[]
+     */
+    public $customReplyRules;
 
     /**
      * @var bool
@@ -157,6 +163,7 @@ class list_ extends Model
         'closingRemarks' => 'closingRemarks',
         'completeStrategy' => 'completeStrategy',
         'coverUrl' => 'coverUrl',
+        'customReplyRules' => 'customReplyRules',
         'dialogueTextFlag' => 'dialogueTextFlag',
         'dialogueTipFlag' => 'dialogueTipFlag',
         'evaluateReportFlag' => 'evaluateReportFlag',
@@ -186,6 +193,9 @@ class list_ extends Model
     {
         if (null !== $this->completeStrategy) {
             $this->completeStrategy->validate();
+        }
+        if (\is_array($this->customReplyRules)) {
+            Model::validateArray($this->customReplyRules);
         }
         if (\is_array($this->expressiveness)) {
             Model::validateArray($this->expressiveness);
@@ -223,6 +233,17 @@ class list_ extends Model
 
         if (null !== $this->coverUrl) {
             $res['coverUrl'] = $this->coverUrl;
+        }
+
+        if (null !== $this->customReplyRules) {
+            if (\is_array($this->customReplyRules)) {
+                $res['customReplyRules'] = [];
+                $n1 = 0;
+                foreach ($this->customReplyRules as $item1) {
+                    $res['customReplyRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->dialogueTextFlag) {
@@ -291,7 +312,8 @@ class list_ extends Model
                 $res['sampleDialogueList'] = [];
                 $n1 = 0;
                 foreach ($this->sampleDialogueList as $item1) {
-                    $res['sampleDialogueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sampleDialogueList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -357,6 +379,17 @@ class list_ extends Model
 
         if (isset($map['coverUrl'])) {
             $model->coverUrl = $map['coverUrl'];
+        }
+
+        if (isset($map['customReplyRules'])) {
+            if (!empty($map['customReplyRules'])) {
+                $model->customReplyRules = [];
+                $n1 = 0;
+                foreach ($map['customReplyRules'] as $item1) {
+                    $model->customReplyRules[$n1] = customReplyRules::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['dialogueTextFlag'])) {
@@ -425,7 +458,8 @@ class list_ extends Model
                 $model->sampleDialogueList = [];
                 $n1 = 0;
                 foreach ($map['sampleDialogueList'] as $item1) {
-                    $model->sampleDialogueList[$n1++] = sampleDialogueList::fromMap($item1);
+                    $model->sampleDialogueList[$n1] = sampleDialogueList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

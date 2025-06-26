@@ -32,7 +32,8 @@ class BatchQueryIndividuationTextRequest extends Model
                 $res['textIdList'] = [];
                 $n1 = 0;
                 foreach ($this->textIdList as $item1) {
-                    $res['textIdList'][$n1++] = $item1;
+                    $res['textIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class BatchQueryIndividuationTextRequest extends Model
                 $model->textIdList = [];
                 $n1 = 0;
                 foreach ($map['textIdList'] as $item1) {
-                    $model->textIdList[$n1++] = $item1;
+                    $model->textIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

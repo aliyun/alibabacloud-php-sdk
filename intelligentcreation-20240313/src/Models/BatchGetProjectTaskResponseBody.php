@@ -43,7 +43,8 @@ class BatchGetProjectTaskResponseBody extends Model
                 $res['resultList'] = [];
                 $n1 = 0;
                 foreach ($this->resultList as $item1) {
-                    $res['resultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['resultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class BatchGetProjectTaskResponseBody extends Model
                 $model->resultList = [];
                 $n1 = 0;
                 foreach ($map['resultList'] as $item1) {
-                    $model->resultList[$n1++] = resultList::fromMap($item1);
+                    $model->resultList[$n1] = resultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

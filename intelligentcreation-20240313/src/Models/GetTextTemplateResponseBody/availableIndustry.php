@@ -43,7 +43,8 @@ class availableIndustry extends Model
                 $res['textModeTypes'] = [];
                 $n1 = 0;
                 foreach ($this->textModeTypes as $item1) {
-                    $res['textModeTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['textModeTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class availableIndustry extends Model
                 $model->textModeTypes = [];
                 $n1 = 0;
                 foreach ($map['textModeTypes'] as $item1) {
-                    $model->textModeTypes[$n1++] = textModeTypes::fromMap($item1);
+                    $model->textModeTypes[$n1] = textModeTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

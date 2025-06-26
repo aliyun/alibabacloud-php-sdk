@@ -38,7 +38,8 @@ class BatchAddDocumentResult extends Model
                 $res['addDocumentResults'] = [];
                 $n1 = 0;
                 foreach ($this->addDocumentResults as $item1) {
-                    $res['addDocumentResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['addDocumentResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class BatchAddDocumentResult extends Model
                 $model->addDocumentResults = [];
                 $n1 = 0;
                 foreach ($map['addDocumentResults'] as $item1) {
-                    $model->addDocumentResults[$n1++] = AddDocumentResult::fromMap($item1);
+                    $model->addDocumentResults[$n1] = AddDocumentResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

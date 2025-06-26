@@ -154,7 +154,8 @@ class TextTaskCreateCmd extends Model
                 $res['relatedRagIds'] = [];
                 $n1 = 0;
                 foreach ($this->relatedRagIds as $item1) {
-                    $res['relatedRagIds'][$n1++] = $item1;
+                    $res['relatedRagIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +185,8 @@ class TextTaskCreateCmd extends Model
                 $res['themes'] = [];
                 $n1 = 0;
                 foreach ($this->themes as $item1) {
-                    $res['themes'][$n1++] = $item1;
+                    $res['themes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +239,8 @@ class TextTaskCreateCmd extends Model
                 $model->relatedRagIds = [];
                 $n1 = 0;
                 foreach ($map['relatedRagIds'] as $item1) {
-                    $model->relatedRagIds[$n1++] = $item1;
+                    $model->relatedRagIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +270,8 @@ class TextTaskCreateCmd extends Model
                 $model->themes = [];
                 $n1 = 0;
                 foreach ($map['themes'] as $item1) {
-                    $model->themes[$n1++] = $item1;
+                    $model->themes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

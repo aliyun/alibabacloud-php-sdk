@@ -55,7 +55,8 @@ class voiceCheat extends Model
                 $res['comparisonList'] = [];
                 $n1 = 0;
                 foreach ($this->comparisonList as $item1) {
-                    $res['comparisonList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['comparisonList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class voiceCheat extends Model
                 $res['originalList'] = [];
                 $n1 = 0;
                 foreach ($this->originalList as $item1) {
-                    $res['originalList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['originalList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class voiceCheat extends Model
                 $model->comparisonList = [];
                 $n1 = 0;
                 foreach ($map['comparisonList'] as $item1) {
-                    $model->comparisonList[$n1++] = comparisonList::fromMap($item1);
+                    $model->comparisonList[$n1] = comparisonList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class voiceCheat extends Model
                 $model->originalList = [];
                 $n1 = 0;
                 foreach ($map['originalList'] as $item1) {
-                    $model->originalList[$n1++] = originalList::fromMap($item1);
+                    $model->originalList[$n1] = originalList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -93,7 +93,8 @@ class IllustrationTaskCreateCmd extends Model
                 $res['imageUrls'] = [];
                 $n1 = 0;
                 foreach ($this->imageUrls as $item1) {
-                    $res['imageUrls'][$n1++] = $item1;
+                    $res['imageUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class IllustrationTaskCreateCmd extends Model
                 $res['ossPaths'] = [];
                 $n1 = 0;
                 foreach ($this->ossPaths as $item1) {
-                    $res['ossPaths'][$n1++] = $item1;
+                    $res['ossPaths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +150,8 @@ class IllustrationTaskCreateCmd extends Model
                 $model->imageUrls = [];
                 $n1 = 0;
                 foreach ($map['imageUrls'] as $item1) {
-                    $model->imageUrls[$n1++] = $item1;
+                    $model->imageUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class IllustrationTaskCreateCmd extends Model
                 $model->ossPaths = [];
                 $n1 = 0;
                 foreach ($map['ossPaths'] as $item1) {
-                    $model->ossPaths[$n1++] = $item1;
+                    $model->ossPaths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

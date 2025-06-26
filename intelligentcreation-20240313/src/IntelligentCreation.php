@@ -69,6 +69,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionH
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionReportRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionReportResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionResourceUsageRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionResourceUsageResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetIllustrationResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetIllustrationTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetOssUploadTokenRequest;
@@ -2258,6 +2260,67 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->getAICoachTaskSessionReportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取对练会话资源使用情况.
+     *
+     * @param request - GetAICoachTaskSessionResourceUsageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICoachTaskSessionResourceUsageResponse
+     *
+     * @param GetAICoachTaskSessionResourceUsageRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetAICoachTaskSessionResourceUsageResponse
+     */
+    public function getAICoachTaskSessionResourceUsageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAICoachTaskSessionResourceUsage',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/getSessionResourceUsage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAICoachTaskSessionResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取对练会话资源使用情况.
+     *
+     * @param request - GetAICoachTaskSessionResourceUsageRequest
+     *
+     * @returns GetAICoachTaskSessionResourceUsageResponse
+     *
+     * @param GetAICoachTaskSessionResourceUsageRequest $request
+     *
+     * @return GetAICoachTaskSessionResourceUsageResponse
+     */
+    public function getAICoachTaskSessionResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICoachTaskSessionResourceUsageWithOptions($request, $headers, $runtime);
     }
 
     /**

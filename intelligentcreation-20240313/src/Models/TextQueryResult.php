@@ -48,7 +48,8 @@ class TextQueryResult extends Model
                 $res['texts'] = [];
                 $n1 = 0;
                 foreach ($this->texts as $item1) {
-                    $res['texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['texts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class TextQueryResult extends Model
                 $model->texts = [];
                 $n1 = 0;
                 foreach ($map['texts'] as $item1) {
-                    $model->texts[$n1++] = Text::fromMap($item1);
+                    $model->texts[$n1] = Text::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

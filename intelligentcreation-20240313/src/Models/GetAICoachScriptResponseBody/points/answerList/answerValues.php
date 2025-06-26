@@ -69,7 +69,8 @@ class answerValues extends Model
                 $res['keywordValues'] = [];
                 $n1 = 0;
                 foreach ($this->keywordValues as $item1) {
-                    $res['keywordValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['keywordValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class answerValues extends Model
                 $res['scoringRules'] = [];
                 $n1 = 0;
                 foreach ($this->scoringRules as $item1) {
-                    $res['scoringRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['scoringRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class answerValues extends Model
                 $model->keywordValues = [];
                 $n1 = 0;
                 foreach ($map['keywordValues'] as $item1) {
-                    $model->keywordValues[$n1++] = keywordValues::fromMap($item1);
+                    $model->keywordValues[$n1] = keywordValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class answerValues extends Model
                 $model->scoringRules = [];
                 $n1 = 0;
                 foreach ($map['scoringRules'] as $item1) {
-                    $model->scoringRules[$n1++] = scoringRules::fromMap($item1);
+                    $model->scoringRules[$n1] = scoringRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

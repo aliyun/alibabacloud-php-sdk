@@ -32,7 +32,8 @@ class BatchAddDocumentRequest extends Model
                 $res['addDocumentInfos'] = [];
                 $n1 = 0;
                 foreach ($this->addDocumentInfos as $item1) {
-                    $res['addDocumentInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['addDocumentInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class BatchAddDocumentRequest extends Model
                 $model->addDocumentInfos = [];
                 $n1 = 0;
                 foreach ($map['addDocumentInfos'] as $item1) {
-                    $model->addDocumentInfos[$n1++] = AddDocumentInfo::fromMap($item1);
+                    $model->addDocumentInfos[$n1] = AddDocumentInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

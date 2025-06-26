@@ -59,7 +59,8 @@ class scoreConfig extends Model
                 $res['levels'] = [];
                 $n1 = 0;
                 foreach ($this->levels as $item1) {
-                    $res['levels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['levels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class scoreConfig extends Model
                 $model->levels = [];
                 $n1 = 0;
                 foreach ($map['levels'] as $item1) {
-                    $model->levels[$n1++] = levels::fromMap($item1);
+                    $model->levels[$n1] = levels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class CountTextResponseBody extends Model
                 $res['countTextCmdList'] = [];
                 $n1 = 0;
                 foreach ($this->countTextCmdList as $item1) {
-                    $res['countTextCmdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['countTextCmdList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class CountTextResponseBody extends Model
                 $model->countTextCmdList = [];
                 $n1 = 0;
                 foreach ($map['countTextCmdList'] as $item1) {
-                    $model->countTextCmdList[$n1++] = countTextCmdList::fromMap($item1);
+                    $model->countTextCmdList[$n1] = countTextCmdList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

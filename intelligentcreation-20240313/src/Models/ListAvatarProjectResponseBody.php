@@ -39,7 +39,8 @@ class ListAvatarProjectResponseBody extends Model
                 $res['queryAvatarProjectResultList'] = [];
                 $n1 = 0;
                 foreach ($this->queryAvatarProjectResultList as $item1) {
-                    $res['queryAvatarProjectResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['queryAvatarProjectResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAvatarProjectResponseBody extends Model
                 $model->queryAvatarProjectResultList = [];
                 $n1 = 0;
                 foreach ($map['queryAvatarProjectResultList'] as $item1) {
-                    $model->queryAvatarProjectResultList[$n1++] = queryAvatarProjectResultList::fromMap($item1);
+                    $model->queryAvatarProjectResultList[$n1] = queryAvatarProjectResultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
