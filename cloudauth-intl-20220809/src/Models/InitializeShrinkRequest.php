@@ -31,6 +31,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $chameleonFrameEnable;
+
+    /**
+     * @var string
+     */
     public $crop;
 
     /**
@@ -197,6 +202,7 @@ class InitializeShrinkRequest extends Model
         'authorize' => 'Authorize',
         'callbackToken' => 'CallbackToken',
         'callbackUrl' => 'CallbackUrl',
+        'chameleonFrameEnable' => 'ChameleonFrameEnable',
         'crop' => 'Crop',
         'dateOfBirth' => 'DateOfBirth',
         'dateOfExpiry' => 'DateOfExpiry',
@@ -254,6 +260,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
+        }
+
+        if (null !== $this->chameleonFrameEnable) {
+            $res['ChameleonFrameEnable'] = $this->chameleonFrameEnable;
         }
 
         if (null !== $this->crop) {
@@ -413,6 +423,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
+        }
+
+        if (isset($map['ChameleonFrameEnable'])) {
+            $model->chameleonFrameEnable = $map['ChameleonFrameEnable'];
         }
 
         if (isset($map['Crop'])) {

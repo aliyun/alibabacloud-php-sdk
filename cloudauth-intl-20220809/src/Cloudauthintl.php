@@ -1514,6 +1514,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['CallbackUrl'] = $request->callbackUrl;
         }
 
+        if (null !== $request->chameleonFrameEnable) {
+            @$query['ChameleonFrameEnable'] = $request->chameleonFrameEnable;
+        }
+
         if (null !== $request->crop) {
             @$query['Crop'] = $request->crop;
         }
