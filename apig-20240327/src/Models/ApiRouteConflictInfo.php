@@ -43,7 +43,8 @@ class ApiRouteConflictInfo extends Model
                 $res['conflicts'] = [];
                 $n1 = 0;
                 foreach ($this->conflicts as $item1) {
-                    $res['conflicts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['conflicts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ApiRouteConflictInfo extends Model
                 $model->conflicts = [];
                 $n1 = 0;
                 foreach ($map['conflicts'] as $item1) {
-                    $model->conflicts[$n1++] = conflicts::fromMap($item1);
+                    $model->conflicts[$n1] = conflicts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

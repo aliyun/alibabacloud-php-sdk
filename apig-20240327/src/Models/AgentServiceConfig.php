@@ -5,8 +5,10 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig\dashScopeConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig\difyConfig;
 
-class AiServiceConfig extends Model
+class AgentServiceConfig extends Model
 {
     /**
      * @var string
@@ -14,9 +16,14 @@ class AiServiceConfig extends Model
     public $address;
 
     /**
-     * @var string[]
+     * @var dashScopeConfig
      */
-    public $apiKeys;
+    public $dashScopeConfig;
+
+    /**
+     * @var difyConfig
+     */
+    public $difyConfig;
 
     /**
      * @var bool
@@ -34,7 +41,8 @@ class AiServiceConfig extends Model
     public $provider;
     protected $_name = [
         'address' => 'address',
-        'apiKeys' => 'apiKeys',
+        'dashScopeConfig' => 'dashScopeConfig',
+        'difyConfig' => 'difyConfig',
         'enableHealthCheck' => 'enableHealthCheck',
         'protocols' => 'protocols',
         'provider' => 'provider',
@@ -42,8 +50,11 @@ class AiServiceConfig extends Model
 
     public function validate()
     {
-        if (\is_array($this->apiKeys)) {
-            Model::validateArray($this->apiKeys);
+        if (null !== $this->dashScopeConfig) {
+            $this->dashScopeConfig->validate();
+        }
+        if (null !== $this->difyConfig) {
+            $this->difyConfig->validate();
         }
         if (\is_array($this->protocols)) {
             Model::validateArray($this->protocols);
@@ -58,15 +69,12 @@ class AiServiceConfig extends Model
             $res['address'] = $this->address;
         }
 
-        if (null !== $this->apiKeys) {
-            if (\is_array($this->apiKeys)) {
-                $res['apiKeys'] = [];
-                $n1 = 0;
-                foreach ($this->apiKeys as $item1) {
-                    $res['apiKeys'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->dashScopeConfig) {
+            $res['dashScopeConfig'] = null !== $this->dashScopeConfig ? $this->dashScopeConfig->toArray($noStream) : $this->dashScopeConfig;
+        }
+
+        if (null !== $this->difyConfig) {
+            $res['difyConfig'] = null !== $this->difyConfig ? $this->difyConfig->toArray($noStream) : $this->difyConfig;
         }
 
         if (null !== $this->enableHealthCheck) {
@@ -103,15 +111,12 @@ class AiServiceConfig extends Model
             $model->address = $map['address'];
         }
 
-        if (isset($map['apiKeys'])) {
-            if (!empty($map['apiKeys'])) {
-                $model->apiKeys = [];
-                $n1 = 0;
-                foreach ($map['apiKeys'] as $item1) {
-                    $model->apiKeys[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (isset($map['dashScopeConfig'])) {
+            $model->dashScopeConfig = dashScopeConfig::fromMap($map['dashScopeConfig']);
+        }
+
+        if (isset($map['difyConfig'])) {
+            $model->difyConfig = difyConfig::fromMap($map['difyConfig']);
         }
 
         if (isset($map['enableHealthCheck'])) {

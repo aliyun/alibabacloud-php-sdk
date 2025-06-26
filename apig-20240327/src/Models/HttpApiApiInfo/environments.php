@@ -111,7 +111,8 @@ class environments extends Model
                 $res['customDomains'] = [];
                 $n1 = 0;
                 foreach ($this->customDomains as $item1) {
-                    $res['customDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['customDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class environments extends Model
                 $res['serviceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->serviceConfigs as $item1) {
-                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['serviceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +149,8 @@ class environments extends Model
                 $res['subDomains'] = [];
                 $n1 = 0;
                 foreach ($this->subDomains as $item1) {
-                    $res['subDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class environments extends Model
                 $model->customDomains = [];
                 $n1 = 0;
                 foreach ($map['customDomains'] as $item1) {
-                    $model->customDomains[$n1++] = HttpApiDomainInfo::fromMap($item1);
+                    $model->customDomains[$n1] = HttpApiDomainInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +210,8 @@ class environments extends Model
                 $model->serviceConfigs = [];
                 $n1 = 0;
                 foreach ($map['serviceConfigs'] as $item1) {
-                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
+                    $model->serviceConfigs[$n1] = serviceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +221,8 @@ class environments extends Model
                 $model->subDomains = [];
                 $n1 = 0;
                 foreach ($map['subDomains'] as $item1) {
-                    $model->subDomains[$n1++] = subDomains::fromMap($item1);
+                    $model->subDomains[$n1] = subDomains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

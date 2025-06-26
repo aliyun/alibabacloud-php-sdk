@@ -38,7 +38,8 @@ class HttpApiBackendMatchConditions extends Model
                 $res['conditions'] = [];
                 $n1 = 0;
                 foreach ($this->conditions as $item1) {
-                    $res['conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class HttpApiBackendMatchConditions extends Model
                 $model->conditions = [];
                 $n1 = 0;
                 foreach ($map['conditions'] as $item1) {
-                    $model->conditions[$n1++] = HttpApiBackendMatchCondition::fromMap($item1);
+                    $model->conditions[$n1] = HttpApiBackendMatchCondition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

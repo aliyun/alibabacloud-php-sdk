@@ -59,7 +59,8 @@ class CreateServiceRequest extends Model
                 $res['serviceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->serviceConfigs as $item1) {
-                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['serviceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class CreateServiceRequest extends Model
                 $model->serviceConfigs = [];
                 $n1 = 0;
                 foreach ($map['serviceConfigs'] as $item1) {
-                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
+                    $model->serviceConfigs[$n1] = serviceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

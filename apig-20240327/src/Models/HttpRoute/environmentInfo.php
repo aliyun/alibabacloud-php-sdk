@@ -77,7 +77,8 @@ class environmentInfo extends Model
                 $res['subDomains'] = [];
                 $n1 = 0;
                 foreach ($this->subDomains as $item1) {
-                    $res['subDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class environmentInfo extends Model
                 $model->subDomains = [];
                 $n1 = 0;
                 foreach ($map['subDomains'] as $item1) {
-                    $model->subDomains[$n1++] = subDomains::fromMap($item1);
+                    $model->subDomains[$n1] = subDomains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

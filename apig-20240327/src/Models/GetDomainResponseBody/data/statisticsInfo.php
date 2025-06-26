@@ -39,7 +39,8 @@ class statisticsInfo extends Model
                 $res['resourceStatistics'] = [];
                 $n1 = 0;
                 foreach ($this->resourceStatistics as $item1) {
-                    $res['resourceStatistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['resourceStatistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class statisticsInfo extends Model
                 $model->resourceStatistics = [];
                 $n1 = 0;
                 foreach ($map['resourceStatistics'] as $item1) {
-                    $model->resourceStatistics[$n1++] = ResourceStatistic::fromMap($item1);
+                    $model->resourceStatistics[$n1] = ResourceStatistic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

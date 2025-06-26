@@ -48,7 +48,8 @@ class dnsConfigs extends Model
                 $res['dnsList'] = [];
                 $n1 = 0;
                 foreach ($this->dnsList as $item1) {
-                    $res['dnsList'][$n1++] = $item1;
+                    $res['dnsList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class dnsConfigs extends Model
                 $model->dnsList = [];
                 $n1 = 0;
                 foreach ($map['dnsList'] as $item1) {
-                    $model->dnsList[$n1++] = $item1;
+                    $model->dnsList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

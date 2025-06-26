@@ -43,7 +43,8 @@ class TlsCipherSuitesConfig extends Model
                 $res['tlsCipherSuite'] = [];
                 $n1 = 0;
                 foreach ($this->tlsCipherSuite as $item1) {
-                    $res['tlsCipherSuite'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tlsCipherSuite'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class TlsCipherSuitesConfig extends Model
                 $model->tlsCipherSuite = [];
                 $n1 = 0;
                 foreach ($map['tlsCipherSuite'] as $item1) {
-                    $model->tlsCipherSuite[$n1++] = tlsCipherSuite::fromMap($item1);
+                    $model->tlsCipherSuite[$n1] = tlsCipherSuite::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

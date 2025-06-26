@@ -51,7 +51,8 @@ class data extends Model
                 $res['items'] = [];
                 $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->items = [];
                 $n1 = 0;
                 foreach ($map['items'] as $item1) {
-                    $model->items[$n1++] = SslCertMetaInfo::fromMap($item1);
+                    $model->items[$n1] = SslCertMetaInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

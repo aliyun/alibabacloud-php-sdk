@@ -53,7 +53,8 @@ class ApiKeyIdentityConfig extends Model
                 $res['credentials'] = [];
                 $n1 = 0;
                 foreach ($this->credentials as $item1) {
-                    $res['credentials'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['credentials'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ApiKeyIdentityConfig extends Model
                 $model->credentials = [];
                 $n1 = 0;
                 foreach ($map['credentials'] as $item1) {
-                    $model->credentials[$n1++] = credentials::fromMap($item1);
+                    $model->credentials[$n1] = credentials::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

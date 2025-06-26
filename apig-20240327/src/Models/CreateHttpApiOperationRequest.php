@@ -32,7 +32,8 @@ class CreateHttpApiOperationRequest extends Model
                 $res['operations'] = [];
                 $n1 = 0;
                 foreach ($this->operations as $item1) {
-                    $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['operations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class CreateHttpApiOperationRequest extends Model
                 $model->operations = [];
                 $n1 = 0;
                 foreach ($map['operations'] as $item1) {
-                    $model->operations[$n1++] = HttpApiOperation::fromMap($item1);
+                    $model->operations[$n1] = HttpApiOperation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

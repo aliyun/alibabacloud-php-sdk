@@ -146,7 +146,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $res['customDomains'] = [];
                 $n1 = 0;
                 foreach ($this->customDomains as $item1) {
-                    $res['customDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['customDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $res['dnsConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->dnsConfigs as $item1) {
-                    $res['dnsConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dnsConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +176,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $res['operations'] = [];
                 $n1 = 0;
                 foreach ($this->operations as $item1) {
-                    $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['operations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +191,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $res['serviceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->serviceConfigs as $item1) {
-                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['serviceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +202,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $res['subDomains'] = [];
                 $n1 = 0;
                 foreach ($this->subDomains as $item1) {
-                    $res['subDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +213,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $res['vipConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->vipConfigs as $item1) {
-                    $res['vipConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['vipConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +251,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $model->customDomains = [];
                 $n1 = 0;
                 foreach ($map['customDomains'] as $item1) {
-                    $model->customDomains[$n1++] = HttpApiDomainInfo::fromMap($item1);
+                    $model->customDomains[$n1] = HttpApiDomainInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +262,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $model->dnsConfigs = [];
                 $n1 = 0;
                 foreach ($map['dnsConfigs'] as $item1) {
-                    $model->dnsConfigs[$n1++] = dnsConfigs::fromMap($item1);
+                    $model->dnsConfigs[$n1] = dnsConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -273,7 +281,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $model->operations = [];
                 $n1 = 0;
                 foreach ($map['operations'] as $item1) {
-                    $model->operations[$n1++] = HttpApiOperationInfo::fromMap($item1);
+                    $model->operations[$n1] = HttpApiOperationInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -287,7 +296,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $model->serviceConfigs = [];
                 $n1 = 0;
                 foreach ($map['serviceConfigs'] as $item1) {
-                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
+                    $model->serviceConfigs[$n1] = serviceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -297,7 +307,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $model->subDomains = [];
                 $n1 = 0;
                 foreach ($map['subDomains'] as $item1) {
-                    $model->subDomains[$n1++] = HttpApiDomainInfo::fromMap($item1);
+                    $model->subDomains[$n1] = HttpApiDomainInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -307,7 +318,8 @@ class HttpApiPublishRevisionInfo extends Model
                 $model->vipConfigs = [];
                 $n1 = 0;
                 foreach ($map['vipConfigs'] as $item1) {
-                    $model->vipConfigs[$n1++] = vipConfigs::fromMap($item1);
+                    $model->vipConfigs[$n1] = vipConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

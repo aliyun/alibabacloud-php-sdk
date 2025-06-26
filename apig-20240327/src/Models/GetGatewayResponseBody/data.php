@@ -189,7 +189,8 @@ class data extends Model
                 $res['environments'] = [];
                 $n1 = 0;
                 foreach ($this->environments as $item1) {
-                    $res['environments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['environments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +212,8 @@ class data extends Model
                 $res['loadBalancers'] = [];
                 $n1 = 0;
                 foreach ($this->loadBalancers as $item1) {
-                    $res['loadBalancers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['loadBalancers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +247,8 @@ class data extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -275,7 +278,8 @@ class data extends Model
                 $res['zones'] = [];
                 $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['zones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['zones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +312,8 @@ class data extends Model
                 $model->environments = [];
                 $n1 = 0;
                 foreach ($map['environments'] as $item1) {
-                    $model->environments[$n1++] = environments::fromMap($item1);
+                    $model->environments[$n1] = environments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -330,7 +335,8 @@ class data extends Model
                 $model->loadBalancers = [];
                 $n1 = 0;
                 foreach ($map['loadBalancers'] as $item1) {
-                    $model->loadBalancers[$n1++] = loadBalancers::fromMap($item1);
+                    $model->loadBalancers[$n1] = loadBalancers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -364,7 +370,8 @@ class data extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -394,7 +401,8 @@ class data extends Model
                 $model->zones = [];
                 $n1 = 0;
                 foreach ($map['zones'] as $item1) {
-                    $model->zones[$n1++] = zones::fromMap($item1);
+                    $model->zones[$n1] = zones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

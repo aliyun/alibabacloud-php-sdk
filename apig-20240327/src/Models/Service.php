@@ -15,6 +15,11 @@ class Service extends Model
     public $addresses;
 
     /**
+     * @var AgentServiceConfig
+     */
+    public $agentServiceConfig;
+
+    /**
      * @var AiServiceConfig
      */
     public $aiServiceConfig;
@@ -95,6 +100,7 @@ class Service extends Model
     public $updateTimestamp;
     protected $_name = [
         'addresses' => 'addresses',
+        'agentServiceConfig' => 'agentServiceConfig',
         'aiServiceConfig' => 'aiServiceConfig',
         'createTimestamp' => 'createTimestamp',
         'gatewayId' => 'gatewayId',
@@ -117,6 +123,9 @@ class Service extends Model
     {
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
+        }
+        if (null !== $this->agentServiceConfig) {
+            $this->agentServiceConfig->validate();
         }
         if (null !== $this->aiServiceConfig) {
             $this->aiServiceConfig->validate();
@@ -141,9 +150,14 @@ class Service extends Model
                 $res['addresses'] = [];
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
-                    $res['addresses'][$n1++] = $item1;
+                    $res['addresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->agentServiceConfig) {
+            $res['agentServiceConfig'] = null !== $this->agentServiceConfig ? $this->agentServiceConfig->toArray($noStream) : $this->agentServiceConfig;
         }
 
         if (null !== $this->aiServiceConfig) {
@@ -183,7 +197,8 @@ class Service extends Model
                 $res['ports'] = [];
                 $n1 = 0;
                 foreach ($this->ports as $item1) {
-                    $res['ports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +228,8 @@ class Service extends Model
                 $res['unhealthyEndpoints'] = [];
                 $n1 = 0;
                 foreach ($this->unhealthyEndpoints as $item1) {
-                    $res['unhealthyEndpoints'][$n1++] = $item1;
+                    $res['unhealthyEndpoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,9 +254,14 @@ class Service extends Model
                 $model->addresses = [];
                 $n1 = 0;
                 foreach ($map['addresses'] as $item1) {
-                    $model->addresses[$n1++] = $item1;
+                    $model->addresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['agentServiceConfig'])) {
+            $model->agentServiceConfig = AgentServiceConfig::fromMap($map['agentServiceConfig']);
         }
 
         if (isset($map['aiServiceConfig'])) {
@@ -280,7 +301,8 @@ class Service extends Model
                 $model->ports = [];
                 $n1 = 0;
                 foreach ($map['ports'] as $item1) {
-                    $model->ports[$n1++] = ports::fromMap($item1);
+                    $model->ports[$n1] = ports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -310,7 +332,8 @@ class Service extends Model
                 $model->unhealthyEndpoints = [];
                 $n1 = 0;
                 foreach ($map['unhealthyEndpoints'] as $item1) {
-                    $model->unhealthyEndpoints[$n1++] = $item1;
+                    $model->unhealthyEndpoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

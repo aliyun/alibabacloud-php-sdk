@@ -145,7 +145,8 @@ class HttpApiApiInfo extends Model
                 $res['aiProtocols'] = [];
                 $n1 = 0;
                 foreach ($this->aiProtocols as $item1) {
-                    $res['aiProtocols'][$n1++] = $item1;
+                    $res['aiProtocols'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +173,8 @@ class HttpApiApiInfo extends Model
                 $res['deployConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->deployConfigs as $item1) {
-                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['deployConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +192,8 @@ class HttpApiApiInfo extends Model
                 $res['environments'] = [];
                 $n1 = 0;
                 foreach ($this->environments as $item1) {
-                    $res['environments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['environments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +219,8 @@ class HttpApiApiInfo extends Model
                 $res['protocols'] = [];
                 $n1 = 0;
                 foreach ($this->protocols as $item1) {
-                    $res['protocols'][$n1++] = $item1;
+                    $res['protocols'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +253,8 @@ class HttpApiApiInfo extends Model
                 $model->aiProtocols = [];
                 $n1 = 0;
                 foreach ($map['aiProtocols'] as $item1) {
-                    $model->aiProtocols[$n1++] = $item1;
+                    $model->aiProtocols[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +281,8 @@ class HttpApiApiInfo extends Model
                 $model->deployConfigs = [];
                 $n1 = 0;
                 foreach ($map['deployConfigs'] as $item1) {
-                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                    $model->deployConfigs[$n1] = HttpApiDeployConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +300,8 @@ class HttpApiApiInfo extends Model
                 $model->environments = [];
                 $n1 = 0;
                 foreach ($map['environments'] as $item1) {
-                    $model->environments[$n1++] = environments::fromMap($item1);
+                    $model->environments[$n1] = environments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -320,7 +327,8 @@ class HttpApiApiInfo extends Model
                 $model->protocols = [];
                 $n1 = 0;
                 foreach ($map['protocols'] as $item1) {
-                    $model->protocols[$n1++] = $item1;
+                    $model->protocols[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -58,7 +58,8 @@ class environment extends Model
                 $res['customDomainIds'] = [];
                 $n1 = 0;
                 foreach ($this->customDomainIds as $item1) {
-                    $res['customDomainIds'][$n1++] = $item1;
+                    $res['customDomainIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class environment extends Model
                 $res['serviceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->serviceConfigs as $item1) {
-                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['serviceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class environment extends Model
                 $model->customDomainIds = [];
                 $n1 = 0;
                 foreach ($map['customDomainIds'] as $item1) {
-                    $model->customDomainIds[$n1++] = $item1;
+                    $model->customDomainIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class environment extends Model
                 $model->serviceConfigs = [];
                 $n1 = 0;
                 foreach ($map['serviceConfigs'] as $item1) {
-                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
+                    $model->serviceConfigs[$n1] = serviceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

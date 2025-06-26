@@ -39,6 +39,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
@@ -516,6 +517,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->agentProtocols) {
+            @$body['agentProtocols'] = $request->agentProtocols;
+        }
+
         if (null !== $request->aiProtocols) {
             @$body['aiProtocols'] = $request->aiProtocols;
         }
@@ -1605,6 +1610,57 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 删除服务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceResponse
+     *
+     * @param string         $serviceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteServiceResponse
+     */
+    public function deleteServiceWithOptions($serviceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteService',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/services/' . Url::percentEncode($serviceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除服务
+     *
+     * @returns DeleteServiceResponse
+     *
+     * @param string $serviceId
+     *
+     * @return DeleteServiceResponse
+     */
+    public function deleteService($serviceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteServiceWithOptions($serviceId, $headers, $runtime);
+    }
+
+    /**
      * Deploy HttpApi.
      *
      * @param request - DeployHttpApiRequest
@@ -1960,7 +2016,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get a gateway.
+     * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1994,7 +2050,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get a gateway.
+     * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
      *
      * @returns GetGatewayResponse
      *
@@ -4137,6 +4193,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->agentProtocols) {
+            @$body['agentProtocols'] = $request->agentProtocols;
+        }
+
         if (null !== $request->aiProtocols) {
             @$body['aiProtocols'] = $request->aiProtocols;
         }

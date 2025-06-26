@@ -42,7 +42,8 @@ class tlsCipherSuite extends Model
                 $res['supportVersions'] = [];
                 $n1 = 0;
                 foreach ($this->supportVersions as $item1) {
-                    $res['supportVersions'][$n1++] = $item1;
+                    $res['supportVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class tlsCipherSuite extends Model
                 $model->supportVersions = [];
                 $n1 = 0;
                 foreach ($map['supportVersions'] as $item1) {
-                    $model->supportVersions[$n1++] = $item1;
+                    $model->supportVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

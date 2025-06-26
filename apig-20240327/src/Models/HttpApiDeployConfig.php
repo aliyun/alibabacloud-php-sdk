@@ -131,7 +131,8 @@ class HttpApiDeployConfig extends Model
                 $res['customDomainIds'] = [];
                 $n1 = 0;
                 foreach ($this->customDomainIds as $item1) {
-                    $res['customDomainIds'][$n1++] = $item1;
+                    $res['customDomainIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class HttpApiDeployConfig extends Model
                 $res['customDomainInfos'] = [];
                 $n1 = 0;
                 foreach ($this->customDomainInfos as $item1) {
-                    $res['customDomainInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['customDomainInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +169,8 @@ class HttpApiDeployConfig extends Model
                 $res['policyConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->policyConfigs as $item1) {
-                    $res['policyConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['policyConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +184,8 @@ class HttpApiDeployConfig extends Model
                 $res['serviceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->serviceConfigs as $item1) {
-                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['serviceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +195,8 @@ class HttpApiDeployConfig extends Model
                 $res['subDomains'] = [];
                 $n1 = 0;
                 foreach ($this->subDomains as $item1) {
-                    $res['subDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -220,7 +225,8 @@ class HttpApiDeployConfig extends Model
                 $model->customDomainIds = [];
                 $n1 = 0;
                 foreach ($map['customDomainIds'] as $item1) {
-                    $model->customDomainIds[$n1++] = $item1;
+                    $model->customDomainIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +236,8 @@ class HttpApiDeployConfig extends Model
                 $model->customDomainInfos = [];
                 $n1 = 0;
                 foreach ($map['customDomainInfos'] as $item1) {
-                    $model->customDomainInfos[$n1++] = customDomainInfos::fromMap($item1);
+                    $model->customDomainInfos[$n1] = customDomainInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +263,8 @@ class HttpApiDeployConfig extends Model
                 $model->policyConfigs = [];
                 $n1 = 0;
                 foreach ($map['policyConfigs'] as $item1) {
-                    $model->policyConfigs[$n1++] = policyConfigs::fromMap($item1);
+                    $model->policyConfigs[$n1] = policyConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +278,8 @@ class HttpApiDeployConfig extends Model
                 $model->serviceConfigs = [];
                 $n1 = 0;
                 foreach ($map['serviceConfigs'] as $item1) {
-                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
+                    $model->serviceConfigs[$n1] = serviceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +289,8 @@ class HttpApiDeployConfig extends Model
                 $model->subDomains = [];
                 $n1 = 0;
                 foreach ($map['subDomains'] as $item1) {
-                    $model->subDomains[$n1++] = subDomains::fromMap($item1);
+                    $model->subDomains[$n1] = subDomains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

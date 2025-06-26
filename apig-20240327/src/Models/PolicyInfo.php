@@ -86,7 +86,8 @@ class PolicyInfo extends Model
                 $res['attachments'] = [];
                 $n1 = 0;
                 foreach ($this->attachments as $item1) {
-                    $res['attachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['attachments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class PolicyInfo extends Model
                 $model->attachments = [];
                 $n1 = 0;
                 foreach ($map['attachments'] as $item1) {
-                    $model->attachments[$n1++] = Attachment::fromMap($item1);
+                    $model->attachments[$n1] = Attachment::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

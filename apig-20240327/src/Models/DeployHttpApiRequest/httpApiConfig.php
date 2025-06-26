@@ -42,7 +42,8 @@ class httpApiConfig extends Model
                 $res['routeIds'] = [];
                 $n1 = 0;
                 foreach ($this->routeIds as $item1) {
-                    $res['routeIds'][$n1++] = $item1;
+                    $res['routeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class httpApiConfig extends Model
                 $model->routeIds = [];
                 $n1 = 0;
                 foreach ($map['routeIds'] as $item1) {
-                    $model->routeIds[$n1++] = $item1;
+                    $model->routeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

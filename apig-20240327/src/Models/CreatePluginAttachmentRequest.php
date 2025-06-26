@@ -68,7 +68,8 @@ class CreatePluginAttachmentRequest extends Model
                 $res['attachResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->attachResourceIds as $item1) {
-                    $res['attachResourceIds'][$n1++] = $item1;
+                    $res['attachResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class CreatePluginAttachmentRequest extends Model
                 $model->attachResourceIds = [];
                 $n1 = 0;
                 foreach ($map['attachResourceIds'] as $item1) {
-                    $model->attachResourceIds[$n1++] = $item1;
+                    $model->attachResourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

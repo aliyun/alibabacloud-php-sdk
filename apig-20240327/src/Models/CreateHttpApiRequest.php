@@ -12,6 +12,11 @@ class CreateHttpApiRequest extends Model
     /**
      * @var string[]
      */
+    public $agentProtocols;
+
+    /**
+     * @var string[]
+     */
     public $aiProtocols;
 
     /**
@@ -69,6 +74,7 @@ class CreateHttpApiRequest extends Model
      */
     public $versionConfig;
     protected $_name = [
+        'agentProtocols' => 'agentProtocols',
         'aiProtocols' => 'aiProtocols',
         'authConfig' => 'authConfig',
         'basePath' => 'basePath',
@@ -85,6 +91,9 @@ class CreateHttpApiRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentProtocols)) {
+            Model::validateArray($this->agentProtocols);
+        }
         if (\is_array($this->aiProtocols)) {
             Model::validateArray($this->aiProtocols);
         }
@@ -109,12 +118,24 @@ class CreateHttpApiRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentProtocols) {
+            if (\is_array($this->agentProtocols)) {
+                $res['agentProtocols'] = [];
+                $n1 = 0;
+                foreach ($this->agentProtocols as $item1) {
+                    $res['agentProtocols'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->aiProtocols) {
             if (\is_array($this->aiProtocols)) {
                 $res['aiProtocols'] = [];
                 $n1 = 0;
                 foreach ($this->aiProtocols as $item1) {
-                    $res['aiProtocols'][$n1++] = $item1;
+                    $res['aiProtocols'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +153,8 @@ class CreateHttpApiRequest extends Model
                 $res['deployConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->deployConfigs as $item1) {
-                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['deployConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +180,8 @@ class CreateHttpApiRequest extends Model
                 $res['protocols'] = [];
                 $n1 = 0;
                 foreach ($this->protocols as $item1) {
-                    $res['protocols'][$n1++] = $item1;
+                    $res['protocols'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,12 +209,24 @@ class CreateHttpApiRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentProtocols'])) {
+            if (!empty($map['agentProtocols'])) {
+                $model->agentProtocols = [];
+                $n1 = 0;
+                foreach ($map['agentProtocols'] as $item1) {
+                    $model->agentProtocols[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['aiProtocols'])) {
             if (!empty($map['aiProtocols'])) {
                 $model->aiProtocols = [];
                 $n1 = 0;
                 foreach ($map['aiProtocols'] as $item1) {
-                    $model->aiProtocols[$n1++] = $item1;
+                    $model->aiProtocols[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +244,8 @@ class CreateHttpApiRequest extends Model
                 $model->deployConfigs = [];
                 $n1 = 0;
                 foreach ($map['deployConfigs'] as $item1) {
-                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                    $model->deployConfigs[$n1] = HttpApiDeployConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +271,8 @@ class CreateHttpApiRequest extends Model
                 $model->protocols = [];
                 $n1 = 0;
                 foreach ($map['protocols'] as $item1) {
-                    $model->protocols[$n1++] = $item1;
+                    $model->protocols[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

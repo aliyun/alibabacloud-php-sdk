@@ -48,7 +48,8 @@ class AddGatewaySecurityGroupRuleRequest extends Model
                 $res['portRanges'] = [];
                 $n1 = 0;
                 foreach ($this->portRanges as $item1) {
-                    $res['portRanges'][$n1++] = $item1;
+                    $res['portRanges'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class AddGatewaySecurityGroupRuleRequest extends Model
                 $model->portRanges = [];
                 $n1 = 0;
                 foreach ($map['portRanges'] as $item1) {
-                    $model->portRanges[$n1++] = $item1;
+                    $model->portRanges[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

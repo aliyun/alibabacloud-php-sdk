@@ -68,7 +68,8 @@ class HttpRouteMatch extends Model
                 $res['headers'] = [];
                 $n1 = 0;
                 foreach ($this->headers as $item1) {
-                    $res['headers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['headers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class HttpRouteMatch extends Model
                 $res['methods'] = [];
                 $n1 = 0;
                 foreach ($this->methods as $item1) {
-                    $res['methods'][$n1++] = $item1;
+                    $res['methods'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +98,8 @@ class HttpRouteMatch extends Model
                 $res['queryParams'] = [];
                 $n1 = 0;
                 foreach ($this->queryParams as $item1) {
-                    $res['queryParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['queryParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +120,8 @@ class HttpRouteMatch extends Model
                 $model->headers = [];
                 $n1 = 0;
                 foreach ($map['headers'] as $item1) {
-                    $model->headers[$n1++] = headers::fromMap($item1);
+                    $model->headers[$n1] = headers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +135,8 @@ class HttpRouteMatch extends Model
                 $model->methods = [];
                 $n1 = 0;
                 foreach ($map['methods'] as $item1) {
-                    $model->methods[$n1++] = $item1;
+                    $model->methods[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +150,8 @@ class HttpRouteMatch extends Model
                 $model->queryParams = [];
                 $n1 = 0;
                 foreach ($map['queryParams'] as $item1) {
-                    $model->queryParams[$n1++] = queryParams::fromMap($item1);
+                    $model->queryParams[$n1] = queryParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

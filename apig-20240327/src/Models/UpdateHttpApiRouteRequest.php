@@ -76,7 +76,8 @@ class UpdateHttpApiRouteRequest extends Model
                 $res['deployConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->deployConfigs as $item1) {
-                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['deployConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,7 +91,8 @@ class UpdateHttpApiRouteRequest extends Model
                 $res['domainIds'] = [];
                 $n1 = 0;
                 foreach ($this->domainIds as $item1) {
-                    $res['domainIds'][$n1++] = $item1;
+                    $res['domainIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +125,8 @@ class UpdateHttpApiRouteRequest extends Model
                 $model->deployConfigs = [];
                 $n1 = 0;
                 foreach ($map['deployConfigs'] as $item1) {
-                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                    $model->deployConfigs[$n1] = HttpApiDeployConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +140,8 @@ class UpdateHttpApiRouteRequest extends Model
                 $model->domainIds = [];
                 $n1 = 0;
                 foreach ($map['domainIds'] as $item1) {
-                    $model->domainIds[$n1++] = $item1;
+                    $model->domainIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

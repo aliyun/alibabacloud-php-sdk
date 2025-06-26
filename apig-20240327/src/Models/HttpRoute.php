@@ -132,7 +132,8 @@ class HttpRoute extends Model
                 $res['domainInfos'] = [];
                 $n1 = 0;
                 foreach ($this->domainInfos as $item1) {
-                    $res['domainInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['domainInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +203,8 @@ class HttpRoute extends Model
                 $model->domainInfos = [];
                 $n1 = 0;
                 foreach ($map['domainInfos'] as $item1) {
-                    $model->domainInfos[$n1++] = domainInfos::fromMap($item1);
+                    $model->domainInfos[$n1] = domainInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

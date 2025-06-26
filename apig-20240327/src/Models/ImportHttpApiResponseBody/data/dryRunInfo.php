@@ -91,7 +91,8 @@ class dryRunInfo extends Model
                 $res['errorMessages'] = [];
                 $n1 = 0;
                 foreach ($this->errorMessages as $item1) {
-                    $res['errorMessages'][$n1++] = $item1;
+                    $res['errorMessages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class dryRunInfo extends Model
                 $res['failureComponents'] = [];
                 $n1 = 0;
                 foreach ($this->failureComponents as $item1) {
-                    $res['failureComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['failureComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +117,8 @@ class dryRunInfo extends Model
                 $res['failureOperations'] = [];
                 $n1 = 0;
                 foreach ($this->failureOperations as $item1) {
-                    $res['failureOperations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['failureOperations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +128,8 @@ class dryRunInfo extends Model
                 $res['successComponents'] = [];
                 $n1 = 0;
                 foreach ($this->successComponents as $item1) {
-                    $res['successComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['successComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +139,8 @@ class dryRunInfo extends Model
                 $res['successOperations'] = [];
                 $n1 = 0;
                 foreach ($this->successOperations as $item1) {
-                    $res['successOperations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['successOperations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +150,8 @@ class dryRunInfo extends Model
                 $res['warningMessages'] = [];
                 $n1 = 0;
                 foreach ($this->warningMessages as $item1) {
-                    $res['warningMessages'][$n1++] = $item1;
+                    $res['warningMessages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +172,8 @@ class dryRunInfo extends Model
                 $model->errorMessages = [];
                 $n1 = 0;
                 foreach ($map['errorMessages'] as $item1) {
-                    $model->errorMessages[$n1++] = $item1;
+                    $model->errorMessages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +187,8 @@ class dryRunInfo extends Model
                 $model->failureComponents = [];
                 $n1 = 0;
                 foreach ($map['failureComponents'] as $item1) {
-                    $model->failureComponents[$n1++] = failureComponents::fromMap($item1);
+                    $model->failureComponents[$n1] = failureComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +198,8 @@ class dryRunInfo extends Model
                 $model->failureOperations = [];
                 $n1 = 0;
                 foreach ($map['failureOperations'] as $item1) {
-                    $model->failureOperations[$n1++] = failureOperations::fromMap($item1);
+                    $model->failureOperations[$n1] = failureOperations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +209,8 @@ class dryRunInfo extends Model
                 $model->successComponents = [];
                 $n1 = 0;
                 foreach ($map['successComponents'] as $item1) {
-                    $model->successComponents[$n1++] = successComponents::fromMap($item1);
+                    $model->successComponents[$n1] = successComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +220,8 @@ class dryRunInfo extends Model
                 $model->successOperations = [];
                 $n1 = 0;
                 foreach ($map['successOperations'] as $item1) {
-                    $model->successOperations[$n1++] = successOperations::fromMap($item1);
+                    $model->successOperations[$n1] = successOperations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -220,7 +231,8 @@ class dryRunInfo extends Model
                 $model->warningMessages = [];
                 $n1 = 0;
                 foreach ($map['warningMessages'] as $item1) {
-                    $model->warningMessages[$n1++] = $item1;
+                    $model->warningMessages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

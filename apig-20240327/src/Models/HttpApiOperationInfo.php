@@ -124,7 +124,8 @@ class HttpApiOperationInfo extends Model
                 $res['deployConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->deployConfigs as $item1) {
-                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['deployConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +194,8 @@ class HttpApiOperationInfo extends Model
                 $model->deployConfigs = [];
                 $n1 = 0;
                 foreach ($map['deployConfigs'] as $item1) {
-                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                    $model->deployConfigs[$n1] = HttpApiDeployConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

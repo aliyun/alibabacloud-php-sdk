@@ -64,7 +64,8 @@ class HttpApiRequestContract extends Model
                 $res['headerParameters'] = [];
                 $n1 = 0;
                 foreach ($this->headerParameters as $item1) {
-                    $res['headerParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['headerParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class HttpApiRequestContract extends Model
                 $res['pathParameters'] = [];
                 $n1 = 0;
                 foreach ($this->pathParameters as $item1) {
-                    $res['pathParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['pathParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class HttpApiRequestContract extends Model
                 $res['queryParameters'] = [];
                 $n1 = 0;
                 foreach ($this->queryParameters as $item1) {
-                    $res['queryParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['queryParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +112,8 @@ class HttpApiRequestContract extends Model
                 $model->headerParameters = [];
                 $n1 = 0;
                 foreach ($map['headerParameters'] as $item1) {
-                    $model->headerParameters[$n1++] = HttpApiParameter::fromMap($item1);
+                    $model->headerParameters[$n1] = HttpApiParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +123,8 @@ class HttpApiRequestContract extends Model
                 $model->pathParameters = [];
                 $n1 = 0;
                 foreach ($map['pathParameters'] as $item1) {
-                    $model->pathParameters[$n1++] = HttpApiParameter::fromMap($item1);
+                    $model->pathParameters[$n1] = HttpApiParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +134,8 @@ class HttpApiRequestContract extends Model
                 $model->queryParameters = [];
                 $n1 = 0;
                 foreach ($map['queryParameters'] as $item1) {
-                    $model->queryParameters[$n1++] = HttpApiParameter::fromMap($item1);
+                    $model->queryParameters[$n1] = HttpApiParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -108,7 +108,8 @@ class PolicyClassInfo extends Model
                 $res['attachableResourceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->attachableResourceTypes as $item1) {
-                    $res['attachableResourceTypes'][$n1++] = $item1;
+                    $res['attachableResourceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +178,8 @@ class PolicyClassInfo extends Model
                 $model->attachableResourceTypes = [];
                 $n1 = 0;
                 foreach ($map['attachableResourceTypes'] as $item1) {
-                    $model->attachableResourceTypes[$n1++] = $item1;
+                    $model->attachableResourceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

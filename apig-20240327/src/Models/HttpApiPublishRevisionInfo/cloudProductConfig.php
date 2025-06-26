@@ -63,7 +63,8 @@ class cloudProductConfig extends Model
                 $res['containerServiceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->containerServiceConfigs as $item1) {
-                    $res['containerServiceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['containerServiceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class cloudProductConfig extends Model
                 $res['functionConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->functionConfigs as $item1) {
-                    $res['functionConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['functionConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class cloudProductConfig extends Model
                 $res['mseNacosConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->mseNacosConfigs as $item1) {
-                    $res['mseNacosConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['mseNacosConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class cloudProductConfig extends Model
                 $model->containerServiceConfigs = [];
                 $n1 = 0;
                 foreach ($map['containerServiceConfigs'] as $item1) {
-                    $model->containerServiceConfigs[$n1++] = containerServiceConfigs::fromMap($item1);
+                    $model->containerServiceConfigs[$n1] = containerServiceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +122,8 @@ class cloudProductConfig extends Model
                 $model->functionConfigs = [];
                 $n1 = 0;
                 foreach ($map['functionConfigs'] as $item1) {
-                    $model->functionConfigs[$n1++] = functionConfigs::fromMap($item1);
+                    $model->functionConfigs[$n1] = functionConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +133,8 @@ class cloudProductConfig extends Model
                 $model->mseNacosConfigs = [];
                 $n1 = 0;
                 foreach ($map['mseNacosConfigs'] as $item1) {
-                    $model->mseNacosConfigs[$n1++] = mseNacosConfigs::fromMap($item1);
+                    $model->mseNacosConfigs[$n1] = mseNacosConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

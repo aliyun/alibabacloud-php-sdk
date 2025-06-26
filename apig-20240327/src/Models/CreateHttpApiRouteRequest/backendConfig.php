@@ -43,7 +43,8 @@ class backendConfig extends Model
                 $res['services'] = [];
                 $n1 = 0;
                 foreach ($this->services as $item1) {
-                    $res['services'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['services'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class backendConfig extends Model
                 $model->services = [];
                 $n1 = 0;
                 foreach ($map['services'] as $item1) {
-                    $model->services[$n1++] = services::fromMap($item1);
+                    $model->services[$n1] = services::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

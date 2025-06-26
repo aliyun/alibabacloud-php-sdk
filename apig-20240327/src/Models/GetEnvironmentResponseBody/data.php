@@ -137,7 +137,8 @@ class data extends Model
                 $res['subDomainInfos'] = [];
                 $n1 = 0;
                 foreach ($this->subDomainInfos as $item1) {
-                    $res['subDomainInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subDomainInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +199,8 @@ class data extends Model
                 $model->subDomainInfos = [];
                 $n1 = 0;
                 foreach ($map['subDomainInfos'] as $item1) {
-                    $model->subDomainInfos[$n1++] = SubDomainInfo::fromMap($item1);
+                    $model->subDomainInfos[$n1] = SubDomainInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -72,7 +72,8 @@ class restApiConfig extends Model
                 $res['operationIds'] = [];
                 $n1 = 0;
                 foreach ($this->operationIds as $item1) {
-                    $res['operationIds'][$n1++] = $item1;
+                    $res['operationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class restApiConfig extends Model
                 $model->operationIds = [];
                 $n1 = 0;
                 foreach ($map['operationIds'] as $item1) {
-                    $model->operationIds[$n1++] = $item1;
+                    $model->operationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

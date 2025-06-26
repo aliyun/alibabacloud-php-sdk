@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig;
 
 class serviceConfigs extends Model
@@ -13,6 +14,11 @@ class serviceConfigs extends Model
      * @var string[]
      */
     public $addresses;
+
+    /**
+     * @var AgentServiceConfig
+     */
+    public $agentServiceConfig;
 
     /**
      * @var AiServiceConfig
@@ -45,6 +51,7 @@ class serviceConfigs extends Model
     public $qualifier;
     protected $_name = [
         'addresses' => 'addresses',
+        'agentServiceConfig' => 'agentServiceConfig',
         'aiServiceConfig' => 'aiServiceConfig',
         'dnsServers' => 'dnsServers',
         'groupName' => 'groupName',
@@ -57,6 +64,9 @@ class serviceConfigs extends Model
     {
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
+        }
+        if (null !== $this->agentServiceConfig) {
+            $this->agentServiceConfig->validate();
         }
         if (null !== $this->aiServiceConfig) {
             $this->aiServiceConfig->validate();
@@ -75,9 +85,14 @@ class serviceConfigs extends Model
                 $res['addresses'] = [];
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
-                    $res['addresses'][$n1++] = $item1;
+                    $res['addresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->agentServiceConfig) {
+            $res['agentServiceConfig'] = null !== $this->agentServiceConfig ? $this->agentServiceConfig->toArray($noStream) : $this->agentServiceConfig;
         }
 
         if (null !== $this->aiServiceConfig) {
@@ -89,7 +104,8 @@ class serviceConfigs extends Model
                 $res['dnsServers'] = [];
                 $n1 = 0;
                 foreach ($this->dnsServers as $item1) {
-                    $res['dnsServers'][$n1++] = $item1;
+                    $res['dnsServers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,9 +142,14 @@ class serviceConfigs extends Model
                 $model->addresses = [];
                 $n1 = 0;
                 foreach ($map['addresses'] as $item1) {
-                    $model->addresses[$n1++] = $item1;
+                    $model->addresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['agentServiceConfig'])) {
+            $model->agentServiceConfig = AgentServiceConfig::fromMap($map['agentServiceConfig']);
         }
 
         if (isset($map['aiServiceConfig'])) {
@@ -140,7 +161,8 @@ class serviceConfigs extends Model
                 $model->dnsServers = [];
                 $n1 = 0;
                 foreach ($map['dnsServers'] as $item1) {
-                    $model->dnsServers[$n1++] = $item1;
+                    $model->dnsServers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
