@@ -147,7 +147,8 @@ class list_ extends Model
                 $res['messageKeys'] = [];
                 $n1 = 0;
                 foreach ($this->messageKeys as $item1) {
-                    $res['messageKeys'][$n1++] = $item1;
+                    $res['messageKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +230,8 @@ class list_ extends Model
                 $model->messageKeys = [];
                 $n1 = 0;
                 foreach ($map['messageKeys'] as $item1) {
-                    $model->messageKeys[$n1++] = $item1;
+                    $model->messageKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class UpdateInstanceAclRequest extends Model
                 $res['actions'] = [];
                 $n1 = 0;
                 foreach ($this->actions as $item1) {
-                    $res['actions'][$n1++] = $item1;
+                    $res['actions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class UpdateInstanceAclRequest extends Model
                 $res['ipWhitelists'] = [];
                 $n1 = 0;
                 foreach ($this->ipWhitelists as $item1) {
-                    $res['ipWhitelists'][$n1++] = $item1;
+                    $res['ipWhitelists'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class UpdateInstanceAclRequest extends Model
                 $model->actions = [];
                 $n1 = 0;
                 foreach ($map['actions'] as $item1) {
-                    $model->actions[$n1++] = $item1;
+                    $model->actions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class UpdateInstanceAclRequest extends Model
                 $model->ipWhitelists = [];
                 $n1 = 0;
                 foreach ($map['ipWhitelists'] as $item1) {
-                    $model->ipWhitelists[$n1++] = $item1;
+                    $model->ipWhitelists[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

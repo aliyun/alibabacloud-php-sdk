@@ -50,7 +50,8 @@ class data extends Model
                 $res['list'] = [];
                 $n1 = 0;
                 foreach ($this->list as $item1) {
-                    $res['list'][$n1++] = $item1;
+                    $res['list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class data extends Model
                 $model->list = [];
                 $n1 = 0;
                 foreach ($map['list'] as $item1) {
-                    $model->list[$n1++] = $item1;
+                    $model->list[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

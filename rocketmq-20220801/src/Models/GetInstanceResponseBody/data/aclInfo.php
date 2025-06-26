@@ -48,7 +48,8 @@ class aclInfo extends Model
                 $res['aclTypes'] = [];
                 $n1 = 0;
                 foreach ($this->aclTypes as $item1) {
-                    $res['aclTypes'][$n1++] = $item1;
+                    $res['aclTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class aclInfo extends Model
                 $model->aclTypes = [];
                 $n1 = 0;
                 foreach ($map['aclTypes'] as $item1) {
-                    $model->aclTypes[$n1++] = $item1;
+                    $model->aclTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

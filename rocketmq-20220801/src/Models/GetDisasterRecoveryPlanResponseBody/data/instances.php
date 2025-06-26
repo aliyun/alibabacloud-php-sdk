@@ -17,6 +17,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $consumerGroupId;
+
+    /**
+     * @var string
+     */
     public $endpointUrl;
 
     /**
@@ -75,6 +80,7 @@ class instances extends Model
     public $vpcId;
     protected $_name = [
         'authType' => 'authType',
+        'consumerGroupId' => 'consumerGroupId',
         'endpointUrl' => 'endpointUrl',
         'instanceId' => 'instanceId',
         'instanceRole' => 'instanceRole',
@@ -102,6 +108,10 @@ class instances extends Model
         $res = [];
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
+        }
+
+        if (null !== $this->consumerGroupId) {
+            $res['consumerGroupId'] = $this->consumerGroupId;
         }
 
         if (null !== $this->endpointUrl) {
@@ -165,6 +175,10 @@ class instances extends Model
         $model = new self();
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
+        }
+
+        if (isset($map['consumerGroupId'])) {
+            $model->consumerGroupId = $map['consumerGroupId'];
         }
 
         if (isset($map['endpointUrl'])) {

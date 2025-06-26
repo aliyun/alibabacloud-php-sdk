@@ -53,7 +53,8 @@ class data extends Model
                 $res['tagResources'] = [];
                 $n1 = 0;
                 foreach ($this->tagResources as $item1) {
-                    $res['tagResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tagResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class data extends Model
                 $model->tagResources = [];
                 $n1 = 0;
                 foreach ($map['tagResources'] as $item1) {
-                    $model->tagResources[$n1++] = tagResources::fromMap($item1);
+                    $model->tagResources[$n1] = tagResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

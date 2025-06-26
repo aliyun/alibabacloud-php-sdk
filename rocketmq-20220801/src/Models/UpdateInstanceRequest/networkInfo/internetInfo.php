@@ -32,7 +32,8 @@ class internetInfo extends Model
                 $res['ipWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->ipWhitelist as $item1) {
-                    $res['ipWhitelist'][$n1++] = $item1;
+                    $res['ipWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class internetInfo extends Model
                 $model->ipWhitelist = [];
                 $n1 = 0;
                 foreach ($map['ipWhitelist'] as $item1) {
-                    $model->ipWhitelist[$n1++] = $item1;
+                    $model->ipWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

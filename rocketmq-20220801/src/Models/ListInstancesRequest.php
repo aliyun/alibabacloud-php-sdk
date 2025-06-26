@@ -84,7 +84,8 @@ class ListInstancesRequest extends Model
                 $res['seriesCodes'] = [];
                 $n1 = 0;
                 foreach ($this->seriesCodes as $item1) {
-                    $res['seriesCodes'][$n1++] = $item1;
+                    $res['seriesCodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class ListInstancesRequest extends Model
                 $model->seriesCodes = [];
                 $n1 = 0;
                 foreach ($map['seriesCodes'] as $item1) {
-                    $model->seriesCodes[$n1++] = $item1;
+                    $model->seriesCodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

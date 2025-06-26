@@ -48,7 +48,8 @@ class data extends Model
                 $res['ipWhitelists'] = [];
                 $n1 = 0;
                 foreach ($this->ipWhitelists as $item1) {
-                    $res['ipWhitelists'][$n1++] = $item1;
+                    $res['ipWhitelists'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class data extends Model
                 $model->ipWhitelists = [];
                 $n1 = 0;
                 foreach ($map['ipWhitelists'] as $item1) {
-                    $model->ipWhitelists[$n1++] = $item1;
+                    $model->ipWhitelists[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -263,7 +263,8 @@ class data extends Model
                 $res['instanceQuotas'] = [];
                 $n1 = 0;
                 foreach ($this->instanceQuotas as $item1) {
-                    $res['instanceQuotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['instanceQuotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -325,7 +326,8 @@ class data extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -398,7 +400,8 @@ class data extends Model
                 $model->instanceQuotas = [];
                 $n1 = 0;
                 foreach ($map['instanceQuotas'] as $item1) {
-                    $model->instanceQuotas[$n1++] = instanceQuotas::fromMap($item1);
+                    $model->instanceQuotas[$n1] = instanceQuotas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -460,7 +463,8 @@ class data extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

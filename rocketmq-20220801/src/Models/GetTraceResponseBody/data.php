@@ -85,7 +85,8 @@ class data extends Model
                 $res['consumerInfos'] = [];
                 $n1 = 0;
                 foreach ($this->consumerInfos as $item1) {
-                    $res['consumerInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['consumerInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class data extends Model
                 $model->consumerInfos = [];
                 $n1 = 0;
                 foreach ($map['consumerInfos'] as $item1) {
-                    $model->consumerInfos[$n1++] = consumerInfos::fromMap($item1);
+                    $model->consumerInfos[$n1] = consumerInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

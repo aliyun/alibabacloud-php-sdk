@@ -42,7 +42,8 @@ class stacks extends Model
                 $res['tracks'] = [];
                 $n1 = 0;
                 foreach ($this->tracks as $item1) {
-                    $res['tracks'][$n1++] = $item1;
+                    $res['tracks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class stacks extends Model
                 $model->tracks = [];
                 $n1 = 0;
                 foreach ($map['tracks'] as $item1) {
-                    $model->tracks[$n1++] = $item1;
+                    $model->tracks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

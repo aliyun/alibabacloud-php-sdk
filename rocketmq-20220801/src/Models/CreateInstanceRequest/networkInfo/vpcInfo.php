@@ -59,7 +59,8 @@ class vpcInfo extends Model
                 $res['vSwitches'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
-                    $res['vSwitches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['vSwitches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class vpcInfo extends Model
                 $model->vSwitches = [];
                 $n1 = 0;
                 foreach ($map['vSwitches'] as $item1) {
-                    $model->vSwitches[$n1++] = vSwitches::fromMap($item1);
+                    $model->vSwitches[$n1] = vSwitches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

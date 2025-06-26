@@ -54,7 +54,8 @@ class ListTopicsRequest extends Model
                 $res['messageTypes'] = [];
                 $n1 = 0;
                 foreach ($this->messageTypes as $item1) {
-                    $res['messageTypes'][$n1++] = $item1;
+                    $res['messageTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class ListTopicsRequest extends Model
                 $model->messageTypes = [];
                 $n1 = 0;
                 foreach ($map['messageTypes'] as $item1) {
-                    $model->messageTypes[$n1++] = $item1;
+                    $model->messageTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

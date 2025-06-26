@@ -52,7 +52,8 @@ class endpoints extends Model
                 $res['ipWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->ipWhitelist as $item1) {
-                    $res['ipWhitelist'][$n1++] = $item1;
+                    $res['ipWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class endpoints extends Model
                 $model->ipWhitelist = [];
                 $n1 = 0;
                 foreach ($map['ipWhitelist'] as $item1) {
-                    $model->ipWhitelist[$n1++] = $item1;
+                    $model->ipWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
