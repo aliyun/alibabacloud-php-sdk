@@ -63,11 +63,12 @@ class GetBatchTranslateResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->translatedList as $item1) {
                     if (\is_array($item1)) {
-                        $res['TranslatedList'][$n1++] = [];
+                        $res['TranslatedList'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['TranslatedList'][$n1++][$key2] = $value2;
+                            $res['TranslatedList'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -101,11 +102,12 @@ class GetBatchTranslateResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['TranslatedList'] as $item1) {
                     if (!empty($item1)) {
-                        $model->translatedList[$n1++] = [];
+                        $model->translatedList[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->translatedList[$n1++][$key2] = $value2;
+                            $model->translatedList[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

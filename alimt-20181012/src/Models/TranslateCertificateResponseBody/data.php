@@ -33,7 +33,8 @@ class data extends Model
                 $res['TranslatedValues'] = [];
                 $n1 = 0;
                 foreach ($this->translatedValues as $item1) {
-                    $res['TranslatedValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranslatedValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->translatedValues = [];
                 $n1 = 0;
                 foreach ($map['TranslatedValues'] as $item1) {
-                    $model->translatedValues[$n1++] = translatedValues::fromMap($item1);
+                    $model->translatedValues[$n1] = translatedValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
