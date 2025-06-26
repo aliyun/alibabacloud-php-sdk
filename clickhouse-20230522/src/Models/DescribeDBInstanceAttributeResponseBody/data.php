@@ -299,7 +299,8 @@ class data extends Model
                 $res['MultiZones'] = [];
                 $n1 = 0;
                 foreach ($this->multiZones as $item1) {
-                    $res['MultiZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MultiZones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,7 +310,8 @@ class data extends Model
                 $res['Nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -351,7 +353,8 @@ class data extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -456,7 +459,8 @@ class data extends Model
                 $model->multiZones = [];
                 $n1 = 0;
                 foreach ($map['MultiZones'] as $item1) {
-                    $model->multiZones[$n1++] = multiZones::fromMap($item1);
+                    $model->multiZones[$n1] = multiZones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -466,7 +470,8 @@ class data extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = nodes::fromMap($item1);
+                    $model->nodes[$n1] = nodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -508,7 +513,8 @@ class data extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

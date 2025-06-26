@@ -87,7 +87,8 @@ class data extends Model
                 $res['AllowDatabases'] = [];
                 $n1 = 0;
                 foreach ($this->allowDatabases as $item1) {
-                    $res['AllowDatabases'][$n1++] = $item1;
+                    $res['AllowDatabases'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class data extends Model
                 $res['AllowDictionaries'] = [];
                 $n1 = 0;
                 foreach ($this->allowDictionaries as $item1) {
-                    $res['AllowDictionaries'][$n1++] = $item1;
+                    $res['AllowDictionaries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +121,8 @@ class data extends Model
                 $res['TotalDatabases'] = [];
                 $n1 = 0;
                 foreach ($this->totalDatabases as $item1) {
-                    $res['TotalDatabases'][$n1++] = $item1;
+                    $res['TotalDatabases'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +132,8 @@ class data extends Model
                 $res['TotalDictionaries'] = [];
                 $n1 = 0;
                 foreach ($this->totalDictionaries as $item1) {
-                    $res['TotalDictionaries'][$n1++] = $item1;
+                    $res['TotalDictionaries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +158,8 @@ class data extends Model
                 $model->allowDatabases = [];
                 $n1 = 0;
                 foreach ($map['AllowDatabases'] as $item1) {
-                    $model->allowDatabases[$n1++] = $item1;
+                    $model->allowDatabases[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +169,8 @@ class data extends Model
                 $model->allowDictionaries = [];
                 $n1 = 0;
                 foreach ($map['AllowDictionaries'] as $item1) {
-                    $model->allowDictionaries[$n1++] = $item1;
+                    $model->allowDictionaries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +192,8 @@ class data extends Model
                 $model->totalDatabases = [];
                 $n1 = 0;
                 foreach ($map['TotalDatabases'] as $item1) {
-                    $model->totalDatabases[$n1++] = $item1;
+                    $model->totalDatabases[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +203,8 @@ class data extends Model
                 $model->totalDictionaries = [];
                 $n1 = 0;
                 foreach ($map['TotalDictionaries'] as $item1) {
-                    $model->totalDictionaries[$n1++] = $item1;
+                    $model->totalDictionaries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

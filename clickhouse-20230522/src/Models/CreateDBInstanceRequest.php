@@ -141,7 +141,8 @@ class CreateDBInstanceRequest extends Model
                 $res['MultiZone'] = [];
                 $n1 = 0;
                 foreach ($this->multiZone as $item1) {
-                    $res['MultiZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MultiZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +219,8 @@ class CreateDBInstanceRequest extends Model
                 $model->multiZone = [];
                 $n1 = 0;
                 foreach ($map['MultiZone'] as $item1) {
-                    $model->multiZone[$n1++] = multiZone::fromMap($item1);
+                    $model->multiZone[$n1] = multiZone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

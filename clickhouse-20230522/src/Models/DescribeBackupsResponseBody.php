@@ -2,43 +2,49 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountsResponseBody;
+namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountsResponseBody\data\accounts;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeBackupsResponseBody\items;
 
-class data extends Model
+class DescribeBackupsResponseBody extends Model
 {
     /**
-     * @var accounts[]
+     * @var items[]
      */
-    public $accounts;
+    public $items;
 
     /**
-     * @var int
+     * @var string
      */
     public $pageNumber;
 
     /**
-     * @var int
+     * @var string
      */
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
      */
     public $totalCount;
     protected $_name = [
-        'accounts' => 'Accounts',
+        'items' => 'Items',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
-        if (\is_array($this->accounts)) {
-            Model::validateArray($this->accounts);
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
         }
         parent::validate();
     }
@@ -46,12 +52,12 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accounts) {
-            if (\is_array($this->accounts)) {
-                $res['Accounts'] = [];
+        if (null !== $this->items) {
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
                 $n1 = 0;
-                foreach ($this->accounts as $item1) {
-                    $res['Accounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->items as $item1) {
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -63,6 +69,10 @@ class data extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         if (null !== $this->totalCount) {
@@ -80,12 +90,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Accounts'])) {
-            if (!empty($map['Accounts'])) {
-                $model->accounts = [];
+        if (isset($map['Items'])) {
+            if (!empty($map['Items'])) {
+                $model->items = [];
                 $n1 = 0;
-                foreach ($map['Accounts'] as $item1) {
-                    $model->accounts[$n1] = accounts::fromMap($item1);
+                foreach ($map['Items'] as $item1) {
+                    $model->items[$n1] = items::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -97,6 +107,10 @@ class data extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         if (isset($map['TotalCount'])) {

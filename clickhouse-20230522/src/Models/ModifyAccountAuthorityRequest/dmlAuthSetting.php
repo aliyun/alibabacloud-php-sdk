@@ -53,7 +53,8 @@ class dmlAuthSetting extends Model
                 $res['AllowDatabases'] = [];
                 $n1 = 0;
                 foreach ($this->allowDatabases as $item1) {
-                    $res['AllowDatabases'][$n1++] = $item1;
+                    $res['AllowDatabases'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class dmlAuthSetting extends Model
                 $res['AllowDictionaries'] = [];
                 $n1 = 0;
                 foreach ($this->allowDictionaries as $item1) {
-                    $res['AllowDictionaries'][$n1++] = $item1;
+                    $res['AllowDictionaries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class dmlAuthSetting extends Model
                 $model->allowDatabases = [];
                 $n1 = 0;
                 foreach ($map['AllowDatabases'] as $item1) {
-                    $model->allowDatabases[$n1++] = $item1;
+                    $model->allowDatabases[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class dmlAuthSetting extends Model
                 $model->allowDictionaries = [];
                 $n1 = 0;
                 foreach ($map['AllowDictionaries'] as $item1) {
-                    $model->allowDictionaries[$n1++] = $item1;
+                    $model->allowDictionaries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

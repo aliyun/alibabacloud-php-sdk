@@ -87,7 +87,8 @@ class endpoints extends Model
                 $res['Ports'] = [];
                 $n1 = 0;
                 foreach ($this->ports as $item1) {
-                    $res['Ports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class endpoints extends Model
                 $model->ports = [];
                 $n1 = 0;
                 foreach ($map['Ports'] as $item1) {
-                    $model->ports[$n1++] = ports::fromMap($item1);
+                    $model->ports[$n1] = ports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

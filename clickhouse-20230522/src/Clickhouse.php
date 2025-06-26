@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateAccountShrinkRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateBackupPolicyRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateBackupPolicyResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBInstanceShrinkRequest;
@@ -17,6 +19,8 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateEndpointRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateEndpointResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteBackupPolicyRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteBackupPolicyResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBInstanceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBRequest;
@@ -27,8 +31,16 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountAuthorityRequest
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeBackupPolicyRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeBackupPolicyResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeBackupsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeBackupsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceAttributeResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceConfigChangeLogRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceConfigChangeLogResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceConfigRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceDataSourcesRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceDataSourcesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstancesRequest;
@@ -50,10 +62,14 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountAuthorityShrinkRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyBackupPolicyRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceClassRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceClassResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConfigRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifySecurityIPListRequest;
@@ -222,11 +238,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -245,6 +258,79 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     *
+     * @param request - CreateBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBackupPolicyResponse
+     *
+     * @param CreateBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBackupPolicyResponse
+     */
+    public function createBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        }
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBackupPolicy',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     *
+     * @param request - CreateBackupPolicyRequest
+     *
+     * @returns CreateBackupPolicyResponse
+     *
+     * @param CreateBackupPolicyRequest $request
+     *
+     * @return CreateBackupPolicyResponse
+     */
+    public function createBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -294,11 +380,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -416,11 +499,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -488,11 +568,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -560,11 +637,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -583,6 +657,67 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改备份策略.
+     *
+     * @param request - DeleteBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBackupPolicyResponse
+     *
+     * @param DeleteBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteBackupPolicyResponse
+     */
+    public function deleteBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBackupPolicy',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改备份策略.
+     *
+     * @param request - DeleteBackupPolicyRequest
+     *
+     * @returns DeleteBackupPolicyResponse
+     *
+     * @param DeleteBackupPolicyRequest $request
+     *
+     * @return DeleteBackupPolicyResponse
+     */
+    public function deleteBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -628,11 +763,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -692,11 +824,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -764,11 +893,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -832,11 +958,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -908,11 +1031,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -931,6 +1051,148 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建备份策略.
+     *
+     * @param request - DescribeBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建备份策略.
+     *
+     * @param request - DescribeBackupPolicyRequest
+     *
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询备份集.
+     *
+     * @param request - DescribeBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupsResponse
+     *
+     * @param DescribeBackupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBackupsResponse
+     */
+    public function describeBackupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackups',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询备份集.
+     *
+     * @param request - DescribeBackupsRequest
+     *
+     * @returns DescribeBackupsResponse
+     *
+     * @param DescribeBackupsRequest $request
+     *
+     * @return DescribeBackupsResponse
+     */
+    public function describeBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupsWithOptions($request, $runtime);
     }
 
     /**
@@ -972,11 +1234,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -995,6 +1254,112 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例参数配置.
+     *
+     * @param request - DescribeDBInstanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceConfigResponse
+     *
+     * @param DescribeDBInstanceConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDBInstanceConfigResponse
+     */
+    public function describeDBInstanceConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstanceConfig',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例参数配置.
+     *
+     * @param request - DescribeDBInstanceConfigRequest
+     *
+     * @returns DescribeDBInstanceConfigResponse
+     *
+     * @param DescribeDBInstanceConfigRequest $request
+     *
+     * @return DescribeDBInstanceConfigResponse
+     */
+    public function describeDBInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例参数配置记录.
+     *
+     * @param request - DescribeDBInstanceConfigChangeLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceConfigChangeLogResponse
+     *
+     * @param DescribeDBInstanceConfigChangeLogRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDBInstanceConfigChangeLogResponse
+     */
+    public function describeDBInstanceConfigChangeLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstanceConfigChangeLog',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBInstanceConfigChangeLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例参数配置记录.
+     *
+     * @param request - DescribeDBInstanceConfigChangeLogRequest
+     *
+     * @returns DescribeDBInstanceConfigChangeLogResponse
+     *
+     * @param DescribeDBInstanceConfigChangeLogRequest $request
+     *
+     * @return DescribeDBInstanceConfigChangeLogResponse
+     */
+    public function describeDBInstanceConfigChangeLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceConfigChangeLogWithOptions($request, $runtime);
     }
 
     /**
@@ -1044,11 +1409,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceDataSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1128,11 +1490,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1192,11 +1551,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1284,11 +1640,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProcessListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1348,11 +1701,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityIPListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1432,11 +1782,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1512,11 +1859,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowLogTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowLogTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowLogTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1580,11 +1924,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return KillProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return KillProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return KillProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1658,11 +1999,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1730,11 +2068,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1753,6 +2088,79 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改备份策略.
+     *
+     * @param request - ModifyBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupPolicyResponse
+     *
+     * @param ModifyBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        }
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改备份策略.
+     *
+     * @param request - ModifyBackupPolicyRequest
+     *
+     * @returns ModifyBackupPolicyResponse
+     *
+     * @param ModifyBackupPolicyRequest $request
+     *
+     * @return ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1806,11 +2214,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1878,11 +2283,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceClassResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1901,6 +2303,71 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改实例参数配置.
+     *
+     * @param request - ModifyDBInstanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceConfigResponse
+     *
+     * @param ModifyDBInstanceConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDBInstanceConfigResponse
+     */
+    public function modifyDBInstanceConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceConfig',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例参数配置.
+     *
+     * @param request - ModifyDBInstanceConfigRequest
+     *
+     * @returns ModifyDBInstanceConfigResponse
+     *
+     * @param ModifyDBInstanceConfigRequest $request
+     *
+     * @return ModifyDBInstanceConfigResponse
+     */
+    public function modifyDBInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1958,11 +2425,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceConnectionStringResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2034,11 +2498,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityIPListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2110,11 +2571,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2174,11 +2632,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2238,11 +2693,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2302,11 +2754,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2378,11 +2827,8 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeMinorVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
