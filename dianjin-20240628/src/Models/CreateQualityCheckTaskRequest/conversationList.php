@@ -89,7 +89,8 @@ class conversationList extends Model
                 $res['dialogueList'] = [];
                 $n1 = 0;
                 foreach ($this->dialogueList as $item1) {
-                    $res['dialogueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dialogueList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class conversationList extends Model
                 $model->dialogueList = [];
                 $n1 = 0;
                 foreach ($map['dialogueList'] as $item1) {
-                    $model->dialogueList[$n1++] = dialogueList::fromMap($item1);
+                    $model->dialogueList[$n1] = dialogueList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

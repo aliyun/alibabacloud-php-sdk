@@ -39,6 +39,11 @@ class RunAgentRequest extends Model
     public $userContent;
 
     /**
+     * @var mixed[]
+     */
+    public $userInputs;
+
+    /**
      * @var string
      */
     public $versionId;
@@ -49,11 +54,15 @@ class RunAgentRequest extends Model
         'threadId' => 'threadId',
         'useDraft' => 'useDraft',
         'userContent' => 'userContent',
+        'userInputs' => 'userInputs',
         'versionId' => 'versionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->userInputs)) {
+            Model::validateArray($this->userInputs);
+        }
         parent::validate();
     }
 
@@ -82,6 +91,15 @@ class RunAgentRequest extends Model
 
         if (null !== $this->userContent) {
             $res['userContent'] = $this->userContent;
+        }
+
+        if (null !== $this->userInputs) {
+            if (\is_array($this->userInputs)) {
+                $res['userInputs'] = [];
+                foreach ($this->userInputs as $key1 => $value1) {
+                    $res['userInputs'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->versionId) {
@@ -121,6 +139,15 @@ class RunAgentRequest extends Model
 
         if (isset($map['userContent'])) {
             $model->userContent = $map['userContent'];
+        }
+
+        if (isset($map['userInputs'])) {
+            if (!empty($map['userInputs'])) {
+                $model->userInputs = [];
+                foreach ($map['userInputs'] as $key1 => $value1) {
+                    $model->userInputs[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['versionId'])) {

@@ -78,11 +78,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->embeddingTypeList as $item1) {
                     if (\is_array($item1)) {
-                        $res['embeddingTypeList'][$n1++] = [];
+                        $res['embeddingTypeList'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['embeddingTypeList'][$n1++][$key2] = $value2;
+                            $res['embeddingTypeList'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -102,11 +103,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->libraryDocumentStatusList as $item1) {
                     if (\is_array($item1)) {
-                        $res['libraryDocumentStatusList'][$n1++] = [];
+                        $res['libraryDocumentStatusList'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['libraryDocumentStatusList'][$n1++][$key2] = $value2;
+                            $res['libraryDocumentStatusList'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -117,11 +119,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->llmHelperTypeList as $item1) {
                     if (\is_array($item1)) {
-                        $res['llmHelperTypeList'][$n1++] = [];
+                        $res['llmHelperTypeList'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['llmHelperTypeList'][$n1++][$key2] = $value2;
+                            $res['llmHelperTypeList'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +134,8 @@ class data extends Model
                 $res['textIndexCategoryList'] = [];
                 $n1 = 0;
                 foreach ($this->textIndexCategoryList as $item1) {
-                    $res['textIndexCategoryList'][$n1++] = $item1;
+                    $res['textIndexCategoryList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +145,8 @@ class data extends Model
                 $res['vectorIndexCategoryList'] = [];
                 $n1 = 0;
                 foreach ($this->vectorIndexCategoryList as $item1) {
-                    $res['vectorIndexCategoryList'][$n1++] = $item1;
+                    $res['vectorIndexCategoryList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,11 +168,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['embeddingTypeList'] as $item1) {
                     if (!empty($item1)) {
-                        $model->embeddingTypeList[$n1++] = [];
+                        $model->embeddingTypeList[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->embeddingTypeList[$n1++][$key2] = $value2;
+                            $model->embeddingTypeList[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -187,11 +193,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['libraryDocumentStatusList'] as $item1) {
                     if (!empty($item1)) {
-                        $model->libraryDocumentStatusList[$n1++] = [];
+                        $model->libraryDocumentStatusList[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->libraryDocumentStatusList[$n1++][$key2] = $value2;
+                            $model->libraryDocumentStatusList[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -202,11 +209,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['llmHelperTypeList'] as $item1) {
                     if (!empty($item1)) {
-                        $model->llmHelperTypeList[$n1++] = [];
+                        $model->llmHelperTypeList[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->llmHelperTypeList[$n1++][$key2] = $value2;
+                            $model->llmHelperTypeList[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +224,8 @@ class data extends Model
                 $model->textIndexCategoryList = [];
                 $n1 = 0;
                 foreach ($map['textIndexCategoryList'] as $item1) {
-                    $model->textIndexCategoryList[$n1++] = $item1;
+                    $model->textIndexCategoryList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +235,8 @@ class data extends Model
                 $model->vectorIndexCategoryList = [];
                 $n1 = 0;
                 foreach ($map['vectorIndexCategoryList'] as $item1) {
-                    $model->vectorIndexCategoryList[$n1++] = $item1;
+                    $model->vectorIndexCategoryList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

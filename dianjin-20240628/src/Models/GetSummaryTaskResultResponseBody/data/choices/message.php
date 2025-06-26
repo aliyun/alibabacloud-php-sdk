@@ -53,11 +53,12 @@ class message extends Model
                 $n1 = 0;
                 foreach ($this->toolCalls as $item1) {
                     if (\is_array($item1)) {
-                        $res['toolCalls'][$n1++] = [];
+                        $res['toolCalls'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['toolCalls'][$n1++][$key2] = $value2;
+                            $res['toolCalls'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -87,11 +88,12 @@ class message extends Model
                 $n1 = 0;
                 foreach ($map['toolCalls'] as $item1) {
                     if (!empty($item1)) {
-                        $model->toolCalls[$n1++] = [];
+                        $model->toolCalls[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->toolCalls[$n1++][$key2] = $value2;
+                            $model->toolCalls[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

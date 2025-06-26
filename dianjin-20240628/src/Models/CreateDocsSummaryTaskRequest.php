@@ -51,7 +51,8 @@ class CreateDocsSummaryTaskRequest extends Model
                 $res['docInfos'] = [];
                 $n1 = 0;
                 foreach ($this->docInfos as $item1) {
-                    $res['docInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['docInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class CreateDocsSummaryTaskRequest extends Model
                 $model->docInfos = [];
                 $n1 = 0;
                 foreach ($map['docInfos'] as $item1) {
-                    $model->docInfos[$n1++] = docInfos::fromMap($item1);
+                    $model->docInfos[$n1] = docInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

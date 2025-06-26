@@ -106,7 +106,8 @@ class data extends Model
                 $res['chunkList'] = [];
                 $n1 = 0;
                 foreach ($this->chunkList as $item1) {
-                    $res['chunkList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['chunkList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class data extends Model
                 $res['chunkPartList'] = [];
                 $n1 = 0;
                 foreach ($this->chunkPartList as $item1) {
-                    $res['chunkPartList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['chunkPartList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class data extends Model
                 $res['chunkTextList'] = [];
                 $n1 = 0;
                 foreach ($this->chunkTextList as $item1) {
-                    $res['chunkTextList'][$n1++] = $item1;
+                    $res['chunkTextList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class data extends Model
                 $res['documents'] = [];
                 $n1 = 0;
                 foreach ($this->documents as $item1) {
-                    $res['documents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['documents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +154,8 @@ class data extends Model
                 $res['textChunkList'] = [];
                 $n1 = 0;
                 foreach ($this->textChunkList as $item1) {
-                    $res['textChunkList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['textChunkList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +173,8 @@ class data extends Model
                 $res['vectorChunkList'] = [];
                 $n1 = 0;
                 foreach ($this->vectorChunkList as $item1) {
-                    $res['vectorChunkList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['vectorChunkList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +199,8 @@ class data extends Model
                 $model->chunkList = [];
                 $n1 = 0;
                 foreach ($map['chunkList'] as $item1) {
-                    $model->chunkList[$n1++] = chunkList::fromMap($item1);
+                    $model->chunkList[$n1] = chunkList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +210,8 @@ class data extends Model
                 $model->chunkPartList = [];
                 $n1 = 0;
                 foreach ($map['chunkPartList'] as $item1) {
-                    $model->chunkPartList[$n1++] = chunkPartList::fromMap($item1);
+                    $model->chunkPartList[$n1] = chunkPartList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +221,8 @@ class data extends Model
                 $model->chunkTextList = [];
                 $n1 = 0;
                 foreach ($map['chunkTextList'] as $item1) {
-                    $model->chunkTextList[$n1++] = $item1;
+                    $model->chunkTextList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -223,7 +232,8 @@ class data extends Model
                 $model->documents = [];
                 $n1 = 0;
                 foreach ($map['documents'] as $item1) {
-                    $model->documents[$n1++] = documents::fromMap($item1);
+                    $model->documents[$n1] = documents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +247,8 @@ class data extends Model
                 $model->textChunkList = [];
                 $n1 = 0;
                 foreach ($map['textChunkList'] as $item1) {
-                    $model->textChunkList[$n1++] = textChunkList::fromMap($item1);
+                    $model->textChunkList[$n1] = textChunkList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +266,8 @@ class data extends Model
                 $model->vectorChunkList = [];
                 $n1 = 0;
                 foreach ($map['vectorChunkList'] as $item1) {
-                    $model->vectorChunkList[$n1++] = vectorChunkList::fromMap($item1);
+                    $model->vectorChunkList[$n1] = vectorChunkList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

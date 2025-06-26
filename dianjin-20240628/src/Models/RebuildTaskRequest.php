@@ -32,7 +32,8 @@ class RebuildTaskRequest extends Model
                 $res['taskIds'] = [];
                 $n1 = 0;
                 foreach ($this->taskIds as $item1) {
-                    $res['taskIds'][$n1++] = $item1;
+                    $res['taskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class RebuildTaskRequest extends Model
                 $model->taskIds = [];
                 $n1 = 0;
                 foreach ($map['taskIds'] as $item1) {
-                    $model->taskIds[$n1++] = $item1;
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

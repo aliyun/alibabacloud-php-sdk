@@ -73,7 +73,8 @@ class analysisResp extends Model
                 $res['dialogLabels'] = [];
                 $n1 = 0;
                 foreach ($this->dialogLabels as $item1) {
-                    $res['dialogLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dialogLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class analysisResp extends Model
                 $model->dialogLabels = [];
                 $n1 = 0;
                 foreach ($map['dialogLabels'] as $item1) {
-                    $model->dialogLabels[$n1++] = dialogLabels::fromMap($item1);
+                    $model->dialogLabels[$n1] = dialogLabels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

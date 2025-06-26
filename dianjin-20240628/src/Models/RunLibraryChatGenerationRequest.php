@@ -149,7 +149,8 @@ class RunLibraryChatGenerationRequest extends Model
                 $res['docIdList'] = [];
                 $n1 = 0;
                 foreach ($this->docIdList as $item1) {
-                    $res['docIdList'][$n1++] = $item1;
+                    $res['docIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +208,8 @@ class RunLibraryChatGenerationRequest extends Model
                 $res['subQueryList'] = [];
                 $n1 = 0;
                 foreach ($this->subQueryList as $item1) {
-                    $res['subQueryList'][$n1++] = $item1;
+                    $res['subQueryList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +246,8 @@ class RunLibraryChatGenerationRequest extends Model
                 $model->docIdList = [];
                 $n1 = 0;
                 foreach ($map['docIdList'] as $item1) {
-                    $model->docIdList[$n1++] = $item1;
+                    $model->docIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -302,7 +305,8 @@ class RunLibraryChatGenerationRequest extends Model
                 $model->subQueryList = [];
                 $n1 = 0;
                 foreach ($map['subQueryList'] as $item1) {
-                    $model->subQueryList[$n1++] = $item1;
+                    $model->subQueryList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

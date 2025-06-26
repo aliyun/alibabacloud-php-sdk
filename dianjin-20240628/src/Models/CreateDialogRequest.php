@@ -92,7 +92,8 @@ class CreateDialogRequest extends Model
                 $res['qaLibraryList'] = [];
                 $n1 = 0;
                 foreach ($this->qaLibraryList as $item1) {
-                    $res['qaLibraryList'][$n1++] = $item1;
+                    $res['qaLibraryList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class CreateDialogRequest extends Model
                 $model->qaLibraryList = [];
                 $n1 = 0;
                 foreach ($map['qaLibraryList'] as $item1) {
-                    $model->qaLibraryList[$n1++] = $item1;
+                    $model->qaLibraryList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

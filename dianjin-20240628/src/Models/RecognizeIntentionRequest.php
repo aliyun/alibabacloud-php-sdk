@@ -101,7 +101,8 @@ class RecognizeIntentionRequest extends Model
                 $res['globalIntentionList'] = [];
                 $n1 = 0;
                 foreach ($this->globalIntentionList as $item1) {
-                    $res['globalIntentionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['globalIntentionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class RecognizeIntentionRequest extends Model
                 $res['hierarchicalIntentionList'] = [];
                 $n1 = 0;
                 foreach ($this->hierarchicalIntentionList as $item1) {
-                    $res['hierarchicalIntentionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hierarchicalIntentionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +127,8 @@ class RecognizeIntentionRequest extends Model
                 $res['intentionList'] = [];
                 $n1 = 0;
                 foreach ($this->intentionList as $item1) {
-                    $res['intentionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['intentionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class RecognizeIntentionRequest extends Model
                 $model->globalIntentionList = [];
                 $n1 = 0;
                 foreach ($map['globalIntentionList'] as $item1) {
-                    $model->globalIntentionList[$n1++] = globalIntentionList::fromMap($item1);
+                    $model->globalIntentionList[$n1] = globalIntentionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +180,8 @@ class RecognizeIntentionRequest extends Model
                 $model->hierarchicalIntentionList = [];
                 $n1 = 0;
                 foreach ($map['hierarchicalIntentionList'] as $item1) {
-                    $model->hierarchicalIntentionList[$n1++] = hierarchicalIntentionList::fromMap($item1);
+                    $model->hierarchicalIntentionList[$n1] = hierarchicalIntentionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +195,8 @@ class RecognizeIntentionRequest extends Model
                 $model->intentionList = [];
                 $n1 = 0;
                 foreach ($map['intentionList'] as $item1) {
-                    $model->intentionList[$n1++] = intentionList::fromMap($item1);
+                    $model->intentionList[$n1] = intentionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

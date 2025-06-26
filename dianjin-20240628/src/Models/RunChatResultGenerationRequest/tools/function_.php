@@ -66,7 +66,8 @@ class function_ extends Model
                 $res['required'] = [];
                 $n1 = 0;
                 foreach ($this->required as $item1) {
-                    $res['required'][$n1++] = $item1;
+                    $res['required'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class function_ extends Model
                 $model->required = [];
                 $n1 = 0;
                 foreach ($map['required'] as $item1) {
-                    $model->required[$n1++] = $item1;
+                    $model->required[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

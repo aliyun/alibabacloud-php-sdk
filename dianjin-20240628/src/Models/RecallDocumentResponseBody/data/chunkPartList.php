@@ -159,7 +159,8 @@ class chunkPartList extends Model
                 $res['pos'] = [];
                 $n1 = 0;
                 foreach ($this->pos as $item1) {
-                    $res['pos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['pos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +238,8 @@ class chunkPartList extends Model
                 $model->pos = [];
                 $n1 = 0;
                 foreach ($map['pos'] as $item1) {
-                    $model->pos[$n1++] = pos::fromMap($item1);
+                    $model->pos[$n1] = pos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -73,7 +73,8 @@ class data extends Model
                 $res['functionCallResponses'] = [];
                 $n1 = 0;
                 foreach ($this->functionCallResponses as $item1) {
-                    $res['functionCallResponses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['functionCallResponses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class data extends Model
                 $model->functionCallResponses = [];
                 $n1 = 0;
                 foreach ($map['functionCallResponses'] as $item1) {
-                    $model->functionCallResponses[$n1++] = functionCallResponses::fromMap($item1);
+                    $model->functionCallResponses[$n1] = functionCallResponses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

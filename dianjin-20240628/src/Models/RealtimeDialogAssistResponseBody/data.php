@@ -75,7 +75,8 @@ class data extends Model
                 $res['assistScripts'] = [];
                 $n1 = 0;
                 foreach ($this->assistScripts as $item1) {
-                    $res['assistScripts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['assistScripts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class data extends Model
                 $res['assistSop'] = [];
                 $n1 = 0;
                 foreach ($this->assistSop as $item1) {
-                    $res['assistSop'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['assistSop'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +97,8 @@ class data extends Model
                 $res['conversationModel'] = [];
                 $n1 = 0;
                 foreach ($this->conversationModel as $item1) {
-                    $res['conversationModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['conversationModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +131,8 @@ class data extends Model
                 $model->assistScripts = [];
                 $n1 = 0;
                 foreach ($map['assistScripts'] as $item1) {
-                    $model->assistScripts[$n1++] = assistScripts::fromMap($item1);
+                    $model->assistScripts[$n1] = assistScripts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +142,8 @@ class data extends Model
                 $model->assistSop = [];
                 $n1 = 0;
                 foreach ($map['assistSop'] as $item1) {
-                    $model->assistSop[$n1++] = assistSop::fromMap($item1);
+                    $model->assistSop[$n1] = assistSop::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +153,8 @@ class data extends Model
                 $model->conversationModel = [];
                 $n1 = 0;
                 foreach ($map['conversationModel'] as $item1) {
-                    $model->conversationModel[$n1++] = conversationModel::fromMap($item1);
+                    $model->conversationModel[$n1] = conversationModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

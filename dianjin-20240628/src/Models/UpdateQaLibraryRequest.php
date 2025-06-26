@@ -45,7 +45,8 @@ class UpdateQaLibraryRequest extends Model
                 $res['parseQaResults'] = [];
                 $n1 = 0;
                 foreach ($this->parseQaResults as $item1) {
-                    $res['parseQaResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['parseQaResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class UpdateQaLibraryRequest extends Model
                 $model->parseQaResults = [];
                 $n1 = 0;
                 foreach ($map['parseQaResults'] as $item1) {
-                    $model->parseQaResults[$n1++] = parseQaResults::fromMap($item1);
+                    $model->parseQaResults[$n1] = parseQaResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

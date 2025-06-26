@@ -60,7 +60,8 @@ class CreateAnnualDocSummaryTaskRequest extends Model
                 $res['anaYears'] = [];
                 $n1 = 0;
                 foreach ($this->anaYears as $item1) {
-                    $res['anaYears'][$n1++] = $item1;
+                    $res['anaYears'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +71,8 @@ class CreateAnnualDocSummaryTaskRequest extends Model
                 $res['docInfos'] = [];
                 $n1 = 0;
                 foreach ($this->docInfos as $item1) {
-                    $res['docInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['docInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class CreateAnnualDocSummaryTaskRequest extends Model
                 $model->anaYears = [];
                 $n1 = 0;
                 foreach ($map['anaYears'] as $item1) {
-                    $model->anaYears[$n1++] = $item1;
+                    $model->anaYears[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class CreateAnnualDocSummaryTaskRequest extends Model
                 $model->docInfos = [];
                 $n1 = 0;
                 foreach ($map['docInfos'] as $item1) {
-                    $model->docInfos[$n1++] = docInfos::fromMap($item1);
+                    $model->docInfos[$n1] = docInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -79,7 +79,8 @@ class RunChatResultGenerationRequest extends Model
                 $res['messages'] = [];
                 $n1 = 0;
                 foreach ($this->messages as $item1) {
-                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class RunChatResultGenerationRequest extends Model
                 $res['tools'] = [];
                 $n1 = 0;
                 foreach ($this->tools as $item1) {
-                    $res['tools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +133,8 @@ class RunChatResultGenerationRequest extends Model
                 $model->messages = [];
                 $n1 = 0;
                 foreach ($map['messages'] as $item1) {
-                    $model->messages[$n1++] = messages::fromMap($item1);
+                    $model->messages[$n1] = messages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +156,8 @@ class RunChatResultGenerationRequest extends Model
                 $model->tools = [];
                 $n1 = 0;
                 foreach ($map['tools'] as $item1) {
-                    $model->tools[$n1++] = tools::fromMap($item1);
+                    $model->tools[$n1] = tools::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

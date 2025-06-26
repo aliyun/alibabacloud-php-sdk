@@ -2900,6 +2900,10 @@ class DianJin extends OpenApiClient
             @$body['userContent'] = $request->userContent;
         }
 
+        if (null !== $request->userInputs) {
+            @$body['userInputs'] = $request->userInputs;
+        }
+
         if (null !== $request->versionId) {
             @$body['versionId'] = $request->versionId;
         }

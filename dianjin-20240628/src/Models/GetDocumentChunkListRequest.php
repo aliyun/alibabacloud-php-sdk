@@ -74,7 +74,8 @@ class GetDocumentChunkListRequest extends Model
                 $res['chunkIdList'] = [];
                 $n1 = 0;
                 foreach ($this->chunkIdList as $item1) {
-                    $res['chunkIdList'][$n1++] = $item1;
+                    $res['chunkIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class GetDocumentChunkListRequest extends Model
                 $model->chunkIdList = [];
                 $n1 = 0;
                 foreach ($map['chunkIdList'] as $item1) {
-                    $model->chunkIdList[$n1++] = $item1;
+                    $model->chunkIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

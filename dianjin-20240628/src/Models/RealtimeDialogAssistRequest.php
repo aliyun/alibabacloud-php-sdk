@@ -86,7 +86,8 @@ class RealtimeDialogAssistRequest extends Model
                 $res['conversationModel'] = [];
                 $n1 = 0;
                 foreach ($this->conversationModel as $item1) {
-                    $res['conversationModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['conversationModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class RealtimeDialogAssistRequest extends Model
                 $model->conversationModel = [];
                 $n1 = 0;
                 foreach ($map['conversationModel'] as $item1) {
-                    $model->conversationModel[$n1++] = conversationModel::fromMap($item1);
+                    $model->conversationModel[$n1] = conversationModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

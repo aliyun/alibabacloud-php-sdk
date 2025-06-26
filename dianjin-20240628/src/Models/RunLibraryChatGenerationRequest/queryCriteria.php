@@ -43,7 +43,8 @@ class queryCriteria extends Model
                 $res['and'] = [];
                 $n1 = 0;
                 foreach ($this->and as $item1) {
-                    $res['and'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['and'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class queryCriteria extends Model
                 $res['or'] = [];
                 $n1 = 0;
                 foreach ($this->or as $item1) {
-                    $res['or'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['or'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class queryCriteria extends Model
                 $model->and = [];
                 $n1 = 0;
                 foreach ($map['and'] as $item1) {
-                    $model->and[$n1++] = and_::fromMap($item1);
+                    $model->and[$n1] = and_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class queryCriteria extends Model
                 $model->or = [];
                 $n1 = 0;
                 foreach ($map['or'] as $item1) {
-                    $model->or[$n1++] = or_::fromMap($item1);
+                    $model->or[$n1] = or_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

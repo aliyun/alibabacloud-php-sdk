@@ -33,7 +33,8 @@ class data extends Model
                 $res['dialogAnalysisRespList'] = [];
                 $n1 = 0;
                 foreach ($this->dialogAnalysisRespList as $item1) {
-                    $res['dialogAnalysisRespList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dialogAnalysisRespList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->dialogAnalysisRespList = [];
                 $n1 = 0;
                 foreach ($map['dialogAnalysisRespList'] as $item1) {
-                    $model->dialogAnalysisRespList[$n1++] = dialogAnalysisRespList::fromMap($item1);
+                    $model->dialogAnalysisRespList[$n1] = dialogAnalysisRespList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -89,7 +89,8 @@ class data extends Model
                 $res['qualityCheckList'] = [];
                 $n1 = 0;
                 foreach ($this->qualityCheckList as $item1) {
-                    $res['qualityCheckList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['qualityCheckList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class data extends Model
                 $model->qualityCheckList = [];
                 $n1 = 0;
                 foreach ($map['qualityCheckList'] as $item1) {
-                    $model->qualityCheckList[$n1++] = qualityCheckList::fromMap($item1);
+                    $model->qualityCheckList[$n1] = qualityCheckList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -57,7 +57,8 @@ class response extends Model
                 $res['choices'] = [];
                 $n1 = 0;
                 foreach ($this->choices as $item1) {
-                    $res['choices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['choices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class response extends Model
                 $model->choices = [];
                 $n1 = 0;
                 foreach ($map['choices'] as $item1) {
-                    $model->choices[$n1++] = choices::fromMap($item1);
+                    $model->choices[$n1] = choices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

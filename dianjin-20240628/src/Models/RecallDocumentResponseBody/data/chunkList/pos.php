@@ -47,7 +47,8 @@ class pos extends Model
                 $res['axisArray'] = [];
                 $n1 = 0;
                 foreach ($this->axisArray as $item1) {
-                    $res['axisArray'][$n1++] = $item1;
+                    $res['axisArray'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class pos extends Model
                 $res['textHighlightArea'] = [];
                 $n1 = 0;
                 foreach ($this->textHighlightArea as $item1) {
-                    $res['textHighlightArea'][$n1++] = $item1;
+                    $res['textHighlightArea'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class pos extends Model
                 $model->axisArray = [];
                 $n1 = 0;
                 foreach ($map['axisArray'] as $item1) {
-                    $model->axisArray[$n1++] = $item1;
+                    $model->axisArray[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class pos extends Model
                 $model->textHighlightArea = [];
                 $n1 = 0;
                 foreach ($map['textHighlightArea'] as $item1) {
-                    $model->textHighlightArea[$n1++] = $item1;
+                    $model->textHighlightArea[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

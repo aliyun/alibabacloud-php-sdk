@@ -54,7 +54,8 @@ class CreatePredefinedDocumentRequest extends Model
                 $res['chunks'] = [];
                 $n1 = 0;
                 foreach ($this->chunks as $item1) {
-                    $res['chunks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['chunks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class CreatePredefinedDocumentRequest extends Model
                 $model->chunks = [];
                 $n1 = 0;
                 foreach ($map['chunks'] as $item1) {
-                    $model->chunks[$n1++] = chunks::fromMap($item1);
+                    $model->chunks[$n1] = chunks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

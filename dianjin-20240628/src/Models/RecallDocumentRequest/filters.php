@@ -73,7 +73,8 @@ class filters extends Model
                 $res['and'] = [];
                 $n1 = 0;
                 foreach ($this->and as $item1) {
-                    $res['and'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['and'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class filters extends Model
                 $res['docIdList'] = [];
                 $n1 = 0;
                 foreach ($this->docIdList as $item1) {
-                    $res['docIdList'][$n1++] = $item1;
+                    $res['docIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +103,8 @@ class filters extends Model
                 $res['or'] = [];
                 $n1 = 0;
                 foreach ($this->or as $item1) {
-                    $res['or'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['or'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class filters extends Model
                 $res['status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['status'][$n1++] = $item1;
+                    $res['status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +136,8 @@ class filters extends Model
                 $model->and = [];
                 $n1 = 0;
                 foreach ($map['and'] as $item1) {
-                    $model->and[$n1++] = and_::fromMap($item1);
+                    $model->and[$n1] = and_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +151,8 @@ class filters extends Model
                 $model->docIdList = [];
                 $n1 = 0;
                 foreach ($map['docIdList'] as $item1) {
-                    $model->docIdList[$n1++] = $item1;
+                    $model->docIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +166,8 @@ class filters extends Model
                 $model->or = [];
                 $n1 = 0;
                 foreach ($map['or'] as $item1) {
-                    $model->or[$n1++] = or_::fromMap($item1);
+                    $model->or[$n1] = or_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +177,8 @@ class filters extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -64,7 +64,8 @@ class GetDialogAnalysisResultRequest extends Model
                 $res['sessionIds'] = [];
                 $n1 = 0;
                 foreach ($this->sessionIds as $item1) {
-                    $res['sessionIds'][$n1++] = $item1;
+                    $res['sessionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class GetDialogAnalysisResultRequest extends Model
                 $model->sessionIds = [];
                 $n1 = 0;
                 foreach ($map['sessionIds'] as $item1) {
-                    $model->sessionIds[$n1++] = $item1;
+                    $model->sessionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

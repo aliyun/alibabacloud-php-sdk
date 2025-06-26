@@ -86,7 +86,8 @@ class CreateQualityCheckTaskRequest extends Model
                 $res['qualityGroup'] = [];
                 $n1 = 0;
                 foreach ($this->qualityGroup as $item1) {
-                    $res['qualityGroup'][$n1++] = $item1;
+                    $res['qualityGroup'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class CreateQualityCheckTaskRequest extends Model
                 $model->qualityGroup = [];
                 $n1 = 0;
                 foreach ($map['qualityGroup'] as $item1) {
-                    $model->qualityGroup[$n1++] = $item1;
+                    $model->qualityGroup[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
