@@ -42,7 +42,8 @@ class GetElecTrendRequest extends Model
                 $res['yearList'] = [];
                 $n1 = 0;
                 foreach ($this->yearList as $item1) {
-                    $res['yearList'][$n1++] = $item1;
+                    $res['yearList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class GetElecTrendRequest extends Model
                 $model->yearList = [];
                 $n1 = 0;
                 foreach ($map['yearList'] as $item1) {
-                    $model->yearList[$n1++] = $item1;
+                    $model->yearList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

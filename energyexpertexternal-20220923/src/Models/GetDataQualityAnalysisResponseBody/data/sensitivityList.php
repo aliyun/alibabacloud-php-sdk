@@ -58,7 +58,8 @@ class sensitivityList extends Model
                 $res['reductionList'] = [];
                 $n1 = 0;
                 foreach ($this->reductionList as $item1) {
-                    $res['reductionList'][$n1++] = $item1;
+                    $res['reductionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class sensitivityList extends Model
                 $model->reductionList = [];
                 $n1 = 0;
                 foreach ($map['reductionList'] as $item1) {
-                    $model->reductionList[$n1++] = $item1;
+                    $model->reductionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

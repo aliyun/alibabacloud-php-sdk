@@ -1628,7 +1628,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get document parsing/extraction result.
+     * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
      *
      * @param request - GetDocumentAnalyzeResultRequest
      * @param headers - map
@@ -1670,7 +1670,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get document parsing/extraction result.
+     * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
      *
      * @param request - GetDocumentAnalyzeResultRequest
      *
@@ -3296,7 +3296,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Online Document Q\\&A.
+     * [Important] This api is no longer maintained, please use the Chat api.
      *
      * @param request - SendDocumentAskQuestionRequest
      * @param headers - map
@@ -3346,7 +3346,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Online Document Q\\&A.
+     * [Important] This api is no longer maintained, please use the Chat api.
      *
      * @param request - SendDocumentAskQuestionRequest
      *
@@ -3812,7 +3812,9 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get document extraction result.
+     * [Important] The api is no longer maintained, please use the following api:
+     * Document parsing using SubmitDocParsingTask.
+     * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
      *
      * @param request - SubmitDocumentAnalyzeJobRequest
      * @param headers - map
@@ -3870,7 +3872,9 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get document extraction result.
+     * [Important] The api is no longer maintained, please use the following api:
+     * Document parsing using SubmitDocParsingTask.
+     * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
      *
      * @param request - SubmitDocumentAnalyzeJobRequest
      *

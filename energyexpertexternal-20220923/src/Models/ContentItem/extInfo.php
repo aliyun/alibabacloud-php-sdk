@@ -96,7 +96,8 @@ class extInfo extends Model
                 $res['pageNum'] = [];
                 $n1 = 0;
                 foreach ($this->pageNum as $item1) {
-                    $res['pageNum'][$n1++] = $item1;
+                    $res['pageNum'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class extInfo extends Model
                 $res['pos'] = [];
                 $n1 = 0;
                 foreach ($this->pos as $item1) {
-                    $res['pos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['pos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +157,8 @@ class extInfo extends Model
                 $model->pageNum = [];
                 $n1 = 0;
                 foreach ($map['pageNum'] as $item1) {
-                    $model->pageNum[$n1++] = $item1;
+                    $model->pageNum[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +168,8 @@ class extInfo extends Model
                 $model->pos = [];
                 $n1 = 0;
                 foreach ($map['pos'] as $item1) {
-                    $model->pos[$n1++] = pos::fromMap($item1);
+                    $model->pos[$n1] = pos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

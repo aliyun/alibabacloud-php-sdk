@@ -91,7 +91,8 @@ class ChatRefDocItem extends Model
                 $res['pageNum'] = [];
                 $n1 = 0;
                 foreach ($this->pageNum as $item1) {
-                    $res['pageNum'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['pageNum'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class ChatRefDocItem extends Model
                 $model->pageNum = [];
                 $n1 = 0;
                 foreach ($map['pageNum'] as $item1) {
-                    $model->pageNum[$n1++] = ChatDocumentPageNum::fromMap($item1);
+                    $model->pageNum[$n1] = ChatDocumentPageNum::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -9,12 +9,12 @@ use AlibabaCloud\Dara\Model;
 class GetChatListRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $currentPage;
 
     /**
-     * @var string
+     * @var int
      */
     public $pageSize;
 

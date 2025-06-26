@@ -42,7 +42,8 @@ class data extends Model
                 $res['document'] = [];
                 $n1 = 0;
                 foreach ($this->document as $item1) {
-                    $res['document'][$n1++] = $item1;
+                    $res['document'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class data extends Model
                 $model->document = [];
                 $n1 = 0;
                 foreach ($map['document'] as $item1) {
-                    $model->document[$n1++] = $item1;
+                    $model->document[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

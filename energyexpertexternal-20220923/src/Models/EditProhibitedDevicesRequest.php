@@ -49,7 +49,8 @@ class EditProhibitedDevicesRequest extends Model
                 $res['hvacDeviceConfigVOList'] = [];
                 $n1 = 0;
                 foreach ($this->hvacDeviceConfigVOList as $item1) {
-                    $res['hvacDeviceConfigVOList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hvacDeviceConfigVOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class EditProhibitedDevicesRequest extends Model
                 $model->hvacDeviceConfigVOList = [];
                 $n1 = 0;
                 foreach ($map['hvacDeviceConfigVOList'] as $item1) {
-                    $model->hvacDeviceConfigVOList[$n1++] = hvacDeviceConfigVOList::fromMap($item1);
+                    $model->hvacDeviceConfigVOList[$n1] = hvacDeviceConfigVOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class data extends Model
                 $res['kvListInfo'] = [];
                 $n1 = 0;
                 foreach ($this->kvListInfo as $item1) {
-                    $res['kvListInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['kvListInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->kvListInfo = [];
                 $n1 = 0;
                 foreach ($map['kvListInfo'] as $item1) {
-                    $model->kvListInfo[$n1++] = kvListInfo::fromMap($item1);
+                    $model->kvListInfo[$n1] = kvListInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

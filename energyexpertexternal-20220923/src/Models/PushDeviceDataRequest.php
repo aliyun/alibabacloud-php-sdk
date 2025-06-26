@@ -43,7 +43,8 @@ class PushDeviceDataRequest extends Model
                 $res['devices'] = [];
                 $n1 = 0;
                 foreach ($this->devices as $item1) {
-                    $res['devices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['devices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class PushDeviceDataRequest extends Model
                 $model->devices = [];
                 $n1 = 0;
                 foreach ($map['devices'] as $item1) {
-                    $model->devices[$n1++] = devices::fromMap($item1);
+                    $model->devices[$n1] = devices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

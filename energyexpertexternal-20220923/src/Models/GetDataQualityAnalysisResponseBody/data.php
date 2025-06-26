@@ -69,7 +69,8 @@ class data extends Model
                 $res['dataQuality'] = [];
                 $n1 = 0;
                 foreach ($this->dataQuality as $item1) {
-                    $res['dataQuality'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataQuality'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class data extends Model
                 $res['sensitivityList'] = [];
                 $n1 = 0;
                 foreach ($this->sensitivityList as $item1) {
-                    $res['sensitivityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sensitivityList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class data extends Model
                 $res['uncertaintyValues'] = [];
                 $n1 = 0;
                 foreach ($this->uncertaintyValues as $item1) {
-                    $res['uncertaintyValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['uncertaintyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +121,8 @@ class data extends Model
                 $model->dataQuality = [];
                 $n1 = 0;
                 foreach ($map['dataQuality'] as $item1) {
-                    $model->dataQuality[$n1++] = dataQuality::fromMap($item1);
+                    $model->dataQuality[$n1] = dataQuality::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +136,8 @@ class data extends Model
                 $model->sensitivityList = [];
                 $n1 = 0;
                 foreach ($map['sensitivityList'] as $item1) {
-                    $model->sensitivityList[$n1++] = sensitivityList::fromMap($item1);
+                    $model->sensitivityList[$n1] = sensitivityList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +151,8 @@ class data extends Model
                 $model->uncertaintyValues = [];
                 $n1 = 0;
                 foreach ($map['uncertaintyValues'] as $item1) {
-                    $model->uncertaintyValues[$n1++] = uncertaintyValues::fromMap($item1);
+                    $model->uncertaintyValues[$n1] = uncertaintyValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

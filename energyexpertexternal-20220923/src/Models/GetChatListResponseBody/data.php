@@ -57,7 +57,8 @@ class data extends Model
                 $res['chatList'] = [];
                 $n1 = 0;
                 foreach ($this->chatList as $item1) {
-                    $res['chatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['chatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class data extends Model
                 $model->chatList = [];
                 $n1 = 0;
                 foreach ($map['chatList'] as $item1) {
-                    $model->chatList[$n1++] = ChatItem::fromMap($item1);
+                    $model->chatList[$n1] = ChatItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

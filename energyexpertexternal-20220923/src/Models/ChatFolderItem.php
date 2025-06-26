@@ -52,7 +52,8 @@ class ChatFolderItem extends Model
                 $res['subFolders'] = [];
                 $n1 = 0;
                 foreach ($this->subFolders as $item1) {
-                    $res['subFolders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subFolders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class ChatFolderItem extends Model
                 $model->subFolders = [];
                 $n1 = 0;
                 foreach ($map['subFolders'] as $item1) {
-                    $model->subFolders[$n1++] = ChatItem::fromMap($item1);
+                    $model->subFolders[$n1] = ChatItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

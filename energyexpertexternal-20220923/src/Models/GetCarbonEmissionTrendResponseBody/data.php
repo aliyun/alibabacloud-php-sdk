@@ -43,7 +43,8 @@ class data extends Model
                 $res['actualEmissionList'] = [];
                 $n1 = 0;
                 foreach ($this->actualEmissionList as $item1) {
-                    $res['actualEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['actualEmissionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class data extends Model
                 $res['targetEmissionList'] = [];
                 $n1 = 0;
                 foreach ($this->targetEmissionList as $item1) {
-                    $res['targetEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['targetEmissionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class data extends Model
                 $model->actualEmissionList = [];
                 $n1 = 0;
                 foreach ($map['actualEmissionList'] as $item1) {
-                    $model->actualEmissionList[$n1++] = actualEmissionList::fromMap($item1);
+                    $model->actualEmissionList[$n1] = actualEmissionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class data extends Model
                 $model->targetEmissionList = [];
                 $n1 = 0;
                 foreach ($map['targetEmissionList'] as $item1) {
-                    $model->targetEmissionList[$n1++] = targetEmissionList::fromMap($item1);
+                    $model->targetEmissionList[$n1] = targetEmissionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

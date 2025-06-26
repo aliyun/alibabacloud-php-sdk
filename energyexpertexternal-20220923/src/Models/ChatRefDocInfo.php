@@ -38,7 +38,8 @@ class ChatRefDocInfo extends Model
                 $res['pageListInfo'] = [];
                 $n1 = 0;
                 foreach ($this->pageListInfo as $item1) {
-                    $res['pageListInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['pageListInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ChatRefDocInfo extends Model
                 $model->pageListInfo = [];
                 $n1 = 0;
                 foreach ($map['pageListInfo'] as $item1) {
-                    $model->pageListInfo[$n1++] = ChatRefDocPageInfo::fromMap($item1);
+                    $model->pageListInfo[$n1] = ChatRefDocPageInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

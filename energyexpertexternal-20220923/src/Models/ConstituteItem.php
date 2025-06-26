@@ -116,7 +116,8 @@ class ConstituteItem extends Model
                 $res['envGasEmissions'] = [];
                 $n1 = 0;
                 foreach ($this->envGasEmissions as $item1) {
-                    $res['envGasEmissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['envGasEmissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class ConstituteItem extends Model
                 $res['subConstituteItems'] = [];
                 $n1 = 0;
                 foreach ($this->subConstituteItems as $item1) {
-                    $res['subConstituteItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subConstituteItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +185,8 @@ class ConstituteItem extends Model
                 $model->envGasEmissions = [];
                 $n1 = 0;
                 foreach ($map['envGasEmissions'] as $item1) {
-                    $model->envGasEmissions[$n1++] = envGasEmissions::fromMap($item1);
+                    $model->envGasEmissions[$n1] = envGasEmissions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +212,8 @@ class ConstituteItem extends Model
                 $model->subConstituteItems = [];
                 $n1 = 0;
                 foreach ($map['subConstituteItems'] as $item1) {
-                    $model->subConstituteItems[$n1++] = self::fromMap($item1);
+                    $model->subConstituteItems[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

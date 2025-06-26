@@ -38,7 +38,8 @@ class GetEpdInventoryConstituteResponseBody extends Model
                 $res['data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetEpdInventoryConstituteResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = EpdInventoryConstituteItem::fromMap($item1);
+                    $model->data[$n1] = EpdInventoryConstituteItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

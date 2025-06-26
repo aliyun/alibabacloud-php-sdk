@@ -51,7 +51,8 @@ class ContentItem extends Model
                 $res['extInfo'] = [];
                 $n1 = 0;
                 foreach ($this->extInfo as $item1) {
-                    $res['extInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['extInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ContentItem extends Model
                 $model->extInfo = [];
                 $n1 = 0;
                 foreach ($map['extInfo'] as $item1) {
-                    $model->extInfo[$n1++] = extInfo::fromMap($item1);
+                    $model->extInfo[$n1] = extInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

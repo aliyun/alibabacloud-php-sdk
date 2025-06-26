@@ -55,7 +55,8 @@ class data extends Model
                 $res['factoryList'] = [];
                 $n1 = 0;
                 foreach ($this->factoryList as $item1) {
-                    $res['factoryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['factoryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class data extends Model
                 $model->factoryList = [];
                 $n1 = 0;
                 foreach ($map['factoryList'] as $item1) {
-                    $model->factoryList[$n1++] = factoryList::fromMap($item1);
+                    $model->factoryList[$n1] = factoryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

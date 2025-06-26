@@ -82,7 +82,8 @@ class ChatItem extends Model
                 $res['refDocList'] = [];
                 $n1 = 0;
                 foreach ($this->refDocList as $item1) {
-                    $res['refDocList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refDocList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class ChatItem extends Model
                 $model->refDocList = [];
                 $n1 = 0;
                 foreach ($map['refDocList'] as $item1) {
-                    $model->refDocList[$n1++] = ChatRefDocItem::fromMap($item1);
+                    $model->refDocList[$n1] = ChatRefDocItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

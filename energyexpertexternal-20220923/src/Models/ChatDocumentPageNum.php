@@ -43,12 +43,14 @@ class ChatDocumentPageNum extends Model
                 $n1 = 0;
                 foreach ($this->pos as $item1) {
                     if (\is_array($item1)) {
-                        $res['pos'][$n1++] = [];
+                        $res['pos'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['pos'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['pos'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -74,12 +76,14 @@ class ChatDocumentPageNum extends Model
                 $n1 = 0;
                 foreach ($map['pos'] as $item1) {
                     if (!empty($item1)) {
-                        $model->pos[$n1++] = [];
+                        $model->pos[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->pos[$n1++][$n2++] = ChatRefDocPostion::fromMap($item2);
+                            $model->pos[$n1][$n2] = ChatRefDocPostion::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

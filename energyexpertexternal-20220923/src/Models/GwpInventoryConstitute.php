@@ -71,7 +71,8 @@ class GwpInventoryConstitute extends Model
                 $res['byResourceType'] = [];
                 $n1 = 0;
                 foreach ($this->byResourceType as $item1) {
-                    $res['byResourceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['byResourceType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class GwpInventoryConstitute extends Model
                 $res['items'] = [];
                 $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class GwpInventoryConstitute extends Model
                 $model->byResourceType = [];
                 $n1 = 0;
                 foreach ($map['byResourceType'] as $item1) {
-                    $model->byResourceType[$n1++] = GwpResourceConstitute::fromMap($item1);
+                    $model->byResourceType[$n1] = GwpResourceConstitute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class GwpInventoryConstitute extends Model
                 $model->items = [];
                 $n1 = 0;
                 foreach ($map['items'] as $item1) {
-                    $model->items[$n1++] = self::fromMap($item1);
+                    $model->items[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

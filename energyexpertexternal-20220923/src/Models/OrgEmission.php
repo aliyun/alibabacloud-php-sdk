@@ -88,7 +88,8 @@ class OrgEmission extends Model
                 $res['moduleEmissionList'] = [];
                 $n1 = 0;
                 foreach ($this->moduleEmissionList as $item1) {
-                    $res['moduleEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['moduleEmissionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class OrgEmission extends Model
                 $res['subEmissionItems'] = [];
                 $n1 = 0;
                 foreach ($this->subEmissionItems as $item1) {
-                    $res['subEmissionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subEmissionItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +149,8 @@ class OrgEmission extends Model
                 $model->moduleEmissionList = [];
                 $n1 = 0;
                 foreach ($map['moduleEmissionList'] as $item1) {
-                    $model->moduleEmissionList[$n1++] = moduleEmissionList::fromMap($item1);
+                    $model->moduleEmissionList[$n1] = moduleEmissionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +172,8 @@ class OrgEmission extends Model
                 $model->subEmissionItems = [];
                 $n1 = 0;
                 foreach ($map['subEmissionItems'] as $item1) {
-                    $model->subEmissionItems[$n1++] = self::fromMap($item1);
+                    $model->subEmissionItems[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

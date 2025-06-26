@@ -87,7 +87,8 @@ class data extends Model
                 $res['light'] = [];
                 $n1 = 0;
                 foreach ($this->light as $item1) {
-                    $res['light'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['light'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class data extends Model
                 $res['nuclear'] = [];
                 $n1 = 0;
                 foreach ($this->nuclear as $item1) {
-                    $res['nuclear'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['nuclear'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +109,8 @@ class data extends Model
                 $res['renewing'] = [];
                 $n1 = 0;
                 foreach ($this->renewing as $item1) {
-                    $res['renewing'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['renewing'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +120,8 @@ class data extends Model
                 $res['urban'] = [];
                 $n1 = 0;
                 foreach ($this->urban as $item1) {
-                    $res['urban'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['urban'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +131,8 @@ class data extends Model
                 $res['water'] = [];
                 $n1 = 0;
                 foreach ($this->water as $item1) {
-                    $res['water'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['water'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +142,8 @@ class data extends Model
                 $res['wind'] = [];
                 $n1 = 0;
                 foreach ($this->wind as $item1) {
-                    $res['wind'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['wind'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +153,8 @@ class data extends Model
                 $res['zero'] = [];
                 $n1 = 0;
                 foreach ($this->zero as $item1) {
-                    $res['zero'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['zero'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +175,8 @@ class data extends Model
                 $model->light = [];
                 $n1 = 0;
                 foreach ($map['light'] as $item1) {
-                    $model->light[$n1++] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    $model->light[$n1] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +186,8 @@ class data extends Model
                 $model->nuclear = [];
                 $n1 = 0;
                 foreach ($map['nuclear'] as $item1) {
-                    $model->nuclear[$n1++] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    $model->nuclear[$n1] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +197,8 @@ class data extends Model
                 $model->renewing = [];
                 $n1 = 0;
                 foreach ($map['renewing'] as $item1) {
-                    $model->renewing[$n1++] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    $model->renewing[$n1] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +208,8 @@ class data extends Model
                 $model->urban = [];
                 $n1 = 0;
                 foreach ($map['urban'] as $item1) {
-                    $model->urban[$n1++] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    $model->urban[$n1] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +219,8 @@ class data extends Model
                 $model->water = [];
                 $n1 = 0;
                 foreach ($map['water'] as $item1) {
-                    $model->water[$n1++] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    $model->water[$n1] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +230,8 @@ class data extends Model
                 $model->wind = [];
                 $n1 = 0;
                 foreach ($map['wind'] as $item1) {
-                    $model->wind[$n1++] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    $model->wind[$n1] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +241,8 @@ class data extends Model
                 $model->zero = [];
                 $n1 = 0;
                 foreach ($map['zero'] as $item1) {
-                    $model->zero[$n1++] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    $model->zero[$n1] = CarbonEmissionElecSummaryItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
