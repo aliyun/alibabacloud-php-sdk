@@ -33,7 +33,8 @@ class GetMultiModalEmbeddingRequest extends Model
                 $res['input'] = [];
                 $n1 = 0;
                 foreach ($this->input as $item1) {
-                    $res['input'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['input'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class GetMultiModalEmbeddingRequest extends Model
                 $model->input = [];
                 $n1 = 0;
                 foreach ($map['input'] as $item1) {
-                    $model->input[$n1++] = input::fromMap($item1);
+                    $model->input[$n1] = input::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

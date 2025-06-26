@@ -57,7 +57,8 @@ class result extends Model
                 $res['queries'] = [];
                 $n1 = 0;
                 foreach ($this->queries as $item1) {
-                    $res['queries'][$n1++] = $item1;
+                    $res['queries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class result extends Model
                 $model->queries = [];
                 $n1 = 0;
                 foreach ($map['queries'] as $item1) {
-                    $model->queries[$n1++] = $item1;
+                    $model->queries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

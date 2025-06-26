@@ -39,7 +39,8 @@ class sparseEmbeddings extends Model
                 $res['embedding'] = [];
                 $n1 = 0;
                 foreach ($this->embedding as $item1) {
-                    $res['embedding'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['embedding'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class sparseEmbeddings extends Model
                 $model->embedding = [];
                 $n1 = 0;
                 foreach ($map['embedding'] as $item1) {
-                    $model->embedding[$n1++] = embedding::fromMap($item1);
+                    $model->embedding[$n1] = embedding::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

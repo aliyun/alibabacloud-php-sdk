@@ -33,7 +33,8 @@ class result extends Model
                 $res['embeddings'] = [];
                 $n1 = 0;
                 foreach ($this->embeddings as $item1) {
-                    $res['embeddings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['embeddings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class result extends Model
                 $model->embeddings = [];
                 $n1 = 0;
                 foreach ($map['embeddings'] as $item1) {
-                    $model->embeddings[$n1++] = embeddings::fromMap($item1);
+                    $model->embeddings[$n1] = embeddings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

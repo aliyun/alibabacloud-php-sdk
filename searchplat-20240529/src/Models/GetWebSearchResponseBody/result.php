@@ -33,7 +33,8 @@ class result extends Model
                 $res['search_result'] = [];
                 $n1 = 0;
                 foreach ($this->searchResult as $item1) {
-                    $res['search_result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['search_result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class result extends Model
                 $model->searchResult = [];
                 $n1 = 0;
                 foreach ($map['search_result'] as $item1) {
-                    $model->searchResult[$n1++] = searchResult::fromMap($item1);
+                    $model->searchResult[$n1] = searchResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

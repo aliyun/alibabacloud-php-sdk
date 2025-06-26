@@ -62,7 +62,8 @@ class result extends Model
                 $res['chunks'] = [];
                 $n1 = 0;
                 foreach ($this->chunks as $item1) {
-                    $res['chunks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['chunks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,11 +74,12 @@ class result extends Model
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
                     if (\is_array($item1)) {
-                        $res['nodes'][$n1++] = [];
+                        $res['nodes'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['nodes'][$n1++][$key2] = $value2;
+                            $res['nodes'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +89,8 @@ class result extends Model
                 $res['rich_texts'] = [];
                 $n1 = 0;
                 foreach ($this->richTexts as $item1) {
-                    $res['rich_texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rich_texts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class result extends Model
                 $res['sentences'] = [];
                 $n1 = 0;
                 foreach ($this->sentences as $item1) {
-                    $res['sentences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sentences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +122,8 @@ class result extends Model
                 $model->chunks = [];
                 $n1 = 0;
                 foreach ($map['chunks'] as $item1) {
-                    $model->chunks[$n1++] = chunks::fromMap($item1);
+                    $model->chunks[$n1] = chunks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -129,11 +134,12 @@ class result extends Model
                 $n1 = 0;
                 foreach ($map['nodes'] as $item1) {
                     if (!empty($item1)) {
-                        $model->nodes[$n1++] = [];
+                        $model->nodes[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->nodes[$n1++][$key2] = $value2;
+                            $model->nodes[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +149,8 @@ class result extends Model
                 $model->richTexts = [];
                 $n1 = 0;
                 foreach ($map['rich_texts'] as $item1) {
-                    $model->richTexts[$n1++] = richTexts::fromMap($item1);
+                    $model->richTexts[$n1] = richTexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +160,8 @@ class result extends Model
                 $model->sentences = [];
                 $n1 = 0;
                 foreach ($map['sentences'] as $item1) {
-                    $model->sentences[$n1++] = sentences::fromMap($item1);
+                    $model->sentences[$n1] = sentences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

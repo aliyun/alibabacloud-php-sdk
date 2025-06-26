@@ -5,13 +5,20 @@
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskRequest\input;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskRequest\output;
 
-class GetEmbeddingTuningRequest extends Model
+class CreateVideoSnapshotTaskRequest extends Model
 {
     /**
-     * @var float[][]
+     * @var input
      */
     public $input;
+
+    /**
+     * @var output
+     */
+    public $output;
 
     /**
      * @var mixed[]
@@ -19,13 +26,17 @@ class GetEmbeddingTuningRequest extends Model
     public $parameters;
     protected $_name = [
         'input' => 'input',
+        'output' => 'output',
         'parameters' => 'parameters',
     ];
 
     public function validate()
     {
-        if (\is_array($this->input)) {
-            Model::validateArray($this->input);
+        if (null !== $this->input) {
+            $this->input->validate();
+        }
+        if (null !== $this->output) {
+            $this->output->validate();
         }
         if (\is_array($this->parameters)) {
             Model::validateArray($this->parameters);
@@ -37,21 +48,11 @@ class GetEmbeddingTuningRequest extends Model
     {
         $res = [];
         if (null !== $this->input) {
-            if (\is_array($this->input)) {
-                $res['input'] = [];
-                $n1 = 0;
-                foreach ($this->input as $item1) {
-                    if (\is_array($item1)) {
-                        $res['input'][$n1] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $res['input'][$n1][$n2] = $item2;
-                            ++$n2;
-                        }
-                    }
-                    ++$n1;
-                }
-            }
+            $res['input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
+        }
+
+        if (null !== $this->output) {
+            $res['output'] = null !== $this->output ? $this->output->toArray($noStream) : $this->output;
         }
 
         if (null !== $this->parameters) {
@@ -75,21 +76,11 @@ class GetEmbeddingTuningRequest extends Model
     {
         $model = new self();
         if (isset($map['input'])) {
-            if (!empty($map['input'])) {
-                $model->input = [];
-                $n1 = 0;
-                foreach ($map['input'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->input[$n1] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $model->input[$n1][$n2] = $item2;
-                            ++$n2;
-                        }
-                    }
-                    ++$n1;
-                }
-            }
+            $model->input = input::fromMap($map['input']);
+        }
+
+        if (isset($map['output'])) {
+            $model->output = output::fromMap($map['output']);
         }
 
         if (isset($map['parameters'])) {

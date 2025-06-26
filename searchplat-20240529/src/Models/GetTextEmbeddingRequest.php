@@ -38,7 +38,8 @@ class GetTextEmbeddingRequest extends Model
                 $res['input'] = [];
                 $n1 = 0;
                 foreach ($this->input as $item1) {
-                    $res['input'][$n1++] = $item1;
+                    $res['input'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetTextEmbeddingRequest extends Model
                 $model->input = [];
                 $n1 = 0;
                 foreach ($map['input'] as $item1) {
-                    $model->input[$n1++] = $item1;
+                    $model->input[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

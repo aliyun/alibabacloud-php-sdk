@@ -33,12 +33,14 @@ class result extends Model
                 $n1 = 0;
                 foreach ($this->output as $item1) {
                     if (\is_array($item1)) {
-                        $res['output'][$n1++] = [];
+                        $res['output'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['output'][$n1++][$n2++] = $item2;
+                            $res['output'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -60,12 +62,14 @@ class result extends Model
                 $n1 = 0;
                 foreach ($map['output'] as $item1) {
                     if (!empty($item1)) {
-                        $model->output[$n1++] = [];
+                        $model->output[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->output[$n1++][$n2++] = $item2;
+                            $model->output[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class result extends Model
                 $res['sparse_embeddings'] = [];
                 $n1 = 0;
                 foreach ($this->sparseEmbeddings as $item1) {
-                    $res['sparse_embeddings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sparse_embeddings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class result extends Model
                 $model->sparseEmbeddings = [];
                 $n1 = 0;
                 foreach ($map['sparse_embeddings'] as $item1) {
-                    $model->sparseEmbeddings[$n1++] = sparseEmbeddings::fromMap($item1);
+                    $model->sparseEmbeddings[$n1] = sparseEmbeddings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

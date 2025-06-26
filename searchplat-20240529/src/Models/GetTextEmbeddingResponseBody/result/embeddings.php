@@ -38,7 +38,8 @@ class embeddings extends Model
                 $res['embedding'] = [];
                 $n1 = 0;
                 foreach ($this->embedding as $item1) {
-                    $res['embedding'][$n1++] = $item1;
+                    $res['embedding'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class embeddings extends Model
                 $model->embedding = [];
                 $n1 = 0;
                 foreach ($map['embedding'] as $item1) {
-                    $model->embedding[$n1++] = $item1;
+                    $model->embedding[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

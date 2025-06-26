@@ -38,7 +38,8 @@ class GetDocumentRankRequest extends Model
                 $res['docs'] = [];
                 $n1 = 0;
                 foreach ($this->docs as $item1) {
-                    $res['docs'][$n1++] = $item1;
+                    $res['docs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetDocumentRankRequest extends Model
                 $model->docs = [];
                 $n1 = 0;
                 foreach ($map['docs'] as $item1) {
-                    $model->docs[$n1++] = $item1;
+                    $model->docs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

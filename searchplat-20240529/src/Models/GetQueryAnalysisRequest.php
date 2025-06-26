@@ -49,7 +49,8 @@ class GetQueryAnalysisRequest extends Model
                 $res['functions'] = [];
                 $n1 = 0;
                 foreach ($this->functions as $item1) {
-                    $res['functions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['functions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,7 +60,8 @@ class GetQueryAnalysisRequest extends Model
                 $res['history'] = [];
                 $n1 = 0;
                 foreach ($this->history as $item1) {
-                    $res['history'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['history'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class GetQueryAnalysisRequest extends Model
                 $model->functions = [];
                 $n1 = 0;
                 foreach ($map['functions'] as $item1) {
-                    $model->functions[$n1++] = functions::fromMap($item1);
+                    $model->functions[$n1] = functions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class GetQueryAnalysisRequest extends Model
                 $model->history = [];
                 $n1 = 0;
                 foreach ($map['history'] as $item1) {
-                    $model->history[$n1++] = history::fromMap($item1);
+                    $model->history[$n1] = history::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

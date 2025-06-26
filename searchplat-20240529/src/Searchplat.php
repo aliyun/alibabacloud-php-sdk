@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Searchplat\V20240529;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateAudioAsrTaskRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateAudioAsrTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetAudioAsrTaskStatusRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetAudioAsrTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentAnalyzeTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentAnalyzeTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentRankRequest;
@@ -32,6 +38,8 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSnapshotTaskStatusRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSnapshotTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponse;
 use Darabonba\GatewayPop\Client;
@@ -49,6 +57,79 @@ class Searchplat extends OpenApiClient
         $gatewayClient = new Client();
         $this->_spi = $gatewayClient;
         $this->_endpointRule = '';
+    }
+
+    /**
+     * 创建语音转录异步任务
+     *
+     * @param request - CreateAudioAsrTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAudioAsrTaskResponse
+     *
+     * @param string                    $workspaceName
+     * @param string                    $serviceId
+     * @param CreateAudioAsrTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAudioAsrTaskResponse
+     */
+    public function createAudioAsrTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAudioAsrTask',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/audio-asr/' . $serviceId . '/async',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAudioAsrTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建语音转录异步任务
+     *
+     * @param request - CreateAudioAsrTaskRequest
+     *
+     * @returns CreateAudioAsrTaskResponse
+     *
+     * @param string                    $workspaceName
+     * @param string                    $serviceId
+     * @param CreateAudioAsrTaskRequest $request
+     *
+     * @return CreateAudioAsrTaskResponse
+     */
+    public function createAudioAsrTask($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAudioAsrTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**
@@ -187,6 +268,144 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->createImageAnalyzeTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建语音转录异步任务
+     *
+     * @param request - CreateVideoSnapshotTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoSnapshotTaskResponse
+     *
+     * @param string                         $workspaceName
+     * @param string                         $serviceId
+     * @param CreateVideoSnapshotTaskRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateVideoSnapshotTaskResponse
+     */
+    public function createVideoSnapshotTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVideoSnapshotTask',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/video-snapshot/' . $serviceId . '/async',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVideoSnapshotTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建语音转录异步任务
+     *
+     * @param request - CreateVideoSnapshotTaskRequest
+     *
+     * @returns CreateVideoSnapshotTaskResponse
+     *
+     * @param string                         $workspaceName
+     * @param string                         $serviceId
+     * @param CreateVideoSnapshotTaskRequest $request
+     *
+     * @return CreateVideoSnapshotTaskResponse
+     */
+    public function createVideoSnapshotTask($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVideoSnapshotTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取视频截帧异步提取任务状态
+     *
+     * @param request - GetAudioAsrTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAudioAsrTaskStatusResponse
+     *
+     * @param string                       $workspaceName
+     * @param string                       $serviceId
+     * @param GetAudioAsrTaskStatusRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAudioAsrTaskStatusResponse
+     */
+    public function getAudioAsrTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAudioAsrTaskStatus',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/audio-asr/' . $serviceId . '/async/task-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAudioAsrTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取视频截帧异步提取任务状态
+     *
+     * @param request - GetAudioAsrTaskStatusRequest
+     *
+     * @returns GetAudioAsrTaskStatusResponse
+     *
+     * @param string                       $workspaceName
+     * @param string                       $serviceId
+     * @param GetAudioAsrTaskStatusRequest $request
+     *
+     * @return GetAudioAsrTaskStatusResponse
+     */
+    public function getAudioAsrTaskStatus($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAudioAsrTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**
@@ -955,6 +1174,71 @@ class Searchplat extends OpenApiClient
     }
 
     /**
+     * 获取视频截帧异步提取任务状态
+     *
+     * @param request - GetVideoSnapshotTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoSnapshotTaskStatusResponse
+     *
+     * @param string                            $workspaceName
+     * @param string                            $serviceId
+     * @param GetVideoSnapshotTaskStatusRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetVideoSnapshotTaskStatusResponse
+     */
+    public function getVideoSnapshotTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoSnapshotTaskStatus',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/video-snapshot/' . $serviceId . '/async/task-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoSnapshotTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取视频截帧异步提取任务状态
+     *
+     * @param request - GetVideoSnapshotTaskStatusRequest
+     *
+     * @returns GetVideoSnapshotTaskStatusResponse
+     *
+     * @param string                            $workspaceName
+     * @param string                            $serviceId
+     * @param GetVideoSnapshotTaskStatusRequest $request
+     *
+     * @return GetVideoSnapshotTaskStatusResponse
+     */
+    public function getVideoSnapshotTaskStatus($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVideoSnapshotTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 联网搜索.
      *
      * @param request - GetWebSearchRequest
@@ -975,8 +1259,20 @@ class Searchplat extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->contentType) {
+            @$body['content_type'] = $request->contentType;
+        }
+
+        if (null !== $request->history) {
+            @$body['history'] = $request->history;
+        }
+
         if (null !== $request->query) {
             @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->queryRewrite) {
+            @$body['query_rewrite'] = $request->queryRewrite;
         }
 
         if (null !== $request->topK) {
