@@ -27,6 +27,11 @@ class news extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -37,6 +42,7 @@ class news extends Model
         'comments' => 'Comments',
         'content' => 'Content',
         'pubTime' => 'PubTime',
+        'source' => 'Source',
         'title' => 'Title',
         'url' => 'Url',
     ];
@@ -69,6 +75,10 @@ class news extends Model
 
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->title) {
@@ -107,6 +117,10 @@ class news extends Model
 
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['Title'])) {

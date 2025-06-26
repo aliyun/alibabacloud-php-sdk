@@ -10944,11 +10944,19 @@ class AiMiaoBi extends OpenApiClient
         $tmpReq->validate();
         $request = new SubmitCustomSourceTopicAnalysisShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->analysisTypes) {
+            $request->analysisTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->analysisTypes, 'AnalysisTypes', 'json');
+        }
+
         if (null !== $tmpReq->news) {
             $request->newsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->news, 'News', 'json');
         }
 
         $body = [];
+        if (null !== $request->analysisTypesShrink) {
+            @$body['AnalysisTypes'] = $request->analysisTypesShrink;
+        }
+
         if (null !== $request->fileType) {
             @$body['FileType'] = $request->fileType;
         }

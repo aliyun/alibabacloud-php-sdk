@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisRe
 class SubmitCustomSourceTopicAnalysisRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $analysisTypes;
+
+    /**
      * @var string
      */
     public $fileType;
@@ -34,6 +39,7 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'analysisTypes' => 'AnalysisTypes',
         'fileType' => 'FileType',
         'fileUrl' => 'FileUrl',
         'maxTopicSize' => 'MaxTopicSize',
@@ -43,6 +49,9 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->analysisTypes)) {
+            Model::validateArray($this->analysisTypes);
+        }
         if (\is_array($this->news)) {
             Model::validateArray($this->news);
         }
@@ -52,6 +61,17 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->analysisTypes) {
+            if (\is_array($this->analysisTypes)) {
+                $res['AnalysisTypes'] = [];
+                $n1 = 0;
+                foreach ($this->analysisTypes as $item1) {
+                    $res['AnalysisTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
@@ -90,6 +110,17 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnalysisTypes'])) {
+            if (!empty($map['AnalysisTypes'])) {
+                $model->analysisTypes = [];
+                $n1 = 0;
+                foreach ($map['AnalysisTypes'] as $item1) {
+                    $model->analysisTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }

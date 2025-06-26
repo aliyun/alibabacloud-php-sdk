@@ -11,6 +11,11 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
     /**
      * @var string
      */
+    public $analysisTypesShrink;
+
+    /**
+     * @var string
+     */
     public $fileType;
 
     /**
@@ -33,6 +38,7 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'analysisTypesShrink' => 'AnalysisTypes',
         'fileType' => 'FileType',
         'fileUrl' => 'FileUrl',
         'maxTopicSize' => 'MaxTopicSize',
@@ -48,6 +54,10 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->analysisTypesShrink) {
+            $res['AnalysisTypes'] = $this->analysisTypesShrink;
+        }
+
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
@@ -79,6 +89,10 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnalysisTypes'])) {
+            $model->analysisTypesShrink = $map['AnalysisTypes'];
+        }
+
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }

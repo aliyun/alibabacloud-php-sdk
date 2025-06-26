@@ -38,6 +38,16 @@ class data extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $rt;
+
+    /**
+     * @var int[]
+     */
+    public $usages;
     protected $_name = [
         'clusterCount' => 'ClusterCount',
         'clusterResults' => 'ClusterResults',
@@ -45,12 +55,17 @@ class data extends Model
         'maxClusteredTopicNewsSize' => 'MaxClusteredTopicNewsSize',
         'parsedNewsSize' => 'ParsedNewsSize',
         'status' => 'Status',
+        'rt' => 'rt',
+        'usages' => 'usages',
     ];
 
     public function validate()
     {
         if (\is_array($this->clusterResults)) {
             Model::validateArray($this->clusterResults);
+        }
+        if (\is_array($this->usages)) {
+            Model::validateArray($this->usages);
         }
         parent::validate();
     }
@@ -87,6 +102,19 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->rt) {
+            $res['rt'] = $this->rt;
+        }
+
+        if (null !== $this->usages) {
+            if (\is_array($this->usages)) {
+                $res['usages'] = [];
+                foreach ($this->usages as $key1 => $value1) {
+                    $res['usages'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
@@ -129,6 +157,19 @@ class data extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['rt'])) {
+            $model->rt = $map['rt'];
+        }
+
+        if (isset($map['usages'])) {
+            if (!empty($map['usages'])) {
+                $model->usages = [];
+                foreach ($map['usages'] as $key1 => $value1) {
+                    $model->usages[$key1] = $value1;
+                }
+            }
         }
 
         return $model;
