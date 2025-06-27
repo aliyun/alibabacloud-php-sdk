@@ -103,7 +103,8 @@ class DescribeMetricListResponseBody extends Model
                 $res['DataPoints'] = [];
                 $n1 = 0;
                 foreach ($this->dataPoints as $item1) {
-                    $res['DataPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +169,8 @@ class DescribeMetricListResponseBody extends Model
                 $model->dataPoints = [];
                 $n1 = 0;
                 foreach ($map['DataPoints'] as $item1) {
-                    $model->dataPoints[$n1++] = dataPoints::fromMap($item1);
+                    $model->dataPoints[$n1] = dataPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

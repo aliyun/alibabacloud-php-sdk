@@ -33,7 +33,8 @@ class migrationJobs extends Model
                 $res['MigrationJob'] = [];
                 $n1 = 0;
                 foreach ($this->migrationJob as $item1) {
-                    $res['MigrationJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MigrationJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class migrationJobs extends Model
                 $model->migrationJob = [];
                 $n1 = 0;
                 foreach ($map['MigrationJob'] as $item1) {
-                    $model->migrationJob[$n1++] = migrationJob::fromMap($item1);
+                    $model->migrationJob[$n1] = migrationJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

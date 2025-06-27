@@ -99,7 +99,8 @@ class DescribeSynchronizationJobStatusListResponseBody extends Model
                 $res['SynchronizationJobListStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->synchronizationJobListStatusList as $item1) {
-                    $res['SynchronizationJobListStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SynchronizationJobListStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class DescribeSynchronizationJobStatusListResponseBody extends Model
                 $model->synchronizationJobListStatusList = [];
                 $n1 = 0;
                 foreach ($map['SynchronizationJobListStatusList'] as $item1) {
-                    $model->synchronizationJobListStatusList[$n1++] = synchronizationJobListStatusList::fromMap($item1);
+                    $model->synchronizationJobListStatusList[$n1] = synchronizationJobListStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

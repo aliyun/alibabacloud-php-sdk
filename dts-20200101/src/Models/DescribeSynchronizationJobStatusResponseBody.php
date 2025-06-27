@@ -307,7 +307,8 @@ class DescribeSynchronizationJobStatusResponseBody extends Model
                 $res['SynchronizationObjects'] = [];
                 $n1 = 0;
                 foreach ($this->synchronizationObjects as $item1) {
-                    $res['SynchronizationObjects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SynchronizationObjects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -428,7 +429,8 @@ class DescribeSynchronizationJobStatusResponseBody extends Model
                 $model->synchronizationObjects = [];
                 $n1 = 0;
                 foreach ($map['SynchronizationObjects'] as $item1) {
-                    $model->synchronizationObjects[$n1++] = synchronizationObjects::fromMap($item1);
+                    $model->synchronizationObjects[$n1] = synchronizationObjects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -329,7 +329,8 @@ class reverseJob extends Model
                 $res['ErrorDetails'] = [];
                 $n1 = 0;
                 foreach ($this->errorDetails as $item1) {
-                    $res['ErrorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErrorDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -478,7 +479,8 @@ class reverseJob extends Model
                 $model->errorDetails = [];
                 $n1 = 0;
                 foreach ($map['ErrorDetails'] as $item1) {
-                    $model->errorDetails[$n1++] = errorDetails::fromMap($item1);
+                    $model->errorDetails[$n1] = errorDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

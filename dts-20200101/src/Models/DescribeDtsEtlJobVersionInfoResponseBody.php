@@ -93,7 +93,8 @@ class DescribeDtsEtlJobVersionInfoResponseBody extends Model
                 $res['DtsEtlJobVersionInfos'] = [];
                 $n1 = 0;
                 foreach ($this->dtsEtlJobVersionInfos as $item1) {
-                    $res['DtsEtlJobVersionInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DtsEtlJobVersionInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class DescribeDtsEtlJobVersionInfoResponseBody extends Model
                 $model->dtsEtlJobVersionInfos = [];
                 $n1 = 0;
                 foreach ($map['DtsEtlJobVersionInfos'] as $item1) {
-                    $model->dtsEtlJobVersionInfos[$n1++] = dtsEtlJobVersionInfos::fromMap($item1);
+                    $model->dtsEtlJobVersionInfos[$n1] = dtsEtlJobVersionInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

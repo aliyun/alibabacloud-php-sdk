@@ -33,7 +33,8 @@ class dataInitializationDetailList extends Model
                 $res['DataInitializationDetail'] = [];
                 $n1 = 0;
                 foreach ($this->dataInitializationDetail as $item1) {
-                    $res['DataInitializationDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataInitializationDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dataInitializationDetailList extends Model
                 $model->dataInitializationDetail = [];
                 $n1 = 0;
                 foreach ($map['DataInitializationDetail'] as $item1) {
-                    $model->dataInitializationDetail[$n1++] = dataInitializationDetail::fromMap($item1);
+                    $model->dataInitializationDetail[$n1] = dataInitializationDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

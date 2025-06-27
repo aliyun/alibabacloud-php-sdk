@@ -114,7 +114,8 @@ class DescribeJobMonitorRuleResponseBody extends Model
                 $res['MonitorRules'] = [];
                 $n1 = 0;
                 foreach ($this->monitorRules as $item1) {
-                    $res['MonitorRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MonitorRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class DescribeJobMonitorRuleResponseBody extends Model
                 $res['Topics'] = [];
                 $n1 = 0;
                 foreach ($this->topics as $item1) {
-                    $res['Topics'][$n1++] = $item1;
+                    $res['Topics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +179,8 @@ class DescribeJobMonitorRuleResponseBody extends Model
                 $model->monitorRules = [];
                 $n1 = 0;
                 foreach ($map['MonitorRules'] as $item1) {
-                    $model->monitorRules[$n1++] = monitorRules::fromMap($item1);
+                    $model->monitorRules[$n1] = monitorRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +198,8 @@ class DescribeJobMonitorRuleResponseBody extends Model
                 $model->topics = [];
                 $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
-                    $model->topics[$n1++] = $item1;
+                    $model->topics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

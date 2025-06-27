@@ -33,7 +33,8 @@ class preCheckItems extends Model
                 $res['PreCheckItems'] = [];
                 $n1 = 0;
                 foreach ($this->preCheckItems as $item1) {
-                    $res['PreCheckItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PreCheckItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class preCheckItems extends Model
                 $model->preCheckItems = [];
                 $n1 = 0;
                 foreach ($map['PreCheckItems'] as $item1) {
-                    $model->preCheckItems[$n1++] = self::fromMap($item1);
+                    $model->preCheckItems[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

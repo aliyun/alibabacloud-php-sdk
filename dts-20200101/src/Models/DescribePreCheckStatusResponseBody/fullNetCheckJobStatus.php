@@ -143,7 +143,8 @@ class fullNetCheckJobStatus extends Model
                 $res['JobProgress'] = [];
                 $n1 = 0;
                 foreach ($this->jobProgress as $item1) {
-                    $res['JobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JobProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +217,8 @@ class fullNetCheckJobStatus extends Model
                 $model->jobProgress = [];
                 $n1 = 0;
                 foreach ($map['JobProgress'] as $item1) {
-                    $model->jobProgress[$n1++] = jobProgress::fromMap($item1);
+                    $model->jobProgress[$n1] = jobProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

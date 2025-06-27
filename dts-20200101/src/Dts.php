@@ -8557,8 +8557,16 @@ class Dts extends OpenApiClient
             @$query['DtsJobId'] = $request->dtsJobId;
         }
 
+        if (null !== $request->modifyType) {
+            @$query['ModifyType'] = $request->modifyType;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reserved) {
+            @$query['Reserved'] = $request->reserved;
         }
 
         if (null !== $request->resourceGroupId) {

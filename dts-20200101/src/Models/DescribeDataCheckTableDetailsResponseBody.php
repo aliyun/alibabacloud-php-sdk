@@ -149,7 +149,8 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
                 $res['TableDetails'] = [];
                 $n1 = 0;
                 foreach ($this->tableDetails as $item1) {
-                    $res['TableDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +219,8 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
                 $model->tableDetails = [];
                 $n1 = 0;
                 foreach ($map['TableDetails'] as $item1) {
-                    $model->tableDetails[$n1++] = tableDetails::fromMap($item1);
+                    $model->tableDetails[$n1] = tableDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

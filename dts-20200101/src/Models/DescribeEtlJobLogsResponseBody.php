@@ -91,7 +91,8 @@ class DescribeEtlJobLogsResponseBody extends Model
                 $res['EtlRunningLogs'] = [];
                 $n1 = 0;
                 foreach ($this->etlRunningLogs as $item1) {
-                    $res['EtlRunningLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EtlRunningLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class DescribeEtlJobLogsResponseBody extends Model
                 $model->etlRunningLogs = [];
                 $n1 = 0;
                 foreach ($map['EtlRunningLogs'] as $item1) {
-                    $model->etlRunningLogs[$n1++] = etlRunningLogs::fromMap($item1);
+                    $model->etlRunningLogs[$n1] = etlRunningLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

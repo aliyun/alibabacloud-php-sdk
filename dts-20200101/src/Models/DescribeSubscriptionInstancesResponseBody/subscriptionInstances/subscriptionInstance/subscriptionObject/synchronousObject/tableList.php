@@ -32,7 +32,8 @@ class tableList extends Model
                 $res['Table'] = [];
                 $n1 = 0;
                 foreach ($this->table as $item1) {
-                    $res['Table'][$n1++] = $item1;
+                    $res['Table'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class tableList extends Model
                 $model->table = [];
                 $n1 = 0;
                 foreach ($map['Table'] as $item1) {
-                    $model->table[$n1++] = $item1;
+                    $model->table[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

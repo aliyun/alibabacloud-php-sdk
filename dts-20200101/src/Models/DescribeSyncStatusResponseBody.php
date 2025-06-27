@@ -113,7 +113,8 @@ class DescribeSyncStatusResponseBody extends Model
                 $res['SyncStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->syncStatusList as $item1) {
-                    $res['SyncStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SyncStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +167,8 @@ class DescribeSyncStatusResponseBody extends Model
                 $model->syncStatusList = [];
                 $n1 = 0;
                 foreach ($map['SyncStatusList'] as $item1) {
-                    $model->syncStatusList[$n1++] = syncStatusList::fromMap($item1);
+                    $model->syncStatusList[$n1] = syncStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

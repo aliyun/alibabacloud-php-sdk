@@ -33,7 +33,8 @@ class dataSynchronizationDetailList extends Model
                 $res['DataSynchronizationDetail'] = [];
                 $n1 = 0;
                 foreach ($this->dataSynchronizationDetail as $item1) {
-                    $res['DataSynchronizationDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataSynchronizationDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dataSynchronizationDetailList extends Model
                 $model->dataSynchronizationDetail = [];
                 $n1 = 0;
                 foreach ($map['DataSynchronizationDetail'] as $item1) {
-                    $model->dataSynchronizationDetail[$n1++] = dataSynchronizationDetail::fromMap($item1);
+                    $model->dataSynchronizationDetail[$n1] = dataSynchronizationDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

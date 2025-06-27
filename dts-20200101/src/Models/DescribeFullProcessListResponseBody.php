@@ -119,7 +119,8 @@ class DescribeFullProcessListResponseBody extends Model
                 $res['FullProcessList'] = [];
                 $n1 = 0;
                 foreach ($this->fullProcessList as $item1) {
-                    $res['FullProcessList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FullProcessList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +182,8 @@ class DescribeFullProcessListResponseBody extends Model
                 $model->fullProcessList = [];
                 $n1 = 0;
                 foreach ($map['FullProcessList'] as $item1) {
-                    $model->fullProcessList[$n1++] = fullProcessList::fromMap($item1);
+                    $model->fullProcessList[$n1] = fullProcessList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

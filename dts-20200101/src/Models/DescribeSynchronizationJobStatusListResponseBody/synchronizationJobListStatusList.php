@@ -39,7 +39,8 @@ class synchronizationJobListStatusList extends Model
                 $res['SynchronizationDirectionInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->synchronizationDirectionInfoList as $item1) {
-                    $res['SynchronizationDirectionInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SynchronizationDirectionInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class synchronizationJobListStatusList extends Model
                 $model->synchronizationDirectionInfoList = [];
                 $n1 = 0;
                 foreach ($map['SynchronizationDirectionInfoList'] as $item1) {
-                    $model->synchronizationDirectionInfoList[$n1++] = synchronizationDirectionInfoList::fromMap($item1);
+                    $model->synchronizationDirectionInfoList[$n1] = synchronizationDirectionInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

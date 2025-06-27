@@ -151,7 +151,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $res['AnalysisJobProgress'] = [];
                 $n1 = 0;
                 foreach ($this->analysisJobProgress as $item1) {
-                    $res['AnalysisJobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AnalysisJobProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $res['FullNetCheckJobStatus'] = [];
                 $n1 = 0;
                 foreach ($this->fullNetCheckJobStatus as $item1) {
-                    $res['FullNetCheckJobStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FullNetCheckJobStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +197,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $res['JobProgress'] = [];
                 $n1 = 0;
                 foreach ($this->jobProgress as $item1) {
-                    $res['JobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JobProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +228,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $res['SubDistributedJobStatus'] = [];
                 $n1 = 0;
                 foreach ($this->subDistributedJobStatus as $item1) {
-                    $res['SubDistributedJobStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubDistributedJobStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +262,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $model->analysisJobProgress = [];
                 $n1 = 0;
                 foreach ($map['AnalysisJobProgress'] as $item1) {
-                    $model->analysisJobProgress[$n1++] = analysisJobProgress::fromMap($item1);
+                    $model->analysisJobProgress[$n1] = analysisJobProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +285,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $model->fullNetCheckJobStatus = [];
                 $n1 = 0;
                 foreach ($map['FullNetCheckJobStatus'] as $item1) {
-                    $model->fullNetCheckJobStatus[$n1++] = fullNetCheckJobStatus::fromMap($item1);
+                    $model->fullNetCheckJobStatus[$n1] = fullNetCheckJobStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -302,7 +308,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $model->jobProgress = [];
                 $n1 = 0;
                 foreach ($map['JobProgress'] as $item1) {
-                    $model->jobProgress[$n1++] = jobProgress::fromMap($item1);
+                    $model->jobProgress[$n1] = jobProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -332,7 +339,8 @@ class DescribePreCheckStatusResponseBody extends Model
                 $model->subDistributedJobStatus = [];
                 $n1 = 0;
                 foreach ($map['SubDistributedJobStatus'] as $item1) {
-                    $model->subDistributedJobStatus[$n1++] = subDistributedJobStatus::fromMap($item1);
+                    $model->subDistributedJobStatus[$n1] = subDistributedJobStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

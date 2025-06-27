@@ -39,7 +39,8 @@ class networkDiagnosisResult extends Model
                 $res['Diagnosis'] = [];
                 $n1 = 0;
                 foreach ($this->diagnosis as $item1) {
-                    $res['Diagnosis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Diagnosis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class networkDiagnosisResult extends Model
                 $model->diagnosis = [];
                 $n1 = 0;
                 foreach ($map['Diagnosis'] as $item1) {
-                    $model->diagnosis[$n1++] = diagnosis::fromMap($item1);
+                    $model->diagnosis[$n1] = diagnosis::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class consumerChannels extends Model
                 $res['DescribeConsumerChannel'] = [];
                 $n1 = 0;
                 foreach ($this->describeConsumerChannel as $item1) {
-                    $res['DescribeConsumerChannel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DescribeConsumerChannel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class consumerChannels extends Model
                 $model->describeConsumerChannel = [];
                 $n1 = 0;
                 foreach ($map['DescribeConsumerChannel'] as $item1) {
-                    $model->describeConsumerChannel[$n1++] = describeConsumerChannel::fromMap($item1);
+                    $model->describeConsumerChannel[$n1] = describeConsumerChannel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -75,7 +75,8 @@ class SummaryJobDetailResponseBody extends Model
                 $res['ProgressSummaryDetails'] = [];
                 $n1 = 0;
                 foreach ($this->progressSummaryDetails as $item1) {
-                    $res['ProgressSummaryDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProgressSummaryDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class SummaryJobDetailResponseBody extends Model
                 $model->progressSummaryDetails = [];
                 $n1 = 0;
                 foreach ($map['ProgressSummaryDetails'] as $item1) {
-                    $model->progressSummaryDetails[$n1++] = progressSummaryDetails::fromMap($item1);
+                    $model->progressSummaryDetails[$n1] = progressSummaryDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

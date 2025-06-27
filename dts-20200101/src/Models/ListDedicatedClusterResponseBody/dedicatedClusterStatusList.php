@@ -33,7 +33,8 @@ class dedicatedClusterStatusList extends Model
                 $res['DedicatedClusterStatus'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedClusterStatus as $item1) {
-                    $res['DedicatedClusterStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DedicatedClusterStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dedicatedClusterStatusList extends Model
                 $model->dedicatedClusterStatus = [];
                 $n1 = 0;
                 foreach ($map['DedicatedClusterStatus'] as $item1) {
-                    $model->dedicatedClusterStatus[$n1++] = dedicatedClusterStatus::fromMap($item1);
+                    $model->dedicatedClusterStatus[$n1] = dedicatedClusterStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

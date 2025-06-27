@@ -427,7 +427,8 @@ class etlDemoList extends Model
                 $res['TagList'] = [];
                 $n1 = 0;
                 foreach ($this->tagList as $item1) {
-                    $res['TagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -588,7 +589,8 @@ class etlDemoList extends Model
                 $model->tagList = [];
                 $n1 = 0;
                 foreach ($map['TagList'] as $item1) {
-                    $model->tagList[$n1++] = tagList::fromMap($item1);
+                    $model->tagList[$n1] = tagList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

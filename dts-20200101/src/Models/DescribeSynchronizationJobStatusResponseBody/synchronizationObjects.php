@@ -63,7 +63,8 @@ class synchronizationObjects extends Model
                 $res['TableExcludes'] = [];
                 $n1 = 0;
                 foreach ($this->tableExcludes as $item1) {
-                    $res['TableExcludes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableExcludes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class synchronizationObjects extends Model
                 $res['TableIncludes'] = [];
                 $n1 = 0;
                 foreach ($this->tableIncludes as $item1) {
-                    $res['TableIncludes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableIncludes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class synchronizationObjects extends Model
                 $model->tableExcludes = [];
                 $n1 = 0;
                 foreach ($map['TableExcludes'] as $item1) {
-                    $model->tableExcludes[$n1++] = tableExcludes::fromMap($item1);
+                    $model->tableExcludes[$n1] = tableExcludes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class synchronizationObjects extends Model
                 $model->tableIncludes = [];
                 $n1 = 0;
                 foreach ($map['TableIncludes'] as $item1) {
-                    $model->tableIncludes[$n1++] = tableIncludes::fromMap($item1);
+                    $model->tableIncludes[$n1] = tableIncludes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

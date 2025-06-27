@@ -101,7 +101,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
                 $res['DiffDetails'] = [];
                 $n1 = 0;
                 foreach ($this->diffDetails as $item1) {
-                    $res['DiffDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiffDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +163,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
                 $model->diffDetails = [];
                 $n1 = 0;
                 foreach ($map['DiffDetails'] as $item1) {
-                    $model->diffDetails[$n1++] = diffDetails::fromMap($item1);
+                    $model->diffDetails[$n1] = diffDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class migrationObject extends Model
                 $res['SynchronousObject'] = [];
                 $n1 = 0;
                 foreach ($this->synchronousObject as $item1) {
-                    $res['SynchronousObject'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SynchronousObject'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class migrationObject extends Model
                 $model->synchronousObject = [];
                 $n1 = 0;
                 foreach ($map['SynchronousObject'] as $item1) {
-                    $model->synchronousObject[$n1++] = synchronousObject::fromMap($item1);
+                    $model->synchronousObject[$n1] = synchronousObject::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

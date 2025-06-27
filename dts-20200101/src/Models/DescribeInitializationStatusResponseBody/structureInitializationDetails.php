@@ -75,7 +75,8 @@ class structureInitializationDetails extends Model
                 $res['Constraints'] = [];
                 $n1 = 0;
                 foreach ($this->constraints as $item1) {
-                    $res['Constraints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Constraints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class structureInitializationDetails extends Model
                 $model->constraints = [];
                 $n1 = 0;
                 foreach ($map['Constraints'] as $item1) {
-                    $model->constraints[$n1++] = constraints::fromMap($item1);
+                    $model->constraints[$n1] = constraints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

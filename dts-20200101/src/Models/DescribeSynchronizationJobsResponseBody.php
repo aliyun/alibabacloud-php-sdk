@@ -69,7 +69,8 @@ class DescribeSynchronizationJobsResponseBody extends Model
                 $res['SynchronizationInstances'] = [];
                 $n1 = 0;
                 foreach ($this->synchronizationInstances as $item1) {
-                    $res['SynchronizationInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SynchronizationInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class DescribeSynchronizationJobsResponseBody extends Model
                 $model->synchronizationInstances = [];
                 $n1 = 0;
                 foreach ($map['SynchronizationInstances'] as $item1) {
-                    $model->synchronizationInstances[$n1++] = synchronizationInstances::fromMap($item1);
+                    $model->synchronizationInstances[$n1] = synchronizationInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

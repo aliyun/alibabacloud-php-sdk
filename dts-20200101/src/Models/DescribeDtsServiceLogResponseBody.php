@@ -125,7 +125,8 @@ class DescribeDtsServiceLogResponseBody extends Model
                 $res['ServiceLogContexts'] = [];
                 $n1 = 0;
                 foreach ($this->serviceLogContexts as $item1) {
-                    $res['ServiceLogContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceLogContexts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +187,8 @@ class DescribeDtsServiceLogResponseBody extends Model
                 $model->serviceLogContexts = [];
                 $n1 = 0;
                 foreach ($map['ServiceLogContexts'] as $item1) {
-                    $model->serviceLogContexts[$n1++] = serviceLogContexts::fromMap($item1);
+                    $model->serviceLogContexts[$n1] = serviceLogContexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

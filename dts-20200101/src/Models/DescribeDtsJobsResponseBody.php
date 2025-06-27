@@ -103,7 +103,8 @@ class DescribeDtsJobsResponseBody extends Model
                 $res['DtsJobList'] = [];
                 $n1 = 0;
                 foreach ($this->dtsJobList as $item1) {
-                    $res['DtsJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DtsJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class DescribeDtsJobsResponseBody extends Model
                 $res['EtlDemoList'] = [];
                 $n1 = 0;
                 foreach ($this->etlDemoList as $item1) {
-                    $res['EtlDemoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EtlDemoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +176,8 @@ class DescribeDtsJobsResponseBody extends Model
                 $model->dtsJobList = [];
                 $n1 = 0;
                 foreach ($map['DtsJobList'] as $item1) {
-                    $model->dtsJobList[$n1++] = dtsJobList::fromMap($item1);
+                    $model->dtsJobList[$n1] = dtsJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +203,8 @@ class DescribeDtsJobsResponseBody extends Model
                 $model->etlDemoList = [];
                 $n1 = 0;
                 foreach ($map['EtlDemoList'] as $item1) {
-                    $model->etlDemoList[$n1++] = etlDemoList::fromMap($item1);
+                    $model->etlDemoList[$n1] = etlDemoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

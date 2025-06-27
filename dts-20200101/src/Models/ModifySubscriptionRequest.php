@@ -26,7 +26,17 @@ class ModifySubscriptionRequest extends Model
     /**
      * @var string
      */
+    public $modifyType;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $reserved;
 
     /**
      * @var string
@@ -46,7 +56,9 @@ class ModifySubscriptionRequest extends Model
         'dbList' => 'DbList',
         'dtsInstanceId' => 'DtsInstanceId',
         'dtsJobId' => 'DtsJobId',
+        'modifyType' => 'ModifyType',
         'regionId' => 'RegionId',
+        'reserved' => 'Reserved',
         'resourceGroupId' => 'ResourceGroupId',
         'subscriptionDataTypeDDL' => 'SubscriptionDataTypeDDL',
         'subscriptionDataTypeDML' => 'SubscriptionDataTypeDML',
@@ -72,8 +84,16 @@ class ModifySubscriptionRequest extends Model
             $res['DtsJobId'] = $this->dtsJobId;
         }
 
+        if (null !== $this->modifyType) {
+            $res['ModifyType'] = $this->modifyType;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->reserved) {
+            $res['Reserved'] = $this->reserved;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -111,8 +131,16 @@ class ModifySubscriptionRequest extends Model
             $model->dtsJobId = $map['DtsJobId'];
         }
 
+        if (isset($map['ModifyType'])) {
+            $model->modifyType = $map['ModifyType'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Reserved'])) {
+            $model->reserved = $map['Reserved'];
         }
 
         if (isset($map['ResourceGroupId'])) {

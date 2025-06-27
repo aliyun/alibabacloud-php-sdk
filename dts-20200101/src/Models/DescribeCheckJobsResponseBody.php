@@ -93,7 +93,8 @@ class DescribeCheckJobsResponseBody extends Model
                 $res['CheckJobs'] = [];
                 $n1 = 0;
                 foreach ($this->checkJobs as $item1) {
-                    $res['CheckJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CheckJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class DescribeCheckJobsResponseBody extends Model
                 $model->checkJobs = [];
                 $n1 = 0;
                 foreach ($map['CheckJobs'] as $item1) {
-                    $model->checkJobs[$n1++] = checkJobs::fromMap($item1);
+                    $model->checkJobs[$n1] = checkJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

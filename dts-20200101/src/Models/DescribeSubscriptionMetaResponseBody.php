@@ -79,7 +79,8 @@ class DescribeSubscriptionMetaResponseBody extends Model
                 $res['SubscriptionMetaList'] = [];
                 $n1 = 0;
                 foreach ($this->subscriptionMetaList as $item1) {
-                    $res['SubscriptionMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubscriptionMetaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class DescribeSubscriptionMetaResponseBody extends Model
                 $model->subscriptionMetaList = [];
                 $n1 = 0;
                 foreach ($map['SubscriptionMetaList'] as $item1) {
-                    $model->subscriptionMetaList[$n1++] = subscriptionMetaList::fromMap($item1);
+                    $model->subscriptionMetaList[$n1] = subscriptionMetaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
