@@ -54,6 +54,11 @@ class GetServiceConfResponseBody extends Model
     public $serviceCode;
 
     /**
+     * @var string
+     */
+    public $serviceType;
+
+    /**
      * @var bool
      */
     public $success;
@@ -72,6 +77,7 @@ class GetServiceConfResponseBody extends Model
         'requestId' => 'RequestId',
         'resourceType' => 'ResourceType',
         'serviceCode' => 'ServiceCode',
+        'serviceType' => 'ServiceType',
         'success' => 'Success',
         'uid' => 'Uid',
     ];
@@ -134,6 +140,10 @@ class GetServiceConfResponseBody extends Model
 
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
+        }
+
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
 
         if (null !== $this->success) {
@@ -199,6 +209,10 @@ class GetServiceConfResponseBody extends Model
 
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
+        }
+
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
 
         if (isset($map['Success'])) {

@@ -56,6 +56,11 @@ class UpdateServiceConfigRequest extends Model
     /**
      * @var string
      */
+    public $serviceConfig;
+
+    /**
+     * @var string
+     */
     public $videoConfig;
     protected $_name = [
         'fileConfig' => 'FileConfig',
@@ -67,6 +72,7 @@ class UpdateServiceConfigRequest extends Model
         'scene' => 'Scene',
         'sceneConfig' => 'SceneConfig',
         'serviceCode' => 'ServiceCode',
+        'serviceConfig' => 'ServiceConfig',
         'videoConfig' => 'VideoConfig',
     ];
 
@@ -112,6 +118,10 @@ class UpdateServiceConfigRequest extends Model
 
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
+        }
+
+        if (null !== $this->serviceConfig) {
+            $res['ServiceConfig'] = $this->serviceConfig;
         }
 
         if (null !== $this->videoConfig) {
@@ -163,6 +173,10 @@ class UpdateServiceConfigRequest extends Model
 
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
+        }
+
+        if (isset($map['ServiceConfig'])) {
+            $model->serviceConfig = $map['ServiceConfig'];
         }
 
         if (isset($map['VideoConfig'])) {

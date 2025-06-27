@@ -75,6 +75,16 @@ class items extends Model
     public $gmtCreate;
 
     /**
+     * @var string[]
+     */
+    public $guardFileUrls;
+
+    /**
+     * @var string[]
+     */
+    public $guardImageUrls;
+
+    /**
      * @var mixed[][]
      */
     public $imageLabels;
@@ -93,6 +103,16 @@ class items extends Model
      * @var string
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $maliciousFileLevel;
+
+    /**
+     * @var string
+     */
+    public $maliciousUrlLevel;
 
     /**
      * @var bool
@@ -262,10 +282,14 @@ class items extends Model
         'extra' => 'Extra',
         'frameCount' => 'FrameCount',
         'gmtCreate' => 'GmtCreate',
+        'guardFileUrls' => 'GuardFileUrls',
+        'guardImageUrls' => 'GuardImageUrls',
         'imageLabels' => 'ImageLabels',
         'imageService' => 'ImageService',
         'imageUrl' => 'ImageUrl',
         'labels' => 'Labels',
+        'maliciousFileLevel' => 'MaliciousFileLevel',
+        'maliciousUrlLevel' => 'MaliciousUrlLevel',
         'manualOnly' => 'ManualOnly',
         'noLabels' => 'NoLabels',
         'offset' => 'Offset',
@@ -303,6 +327,12 @@ class items extends Model
     {
         if (\is_array($this->extra)) {
             Model::validateArray($this->extra);
+        }
+        if (\is_array($this->guardFileUrls)) {
+            Model::validateArray($this->guardFileUrls);
+        }
+        if (\is_array($this->guardImageUrls)) {
+            Model::validateArray($this->guardImageUrls);
         }
         if (\is_array($this->imageLabels)) {
             Model::validateArray($this->imageLabels);
@@ -382,6 +412,28 @@ class items extends Model
             $res['GmtCreate'] = $this->gmtCreate;
         }
 
+        if (null !== $this->guardFileUrls) {
+            if (\is_array($this->guardFileUrls)) {
+                $res['GuardFileUrls'] = [];
+                $n1 = 0;
+                foreach ($this->guardFileUrls as $item1) {
+                    $res['GuardFileUrls'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->guardImageUrls) {
+            if (\is_array($this->guardImageUrls)) {
+                $res['GuardImageUrls'] = [];
+                $n1 = 0;
+                foreach ($this->guardImageUrls as $item1) {
+                    $res['GuardImageUrls'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->imageLabels) {
             if (\is_array($this->imageLabels)) {
                 $res['ImageLabels'] = [];
@@ -408,6 +460,14 @@ class items extends Model
 
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+
+        if (null !== $this->maliciousFileLevel) {
+            $res['MaliciousFileLevel'] = $this->maliciousFileLevel;
+        }
+
+        if (null !== $this->maliciousUrlLevel) {
+            $res['MaliciousUrlLevel'] = $this->maliciousUrlLevel;
         }
 
         if (null !== $this->manualOnly) {
@@ -640,6 +700,28 @@ class items extends Model
             $model->gmtCreate = $map['GmtCreate'];
         }
 
+        if (isset($map['GuardFileUrls'])) {
+            if (!empty($map['GuardFileUrls'])) {
+                $model->guardFileUrls = [];
+                $n1 = 0;
+                foreach ($map['GuardFileUrls'] as $item1) {
+                    $model->guardFileUrls[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['GuardImageUrls'])) {
+            if (!empty($map['GuardImageUrls'])) {
+                $model->guardImageUrls = [];
+                $n1 = 0;
+                foreach ($map['GuardImageUrls'] as $item1) {
+                    $model->guardImageUrls[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ImageLabels'])) {
             if (!empty($map['ImageLabels'])) {
                 $model->imageLabels = [];
@@ -666,6 +748,14 @@ class items extends Model
 
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+
+        if (isset($map['MaliciousFileLevel'])) {
+            $model->maliciousFileLevel = $map['MaliciousFileLevel'];
+        }
+
+        if (isset($map['MaliciousUrlLevel'])) {
+            $model->maliciousUrlLevel = $map['MaliciousUrlLevel'];
         }
 
         if (isset($map['ManualOnly'])) {

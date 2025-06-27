@@ -131,6 +131,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ListOssCheckResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListOssCheckResultShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListServiceConfigsRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListServiceConfigsResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\LlmStreamChatRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\LlmStreamChatResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyCallbackRequest;
@@ -4449,6 +4451,71 @@ class Green extends OpenApiClient
     }
 
     /**
+     * 使用SSE接口流式调用大模型.
+     *
+     * @param request - LlmStreamChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LlmStreamChatResponse
+     *
+     * @param LlmStreamChatRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return LlmStreamChatResponse
+     */
+    public function llmStreamChatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->messages) {
+            @$body['Messages'] = $request->messages;
+        }
+
+        if (null !== $request->temperature) {
+            @$body['Temperature'] = $request->temperature;
+        }
+
+        if (null !== $request->topP) {
+            @$body['TopP'] = $request->topP;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'LlmStreamChat',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LlmStreamChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 使用SSE接口流式调用大模型.
+     *
+     * @param request - LlmStreamChatRequest
+     *
+     * @returns LlmStreamChatResponse
+     *
+     * @param LlmStreamChatRequest $request
+     *
+     * @return LlmStreamChatResponse
+     */
+    public function llmStreamChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->llmStreamChatWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新代答库.
      *
      * @param request - ModifyAnswerLibRequest
@@ -5378,6 +5445,10 @@ class Green extends OpenApiClient
 
         if (null !== $request->serviceCode) {
             @$body['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->serviceConfig) {
+            @$body['ServiceConfig'] = $request->serviceConfig;
         }
 
         if (null !== $request->videoConfig) {
