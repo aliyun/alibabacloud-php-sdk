@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAppsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAppsResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteBackupFileRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteBackupFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteCloudPhoneNodesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteImagesRequest;
@@ -1464,6 +1466,63 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除备份文件.
+     *
+     * @param request - DeleteBackupFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBackupFileResponse
+     *
+     * @param DeleteBackupFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteBackupFileResponse
+     */
+    public function deleteBackupFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupFileIdList) {
+            @$query['BackupFileIdList'] = $request->backupFileIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBackupFile',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除备份文件.
+     *
+     * @param request - DeleteBackupFileRequest
+     *
+     * @returns DeleteBackupFileResponse
+     *
+     * @param DeleteBackupFileRequest $request
+     *
+     * @return DeleteBackupFileResponse
+     */
+    public function deleteBackupFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupFileWithOptions($request, $runtime);
     }
 
     /**

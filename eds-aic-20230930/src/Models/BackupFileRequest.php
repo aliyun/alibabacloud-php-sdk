@@ -86,7 +86,8 @@ class BackupFileRequest extends Model
                 $res['AndroidInstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->androidInstanceIdList as $item1) {
-                    $res['AndroidInstanceIdList'][$n1++] = $item1;
+                    $res['AndroidInstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class BackupFileRequest extends Model
                 $res['SourceAppList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceAppList as $item1) {
-                    $res['SourceAppList'][$n1++] = $item1;
+                    $res['SourceAppList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class BackupFileRequest extends Model
                 $res['SourceFilePathList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceFilePathList as $item1) {
-                    $res['SourceFilePathList'][$n1++] = $item1;
+                    $res['SourceFilePathList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +154,8 @@ class BackupFileRequest extends Model
                 $model->androidInstanceIdList = [];
                 $n1 = 0;
                 foreach ($map['AndroidInstanceIdList'] as $item1) {
-                    $model->androidInstanceIdList[$n1++] = $item1;
+                    $model->androidInstanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +181,8 @@ class BackupFileRequest extends Model
                 $model->sourceAppList = [];
                 $n1 = 0;
                 foreach ($map['SourceAppList'] as $item1) {
-                    $model->sourceAppList[$n1++] = $item1;
+                    $model->sourceAppList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +192,8 @@ class BackupFileRequest extends Model
                 $model->sourceFilePathList = [];
                 $n1 = 0;
                 foreach ($map['SourceFilePathList'] as $item1) {
-                    $model->sourceFilePathList[$n1++] = $item1;
+                    $model->sourceFilePathList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

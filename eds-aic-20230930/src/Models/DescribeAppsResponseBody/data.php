@@ -160,7 +160,8 @@ class data extends Model
                 $res['InstanceGroupList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceGroupList as $item1) {
-                    $res['InstanceGroupList'][$n1++] = $item1;
+                    $res['InstanceGroupList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +238,8 @@ class data extends Model
                 $model->instanceGroupList = [];
                 $n1 = 0;
                 foreach ($map['InstanceGroupList'] as $item1) {
-                    $model->instanceGroupList[$n1++] = $item1;
+                    $model->instanceGroupList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class DeleteKeyPairsRequest extends Model
                 $res['KeyPairIds'] = [];
                 $n1 = 0;
                 foreach ($this->keyPairIds as $item1) {
-                    $res['KeyPairIds'][$n1++] = $item1;
+                    $res['KeyPairIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DeleteKeyPairsRequest extends Model
                 $model->keyPairIds = [];
                 $n1 = 0;
                 foreach ($map['KeyPairIds'] as $item1) {
-                    $model->keyPairIds[$n1++] = $item1;
+                    $model->keyPairIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

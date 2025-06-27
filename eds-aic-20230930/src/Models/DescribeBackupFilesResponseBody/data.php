@@ -195,7 +195,8 @@ class data extends Model
                 $res['SourceAppInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceAppInfoList as $item1) {
-                    $res['SourceAppInfoList'][$n1++] = $item1;
+                    $res['SourceAppInfoList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class data extends Model
                 $res['SourceFilePathList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceFilePathList as $item1) {
-                    $res['SourceFilePathList'][$n1++] = $item1;
+                    $res['SourceFilePathList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +296,8 @@ class data extends Model
                 $model->sourceAppInfoList = [];
                 $n1 = 0;
                 foreach ($map['SourceAppInfoList'] as $item1) {
-                    $model->sourceAppInfoList[$n1++] = $item1;
+                    $model->sourceAppInfoList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +307,8 @@ class data extends Model
                 $model->sourceFilePathList = [];
                 $n1 = 0;
                 foreach ($map['SourceFilePathList'] as $item1) {
-                    $model->sourceFilePathList[$n1++] = $item1;
+                    $model->sourceFilePathList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

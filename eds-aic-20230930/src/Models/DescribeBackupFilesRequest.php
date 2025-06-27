@@ -152,7 +152,8 @@ class DescribeBackupFilesRequest extends Model
                 $res['StatusList'] = [];
                 $n1 = 0;
                 foreach ($this->statusList as $item1) {
-                    $res['StatusList'][$n1++] = $item1;
+                    $res['StatusList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +222,8 @@ class DescribeBackupFilesRequest extends Model
                 $model->statusList = [];
                 $n1 = 0;
                 foreach ($map['StatusList'] as $item1) {
-                    $model->statusList[$n1++] = $item1;
+                    $model->statusList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

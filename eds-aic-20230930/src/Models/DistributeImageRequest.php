@@ -38,7 +38,8 @@ class DistributeImageRequest extends Model
                 $res['DistributeRegionList'] = [];
                 $n1 = 0;
                 foreach ($this->distributeRegionList as $item1) {
-                    $res['DistributeRegionList'][$n1++] = $item1;
+                    $res['DistributeRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DistributeImageRequest extends Model
                 $model->distributeRegionList = [];
                 $n1 = 0;
                 foreach ($map['DistributeRegionList'] as $item1) {
-                    $model->distributeRegionList[$n1++] = $item1;
+                    $model->distributeRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

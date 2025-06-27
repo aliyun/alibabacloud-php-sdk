@@ -38,7 +38,8 @@ class ModifyDisplayConfigShrinkRequest extends Model
                 $res['AndroidInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->androidInstanceIds as $item1) {
-                    $res['AndroidInstanceIds'][$n1++] = $item1;
+                    $res['AndroidInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ModifyDisplayConfigShrinkRequest extends Model
                 $model->androidInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['AndroidInstanceIds'] as $item1) {
-                    $model->androidInstanceIds[$n1++] = $item1;
+                    $model->androidInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

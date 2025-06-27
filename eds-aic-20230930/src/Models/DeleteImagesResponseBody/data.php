@@ -41,7 +41,8 @@ class data extends Model
                 $res['FailDeleteImageIds'] = [];
                 $n1 = 0;
                 foreach ($this->failDeleteImageIds as $item1) {
-                    $res['FailDeleteImageIds'][$n1++] = $item1;
+                    $res['FailDeleteImageIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class data extends Model
                 $res['SuccessDeleteImageIds'] = [];
                 $n1 = 0;
                 foreach ($this->successDeleteImageIds as $item1) {
-                    $res['SuccessDeleteImageIds'][$n1++] = $item1;
+                    $res['SuccessDeleteImageIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class data extends Model
                 $model->failDeleteImageIds = [];
                 $n1 = 0;
                 foreach ($map['FailDeleteImageIds'] as $item1) {
-                    $model->failDeleteImageIds[$n1++] = $item1;
+                    $model->failDeleteImageIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class data extends Model
                 $model->successDeleteImageIds = [];
                 $n1 = 0;
                 foreach ($map['SuccessDeleteImageIds'] as $item1) {
-                    $model->successDeleteImageIds[$n1++] = $item1;
+                    $model->successDeleteImageIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

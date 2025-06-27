@@ -44,7 +44,8 @@ class ModifyInstanceChargeTypeResponseBody extends Model
                 $res['InstanceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceGroupIds as $item1) {
-                    $res['InstanceGroupIds'][$n1++] = $item1;
+                    $res['InstanceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ModifyInstanceChargeTypeResponseBody extends Model
                 $model->instanceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceGroupIds'] as $item1) {
-                    $model->instanceGroupIds[$n1++] = $item1;
+                    $model->instanceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

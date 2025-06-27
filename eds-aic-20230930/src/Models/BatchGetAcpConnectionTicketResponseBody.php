@@ -39,7 +39,8 @@ class BatchGetAcpConnectionTicketResponseBody extends Model
                 $res['InstanceConnectionModels'] = [];
                 $n1 = 0;
                 foreach ($this->instanceConnectionModels as $item1) {
-                    $res['InstanceConnectionModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceConnectionModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class BatchGetAcpConnectionTicketResponseBody extends Model
                 $model->instanceConnectionModels = [];
                 $n1 = 0;
                 foreach ($map['InstanceConnectionModels'] as $item1) {
-                    $model->instanceConnectionModels[$n1++] = instanceConnectionModels::fromMap($item1);
+                    $model->instanceConnectionModels[$n1] = instanceConnectionModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

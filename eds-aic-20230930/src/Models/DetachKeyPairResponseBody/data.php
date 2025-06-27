@@ -50,7 +50,8 @@ class data extends Model
                 $res['DetachedInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->detachedInstanceIds as $item1) {
-                    $res['DetachedInstanceIds'][$n1++] = $item1;
+                    $res['DetachedInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class data extends Model
                 $model->detachedInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['DetachedInstanceIds'] as $item1) {
-                    $model->detachedInstanceIds[$n1++] = $item1;
+                    $model->detachedInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

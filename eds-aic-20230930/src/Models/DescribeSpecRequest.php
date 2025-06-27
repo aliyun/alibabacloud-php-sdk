@@ -94,7 +94,8 @@ class DescribeSpecRequest extends Model
                 $res['SpecIds'] = [];
                 $n1 = 0;
                 foreach ($this->specIds as $item1) {
-                    $res['SpecIds'][$n1++] = $item1;
+                    $res['SpecIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class DescribeSpecRequest extends Model
                 $model->specIds = [];
                 $n1 = 0;
                 foreach ($map['SpecIds'] as $item1) {
-                    $model->specIds[$n1++] = $item1;
+                    $model->specIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

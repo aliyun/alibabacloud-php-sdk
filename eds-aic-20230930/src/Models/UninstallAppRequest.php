@@ -50,7 +50,8 @@ class UninstallAppRequest extends Model
                 $res['AppIdList'] = [];
                 $n1 = 0;
                 foreach ($this->appIdList as $item1) {
-                    $res['AppIdList'][$n1++] = $item1;
+                    $res['AppIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class UninstallAppRequest extends Model
                 $res['InstanceGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceGroupIdList as $item1) {
-                    $res['InstanceGroupIdList'][$n1++] = $item1;
+                    $res['InstanceGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class UninstallAppRequest extends Model
                 $res['InstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIdList as $item1) {
-                    $res['InstanceIdList'][$n1++] = $item1;
+                    $res['InstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class UninstallAppRequest extends Model
                 $model->appIdList = [];
                 $n1 = 0;
                 foreach ($map['AppIdList'] as $item1) {
-                    $model->appIdList[$n1++] = $item1;
+                    $model->appIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class UninstallAppRequest extends Model
                 $model->instanceGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['InstanceGroupIdList'] as $item1) {
-                    $model->instanceGroupIdList[$n1++] = $item1;
+                    $model->instanceGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class UninstallAppRequest extends Model
                 $model->instanceIdList = [];
                 $n1 = 0;
                 foreach ($map['InstanceIdList'] as $item1) {
-                    $model->instanceIdList[$n1++] = $item1;
+                    $model->instanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

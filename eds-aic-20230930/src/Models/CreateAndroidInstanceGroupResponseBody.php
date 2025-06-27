@@ -54,7 +54,8 @@ class CreateAndroidInstanceGroupResponseBody extends Model
                 $res['InstanceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceGroupIds as $item1) {
-                    $res['InstanceGroupIds'][$n1++] = $item1;
+                    $res['InstanceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class CreateAndroidInstanceGroupResponseBody extends Model
                 $res['InstanceGroupInfos'] = [];
                 $n1 = 0;
                 foreach ($this->instanceGroupInfos as $item1) {
-                    $res['InstanceGroupInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceGroupInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class CreateAndroidInstanceGroupResponseBody extends Model
                 $model->instanceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceGroupIds'] as $item1) {
-                    $model->instanceGroupIds[$n1++] = $item1;
+                    $model->instanceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class CreateAndroidInstanceGroupResponseBody extends Model
                 $model->instanceGroupInfos = [];
                 $n1 = 0;
                 foreach ($map['InstanceGroupInfos'] as $item1) {
-                    $model->instanceGroupInfos[$n1++] = instanceGroupInfos::fromMap($item1);
+                    $model->instanceGroupInfos[$n1] = instanceGroupInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

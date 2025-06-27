@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\appManagePolicy;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\disks;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\displayConfig;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\phoneDataInfo;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\tags;
 
 class instanceModel extends Model
@@ -148,6 +149,11 @@ class instanceModel extends Model
     public $persistentAppInstanceId;
 
     /**
+     * @var phoneDataInfo
+     */
+    public $phoneDataInfo;
+
+    /**
      * @var string
      */
     public $policyGroupId;
@@ -229,6 +235,7 @@ class instanceModel extends Model
         'networkInterfaceIpv6Address' => 'NetworkInterfaceIpv6Address',
         'officeSiteId' => 'OfficeSiteId',
         'persistentAppInstanceId' => 'PersistentAppInstanceId',
+        'phoneDataInfo' => 'PhoneDataInfo',
         'policyGroupId' => 'PolicyGroupId',
         'publicIpAddress' => 'PublicIpAddress',
         'publicIpv6Address' => 'PublicIpv6Address',
@@ -252,6 +259,9 @@ class instanceModel extends Model
         }
         if (null !== $this->displayConfig) {
             $this->displayConfig->validate();
+        }
+        if (null !== $this->phoneDataInfo) {
+            $this->phoneDataInfo->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -315,7 +325,8 @@ class instanceModel extends Model
                 $res['Disks'] = [];
                 $n1 = 0;
                 foreach ($this->disks as $item1) {
-                    $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -376,6 +387,10 @@ class instanceModel extends Model
             $res['PersistentAppInstanceId'] = $this->persistentAppInstanceId;
         }
 
+        if (null !== $this->phoneDataInfo) {
+            $res['PhoneDataInfo'] = null !== $this->phoneDataInfo ? $this->phoneDataInfo->toArray($noStream) : $this->phoneDataInfo;
+        }
+
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
@@ -413,7 +428,8 @@ class instanceModel extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -490,7 +506,8 @@ class instanceModel extends Model
                 $model->disks = [];
                 $n1 = 0;
                 foreach ($map['Disks'] as $item1) {
-                    $model->disks[$n1++] = disks::fromMap($item1);
+                    $model->disks[$n1] = disks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -551,6 +568,10 @@ class instanceModel extends Model
             $model->persistentAppInstanceId = $map['PersistentAppInstanceId'];
         }
 
+        if (isset($map['PhoneDataInfo'])) {
+            $model->phoneDataInfo = phoneDataInfo::fromMap($map['PhoneDataInfo']);
+        }
+
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
@@ -588,7 +609,8 @@ class instanceModel extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

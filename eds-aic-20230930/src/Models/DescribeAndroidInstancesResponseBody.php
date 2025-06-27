@@ -51,7 +51,8 @@ class DescribeAndroidInstancesResponseBody extends Model
                 $res['InstanceModel'] = [];
                 $n1 = 0;
                 foreach ($this->instanceModel as $item1) {
-                    $res['InstanceModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeAndroidInstancesResponseBody extends Model
                 $model->instanceModel = [];
                 $n1 = 0;
                 foreach ($map['InstanceModel'] as $item1) {
-                    $model->instanceModel[$n1++] = instanceModel::fromMap($item1);
+                    $model->instanceModel[$n1] = instanceModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

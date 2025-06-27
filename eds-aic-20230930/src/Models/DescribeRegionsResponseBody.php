@@ -39,7 +39,8 @@ class DescribeRegionsResponseBody extends Model
                 $res['RegionModels'] = [];
                 $n1 = 0;
                 foreach ($this->regionModels as $item1) {
-                    $res['RegionModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeRegionsResponseBody extends Model
                 $model->regionModels = [];
                 $n1 = 0;
                 foreach ($map['RegionModels'] as $item1) {
-                    $model->regionModels[$n1++] = regionModels::fromMap($item1);
+                    $model->regionModels[$n1] = regionModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -41,7 +41,8 @@ class policyRelatedResources extends Model
                 $res['AndroidInstanceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->androidInstanceGroupIds as $item1) {
-                    $res['AndroidInstanceGroupIds'][$n1++] = $item1;
+                    $res['AndroidInstanceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class policyRelatedResources extends Model
                 $res['CloudPhoneMatrixIds'] = [];
                 $n1 = 0;
                 foreach ($this->cloudPhoneMatrixIds as $item1) {
-                    $res['CloudPhoneMatrixIds'][$n1++] = $item1;
+                    $res['CloudPhoneMatrixIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class policyRelatedResources extends Model
                 $model->androidInstanceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['AndroidInstanceGroupIds'] as $item1) {
-                    $model->androidInstanceGroupIds[$n1++] = $item1;
+                    $model->androidInstanceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class policyRelatedResources extends Model
                 $model->cloudPhoneMatrixIds = [];
                 $n1 = 0;
                 foreach ($map['CloudPhoneMatrixIds'] as $item1) {
-                    $model->cloudPhoneMatrixIds[$n1++] = $item1;
+                    $model->cloudPhoneMatrixIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

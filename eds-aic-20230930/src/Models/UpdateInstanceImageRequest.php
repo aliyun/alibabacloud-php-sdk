@@ -42,7 +42,8 @@ class UpdateInstanceImageRequest extends Model
                 $res['InstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIdList as $item1) {
-                    $res['InstanceIdList'][$n1++] = $item1;
+                    $res['InstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class UpdateInstanceImageRequest extends Model
                 $model->instanceIdList = [];
                 $n1 = 0;
                 foreach ($map['InstanceIdList'] as $item1) {
-                    $model->instanceIdList[$n1++] = $item1;
+                    $model->instanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

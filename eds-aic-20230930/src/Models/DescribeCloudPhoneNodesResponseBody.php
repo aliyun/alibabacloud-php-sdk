@@ -65,7 +65,8 @@ class DescribeCloudPhoneNodesResponseBody extends Model
                 $res['NodeModel'] = [];
                 $n1 = 0;
                 foreach ($this->nodeModel as $item1) {
-                    $res['NodeModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class DescribeCloudPhoneNodesResponseBody extends Model
                 $model->nodeModel = [];
                 $n1 = 0;
                 foreach ($map['NodeModel'] as $item1) {
-                    $model->nodeModel[$n1++] = nodeModel::fromMap($item1);
+                    $model->nodeModel[$n1] = nodeModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

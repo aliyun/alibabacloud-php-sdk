@@ -82,7 +82,8 @@ class watermark extends Model
                 $res['WatermarkTypes'] = [];
                 $n1 = 0;
                 foreach ($this->watermarkTypes as $item1) {
-                    $res['WatermarkTypes'][$n1++] = $item1;
+                    $res['WatermarkTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class watermark extends Model
                 $model->watermarkTypes = [];
                 $n1 = 0;
                 foreach ($map['WatermarkTypes'] as $item1) {
-                    $model->watermarkTypes[$n1++] = $item1;
+                    $model->watermarkTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

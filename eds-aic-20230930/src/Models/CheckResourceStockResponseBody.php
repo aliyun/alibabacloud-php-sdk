@@ -43,7 +43,8 @@ class CheckResourceStockResponseBody extends Model
                 $res['ResourceStockModels'] = [];
                 $n1 = 0;
                 foreach ($this->resourceStockModels as $item1) {
-                    $res['ResourceStockModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceStockModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class CheckResourceStockResponseBody extends Model
                 $model->resourceStockModels = [];
                 $n1 = 0;
                 foreach ($map['ResourceStockModels'] as $item1) {
-                    $model->resourceStockModels[$n1++] = resourceStockModels::fromMap($item1);
+                    $model->resourceStockModels[$n1] = resourceStockModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

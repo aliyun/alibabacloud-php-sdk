@@ -32,7 +32,8 @@ class DeleteImagesRequest extends Model
                 $res['ImageIds'] = [];
                 $n1 = 0;
                 foreach ($this->imageIds as $item1) {
-                    $res['ImageIds'][$n1++] = $item1;
+                    $res['ImageIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DeleteImagesRequest extends Model
                 $model->imageIds = [];
                 $n1 = 0;
                 foreach ($map['ImageIds'] as $item1) {
-                    $model->imageIds[$n1++] = $item1;
+                    $model->imageIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

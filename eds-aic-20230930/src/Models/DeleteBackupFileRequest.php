@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteCloudPhoneNodesRequest extends Model
+class DeleteBackupFileRequest extends Model
 {
     /**
      * @var string[]
      */
-    public $nodeIds;
+    public $backupFileIdList;
     protected $_name = [
-        'nodeIds' => 'NodeIds',
+        'backupFileIdList' => 'BackupFileIdList',
     ];
 
     public function validate()
     {
-        if (\is_array($this->nodeIds)) {
-            Model::validateArray($this->nodeIds);
+        if (\is_array($this->backupFileIdList)) {
+            Model::validateArray($this->backupFileIdList);
         }
         parent::validate();
     }
@@ -27,12 +27,12 @@ class DeleteCloudPhoneNodesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->nodeIds) {
-            if (\is_array($this->nodeIds)) {
-                $res['NodeIds'] = [];
+        if (null !== $this->backupFileIdList) {
+            if (\is_array($this->backupFileIdList)) {
+                $res['BackupFileIdList'] = [];
                 $n1 = 0;
-                foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1] = $item1;
+                foreach ($this->backupFileIdList as $item1) {
+                    $res['BackupFileIdList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -49,12 +49,12 @@ class DeleteCloudPhoneNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NodeIds'])) {
-            if (!empty($map['NodeIds'])) {
-                $model->nodeIds = [];
+        if (isset($map['BackupFileIdList'])) {
+            if (!empty($map['BackupFileIdList'])) {
+                $model->backupFileIdList = [];
                 $n1 = 0;
-                foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1] = $item1;
+                foreach ($map['BackupFileIdList'] as $item1) {
+                    $model->backupFileIdList[$n1] = $item1;
                     ++$n1;
                 }
             }

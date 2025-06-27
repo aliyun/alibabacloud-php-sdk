@@ -43,7 +43,8 @@ class CreateScreenshotResponseBody extends Model
                 $res['Tasks'] = [];
                 $n1 = 0;
                 foreach ($this->tasks as $item1) {
-                    $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class CreateScreenshotResponseBody extends Model
                 $model->tasks = [];
                 $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
-                    $model->tasks[$n1++] = tasks::fromMap($item1);
+                    $model->tasks[$n1] = tasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

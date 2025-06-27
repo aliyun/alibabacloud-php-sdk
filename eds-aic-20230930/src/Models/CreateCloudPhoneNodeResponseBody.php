@@ -45,7 +45,8 @@ class CreateCloudPhoneNodeResponseBody extends Model
                 $res['NodeInfos'] = [];
                 $n1 = 0;
                 foreach ($this->nodeInfos as $item1) {
-                    $res['NodeInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class CreateCloudPhoneNodeResponseBody extends Model
                 $model->nodeInfos = [];
                 $n1 = 0;
                 foreach ($map['NodeInfos'] as $item1) {
-                    $model->nodeInfos[$n1++] = nodeInfos::fromMap($item1);
+                    $model->nodeInfos[$n1] = nodeInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

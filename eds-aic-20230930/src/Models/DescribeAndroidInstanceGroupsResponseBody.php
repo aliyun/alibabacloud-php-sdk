@@ -51,7 +51,8 @@ class DescribeAndroidInstanceGroupsResponseBody extends Model
                 $res['InstanceGroupModel'] = [];
                 $n1 = 0;
                 foreach ($this->instanceGroupModel as $item1) {
-                    $res['InstanceGroupModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceGroupModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeAndroidInstanceGroupsResponseBody extends Model
                 $model->instanceGroupModel = [];
                 $n1 = 0;
                 foreach ($map['InstanceGroupModel'] as $item1) {
-                    $model->instanceGroupModel[$n1++] = instanceGroupModel::fromMap($item1);
+                    $model->instanceGroupModel[$n1] = instanceGroupModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

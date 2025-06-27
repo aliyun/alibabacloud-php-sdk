@@ -62,7 +62,8 @@ class SendFileRequest extends Model
                 $res['AndroidInstanceIdList'] = [];
                 $n1 = 0;
                 foreach ($this->androidInstanceIdList as $item1) {
-                    $res['AndroidInstanceIdList'][$n1++] = $item1;
+                    $res['AndroidInstanceIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class SendFileRequest extends Model
                 $model->androidInstanceIdList = [];
                 $n1 = 0;
                 foreach ($map['AndroidInstanceIdList'] as $item1) {
-                    $model->androidInstanceIdList[$n1++] = $item1;
+                    $model->androidInstanceIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

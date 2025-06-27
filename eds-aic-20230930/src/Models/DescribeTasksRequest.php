@@ -151,7 +151,8 @@ class DescribeTasksRequest extends Model
                 $res['ResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['ResourceIds'][$n1++] = $item1;
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class DescribeTasksRequest extends Model
                 $res['TaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->taskIds as $item1) {
-                    $res['TaskIds'][$n1++] = $item1;
+                    $res['TaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,7 +177,8 @@ class DescribeTasksRequest extends Model
                 $res['TaskStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->taskStatuses as $item1) {
-                    $res['TaskStatuses'][$n1++] = $item1;
+                    $res['TaskStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +192,8 @@ class DescribeTasksRequest extends Model
                 $res['TaskTypes'] = [];
                 $n1 = 0;
                 foreach ($this->taskTypes as $item1) {
-                    $res['TaskTypes'][$n1++] = $item1;
+                    $res['TaskTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -242,7 +246,8 @@ class DescribeTasksRequest extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +257,8 @@ class DescribeTasksRequest extends Model
                 $model->taskIds = [];
                 $n1 = 0;
                 foreach ($map['TaskIds'] as $item1) {
-                    $model->taskIds[$n1++] = $item1;
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -266,7 +272,8 @@ class DescribeTasksRequest extends Model
                 $model->taskStatuses = [];
                 $n1 = 0;
                 foreach ($map['TaskStatuses'] as $item1) {
-                    $model->taskStatuses[$n1++] = $item1;
+                    $model->taskStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +287,8 @@ class DescribeTasksRequest extends Model
                 $model->taskTypes = [];
                 $n1 = 0;
                 foreach ($map['TaskTypes'] as $item1) {
-                    $model->taskTypes[$n1++] = $item1;
+                    $model->taskTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -62,7 +62,8 @@ class BatchGetAcpConnectionTicketRequest extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class BatchGetAcpConnectionTicketRequest extends Model
                 $res['InstanceTasks'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTasks as $item1) {
-                    $res['InstanceTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +103,8 @@ class BatchGetAcpConnectionTicketRequest extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class BatchGetAcpConnectionTicketRequest extends Model
                 $model->instanceTasks = [];
                 $n1 = 0;
                 foreach ($map['InstanceTasks'] as $item1) {
-                    $model->instanceTasks[$n1++] = instanceTasks::fromMap($item1);
+                    $model->instanceTasks[$n1] = instanceTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

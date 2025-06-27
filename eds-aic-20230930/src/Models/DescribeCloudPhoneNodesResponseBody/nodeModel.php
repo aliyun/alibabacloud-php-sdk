@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesRespon
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\networkInfos;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\phoneDataInfo;
 
 class nodeModel extends Model
 {
@@ -70,6 +71,11 @@ class nodeModel extends Model
     public $phoneCount;
 
     /**
+     * @var phoneDataInfo
+     */
+    public $phoneDataInfo;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -116,6 +122,7 @@ class nodeModel extends Model
         'nodeId' => 'NodeId',
         'nodeName' => 'NodeName',
         'phoneCount' => 'PhoneCount',
+        'phoneDataInfo' => 'PhoneDataInfo',
         'regionId' => 'RegionId',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionWidth' => 'ResolutionWidth',
@@ -129,6 +136,9 @@ class nodeModel extends Model
     {
         if (\is_array($this->networkInfos)) {
             Model::validateArray($this->networkInfos);
+        }
+        if (null !== $this->phoneDataInfo) {
+            $this->phoneDataInfo->validate();
         }
         parent::validate();
     }
@@ -173,7 +183,8 @@ class nodeModel extends Model
                 $res['NetworkInfos'] = [];
                 $n1 = 0;
                 foreach ($this->networkInfos as $item1) {
-                    $res['NetworkInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,6 +199,10 @@ class nodeModel extends Model
 
         if (null !== $this->phoneCount) {
             $res['PhoneCount'] = $this->phoneCount;
+        }
+
+        if (null !== $this->phoneDataInfo) {
+            $res['PhoneDataInfo'] = null !== $this->phoneDataInfo ? $this->phoneDataInfo->toArray($noStream) : $this->phoneDataInfo;
         }
 
         if (null !== $this->regionId) {
@@ -266,7 +281,8 @@ class nodeModel extends Model
                 $model->networkInfos = [];
                 $n1 = 0;
                 foreach ($map['NetworkInfos'] as $item1) {
-                    $model->networkInfos[$n1++] = networkInfos::fromMap($item1);
+                    $model->networkInfos[$n1] = networkInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -281,6 +297,10 @@ class nodeModel extends Model
 
         if (isset($map['PhoneCount'])) {
             $model->phoneCount = $map['PhoneCount'];
+        }
+
+        if (isset($map['PhoneDataInfo'])) {
+            $model->phoneDataInfo = phoneDataInfo::fromMap($map['PhoneDataInfo']);
         }
 
         if (isset($map['RegionId'])) {

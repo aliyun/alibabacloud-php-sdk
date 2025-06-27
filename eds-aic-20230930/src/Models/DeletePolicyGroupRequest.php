@@ -32,7 +32,8 @@ class DeletePolicyGroupRequest extends Model
                 $res['PolicyGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->policyGroupIds as $item1) {
-                    $res['PolicyGroupIds'][$n1++] = $item1;
+                    $res['PolicyGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DeletePolicyGroupRequest extends Model
                 $model->policyGroupIds = [];
                 $n1 = 0;
                 foreach ($map['PolicyGroupIds'] as $item1) {
-                    $model->policyGroupIds[$n1++] = $item1;
+                    $model->policyGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

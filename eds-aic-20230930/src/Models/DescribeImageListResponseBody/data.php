@@ -153,7 +153,8 @@ class data extends Model
                 $res['ImageRegionList'] = [];
                 $n1 = 0;
                 foreach ($this->imageRegionList as $item1) {
-                    $res['ImageRegionList'][$n1++] = $item1;
+                    $res['ImageRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +236,8 @@ class data extends Model
                 $model->imageRegionList = [];
                 $n1 = 0;
                 foreach ($map['ImageRegionList'] as $item1) {
-                    $model->imageRegionList[$n1++] = $item1;
+                    $model->imageRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

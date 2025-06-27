@@ -32,7 +32,8 @@ class DeleteAppsRequest extends Model
                 $res['AppIdList'] = [];
                 $n1 = 0;
                 foreach ($this->appIdList as $item1) {
-                    $res['AppIdList'][$n1++] = $item1;
+                    $res['AppIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DeleteAppsRequest extends Model
                 $model->appIdList = [];
                 $n1 = 0;
                 foreach ($map['AppIdList'] as $item1) {
-                    $model->appIdList[$n1++] = $item1;
+                    $model->appIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

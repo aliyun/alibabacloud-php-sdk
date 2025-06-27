@@ -39,7 +39,8 @@ class DescribeDisplayConfigResponseBody extends Model
                 $res['DisplayConfigModel'] = [];
                 $n1 = 0;
                 foreach ($this->displayConfigModel as $item1) {
-                    $res['DisplayConfigModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DisplayConfigModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDisplayConfigResponseBody extends Model
                 $model->displayConfigModel = [];
                 $n1 = 0;
                 foreach ($map['DisplayConfigModel'] as $item1) {
-                    $model->displayConfigModel[$n1++] = displayConfigModel::fromMap($item1);
+                    $model->displayConfigModel[$n1] = displayConfigModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

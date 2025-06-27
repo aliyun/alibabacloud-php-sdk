@@ -153,7 +153,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $res['AndroidInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->androidInstanceIds as $item1) {
-                    $res['AndroidInstanceIds'][$n1++] = $item1;
+                    $res['AndroidInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +188,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $res['InstanceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceGroupIds as $item1) {
-                    $res['InstanceGroupIds'][$n1++] = $item1;
+                    $res['InstanceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +223,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $res['OfficeSiteIds'] = [];
                 $n1 = 0;
                 foreach ($this->officeSiteIds as $item1) {
-                    $res['OfficeSiteIds'][$n1++] = $item1;
+                    $res['OfficeSiteIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +234,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $res['QosRuleIds'] = [];
                 $n1 = 0;
                 foreach ($this->qosRuleIds as $item1) {
-                    $res['QosRuleIds'][$n1++] = $item1;
+                    $res['QosRuleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +253,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +275,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $model->androidInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['AndroidInstanceIds'] as $item1) {
-                    $model->androidInstanceIds[$n1++] = $item1;
+                    $model->androidInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +310,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $model->instanceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceGroupIds'] as $item1) {
-                    $model->instanceGroupIds[$n1++] = $item1;
+                    $model->instanceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +345,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $model->officeSiteIds = [];
                 $n1 = 0;
                 foreach ($map['OfficeSiteIds'] as $item1) {
-                    $model->officeSiteIds[$n1++] = $item1;
+                    $model->officeSiteIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -348,7 +356,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $model->qosRuleIds = [];
                 $n1 = 0;
                 foreach ($map['QosRuleIds'] as $item1) {
-                    $model->qosRuleIds[$n1++] = $item1;
+                    $model->qosRuleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -366,7 +375,8 @@ class DescribeAndroidInstancesRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
