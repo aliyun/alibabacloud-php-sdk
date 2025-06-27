@@ -33,7 +33,8 @@ class recoveryPlans extends Model
                 $res['RecoveryPlan'] = [];
                 $n1 = 0;
                 foreach ($this->recoveryPlan as $item1) {
-                    $res['RecoveryPlan'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecoveryPlan'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class recoveryPlans extends Model
                 $model->recoveryPlan = [];
                 $n1 = 0;
                 foreach ($map['RecoveryPlan'] as $item1) {
-                    $model->recoveryPlan[$n1++] = recoveryPlan::fromMap($item1);
+                    $model->recoveryPlan[$n1] = recoveryPlan::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -87,7 +87,8 @@ class AddDnsGtmMonitorRequest extends Model
                 $res['IspCityNode'] = [];
                 $n1 = 0;
                 foreach ($this->ispCityNode as $item1) {
-                    $res['IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IspCityNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class AddDnsGtmMonitorRequest extends Model
                 $model->ispCityNode = [];
                 $n1 = 0;
                 foreach ($map['IspCityNode'] as $item1) {
-                    $model->ispCityNode[$n1++] = ispCityNode::fromMap($item1);
+                    $model->ispCityNode[$n1] = ispCityNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

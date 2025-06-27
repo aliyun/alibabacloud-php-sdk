@@ -33,7 +33,8 @@ class addressPools extends Model
                 $res['AddressPool'] = [];
                 $n1 = 0;
                 foreach ($this->addressPool as $item1) {
-                    $res['AddressPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddressPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class addressPools extends Model
                 $model->addressPool = [];
                 $n1 = 0;
                 foreach ($map['AddressPool'] as $item1) {
-                    $model->addressPool[$n1++] = addressPool::fromMap($item1);
+                    $model->addressPool[$n1] = addressPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

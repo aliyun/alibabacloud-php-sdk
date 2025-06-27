@@ -58,7 +58,8 @@ class SubmitIspFlushCacheTaskRequest extends Model
                 $res['Isp'] = [];
                 $n1 = 0;
                 foreach ($this->isp as $item1) {
-                    $res['Isp'][$n1++] = $item1;
+                    $res['Isp'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class SubmitIspFlushCacheTaskRequest extends Model
                 $model->isp = [];
                 $n1 = 0;
                 foreach ($map['Isp'] as $item1) {
-                    $model->isp[$n1++] = $item1;
+                    $model->isp[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

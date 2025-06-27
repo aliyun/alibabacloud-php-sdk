@@ -32,7 +32,8 @@ class selectedDomainLines extends Model
                 $res['SelectedDomainLine'] = [];
                 $n1 = 0;
                 foreach ($this->selectedDomainLine as $item1) {
-                    $res['SelectedDomainLine'][$n1++] = $item1;
+                    $res['SelectedDomainLine'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class selectedDomainLines extends Model
                 $model->selectedDomainLine = [];
                 $n1 = 0;
                 foreach ($map['SelectedDomainLine'] as $item1) {
-                    $model->selectedDomainLine[$n1++] = $item1;
+                    $model->selectedDomainLine[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

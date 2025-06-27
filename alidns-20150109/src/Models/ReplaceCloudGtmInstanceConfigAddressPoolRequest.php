@@ -61,7 +61,8 @@ class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends Model
                 $res['AddressPools'] = [];
                 $n1 = 0;
                 foreach ($this->addressPools as $item1) {
-                    $res['AddressPools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddressPools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends Model
                 $model->addressPools = [];
                 $n1 = 0;
                 foreach ($map['AddressPools'] as $item1) {
-                    $model->addressPools[$n1++] = addressPools::fromMap($item1);
+                    $model->addressPools[$n1] = addressPools::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

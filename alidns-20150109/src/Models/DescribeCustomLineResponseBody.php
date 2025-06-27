@@ -75,7 +75,8 @@ class DescribeCustomLineResponseBody extends Model
                 $res['IpSegmentList'] = [];
                 $n1 = 0;
                 foreach ($this->ipSegmentList as $item1) {
-                    $res['IpSegmentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpSegmentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class DescribeCustomLineResponseBody extends Model
                 $model->ipSegmentList = [];
                 $n1 = 0;
                 foreach ($map['IpSegmentList'] as $item1) {
-                    $model->ipSegmentList[$n1++] = ipSegmentList::fromMap($item1);
+                    $model->ipSegmentList[$n1] = ipSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

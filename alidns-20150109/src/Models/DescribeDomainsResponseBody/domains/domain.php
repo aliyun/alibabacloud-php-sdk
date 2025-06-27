@@ -96,6 +96,11 @@ class domain extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $slaveDnsStatus;
+
+    /**
      * @var bool
      */
     public $starmark;
@@ -132,6 +137,7 @@ class domain extends Model
         'registrantEmail' => 'RegistrantEmail',
         'remark' => 'Remark',
         'resourceGroupId' => 'ResourceGroupId',
+        'slaveDnsStatus' => 'SlaveDnsStatus',
         'starmark' => 'Starmark',
         'tags' => 'Tags',
         'versionCode' => 'VersionCode',
@@ -218,6 +224,10 @@ class domain extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->slaveDnsStatus) {
+            $res['SlaveDnsStatus'] = $this->slaveDnsStatus;
         }
 
         if (null !== $this->starmark) {
@@ -313,6 +323,10 @@ class domain extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SlaveDnsStatus'])) {
+            $model->slaveDnsStatus = $map['SlaveDnsStatus'];
         }
 
         if (isset($map['Starmark'])) {

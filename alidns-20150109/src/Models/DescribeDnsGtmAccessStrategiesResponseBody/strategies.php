@@ -33,7 +33,8 @@ class strategies extends Model
                 $res['Strategy'] = [];
                 $n1 = 0;
                 foreach ($this->strategy as $item1) {
-                    $res['Strategy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Strategy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class strategies extends Model
                 $model->strategy = [];
                 $n1 = 0;
                 foreach ($map['Strategy'] as $item1) {
-                    $model->strategy[$n1++] = strategy::fromMap($item1);
+                    $model->strategy[$n1] = strategy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

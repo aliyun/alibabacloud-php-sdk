@@ -33,7 +33,8 @@ class alertGroups extends Model
                 $res['AlertGroup'] = [];
                 $n1 = 0;
                 foreach ($this->alertGroup as $item1) {
-                    $res['AlertGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlertGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class alertGroups extends Model
                 $model->alertGroup = [];
                 $n1 = 0;
                 foreach ($map['AlertGroup'] as $item1) {
-                    $model->alertGroup[$n1++] = alertGroup::fromMap($item1);
+                    $model->alertGroup[$n1] = alertGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

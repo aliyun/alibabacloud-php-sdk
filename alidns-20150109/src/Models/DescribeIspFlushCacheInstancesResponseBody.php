@@ -63,7 +63,8 @@ class DescribeIspFlushCacheInstancesResponseBody extends Model
                 $res['IspFlushCacheInstances'] = [];
                 $n1 = 0;
                 foreach ($this->ispFlushCacheInstances as $item1) {
-                    $res['IspFlushCacheInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IspFlushCacheInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeIspFlushCacheInstancesResponseBody extends Model
                 $model->ispFlushCacheInstances = [];
                 $n1 = 0;
                 foreach ($map['IspFlushCacheInstances'] as $item1) {
-                    $model->ispFlushCacheInstances[$n1++] = ispFlushCacheInstances::fromMap($item1);
+                    $model->ispFlushCacheInstances[$n1] = ispFlushCacheInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

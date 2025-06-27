@@ -54,7 +54,8 @@ class addresses extends Model
                 $res['RequestSource'] = [];
                 $n1 = 0;
                 foreach ($this->requestSource as $item1) {
-                    $res['RequestSource'][$n1++] = $item1;
+                    $res['RequestSource'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class addresses extends Model
                 $model->requestSource = [];
                 $n1 = 0;
                 foreach ($map['RequestSource'] as $item1) {
-                    $model->requestSource[$n1++] = $item1;
+                    $model->requestSource[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

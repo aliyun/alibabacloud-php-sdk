@@ -33,7 +33,8 @@ class defaultAddrPools extends Model
                 $res['DefaultAddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->defaultAddrPool as $item1) {
-                    $res['DefaultAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DefaultAddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class defaultAddrPools extends Model
                 $model->defaultAddrPool = [];
                 $n1 = 0;
                 foreach ($map['DefaultAddrPool'] as $item1) {
-                    $model->defaultAddrPool[$n1++] = defaultAddrPool::fromMap($item1);
+                    $model->defaultAddrPool[$n1] = defaultAddrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

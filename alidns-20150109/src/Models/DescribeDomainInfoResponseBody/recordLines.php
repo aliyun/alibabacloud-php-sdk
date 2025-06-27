@@ -33,7 +33,8 @@ class recordLines extends Model
                 $res['RecordLine'] = [];
                 $n1 = 0;
                 foreach ($this->recordLine as $item1) {
-                    $res['RecordLine'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecordLine'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class recordLines extends Model
                 $model->recordLine = [];
                 $n1 = 0;
                 foreach ($map['RecordLine'] as $item1) {
-                    $model->recordLine[$n1++] = recordLine::fromMap($item1);
+                    $model->recordLine[$n1] = recordLine::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

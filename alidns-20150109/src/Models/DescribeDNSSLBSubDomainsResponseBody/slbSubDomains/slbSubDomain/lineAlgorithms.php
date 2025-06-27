@@ -33,7 +33,8 @@ class lineAlgorithms extends Model
                 $res['LineAlgorithm'] = [];
                 $n1 = 0;
                 foreach ($this->lineAlgorithm as $item1) {
-                    $res['LineAlgorithm'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LineAlgorithm'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class lineAlgorithms extends Model
                 $model->lineAlgorithm = [];
                 $n1 = 0;
                 foreach ($map['LineAlgorithm'] as $item1) {
-                    $model->lineAlgorithm[$n1++] = lineAlgorithm::fromMap($item1);
+                    $model->lineAlgorithm[$n1] = lineAlgorithm::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

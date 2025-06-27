@@ -32,7 +32,8 @@ class alertGroup extends Model
                 $res['AlertGroup'] = [];
                 $n1 = 0;
                 foreach ($this->alertGroup as $item1) {
-                    $res['AlertGroup'][$n1++] = $item1;
+                    $res['AlertGroup'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class alertGroup extends Model
                 $model->alertGroup = [];
                 $n1 = 0;
                 foreach ($map['AlertGroup'] as $item1) {
-                    $model->alertGroup[$n1++] = $item1;
+                    $model->alertGroup[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

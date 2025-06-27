@@ -161,7 +161,8 @@ class data extends Model
                 $res['ThreatInfo'] = [];
                 $n1 = 0;
                 foreach ($this->threatInfo as $item1) {
-                    $res['ThreatInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ThreatInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -246,7 +247,8 @@ class data extends Model
                 $model->threatInfo = [];
                 $n1 = 0;
                 foreach ($map['ThreatInfo'] as $item1) {
-                    $model->threatInfo[$n1++] = threatInfo::fromMap($item1);
+                    $model->threatInfo[$n1] = threatInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

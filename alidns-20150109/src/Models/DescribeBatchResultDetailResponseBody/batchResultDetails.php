@@ -33,7 +33,8 @@ class batchResultDetails extends Model
                 $res['BatchResultDetail'] = [];
                 $n1 = 0;
                 foreach ($this->batchResultDetail as $item1) {
-                    $res['BatchResultDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BatchResultDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class batchResultDetails extends Model
                 $model->batchResultDetail = [];
                 $n1 = 0;
                 foreach ($map['BatchResultDetail'] as $item1) {
-                    $model->batchResultDetail[$n1++] = batchResultDetail::fromMap($item1);
+                    $model->batchResultDetail[$n1] = batchResultDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

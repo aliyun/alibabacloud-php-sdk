@@ -33,7 +33,8 @@ class systemLines extends Model
                 $res['SystemLine'] = [];
                 $n1 = 0;
                 foreach ($this->systemLine as $item1) {
-                    $res['SystemLine'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SystemLine'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class systemLines extends Model
                 $model->systemLine = [];
                 $n1 = 0;
                 foreach ($map['SystemLine'] as $item1) {
-                    $model->systemLine[$n1++] = systemLine::fromMap($item1);
+                    $model->systemLine[$n1] = systemLine::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

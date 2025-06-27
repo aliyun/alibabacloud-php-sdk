@@ -33,7 +33,8 @@ class domainAddrPools extends Model
                 $res['DomainAddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->domainAddrPool as $item1) {
-                    $res['DomainAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainAddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class domainAddrPools extends Model
                 $model->domainAddrPool = [];
                 $n1 = 0;
                 foreach ($map['DomainAddrPool'] as $item1) {
-                    $model->domainAddrPool[$n1++] = domainAddrPool::fromMap($item1);
+                    $model->domainAddrPool[$n1] = domainAddrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class dnsNodes extends Model
                 $res['Answers'] = [];
                 $n1 = 0;
                 foreach ($this->answers as $item1) {
-                    $res['Answers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Answers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class dnsNodes extends Model
                 $model->answers = [];
                 $n1 = 0;
                 foreach ($map['Answers'] as $item1) {
-                    $model->answers[$n1++] = answers::fromMap($item1);
+                    $model->answers[$n1] = answers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

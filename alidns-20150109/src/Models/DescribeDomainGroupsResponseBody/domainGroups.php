@@ -33,7 +33,8 @@ class domainGroups extends Model
                 $res['DomainGroup'] = [];
                 $n1 = 0;
                 foreach ($this->domainGroup as $item1) {
-                    $res['DomainGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class domainGroups extends Model
                 $model->domainGroup = [];
                 $n1 = 0;
                 foreach ($map['DomainGroup'] as $item1) {
-                    $model->domainGroup[$n1++] = domainGroup::fromMap($item1);
+                    $model->domainGroup[$n1] = domainGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

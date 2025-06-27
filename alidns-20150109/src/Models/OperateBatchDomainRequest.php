@@ -45,7 +45,8 @@ class OperateBatchDomainRequest extends Model
                 $res['DomainRecordInfo'] = [];
                 $n1 = 0;
                 foreach ($this->domainRecordInfo as $item1) {
-                    $res['DomainRecordInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainRecordInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class OperateBatchDomainRequest extends Model
                 $model->domainRecordInfo = [];
                 $n1 = 0;
                 foreach ($map['DomainRecordInfo'] as $item1) {
-                    $model->domainRecordInfo[$n1++] = domainRecordInfo::fromMap($item1);
+                    $model->domainRecordInfo[$n1] = domainRecordInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

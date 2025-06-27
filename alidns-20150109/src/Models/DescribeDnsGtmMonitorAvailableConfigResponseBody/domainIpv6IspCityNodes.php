@@ -33,7 +33,8 @@ class domainIpv6IspCityNodes extends Model
                 $res['DomainIpv6IspCityNode'] = [];
                 $n1 = 0;
                 foreach ($this->domainIpv6IspCityNode as $item1) {
-                    $res['DomainIpv6IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainIpv6IspCityNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class domainIpv6IspCityNodes extends Model
                 $model->domainIpv6IspCityNode = [];
                 $n1 = 0;
                 foreach ($map['DomainIpv6IspCityNode'] as $item1) {
-                    $model->domainIpv6IspCityNode[$n1++] = domainIpv6IspCityNode::fromMap($item1);
+                    $model->domainIpv6IspCityNode[$n1] = domainIpv6IspCityNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

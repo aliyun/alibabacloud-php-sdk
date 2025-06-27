@@ -33,7 +33,8 @@ class dnsProducts extends Model
                 $res['DnsProduct'] = [];
                 $n1 = 0;
                 foreach ($this->dnsProduct as $item1) {
-                    $res['DnsProduct'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DnsProduct'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dnsProducts extends Model
                 $model->dnsProduct = [];
                 $n1 = 0;
                 foreach ($map['DnsProduct'] as $item1) {
-                    $model->dnsProduct[$n1++] = dnsProduct::fromMap($item1);
+                    $model->dnsProduct[$n1] = dnsProduct::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

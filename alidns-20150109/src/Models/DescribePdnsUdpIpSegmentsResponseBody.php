@@ -63,7 +63,8 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
                 $res['IpSegments'] = [];
                 $n1 = 0;
                 foreach ($this->ipSegments as $item1) {
-                    $res['IpSegments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpSegments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
                 $model->ipSegments = [];
                 $n1 = 0;
                 foreach ($map['IpSegments'] as $item1) {
-                    $model->ipSegments[$n1++] = ipSegments::fromMap($item1);
+                    $model->ipSegments[$n1] = ipSegments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

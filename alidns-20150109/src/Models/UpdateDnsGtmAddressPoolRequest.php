@@ -57,7 +57,8 @@ class UpdateDnsGtmAddressPoolRequest extends Model
                 $res['Addr'] = [];
                 $n1 = 0;
                 foreach ($this->addr as $item1) {
-                    $res['Addr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addr'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class UpdateDnsGtmAddressPoolRequest extends Model
                 $model->addr = [];
                 $n1 = 0;
                 foreach ($map['Addr'] as $item1) {
-                    $model->addr[$n1++] = addr::fromMap($item1);
+                    $model->addr[$n1] = addr::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

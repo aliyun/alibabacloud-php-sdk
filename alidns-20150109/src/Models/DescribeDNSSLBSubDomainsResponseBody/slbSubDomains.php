@@ -33,7 +33,8 @@ class slbSubDomains extends Model
                 $res['SlbSubDomain'] = [];
                 $n1 = 0;
                 foreach ($this->slbSubDomain as $item1) {
-                    $res['SlbSubDomain'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlbSubDomain'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class slbSubDomains extends Model
                 $model->slbSubDomain = [];
                 $n1 = 0;
                 foreach ($map['SlbSubDomain'] as $item1) {
-                    $model->slbSubDomain[$n1++] = slbSubDomain::fromMap($item1);
+                    $model->slbSubDomain[$n1] = slbSubDomain::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

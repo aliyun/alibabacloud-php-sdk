@@ -63,7 +63,8 @@ class DescribeInstanceDomainsResponseBody extends Model
                 $res['InstanceDomains'] = [];
                 $n1 = 0;
                 foreach ($this->instanceDomains as $item1) {
-                    $res['InstanceDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeInstanceDomainsResponseBody extends Model
                 $model->instanceDomains = [];
                 $n1 = 0;
                 foreach ($map['InstanceDomains'] as $item1) {
-                    $model->instanceDomains[$n1++] = instanceDomains::fromMap($item1);
+                    $model->instanceDomains[$n1] = instanceDomains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

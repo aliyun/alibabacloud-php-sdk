@@ -33,7 +33,8 @@ class lines extends Model
                 $res['Line'] = [];
                 $n1 = 0;
                 foreach ($this->line as $item1) {
-                    $res['Line'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Line'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class lines extends Model
                 $model->line = [];
                 $n1 = 0;
                 foreach ($map['Line'] as $item1) {
-                    $model->line[$n1++] = line::fromMap($item1);
+                    $model->line[$n1] = line::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

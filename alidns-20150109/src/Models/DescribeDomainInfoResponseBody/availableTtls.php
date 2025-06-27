@@ -32,7 +32,8 @@ class availableTtls extends Model
                 $res['AvailableTtl'] = [];
                 $n1 = 0;
                 foreach ($this->availableTtl as $item1) {
-                    $res['AvailableTtl'][$n1++] = $item1;
+                    $res['AvailableTtl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class availableTtls extends Model
                 $model->availableTtl = [];
                 $n1 = 0;
                 foreach ($map['AvailableTtl'] as $item1) {
-                    $model->availableTtl[$n1++] = $item1;
+                    $model->availableTtl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

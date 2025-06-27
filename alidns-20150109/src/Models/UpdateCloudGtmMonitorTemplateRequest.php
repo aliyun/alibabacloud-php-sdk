@@ -111,7 +111,8 @@ class UpdateCloudGtmMonitorTemplateRequest extends Model
                 $res['IspCityNodes'] = [];
                 $n1 = 0;
                 foreach ($this->ispCityNodes as $item1) {
-                    $res['IspCityNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IspCityNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +169,8 @@ class UpdateCloudGtmMonitorTemplateRequest extends Model
                 $model->ispCityNodes = [];
                 $n1 = 0;
                 foreach ($map['IspCityNodes'] as $item1) {
-                    $model->ispCityNodes[$n1++] = ispCityNodes::fromMap($item1);
+                    $model->ispCityNodes[$n1] = ispCityNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class gtmInstances extends Model
                 $res['GtmInstance'] = [];
                 $n1 = 0;
                 foreach ($this->gtmInstance as $item1) {
-                    $res['GtmInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GtmInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class gtmInstances extends Model
                 $model->gtmInstance = [];
                 $n1 = 0;
                 foreach ($map['GtmInstance'] as $item1) {
-                    $model->gtmInstance[$n1++] = gtmInstance::fromMap($item1);
+                    $model->gtmInstance[$n1] = gtmInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

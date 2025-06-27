@@ -39,7 +39,8 @@ class DescribePdnsAppKeysResponseBody extends Model
                 $res['AppKeys'] = [];
                 $n1 = 0;
                 foreach ($this->appKeys as $item1) {
-                    $res['AppKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribePdnsAppKeysResponseBody extends Model
                 $model->appKeys = [];
                 $n1 = 0;
                 foreach ($map['AppKeys'] as $item1) {
-                    $model->appKeys[$n1++] = appKeys::fromMap($item1);
+                    $model->appKeys[$n1] = appKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

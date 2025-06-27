@@ -33,7 +33,8 @@ class faultAddrPools extends Model
                 $res['FaultAddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->faultAddrPool as $item1) {
-                    $res['FaultAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FaultAddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class faultAddrPools extends Model
                 $model->faultAddrPool = [];
                 $n1 = 0;
                 foreach ($map['FaultAddrPool'] as $item1) {
-                    $model->faultAddrPool[$n1++] = faultAddrPool::fromMap($item1);
+                    $model->faultAddrPool[$n1] = faultAddrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

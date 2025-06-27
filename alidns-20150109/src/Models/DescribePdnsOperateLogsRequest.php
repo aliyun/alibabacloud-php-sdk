@@ -41,6 +41,11 @@ class DescribePdnsOperateLogsRequest extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $startDate;
     protected $_name = [
         'actionType' => 'ActionType',
@@ -49,6 +54,7 @@ class DescribePdnsOperateLogsRequest extends Model
         'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'resourceType' => 'ResourceType',
         'startDate' => 'StartDate',
     ];
 
@@ -82,6 +88,10 @@ class DescribePdnsOperateLogsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         if (null !== $this->startDate) {
@@ -121,6 +131,10 @@ class DescribePdnsOperateLogsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['StartDate'])) {

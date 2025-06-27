@@ -99,7 +99,8 @@ class UpdateDnsGtmInstanceGlobalConfigRequest extends Model
                 $res['AlertConfig'] = [];
                 $n1 = 0;
                 foreach ($this->alertConfig as $item1) {
-                    $res['AlertConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlertConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +165,8 @@ class UpdateDnsGtmInstanceGlobalConfigRequest extends Model
                 $model->alertConfig = [];
                 $n1 = 0;
                 foreach ($map['AlertConfig'] as $item1) {
-                    $model->alertConfig[$n1++] = alertConfig::fromMap($item1);
+                    $model->alertConfig[$n1] = alertConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

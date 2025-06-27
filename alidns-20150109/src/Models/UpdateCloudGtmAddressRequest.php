@@ -99,7 +99,8 @@ class UpdateCloudGtmAddressRequest extends Model
                 $res['HealthTasks'] = [];
                 $n1 = 0;
                 foreach ($this->healthTasks as $item1) {
-                    $res['HealthTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HealthTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class UpdateCloudGtmAddressRequest extends Model
                 $model->healthTasks = [];
                 $n1 = 0;
                 foreach ($map['HealthTasks'] as $item1) {
-                    $model->healthTasks[$n1++] = healthTasks::fromMap($item1);
+                    $model->healthTasks[$n1] = healthTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

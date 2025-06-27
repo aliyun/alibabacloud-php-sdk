@@ -105,7 +105,8 @@ class AddDnsCacheDomainRequest extends Model
                 $res['SourceDnsServer'] = [];
                 $n1 = 0;
                 foreach ($this->sourceDnsServer as $item1) {
-                    $res['SourceDnsServer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceDnsServer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class AddDnsCacheDomainRequest extends Model
                 $model->sourceDnsServer = [];
                 $n1 = 0;
                 foreach ($map['SourceDnsServer'] as $item1) {
-                    $model->sourceDnsServer[$n1++] = sourceDnsServer::fromMap($item1);
+                    $model->sourceDnsServer[$n1] = sourceDnsServer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

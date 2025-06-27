@@ -33,7 +33,8 @@ class ipv4IspCityNodes extends Model
                 $res['Ipv4IspCityNode'] = [];
                 $n1 = 0;
                 foreach ($this->ipv4IspCityNode as $item1) {
-                    $res['Ipv4IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv4IspCityNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv4IspCityNodes extends Model
                 $model->ipv4IspCityNode = [];
                 $n1 = 0;
                 foreach ($map['Ipv4IspCityNode'] as $item1) {
-                    $model->ipv4IspCityNode[$n1++] = ipv4IspCityNode::fromMap($item1);
+                    $model->ipv4IspCityNode[$n1] = ipv4IspCityNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -63,7 +63,8 @@ class DescribeDnsGtmInstancesResponseBody extends Model
                 $res['GtmInstances'] = [];
                 $n1 = 0;
                 foreach ($this->gtmInstances as $item1) {
-                    $res['GtmInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GtmInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeDnsGtmInstancesResponseBody extends Model
                 $model->gtmInstances = [];
                 $n1 = 0;
                 foreach ($map['GtmInstances'] as $item1) {
-                    $model->gtmInstances[$n1++] = gtmInstances::fromMap($item1);
+                    $model->gtmInstances[$n1] = gtmInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

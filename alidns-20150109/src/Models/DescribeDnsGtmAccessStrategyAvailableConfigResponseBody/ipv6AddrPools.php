@@ -33,7 +33,8 @@ class ipv6AddrPools extends Model
                 $res['Ipv6AddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6AddrPool as $item1) {
-                    $res['Ipv6AddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6AddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv6AddrPools extends Model
                 $model->ipv6AddrPool = [];
                 $n1 = 0;
                 foreach ($map['Ipv6AddrPool'] as $item1) {
-                    $model->ipv6AddrPool[$n1++] = ipv6AddrPool::fromMap($item1);
+                    $model->ipv6AddrPool[$n1] = ipv6AddrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

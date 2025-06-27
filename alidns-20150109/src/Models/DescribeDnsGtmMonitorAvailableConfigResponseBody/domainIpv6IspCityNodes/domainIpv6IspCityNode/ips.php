@@ -32,7 +32,8 @@ class ips extends Model
                 $res['ip'] = [];
                 $n1 = 0;
                 foreach ($this->ip as $item1) {
-                    $res['ip'][$n1++] = $item1;
+                    $res['ip'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ips extends Model
                 $model->ip = [];
                 $n1 = 0;
                 foreach ($map['ip'] as $item1) {
-                    $model->ip[$n1++] = $item1;
+                    $model->ip[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

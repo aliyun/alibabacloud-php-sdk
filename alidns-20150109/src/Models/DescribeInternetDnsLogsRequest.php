@@ -49,6 +49,11 @@ class DescribeInternetDnsLogsRequest extends Model
     public $queryCondition;
 
     /**
+     * @var string
+     */
+    public $recursionProtocolType;
+
+    /**
      * @var int
      */
     public $startTimestamp;
@@ -61,6 +66,7 @@ class DescribeInternetDnsLogsRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'queryCondition' => 'QueryCondition',
+        'recursionProtocolType' => 'RecursionProtocolType',
         'startTimestamp' => 'StartTimestamp',
     ];
 
@@ -102,6 +108,10 @@ class DescribeInternetDnsLogsRequest extends Model
 
         if (null !== $this->queryCondition) {
             $res['QueryCondition'] = $this->queryCondition;
+        }
+
+        if (null !== $this->recursionProtocolType) {
+            $res['RecursionProtocolType'] = $this->recursionProtocolType;
         }
 
         if (null !== $this->startTimestamp) {
@@ -149,6 +159,10 @@ class DescribeInternetDnsLogsRequest extends Model
 
         if (isset($map['QueryCondition'])) {
             $model->queryCondition = $map['QueryCondition'];
+        }
+
+        if (isset($map['RecursionProtocolType'])) {
+            $model->recursionProtocolType = $map['RecursionProtocolType'];
         }
 
         if (isset($map['StartTimestamp'])) {

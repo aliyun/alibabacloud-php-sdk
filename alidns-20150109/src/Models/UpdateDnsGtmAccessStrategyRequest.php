@@ -137,7 +137,8 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
                 $res['DefaultAddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->defaultAddrPool as $item1) {
-                    $res['DefaultAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DefaultAddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
                 $res['FailoverAddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->failoverAddrPool as $item1) {
-                    $res['FailoverAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailoverAddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +230,8 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
                 $model->defaultAddrPool = [];
                 $n1 = 0;
                 foreach ($map['DefaultAddrPool'] as $item1) {
-                    $model->defaultAddrPool[$n1++] = defaultAddrPool::fromMap($item1);
+                    $model->defaultAddrPool[$n1] = defaultAddrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +261,8 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
                 $model->failoverAddrPool = [];
                 $n1 = 0;
                 foreach ($map['FailoverAddrPool'] as $item1) {
-                    $model->failoverAddrPool[$n1++] = failoverAddrPool::fromMap($item1);
+                    $model->failoverAddrPool[$n1] = failoverAddrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

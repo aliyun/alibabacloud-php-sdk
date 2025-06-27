@@ -63,7 +63,8 @@ class DescribeCustomLinesResponseBody extends Model
                 $res['CustomLines'] = [];
                 $n1 = 0;
                 foreach ($this->customLines as $item1) {
-                    $res['CustomLines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomLines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeCustomLinesResponseBody extends Model
                 $model->customLines = [];
                 $n1 = 0;
                 foreach ($map['CustomLines'] as $item1) {
-                    $model->customLines[$n1++] = customLines::fromMap($item1);
+                    $model->customLines[$n1] = customLines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

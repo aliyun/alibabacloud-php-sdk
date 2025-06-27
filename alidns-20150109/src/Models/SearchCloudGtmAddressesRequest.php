@@ -145,7 +145,8 @@ class SearchCloudGtmAddressesRequest extends Model
                 $res['Names'] = [];
                 $n1 = 0;
                 foreach ($this->names as $item1) {
-                    $res['Names'][$n1++] = $item1;
+                    $res['Names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class SearchCloudGtmAddressesRequest extends Model
                 $res['Remarks'] = [];
                 $n1 = 0;
                 foreach ($this->remarks as $item1) {
-                    $res['Remarks'][$n1++] = $item1;
+                    $res['Remarks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +226,8 @@ class SearchCloudGtmAddressesRequest extends Model
                 $model->names = [];
                 $n1 = 0;
                 foreach ($map['Names'] as $item1) {
-                    $model->names[$n1++] = $item1;
+                    $model->names[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -246,7 +249,8 @@ class SearchCloudGtmAddressesRequest extends Model
                 $model->remarks = [];
                 $n1 = 0;
                 foreach ($map['Remarks'] as $item1) {
-                    $model->remarks[$n1++] = $item1;
+                    $model->remarks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

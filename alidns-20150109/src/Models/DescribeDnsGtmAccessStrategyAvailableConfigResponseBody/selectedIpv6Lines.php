@@ -32,7 +32,8 @@ class selectedIpv6Lines extends Model
                 $res['SelectedIpv6Line'] = [];
                 $n1 = 0;
                 foreach ($this->selectedIpv6Line as $item1) {
-                    $res['SelectedIpv6Line'][$n1++] = $item1;
+                    $res['SelectedIpv6Line'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class selectedIpv6Lines extends Model
                 $model->selectedIpv6Line = [];
                 $n1 = 0;
                 foreach ($map['SelectedIpv6Line'] as $item1) {
-                    $model->selectedIpv6Line[$n1++] = $item1;
+                    $model->selectedIpv6Line[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

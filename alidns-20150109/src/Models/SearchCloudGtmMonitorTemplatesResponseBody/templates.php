@@ -33,7 +33,8 @@ class templates extends Model
                 $res['Template'] = [];
                 $n1 = 0;
                 foreach ($this->template as $item1) {
-                    $res['Template'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Template'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class templates extends Model
                 $model->template = [];
                 $n1 = 0;
                 foreach ($map['Template'] as $item1) {
-                    $model->template[$n1++] = template::fromMap($item1);
+                    $model->template[$n1] = template::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -163,7 +163,8 @@ class domains extends Model
                 $res['SourceDnsServers'] = [];
                 $n1 = 0;
                 foreach ($this->sourceDnsServers as $item1) {
-                    $res['SourceDnsServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceDnsServers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +245,8 @@ class domains extends Model
                 $model->sourceDnsServers = [];
                 $n1 = 0;
                 foreach ($map['SourceDnsServers'] as $item1) {
-                    $model->sourceDnsServers[$n1++] = sourceDnsServers::fromMap($item1);
+                    $model->sourceDnsServers[$n1] = sourceDnsServers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

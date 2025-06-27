@@ -33,7 +33,8 @@ class effectiveAddrPools extends Model
                 $res['EffectiveAddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->effectiveAddrPool as $item1) {
-                    $res['EffectiveAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EffectiveAddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class effectiveAddrPools extends Model
                 $model->effectiveAddrPool = [];
                 $n1 = 0;
                 foreach ($map['EffectiveAddrPool'] as $item1) {
-                    $model->effectiveAddrPool[$n1++] = effectiveAddrPool::fromMap($item1);
+                    $model->effectiveAddrPool[$n1] = effectiveAddrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

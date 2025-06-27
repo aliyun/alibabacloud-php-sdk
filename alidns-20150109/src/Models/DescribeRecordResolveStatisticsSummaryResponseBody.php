@@ -75,7 +75,8 @@ class DescribeRecordResolveStatisticsSummaryResponseBody extends Model
                 $res['Statistics'] = [];
                 $n1 = 0;
                 foreach ($this->statistics as $item1) {
-                    $res['Statistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Statistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class DescribeRecordResolveStatisticsSummaryResponseBody extends Model
                 $model->statistics = [];
                 $n1 = 0;
                 foreach ($map['Statistics'] as $item1) {
-                    $model->statistics[$n1++] = statistics::fromMap($item1);
+                    $model->statistics[$n1] = statistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

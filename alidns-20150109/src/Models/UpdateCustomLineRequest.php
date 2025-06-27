@@ -51,7 +51,8 @@ class UpdateCustomLineRequest extends Model
                 $res['IpSegment'] = [];
                 $n1 = 0;
                 foreach ($this->ipSegment as $item1) {
-                    $res['IpSegment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpSegment'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class UpdateCustomLineRequest extends Model
                 $model->ipSegment = [];
                 $n1 = 0;
                 foreach ($map['IpSegment'] as $item1) {
-                    $model->ipSegment[$n1++] = ipSegment::fromMap($item1);
+                    $model->ipSegment[$n1] = ipSegment::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4284,6 +4284,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询代理域名.
+     *
      * @param request - DescribeDnsCacheDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4333,6 +4335,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询代理域名.
+     *
      * @param request - DescribeDnsCacheDomainsRequest
      *
      * @returns DescribeDnsCacheDomainsResponse
@@ -5529,6 +5533,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询DOH域名请求量数据.
+     *
      * @param request - DescribeDohDomainStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5578,6 +5584,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询DOH域名请求量数据.
+     *
      * @param request - DescribeDohDomainStatisticsRequest
      *
      * @returns DescribeDohDomainStatisticsResponse
@@ -7864,6 +7872,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询解析日志.
+     *
      * @param request - DescribeInternetDnsLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7910,6 +7920,10 @@ class Alidns extends OpenApiClient
             @$query['QueryCondition'] = $request->queryCondition;
         }
 
+        if (null !== $request->recursionProtocolType) {
+            @$query['RecursionProtocolType'] = $request->recursionProtocolType;
+        }
+
         if (null !== $request->startTimestamp) {
             @$query['StartTimestamp'] = $request->startTimestamp;
         }
@@ -7933,6 +7947,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询解析日志.
+     *
      * @param request - DescribeInternetDnsLogsRequest
      *
      * @returns DescribeInternetDnsLogsResponse
@@ -8462,6 +8478,10 @@ class Alidns extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
 
         if (null !== $request->startDate) {
@@ -8995,7 +9015,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS用户信息.
+     * Queries the information about users in Alibaba Cloud Public DNS.
      *
      * @param request - DescribePdnsUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9034,7 +9054,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS用户信息.
+     * Queries the information about users in Alibaba Cloud Public DNS.
      *
      * @param request - DescribePdnsUserInfoRequest
      *
@@ -9495,6 +9515,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询支持的所有线路.
+     *
      * @param request - DescribeSupportLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9540,6 +9562,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询支持的所有线路.
+     *
      * @param request - DescribeSupportLinesRequest
      *
      * @returns DescribeSupportLinesResponse

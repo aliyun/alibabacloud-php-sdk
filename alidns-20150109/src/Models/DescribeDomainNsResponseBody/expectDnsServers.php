@@ -32,7 +32,8 @@ class expectDnsServers extends Model
                 $res['ExpectDnsServer'] = [];
                 $n1 = 0;
                 foreach ($this->expectDnsServer as $item1) {
-                    $res['ExpectDnsServer'][$n1++] = $item1;
+                    $res['ExpectDnsServer'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class expectDnsServers extends Model
                 $model->expectDnsServer = [];
                 $n1 = 0;
                 foreach ($map['ExpectDnsServer'] as $item1) {
-                    $model->expectDnsServer[$n1++] = $item1;
+                    $model->expectDnsServer[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

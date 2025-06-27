@@ -33,7 +33,8 @@ class instanceConfigs extends Model
                 $res['InstanceConfig'] = [];
                 $n1 = 0;
                 foreach ($this->instanceConfig as $item1) {
-                    $res['InstanceConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceConfigs extends Model
                 $model->instanceConfig = [];
                 $n1 = 0;
                 foreach ($map['InstanceConfig'] as $item1) {
-                    $model->instanceConfig[$n1++] = instanceConfig::fromMap($item1);
+                    $model->instanceConfig[$n1] = instanceConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

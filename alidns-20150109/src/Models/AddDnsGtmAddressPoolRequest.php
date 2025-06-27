@@ -109,7 +109,8 @@ class AddDnsGtmAddressPoolRequest extends Model
                 $res['Addr'] = [];
                 $n1 = 0;
                 foreach ($this->addr as $item1) {
-                    $res['Addr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addr'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class AddDnsGtmAddressPoolRequest extends Model
                 $res['IspCityNode'] = [];
                 $n1 = 0;
                 foreach ($this->ispCityNode as $item1) {
-                    $res['IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IspCityNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +186,8 @@ class AddDnsGtmAddressPoolRequest extends Model
                 $model->addr = [];
                 $n1 = 0;
                 foreach ($map['Addr'] as $item1) {
-                    $model->addr[$n1++] = addr::fromMap($item1);
+                    $model->addr[$n1] = addr::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +209,8 @@ class AddDnsGtmAddressPoolRequest extends Model
                 $model->ispCityNode = [];
                 $n1 = 0;
                 foreach ($map['IspCityNode'] as $item1) {
-                    $model->ispCityNode[$n1++] = ispCityNode::fromMap($item1);
+                    $model->ispCityNode[$n1] = ispCityNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

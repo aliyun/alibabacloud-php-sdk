@@ -33,7 +33,8 @@ class addrPools extends Model
                 $res['AddrPool'] = [];
                 $n1 = 0;
                 foreach ($this->addrPool as $item1) {
-                    $res['AddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddrPool'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class addrPools extends Model
                 $model->addrPool = [];
                 $n1 = 0;
                 foreach ($map['AddrPool'] as $item1) {
-                    $model->addrPool[$n1++] = addrPool::fromMap($item1);
+                    $model->addrPool[$n1] = addrPool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

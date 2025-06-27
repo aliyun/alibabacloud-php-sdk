@@ -99,7 +99,8 @@ class DescribeIspFlushCacheTaskResponseBody extends Model
                 $res['FlushCacheResults'] = [];
                 $n1 = 0;
                 foreach ($this->flushCacheResults as $item1) {
-                    $res['FlushCacheResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FlushCacheResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class DescribeIspFlushCacheTaskResponseBody extends Model
                 $model->flushCacheResults = [];
                 $n1 = 0;
                 foreach ($map['FlushCacheResults'] as $item1) {
-                    $model->flushCacheResults[$n1++] = flushCacheResults::fromMap($item1);
+                    $model->flushCacheResults[$n1] = flushCacheResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
