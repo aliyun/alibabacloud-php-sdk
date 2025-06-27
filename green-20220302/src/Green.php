@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
@@ -846,6 +848,67 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->manualModerationResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步检测接口.
+     *
+     * @param request - MultiModalGuardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalGuardResponse
+     *
+     * @param MultiModalGuardRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MultiModalGuardResponse
+     */
+    public function multiModalGuardWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MultiModalGuard',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MultiModalGuardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步检测接口.
+     *
+     * @param request - MultiModalGuardRequest
+     *
+     * @returns MultiModalGuardResponse
+     *
+     * @param MultiModalGuardRequest $request
+     *
+     * @return MultiModalGuardResponse
+     */
+    public function multiModalGuard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->multiModalGuardWithOptions($request, $runtime);
     }
 
     /**
