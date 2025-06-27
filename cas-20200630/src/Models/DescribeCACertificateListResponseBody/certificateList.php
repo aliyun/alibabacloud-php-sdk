@@ -44,6 +44,11 @@ class certificateList extends Model
     public $countryCode;
 
     /**
+     * @var int
+     */
+    public $gift;
+
+    /**
      * @var string
      */
     public $identifier;
@@ -114,6 +119,11 @@ class certificateList extends Model
     public $subjectDN;
 
     /**
+     * @var int
+     */
+    public $trial;
+
+    /**
      * @var string
      */
     public $x509Certificate;
@@ -130,6 +140,7 @@ class certificateList extends Model
         'certificateType' => 'CertificateType',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
+        'gift' => 'Gift',
         'identifier' => 'Identifier',
         'keySize' => 'KeySize',
         'locality' => 'Locality',
@@ -144,6 +155,7 @@ class certificateList extends Model
         'state' => 'State',
         'status' => 'Status',
         'subjectDN' => 'SubjectDN',
+        'trial' => 'Trial',
         'x509Certificate' => 'X509Certificate',
         'years' => 'Years',
     ];
@@ -182,6 +194,10 @@ class certificateList extends Model
 
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
+        }
+
+        if (null !== $this->gift) {
+            $res['Gift'] = $this->gift;
         }
 
         if (null !== $this->identifier) {
@@ -240,6 +256,10 @@ class certificateList extends Model
             $res['SubjectDN'] = $this->subjectDN;
         }
 
+        if (null !== $this->trial) {
+            $res['Trial'] = $this->trial;
+        }
+
         if (null !== $this->x509Certificate) {
             $res['X509Certificate'] = $this->x509Certificate;
         }
@@ -285,6 +305,10 @@ class certificateList extends Model
 
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
+        }
+
+        if (isset($map['Gift'])) {
+            $model->gift = $map['Gift'];
         }
 
         if (isset($map['Identifier'])) {
@@ -341,6 +365,10 @@ class certificateList extends Model
 
         if (isset($map['SubjectDN'])) {
             $model->subjectDN = $map['SubjectDN'];
+        }
+
+        if (isset($map['Trial'])) {
+            $model->trial = $map['Trial'];
         }
 
         if (isset($map['X509Certificate'])) {
