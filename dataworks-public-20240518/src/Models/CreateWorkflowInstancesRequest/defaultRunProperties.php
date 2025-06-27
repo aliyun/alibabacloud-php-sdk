@@ -62,6 +62,11 @@ class defaultRunProperties extends Model
     public $priority;
 
     /**
+     * @var string
+     */
+    public $priorityWeightStrategy;
+
+    /**
      * @var int[]
      */
     public $rootTaskIds;
@@ -86,6 +91,7 @@ class defaultRunProperties extends Model
         'order' => 'Order',
         'parallelism' => 'Parallelism',
         'priority' => 'Priority',
+        'priorityWeightStrategy' => 'PriorityWeightStrategy',
         'rootTaskIds' => 'RootTaskIds',
         'runPolicy' => 'RunPolicy',
         'runtimeResource' => 'RuntimeResource',
@@ -191,6 +197,10 @@ class defaultRunProperties extends Model
             $res['Priority'] = $this->priority;
         }
 
+        if (null !== $this->priorityWeightStrategy) {
+            $res['PriorityWeightStrategy'] = $this->priorityWeightStrategy;
+        }
+
         if (null !== $this->rootTaskIds) {
             if (\is_array($this->rootTaskIds)) {
                 $res['RootTaskIds'] = [];
@@ -287,6 +297,10 @@ class defaultRunProperties extends Model
 
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['PriorityWeightStrategy'])) {
+            $model->priorityWeightStrategy = $map['PriorityWeightStrategy'];
         }
 
         if (isset($map['RootTaskIds'])) {
