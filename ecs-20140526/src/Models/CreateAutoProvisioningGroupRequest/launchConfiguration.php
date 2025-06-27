@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\arn;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\dataDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\imageOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\schedulerOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\tag;
 
@@ -194,6 +195,11 @@ class launchConfiguration extends Model
     public $periodUnit;
 
     /**
+     * @var schedulerOptions
+     */
+    public $schedulerOptions;
+
+    /**
      * @var int
      */
     public $spotDuration;
@@ -239,6 +245,7 @@ class launchConfiguration extends Model
         'imageOptions' => 'ImageOptions',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'schedulerOptions' => 'SchedulerOptions',
         'spotDuration' => 'SpotDuration',
         'spotInterruptionBehavior' => 'SpotInterruptionBehavior',
     ];
@@ -265,6 +272,9 @@ class launchConfiguration extends Model
         }
         if (null !== $this->imageOptions) {
             $this->imageOptions->validate();
+        }
+        if (null !== $this->schedulerOptions) {
+            $this->schedulerOptions->validate();
         }
         parent::validate();
     }
@@ -449,6 +459,10 @@ class launchConfiguration extends Model
 
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+
+        if (null !== $this->schedulerOptions) {
+            $res['SchedulerOptions'] = null !== $this->schedulerOptions ? $this->schedulerOptions->toArray($noStream) : $this->schedulerOptions;
         }
 
         if (null !== $this->spotDuration) {
@@ -647,6 +661,10 @@ class launchConfiguration extends Model
 
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+
+        if (isset($map['SchedulerOptions'])) {
+            $model->schedulerOptions = schedulerOptions::fromMap($map['SchedulerOptions']);
         }
 
         if (isset($map['SpotDuration'])) {
