@@ -6703,6 +6703,10 @@ class Ecs extends OpenApiClient
             @$query['ImageId'] = $request->imageId;
         }
 
+        if (null !== $request->imageOptions) {
+            @$query['ImageOptions'] = $request->imageOptions;
+        }
+
         if (null !== $request->imageOwnerAlias) {
             @$query['ImageOwnerAlias'] = $request->imageOwnerAlias;
         }
@@ -6982,6 +6986,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->imageId) {
             @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageOptions) {
+            @$query['ImageOptions'] = $request->imageOptions;
         }
 
         if (null !== $request->imageOwnerAlias) {

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateVersionRequest\dataDisk;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateVersionRequest\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateVersionRequest\networkInterface;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateVersionRequest\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateVersionRequest\tag;
@@ -86,6 +87,11 @@ class CreateLaunchTemplateVersionRequest extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var imageOptions
+     */
+    public $imageOptions;
 
     /**
      * @var string
@@ -287,6 +293,7 @@ class CreateLaunchTemplateVersionRequest extends Model
         'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
         'httpTokens' => 'HttpTokens',
         'imageId' => 'ImageId',
+        'imageOptions' => 'ImageOptions',
         'imageOwnerAlias' => 'ImageOwnerAlias',
         'instanceChargeType' => 'InstanceChargeType',
         'instanceName' => 'InstanceName',
@@ -333,6 +340,9 @@ class CreateLaunchTemplateVersionRequest extends Model
         }
         if (\is_array($this->dataDisk)) {
             Model::validateArray($this->dataDisk);
+        }
+        if (null !== $this->imageOptions) {
+            $this->imageOptions->validate();
         }
         if (\is_array($this->networkInterface)) {
             Model::validateArray($this->networkInterface);
@@ -414,6 +424,10 @@ class CreateLaunchTemplateVersionRequest extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->imageOptions) {
+            $res['ImageOptions'] = null !== $this->imageOptions ? $this->imageOptions->toArray($noStream) : $this->imageOptions;
         }
 
         if (null !== $this->imageOwnerAlias) {
@@ -661,6 +675,10 @@ class CreateLaunchTemplateVersionRequest extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['ImageOptions'])) {
+            $model->imageOptions = imageOptions::fromMap($map['ImageOptions']);
         }
 
         if (isset($map['ImageOwnerAlias'])) {

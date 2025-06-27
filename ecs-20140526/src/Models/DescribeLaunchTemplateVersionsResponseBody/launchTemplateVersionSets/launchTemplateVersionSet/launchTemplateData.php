@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsRe
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\dataDisks;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\networkInterfaces;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\securityGroupIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\systemDisk;
@@ -87,6 +88,11 @@ class launchTemplateData extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var imageOptions
+     */
+    public $imageOptions;
 
     /**
      * @var string
@@ -248,6 +254,7 @@ class launchTemplateData extends Model
         'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
         'httpTokens' => 'HttpTokens',
         'imageId' => 'ImageId',
+        'imageOptions' => 'ImageOptions',
         'imageOwnerAlias' => 'ImageOwnerAlias',
         'instanceChargeType' => 'InstanceChargeType',
         'instanceName' => 'InstanceName',
@@ -286,6 +293,9 @@ class launchTemplateData extends Model
         }
         if (null !== $this->dataDisks) {
             $this->dataDisks->validate();
+        }
+        if (null !== $this->imageOptions) {
+            $this->imageOptions->validate();
         }
         if (null !== $this->networkInterfaces) {
             $this->networkInterfaces->validate();
@@ -360,6 +370,10 @@ class launchTemplateData extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->imageOptions) {
+            $res['ImageOptions'] = null !== $this->imageOptions ? $this->imageOptions->toArray($noStream) : $this->imageOptions;
         }
 
         if (null !== $this->imageOwnerAlias) {
@@ -547,6 +561,10 @@ class launchTemplateData extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['ImageOptions'])) {
+            $model->imageOptions = imageOptions::fromMap($map['ImageOptions']);
         }
 
         if (isset($map['ImageOwnerAlias'])) {
