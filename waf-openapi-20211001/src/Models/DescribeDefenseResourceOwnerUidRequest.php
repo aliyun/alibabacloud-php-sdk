@@ -6,22 +6,12 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeTemplateResourcesRequest extends Model
+class DescribeDefenseResourceOwnerUidRequest extends Model
 {
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
 
     /**
      * @var string
@@ -31,31 +21,17 @@ class DescribeTemplateResourcesRequest extends Model
     /**
      * @var string
      */
-    public $resource;
-
-    /**
-     * @var string
-     */
     public $resourceManagerResourceGroupId;
 
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var int
-     */
-    public $templateId;
+    public $resourceNames;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'maxResults' => 'MaxResults',
-        'nextToken' => 'NextToken',
         'regionId' => 'RegionId',
-        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceType' => 'ResourceType',
-        'templateId' => 'TemplateId',
+        'resourceNames' => 'ResourceNames',
     ];
 
     public function validate()
@@ -70,32 +46,16 @@ class DescribeTemplateResourcesRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->resource) {
-            $res['Resource'] = $this->resource;
         }
 
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
 
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->resourceNames) {
+            $res['ResourceNames'] = $this->resourceNames;
         }
 
         return $res;
@@ -113,32 +73,16 @@ class DescribeTemplateResourcesRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['Resource'])) {
-            $model->resource = $map['Resource'];
         }
 
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
 
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['ResourceNames'])) {
+            $model->resourceNames = $map['ResourceNames'];
         }
 
         return $model;

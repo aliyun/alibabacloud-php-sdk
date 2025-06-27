@@ -52,6 +52,16 @@ class CreateDefenseTemplateRequest extends Model
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var string[]
+     */
+    public $unbindResourceGroups;
+
+    /**
+     * @var string[]
+     */
+    public $unbindResources;
     protected $_name = [
         'defenseScene' => 'DefenseScene',
         'description' => 'Description',
@@ -62,10 +72,18 @@ class CreateDefenseTemplateRequest extends Model
         'templateOrigin' => 'TemplateOrigin',
         'templateStatus' => 'TemplateStatus',
         'templateType' => 'TemplateType',
+        'unbindResourceGroups' => 'UnbindResourceGroups',
+        'unbindResources' => 'UnbindResources',
     ];
 
     public function validate()
     {
+        if (\is_array($this->unbindResourceGroups)) {
+            Model::validateArray($this->unbindResourceGroups);
+        }
+        if (\is_array($this->unbindResources)) {
+            Model::validateArray($this->unbindResources);
+        }
         parent::validate();
     }
 
@@ -106,6 +124,28 @@ class CreateDefenseTemplateRequest extends Model
 
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+
+        if (null !== $this->unbindResourceGroups) {
+            if (\is_array($this->unbindResourceGroups)) {
+                $res['UnbindResourceGroups'] = [];
+                $n1 = 0;
+                foreach ($this->unbindResourceGroups as $item1) {
+                    $res['UnbindResourceGroups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->unbindResources) {
+            if (\is_array($this->unbindResources)) {
+                $res['UnbindResources'] = [];
+                $n1 = 0;
+                foreach ($this->unbindResources as $item1) {
+                    $res['UnbindResources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -153,6 +193,28 @@ class CreateDefenseTemplateRequest extends Model
 
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+
+        if (isset($map['UnbindResourceGroups'])) {
+            if (!empty($map['UnbindResourceGroups'])) {
+                $model->unbindResourceGroups = [];
+                $n1 = 0;
+                foreach ($map['UnbindResourceGroups'] as $item1) {
+                    $model->unbindResourceGroups[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['UnbindResources'])) {
+            if (!empty($map['UnbindResources'])) {
+                $model->unbindResources = [];
+                $n1 = 0;
+                foreach ($map['UnbindResources'] as $item1) {
+                    $model->unbindResources[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

@@ -11,6 +11,11 @@ class DescribeDefenseRulesRequest extends Model
     /**
      * @var string
      */
+    public $defenseType;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -43,6 +48,7 @@ class DescribeDefenseRulesRequest extends Model
      */
     public $ruleType;
     protected $_name = [
+        'defenseType' => 'DefenseType',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -60,6 +66,10 @@ class DescribeDefenseRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->defenseType) {
+            $res['DefenseType'] = $this->defenseType;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -99,6 +109,10 @@ class DescribeDefenseRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefenseType'])) {
+            $model->defenseType = $map['DefenseType'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -124,6 +124,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupsRe
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceNamesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceNamesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceOwnerUidRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceOwnerUidResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourcesRequest;
@@ -1222,6 +1224,14 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->templateType) {
             @$query['TemplateType'] = $request->templateType;
+        }
+
+        if (null !== $request->unbindResourceGroups) {
+            @$query['UnbindResourceGroups'] = $request->unbindResourceGroups;
+        }
+
+        if (null !== $request->unbindResources) {
+            @$query['UnbindResources'] = $request->unbindResources;
         }
 
         $req = new OpenApiRequest([
@@ -5210,6 +5220,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询防护对象和所属资源的关系.
+     *
+     * @param request - DescribeDefenseResourceOwnerUidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDefenseResourceOwnerUidResponse
+     *
+     * @param DescribeDefenseResourceOwnerUidRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDefenseResourceOwnerUidResponse
+     */
+    public function describeDefenseResourceOwnerUidWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->resourceNames) {
+            @$query['ResourceNames'] = $request->resourceNames;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDefenseResourceOwnerUid',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDefenseResourceOwnerUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询防护对象和所属资源的关系.
+     *
+     * @param request - DescribeDefenseResourceOwnerUidRequest
+     *
+     * @returns DescribeDefenseResourceOwnerUidResponse
+     *
+     * @param DescribeDefenseResourceOwnerUidRequest $request
+     *
+     * @return DescribeDefenseResourceOwnerUidResponse
+     */
+    public function describeDefenseResourceOwnerUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourceOwnerUidWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the protection templates that are associated with a protected object or protected object group.
      *
      * @param request - DescribeDefenseResourceTemplatesRequest
@@ -5477,6 +5556,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->defenseType) {
+            @$query['DefenseType'] = $request->defenseType;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -10159,8 +10242,20 @@ class Wafopenapi extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
 
         if (null !== $request->resourceManagerResourceGroupId) {

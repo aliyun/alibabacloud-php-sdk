@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class listen extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $certId;
 
