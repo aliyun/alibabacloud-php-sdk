@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesR
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponseBody\data\applicationScalingRules\metric\metrics;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponseBody\data\applicationScalingRules\metric\metricsStatus;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponseBody\data\applicationScalingRules\metric\prometheusMetrics;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponseBody\data\applicationScalingRules\metric\scaleDownRules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponseBody\data\applicationScalingRules\metric\scaleUpRules;
 
@@ -16,6 +17,11 @@ class metric extends Model
      * @var int
      */
     public $maxReplicas;
+
+    /**
+     * @var string
+     */
+    public $metricSource;
 
     /**
      * @var metrics[]
@@ -33,6 +39,21 @@ class metric extends Model
     public $minReplicas;
 
     /**
+     * @var prometheusMetrics[]
+     */
+    public $prometheusMetrics;
+
+    /**
+     * @var string
+     */
+    public $prometheusToken;
+
+    /**
+     * @var string
+     */
+    public $prometheusUrl;
+
+    /**
      * @var scaleDownRules
      */
     public $scaleDownRules;
@@ -43,9 +64,13 @@ class metric extends Model
     public $scaleUpRules;
     protected $_name = [
         'maxReplicas' => 'MaxReplicas',
+        'metricSource' => 'MetricSource',
         'metrics' => 'Metrics',
         'metricsStatus' => 'MetricsStatus',
         'minReplicas' => 'MinReplicas',
+        'prometheusMetrics' => 'PrometheusMetrics',
+        'prometheusToken' => 'PrometheusToken',
+        'prometheusUrl' => 'PrometheusUrl',
         'scaleDownRules' => 'ScaleDownRules',
         'scaleUpRules' => 'ScaleUpRules',
     ];
@@ -57,6 +82,9 @@ class metric extends Model
         }
         if (null !== $this->metricsStatus) {
             $this->metricsStatus->validate();
+        }
+        if (\is_array($this->prometheusMetrics)) {
+            Model::validateArray($this->prometheusMetrics);
         }
         if (null !== $this->scaleDownRules) {
             $this->scaleDownRules->validate();
@@ -72,6 +100,10 @@ class metric extends Model
         $res = [];
         if (null !== $this->maxReplicas) {
             $res['MaxReplicas'] = $this->maxReplicas;
+        }
+
+        if (null !== $this->metricSource) {
+            $res['MetricSource'] = $this->metricSource;
         }
 
         if (null !== $this->metrics) {
@@ -91,6 +123,25 @@ class metric extends Model
 
         if (null !== $this->minReplicas) {
             $res['MinReplicas'] = $this->minReplicas;
+        }
+
+        if (null !== $this->prometheusMetrics) {
+            if (\is_array($this->prometheusMetrics)) {
+                $res['PrometheusMetrics'] = [];
+                $n1 = 0;
+                foreach ($this->prometheusMetrics as $item1) {
+                    $res['PrometheusMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->prometheusToken) {
+            $res['PrometheusToken'] = $this->prometheusToken;
+        }
+
+        if (null !== $this->prometheusUrl) {
+            $res['PrometheusUrl'] = $this->prometheusUrl;
         }
 
         if (null !== $this->scaleDownRules) {
@@ -116,6 +167,10 @@ class metric extends Model
             $model->maxReplicas = $map['MaxReplicas'];
         }
 
+        if (isset($map['MetricSource'])) {
+            $model->metricSource = $map['MetricSource'];
+        }
+
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
@@ -133,6 +188,25 @@ class metric extends Model
 
         if (isset($map['MinReplicas'])) {
             $model->minReplicas = $map['MinReplicas'];
+        }
+
+        if (isset($map['PrometheusMetrics'])) {
+            if (!empty($map['PrometheusMetrics'])) {
+                $model->prometheusMetrics = [];
+                $n1 = 0;
+                foreach ($map['PrometheusMetrics'] as $item1) {
+                    $model->prometheusMetrics[$n1] = prometheusMetrics::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['PrometheusToken'])) {
+            $model->prometheusToken = $map['PrometheusToken'];
+        }
+
+        if (isset($map['PrometheusUrl'])) {
+            $model->prometheusUrl = $map['PrometheusUrl'];
         }
 
         if (isset($map['ScaleDownRules'])) {
