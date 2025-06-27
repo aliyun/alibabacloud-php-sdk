@@ -57,7 +57,8 @@ class ListNisInspectionTasksResponseBody extends Model
                 $res['InspectionTaskList'] = [];
                 $n1 = 0;
                 foreach ($this->inspectionTaskList as $item1) {
-                    $res['InspectionTaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InspectionTaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListNisInspectionTasksResponseBody extends Model
                 $model->inspectionTaskList = [];
                 $n1 = 0;
                 foreach ($map['InspectionTaskList'] as $item1) {
-                    $model->inspectionTaskList[$n1++] = inspectionTaskList::fromMap($item1);
+                    $model->inspectionTaskList[$n1] = inspectionTaskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

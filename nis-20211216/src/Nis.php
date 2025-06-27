@@ -1303,6 +1303,10 @@ class Nis extends OpenApiClient
             @$query['ScanBy'] = $request->scanBy;
         }
 
+        if (null !== $request->stepMinutes) {
+            @$query['StepMinutes'] = $request->stepMinutes;
+        }
+
         if (null !== $request->useCrossAccount) {
             @$query['UseCrossAccount'] = $request->useCrossAccount;
         }

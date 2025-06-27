@@ -38,7 +38,8 @@ class DeleteNetworkReachableAnalysisRequest extends Model
                 $res['NetworkReachableAnalysisIds'] = [];
                 $n1 = 0;
                 foreach ($this->networkReachableAnalysisIds as $item1) {
-                    $res['NetworkReachableAnalysisIds'][$n1++] = $item1;
+                    $res['NetworkReachableAnalysisIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteNetworkReachableAnalysisRequest extends Model
                 $model->networkReachableAnalysisIds = [];
                 $n1 = 0;
                 foreach ($map['NetworkReachableAnalysisIds'] as $item1) {
-                    $model->networkReachableAnalysisIds[$n1++] = $item1;
+                    $model->networkReachableAnalysisIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

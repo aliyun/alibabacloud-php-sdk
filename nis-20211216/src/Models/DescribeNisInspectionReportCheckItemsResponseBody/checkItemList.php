@@ -85,7 +85,8 @@ class checkItemList extends Model
                 $res['CheckResultList'] = [];
                 $n1 = 0;
                 foreach ($this->checkResultList as $item1) {
-                    $res['CheckResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CheckResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class checkItemList extends Model
                 $res['RecommendationList'] = [];
                 $n1 = 0;
                 foreach ($this->recommendationList as $item1) {
-                    $res['RecommendationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecommendationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class checkItemList extends Model
                 $model->checkResultList = [];
                 $n1 = 0;
                 foreach ($map['CheckResultList'] as $item1) {
-                    $model->checkResultList[$n1++] = checkResultList::fromMap($item1);
+                    $model->checkResultList[$n1] = checkResultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class checkItemList extends Model
                 $model->recommendationList = [];
                 $n1 = 0;
                 foreach ($map['RecommendationList'] as $item1) {
-                    $model->recommendationList[$n1++] = recommendationList::fromMap($item1);
+                    $model->recommendationList[$n1] = recommendationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

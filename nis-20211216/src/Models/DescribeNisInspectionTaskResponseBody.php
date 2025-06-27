@@ -93,7 +93,8 @@ class DescribeNisInspectionTaskResponseBody extends Model
                 $res['CheckResourceList'] = [];
                 $n1 = 0;
                 foreach ($this->checkResourceList as $item1) {
-                    $res['CheckResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CheckResourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class DescribeNisInspectionTaskResponseBody extends Model
                 $model->checkResourceList = [];
                 $n1 = 0;
                 foreach ($map['CheckResourceList'] as $item1) {
-                    $model->checkResourceList[$n1++] = checkResourceList::fromMap($item1);
+                    $model->checkResourceList[$n1] = checkResourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

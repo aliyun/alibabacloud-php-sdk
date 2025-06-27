@@ -38,7 +38,8 @@ class DeleteNetworkPathRequest extends Model
                 $res['NetworkPathIds'] = [];
                 $n1 = 0;
                 foreach ($this->networkPathIds as $item1) {
-                    $res['NetworkPathIds'][$n1++] = $item1;
+                    $res['NetworkPathIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteNetworkPathRequest extends Model
                 $model->networkPathIds = [];
                 $n1 = 0;
                 foreach ($map['NetworkPathIds'] as $item1) {
-                    $model->networkPathIds[$n1++] = $item1;
+                    $model->networkPathIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

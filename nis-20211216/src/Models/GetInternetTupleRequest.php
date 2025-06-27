@@ -164,7 +164,8 @@ class GetInternetTupleRequest extends Model
                 $res['AccountIds'] = [];
                 $n1 = 0;
                 foreach ($this->accountIds as $item1) {
-                    $res['AccountIds'][$n1++] = $item1;
+                    $res['AccountIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +183,8 @@ class GetInternetTupleRequest extends Model
                 $res['CloudIpList'] = [];
                 $n1 = 0;
                 foreach ($this->cloudIpList as $item1) {
-                    $res['CloudIpList'][$n1++] = $item1;
+                    $res['CloudIpList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +214,8 @@ class GetInternetTupleRequest extends Model
                 $res['InstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceList as $item1) {
-                    $res['InstanceList'][$n1++] = $item1;
+                    $res['InstanceList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,7 +284,8 @@ class GetInternetTupleRequest extends Model
                 $model->accountIds = [];
                 $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
-                    $model->accountIds[$n1++] = $item1;
+                    $model->accountIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -299,7 +303,8 @@ class GetInternetTupleRequest extends Model
                 $model->cloudIpList = [];
                 $n1 = 0;
                 foreach ($map['CloudIpList'] as $item1) {
-                    $model->cloudIpList[$n1++] = $item1;
+                    $model->cloudIpList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -329,7 +334,8 @@ class GetInternetTupleRequest extends Model
                 $model->instanceList = [];
                 $n1 = 0;
                 foreach ($map['InstanceList'] as $item1) {
-                    $model->instanceList[$n1++] = $item1;
+                    $model->instanceList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

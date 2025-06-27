@@ -49,7 +49,8 @@ class GetNatTopNResponseBody extends Model
                 $res['NatGatewayTopN'] = [];
                 $n1 = 0;
                 foreach ($this->natGatewayTopN as $item1) {
-                    $res['NatGatewayTopN'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NatGatewayTopN'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class GetNatTopNResponseBody extends Model
                 $model->natGatewayTopN = [];
                 $n1 = 0;
                 foreach ($map['NatGatewayTopN'] as $item1) {
-                    $model->natGatewayTopN[$n1++] = natGatewayTopN::fromMap($item1);
+                    $model->natGatewayTopN[$n1] = natGatewayTopN::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

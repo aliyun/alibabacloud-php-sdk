@@ -63,7 +63,8 @@ class summary extends Model
                 $res['PassRateSummary'] = [];
                 $n1 = 0;
                 foreach ($this->passRateSummary as $item1) {
-                    $res['PassRateSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PassRateSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class summary extends Model
                 $res['RiskSummary'] = [];
                 $n1 = 0;
                 foreach ($this->riskSummary as $item1) {
-                    $res['RiskSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RiskSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class summary extends Model
                 $model->passRateSummary = [];
                 $n1 = 0;
                 foreach ($map['PassRateSummary'] as $item1) {
-                    $model->passRateSummary[$n1++] = passRateSummary::fromMap($item1);
+                    $model->passRateSummary[$n1] = passRateSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class summary extends Model
                 $model->riskSummary = [];
                 $n1 = 0;
                 foreach ($map['RiskSummary'] as $item1) {
-                    $model->riskSummary[$n1++] = riskSummary::fromMap($item1);
+                    $model->riskSummary[$n1] = riskSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

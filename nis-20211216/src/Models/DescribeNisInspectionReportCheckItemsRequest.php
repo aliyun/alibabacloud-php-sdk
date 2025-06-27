@@ -91,7 +91,8 @@ class DescribeNisInspectionReportCheckItemsRequest extends Model
                 $res['ResourceType'] = [];
                 $n1 = 0;
                 foreach ($this->resourceType as $item1) {
-                    $res['ResourceType'][$n1++] = $item1;
+                    $res['ResourceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class DescribeNisInspectionReportCheckItemsRequest extends Model
                 $res['RiskLevel'] = [];
                 $n1 = 0;
                 foreach ($this->riskLevel as $item1) {
-                    $res['RiskLevel'][$n1++] = $item1;
+                    $res['RiskLevel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +144,8 @@ class DescribeNisInspectionReportCheckItemsRequest extends Model
                 $model->resourceType = [];
                 $n1 = 0;
                 foreach ($map['ResourceType'] as $item1) {
-                    $model->resourceType[$n1++] = $item1;
+                    $model->resourceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class DescribeNisInspectionReportCheckItemsRequest extends Model
                 $model->riskLevel = [];
                 $n1 = 0;
                 foreach ($map['RiskLevel'] as $item1) {
-                    $model->riskLevel[$n1++] = $item1;
+                    $model->riskLevel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

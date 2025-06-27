@@ -50,6 +50,11 @@ class GetNisNetworkMetricsRequest extends Model
     public $scanBy;
 
     /**
+     * @var int
+     */
+    public $stepMinutes;
+
+    /**
      * @var bool
      */
     public $useCrossAccount;
@@ -62,6 +67,7 @@ class GetNisNetworkMetricsRequest extends Model
         'regionNo' => 'RegionNo',
         'resourceType' => 'ResourceType',
         'scanBy' => 'ScanBy',
+        'stepMinutes' => 'StepMinutes',
         'useCrossAccount' => 'UseCrossAccount',
     ];
 
@@ -84,7 +90,8 @@ class GetNisNetworkMetricsRequest extends Model
                 $res['AccountIds'] = [];
                 $n1 = 0;
                 foreach ($this->accountIds as $item1) {
-                    $res['AccountIds'][$n1++] = $item1;
+                    $res['AccountIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +105,8 @@ class GetNisNetworkMetricsRequest extends Model
                 $res['Dimensions'] = [];
                 $n1 = 0;
                 foreach ($this->dimensions as $item1) {
-                    $res['Dimensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,6 +131,10 @@ class GetNisNetworkMetricsRequest extends Model
             $res['ScanBy'] = $this->scanBy;
         }
 
+        if (null !== $this->stepMinutes) {
+            $res['StepMinutes'] = $this->stepMinutes;
+        }
+
         if (null !== $this->useCrossAccount) {
             $res['UseCrossAccount'] = $this->useCrossAccount;
         }
@@ -143,7 +155,8 @@ class GetNisNetworkMetricsRequest extends Model
                 $model->accountIds = [];
                 $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
-                    $model->accountIds[$n1++] = $item1;
+                    $model->accountIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +170,8 @@ class GetNisNetworkMetricsRequest extends Model
                 $model->dimensions = [];
                 $n1 = 0;
                 foreach ($map['Dimensions'] as $item1) {
-                    $model->dimensions[$n1++] = dimensions::fromMap($item1);
+                    $model->dimensions[$n1] = dimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -180,6 +194,10 @@ class GetNisNetworkMetricsRequest extends Model
 
         if (isset($map['ScanBy'])) {
             $model->scanBy = $map['ScanBy'];
+        }
+
+        if (isset($map['StepMinutes'])) {
+            $model->stepMinutes = $map['StepMinutes'];
         }
 
         if (isset($map['UseCrossAccount'])) {

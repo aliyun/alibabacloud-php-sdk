@@ -43,7 +43,8 @@ class ListNisInspectionResourceTypeResponseBody extends Model
                 $res['ResourceTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTypeList as $item1) {
-                    $res['ResourceTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListNisInspectionResourceTypeResponseBody extends Model
                 $model->resourceTypeList = [];
                 $n1 = 0;
                 foreach ($map['ResourceTypeList'] as $item1) {
-                    $model->resourceTypeList[$n1++] = resourceTypeList::fromMap($item1);
+                    $model->resourceTypeList[$n1] = resourceTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

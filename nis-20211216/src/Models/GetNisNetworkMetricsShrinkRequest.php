@@ -49,6 +49,11 @@ class GetNisNetworkMetricsShrinkRequest extends Model
     public $scanBy;
 
     /**
+     * @var int
+     */
+    public $stepMinutes;
+
+    /**
      * @var bool
      */
     public $useCrossAccount;
@@ -61,6 +66,7 @@ class GetNisNetworkMetricsShrinkRequest extends Model
         'regionNo' => 'RegionNo',
         'resourceType' => 'ResourceType',
         'scanBy' => 'ScanBy',
+        'stepMinutes' => 'StepMinutes',
         'useCrossAccount' => 'UseCrossAccount',
     ];
 
@@ -80,7 +86,8 @@ class GetNisNetworkMetricsShrinkRequest extends Model
                 $res['AccountIds'] = [];
                 $n1 = 0;
                 foreach ($this->accountIds as $item1) {
-                    $res['AccountIds'][$n1++] = $item1;
+                    $res['AccountIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,6 +120,10 @@ class GetNisNetworkMetricsShrinkRequest extends Model
             $res['ScanBy'] = $this->scanBy;
         }
 
+        if (null !== $this->stepMinutes) {
+            $res['StepMinutes'] = $this->stepMinutes;
+        }
+
         if (null !== $this->useCrossAccount) {
             $res['UseCrossAccount'] = $this->useCrossAccount;
         }
@@ -133,7 +144,8 @@ class GetNisNetworkMetricsShrinkRequest extends Model
                 $model->accountIds = [];
                 $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
-                    $model->accountIds[$n1++] = $item1;
+                    $model->accountIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,6 +176,10 @@ class GetNisNetworkMetricsShrinkRequest extends Model
 
         if (isset($map['ScanBy'])) {
             $model->scanBy = $map['ScanBy'];
+        }
+
+        if (isset($map['StepMinutes'])) {
+            $model->stepMinutes = $map['StepMinutes'];
         }
 
         if (isset($map['UseCrossAccount'])) {

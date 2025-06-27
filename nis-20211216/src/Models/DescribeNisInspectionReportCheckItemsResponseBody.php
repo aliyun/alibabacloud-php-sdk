@@ -63,7 +63,8 @@ class DescribeNisInspectionReportCheckItemsResponseBody extends Model
                 $res['CheckItemList'] = [];
                 $n1 = 0;
                 foreach ($this->checkItemList as $item1) {
-                    $res['CheckItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CheckItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeNisInspectionReportCheckItemsResponseBody extends Model
                 $model->checkItemList = [];
                 $n1 = 0;
                 foreach ($map['CheckItemList'] as $item1) {
-                    $model->checkItemList[$n1++] = checkItemList::fromMap($item1);
+                    $model->checkItemList[$n1] = checkItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
