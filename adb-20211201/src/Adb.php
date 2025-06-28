@@ -9001,6 +9001,10 @@ class Adb extends OpenApiClient
             @$query['StartTime'] = $request->startTime;
         }
 
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
