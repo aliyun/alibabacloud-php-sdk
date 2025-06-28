@@ -984,6 +984,10 @@ class Edsaic extends OpenApiClient
             @$query['ServerType'] = $request->serverType;
         }
 
+        if (null !== $request->streamMode) {
+            @$query['StreamMode'] = $request->streamMode;
+        }
+
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
         }
@@ -2909,6 +2913,10 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
         if (null !== $request->instanceIds) {
             @$query['InstanceIds'] = $request->instanceIds;
         }
@@ -3789,7 +3797,19 @@ class Edsaic extends OpenApiClient
     public function modifyCloudPhoneNodeWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->newNodeName) {
+            @$query['NewNodeName'] = $request->newNodeName;
+        }
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->streamMode) {
+            @$query['StreamMode'] = $request->streamMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3798,7 +3818,7 @@ class Edsaic extends OpenApiClient
             'version' => '2023-09-30',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',

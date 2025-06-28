@@ -95,6 +95,11 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
     public $serverType;
 
     /**
+     * @var int
+     */
+    public $streamMode;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -121,6 +126,7 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
         'resolutionWidth' => 'ResolutionWidth',
         'serverShareDataVolume' => 'ServerShareDataVolume',
         'serverType' => 'ServerType',
+        'streamMode' => 'StreamMode',
         'tag' => 'Tag',
         'vSwitchId' => 'VSwitchId',
     ];
@@ -202,6 +208,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
+        }
+
+        if (null !== $this->streamMode) {
+            $res['StreamMode'] = $this->streamMode;
         }
 
         if (null !== $this->tag) {
@@ -296,6 +306,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];
+        }
+
+        if (isset($map['StreamMode'])) {
+            $model->streamMode = $map['StreamMode'];
         }
 
         if (isset($map['Tag'])) {

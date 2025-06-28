@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DisconnectAndroidInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endUserId;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
     protected $_name = [
+        'endUserId' => 'EndUserId',
         'instanceIds' => 'InstanceIds',
     ];
 
@@ -27,6 +33,10 @@ class DisconnectAndroidInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
+        }
+
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
@@ -49,6 +59,10 @@ class DisconnectAndroidInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndUserId'])) {
+            $model->endUserId = $map['EndUserId'];
+        }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];

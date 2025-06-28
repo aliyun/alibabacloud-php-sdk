@@ -194,6 +194,11 @@ class instanceModel extends Model
     public $sessionStatus;
 
     /**
+     * @var int
+     */
+    public $streamMode;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -244,6 +249,7 @@ class instanceModel extends Model
         'regionId' => 'RegionId',
         'renderingType' => 'RenderingType',
         'sessionStatus' => 'SessionStatus',
+        'streamMode' => 'StreamMode',
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
         'zoneId' => 'ZoneId',
@@ -421,6 +427,10 @@ class instanceModel extends Model
 
         if (null !== $this->sessionStatus) {
             $res['SessionStatus'] = $this->sessionStatus;
+        }
+
+        if (null !== $this->streamMode) {
+            $res['StreamMode'] = $this->streamMode;
         }
 
         if (null !== $this->tags) {
@@ -602,6 +612,10 @@ class instanceModel extends Model
 
         if (isset($map['SessionStatus'])) {
             $model->sessionStatus = $map['SessionStatus'];
+        }
+
+        if (isset($map['StreamMode'])) {
+            $model->streamMode = $map['StreamMode'];
         }
 
         if (isset($map['Tags'])) {

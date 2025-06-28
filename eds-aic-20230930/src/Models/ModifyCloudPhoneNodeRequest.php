@@ -17,9 +17,15 @@ class ModifyCloudPhoneNodeRequest extends Model
      * @var string
      */
     public $nodeId;
+
+    /**
+     * @var int
+     */
+    public $streamMode;
     protected $_name = [
         'newNodeName' => 'NewNodeName',
         'nodeId' => 'NodeId',
+        'streamMode' => 'StreamMode',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ModifyCloudPhoneNodeRequest extends Model
 
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->streamMode) {
+            $res['StreamMode'] = $this->streamMode;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ModifyCloudPhoneNodeRequest extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['StreamMode'])) {
+            $model->streamMode = $map['StreamMode'];
         }
 
         return $model;
