@@ -33,7 +33,8 @@ class engineVersionList extends Model
                 $res['EngineVersion'] = [];
                 $n1 = 0;
                 foreach ($this->engineVersion as $item1) {
-                    $res['EngineVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EngineVersion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class engineVersionList extends Model
                 $model->engineVersion = [];
                 $n1 = 0;
                 foreach ($map['EngineVersion'] as $item1) {
-                    $model->engineVersion[$n1++] = engineVersion::fromMap($item1);
+                    $model->engineVersion[$n1] = engineVersion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

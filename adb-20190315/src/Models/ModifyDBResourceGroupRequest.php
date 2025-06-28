@@ -192,7 +192,8 @@ class ModifyDBResourceGroupRequest extends Model
                 $res['PoolUserList'] = [];
                 $n1 = 0;
                 foreach ($this->poolUserList as $item1) {
-                    $res['PoolUserList'][$n1++] = $item1;
+                    $res['PoolUserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -282,7 +283,8 @@ class ModifyDBResourceGroupRequest extends Model
                 $model->poolUserList = [];
                 $n1 = 0;
                 foreach ($map['PoolUserList'] as $item1) {
-                    $model->poolUserList[$n1++] = $item1;
+                    $model->poolUserList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

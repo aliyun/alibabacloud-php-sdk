@@ -33,7 +33,8 @@ class items extends Model
                 $res['Shard'] = [];
                 $n1 = 0;
                 foreach ($this->shard as $item1) {
-                    $res['Shard'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Shard'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->shard = [];
                 $n1 = 0;
                 foreach ($map['Shard'] as $item1) {
-                    $model->shard[$n1++] = shard::fromMap($item1);
+                    $model->shard[$n1] = shard::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

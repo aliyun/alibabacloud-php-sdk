@@ -159,7 +159,8 @@ class OperateLogHubRequest extends Model
                 $res['LogHubStores'] = [];
                 $n1 = 0;
                 foreach ($this->logHubStores as $item1) {
-                    $res['LogHubStores'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogHubStores'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +249,8 @@ class OperateLogHubRequest extends Model
                 $model->logHubStores = [];
                 $n1 = 0;
                 foreach ($map['LogHubStores'] as $item1) {
-                    $model->logHubStores[$n1++] = logHubStores::fromMap($item1);
+                    $model->logHubStores[$n1] = logHubStores::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

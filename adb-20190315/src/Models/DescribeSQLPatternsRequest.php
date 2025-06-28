@@ -52,6 +52,11 @@ class DescribeSQLPatternsRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $userName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'endTime' => 'EndTime',
@@ -62,6 +67,7 @@ class DescribeSQLPatternsRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'startTime' => 'StartTime',
+        'userName' => 'UserName',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class DescribeSQLPatternsRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class DescribeSQLPatternsRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
 
         return $model;

@@ -39,7 +39,8 @@ class DescribeElasticPlanResponseBody extends Model
                 $res['ElasticPlanList'] = [];
                 $n1 = 0;
                 foreach ($this->elasticPlanList as $item1) {
-                    $res['ElasticPlanList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ElasticPlanList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeElasticPlanResponseBody extends Model
                 $model->elasticPlanList = [];
                 $n1 = 0;
                 foreach ($map['ElasticPlanList'] as $item1) {
-                    $model->elasticPlanList[$n1++] = elasticPlanList::fromMap($item1);
+                    $model->elasticPlanList[$n1] = elasticPlanList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

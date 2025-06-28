@@ -49,7 +49,8 @@ class performances extends Model
                 $res['ResourcePoolPerformances'] = [];
                 $n1 = 0;
                 foreach ($this->resourcePoolPerformances as $item1) {
-                    $res['ResourcePoolPerformances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourcePoolPerformances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class performances extends Model
                 $model->resourcePoolPerformances = [];
                 $n1 = 0;
                 foreach ($map['ResourcePoolPerformances'] as $item1) {
-                    $model->resourcePoolPerformances[$n1++] = resourcePoolPerformances::fromMap($item1);
+                    $model->resourcePoolPerformances[$n1] = resourcePoolPerformances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

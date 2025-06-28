@@ -33,7 +33,8 @@ class DBNodeCategoryList extends Model
                 $res['DBNodeCategory'] = [];
                 $n1 = 0;
                 foreach ($this->DBNodeCategory as $item1) {
-                    $res['DBNodeCategory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBNodeCategory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DBNodeCategoryList extends Model
                 $model->DBNodeCategory = [];
                 $n1 = 0;
                 foreach ($map['DBNodeCategory'] as $item1) {
-                    $model->DBNodeCategory[$n1++] = DBNodeCategory::fromMap($item1);
+                    $model->DBNodeCategory[$n1] = DBNodeCategory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

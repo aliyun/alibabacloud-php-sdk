@@ -53,7 +53,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
                 $res['StageInfos'] = [];
                 $n1 = 0;
                 foreach ($this->stageInfos as $item1) {
-                    $res['StageInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StageInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
                 $model->stageInfos = [];
                 $n1 = 0;
                 foreach ($map['StageInfos'] as $item1) {
-                    $model->stageInfos[$n1++] = stageInfos::fromMap($item1);
+                    $model->stageInfos[$n1] = stageInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

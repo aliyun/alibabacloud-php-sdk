@@ -33,7 +33,8 @@ class DBNodeStorageList extends Model
                 $res['DBNodeStorage'] = [];
                 $n1 = 0;
                 foreach ($this->DBNodeStorage as $item1) {
-                    $res['DBNodeStorage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBNodeStorage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DBNodeStorageList extends Model
                 $model->DBNodeStorage = [];
                 $n1 = 0;
                 foreach ($map['DBNodeStorage'] as $item1) {
-                    $model->DBNodeStorage[$n1++] = DBNodeStorage::fromMap($item1);
+                    $model->DBNodeStorage[$n1] = DBNodeStorage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

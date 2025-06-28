@@ -43,7 +43,8 @@ class DescribeSyncAvailableDBClusterListResponseBody extends Model
                 $res['SyncAvailableDBClusters'] = [];
                 $n1 = 0;
                 foreach ($this->syncAvailableDBClusters as $item1) {
-                    $res['SyncAvailableDBClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SyncAvailableDBClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeSyncAvailableDBClusterListResponseBody extends Model
                 $model->syncAvailableDBClusters = [];
                 $n1 = 0;
                 foreach ($map['SyncAvailableDBClusters'] as $item1) {
-                    $model->syncAvailableDBClusters[$n1++] = syncAvailableDBClusters::fromMap($item1);
+                    $model->syncAvailableDBClusters[$n1] = syncAvailableDBClusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

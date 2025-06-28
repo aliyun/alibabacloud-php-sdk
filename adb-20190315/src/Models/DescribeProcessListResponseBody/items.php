@@ -33,7 +33,8 @@ class items extends Model
                 $res['Process'] = [];
                 $n1 = 0;
                 foreach ($this->process as $item1) {
-                    $res['Process'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Process'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->process = [];
                 $n1 = 0;
                 foreach ($map['Process'] as $item1) {
-                    $model->process[$n1++] = process::fromMap($item1);
+                    $model->process[$n1] = process::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

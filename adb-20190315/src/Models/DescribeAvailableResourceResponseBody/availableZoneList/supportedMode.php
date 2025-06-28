@@ -43,7 +43,8 @@ class supportedMode extends Model
                 $res['SupportedSerialList'] = [];
                 $n1 = 0;
                 foreach ($this->supportedSerialList as $item1) {
-                    $res['SupportedSerialList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedSerialList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class supportedMode extends Model
                 $model->supportedSerialList = [];
                 $n1 = 0;
                 foreach ($map['SupportedSerialList'] as $item1) {
-                    $model->supportedSerialList[$n1++] = supportedSerialList::fromMap($item1);
+                    $model->supportedSerialList[$n1] = supportedSerialList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

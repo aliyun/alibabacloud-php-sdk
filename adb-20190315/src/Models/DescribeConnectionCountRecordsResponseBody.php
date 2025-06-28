@@ -55,7 +55,8 @@ class DescribeConnectionCountRecordsResponseBody extends Model
                 $res['AccessIpRecords'] = [];
                 $n1 = 0;
                 foreach ($this->accessIpRecords as $item1) {
-                    $res['AccessIpRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessIpRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class DescribeConnectionCountRecordsResponseBody extends Model
                 $res['UserRecords'] = [];
                 $n1 = 0;
                 foreach ($this->userRecords as $item1) {
-                    $res['UserRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class DescribeConnectionCountRecordsResponseBody extends Model
                 $model->accessIpRecords = [];
                 $n1 = 0;
                 foreach ($map['AccessIpRecords'] as $item1) {
-                    $model->accessIpRecords[$n1++] = accessIpRecords::fromMap($item1);
+                    $model->accessIpRecords[$n1] = accessIpRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class DescribeConnectionCountRecordsResponseBody extends Model
                 $model->userRecords = [];
                 $n1 = 0;
                 foreach ($map['UserRecords'] as $item1) {
-                    $model->userRecords[$n1++] = userRecords::fromMap($item1);
+                    $model->userRecords[$n1] = userRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

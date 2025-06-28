@@ -32,7 +32,8 @@ class logStoreKeys extends Model
                 $res['LogStoreKey'] = [];
                 $n1 = 0;
                 foreach ($this->logStoreKey as $item1) {
-                    $res['LogStoreKey'][$n1++] = $item1;
+                    $res['LogStoreKey'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class logStoreKeys extends Model
                 $model->logStoreKey = [];
                 $n1 = 0;
                 foreach ($map['LogStoreKey'] as $item1) {
-                    $model->logStoreKey[$n1++] = $item1;
+                    $model->logStoreKey[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

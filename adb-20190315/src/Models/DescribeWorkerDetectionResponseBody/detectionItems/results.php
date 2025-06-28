@@ -73,7 +73,8 @@ class results extends Model
                 $res['OperatorAgg'] = [];
                 $n1 = 0;
                 foreach ($this->operatorAgg as $item1) {
-                    $res['OperatorAgg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperatorAgg'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class results extends Model
                 $res['OperatorDetails'] = [];
                 $n1 = 0;
                 foreach ($this->operatorDetails as $item1) {
-                    $res['OperatorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperatorDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class results extends Model
                 $res['PartitionedTables'] = [];
                 $n1 = 0;
                 foreach ($this->partitionedTables as $item1) {
-                    $res['PartitionedTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PartitionedTables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class results extends Model
                 $res['SkewedTables'] = [];
                 $n1 = 0;
                 foreach ($this->skewedTables as $item1) {
-                    $res['SkewedTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SkewedTables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +117,8 @@ class results extends Model
                 $res['TopAccessTables'] = [];
                 $n1 = 0;
                 foreach ($this->topAccessTables as $item1) {
-                    $res['TopAccessTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopAccessTables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class results extends Model
                 $model->operatorAgg = [];
                 $n1 = 0;
                 foreach ($map['OperatorAgg'] as $item1) {
-                    $model->operatorAgg[$n1++] = operatorAgg::fromMap($item1);
+                    $model->operatorAgg[$n1] = operatorAgg::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +150,8 @@ class results extends Model
                 $model->operatorDetails = [];
                 $n1 = 0;
                 foreach ($map['OperatorDetails'] as $item1) {
-                    $model->operatorDetails[$n1++] = operatorDetails::fromMap($item1);
+                    $model->operatorDetails[$n1] = operatorDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +161,8 @@ class results extends Model
                 $model->partitionedTables = [];
                 $n1 = 0;
                 foreach ($map['PartitionedTables'] as $item1) {
-                    $model->partitionedTables[$n1++] = partitionedTables::fromMap($item1);
+                    $model->partitionedTables[$n1] = partitionedTables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +172,8 @@ class results extends Model
                 $model->skewedTables = [];
                 $n1 = 0;
                 foreach ($map['SkewedTables'] as $item1) {
-                    $model->skewedTables[$n1++] = skewedTables::fromMap($item1);
+                    $model->skewedTables[$n1] = skewedTables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +183,8 @@ class results extends Model
                 $model->topAccessTables = [];
                 $n1 = 0;
                 foreach ($map['TopAccessTables'] as $item1) {
-                    $model->topAccessTables[$n1++] = topAccessTables::fromMap($item1);
+                    $model->topAccessTables[$n1] = topAccessTables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

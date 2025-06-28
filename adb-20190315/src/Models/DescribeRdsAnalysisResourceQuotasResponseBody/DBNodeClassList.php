@@ -33,7 +33,8 @@ class DBNodeClassList extends Model
                 $res['DBNodeClass'] = [];
                 $n1 = 0;
                 foreach ($this->DBNodeClass as $item1) {
-                    $res['DBNodeClass'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBNodeClass'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DBNodeClassList extends Model
                 $model->DBNodeClass = [];
                 $n1 = 0;
                 foreach ($map['DBNodeClass'] as $item1) {
-                    $model->DBNodeClass[$n1++] = DBNodeClass::fromMap($item1);
+                    $model->DBNodeClass[$n1] = DBNodeClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

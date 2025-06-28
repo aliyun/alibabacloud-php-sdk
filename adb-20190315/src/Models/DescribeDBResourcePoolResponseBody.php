@@ -49,7 +49,8 @@ class DescribeDBResourcePoolResponseBody extends Model
                 $res['PoolsInfo'] = [];
                 $n1 = 0;
                 foreach ($this->poolsInfo as $item1) {
-                    $res['PoolsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PoolsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeDBResourcePoolResponseBody extends Model
                 $model->poolsInfo = [];
                 $n1 = 0;
                 foreach ($map['PoolsInfo'] as $item1) {
-                    $model->poolsInfo[$n1++] = poolsInfo::fromMap($item1);
+                    $model->poolsInfo[$n1] = poolsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

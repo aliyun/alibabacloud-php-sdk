@@ -67,7 +67,8 @@ class DescribeLoadTasksRecordsResponseBody extends Model
                 $res['LoadTasksRecords'] = [];
                 $n1 = 0;
                 foreach ($this->loadTasksRecords as $item1) {
-                    $res['LoadTasksRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LoadTasksRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class DescribeLoadTasksRecordsResponseBody extends Model
                 $model->loadTasksRecords = [];
                 $n1 = 0;
                 foreach ($map['LoadTasksRecords'] as $item1) {
-                    $model->loadTasksRecords[$n1++] = loadTasksRecords::fromMap($item1);
+                    $model->loadTasksRecords[$n1] = loadTasksRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

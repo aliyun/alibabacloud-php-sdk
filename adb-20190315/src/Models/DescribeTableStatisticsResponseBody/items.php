@@ -33,7 +33,8 @@ class items extends Model
                 $res['TableStatisticRecords'] = [];
                 $n1 = 0;
                 foreach ($this->tableStatisticRecords as $item1) {
-                    $res['TableStatisticRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableStatisticRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->tableStatisticRecords = [];
                 $n1 = 0;
                 foreach ($map['TableStatisticRecords'] as $item1) {
-                    $model->tableStatisticRecords[$n1++] = tableStatisticRecords::fromMap($item1);
+                    $model->tableStatisticRecords[$n1] = tableStatisticRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

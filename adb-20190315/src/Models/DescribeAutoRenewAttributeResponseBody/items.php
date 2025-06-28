@@ -33,7 +33,8 @@ class items extends Model
                 $res['AutoRenewAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->autoRenewAttribute as $item1) {
-                    $res['AutoRenewAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoRenewAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->autoRenewAttribute = [];
                 $n1 = 0;
                 foreach ($map['AutoRenewAttribute'] as $item1) {
-                    $model->autoRenewAttribute[$n1++] = autoRenewAttribute::fromMap($item1);
+                    $model->autoRenewAttribute[$n1] = autoRenewAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

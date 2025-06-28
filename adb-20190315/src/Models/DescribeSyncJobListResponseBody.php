@@ -79,7 +79,8 @@ class DescribeSyncJobListResponseBody extends Model
                 $res['SyncJobs'] = [];
                 $n1 = 0;
                 foreach ($this->syncJobs as $item1) {
-                    $res['SyncJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SyncJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class DescribeSyncJobListResponseBody extends Model
                 $model->syncJobs = [];
                 $n1 = 0;
                 foreach ($map['SyncJobs'] as $item1) {
-                    $model->syncJobs[$n1++] = syncJobs::fromMap($item1);
+                    $model->syncJobs[$n1] = syncJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

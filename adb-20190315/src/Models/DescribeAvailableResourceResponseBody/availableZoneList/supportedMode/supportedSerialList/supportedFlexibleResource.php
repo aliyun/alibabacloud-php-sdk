@@ -61,7 +61,8 @@ class supportedFlexibleResource extends Model
                 $res['SupportedComputeResource'] = [];
                 $n1 = 0;
                 foreach ($this->supportedComputeResource as $item1) {
-                    $res['SupportedComputeResource'][$n1++] = $item1;
+                    $res['SupportedComputeResource'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,7 +76,8 @@ class supportedFlexibleResource extends Model
                 $res['SupportedStorageResource'] = [];
                 $n1 = 0;
                 foreach ($this->supportedStorageResource as $item1) {
-                    $res['SupportedStorageResource'][$n1++] = $item1;
+                    $res['SupportedStorageResource'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class supportedFlexibleResource extends Model
                 $model->supportedComputeResource = [];
                 $n1 = 0;
                 foreach ($map['SupportedComputeResource'] as $item1) {
-                    $model->supportedComputeResource[$n1++] = $item1;
+                    $model->supportedComputeResource[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +117,8 @@ class supportedFlexibleResource extends Model
                 $model->supportedStorageResource = [];
                 $n1 = 0;
                 foreach ($map['SupportedStorageResource'] as $item1) {
-                    $model->supportedStorageResource[$n1++] = $item1;
+                    $model->supportedStorageResource[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

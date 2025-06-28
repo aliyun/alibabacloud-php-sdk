@@ -190,7 +190,8 @@ class groupsInfo extends Model
                 $res['GroupUserList'] = [];
                 $n1 = 0;
                 foreach ($this->groupUserList as $item1) {
-                    $res['GroupUserList'][$n1++] = $item1;
+                    $res['GroupUserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +293,8 @@ class groupsInfo extends Model
                 $model->groupUserList = [];
                 $n1 = 0;
                 foreach ($map['GroupUserList'] as $item1) {
-                    $model->groupUserList[$n1++] = $item1;
+                    $model->groupUserList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

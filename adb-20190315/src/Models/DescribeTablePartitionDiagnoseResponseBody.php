@@ -89,7 +89,8 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
                 $res['DetectionItems'] = [];
                 $n1 = 0;
                 foreach ($this->detectionItems as $item1) {
-                    $res['DetectionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DetectionItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
                 $res['Items'] = [];
                 $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +150,8 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
                 $model->detectionItems = [];
                 $n1 = 0;
                 foreach ($map['DetectionItems'] as $item1) {
-                    $model->detectionItems[$n1++] = detectionItems::fromMap($item1);
+                    $model->detectionItems[$n1] = detectionItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +161,8 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
                 $model->items = [];
                 $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

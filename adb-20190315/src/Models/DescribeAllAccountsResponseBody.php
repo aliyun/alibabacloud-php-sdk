@@ -39,7 +39,8 @@ class DescribeAllAccountsResponseBody extends Model
                 $res['AccountList'] = [];
                 $n1 = 0;
                 foreach ($this->accountList as $item1) {
-                    $res['AccountList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccountList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeAllAccountsResponseBody extends Model
                 $model->accountList = [];
                 $n1 = 0;
                 foreach ($map['AccountList'] as $item1) {
-                    $model->accountList[$n1++] = accountList::fromMap($item1);
+                    $model->accountList[$n1] = accountList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

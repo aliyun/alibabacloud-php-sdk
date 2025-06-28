@@ -99,7 +99,8 @@ class DescribePatternPerformanceResponseBody extends Model
                 $res['Performances'] = [];
                 $n1 = 0;
                 foreach ($this->performances as $item1) {
-                    $res['Performances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Performances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class DescribePatternPerformanceResponseBody extends Model
                 $model->performances = [];
                 $n1 = 0;
                 foreach ($map['Performances'] as $item1) {
-                    $model->performances[$n1++] = performances::fromMap($item1);
+                    $model->performances[$n1] = performances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

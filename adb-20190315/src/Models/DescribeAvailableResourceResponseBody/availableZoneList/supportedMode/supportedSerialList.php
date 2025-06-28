@@ -53,7 +53,8 @@ class supportedSerialList extends Model
                 $res['SupportedFlexibleResource'] = [];
                 $n1 = 0;
                 foreach ($this->supportedFlexibleResource as $item1) {
-                    $res['SupportedFlexibleResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedFlexibleResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class supportedSerialList extends Model
                 $res['SupportedInstanceClassList'] = [];
                 $n1 = 0;
                 foreach ($this->supportedInstanceClassList as $item1) {
-                    $res['SupportedInstanceClassList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedInstanceClassList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class supportedSerialList extends Model
                 $model->supportedFlexibleResource = [];
                 $n1 = 0;
                 foreach ($map['SupportedFlexibleResource'] as $item1) {
-                    $model->supportedFlexibleResource[$n1++] = supportedFlexibleResource::fromMap($item1);
+                    $model->supportedFlexibleResource[$n1] = supportedFlexibleResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class supportedSerialList extends Model
                 $model->supportedInstanceClassList = [];
                 $n1 = 0;
                 foreach ($map['SupportedInstanceClassList'] as $item1) {
-                    $model->supportedInstanceClassList[$n1++] = supportedInstanceClassList::fromMap($item1);
+                    $model->supportedInstanceClassList[$n1] = supportedInstanceClassList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

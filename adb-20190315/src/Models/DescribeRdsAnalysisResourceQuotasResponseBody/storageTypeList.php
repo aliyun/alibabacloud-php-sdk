@@ -33,7 +33,8 @@ class storageTypeList extends Model
                 $res['StorageType'] = [];
                 $n1 = 0;
                 foreach ($this->storageType as $item1) {
-                    $res['StorageType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StorageType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class storageTypeList extends Model
                 $model->storageType = [];
                 $n1 = 0;
                 foreach ($map['StorageType'] as $item1) {
-                    $model->storageType[$n1++] = storageType::fromMap($item1);
+                    $model->storageType[$n1] = storageType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

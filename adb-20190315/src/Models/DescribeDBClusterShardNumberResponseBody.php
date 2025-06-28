@@ -54,7 +54,8 @@ class DescribeDBClusterShardNumberResponseBody extends Model
                 $res['AvailableShardNumberList'] = [];
                 $n1 = 0;
                 foreach ($this->availableShardNumberList as $item1) {
-                    $res['AvailableShardNumberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableShardNumberList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDBClusterShardNumberResponseBody extends Model
                 $res['AvailableShardNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->availableShardNumbers as $item1) {
-                    $res['AvailableShardNumbers'][$n1++] = $item1;
+                    $res['AvailableShardNumbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class DescribeDBClusterShardNumberResponseBody extends Model
                 $model->availableShardNumberList = [];
                 $n1 = 0;
                 foreach ($map['AvailableShardNumberList'] as $item1) {
-                    $model->availableShardNumberList[$n1++] = availableShardNumberList::fromMap($item1);
+                    $model->availableShardNumberList[$n1] = availableShardNumberList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class DescribeDBClusterShardNumberResponseBody extends Model
                 $model->availableShardNumbers = [];
                 $n1 = 0;
                 foreach ($map['AvailableShardNumbers'] as $item1) {
-                    $model->availableShardNumbers[$n1++] = $item1;
+                    $model->availableShardNumbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

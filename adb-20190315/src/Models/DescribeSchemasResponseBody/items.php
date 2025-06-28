@@ -33,7 +33,8 @@ class items extends Model
                 $res['Schema'] = [];
                 $n1 = 0;
                 foreach ($this->schema as $item1) {
-                    $res['Schema'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Schema'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->schema = [];
                 $n1 = 0;
                 foreach ($map['Schema'] as $item1) {
-                    $model->schema[$n1++] = schema::fromMap($item1);
+                    $model->schema[$n1] = schema::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

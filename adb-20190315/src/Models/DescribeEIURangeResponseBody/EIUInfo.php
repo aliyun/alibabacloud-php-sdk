@@ -88,7 +88,8 @@ class EIUInfo extends Model
                 $res['EIURange'] = [];
                 $n1 = 0;
                 foreach ($this->EIURange as $item1) {
-                    $res['EIURange'][$n1++] = $item1;
+                    $res['EIURange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class EIUInfo extends Model
                 $res['ReservedNodeSizeRange'] = [];
                 $n1 = 0;
                 foreach ($this->reservedNodeSizeRange as $item1) {
-                    $res['ReservedNodeSizeRange'][$n1++] = $item1;
+                    $res['ReservedNodeSizeRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +122,8 @@ class EIUInfo extends Model
                 $res['StorageResourceRange'] = [];
                 $n1 = 0;
                 foreach ($this->storageResourceRange as $item1) {
-                    $res['StorageResourceRange'][$n1++] = $item1;
+                    $res['StorageResourceRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +152,8 @@ class EIUInfo extends Model
                 $model->EIURange = [];
                 $n1 = 0;
                 foreach ($map['EIURange'] as $item1) {
-                    $model->EIURange[$n1++] = $item1;
+                    $model->EIURange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +171,8 @@ class EIUInfo extends Model
                 $model->reservedNodeSizeRange = [];
                 $n1 = 0;
                 foreach ($map['ReservedNodeSizeRange'] as $item1) {
-                    $model->reservedNodeSizeRange[$n1++] = $item1;
+                    $model->reservedNodeSizeRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +186,8 @@ class EIUInfo extends Model
                 $model->storageResourceRange = [];
                 $n1 = 0;
                 foreach ($map['StorageResourceRange'] as $item1) {
-                    $model->storageResourceRange[$n1++] = $item1;
+                    $model->storageResourceRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

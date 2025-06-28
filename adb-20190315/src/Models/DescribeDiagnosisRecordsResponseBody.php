@@ -65,7 +65,8 @@ class DescribeDiagnosisRecordsResponseBody extends Model
                 $res['Querys'] = [];
                 $n1 = 0;
                 foreach ($this->querys as $item1) {
-                    $res['Querys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Querys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class DescribeDiagnosisRecordsResponseBody extends Model
                 $model->querys = [];
                 $n1 = 0;
                 foreach ($map['Querys'] as $item1) {
-                    $model->querys[$n1++] = querys::fromMap($item1);
+                    $model->querys[$n1] = querys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

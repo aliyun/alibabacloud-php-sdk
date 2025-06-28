@@ -39,7 +39,8 @@ class DescribeComputeResourceResponseBody extends Model
                 $res['ComputeResource'] = [];
                 $n1 = 0;
                 foreach ($this->computeResource as $item1) {
-                    $res['ComputeResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComputeResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeComputeResourceResponseBody extends Model
                 $model->computeResource = [];
                 $n1 = 0;
                 foreach ($map['ComputeResource'] as $item1) {
-                    $model->computeResource[$n1++] = computeResource::fromMap($item1);
+                    $model->computeResource[$n1] = computeResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

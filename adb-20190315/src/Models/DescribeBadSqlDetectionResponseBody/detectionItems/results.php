@@ -97,7 +97,8 @@ class results extends Model
                 $res['DiagnosisResults'] = [];
                 $n1 = 0;
                 foreach ($this->diagnosisResults as $item1) {
-                    $res['DiagnosisResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiagnosisResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class results extends Model
                 $model->diagnosisResults = [];
                 $n1 = 0;
                 foreach ($map['DiagnosisResults'] as $item1) {
-                    $model->diagnosisResults[$n1++] = diagnosisResults::fromMap($item1);
+                    $model->diagnosisResults[$n1] = diagnosisResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

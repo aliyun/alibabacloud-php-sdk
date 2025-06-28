@@ -46,7 +46,8 @@ class supportedNodeCountList extends Model
                 $res['StorageSize'] = [];
                 $n1 = 0;
                 foreach ($this->storageSize as $item1) {
-                    $res['StorageSize'][$n1++] = $item1;
+                    $res['StorageSize'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class supportedNodeCountList extends Model
                 $model->storageSize = [];
                 $n1 = 0;
                 foreach ($map['StorageSize'] as $item1) {
-                    $model->storageSize[$n1++] = $item1;
+                    $model->storageSize[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

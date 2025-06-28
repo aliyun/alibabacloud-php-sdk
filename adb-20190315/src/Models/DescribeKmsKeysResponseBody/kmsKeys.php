@@ -33,7 +33,8 @@ class kmsKeys extends Model
                 $res['KmsKey'] = [];
                 $n1 = 0;
                 foreach ($this->kmsKey as $item1) {
-                    $res['KmsKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KmsKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class kmsKeys extends Model
                 $model->kmsKey = [];
                 $n1 = 0;
                 foreach ($map['KmsKey'] as $item1) {
-                    $model->kmsKey[$n1++] = kmsKey::fromMap($item1);
+                    $model->kmsKey[$n1] = kmsKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

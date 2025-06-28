@@ -33,7 +33,8 @@ class items extends Model
                 $res['IPArray'] = [];
                 $n1 = 0;
                 foreach ($this->IPArray as $item1) {
-                    $res['IPArray'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IPArray'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->IPArray = [];
                 $n1 = 0;
                 foreach ($map['IPArray'] as $item1) {
-                    $model->IPArray[$n1++] = IPArray::fromMap($item1);
+                    $model->IPArray[$n1] = IPArray::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

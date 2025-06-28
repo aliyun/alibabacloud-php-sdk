@@ -45,7 +45,8 @@ class DescribeAvailableResourceResponseBody extends Model
                 $res['AvailableZoneList'] = [];
                 $n1 = 0;
                 foreach ($this->availableZoneList as $item1) {
-                    $res['AvailableZoneList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableZoneList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeAvailableResourceResponseBody extends Model
                 $model->availableZoneList = [];
                 $n1 = 0;
                 foreach ($map['AvailableZoneList'] as $item1) {
-                    $model->availableZoneList[$n1++] = availableZoneList::fromMap($item1);
+                    $model->availableZoneList[$n1] = availableZoneList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

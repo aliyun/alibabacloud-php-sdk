@@ -33,7 +33,8 @@ class logHubStores extends Model
                 $res['LogHubStore'] = [];
                 $n1 = 0;
                 foreach ($this->logHubStore as $item1) {
-                    $res['LogHubStore'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogHubStore'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class logHubStores extends Model
                 $model->logHubStore = [];
                 $n1 = 0;
                 foreach ($map['LogHubStore'] as $item1) {
-                    $model->logHubStore[$n1++] = logHubStore::fromMap($item1);
+                    $model->logHubStore[$n1] = logHubStore::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class supportedInstanceClassList extends Model
                 $res['SupportedExecutorList'] = [];
                 $n1 = 0;
                 foreach ($this->supportedExecutorList as $item1) {
-                    $res['SupportedExecutorList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedExecutorList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class supportedInstanceClassList extends Model
                 $res['SupportedNodeCountList'] = [];
                 $n1 = 0;
                 foreach ($this->supportedNodeCountList as $item1) {
-                    $res['SupportedNodeCountList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedNodeCountList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class supportedInstanceClassList extends Model
                 $model->supportedExecutorList = [];
                 $n1 = 0;
                 foreach ($map['SupportedExecutorList'] as $item1) {
-                    $model->supportedExecutorList[$n1++] = supportedExecutorList::fromMap($item1);
+                    $model->supportedExecutorList[$n1] = supportedExecutorList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class supportedInstanceClassList extends Model
                 $model->supportedNodeCountList = [];
                 $n1 = 0;
                 foreach ($map['SupportedNodeCountList'] as $item1) {
-                    $model->supportedNodeCountList[$n1++] = supportedNodeCountList::fromMap($item1);
+                    $model->supportedNodeCountList[$n1] = supportedNodeCountList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
