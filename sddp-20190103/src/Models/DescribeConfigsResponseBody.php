@@ -13,13 +13,14 @@ class DescribeConfigsResponseBody extends Model
      * @var configList[]
      */
     public $configList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configList' => 'ConfigList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +37,10 @@ class DescribeConfigsResponseBody extends Model
         if (null !== $this->configList) {
             if (\is_array($this->configList)) {
                 $res['ConfigList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->configList as $item1) {
-                    $res['ConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,9 +63,10 @@ class DescribeConfigsResponseBody extends Model
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ConfigList'] as $item1) {
-                    $model->configList[$n1++] = configList::fromMap($item1);
+                    $model->configList[$n1] = configList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

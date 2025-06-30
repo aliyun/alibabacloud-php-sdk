@@ -12,17 +12,19 @@ class ModifyDefaultLevelRequest extends Model
      * @var int
      */
     public $defaultId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $sensitiveIds;
     protected $_name = [
-        'defaultId'    => 'DefaultId',
-        'lang'         => 'Lang',
+        'defaultId' => 'DefaultId',
+        'lang' => 'Lang',
         'sensitiveIds' => 'SensitiveIds',
     ];
 

@@ -12,22 +12,31 @@ class DescribeDataLimitSetRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $parentId;
+
+    /**
+     * @var string
+     */
+    public $regionType;
+
     /**
      * @var int
      */
     public $resourceType;
     protected $_name = [
-        'featureType'  => 'FeatureType',
-        'lang'         => 'Lang',
-        'parentId'     => 'ParentId',
+        'featureType' => 'FeatureType',
+        'lang' => 'Lang',
+        'parentId' => 'ParentId',
+        'regionType' => 'RegionType',
         'resourceType' => 'ResourceType',
     ];
 
@@ -49,6 +58,10 @@ class DescribeDataLimitSetRequest extends Model
 
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
+        }
+
+        if (null !== $this->regionType) {
+            $res['RegionType'] = $this->regionType;
         }
 
         if (null !== $this->resourceType) {
@@ -76,6 +89,10 @@ class DescribeDataLimitSetRequest extends Model
 
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
+        }
+
+        if (isset($map['RegionType'])) {
+            $model->regionType = $map['RegionType'];
         }
 
         if (isset($map['ResourceType'])) {

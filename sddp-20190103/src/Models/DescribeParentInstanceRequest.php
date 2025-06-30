@@ -12,62 +12,73 @@ class DescribeParentInstanceRequest extends Model
      * @var int
      */
     public $authStatus;
+
     /**
      * @var int
      */
     public $checkStatus;
+
     /**
      * @var string
      */
     public $clusterStatus;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $memberAccount;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $serviceRegionId;
     protected $_name = [
-        'authStatus'      => 'AuthStatus',
-        'checkStatus'     => 'CheckStatus',
-        'clusterStatus'   => 'ClusterStatus',
-        'currentPage'     => 'CurrentPage',
-        'dbName'          => 'DbName',
-        'engineType'      => 'EngineType',
-        'instanceId'      => 'InstanceId',
-        'lang'            => 'Lang',
-        'memberAccount'   => 'MemberAccount',
-        'pageSize'        => 'PageSize',
-        'resourceType'    => 'ResourceType',
+        'authStatus' => 'AuthStatus',
+        'checkStatus' => 'CheckStatus',
+        'clusterStatus' => 'ClusterStatus',
+        'currentPage' => 'CurrentPage',
+        'dbName' => 'DbName',
+        'engineType' => 'EngineType',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'memberAccount' => 'MemberAccount',
+        'pageSize' => 'PageSize',
+        'resourceType' => 'ResourceType',
         'serviceRegionId' => 'ServiceRegionId',
     ];
 

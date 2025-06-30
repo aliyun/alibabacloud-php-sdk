@@ -13,43 +13,50 @@ class chart extends Model
      * @var int
      */
     public $chatType;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $XLabel;
+
     /**
      * @var string
      */
     public $YLabel;
+
     /**
      * @var string
      */
     public $ZLabel;
     protected $_name = [
         'chatType' => 'ChatType',
-        'data'     => 'Data',
-        'label'    => 'Label',
-        'name'     => 'Name',
-        'type'     => 'Type',
-        'XLabel'   => 'XLabel',
-        'YLabel'   => 'YLabel',
-        'ZLabel'   => 'ZLabel',
+        'data' => 'Data',
+        'label' => 'Label',
+        'name' => 'Name',
+        'type' => 'Type',
+        'XLabel' => 'XLabel',
+        'YLabel' => 'YLabel',
+        'ZLabel' => 'ZLabel',
     ];
 
     public function validate()

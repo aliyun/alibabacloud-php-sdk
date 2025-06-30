@@ -12,143 +12,170 @@ class items extends Model
      * @var int
      */
     public $category;
+
     /**
      * @var string
      */
     public $categoryName;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $contentCategory;
+
     /**
      * @var int
      */
     public $customType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $hitTotalCount;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $majorKey;
+
     /**
      * @var int
      */
     public $matchType;
+
     /**
      * @var string
      */
     public $modelRuleIds;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var string
      */
     public $statExpress;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $supportForm;
+
     /**
      * @var string
      */
     public $target;
+
     /**
      * @var string
      */
     public $templateRuleIds;
+
     /**
      * @var int
      */
     public $userId;
+
     /**
      * @var int
      */
     public $warnLevel;
     protected $_name = [
-        'category'        => 'Category',
-        'categoryName'    => 'CategoryName',
-        'content'         => 'Content',
+        'category' => 'Category',
+        'categoryName' => 'CategoryName',
+        'content' => 'Content',
         'contentCategory' => 'ContentCategory',
-        'customType'      => 'CustomType',
-        'description'     => 'Description',
-        'displayName'     => 'DisplayName',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'groupId'         => 'GroupId',
-        'hitTotalCount'   => 'HitTotalCount',
-        'id'              => 'Id',
-        'loginName'       => 'LoginName',
-        'majorKey'        => 'MajorKey',
-        'matchType'       => 'MatchType',
-        'modelRuleIds'    => 'ModelRuleIds',
-        'name'            => 'Name',
-        'productCode'     => 'ProductCode',
-        'productId'       => 'ProductId',
-        'riskLevelId'     => 'RiskLevelId',
-        'riskLevelName'   => 'RiskLevelName',
-        'statExpress'     => 'StatExpress',
-        'status'          => 'Status',
-        'supportForm'     => 'SupportForm',
-        'target'          => 'Target',
+        'customType' => 'CustomType',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'groupId' => 'GroupId',
+        'hitTotalCount' => 'HitTotalCount',
+        'id' => 'Id',
+        'loginName' => 'LoginName',
+        'majorKey' => 'MajorKey',
+        'matchType' => 'MatchType',
+        'modelRuleIds' => 'ModelRuleIds',
+        'name' => 'Name',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'riskLevelId' => 'RiskLevelId',
+        'riskLevelName' => 'RiskLevelName',
+        'statExpress' => 'StatExpress',
+        'status' => 'Status',
+        'supportForm' => 'SupportForm',
+        'target' => 'Target',
         'templateRuleIds' => 'TemplateRuleIds',
-        'userId'          => 'UserId',
-        'warnLevel'       => 'WarnLevel',
+        'userId' => 'UserId',
+        'warnLevel' => 'WarnLevel',
     ];
 
     public function validate()

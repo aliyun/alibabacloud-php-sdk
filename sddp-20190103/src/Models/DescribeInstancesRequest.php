@@ -12,52 +12,61 @@ class DescribeInstancesRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $serviceRegionId;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'featureType'     => 'FeatureType',
-        'lang'            => 'Lang',
-        'name'            => 'Name',
-        'pageSize'        => 'PageSize',
-        'productCode'     => 'ProductCode',
-        'productId'       => 'ProductId',
-        'riskLevelId'     => 'RiskLevelId',
-        'ruleId'          => 'RuleId',
+        'currentPage' => 'CurrentPage',
+        'featureType' => 'FeatureType',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleId' => 'RuleId',
         'serviceRegionId' => 'ServiceRegionId',
     ];
 

@@ -12,88 +12,104 @@ class ModifyDataLimitRequest extends Model
      * @var int
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $autoScan;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $logStoreDay;
+
     /**
      * @var bool
      */
     public $modifyPassword;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $samplingSize;
+
     /**
      * @var string[]
      */
     public $securityGroupIdList;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string[]
      */
     public $vSwitchIdList;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'auditStatus'         => 'AuditStatus',
-        'autoScan'            => 'AutoScan',
-        'engineType'          => 'EngineType',
-        'featureType'         => 'FeatureType',
-        'id'                  => 'Id',
-        'lang'                => 'Lang',
-        'logStoreDay'         => 'LogStoreDay',
-        'modifyPassword'      => 'ModifyPassword',
-        'password'            => 'Password',
-        'port'                => 'Port',
-        'resourceType'        => 'ResourceType',
-        'samplingSize'        => 'SamplingSize',
+        'auditStatus' => 'AuditStatus',
+        'autoScan' => 'AutoScan',
+        'engineType' => 'EngineType',
+        'featureType' => 'FeatureType',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'logStoreDay' => 'LogStoreDay',
+        'modifyPassword' => 'ModifyPassword',
+        'password' => 'Password',
+        'port' => 'Port',
+        'resourceType' => 'ResourceType',
+        'samplingSize' => 'SamplingSize',
         'securityGroupIdList' => 'SecurityGroupIdList',
-        'serviceRegionId'     => 'ServiceRegionId',
-        'userName'            => 'UserName',
-        'vSwitchIdList'       => 'VSwitchIdList',
-        'vpcId'               => 'VpcId',
+        'serviceRegionId' => 'ServiceRegionId',
+        'userName' => 'UserName',
+        'vSwitchIdList' => 'VSwitchIdList',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -161,9 +177,10 @@ class ModifyDataLimitRequest extends Model
         if (null !== $this->securityGroupIdList) {
             if (\is_array($this->securityGroupIdList)) {
                 $res['SecurityGroupIdList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupIdList as $item1) {
-                    $res['SecurityGroupIdList'][$n1++] = $item1;
+                    $res['SecurityGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,9 +196,10 @@ class ModifyDataLimitRequest extends Model
         if (null !== $this->vSwitchIdList) {
             if (\is_array($this->vSwitchIdList)) {
                 $res['VSwitchIdList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIdList as $item1) {
-                    $res['VSwitchIdList'][$n1++] = $item1;
+                    $res['VSwitchIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,9 +270,10 @@ class ModifyDataLimitRequest extends Model
         if (isset($map['SecurityGroupIdList'])) {
             if (!empty($map['SecurityGroupIdList'])) {
                 $model->securityGroupIdList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupIdList'] as $item1) {
-                    $model->securityGroupIdList[$n1++] = $item1;
+                    $model->securityGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,9 +289,10 @@ class ModifyDataLimitRequest extends Model
         if (isset($map['VSwitchIdList'])) {
             if (!empty($map['VSwitchIdList'])) {
                 $model->vSwitchIdList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIdList'] as $item1) {
-                    $model->vSwitchIdList[$n1++] = $item1;
+                    $model->vSwitchIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

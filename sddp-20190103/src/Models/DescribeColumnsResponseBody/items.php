@@ -13,123 +13,146 @@ class items extends Model
      * @var int
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $maskingStatus;
+
     /**
      * @var modelTags[]
      */
     public $modelTags;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $odpsRiskLevelName;
+
     /**
      * @var int
      */
     public $odpsRiskLevelValue;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $revisionId;
+
     /**
      * @var int
      */
     public $revisionStatus;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $sensLevelName;
+
     /**
      * @var bool
      */
     public $sensitive;
+
     /**
      * @var int
      */
     public $tableId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'creationTime'       => 'CreationTime',
-        'dataType'           => 'DataType',
-        'engineType'         => 'EngineType',
-        'id'                 => 'Id',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'maskingStatus'      => 'MaskingStatus',
-        'modelTags'          => 'ModelTags',
-        'name'               => 'Name',
-        'odpsRiskLevelName'  => 'OdpsRiskLevelName',
+        'creationTime' => 'CreationTime',
+        'dataType' => 'DataType',
+        'engineType' => 'EngineType',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'maskingStatus' => 'MaskingStatus',
+        'modelTags' => 'ModelTags',
+        'name' => 'Name',
+        'odpsRiskLevelName' => 'OdpsRiskLevelName',
         'odpsRiskLevelValue' => 'OdpsRiskLevelValue',
-        'productCode'        => 'ProductCode',
-        'productId'          => 'ProductId',
-        'regionId'           => 'RegionId',
-        'revisionId'         => 'RevisionId',
-        'revisionStatus'     => 'RevisionStatus',
-        'riskLevelId'        => 'RiskLevelId',
-        'riskLevelName'      => 'RiskLevelName',
-        'ruleId'             => 'RuleId',
-        'ruleName'           => 'RuleName',
-        'sensLevelName'      => 'SensLevelName',
-        'sensitive'          => 'Sensitive',
-        'tableId'            => 'TableId',
-        'tableName'          => 'TableName',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'regionId' => 'RegionId',
+        'revisionId' => 'RevisionId',
+        'revisionStatus' => 'RevisionStatus',
+        'riskLevelId' => 'RiskLevelId',
+        'riskLevelName' => 'RiskLevelName',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'sensLevelName' => 'SensLevelName',
+        'sensitive' => 'Sensitive',
+        'tableId' => 'TableId',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
@@ -174,9 +197,10 @@ class items extends Model
         if (null !== $this->modelTags) {
             if (\is_array($this->modelTags)) {
                 $res['ModelTags'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->modelTags as $item1) {
-                    $res['ModelTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModelTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -287,9 +311,10 @@ class items extends Model
         if (isset($map['ModelTags'])) {
             if (!empty($map['ModelTags'])) {
                 $model->modelTags = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ModelTags'] as $item1) {
-                    $model->modelTags[$n1++] = modelTags::fromMap($item1);
+                    $model->modelTags[$n1] = modelTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,43 +12,50 @@ class handleInfoList extends Model
      * @var string
      */
     public $currentValue;
+
     /**
      * @var int
      */
     public $disableTime;
+
     /**
      * @var int
      */
     public $enableTime;
+
     /**
      * @var string
      */
     public $handlerName;
+
     /**
      * @var string
      */
     public $handlerType;
+
     /**
      * @var int
      */
     public $handlerValue;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'currentValue' => 'CurrentValue',
-        'disableTime'  => 'DisableTime',
-        'enableTime'   => 'EnableTime',
-        'handlerName'  => 'HandlerName',
-        'handlerType'  => 'HandlerType',
+        'disableTime' => 'DisableTime',
+        'enableTime' => 'EnableTime',
+        'handlerName' => 'HandlerName',
+        'handlerType' => 'HandlerType',
         'handlerValue' => 'HandlerValue',
-        'id'           => 'Id',
-        'status'       => 'Status',
+        'id' => 'Id',
+        'status' => 'Status',
     ];
 
     public function validate()

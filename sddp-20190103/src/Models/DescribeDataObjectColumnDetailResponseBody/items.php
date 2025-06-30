@@ -13,88 +13,104 @@ class items extends Model
      * @var string[]
      */
     public $categories;
+
     /**
      * @var string
      */
     public $columnComment;
+
     /**
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $maskingStatus;
+
     /**
      * @var modelTags[]
      */
     public $modelTags;
+
     /**
      * @var bool
      */
     public $primaryKey;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'categories'    => 'Categories',
+        'categories' => 'Categories',
         'columnComment' => 'ColumnComment',
-        'columnName'    => 'ColumnName',
-        'dataType'      => 'DataType',
-        'engineType'    => 'EngineType',
-        'id'            => 'Id',
-        'instanceName'  => 'InstanceName',
+        'columnName' => 'ColumnName',
+        'dataType' => 'DataType',
+        'engineType' => 'EngineType',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
         'maskingStatus' => 'MaskingStatus',
-        'modelTags'     => 'ModelTags',
-        'primaryKey'    => 'PrimaryKey',
-        'productId'     => 'ProductId',
-        'regionId'      => 'RegionId',
-        'riskLevelId'   => 'RiskLevelId',
+        'modelTags' => 'ModelTags',
+        'primaryKey' => 'PrimaryKey',
+        'productId' => 'ProductId',
+        'regionId' => 'RegionId',
+        'riskLevelId' => 'RiskLevelId',
         'riskLevelName' => 'RiskLevelName',
-        'ruleId'        => 'RuleId',
-        'ruleName'      => 'RuleName',
-        'tableName'     => 'TableName',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
@@ -114,9 +130,10 @@ class items extends Model
         if (null !== $this->categories) {
             if (\is_array($this->categories)) {
                 $res['Categories'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['Categories'][$n1++] = $item1;
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,9 +169,10 @@ class items extends Model
         if (null !== $this->modelTags) {
             if (\is_array($this->modelTags)) {
                 $res['ModelTags'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->modelTags as $item1) {
-                    $res['ModelTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModelTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,9 +223,10 @@ class items extends Model
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
-                    $model->categories[$n1++] = $item1;
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,9 +262,10 @@ class items extends Model
         if (isset($map['ModelTags'])) {
             if (!empty($map['ModelTags'])) {
                 $model->modelTags = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ModelTags'] as $item1) {
-                    $model->modelTags[$n1++] = modelTags::fromMap($item1);
+                    $model->modelTags[$n1] = modelTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

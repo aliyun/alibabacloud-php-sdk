@@ -12,73 +12,86 @@ class DescribeColumnsV2Request extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $sensLevelName;
+
     /**
      * @var string
      */
     public $tableId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
-        'engineType'    => 'EngineType',
-        'instanceId'    => 'InstanceId',
-        'instanceName'  => 'InstanceName',
-        'lang'          => 'Lang',
-        'name'          => 'Name',
-        'pageSize'      => 'PageSize',
-        'productCode'   => 'ProductCode',
-        'riskLevelId'   => 'RiskLevelId',
-        'ruleId'        => 'RuleId',
-        'ruleName'      => 'RuleName',
+        'currentPage' => 'CurrentPage',
+        'engineType' => 'EngineType',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
         'sensLevelName' => 'SensLevelName',
-        'tableId'       => 'TableId',
-        'tableName'     => 'TableName',
+        'tableId' => 'TableId',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

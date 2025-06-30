@@ -13,13 +13,14 @@ class DescribeOssObjectDetailV2ResponseBody extends Model
      * @var ossObjectDetail
      */
     public $ossObjectDetail;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ossObjectDetail' => 'OssObjectDetail',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

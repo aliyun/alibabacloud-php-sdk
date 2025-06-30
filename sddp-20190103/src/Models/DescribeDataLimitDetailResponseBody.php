@@ -13,6 +13,7 @@ class DescribeDataLimitDetailResponseBody extends Model
      * @var dataLimit
      */
     public $dataLimit;
+
     /**
      * @var string
      */

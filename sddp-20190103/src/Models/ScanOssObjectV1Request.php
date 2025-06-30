@@ -12,28 +12,32 @@ class ScanOssObjectV1Request extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string[]
      */
     public $objectKeyList;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'bucketName'      => 'BucketName',
-        'lang'            => 'Lang',
-        'objectKeyList'   => 'ObjectKeyList',
+        'bucketName' => 'BucketName',
+        'lang' => 'Lang',
+        'objectKeyList' => 'ObjectKeyList',
         'serviceRegionId' => 'ServiceRegionId',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -58,9 +62,10 @@ class ScanOssObjectV1Request extends Model
         if (null !== $this->objectKeyList) {
             if (\is_array($this->objectKeyList)) {
                 $res['ObjectKeyList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->objectKeyList as $item1) {
-                    $res['ObjectKeyList'][$n1++] = $item1;
+                    $res['ObjectKeyList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,9 +100,10 @@ class ScanOssObjectV1Request extends Model
         if (isset($map['ObjectKeyList'])) {
             if (!empty($map['ObjectKeyList'])) {
                 $model->objectKeyList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ObjectKeyList'] as $item1) {
-                    $model->objectKeyList[$n1++] = $item1;
+                    $model->objectKeyList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

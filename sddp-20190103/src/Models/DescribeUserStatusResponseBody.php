@@ -13,12 +13,13 @@ class DescribeUserStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var userStatus
      */
     public $userStatus;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'userStatus' => 'UserStatus',
     ];
 

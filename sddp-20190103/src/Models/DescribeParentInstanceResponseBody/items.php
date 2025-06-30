@@ -12,102 +12,121 @@ class items extends Model
      * @var int
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $authStatus;
+
     /**
      * @var int
      */
     public $authTime;
+
     /**
      * @var string
      */
     public $clusterStatus;
+
     /**
      * @var string
      */
     public $connectNode;
+
     /**
      * @var string
      */
     public $dbNum;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var string
      */
     public $instanceDescription;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceSize;
+
     /**
      * @var string
      */
     public $localName;
+
     /**
      * @var int
      */
     public $memberAccount;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $supportConnectNodes;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $tenantName;
+
     /**
      * @var string
      */
     public $unConnectDbCount;
+
     /**
      * @var string
      */
     public $unSupportOneClickAuthReason;
     protected $_name = [
-        'auditStatus'                 => 'AuditStatus',
-        'authStatus'                  => 'AuthStatus',
-        'authTime'                    => 'AuthTime',
-        'clusterStatus'               => 'ClusterStatus',
-        'connectNode'                 => 'ConnectNode',
-        'dbNum'                       => 'DbNum',
-        'engineType'                  => 'EngineType',
-        'instanceDescription'         => 'InstanceDescription',
-        'instanceId'                  => 'InstanceId',
-        'instanceSize'                => 'InstanceSize',
-        'localName'                   => 'LocalName',
-        'memberAccount'               => 'MemberAccount',
-        'parentId'                    => 'ParentId',
-        'regionId'                    => 'RegionId',
-        'resourceType'                => 'ResourceType',
-        'supportConnectNodes'         => 'SupportConnectNodes',
-        'tenantId'                    => 'TenantId',
-        'tenantName'                  => 'TenantName',
-        'unConnectDbCount'            => 'UnConnectDbCount',
+        'auditStatus' => 'AuditStatus',
+        'authStatus' => 'AuthStatus',
+        'authTime' => 'AuthTime',
+        'clusterStatus' => 'ClusterStatus',
+        'connectNode' => 'ConnectNode',
+        'dbNum' => 'DbNum',
+        'engineType' => 'EngineType',
+        'instanceDescription' => 'InstanceDescription',
+        'instanceId' => 'InstanceId',
+        'instanceSize' => 'InstanceSize',
+        'localName' => 'LocalName',
+        'memberAccount' => 'MemberAccount',
+        'parentId' => 'ParentId',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'supportConnectNodes' => 'SupportConnectNodes',
+        'tenantId' => 'TenantId',
+        'tenantName' => 'TenantName',
+        'unConnectDbCount' => 'UnConnectDbCount',
         'unSupportOneClickAuthReason' => 'UnSupportOneClickAuthReason',
     ];
 

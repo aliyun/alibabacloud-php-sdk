@@ -14,123 +14,146 @@ class event extends Model
      * @var int
      */
     public $alertTime;
+
     /**
      * @var bool
      */
     public $backed;
+
     /**
      * @var string
      */
     public $dataInstance;
+
     /**
      * @var string
      */
     public $dealDisplayName;
+
     /**
      * @var string
      */
     public $dealLoginName;
+
     /**
      * @var string
      */
     public $dealReason;
+
     /**
      * @var int
      */
     public $dealTime;
+
     /**
      * @var int
      */
     public $dealUserId;
+
     /**
      * @var detail
      */
     public $detail;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var int
      */
     public $eventTime;
+
     /**
      * @var handleInfoList[]
      */
     public $handleInfoList;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $logDetail;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var bool
      */
     public $newAlarm;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusName;
+
     /**
      * @var string
      */
     public $subTypeCode;
+
     /**
      * @var string
      */
     public $subTypeName;
+
     /**
      * @var string
      */
     public $typeCode;
+
     /**
      * @var string
      */
     public $typeName;
+
     /**
      * @var int
      */
     public $userId;
     protected $_name = [
-        'alertTime'       => 'AlertTime',
-        'backed'          => 'Backed',
-        'dataInstance'    => 'DataInstance',
+        'alertTime' => 'AlertTime',
+        'backed' => 'Backed',
+        'dataInstance' => 'DataInstance',
         'dealDisplayName' => 'DealDisplayName',
-        'dealLoginName'   => 'DealLoginName',
-        'dealReason'      => 'DealReason',
-        'dealTime'        => 'DealTime',
-        'dealUserId'      => 'DealUserId',
-        'detail'          => 'Detail',
-        'displayName'     => 'DisplayName',
-        'eventTime'       => 'EventTime',
-        'handleInfoList'  => 'HandleInfoList',
-        'id'              => 'Id',
-        'logDetail'       => 'LogDetail',
-        'loginName'       => 'LoginName',
-        'newAlarm'        => 'NewAlarm',
-        'productCode'     => 'ProductCode',
-        'status'          => 'Status',
-        'statusName'      => 'StatusName',
-        'subTypeCode'     => 'SubTypeCode',
-        'subTypeName'     => 'SubTypeName',
-        'typeCode'        => 'TypeCode',
-        'typeName'        => 'TypeName',
-        'userId'          => 'UserId',
+        'dealLoginName' => 'DealLoginName',
+        'dealReason' => 'DealReason',
+        'dealTime' => 'DealTime',
+        'dealUserId' => 'DealUserId',
+        'detail' => 'Detail',
+        'displayName' => 'DisplayName',
+        'eventTime' => 'EventTime',
+        'handleInfoList' => 'HandleInfoList',
+        'id' => 'Id',
+        'logDetail' => 'LogDetail',
+        'loginName' => 'LoginName',
+        'newAlarm' => 'NewAlarm',
+        'productCode' => 'ProductCode',
+        'status' => 'Status',
+        'statusName' => 'StatusName',
+        'subTypeCode' => 'SubTypeCode',
+        'subTypeName' => 'SubTypeName',
+        'typeCode' => 'TypeCode',
+        'typeName' => 'TypeName',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -194,9 +217,10 @@ class event extends Model
         if (null !== $this->handleInfoList) {
             if (\is_array($this->handleInfoList)) {
                 $res['HandleInfoList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->handleInfoList as $item1) {
-                    $res['HandleInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HandleInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -307,9 +331,10 @@ class event extends Model
         if (isset($map['HandleInfoList'])) {
             if (!empty($map['HandleInfoList'])) {
                 $model->handleInfoList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['HandleInfoList'] as $item1) {
-                    $model->handleInfoList[$n1++] = handleInfoList::fromMap($item1);
+                    $model->handleInfoList[$n1] = handleInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

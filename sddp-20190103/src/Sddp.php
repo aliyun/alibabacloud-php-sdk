@@ -117,7 +117,7 @@ class Sddp extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'cn-hongkong' => 'sddp-api.cn-hongkong.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -158,6 +158,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - CreateConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConfigResponse
      *
      * @param CreateConfigRequest $request
@@ -197,21 +198,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConfig',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConfig',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -223,6 +221,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateConfigRequest
+     *
      * @returns CreateConfigResponse
      *
      * @param CreateConfigRequest $request
@@ -246,6 +245,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - CreateDataLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDataLimitResponse
      *
      * @param CreateDataLimitRequest $request
@@ -337,21 +337,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataLimit',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataLimit',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataLimitResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -363,6 +360,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateDataLimitRequest
+     *
      * @returns CreateDataLimitResponse
      *
      * @param CreateDataLimitRequest $request
@@ -381,6 +379,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - CreateRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRuleResponse
      *
      * @param CreateRuleRequest $request
@@ -472,27 +471,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRule',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRule',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a custom sensitive data detection rule.
      *
      * @param request - CreateRuleRequest
+     *
      * @returns CreateRuleResponse
      *
      * @param CreateRuleRequest $request
@@ -516,6 +513,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - CreateScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateScanTaskResponse
      *
      * @param CreateScanTaskRequest $request
@@ -583,21 +581,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateScanTask',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateScanTask',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScanTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -609,6 +604,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateScanTaskRequest
+     *
      * @returns CreateScanTaskResponse
      *
      * @param CreateScanTaskRequest $request
@@ -632,6 +628,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - CreateSlrRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSlrRoleResponse
      *
      * @param CreateSlrRoleRequest $request
@@ -659,21 +656,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSlrRole',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSlrRole',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSlrRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSlrRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSlrRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -685,6 +679,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateSlrRoleRequest
+     *
      * @returns CreateSlrRoleResponse
      *
      * @param CreateSlrRoleRequest $request
@@ -708,6 +703,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DeleteDataLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDataLimitResponse
      *
      * @param DeleteDataLimitRequest $request
@@ -739,21 +735,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataLimit',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataLimit',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataLimitResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -765,6 +758,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DeleteDataLimitRequest
+     *
      * @returns DeleteDataLimitResponse
      *
      * @param DeleteDataLimitRequest $request
@@ -783,6 +777,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DeleteRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRuleResponse
      *
      * @param DeleteRuleRequest $request
@@ -814,27 +809,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRule',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRule',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a custom sensitive data detection rule from Data Security Center (DSC).
      *
      * @param request - DeleteRuleRequest
+     *
      * @returns DeleteRuleResponse
      *
      * @param DeleteRuleRequest $request
@@ -849,8 +842,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * Call this interface to query the list of industry templates.
+     *
      * @param request - DescribeCategoryTemplateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCategoryTemplateListResponse
      *
      * @param DescribeCategoryTemplateListRequest $request
@@ -886,25 +882,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCategoryTemplateList',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCategoryTemplateList',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCategoryTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCategoryTemplateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCategoryTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Call this interface to query the list of industry templates.
+     *
      * @param request - DescribeCategoryTemplateListRequest
+     *
      * @returns DescribeCategoryTemplateListResponse
      *
      * @param DescribeCategoryTemplateListRequest $request
@@ -928,6 +924,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeCategoryTemplateRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCategoryTemplateRuleListResponse
      *
      * @param DescribeCategoryTemplateRuleListRequest $request
@@ -967,21 +964,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCategoryTemplateRuleList',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCategoryTemplateRuleList',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCategoryTemplateRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCategoryTemplateRuleListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCategoryTemplateRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -993,6 +987,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeCategoryTemplateRuleListRequest
+     *
      * @returns DescribeCategoryTemplateRuleListResponse
      *
      * @param DescribeCategoryTemplateRuleListRequest $request
@@ -1018,6 +1013,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeColumnsResponse
      *
      * @param DescribeColumnsRequest $request
@@ -1105,21 +1101,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeColumns',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeColumns',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeColumnsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1133,6 +1126,7 @@ class Sddp extends OpenApiClient
      * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeColumnsRequest
+     *
      * @returns DescribeColumnsResponse
      *
      * @param DescribeColumnsRequest $request
@@ -1147,10 +1141,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     * Query data in columns of data assets such as MaxCompute, RDS, etc., that are authorized by the Data Security Center.
      *
      * @param request - DescribeColumnsV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeColumnsV2Response
      *
      * @param DescribeColumnsV2Request $request
@@ -1222,27 +1217,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeColumnsV2',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeColumnsV2',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeColumnsV2Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeColumnsV2Response::fromMap($this->execute($params, $req, $runtime));
+        return DescribeColumnsV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     * Query data in columns of data assets such as MaxCompute, RDS, etc., that are authorized by the Data Security Center.
      *
      * @param request - DescribeColumnsV2Request
+     *
      * @returns DescribeColumnsV2Response
      *
      * @param DescribeColumnsV2Request $request
@@ -1261,6 +1254,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeConfigsResponse
      *
      * @param DescribeConfigsRequest $request
@@ -1280,27 +1274,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeConfigs',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeConfigs',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries common configuration items for alerts.
      *
      * @param request - DescribeConfigsRequest
+     *
      * @returns DescribeConfigsResponse
      *
      * @param DescribeConfigsRequest $request
@@ -1319,6 +1311,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeDataAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataAssetsResponse
      *
      * @param DescribeDataAssetsRequest $request
@@ -1362,27 +1355,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataAssets',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataAssets',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataAssetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
      *
      * @param request - DescribeDataAssetsRequest
+     *
      * @returns DescribeDataAssetsResponse
      *
      * @param DescribeDataAssetsRequest $request
@@ -1401,6 +1392,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeDataLimitDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataLimitDetailResponse
      *
      * @param DescribeDataLimitDetailRequest $request
@@ -1432,27 +1424,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataLimitDetail',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataLimitDetail',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataLimitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataLimitDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataLimitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
      *
      * @param request - DescribeDataLimitDetailRequest
+     *
      * @returns DescribeDataLimitDetailResponse
      *
      * @param DescribeDataLimitDetailRequest $request
@@ -1476,6 +1466,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeDataLimitSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataLimitSetResponse
      *
      * @param DescribeDataLimitSetRequest $request
@@ -1499,6 +1490,10 @@ class Sddp extends OpenApiClient
             @$query['ParentId'] = $request->parentId;
         }
 
+        if (null !== $request->regionType) {
+            @$query['RegionType'] = $request->regionType;
+        }
+
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
         }
@@ -1507,21 +1502,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataLimitSet',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataLimitSet',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataLimitSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataLimitSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataLimitSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1533,6 +1525,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeDataLimitSetRequest
+     *
      * @returns DescribeDataLimitSetResponse
      *
      * @param DescribeDataLimitSetRequest $request
@@ -1551,6 +1544,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeDataLimitsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataLimitsResponse
      *
      * @param DescribeDataLimitsRequest $request
@@ -1626,27 +1620,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataLimits',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataLimits',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataLimitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
      *
      * @param request - DescribeDataLimitsRequest
+     *
      * @returns DescribeDataLimitsResponse
      *
      * @param DescribeDataLimitsRequest $request
@@ -1670,6 +1662,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeDataMaskingRunHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataMaskingRunHistoryResponse
      *
      * @param DescribeDataMaskingRunHistoryRequest $request
@@ -1729,21 +1722,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataMaskingRunHistory',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataMaskingRunHistory',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataMaskingRunHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataMaskingRunHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataMaskingRunHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1755,6 +1745,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeDataMaskingRunHistoryRequest
+     *
      * @returns DescribeDataMaskingRunHistoryResponse
      *
      * @param DescribeDataMaskingRunHistoryRequest $request
@@ -1778,6 +1769,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeDataMaskingTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataMaskingTasksResponse
      *
      * @param DescribeDataMaskingTasksRequest $request
@@ -1821,21 +1813,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataMaskingTasks',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataMaskingTasks',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataMaskingTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataMaskingTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataMaskingTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1847,6 +1836,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeDataMaskingTasksRequest
+     *
      * @returns DescribeDataMaskingTasksResponse
      *
      * @param DescribeDataMaskingTasksRequest $request
@@ -1861,10 +1851,15 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查看数据对象列详情.
+     * View data object column details.
+     *
+     * @remarks
+     * ## Notes
+     * The DescribeDataObjectColumnDetail interface has been revised to DescribeDataObjectColumnDetailV2. It is recommended that you use the newer version, DescribeDataObjectColumnDetailV2, when developing your application.
      *
      * @param request - DescribeDataObjectColumnDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataObjectColumnDetailResponse
      *
      * @param DescribeDataObjectColumnDetailRequest $request
@@ -1908,27 +1903,29 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataObjectColumnDetail',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataObjectColumnDetail',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataObjectColumnDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataObjectColumnDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataObjectColumnDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看数据对象列详情.
+     * View data object column details.
+     *
+     * @remarks
+     * ## Notes
+     * The DescribeDataObjectColumnDetail interface has been revised to DescribeDataObjectColumnDetailV2. It is recommended that you use the newer version, DescribeDataObjectColumnDetailV2, when developing your application.
      *
      * @param request - DescribeDataObjectColumnDetailRequest
+     *
      * @returns DescribeDataObjectColumnDetailResponse
      *
      * @param DescribeDataObjectColumnDetailRequest $request
@@ -1943,10 +1940,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查看数据对象列详情V2.
+     * View Data Object Column Details V2.
      *
      * @param request - DescribeDataObjectColumnDetailV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataObjectColumnDetailV2Response
      *
      * @param DescribeDataObjectColumnDetailV2Request $request
@@ -1990,27 +1988,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataObjectColumnDetailV2',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataObjectColumnDetailV2',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataObjectColumnDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataObjectColumnDetailV2Response::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataObjectColumnDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看数据对象列详情V2.
+     * View Data Object Column Details V2.
      *
      * @param request - DescribeDataObjectColumnDetailV2Request
+     *
      * @returns DescribeDataObjectColumnDetailV2Response
      *
      * @param DescribeDataObjectColumnDetailV2Request $request
@@ -2025,10 +2021,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 分页查询数据目录对象
+     * Paginated Query of Data Catalog Objects.
      *
      * @param request - DescribeDataObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataObjectsResponse
      *
      * @param DescribeDataObjectsRequest $request
@@ -2112,27 +2109,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataObjects',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataObjects',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataObjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 分页查询数据目录对象
+     * Paginated Query of Data Catalog Objects.
      *
      * @param request - DescribeDataObjectsRequest
+     *
      * @returns DescribeDataObjectsResponse
      *
      * @param DescribeDataObjectsRequest $request
@@ -2147,8 +2142,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * Queries a list of OSS object types that can be identified.
+     *
      * @param request - DescribeDocTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDocTypesResponse
      *
      * @param DescribeDocTypesRequest $request
@@ -2168,25 +2166,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDocTypes',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDocTypes',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDocTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDocTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDocTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a list of OSS object types that can be identified.
+     *
      * @param request - DescribeDocTypesRequest
+     *
      * @returns DescribeDocTypesResponse
      *
      * @param DescribeDocTypesRequest $request
@@ -2205,6 +2203,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEventDetailResponse
      *
      * @param DescribeEventDetailRequest $request
@@ -2228,27 +2227,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventDetail',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventDetail',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEventDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
      *
      * @param request - DescribeEventDetailRequest
+     *
      * @returns DescribeEventDetailResponse
      *
      * @param DescribeEventDetailRequest $request
@@ -2267,6 +2264,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeEventTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEventTypesResponse
      *
      * @param DescribeEventTypesRequest $request
@@ -2302,27 +2300,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventTypes',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventTypes',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEventTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the types of anomalous events.
      *
      * @param request - DescribeEventTypesRequest
+     *
      * @returns DescribeEventTypesResponse
      *
      * @param DescribeEventTypesRequest $request
@@ -2346,6 +2342,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEventsResponse
      *
      * @param DescribeEventsRequest $request
@@ -2425,21 +2422,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEvents',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEvents',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2451,6 +2445,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeEventsRequest
+     *
      * @returns DescribeEventsResponse
      *
      * @param DescribeEventsRequest $request
@@ -2465,10 +2460,15 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询识别任务状态
+     * Query the status of an identification task.
+     *
+     * @remarks
+     * ## QPS Limit
+     * The QPS limit for this interface per user is 10 times/second. Exceeding the limit will result in API calls being rate-limited, which may affect your business. Please call it reasonably.
      *
      * @param request - DescribeIdentifyTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIdentifyTaskStatusResponse
      *
      * @param DescribeIdentifyTaskStatusRequest $request
@@ -2480,31 +2480,33 @@ class Sddp extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIdentifyTaskStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIdentifyTaskStatus',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIdentifyTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIdentifyTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIdentifyTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询识别任务状态
+     * Query the status of an identification task.
+     *
+     * @remarks
+     * ## QPS Limit
+     * The QPS limit for this interface per user is 10 times/second. Exceeding the limit will result in API calls being rate-limited, which may affect your business. Please call it reasonably.
      *
      * @param request - DescribeIdentifyTaskStatusRequest
+     *
      * @returns DescribeIdentifyTaskStatusResponse
      *
      * @param DescribeIdentifyTaskStatusRequest $request
@@ -2529,6 +2531,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeInstanceSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceSourcesResponse
      *
      * @param DescribeInstanceSourcesRequest $request
@@ -2596,21 +2599,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceSources',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceSources',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2623,6 +2623,7 @@ class Sddp extends OpenApiClient
      * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeInstanceSourcesRequest
+     *
      * @returns DescribeInstanceSourcesResponse
      *
      * @param DescribeInstanceSourcesRequest $request
@@ -2646,6 +2647,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstancesResponse
      *
      * @param DescribeInstancesRequest $request
@@ -2701,21 +2703,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstances',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2727,6 +2726,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeInstancesRequest
+     *
      * @returns DescribeInstancesResponse
      *
      * @param DescribeInstancesRequest $request
@@ -2752,6 +2752,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeOssObjectDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOssObjectDetailResponse
      *
      * @param DescribeOssObjectDetailRequest $request
@@ -2775,21 +2776,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOssObjectDetail',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOssObjectDetail',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOssObjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOssObjectDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOssObjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2803,6 +2801,7 @@ class Sddp extends OpenApiClient
      * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeOssObjectDetailRequest
+     *
      * @returns DescribeOssObjectDetailResponse
      *
      * @param DescribeOssObjectDetailRequest $request
@@ -2817,10 +2816,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息.
+     * Call this interface to query the details of a single storage object in OSS that is authorized by the Data Security Center.
+     *
+     * @remarks
+     * This interface is generally used to query the detailed information of OSS storage objects, which facilitates the accurate positioning of sensitive OSS assets.
      *
      * @param request - DescribeOssObjectDetailV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOssObjectDetailV2Response
      *
      * @param DescribeOssObjectDetailV2Request $request
@@ -2860,27 +2863,28 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOssObjectDetailV2',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOssObjectDetailV2',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOssObjectDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOssObjectDetailV2Response::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOssObjectDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息.
+     * Call this interface to query the details of a single storage object in OSS that is authorized by the Data Security Center.
+     *
+     * @remarks
+     * This interface is generally used to query the detailed information of OSS storage objects, which facilitates the accurate positioning of sensitive OSS assets.
      *
      * @param request - DescribeOssObjectDetailV2Request
+     *
      * @returns DescribeOssObjectDetailV2Response
      *
      * @param DescribeOssObjectDetailV2Request $request
@@ -2899,6 +2903,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeOssObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOssObjectsResponse
      *
      * @param DescribeOssObjectsRequest $request
@@ -2966,27 +2971,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOssObjects',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOssObjects',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOssObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOssObjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOssObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
      *
      * @param request - DescribeOssObjectsRequest
+     *
      * @returns DescribeOssObjectsResponse
      *
      * @param DescribeOssObjectsRequest $request
@@ -3010,6 +3013,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribePackagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePackagesResponse
      *
      * @param DescribePackagesRequest $request
@@ -3057,21 +3061,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePackages',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePackages',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePackagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3083,6 +3084,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribePackagesRequest
+     *
      * @returns DescribePackagesResponse
      *
      * @param DescribePackagesRequest $request
@@ -3097,10 +3099,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取一级授权列表.
+     * Gets the list of first-level authorizations.
      *
      * @param request - DescribeParentInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeParentInstanceResponse
      *
      * @param DescribeParentInstanceRequest $request
@@ -3164,27 +3167,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParentInstance',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParentInstance',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParentInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取一级授权列表.
+     * Gets the list of first-level authorizations.
      *
      * @param request - DescribeParentInstanceRequest
+     *
      * @returns DescribeParentInstanceResponse
      *
      * @param DescribeParentInstanceRequest $request
@@ -3208,6 +3209,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeRiskLevelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRiskLevelsResponse
      *
      * @param DescribeRiskLevelsRequest $request
@@ -3235,21 +3237,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRiskLevels',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRiskLevels',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRiskLevelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRiskLevelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRiskLevelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3261,6 +3260,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeRiskLevelsRequest
+     *
      * @returns DescribeRiskLevelsResponse
      *
      * @param DescribeRiskLevelsRequest $request
@@ -3279,6 +3279,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRulesResponse
      *
      * @param DescribeRulesRequest $request
@@ -3374,27 +3375,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRules',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRules',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries sensitive data detection rules.
      *
      * @param request - DescribeRulesRequest
+     *
      * @returns DescribeRulesResponse
      *
      * @param DescribeRulesRequest $request
@@ -3418,6 +3417,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTablesResponse
      *
      * @param DescribeTablesRequest $request
@@ -3481,21 +3481,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTables',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTables',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3507,6 +3504,7 @@ class Sddp extends OpenApiClient
      * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
      *
      * @param request - DescribeTablesRequest
+     *
      * @returns DescribeTablesResponse
      *
      * @param DescribeTablesRequest $request
@@ -3521,8 +3519,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * Call this interface to query all models list of industry templates.
+     *
      * @param request - DescribeTemplateAllRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTemplateAllRulesResponse
      *
      * @param DescribeTemplateAllRulesRequest $request
@@ -3550,25 +3551,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTemplateAllRules',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTemplateAllRules',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTemplateAllRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTemplateAllRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTemplateAllRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Call this interface to query all models list of industry templates.
+     *
      * @param request - DescribeTemplateAllRulesRequest
+     *
      * @returns DescribeTemplateAllRulesResponse
      *
      * @param DescribeTemplateAllRulesRequest $request
@@ -3592,6 +3593,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DescribeUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserStatusResponse
      *
      * @param DescribeUserStatusRequest $request
@@ -3615,21 +3617,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserStatus',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3641,6 +3640,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeUserStatusRequest
+     *
      * @returns DescribeUserStatusResponse
      *
      * @param DescribeUserStatusRequest $request
@@ -3664,6 +3664,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - DisableUserConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableUserConfigResponse
      *
      * @param DisableUserConfigRequest $request
@@ -3691,21 +3692,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableUserConfig',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableUserConfig',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableUserConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3717,6 +3715,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DisableUserConfigRequest
+     *
      * @returns DisableUserConfigResponse
      *
      * @param DisableUserConfigRequest $request
@@ -3735,6 +3734,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ExecDatamaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecDatamaskResponse
      *
      * @param ExecDatamaskRequest $request
@@ -3766,27 +3766,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecDatamask',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecDatamask',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecDatamaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecDatamaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecDatamaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Dynamically de-identifies sensitive data.
      *
      * @param request - ExecDatamaskRequest
+     *
      * @returns ExecDatamaskResponse
      *
      * @param ExecDatamaskRequest $request
@@ -3805,6 +3803,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ManualTriggerMaskingProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ManualTriggerMaskingProcessResponse
      *
      * @param ManualTriggerMaskingProcessRequest $request
@@ -3828,27 +3827,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ManualTriggerMaskingProcess',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ManualTriggerMaskingProcess',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ManualTriggerMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ManualTriggerMaskingProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return ManualTriggerMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Triggers a de-identification task.
      *
      * @param request - ManualTriggerMaskingProcessRequest
+     *
      * @returns ManualTriggerMaskingProcessResponse
      *
      * @param ManualTriggerMaskingProcessRequest $request
@@ -3867,6 +3864,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ModifyDataLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDataLimitResponse
      *
      * @param ModifyDataLimitRequest $request
@@ -3950,27 +3948,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDataLimit',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDataLimit',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDataLimitResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
      *
      * @param request - ModifyDataLimitRequest
+     *
      * @returns ModifyDataLimitResponse
      *
      * @param ModifyDataLimitRequest $request
@@ -3994,6 +3990,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ModifyDefaultLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefaultLevelResponse
      *
      * @param ModifyDefaultLevelRequest $request
@@ -4021,21 +4018,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefaultLevel',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefaultLevel',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefaultLevelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefaultLevelResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefaultLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4047,6 +4041,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ModifyDefaultLevelRequest
+     *
      * @returns ModifyDefaultLevelResponse
      *
      * @param ModifyDefaultLevelRequest $request
@@ -4070,6 +4065,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ModifyEventStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyEventStatusResponse
      *
      * @param ModifyEventStatusRequest $request
@@ -4105,21 +4101,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEventStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEventStatus',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyEventStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4131,6 +4124,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ModifyEventStatusRequest
+     *
      * @returns ModifyEventStatusResponse
      *
      * @param ModifyEventStatusRequest $request
@@ -4149,6 +4143,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ModifyEventTypeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyEventTypeStatusResponse
      *
      * @param ModifyEventTypeStatusRequest $request
@@ -4176,27 +4171,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEventTypeStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEventTypeStatus',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyEventTypeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyEventTypeStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyEventTypeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Enables the detection of anomalous events of subtypes.
      *
      * @param request - ModifyEventTypeStatusRequest
+     *
      * @returns ModifyEventTypeStatusResponse
      *
      * @param ModifyEventTypeStatusRequest $request
@@ -4220,6 +4213,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ModifyReportTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyReportTaskStatusResponse
      *
      * @param ModifyReportTaskStatusRequest $request
@@ -4247,21 +4241,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyReportTaskStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyReportTaskStatus',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyReportTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyReportTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyReportTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4273,6 +4264,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ModifyReportTaskStatusRequest
+     *
      * @returns ModifyReportTaskStatusResponse
      *
      * @param ModifyReportTaskStatusRequest $request
@@ -4296,6 +4288,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ModifyRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyRuleResponse
      *
      * @param ModifyRuleRequest $request
@@ -4367,21 +4360,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRule',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRule',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4393,6 +4383,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ModifyRuleRequest
+     *
      * @returns ModifyRuleResponse
      *
      * @param ModifyRuleRequest $request
@@ -4411,6 +4402,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - ModifyRuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyRuleStatusResponse
      *
      * @param ModifyRuleStatusRequest $request
@@ -4442,27 +4434,25 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRuleStatus',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRuleStatus',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyRuleStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Enables or disables a sensitive data detection rule.
      *
      * @param request - ModifyRuleStatusRequest
+     *
      * @returns ModifyRuleStatusResponse
      *
      * @param ModifyRuleStatusRequest $request
@@ -4477,10 +4467,20 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 创建文件扫描任务
+     * Creates an identification task to scan sensitive data in Object Storage Service (OSS) objects.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
+     * To call this operation, make sure that asset authorization for your OSS bucket is complete and the bucket is connected. If the authorization is not complete, the bucket_not_authorized error code is returned when you call the operation.
+     * ### [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ### [](#)Additional information
+     * After you call this operation, you can obtain the task ID. You can specify the task ID in the DescribeIdentifyTaskDetail operation to query the state of the task.
+     * After the task is complete, you can call the DescribeOssObjectDetailV2 operation to query the identification results of sensitive data in the related OSS objects. When you call the DescribeOssObjectDetailV2 operation, you must specify BucketName, ServiceRegionId, and ObjectKey.
      *
      * @param tmpReq - ScanOssObjectV1Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ScanOssObjectV1Response
      *
      * @param ScanOssObjectV1Request $tmpReq
@@ -4522,27 +4522,34 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ScanOssObjectV1',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ScanOssObjectV1',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ScanOssObjectV1Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ScanOssObjectV1Response::fromMap($this->execute($params, $req, $runtime));
+        return ScanOssObjectV1Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建文件扫描任务
+     * Creates an identification task to scan sensitive data in Object Storage Service (OSS) objects.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
+     * To call this operation, make sure that asset authorization for your OSS bucket is complete and the bucket is connected. If the authorization is not complete, the bucket_not_authorized error code is returned when you call the operation.
+     * ### [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ### [](#)Additional information
+     * After you call this operation, you can obtain the task ID. You can specify the task ID in the DescribeIdentifyTaskDetail operation to query the state of the task.
+     * After the task is complete, you can call the DescribeOssObjectDetailV2 operation to query the identification results of sensitive data in the related OSS objects. When you call the DescribeOssObjectDetailV2 operation, you must specify BucketName, ServiceRegionId, and ObjectKey.
      *
      * @param request - ScanOssObjectV1Request
+     *
      * @returns ScanOssObjectV1Response
      *
      * @param ScanOssObjectV1Request $request
@@ -4566,6 +4573,7 @@ class Sddp extends OpenApiClient
      *
      * @param request - StopMaskingProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopMaskingProcessResponse
      *
      * @param StopMaskingProcessRequest $request
@@ -4589,21 +4597,18 @@ class Sddp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopMaskingProcess',
-            'version'     => '2019-01-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopMaskingProcess',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopMaskingProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4615,6 +4620,7 @@ class Sddp extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - StopMaskingProcessRequest
+     *
      * @returns StopMaskingProcessResponse
      *
      * @param StopMaskingProcessRequest $request

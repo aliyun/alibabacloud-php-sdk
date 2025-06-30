@@ -12,103 +12,122 @@ class items extends Model
      * @var int
      */
     public $alertTime;
+
     /**
      * @var bool
      */
     public $backed;
+
     /**
      * @var string
      */
     public $dealDisplayName;
+
     /**
      * @var string
      */
     public $dealLoginName;
+
     /**
      * @var int
      */
     public $dealTime;
+
     /**
      * @var int
      */
     public $dealUserId;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var int
      */
     public $eventTime;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusName;
+
     /**
      * @var string
      */
     public $subTypeCode;
+
     /**
      * @var string
      */
     public $subTypeName;
+
     /**
      * @var string
      */
     public $targetProductCode;
+
     /**
      * @var string
      */
     public $typeCode;
+
     /**
      * @var string
      */
     public $typeName;
+
     /**
      * @var int
      */
     public $userId;
+
     /**
      * @var int
      */
     public $warnLevel;
     protected $_name = [
-        'alertTime'         => 'AlertTime',
-        'backed'            => 'Backed',
-        'dealDisplayName'   => 'DealDisplayName',
-        'dealLoginName'     => 'DealLoginName',
-        'dealTime'          => 'DealTime',
-        'dealUserId'        => 'DealUserId',
-        'displayName'       => 'DisplayName',
-        'eventTime'         => 'EventTime',
-        'id'                => 'Id',
-        'loginName'         => 'LoginName',
-        'productCode'       => 'ProductCode',
-        'status'            => 'Status',
-        'statusName'        => 'StatusName',
-        'subTypeCode'       => 'SubTypeCode',
-        'subTypeName'       => 'SubTypeName',
+        'alertTime' => 'AlertTime',
+        'backed' => 'Backed',
+        'dealDisplayName' => 'DealDisplayName',
+        'dealLoginName' => 'DealLoginName',
+        'dealTime' => 'DealTime',
+        'dealUserId' => 'DealUserId',
+        'displayName' => 'DisplayName',
+        'eventTime' => 'EventTime',
+        'id' => 'Id',
+        'loginName' => 'LoginName',
+        'productCode' => 'ProductCode',
+        'status' => 'Status',
+        'statusName' => 'StatusName',
+        'subTypeCode' => 'SubTypeCode',
+        'subTypeName' => 'SubTypeName',
         'targetProductCode' => 'TargetProductCode',
-        'typeCode'          => 'TypeCode',
-        'typeName'          => 'TypeName',
-        'userId'            => 'UserId',
-        'warnLevel'         => 'WarnLevel',
+        'typeCode' => 'TypeCode',
+        'typeName' => 'TypeName',
+        'userId' => 'UserId',
+        'warnLevel' => 'WarnLevel',
     ];
 
     public function validate()

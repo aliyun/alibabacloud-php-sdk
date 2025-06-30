@@ -12,33 +12,38 @@ class CreateConfigRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'description' => 'Description',
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
-        'sourceIp'    => 'SourceIp',
-        'value'       => 'Value',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class ModifyEventTypeStatusRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $subTypeIds;
     protected $_name = [
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
-        'subTypeIds'  => 'SubTypeIds',
+        'lang' => 'Lang',
+        'subTypeIds' => 'SubTypeIds',
     ];
 
     public function validate()

@@ -12,92 +12,109 @@ class DescribeColumnsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $modelTagId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $sensLevelName;
+
     /**
      * @var int
      */
     public $tableId;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateRuleId;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'engineType'     => 'EngineType',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'lang'           => 'Lang',
-        'modelTagId'     => 'ModelTagId',
-        'name'           => 'Name',
-        'pageSize'       => 'PageSize',
-        'productCode'    => 'ProductCode',
-        'productId'      => 'ProductId',
-        'riskLevelId'    => 'RiskLevelId',
-        'ruleId'         => 'RuleId',
-        'ruleName'       => 'RuleName',
-        'sensLevelName'  => 'SensLevelName',
-        'tableId'        => 'TableId',
-        'tableName'      => 'TableName',
-        'templateId'     => 'TemplateId',
+        'currentPage' => 'CurrentPage',
+        'engineType' => 'EngineType',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'lang' => 'Lang',
+        'modelTagId' => 'ModelTagId',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'sensLevelName' => 'SensLevelName',
+        'tableId' => 'TableId',
+        'tableName' => 'TableName',
+        'templateId' => 'TemplateId',
         'templateRuleId' => 'TemplateRuleId',
     ];
 

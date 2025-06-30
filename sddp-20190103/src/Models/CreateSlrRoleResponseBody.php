@@ -12,13 +12,14 @@ class CreateSlrRoleResponseBody extends Model
      * @var bool
      */
     public $hasPermission;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'hasPermission' => 'HasPermission',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

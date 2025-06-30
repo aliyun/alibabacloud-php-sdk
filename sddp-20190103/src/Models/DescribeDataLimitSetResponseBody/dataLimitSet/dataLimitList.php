@@ -12,58 +12,68 @@ class dataLimitList extends Model
      * @var int
      */
     public $checkStatus;
+
     /**
      * @var string
      */
     public $checkStatusName;
+
     /**
      * @var string
      */
     public $connector;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $localName;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $resourceTypeCode;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'checkStatus'      => 'CheckStatus',
-        'checkStatusName'  => 'CheckStatusName',
-        'connector'        => 'Connector',
-        'gmtCreate'        => 'GmtCreate',
-        'id'               => 'Id',
-        'localName'        => 'LocalName',
-        'parentId'         => 'ParentId',
-        'regionId'         => 'RegionId',
-        'resourceType'     => 'ResourceType',
+        'checkStatus' => 'CheckStatus',
+        'checkStatusName' => 'CheckStatusName',
+        'connector' => 'Connector',
+        'gmtCreate' => 'GmtCreate',
+        'id' => 'Id',
+        'localName' => 'LocalName',
+        'parentId' => 'ParentId',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
         'resourceTypeCode' => 'ResourceTypeCode',
-        'userName'         => 'UserName',
+        'userName' => 'UserName',
     ];
 
     public function validate()

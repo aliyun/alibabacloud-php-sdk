@@ -12,12 +12,13 @@ class CreateDataLimitResponseBody extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'id'        => 'Id',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 

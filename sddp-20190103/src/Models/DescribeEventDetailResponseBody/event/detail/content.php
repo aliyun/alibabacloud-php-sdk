@@ -12,17 +12,19 @@ class content extends Model
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'label' => 'Label',
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 

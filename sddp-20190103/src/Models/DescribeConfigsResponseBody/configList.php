@@ -12,28 +12,32 @@ class configList extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'defaultValue' => 'DefaultValue',
-        'description'  => 'Description',
-        'id'           => 'Id',
-        'value'        => 'Value',
+        'description' => 'Description',
+        'id' => 'Id',
+        'value' => 'Value',
     ];
 
     public function validate()

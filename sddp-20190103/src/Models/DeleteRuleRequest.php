@@ -12,23 +12,26 @@ class DeleteRuleRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'featureType' => 'FeatureType',
-        'id'          => 'Id',
-        'lang'        => 'Lang',
-        'sourceIp'    => 'SourceIp',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()

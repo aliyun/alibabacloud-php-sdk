@@ -12,68 +12,80 @@ class DescribeOssObjectsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $fileCategoryCode;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $lastScanTimeEnd;
+
     /**
      * @var int
      */
     public $lastScanTimeStart;
+
     /**
      * @var int
      */
     public $marker;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'currentPage'       => 'CurrentPage',
-        'fileCategoryCode'  => 'FileCategoryCode',
-        'instanceId'        => 'InstanceId',
-        'lang'              => 'Lang',
-        'lastScanTimeEnd'   => 'LastScanTimeEnd',
+        'currentPage' => 'CurrentPage',
+        'fileCategoryCode' => 'FileCategoryCode',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'lastScanTimeEnd' => 'LastScanTimeEnd',
         'lastScanTimeStart' => 'LastScanTimeStart',
-        'marker'            => 'Marker',
-        'name'              => 'Name',
-        'pageSize'          => 'PageSize',
-        'riskLevelId'       => 'RiskLevelId',
-        'ruleId'            => 'RuleId',
-        'serviceRegionId'   => 'ServiceRegionId',
-        'templateId'        => 'TemplateId',
+        'marker' => 'Marker',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleId' => 'RuleId',
+        'serviceRegionId' => 'ServiceRegionId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

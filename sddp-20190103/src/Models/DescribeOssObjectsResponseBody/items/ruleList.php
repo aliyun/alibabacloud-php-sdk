@@ -12,17 +12,19 @@ class ruleList extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $riskLevelId;
     protected $_name = [
-        'count'       => 'Count',
-        'name'        => 'Name',
+        'count' => 'Count',
+        'name' => 'Name',
         'riskLevelId' => 'RiskLevelId',
     ];
 

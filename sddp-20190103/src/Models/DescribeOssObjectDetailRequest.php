@@ -12,12 +12,13 @@ class DescribeOssObjectDetailRequest extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'lang' => 'Lang',
     ];
 

@@ -12,33 +12,38 @@ class DescribeOssObjectDetailV2Request extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $objectKey;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'bucketName'      => 'BucketName',
-        'id'              => 'Id',
-        'lang'            => 'Lang',
-        'objectKey'       => 'ObjectKey',
+        'bucketName' => 'BucketName',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'objectKey' => 'ObjectKey',
         'serviceRegionId' => 'ServiceRegionId',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

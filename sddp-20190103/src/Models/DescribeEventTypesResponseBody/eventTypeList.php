@@ -13,27 +13,31 @@ class eventTypeList extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var subTypeList[]
      */
     public $subTypeList;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'description' => 'Description',
-        'id'          => 'Id',
-        'name'        => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'subTypeList' => 'SubTypeList',
     ];
 
@@ -67,9 +71,10 @@ class eventTypeList extends Model
         if (null !== $this->subTypeList) {
             if (\is_array($this->subTypeList)) {
                 $res['SubTypeList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->subTypeList as $item1) {
-                    $res['SubTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,9 +109,10 @@ class eventTypeList extends Model
         if (isset($map['SubTypeList'])) {
             if (!empty($map['SubTypeList'])) {
                 $model->subTypeList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SubTypeList'] as $item1) {
-                    $model->subTypeList[$n1++] = subTypeList::fromMap($item1);
+                    $model->subTypeList[$n1] = subTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

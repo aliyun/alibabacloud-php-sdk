@@ -12,43 +12,50 @@ class DescribePackagesRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'instanceId'  => 'InstanceId',
-        'lang'        => 'Lang',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
-        'productId'   => 'ProductId',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'productId' => 'ProductId',
         'riskLevelId' => 'RiskLevelId',
-        'ruleId'      => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

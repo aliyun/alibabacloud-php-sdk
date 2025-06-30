@@ -12,27 +12,31 @@ class DescribeCategoryTemplateListRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $usageScenario;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
-        'featureType'   => 'FeatureType',
-        'lang'          => 'Lang',
-        'pageSize'      => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'featureType' => 'FeatureType',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'usageScenario' => 'UsageScenario',
     ];
 

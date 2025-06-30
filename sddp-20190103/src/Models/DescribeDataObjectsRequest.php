@@ -12,88 +12,104 @@ class DescribeDataObjectsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $domainId;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var int
      */
     public $fileCategoryCode;
+
     /**
      * @var int
      */
     public $fileType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $memberAccount;
+
     /**
      * @var string
      */
     public $modelIds;
+
     /**
      * @var string
      */
     public $modelTagIds;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentCategoryIds;
+
     /**
      * @var string
      */
     public $productIds;
+
     /**
      * @var string
      */
     public $queryName;
+
     /**
      * @var string
      */
     public $riskLevels;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'currentPage'       => 'CurrentPage',
-        'domainId'          => 'DomainId',
-        'featureType'       => 'FeatureType',
-        'fileCategoryCode'  => 'FileCategoryCode',
-        'fileType'          => 'FileType',
-        'instanceId'        => 'InstanceId',
-        'lang'              => 'Lang',
-        'memberAccount'     => 'MemberAccount',
-        'modelIds'          => 'ModelIds',
-        'modelTagIds'       => 'ModelTagIds',
-        'pageSize'          => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'domainId' => 'DomainId',
+        'featureType' => 'FeatureType',
+        'fileCategoryCode' => 'FileCategoryCode',
+        'fileType' => 'FileType',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'memberAccount' => 'MemberAccount',
+        'modelIds' => 'ModelIds',
+        'modelTagIds' => 'ModelTagIds',
+        'pageSize' => 'PageSize',
         'parentCategoryIds' => 'ParentCategoryIds',
-        'productIds'        => 'ProductIds',
-        'queryName'         => 'QueryName',
-        'riskLevels'        => 'RiskLevels',
-        'serviceRegionId'   => 'ServiceRegionId',
-        'templateId'        => 'TemplateId',
+        'productIds' => 'ProductIds',
+        'queryName' => 'QueryName',
+        'riskLevels' => 'RiskLevels',
+        'serviceRegionId' => 'ServiceRegionId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

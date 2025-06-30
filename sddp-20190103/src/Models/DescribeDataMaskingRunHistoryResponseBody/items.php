@@ -12,98 +12,116 @@ class items extends Model
      * @var int
      */
     public $conflictCount;
+
     /**
      * @var int
      */
     public $dstType;
+
     /**
      * @var string
      */
     public $dstTypeCode;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $failCode;
+
     /**
      * @var string
      */
     public $failMsg;
+
     /**
      * @var int
      */
     public $hasDownloadFile;
+
     /**
      * @var int
      */
     public $hasSubProcess;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $maskingCount;
+
     /**
      * @var int
      */
     public $percentage;
+
     /**
      * @var int
      */
     public $runIndex;
+
     /**
      * @var string
      */
     public $srcTableName;
+
     /**
      * @var int
      */
     public $srcType;
+
     /**
      * @var string
      */
     public $srcTypeCode;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'conflictCount'   => 'ConflictCount',
-        'dstType'         => 'DstType',
-        'dstTypeCode'     => 'DstTypeCode',
-        'endTime'         => 'EndTime',
-        'failCode'        => 'FailCode',
-        'failMsg'         => 'FailMsg',
+        'conflictCount' => 'ConflictCount',
+        'dstType' => 'DstType',
+        'dstTypeCode' => 'DstTypeCode',
+        'endTime' => 'EndTime',
+        'failCode' => 'FailCode',
+        'failMsg' => 'FailMsg',
         'hasDownloadFile' => 'HasDownloadFile',
-        'hasSubProcess'   => 'HasSubProcess',
-        'id'              => 'Id',
-        'maskingCount'    => 'MaskingCount',
-        'percentage'      => 'Percentage',
-        'runIndex'        => 'RunIndex',
-        'srcTableName'    => 'SrcTableName',
-        'srcType'         => 'SrcType',
-        'srcTypeCode'     => 'SrcTypeCode',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'taskId'          => 'TaskId',
-        'type'            => 'Type',
+        'hasSubProcess' => 'HasSubProcess',
+        'id' => 'Id',
+        'maskingCount' => 'MaskingCount',
+        'percentage' => 'Percentage',
+        'runIndex' => 'RunIndex',
+        'srcTableName' => 'SrcTableName',
+        'srcType' => 'SrcType',
+        'srcTypeCode' => 'SrcTypeCode',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'type' => 'Type',
     ];
 
     public function validate()

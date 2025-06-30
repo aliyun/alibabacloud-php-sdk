@@ -12,58 +12,68 @@ class items extends Model
      * @var int
      */
     public $currentRiskLevel;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $maxCategoryLevel;
+
     /**
      * @var int
      */
     public $maxRiskLevel;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $supportEdit;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
         'currentRiskLevel' => 'CurrentRiskLevel',
-        'description'      => 'Description',
-        'gmtCreate'        => 'GmtCreate',
-        'gmtModified'      => 'GmtModified',
-        'id'               => 'Id',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
         'maxCategoryLevel' => 'MaxCategoryLevel',
-        'maxRiskLevel'     => 'MaxRiskLevel',
-        'name'             => 'Name',
-        'status'           => 'Status',
-        'supportEdit'      => 'SupportEdit',
-        'type'             => 'Type',
+        'maxRiskLevel' => 'MaxRiskLevel',
+        'name' => 'Name',
+        'status' => 'Status',
+        'supportEdit' => 'SupportEdit',
+        'type' => 'Type',
     ];
 
     public function validate()

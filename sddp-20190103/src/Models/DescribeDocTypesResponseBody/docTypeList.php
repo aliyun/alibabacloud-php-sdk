@@ -12,17 +12,19 @@ class docTypeList extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'code' => 'Code',
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 

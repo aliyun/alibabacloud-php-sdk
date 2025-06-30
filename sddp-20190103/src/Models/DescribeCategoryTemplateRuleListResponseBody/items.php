@@ -12,38 +12,44 @@ class items extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $identificationRuleIds;
+
     /**
      * @var string
      */
     public $identificationScope;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'description'           => 'Description',
-        'id'                    => 'Id',
+        'description' => 'Description',
+        'id' => 'Id',
         'identificationRuleIds' => 'IdentificationRuleIds',
-        'identificationScope'   => 'IdentificationScope',
-        'name'                  => 'Name',
-        'riskLevelId'           => 'RiskLevelId',
-        'status'                => 'Status',
+        'identificationScope' => 'IdentificationScope',
+        'name' => 'Name',
+        'riskLevelId' => 'RiskLevelId',
+        'status' => 'Status',
     ];
 
     public function validate()

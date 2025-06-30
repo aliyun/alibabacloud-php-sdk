@@ -13,12 +13,13 @@ class DescribeRiskLevelsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var riskLevelList[]
      */
     public $riskLevelList;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'riskLevelList' => 'RiskLevelList',
     ];
 
@@ -40,9 +41,10 @@ class DescribeRiskLevelsResponseBody extends Model
         if (null !== $this->riskLevelList) {
             if (\is_array($this->riskLevelList)) {
                 $res['RiskLevelList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->riskLevelList as $item1) {
-                    $res['RiskLevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RiskLevelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -65,9 +67,10 @@ class DescribeRiskLevelsResponseBody extends Model
         if (isset($map['RiskLevelList'])) {
             if (!empty($map['RiskLevelList'])) {
                 $model->riskLevelList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RiskLevelList'] as $item1) {
-                    $model->riskLevelList[$n1++] = riskLevelList::fromMap($item1);
+                    $model->riskLevelList[$n1] = riskLevelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

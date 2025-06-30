@@ -12,98 +12,116 @@ class CreateDataLimitRequest extends Model
      * @var int
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $autoScan;
+
     /**
      * @var string
      */
     public $certificatePermission;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var int
      */
     public $eventStatus;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var bool
      */
     public $instantlyScan;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $logStoreDay;
+
     /**
      * @var int
      */
     public $ocrStatus;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $samplingSize;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'auditStatus'           => 'AuditStatus',
-        'autoScan'              => 'AutoScan',
+        'auditStatus' => 'AuditStatus',
+        'autoScan' => 'AutoScan',
         'certificatePermission' => 'CertificatePermission',
-        'enable'                => 'Enable',
-        'engineType'            => 'EngineType',
-        'eventStatus'           => 'EventStatus',
-        'featureType'           => 'FeatureType',
-        'instantlyScan'         => 'InstantlyScan',
-        'lang'                  => 'Lang',
-        'logStoreDay'           => 'LogStoreDay',
-        'ocrStatus'             => 'OcrStatus',
-        'parentId'              => 'ParentId',
-        'password'              => 'Password',
-        'port'                  => 'Port',
-        'resourceType'          => 'ResourceType',
-        'samplingSize'          => 'SamplingSize',
-        'serviceRegionId'       => 'ServiceRegionId',
-        'sourceIp'              => 'SourceIp',
-        'userName'              => 'UserName',
+        'enable' => 'Enable',
+        'engineType' => 'EngineType',
+        'eventStatus' => 'EventStatus',
+        'featureType' => 'FeatureType',
+        'instantlyScan' => 'InstantlyScan',
+        'lang' => 'Lang',
+        'logStoreDay' => 'LogStoreDay',
+        'ocrStatus' => 'OcrStatus',
+        'parentId' => 'ParentId',
+        'password' => 'Password',
+        'port' => 'Port',
+        'resourceType' => 'ResourceType',
+        'samplingSize' => 'SamplingSize',
+        'serviceRegionId' => 'ServiceRegionId',
+        'sourceIp' => 'SourceIp',
+        'userName' => 'UserName',
     ];
 
     public function validate()

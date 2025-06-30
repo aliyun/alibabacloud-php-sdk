@@ -15,33 +15,38 @@ class dataLimitSet extends Model
      * @var dataLimitList[]
      */
     public $dataLimitList;
+
     /**
      * @var ossBucketList[]
      */
     public $ossBucketList;
+
     /**
      * @var regionList[]
      */
     public $regionList;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $resourceTypeCode;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'dataLimitList'    => 'DataLimitList',
-        'ossBucketList'    => 'OssBucketList',
-        'regionList'       => 'RegionList',
-        'resourceType'     => 'ResourceType',
+        'dataLimitList' => 'DataLimitList',
+        'ossBucketList' => 'OssBucketList',
+        'regionList' => 'RegionList',
+        'resourceType' => 'ResourceType',
         'resourceTypeCode' => 'ResourceTypeCode',
-        'totalCount'       => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -64,9 +69,10 @@ class dataLimitSet extends Model
         if (null !== $this->dataLimitList) {
             if (\is_array($this->dataLimitList)) {
                 $res['DataLimitList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->dataLimitList as $item1) {
-                    $res['DataLimitList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataLimitList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,9 +80,10 @@ class dataLimitSet extends Model
         if (null !== $this->ossBucketList) {
             if (\is_array($this->ossBucketList)) {
                 $res['OssBucketList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ossBucketList as $item1) {
-                    $res['OssBucketList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OssBucketList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,9 +91,10 @@ class dataLimitSet extends Model
         if (null !== $this->regionList) {
             if (\is_array($this->regionList)) {
                 $res['RegionList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->regionList as $item1) {
-                    $res['RegionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,9 +125,10 @@ class dataLimitSet extends Model
         if (isset($map['DataLimitList'])) {
             if (!empty($map['DataLimitList'])) {
                 $model->dataLimitList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DataLimitList'] as $item1) {
-                    $model->dataLimitList[$n1++] = dataLimitList::fromMap($item1);
+                    $model->dataLimitList[$n1] = dataLimitList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -127,9 +136,10 @@ class dataLimitSet extends Model
         if (isset($map['OssBucketList'])) {
             if (!empty($map['OssBucketList'])) {
                 $model->ossBucketList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['OssBucketList'] as $item1) {
-                    $model->ossBucketList[$n1++] = ossBucketList::fromMap($item1);
+                    $model->ossBucketList[$n1] = ossBucketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -137,9 +147,10 @@ class dataLimitSet extends Model
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
                 $model->regionList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RegionList'] as $item1) {
-                    $model->regionList[$n1++] = regionList::fromMap($item1);
+                    $model->regionList[$n1] = regionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

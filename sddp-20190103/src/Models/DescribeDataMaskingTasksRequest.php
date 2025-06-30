@@ -12,38 +12,44 @@ class DescribeDataMaskingTasksRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $dstType;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchKey;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'dstType'     => 'DstType',
-        'endTime'     => 'EndTime',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'searchKey'   => 'SearchKey',
-        'startTime'   => 'StartTime',
+        'dstType' => 'DstType',
+        'endTime' => 'EndTime',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'searchKey' => 'SearchKey',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

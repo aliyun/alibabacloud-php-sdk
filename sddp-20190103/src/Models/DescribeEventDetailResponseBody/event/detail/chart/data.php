@@ -12,10 +12,12 @@ class data extends Model
      * @var string[]
      */
     public $x;
+
     /**
      * @var string[]
      */
     public $y;
+
     /**
      * @var string[]
      */
@@ -46,9 +48,10 @@ class data extends Model
         if (null !== $this->x) {
             if (\is_array($this->x)) {
                 $res['X'] = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($this->x as $item1) {
-                    $res['X'][$n1++] = $item1;
+                    $res['X'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -56,9 +59,10 @@ class data extends Model
         if (null !== $this->y) {
             if (\is_array($this->y)) {
                 $res['Y'] = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($this->y as $item1) {
-                    $res['Y'][$n1++] = $item1;
+                    $res['Y'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -66,9 +70,10 @@ class data extends Model
         if (null !== $this->z) {
             if (\is_array($this->z)) {
                 $res['Z'] = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($this->z as $item1) {
-                    $res['Z'][$n1++] = $item1;
+                    $res['Z'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +92,10 @@ class data extends Model
         if (isset($map['X'])) {
             if (!empty($map['X'])) {
                 $model->x = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($map['X'] as $item1) {
-                    $model->x[$n1++] = $item1;
+                    $model->x[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,9 +103,10 @@ class data extends Model
         if (isset($map['Y'])) {
             if (!empty($map['Y'])) {
                 $model->y = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($map['Y'] as $item1) {
-                    $model->y[$n1++] = $item1;
+                    $model->y[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,9 +114,10 @@ class data extends Model
         if (isset($map['Z'])) {
             if (!empty($map['Z'])) {
                 $model->z = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($map['Z'] as $item1) {
-                    $model->z[$n1++] = $item1;
+                    $model->z[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

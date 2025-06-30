@@ -12,22 +12,25 @@ class riskLevelList extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $referenceNum;
     protected $_name = [
-        'description'  => 'Description',
-        'id'           => 'Id',
-        'name'         => 'Name',
+        'description' => 'Description',
+        'id' => 'Id',
+        'name' => 'Name',
         'referenceNum' => 'ReferenceNum',
     ];
 

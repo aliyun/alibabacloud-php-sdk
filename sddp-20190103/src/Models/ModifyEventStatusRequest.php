@@ -12,28 +12,32 @@ class ModifyEventStatusRequest extends Model
      * @var bool
      */
     public $backed;
+
     /**
      * @var string
      */
     public $dealReason;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'backed'     => 'Backed',
+        'backed' => 'Backed',
         'dealReason' => 'DealReason',
-        'id'         => 'Id',
-        'lang'       => 'Lang',
-        'status'     => 'Status',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'status' => 'Status',
     ];
 
     public function validate()

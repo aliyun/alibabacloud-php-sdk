@@ -12,22 +12,25 @@ class ModifyRuleStatusRequest extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $ids;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'id'     => 'Id',
-        'ids'    => 'Ids',
-        'lang'   => 'Lang',
+        'id' => 'Id',
+        'ids' => 'Ids',
+        'lang' => 'Lang',
         'status' => 'Status',
     ];
 

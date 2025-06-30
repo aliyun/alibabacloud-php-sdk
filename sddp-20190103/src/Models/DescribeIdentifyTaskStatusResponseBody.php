@@ -13,12 +13,13 @@ class DescribeIdentifyTaskStatusResponseBody extends Model
      * @var content
      */
     public $content;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 

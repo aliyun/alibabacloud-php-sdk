@@ -13,43 +13,50 @@ class DescribeOssObjectsResponseBody extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var items[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $marker;
+
     /**
      * @var string
      */
     public $nextMarker;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var bool
      */
     public $truncated;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'items'       => 'Items',
-        'marker'      => 'Marker',
-        'nextMarker'  => 'NextMarker',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
-        'truncated'   => 'Truncated',
+        'items' => 'Items',
+        'marker' => 'Marker',
+        'nextMarker' => 'NextMarker',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'truncated' => 'Truncated',
     ];
 
     public function validate()
@@ -70,9 +77,10 @@ class DescribeOssObjectsResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,9 +127,10 @@ class DescribeOssObjectsResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

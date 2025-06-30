@@ -13,13 +13,14 @@ class DescribeDataLimitSetResponseBody extends Model
      * @var dataLimitSet
      */
     public $dataLimitSet;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dataLimitSet' => 'DataLimitSet',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

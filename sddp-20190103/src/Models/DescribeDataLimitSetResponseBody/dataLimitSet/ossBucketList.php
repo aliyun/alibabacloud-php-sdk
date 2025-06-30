@@ -12,13 +12,14 @@ class ossBucketList extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

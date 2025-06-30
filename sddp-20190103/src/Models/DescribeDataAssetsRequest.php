@@ -12,38 +12,44 @@ class DescribeDataAssetsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $rangeId;
+
     /**
      * @var string
      */
     public $riskLevels;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
-        'rangeId'     => 'RangeId',
-        'riskLevels'  => 'RiskLevels',
-        'ruleId'      => 'RuleId',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'rangeId' => 'RangeId',
+        'riskLevels' => 'RiskLevels',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

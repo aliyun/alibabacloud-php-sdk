@@ -12,18 +12,20 @@ class CreateSlrRoleRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
-        'sourceIp'    => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ScanOssObjectV1ShrinkRequest extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $objectKeyListShrink;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'bucketName'          => 'BucketName',
-        'lang'                => 'Lang',
+        'bucketName' => 'BucketName',
+        'lang' => 'Lang',
         'objectKeyListShrink' => 'ObjectKeyList',
-        'serviceRegionId'     => 'ServiceRegionId',
-        'templateId'          => 'TemplateId',
+        'serviceRegionId' => 'ServiceRegionId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

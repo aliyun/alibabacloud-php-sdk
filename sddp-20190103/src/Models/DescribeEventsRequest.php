@@ -12,83 +12,98 @@ class DescribeEventsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $dealUserId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subTypeCode;
+
     /**
      * @var string
      */
     public $targetProductCode;
+
     /**
      * @var string
      */
     public $typeCode;
+
     /**
      * @var int
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var int
      */
     public $warnLevel;
     protected $_name = [
-        'currentPage'       => 'CurrentPage',
-        'dealUserId'        => 'DealUserId',
-        'endTime'           => 'EndTime',
-        'id'                => 'Id',
-        'instanceName'      => 'InstanceName',
-        'lang'              => 'Lang',
-        'pageSize'          => 'PageSize',
-        'productCode'       => 'ProductCode',
-        'startTime'         => 'StartTime',
-        'status'            => 'Status',
-        'subTypeCode'       => 'SubTypeCode',
+        'currentPage' => 'CurrentPage',
+        'dealUserId' => 'DealUserId',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'subTypeCode' => 'SubTypeCode',
         'targetProductCode' => 'TargetProductCode',
-        'typeCode'          => 'TypeCode',
-        'userId'            => 'UserId',
-        'userName'          => 'UserName',
-        'warnLevel'         => 'WarnLevel',
+        'typeCode' => 'TypeCode',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
+        'warnLevel' => 'WarnLevel',
     ];
 
     public function validate()

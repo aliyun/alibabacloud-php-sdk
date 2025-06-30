@@ -12,103 +12,122 @@ class userStatus extends Model
      * @var string
      */
     public $accessKeyId;
+
     /**
      * @var bool
      */
     public $auditClosable;
+
     /**
      * @var bool
      */
     public $auditReleasable;
+
     /**
      * @var bool
      */
     public $authed;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $dataManagerRole;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceNum;
+
     /**
      * @var int
      */
     public $instanceTotalCount;
+
     /**
      * @var int
      */
     public $labStatus;
+
     /**
      * @var int
      */
     public $ossTotalSize;
+
     /**
      * @var int
      */
     public $protectionDays;
+
     /**
      * @var bool
      */
     public $purchased;
+
     /**
      * @var int
      */
     public $releaseDays;
+
     /**
      * @var int
      */
     public $releaseTime;
+
     /**
      * @var int
      */
     public $remainDays;
+
     /**
      * @var bool
      */
     public $trail;
+
     /**
      * @var bool
      */
     public $useAgentAudit;
+
     /**
      * @var int
      */
     public $useInstanceNum;
+
     /**
      * @var int
      */
     public $useOssSize;
     protected $_name = [
-        'accessKeyId'        => 'AccessKeyId',
-        'auditClosable'      => 'AuditClosable',
-        'auditReleasable'    => 'AuditReleasable',
-        'authed'             => 'Authed',
-        'chargeType'         => 'ChargeType',
-        'dataManagerRole'    => 'DataManagerRole',
-        'instanceId'         => 'InstanceId',
-        'instanceNum'        => 'InstanceNum',
+        'accessKeyId' => 'AccessKeyId',
+        'auditClosable' => 'AuditClosable',
+        'auditReleasable' => 'AuditReleasable',
+        'authed' => 'Authed',
+        'chargeType' => 'ChargeType',
+        'dataManagerRole' => 'DataManagerRole',
+        'instanceId' => 'InstanceId',
+        'instanceNum' => 'InstanceNum',
         'instanceTotalCount' => 'InstanceTotalCount',
-        'labStatus'          => 'LabStatus',
-        'ossTotalSize'       => 'OssTotalSize',
-        'protectionDays'     => 'ProtectionDays',
-        'purchased'          => 'Purchased',
-        'releaseDays'        => 'ReleaseDays',
-        'releaseTime'        => 'ReleaseTime',
-        'remainDays'         => 'RemainDays',
-        'trail'              => 'Trail',
-        'useAgentAudit'      => 'UseAgentAudit',
-        'useInstanceNum'     => 'UseInstanceNum',
-        'useOssSize'         => 'UseOssSize',
+        'labStatus' => 'LabStatus',
+        'ossTotalSize' => 'OssTotalSize',
+        'protectionDays' => 'ProtectionDays',
+        'purchased' => 'Purchased',
+        'releaseDays' => 'ReleaseDays',
+        'releaseTime' => 'ReleaseTime',
+        'remainDays' => 'RemainDays',
+        'trail' => 'Trail',
+        'useAgentAudit' => 'UseAgentAudit',
+        'useInstanceNum' => 'UseInstanceNum',
+        'useOssSize' => 'UseOssSize',
     ];
 
     public function validate()

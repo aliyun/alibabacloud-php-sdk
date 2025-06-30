@@ -14,98 +14,116 @@ class items extends Model
      * @var string[]
      */
     public $categories;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceDescription;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $lastModifiedTime;
+
     /**
      * @var int
      */
     public $lastScanTime;
+
     /**
      * @var int
      */
     public $memberAccount;
+
     /**
      * @var modelTags[]
      */
     public $modelTags;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $objectFileCategory;
+
     /**
      * @var string
      */
     public $objectType;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionName;
+
     /**
      * @var ruleList[]
      */
     public $ruleList;
+
     /**
      * @var int
      */
     public $sensitiveCount;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'categories'          => 'Categories',
-        'id'                  => 'Id',
+        'categories' => 'Categories',
+        'id' => 'Id',
         'instanceDescription' => 'InstanceDescription',
-        'instanceId'          => 'InstanceId',
-        'lastModifiedTime'    => 'LastModifiedTime',
-        'lastScanTime'        => 'LastScanTime',
-        'memberAccount'       => 'MemberAccount',
-        'modelTags'           => 'ModelTags',
-        'name'                => 'Name',
-        'objectFileCategory'  => 'ObjectFileCategory',
-        'objectType'          => 'ObjectType',
-        'path'                => 'Path',
-        'productCode'         => 'ProductCode',
-        'productId'           => 'ProductId',
-        'regionId'            => 'RegionId',
-        'regionName'          => 'RegionName',
-        'ruleList'            => 'RuleList',
-        'sensitiveCount'      => 'SensitiveCount',
-        'templateId'          => 'TemplateId',
+        'instanceId' => 'InstanceId',
+        'lastModifiedTime' => 'LastModifiedTime',
+        'lastScanTime' => 'LastScanTime',
+        'memberAccount' => 'MemberAccount',
+        'modelTags' => 'ModelTags',
+        'name' => 'Name',
+        'objectFileCategory' => 'ObjectFileCategory',
+        'objectType' => 'ObjectType',
+        'path' => 'Path',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
+        'ruleList' => 'RuleList',
+        'sensitiveCount' => 'SensitiveCount',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -128,9 +146,10 @@ class items extends Model
         if (null !== $this->categories) {
             if (\is_array($this->categories)) {
                 $res['Categories'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['Categories'][$n1++] = $item1;
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,9 +181,10 @@ class items extends Model
         if (null !== $this->modelTags) {
             if (\is_array($this->modelTags)) {
                 $res['ModelTags'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->modelTags as $item1) {
-                    $res['ModelTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModelTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,9 +224,10 @@ class items extends Model
         if (null !== $this->ruleList) {
             if (\is_array($this->ruleList)) {
                 $res['RuleList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->ruleList as $item1) {
-                    $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,9 +254,10 @@ class items extends Model
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
-                    $model->categories[$n1++] = $item1;
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,9 +289,10 @@ class items extends Model
         if (isset($map['ModelTags'])) {
             if (!empty($map['ModelTags'])) {
                 $model->modelTags = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ModelTags'] as $item1) {
-                    $model->modelTags[$n1++] = modelTags::fromMap($item1);
+                    $model->modelTags[$n1] = modelTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -309,9 +332,10 @@ class items extends Model
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['RuleList'] as $item1) {
-                    $model->ruleList[$n1++] = ruleList::fromMap($item1);
+                    $model->ruleList[$n1] = ruleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

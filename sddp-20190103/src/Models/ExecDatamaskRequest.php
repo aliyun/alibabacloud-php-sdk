@@ -12,23 +12,26 @@ class ExecDatamaskRequest extends Model
      * @var string
      */
     public $data;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'data'        => 'Data',
+        'data' => 'Data',
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
-        'templateId'  => 'TemplateId',
+        'lang' => 'Lang',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

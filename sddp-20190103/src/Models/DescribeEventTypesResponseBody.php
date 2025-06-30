@@ -13,13 +13,14 @@ class DescribeEventTypesResponseBody extends Model
      * @var eventTypeList[]
      */
     public $eventTypeList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'eventTypeList' => 'EventTypeList',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +37,10 @@ class DescribeEventTypesResponseBody extends Model
         if (null !== $this->eventTypeList) {
             if (\is_array($this->eventTypeList)) {
                 $res['EventTypeList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->eventTypeList as $item1) {
-                    $res['EventTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EventTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,9 +63,10 @@ class DescribeEventTypesResponseBody extends Model
         if (isset($map['EventTypeList'])) {
             if (!empty($map['EventTypeList'])) {
                 $model->eventTypeList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['EventTypeList'] as $item1) {
-                    $model->eventTypeList[$n1++] = eventTypeList::fromMap($item1);
+                    $model->eventTypeList[$n1] = eventTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

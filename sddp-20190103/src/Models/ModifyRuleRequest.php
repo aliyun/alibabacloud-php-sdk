@@ -12,73 +12,86 @@ class ModifyRuleRequest extends Model
      * @var int
      */
     public $category;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $matchType;
+
     /**
      * @var string
      */
     public $modelRuleIds;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var int
      */
     public $supportForm;
+
     /**
      * @var string
      */
     public $templateRuleIds;
+
     /**
      * @var int
      */
     public $warnLevel;
     protected $_name = [
-        'category'        => 'Category',
-        'content'         => 'Content',
-        'id'              => 'Id',
-        'lang'            => 'Lang',
-        'matchType'       => 'MatchType',
-        'modelRuleIds'    => 'ModelRuleIds',
-        'name'            => 'Name',
-        'productCode'     => 'ProductCode',
-        'productId'       => 'ProductId',
-        'riskLevelId'     => 'RiskLevelId',
-        'ruleType'        => 'RuleType',
-        'supportForm'     => 'SupportForm',
+        'category' => 'Category',
+        'content' => 'Content',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'matchType' => 'MatchType',
+        'modelRuleIds' => 'ModelRuleIds',
+        'name' => 'Name',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleType' => 'RuleType',
+        'supportForm' => 'SupportForm',
         'templateRuleIds' => 'TemplateRuleIds',
-        'warnLevel'       => 'WarnLevel',
+        'warnLevel' => 'WarnLevel',
     ];
 
     public function validate()

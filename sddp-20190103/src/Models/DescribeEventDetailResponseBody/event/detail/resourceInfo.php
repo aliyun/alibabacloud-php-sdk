@@ -12,6 +12,7 @@ class resourceInfo extends Model
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */

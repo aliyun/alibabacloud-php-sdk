@@ -12,98 +12,116 @@ class items extends Model
      * @var string
      */
     public $acl;
+
     /**
      * @var int
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $labelsec;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $objectKey;
+
     /**
      * @var string
      */
     public $odpsRiskLevelName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var bool
      */
     public $protection;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var bool
      */
     public $sensitive;
+
     /**
      * @var int
      */
     public $sensitiveCount;
+
     /**
      * @var string
      */
     public $sensitiveRatio;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'acl'               => 'Acl',
-        'creationTime'      => 'CreationTime',
-        'dataType'          => 'DataType',
-        'id'                => 'Id',
-        'labelsec'          => 'Labelsec',
-        'name'              => 'Name',
-        'objectKey'         => 'ObjectKey',
+        'acl' => 'Acl',
+        'creationTime' => 'CreationTime',
+        'dataType' => 'DataType',
+        'id' => 'Id',
+        'labelsec' => 'Labelsec',
+        'name' => 'Name',
+        'objectKey' => 'ObjectKey',
         'odpsRiskLevelName' => 'OdpsRiskLevelName',
-        'owner'             => 'Owner',
-        'productCode'       => 'ProductCode',
-        'productId'         => 'ProductId',
-        'protection'        => 'Protection',
-        'riskLevelId'       => 'RiskLevelId',
-        'riskLevelName'     => 'RiskLevelName',
-        'ruleName'          => 'RuleName',
-        'sensitive'         => 'Sensitive',
-        'sensitiveCount'    => 'SensitiveCount',
-        'sensitiveRatio'    => 'SensitiveRatio',
-        'totalCount'        => 'TotalCount',
+        'owner' => 'Owner',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'protection' => 'Protection',
+        'riskLevelId' => 'RiskLevelId',
+        'riskLevelName' => 'RiskLevelName',
+        'ruleName' => 'RuleName',
+        'sensitive' => 'Sensitive',
+        'sensitiveCount' => 'SensitiveCount',
+        'sensitiveRatio' => 'SensitiveRatio',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

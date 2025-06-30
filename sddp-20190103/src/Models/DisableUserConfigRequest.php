@@ -12,18 +12,20 @@ class DisableUserConfigRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

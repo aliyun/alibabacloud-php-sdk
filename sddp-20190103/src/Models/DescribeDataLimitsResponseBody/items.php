@@ -12,208 +12,248 @@ class items extends Model
      * @var int
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $autoScan;
+
     /**
      * @var int
      */
     public $checkStatus;
+
     /**
      * @var string
      */
     public $checkStatusName;
+
     /**
      * @var int
      */
     public $datamaskStatus;
+
     /**
      * @var string
      */
     public $dbVersion;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $eventStatus;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceDescription;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $lastFinishedTime;
+
     /**
      * @var int
      */
     public $lastStartTime;
+
     /**
      * @var string
      */
     public $localName;
+
     /**
      * @var int
      */
     public $logStoreDay;
+
     /**
      * @var int
      */
     public $memberAccount;
+
     /**
      * @var int
      */
     public $nextStartTime;
+
     /**
      * @var int
      */
     public $ocrStatus;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var int
      */
     public $processStatus;
+
     /**
      * @var int
      */
     public $processTotalCount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $resourceTypeCode;
+
     /**
      * @var int
      */
     public $samplingSize;
+
     /**
      * @var string[]
      */
     public $securityGroupIdList;
+
     /**
      * @var bool
      */
     public $supportAudit;
+
     /**
      * @var bool
      */
     public $supportDatamask;
+
     /**
      * @var bool
      */
     public $supportEvent;
+
     /**
      * @var bool
      */
     public $supportOcr;
+
     /**
      * @var bool
      */
     public $supportScan;
+
     /**
      * @var string
      */
     public $tenantName;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string[]
      */
     public $vSwitchIdList;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'auditStatus'         => 'AuditStatus',
-        'autoScan'            => 'AutoScan',
-        'checkStatus'         => 'CheckStatus',
-        'checkStatusName'     => 'CheckStatusName',
-        'datamaskStatus'      => 'DatamaskStatus',
-        'dbVersion'           => 'DbVersion',
-        'enable'              => 'Enable',
-        'engineType'          => 'EngineType',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'eventStatus'         => 'EventStatus',
-        'gmtCreate'           => 'GmtCreate',
-        'id'                  => 'Id',
+        'auditStatus' => 'AuditStatus',
+        'autoScan' => 'AutoScan',
+        'checkStatus' => 'CheckStatus',
+        'checkStatusName' => 'CheckStatusName',
+        'datamaskStatus' => 'DatamaskStatus',
+        'dbVersion' => 'DbVersion',
+        'enable' => 'Enable',
+        'engineType' => 'EngineType',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'eventStatus' => 'EventStatus',
+        'gmtCreate' => 'GmtCreate',
+        'id' => 'Id',
         'instanceDescription' => 'InstanceDescription',
-        'instanceId'          => 'InstanceId',
-        'lastFinishedTime'    => 'LastFinishedTime',
-        'lastStartTime'       => 'LastStartTime',
-        'localName'           => 'LocalName',
-        'logStoreDay'         => 'LogStoreDay',
-        'memberAccount'       => 'MemberAccount',
-        'nextStartTime'       => 'NextStartTime',
-        'ocrStatus'           => 'OcrStatus',
-        'parentId'            => 'ParentId',
-        'port'                => 'Port',
-        'processStatus'       => 'ProcessStatus',
-        'processTotalCount'   => 'ProcessTotalCount',
-        'regionId'            => 'RegionId',
-        'resourceType'        => 'ResourceType',
-        'resourceTypeCode'    => 'ResourceTypeCode',
-        'samplingSize'        => 'SamplingSize',
+        'instanceId' => 'InstanceId',
+        'lastFinishedTime' => 'LastFinishedTime',
+        'lastStartTime' => 'LastStartTime',
+        'localName' => 'LocalName',
+        'logStoreDay' => 'LogStoreDay',
+        'memberAccount' => 'MemberAccount',
+        'nextStartTime' => 'NextStartTime',
+        'ocrStatus' => 'OcrStatus',
+        'parentId' => 'ParentId',
+        'port' => 'Port',
+        'processStatus' => 'ProcessStatus',
+        'processTotalCount' => 'ProcessTotalCount',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'resourceTypeCode' => 'ResourceTypeCode',
+        'samplingSize' => 'SamplingSize',
         'securityGroupIdList' => 'SecurityGroupIdList',
-        'supportAudit'        => 'SupportAudit',
-        'supportDatamask'     => 'SupportDatamask',
-        'supportEvent'        => 'SupportEvent',
-        'supportOcr'          => 'SupportOcr',
-        'supportScan'         => 'SupportScan',
-        'tenantName'          => 'TenantName',
-        'totalCount'          => 'TotalCount',
-        'userName'            => 'UserName',
-        'vSwitchIdList'       => 'VSwitchIdList',
-        'vpcId'               => 'VpcId',
+        'supportAudit' => 'SupportAudit',
+        'supportDatamask' => 'SupportDatamask',
+        'supportEvent' => 'SupportEvent',
+        'supportOcr' => 'SupportOcr',
+        'supportScan' => 'SupportScan',
+        'tenantName' => 'TenantName',
+        'totalCount' => 'TotalCount',
+        'userName' => 'UserName',
+        'vSwitchIdList' => 'VSwitchIdList',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -353,9 +393,10 @@ class items extends Model
         if (null !== $this->securityGroupIdList) {
             if (\is_array($this->securityGroupIdList)) {
                 $res['SecurityGroupIdList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupIdList as $item1) {
-                    $res['SecurityGroupIdList'][$n1++] = $item1;
+                    $res['SecurityGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -395,9 +436,10 @@ class items extends Model
         if (null !== $this->vSwitchIdList) {
             if (\is_array($this->vSwitchIdList)) {
                 $res['VSwitchIdList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIdList as $item1) {
-                    $res['VSwitchIdList'][$n1++] = $item1;
+                    $res['VSwitchIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -540,9 +582,10 @@ class items extends Model
         if (isset($map['SecurityGroupIdList'])) {
             if (!empty($map['SecurityGroupIdList'])) {
                 $model->securityGroupIdList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupIdList'] as $item1) {
-                    $model->securityGroupIdList[$n1++] = $item1;
+                    $model->securityGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -582,9 +625,10 @@ class items extends Model
         if (isset($map['VSwitchIdList'])) {
             if (!empty($map['VSwitchIdList'])) {
                 $model->vSwitchIdList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIdList'] as $item1) {
-                    $model->vSwitchIdList[$n1++] = $item1;
+                    $model->vSwitchIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

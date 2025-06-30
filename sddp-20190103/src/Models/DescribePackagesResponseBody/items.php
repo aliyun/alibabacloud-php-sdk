@@ -12,53 +12,62 @@ class items extends Model
      * @var int
      */
     public $creationTime;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var bool
      */
     public $sensitive;
+
     /**
      * @var int
      */
     public $sensitiveCount;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'id'             => 'Id',
-        'instanceId'     => 'InstanceId',
-        'name'           => 'Name',
-        'owner'          => 'Owner',
-        'riskLevelId'    => 'RiskLevelId',
-        'riskLevelName'  => 'RiskLevelName',
-        'sensitive'      => 'Sensitive',
+        'creationTime' => 'CreationTime',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'riskLevelId' => 'RiskLevelId',
+        'riskLevelName' => 'RiskLevelName',
+        'sensitive' => 'Sensitive',
         'sensitiveCount' => 'SensitiveCount',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

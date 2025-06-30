@@ -12,58 +12,68 @@ class DescribeDataMaskingRunHistoryRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $dstType;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $mainProcessId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $srcTableName;
+
     /**
      * @var int
      */
     public $srcType;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
-        'dstType'       => 'DstType',
-        'endTime'       => 'EndTime',
-        'lang'          => 'Lang',
+        'currentPage' => 'CurrentPage',
+        'dstType' => 'DstType',
+        'endTime' => 'EndTime',
+        'lang' => 'Lang',
         'mainProcessId' => 'MainProcessId',
-        'pageSize'      => 'PageSize',
-        'srcTableName'  => 'SrcTableName',
-        'srcType'       => 'SrcType',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'taskId'        => 'TaskId',
+        'pageSize' => 'PageSize',
+        'srcTableName' => 'SrcTableName',
+        'srcType' => 'SrcType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

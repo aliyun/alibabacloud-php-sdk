@@ -13,13 +13,14 @@ class DescribeDocTypesResponseBody extends Model
      * @var docTypeList[]
      */
     public $docTypeList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'docTypeList' => 'DocTypeList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +37,10 @@ class DescribeDocTypesResponseBody extends Model
         if (null !== $this->docTypeList) {
             if (\is_array($this->docTypeList)) {
                 $res['DocTypeList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->docTypeList as $item1) {
-                    $res['DocTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DocTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,9 +63,10 @@ class DescribeDocTypesResponseBody extends Model
         if (isset($map['DocTypeList'])) {
             if (!empty($map['DocTypeList'])) {
                 $model->docTypeList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DocTypeList'] as $item1) {
-                    $model->docTypeList[$n1++] = docTypeList::fromMap($item1);
+                    $model->docTypeList[$n1] = docTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

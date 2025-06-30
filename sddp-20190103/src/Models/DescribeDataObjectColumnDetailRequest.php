@@ -12,26 +12,32 @@ class DescribeDataObjectColumnDetailRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
@@ -39,11 +45,11 @@ class DescribeDataObjectColumnDetailRequest extends Model
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'featureType' => 'FeatureType',
-        'id'          => 'Id',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'productId'   => 'ProductId',
-        'templateId'  => 'TemplateId',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'productId' => 'ProductId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

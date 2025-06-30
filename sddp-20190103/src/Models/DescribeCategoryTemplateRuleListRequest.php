@@ -12,22 +12,27 @@ class DescribeCategoryTemplateRuleListRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
@@ -35,10 +40,10 @@ class DescribeCategoryTemplateRuleListRequest extends Model
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'riskLevelId' => 'RiskLevelId',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

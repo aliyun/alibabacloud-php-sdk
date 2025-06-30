@@ -12,6 +12,7 @@ class ModifyRuleStatusResponseBody extends Model
      * @var string
      */
     public $failedIds;
+
     /**
      * @var string
      */

@@ -12,63 +12,74 @@ class DescribeTablesRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $packageId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'instanceId'      => 'InstanceId',
-        'lang'            => 'Lang',
-        'name'            => 'Name',
-        'packageId'       => 'PackageId',
-        'pageSize'        => 'PageSize',
-        'productCode'     => 'ProductCode',
-        'productId'       => 'ProductId',
-        'riskLevelId'     => 'RiskLevelId',
-        'ruleId'          => 'RuleId',
+        'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'packageId' => 'PackageId',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleId' => 'RuleId',
         'serviceRegionId' => 'ServiceRegionId',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

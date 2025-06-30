@@ -12,68 +12,80 @@ class CreateScanTaskRequest extends Model
      * @var int
      */
     public $dataLimitId;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var int
      */
     public $intervalDay;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $ossScanPath;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $runHour;
+
     /**
      * @var int
      */
     public $runMinute;
+
     /**
      * @var int
      */
     public $scanRange;
+
     /**
      * @var string
      */
     public $scanRangeContent;
+
     /**
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $taskUserName;
     protected $_name = [
-        'dataLimitId'      => 'DataLimitId',
-        'featureType'      => 'FeatureType',
-        'intervalDay'      => 'IntervalDay',
-        'lang'             => 'Lang',
-        'ossScanPath'      => 'OssScanPath',
-        'resourceType'     => 'ResourceType',
-        'runHour'          => 'RunHour',
-        'runMinute'        => 'RunMinute',
-        'scanRange'        => 'ScanRange',
+        'dataLimitId' => 'DataLimitId',
+        'featureType' => 'FeatureType',
+        'intervalDay' => 'IntervalDay',
+        'lang' => 'Lang',
+        'ossScanPath' => 'OssScanPath',
+        'resourceType' => 'ResourceType',
+        'runHour' => 'RunHour',
+        'runMinute' => 'RunMinute',
+        'scanRange' => 'ScanRange',
         'scanRangeContent' => 'ScanRangeContent',
-        'sourceIp'         => 'SourceIp',
-        'taskName'         => 'TaskName',
-        'taskUserName'     => 'TaskUserName',
+        'sourceIp' => 'SourceIp',
+        'taskName' => 'TaskName',
+        'taskUserName' => 'TaskUserName',
     ];
 
     public function validate()

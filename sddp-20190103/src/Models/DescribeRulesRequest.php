@@ -12,103 +12,122 @@ class DescribeRulesRequest extends Model
      * @var int
      */
     public $category;
+
     /**
      * @var int
      */
     public $contentCategory;
+
     /**
      * @var string
      */
     public $cooperationChannel;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $customType;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var bool
      */
     public $keywordCompatible;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $matchType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var bool
      */
     public $simplify;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $supportForm;
+
     /**
      * @var int
      */
     public $warnLevel;
     protected $_name = [
-        'category'           => 'Category',
-        'contentCategory'    => 'ContentCategory',
+        'category' => 'Category',
+        'contentCategory' => 'ContentCategory',
         'cooperationChannel' => 'CooperationChannel',
-        'currentPage'        => 'CurrentPage',
-        'customType'         => 'CustomType',
-        'featureType'        => 'FeatureType',
-        'groupId'            => 'GroupId',
-        'keywordCompatible'  => 'KeywordCompatible',
-        'lang'               => 'Lang',
-        'matchType'          => 'MatchType',
-        'name'               => 'Name',
-        'pageSize'           => 'PageSize',
-        'productCode'        => 'ProductCode',
-        'productId'          => 'ProductId',
-        'riskLevelId'        => 'RiskLevelId',
-        'ruleType'           => 'RuleType',
-        'simplify'           => 'Simplify',
-        'status'             => 'Status',
-        'supportForm'        => 'SupportForm',
-        'warnLevel'          => 'WarnLevel',
+        'currentPage' => 'CurrentPage',
+        'customType' => 'CustomType',
+        'featureType' => 'FeatureType',
+        'groupId' => 'GroupId',
+        'keywordCompatible' => 'KeywordCompatible',
+        'lang' => 'Lang',
+        'matchType' => 'MatchType',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleType' => 'RuleType',
+        'simplify' => 'Simplify',
+        'status' => 'Status',
+        'supportForm' => 'SupportForm',
+        'warnLevel' => 'WarnLevel',
     ];
 
     public function validate()

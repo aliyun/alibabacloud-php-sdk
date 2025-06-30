@@ -12,93 +12,110 @@ class items extends Model
      * @var int
      */
     public $dstMemberAccount;
+
     /**
      * @var string
      */
     public $dstPath;
+
     /**
      * @var int
      */
     public $dstType;
+
     /**
      * @var string
      */
     public $dstTypeCode;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var bool
      */
     public $hasUnfinishProcess;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var bool
      */
     public $originalTable;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $runCount;
+
     /**
      * @var int
      */
     public $srcMemberAccount;
+
     /**
      * @var string
      */
     public $srcPath;
+
     /**
      * @var int
      */
     public $srcType;
+
     /**
      * @var string
      */
     public $srcTypeCode;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var int
      */
     public $triggerType;
     protected $_name = [
-        'dstMemberAccount'   => 'DstMemberAccount',
-        'dstPath'            => 'DstPath',
-        'dstType'            => 'DstType',
-        'dstTypeCode'        => 'DstTypeCode',
-        'gmtCreate'          => 'GmtCreate',
+        'dstMemberAccount' => 'DstMemberAccount',
+        'dstPath' => 'DstPath',
+        'dstType' => 'DstType',
+        'dstTypeCode' => 'DstTypeCode',
+        'gmtCreate' => 'GmtCreate',
         'hasUnfinishProcess' => 'HasUnfinishProcess',
-        'id'                 => 'Id',
-        'originalTable'      => 'OriginalTable',
-        'owner'              => 'Owner',
-        'runCount'           => 'RunCount',
-        'srcMemberAccount'   => 'SrcMemberAccount',
-        'srcPath'            => 'SrcPath',
-        'srcType'            => 'SrcType',
-        'srcTypeCode'        => 'SrcTypeCode',
-        'status'             => 'Status',
-        'taskId'             => 'TaskId',
-        'taskName'           => 'TaskName',
-        'triggerType'        => 'TriggerType',
+        'id' => 'Id',
+        'originalTable' => 'OriginalTable',
+        'owner' => 'Owner',
+        'runCount' => 'RunCount',
+        'srcMemberAccount' => 'SrcMemberAccount',
+        'srcPath' => 'SrcPath',
+        'srcType' => 'SrcType',
+        'srcTypeCode' => 'SrcTypeCode',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'triggerType' => 'TriggerType',
     ];
 
     public function validate()

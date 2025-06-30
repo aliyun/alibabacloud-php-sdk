@@ -12,98 +12,116 @@ class CreateRuleRequest extends Model
      * @var int
      */
     public $category;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $contentCategory;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $matchType;
+
     /**
      * @var string
      */
     public $modelRuleIds;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $statExpress;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $supportForm;
+
     /**
      * @var string
      */
     public $target;
+
     /**
      * @var string
      */
     public $templateRuleIds;
+
     /**
      * @var int
      */
     public $warnLevel;
     protected $_name = [
-        'category'        => 'Category',
-        'content'         => 'Content',
+        'category' => 'Category',
+        'content' => 'Content',
         'contentCategory' => 'ContentCategory',
-        'description'     => 'Description',
-        'lang'            => 'Lang',
-        'matchType'       => 'MatchType',
-        'modelRuleIds'    => 'ModelRuleIds',
-        'name'            => 'Name',
-        'productCode'     => 'ProductCode',
-        'productId'       => 'ProductId',
-        'riskLevelId'     => 'RiskLevelId',
-        'ruleType'        => 'RuleType',
-        'sourceIp'        => 'SourceIp',
-        'statExpress'     => 'StatExpress',
-        'status'          => 'Status',
-        'supportForm'     => 'SupportForm',
-        'target'          => 'Target',
+        'description' => 'Description',
+        'lang' => 'Lang',
+        'matchType' => 'MatchType',
+        'modelRuleIds' => 'ModelRuleIds',
+        'name' => 'Name',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleType' => 'RuleType',
+        'sourceIp' => 'SourceIp',
+        'statExpress' => 'StatExpress',
+        'status' => 'Status',
+        'supportForm' => 'SupportForm',
+        'target' => 'Target',
         'templateRuleIds' => 'TemplateRuleIds',
-        'warnLevel'       => 'WarnLevel',
+        'warnLevel' => 'WarnLevel',
     ];
 
     public function validate()

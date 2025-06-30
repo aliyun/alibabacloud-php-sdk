@@ -12,78 +12,92 @@ class DescribeDataLimitsRequest extends Model
      * @var int
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $checkStatus;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $datamaskStatus;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $memberAccount;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $serviceRegionId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'auditStatus'     => 'AuditStatus',
-        'checkStatus'     => 'CheckStatus',
-        'currentPage'     => 'CurrentPage',
-        'datamaskStatus'  => 'DatamaskStatus',
-        'enable'          => 'Enable',
-        'endTime'         => 'EndTime',
-        'engineType'      => 'EngineType',
-        'featureType'     => 'FeatureType',
-        'lang'            => 'Lang',
-        'memberAccount'   => 'MemberAccount',
-        'pageSize'        => 'PageSize',
-        'parentId'        => 'ParentId',
-        'resourceType'    => 'ResourceType',
+        'auditStatus' => 'AuditStatus',
+        'checkStatus' => 'CheckStatus',
+        'currentPage' => 'CurrentPage',
+        'datamaskStatus' => 'DatamaskStatus',
+        'enable' => 'Enable',
+        'endTime' => 'EndTime',
+        'engineType' => 'EngineType',
+        'featureType' => 'FeatureType',
+        'lang' => 'Lang',
+        'memberAccount' => 'MemberAccount',
+        'pageSize' => 'PageSize',
+        'parentId' => 'ParentId',
+        'resourceType' => 'ResourceType',
         'serviceRegionId' => 'ServiceRegionId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

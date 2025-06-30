@@ -13,108 +13,128 @@ class items extends Model
      * @var int
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $departName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceDescription;
+
     /**
      * @var bool
      */
     public $labelsec;
+
     /**
      * @var int
      */
     public $lastFinishTime;
+
     /**
      * @var string
      */
     public $memberAliUid;
+
     /**
      * @var modelTags[]
      */
     public $modelTags;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $odpsRiskLevelName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var bool
      */
     public $protection;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var bool
      */
     public $sensitive;
+
     /**
      * @var int
      */
     public $sensitiveCount;
+
     /**
      * @var string
      */
     public $tenantName;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'creationTime'        => 'CreationTime',
-        'departName'          => 'DepartName',
-        'id'                  => 'Id',
+        'creationTime' => 'CreationTime',
+        'departName' => 'DepartName',
+        'id' => 'Id',
         'instanceDescription' => 'InstanceDescription',
-        'labelsec'            => 'Labelsec',
-        'lastFinishTime'      => 'LastFinishTime',
-        'memberAliUid'        => 'MemberAliUid',
-        'modelTags'           => 'ModelTags',
-        'name'                => 'Name',
-        'odpsRiskLevelName'   => 'OdpsRiskLevelName',
-        'owner'               => 'Owner',
-        'productCode'         => 'ProductCode',
-        'productId'           => 'ProductId',
-        'protection'          => 'Protection',
-        'riskLevelId'         => 'RiskLevelId',
-        'riskLevelName'       => 'RiskLevelName',
-        'ruleName'            => 'RuleName',
-        'sensitive'           => 'Sensitive',
-        'sensitiveCount'      => 'SensitiveCount',
-        'tenantName'          => 'TenantName',
-        'totalCount'          => 'TotalCount',
+        'labelsec' => 'Labelsec',
+        'lastFinishTime' => 'LastFinishTime',
+        'memberAliUid' => 'MemberAliUid',
+        'modelTags' => 'ModelTags',
+        'name' => 'Name',
+        'odpsRiskLevelName' => 'OdpsRiskLevelName',
+        'owner' => 'Owner',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'protection' => 'Protection',
+        'riskLevelId' => 'RiskLevelId',
+        'riskLevelName' => 'RiskLevelName',
+        'ruleName' => 'RuleName',
+        'sensitive' => 'Sensitive',
+        'sensitiveCount' => 'SensitiveCount',
+        'tenantName' => 'TenantName',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -159,9 +179,10 @@ class items extends Model
         if (null !== $this->modelTags) {
             if (\is_array($this->modelTags)) {
                 $res['ModelTags'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->modelTags as $item1) {
-                    $res['ModelTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModelTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -260,9 +281,10 @@ class items extends Model
         if (isset($map['ModelTags'])) {
             if (!empty($map['ModelTags'])) {
                 $model->modelTags = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ModelTags'] as $item1) {
-                    $model->modelTags[$n1++] = modelTags::fromMap($item1);
+                    $model->modelTags[$n1] = modelTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

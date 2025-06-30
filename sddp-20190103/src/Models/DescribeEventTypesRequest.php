@@ -12,28 +12,32 @@ class DescribeEventTypesRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $parentTypeId;
+
     /**
      * @var int
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'featureType'  => 'FeatureType',
-        'lang'         => 'Lang',
+        'featureType' => 'FeatureType',
+        'lang' => 'Lang',
         'parentTypeId' => 'ParentTypeId',
-        'resourceId'   => 'ResourceId',
-        'status'       => 'Status',
+        'resourceId' => 'ResourceId',
+        'status' => 'Status',
     ];
 
     public function validate()

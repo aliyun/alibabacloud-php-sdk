@@ -12,22 +12,25 @@ class DescribeDataLimitDetailRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $networkType;
     protected $_name = [
         'featureType' => 'FeatureType',
-        'id'          => 'Id',
-        'lang'        => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'networkType' => 'NetworkType',
     ];
 

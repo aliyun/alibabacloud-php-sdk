@@ -12,13 +12,14 @@ class DescribeUserStatusRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

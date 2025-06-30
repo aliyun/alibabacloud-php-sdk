@@ -13,33 +13,38 @@ class ruleList extends Model
      * @var string
      */
     public $categoryName;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var modelTags[]
      */
     public $modelTags;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'categoryName'  => 'CategoryName',
-        'count'         => 'Count',
-        'modelTags'     => 'ModelTags',
-        'riskLevelId'   => 'RiskLevelId',
+        'categoryName' => 'CategoryName',
+        'count' => 'Count',
+        'modelTags' => 'ModelTags',
+        'riskLevelId' => 'RiskLevelId',
         'riskLevelName' => 'RiskLevelName',
-        'ruleName'      => 'RuleName',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()
@@ -64,9 +69,10 @@ class ruleList extends Model
         if (null !== $this->modelTags) {
             if (\is_array($this->modelTags)) {
                 $res['ModelTags'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->modelTags as $item1) {
-                    $res['ModelTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModelTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,9 +111,10 @@ class ruleList extends Model
         if (isset($map['ModelTags'])) {
             if (!empty($map['ModelTags'])) {
                 $model->modelTags = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ModelTags'] as $item1) {
-                    $model->modelTags[$n1++] = modelTags::fromMap($item1);
+                    $model->modelTags[$n1] = modelTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

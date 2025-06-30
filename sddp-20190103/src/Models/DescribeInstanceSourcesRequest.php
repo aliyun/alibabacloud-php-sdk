@@ -12,67 +12,79 @@ class DescribeInstanceSourcesRequest extends Model
      * @var int
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $authStatus;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var string
      */
     public $searchKey;
+
     /**
      * @var string
      */
     public $searchType;
+
     /**
      * @var string
      */
     public $serviceRegionId;
     protected $_name = [
-        'auditStatus'     => 'AuditStatus',
-        'authStatus'      => 'AuthStatus',
-        'currentPage'     => 'CurrentPage',
-        'engineType'      => 'EngineType',
-        'featureType'     => 'FeatureType',
-        'instanceId'      => 'InstanceId',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
-        'productCode'     => 'ProductCode',
-        'productId'       => 'ProductId',
-        'searchKey'       => 'SearchKey',
-        'searchType'      => 'SearchType',
+        'auditStatus' => 'AuditStatus',
+        'authStatus' => 'AuthStatus',
+        'currentPage' => 'CurrentPage',
+        'engineType' => 'EngineType',
+        'featureType' => 'FeatureType',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'productId' => 'ProductId',
+        'searchKey' => 'SearchKey',
+        'searchType' => 'SearchType',
         'serviceRegionId' => 'ServiceRegionId',
     ];
 

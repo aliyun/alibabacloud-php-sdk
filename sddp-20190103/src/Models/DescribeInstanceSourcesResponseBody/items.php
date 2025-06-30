@@ -12,128 +12,152 @@ class items extends Model
      * @var int
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $autoScan;
+
     /**
      * @var bool
      */
     public $canModifyUserName;
+
     /**
      * @var int
      */
     public $checkStatus;
+
     /**
      * @var int
      */
     public $datamaskStatus;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceDescription;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceSize;
+
     /**
      * @var int
      */
     public $lastModifyTime;
+
     /**
      * @var string
      */
     public $lastModifyUserId;
+
     /**
      * @var int
      */
     public $logStoreDay;
+
     /**
      * @var int
      */
     public $passwordStatus;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionName;
+
     /**
      * @var int
      */
     public $samplingSize;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $tenantName;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'auditStatus'         => 'AuditStatus',
-        'autoScan'            => 'AutoScan',
-        'canModifyUserName'   => 'CanModifyUserName',
-        'checkStatus'         => 'CheckStatus',
-        'datamaskStatus'      => 'DatamaskStatus',
-        'dbName'              => 'DbName',
-        'enable'              => 'Enable',
-        'engineType'          => 'EngineType',
-        'errorMessage'        => 'ErrorMessage',
-        'gmtCreate'           => 'GmtCreate',
-        'id'                  => 'Id',
+        'auditStatus' => 'AuditStatus',
+        'autoScan' => 'AutoScan',
+        'canModifyUserName' => 'CanModifyUserName',
+        'checkStatus' => 'CheckStatus',
+        'datamaskStatus' => 'DatamaskStatus',
+        'dbName' => 'DbName',
+        'enable' => 'Enable',
+        'engineType' => 'EngineType',
+        'errorMessage' => 'ErrorMessage',
+        'gmtCreate' => 'GmtCreate',
+        'id' => 'Id',
         'instanceDescription' => 'InstanceDescription',
-        'instanceId'          => 'InstanceId',
-        'instanceSize'        => 'InstanceSize',
-        'lastModifyTime'      => 'LastModifyTime',
-        'lastModifyUserId'    => 'LastModifyUserId',
-        'logStoreDay'         => 'LogStoreDay',
-        'passwordStatus'      => 'PasswordStatus',
-        'productId'           => 'ProductId',
-        'regionId'            => 'RegionId',
-        'regionName'          => 'RegionName',
-        'samplingSize'        => 'SamplingSize',
-        'tenantId'            => 'TenantId',
-        'tenantName'          => 'TenantName',
-        'userName'            => 'UserName',
+        'instanceId' => 'InstanceId',
+        'instanceSize' => 'InstanceSize',
+        'lastModifyTime' => 'LastModifyTime',
+        'lastModifyUserId' => 'LastModifyUserId',
+        'logStoreDay' => 'LogStoreDay',
+        'passwordStatus' => 'PasswordStatus',
+        'productId' => 'ProductId',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
+        'samplingSize' => 'SamplingSize',
+        'tenantId' => 'TenantId',
+        'tenantName' => 'TenantName',
+        'userName' => 'UserName',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class DescribeEventDetailResponseBody extends Model
      * @var event
      */
     public $event;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'event'     => 'Event',
+        'event' => 'Event',
         'requestId' => 'RequestId',
     ];
 

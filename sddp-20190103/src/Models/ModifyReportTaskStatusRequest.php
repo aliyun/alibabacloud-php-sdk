@@ -12,17 +12,19 @@ class ModifyReportTaskStatusRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $reportTaskStatus;
     protected $_name = [
-        'featureType'      => 'FeatureType',
-        'lang'             => 'Lang',
+        'featureType' => 'FeatureType',
+        'lang' => 'Lang',
         'reportTaskStatus' => 'ReportTaskStatus',
     ];
 

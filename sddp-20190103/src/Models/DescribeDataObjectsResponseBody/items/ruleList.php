@@ -12,28 +12,32 @@ class ruleList extends Model
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var int
      */
     public $ruleCount;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'riskLevelId'   => 'RiskLevelId',
+        'riskLevelId' => 'RiskLevelId',
         'riskLevelName' => 'RiskLevelName',
-        'ruleCount'     => 'RuleCount',
-        'ruleId'        => 'RuleId',
-        'ruleName'      => 'RuleName',
+        'ruleCount' => 'RuleCount',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

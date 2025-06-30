@@ -12,18 +12,20 @@ class DescribeRiskLevelsRequest extends Model
      * @var int
      */
     public $featureType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
         'featureType' => 'FeatureType',
-        'lang'        => 'Lang',
-        'templateId'  => 'TemplateId',
+        'lang' => 'Lang',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

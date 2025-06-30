@@ -12,58 +12,68 @@ class subTypeList extends Model
      * @var string
      */
     public $adaptedProduct;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $configCode;
+
     /**
      * @var int
      */
     public $configContentType;
+
     /**
      * @var string
      */
     public $configDescription;
+
     /**
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $eventHitCount;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'adaptedProduct'    => 'AdaptedProduct',
-        'code'              => 'Code',
-        'configCode'        => 'ConfigCode',
+        'adaptedProduct' => 'AdaptedProduct',
+        'code' => 'Code',
+        'configCode' => 'ConfigCode',
         'configContentType' => 'ConfigContentType',
         'configDescription' => 'ConfigDescription',
-        'configValue'       => 'ConfigValue',
-        'description'       => 'Description',
-        'eventHitCount'     => 'EventHitCount',
-        'id'                => 'Id',
-        'name'              => 'Name',
-        'status'            => 'Status',
+        'configValue' => 'ConfigValue',
+        'description' => 'Description',
+        'eventHitCount' => 'EventHitCount',
+        'id' => 'Id',
+        'name' => 'Name',
+        'status' => 'Status',
     ];
 
     public function validate()

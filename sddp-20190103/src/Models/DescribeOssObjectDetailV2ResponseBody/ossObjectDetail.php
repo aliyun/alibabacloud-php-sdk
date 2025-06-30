@@ -13,63 +13,74 @@ class ossObjectDetail extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $categoryName;
+
     /**
      * @var string
      */
     public $fileCategoryName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $modelTagIds;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $objectAcl;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $riskLevelId;
+
     /**
      * @var string
      */
     public $riskLevelName;
+
     /**
      * @var ruleList[]
      */
     public $ruleList;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'bucketName'       => 'BucketName',
-        'categoryName'     => 'CategoryName',
+        'bucketName' => 'BucketName',
+        'categoryName' => 'CategoryName',
         'fileCategoryName' => 'FileCategoryName',
-        'id'               => 'Id',
-        'modelTagIds'      => 'ModelTagIds',
-        'name'             => 'Name',
-        'objectAcl'        => 'ObjectAcl',
-        'regionId'         => 'RegionId',
-        'riskLevelId'      => 'RiskLevelId',
-        'riskLevelName'    => 'RiskLevelName',
-        'ruleList'         => 'RuleList',
-        'size'             => 'Size',
+        'id' => 'Id',
+        'modelTagIds' => 'ModelTagIds',
+        'name' => 'Name',
+        'objectAcl' => 'ObjectAcl',
+        'regionId' => 'RegionId',
+        'riskLevelId' => 'RiskLevelId',
+        'riskLevelName' => 'RiskLevelName',
+        'ruleList' => 'RuleList',
+        'size' => 'Size',
     ];
 
     public function validate()
@@ -126,9 +137,10 @@ class ossObjectDetail extends Model
         if (null !== $this->ruleList) {
             if (\is_array($this->ruleList)) {
                 $res['RuleList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->ruleList as $item1) {
-                    $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,9 +203,10 @@ class ossObjectDetail extends Model
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['RuleList'] as $item1) {
-                    $model->ruleList[$n1++] = ruleList::fromMap($item1);
+                    $model->ruleList[$n1] = ruleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
