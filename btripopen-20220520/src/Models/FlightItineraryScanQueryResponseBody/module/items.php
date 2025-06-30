@@ -237,7 +237,8 @@ class items extends Model
                 $res['flights'] = [];
                 $n1 = 0;
                 foreach ($this->flights as $item1) {
-                    $res['flights'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flights'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +379,8 @@ class items extends Model
                 $model->flights = [];
                 $n1 = 0;
                 foreach ($map['flights'] as $item1) {
-                    $model->flights[$n1++] = flights::fromMap($item1);
+                    $model->flights[$n1] = flights::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

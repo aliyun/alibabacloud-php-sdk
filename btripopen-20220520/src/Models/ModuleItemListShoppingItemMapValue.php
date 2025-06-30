@@ -77,7 +77,8 @@ class ModuleItemListShoppingItemMapValue extends Model
                 $res['cabin_quantity_list'] = [];
                 $n1 = 0;
                 foreach ($this->cabinQuantityList as $item1) {
-                    $res['cabin_quantity_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cabin_quantity_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ModuleItemListShoppingItemMapValue extends Model
                 $res['segment_price_list'] = [];
                 $n1 = 0;
                 foreach ($this->segmentPriceList as $item1) {
-                    $res['segment_price_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['segment_price_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +136,8 @@ class ModuleItemListShoppingItemMapValue extends Model
                 $model->cabinQuantityList = [];
                 $n1 = 0;
                 foreach ($map['cabin_quantity_list'] as $item1) {
-                    $model->cabinQuantityList[$n1++] = cabinQuantityList::fromMap($item1);
+                    $model->cabinQuantityList[$n1] = cabinQuantityList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class ModuleItemListShoppingItemMapValue extends Model
                 $model->segmentPriceList = [];
                 $n1 = 0;
                 foreach ($map['segment_price_list'] as $item1) {
-                    $model->segmentPriceList[$n1++] = segmentPriceList::fromMap($item1);
+                    $model->segmentPriceList[$n1] = segmentPriceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

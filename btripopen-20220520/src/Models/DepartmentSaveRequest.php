@@ -33,7 +33,8 @@ class DepartmentSaveRequest extends Model
                 $res['depart_list'] = [];
                 $n1 = 0;
                 foreach ($this->departList as $item1) {
-                    $res['depart_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['depart_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DepartmentSaveRequest extends Model
                 $model->departList = [];
                 $n1 = 0;
                 foreach ($map['depart_list'] as $item1) {
-                    $model->departList[$n1++] = departList::fromMap($item1);
+                    $model->departList[$n1] = departList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -161,7 +161,8 @@ class userList extends Model
                 $res['cert_list'] = [];
                 $n1 = 0;
                 foreach ($this->certList as $item1) {
-                    $res['cert_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cert_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +216,8 @@ class userList extends Model
                 $res['role_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->roleIdList as $item1) {
-                    $res['role_id_list'][$n1++] = $item1;
+                    $res['role_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +231,8 @@ class userList extends Model
                 $res['third_depart_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->thirdDepartIdList as $item1) {
-                    $res['third_depart_id_list'][$n1++] = $item1;
+                    $res['third_depart_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +273,8 @@ class userList extends Model
                 $model->certList = [];
                 $n1 = 0;
                 foreach ($map['cert_list'] as $item1) {
-                    $model->certList[$n1++] = certList::fromMap($item1);
+                    $model->certList[$n1] = certList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -324,7 +328,8 @@ class userList extends Model
                 $model->roleIdList = [];
                 $n1 = 0;
                 foreach ($map['role_id_list'] as $item1) {
-                    $model->roleIdList[$n1++] = $item1;
+                    $model->roleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +343,8 @@ class userList extends Model
                 $model->thirdDepartIdList = [];
                 $n1 = 0;
                 foreach ($map['third_depart_id_list'] as $item1) {
-                    $model->thirdDepartIdList[$n1++] = $item1;
+                    $model->thirdDepartIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class passengerSegmentRelations extends Model
                 $res['segment_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->segmentIdList as $item1) {
-                    $res['segment_id_list'][$n1++] = $item1;
+                    $res['segment_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class passengerSegmentRelations extends Model
                 $model->segmentIdList = [];
                 $n1 = 0;
                 foreach ($map['segment_id_list'] as $item1) {
-                    $model->segmentIdList[$n1++] = $item1;
+                    $model->segmentIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

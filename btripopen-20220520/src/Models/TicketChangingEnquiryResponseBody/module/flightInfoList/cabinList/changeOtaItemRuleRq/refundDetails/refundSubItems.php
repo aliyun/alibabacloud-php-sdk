@@ -69,7 +69,8 @@ class refundSubItems extends Model
                 $res['refund_sub_contents'] = [];
                 $n1 = 0;
                 foreach ($this->refundSubContents as $item1) {
-                    $res['refund_sub_contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_sub_contents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class refundSubItems extends Model
                 $model->refundSubContents = [];
                 $n1 = 0;
                 foreach ($map['refund_sub_contents'] as $item1) {
-                    $model->refundSubContents[$n1++] = refundSubContents::fromMap($item1);
+                    $model->refundSubContents[$n1] = refundSubContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

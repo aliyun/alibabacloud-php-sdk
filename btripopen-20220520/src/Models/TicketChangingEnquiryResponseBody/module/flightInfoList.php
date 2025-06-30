@@ -159,7 +159,8 @@ class flightInfoList extends Model
                 $res['cabin_list'] = [];
                 $n1 = 0;
                 foreach ($this->cabinList as $item1) {
-                    $res['cabin_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cabin_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +210,8 @@ class flightInfoList extends Model
                 $res['lowest_cabin_price'] = [];
                 $n1 = 0;
                 foreach ($this->lowestCabinPrice as $item1) {
-                    $res['lowest_cabin_price'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['lowest_cabin_price'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -254,7 +256,8 @@ class flightInfoList extends Model
                 $model->cabinList = [];
                 $n1 = 0;
                 foreach ($map['cabin_list'] as $item1) {
-                    $model->cabinList[$n1++] = cabinList::fromMap($item1);
+                    $model->cabinList[$n1] = cabinList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +307,8 @@ class flightInfoList extends Model
                 $model->lowestCabinPrice = [];
                 $n1 = 0;
                 foreach ($map['lowest_cabin_price'] as $item1) {
-                    $model->lowestCabinPrice[$n1++] = lowestCabinPrice::fromMap($item1);
+                    $model->lowestCabinPrice[$n1] = lowestCabinPrice::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

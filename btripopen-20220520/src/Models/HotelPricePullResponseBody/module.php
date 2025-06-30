@@ -33,7 +33,8 @@ class module extends Model
                 $res['hotel_price_infos'] = [];
                 $n1 = 0;
                 foreach ($this->hotelPriceInfos as $item1) {
-                    $res['hotel_price_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotel_price_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class module extends Model
                 $model->hotelPriceInfos = [];
                 $n1 = 0;
                 foreach ($map['hotel_price_infos'] as $item1) {
-                    $model->hotelPriceInfos[$n1++] = hotelPriceInfos::fromMap($item1);
+                    $model->hotelPriceInfos[$n1] = hotelPriceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

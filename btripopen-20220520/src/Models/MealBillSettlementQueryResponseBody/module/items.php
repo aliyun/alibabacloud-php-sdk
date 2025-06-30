@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $adjustTime;
+
+    /**
+     * @var string
+     */
     public $applyExtendField;
 
     /**
@@ -96,6 +101,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $costDepartment;
+
+    /**
+     * @var string
+     */
     public $department;
 
     /**
@@ -127,6 +137,11 @@ class items extends Model
      * @var string
      */
     public $mainApplyId;
+
+    /**
+     * @var string
+     */
+    public $mappingCompanyCode;
 
     /**
      * @var string
@@ -192,6 +207,11 @@ class items extends Model
      * @var int
      */
     public $primaryId;
+
+    /**
+     * @var string
+     */
+    public $processorOaCode;
 
     /**
      * @var string
@@ -313,6 +333,7 @@ class items extends Model
      */
     public $voucherTypeDesc;
     protected $_name = [
+        'adjustTime' => 'adjust_time',
         'applyExtendField' => 'apply_extend_field',
         'applyId' => 'apply_id',
         'billRecordTime' => 'bill_record_time',
@@ -330,6 +351,7 @@ class items extends Model
         'corpSettleFee' => 'corp_settle_fee',
         'costCenter' => 'cost_center',
         'costCenterNumber' => 'cost_center_number',
+        'costDepartment' => 'cost_department',
         'department' => 'department',
         'departmentId' => 'department_id',
         'feeType' => 'fee_type',
@@ -337,6 +359,7 @@ class items extends Model
         'index' => 'index',
         'invoiceTitle' => 'invoice_title',
         'mainApplyId' => 'main_apply_id',
+        'mappingCompanyCode' => 'mapping_company_code',
         'mealAddress' => 'meal_address',
         'mealCity' => 'meal_city',
         'mealCityCode' => 'meal_city_code',
@@ -350,6 +373,7 @@ class items extends Model
         'orderStatusDesc' => 'order_status_desc',
         'personSettlePrice' => 'person_settle_price',
         'primaryId' => 'primary_id',
+        'processorOaCode' => 'processor_oa_code',
         'projectCode' => 'project_code',
         'projectName' => 'project_name',
         'remark' => 'remark',
@@ -384,6 +408,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adjustTime) {
+            $res['adjust_time'] = $this->adjustTime;
+        }
+
         if (null !== $this->applyExtendField) {
             $res['apply_extend_field'] = $this->applyExtendField;
         }
@@ -452,6 +480,10 @@ class items extends Model
             $res['cost_center_number'] = $this->costCenterNumber;
         }
 
+        if (null !== $this->costDepartment) {
+            $res['cost_department'] = $this->costDepartment;
+        }
+
         if (null !== $this->department) {
             $res['department'] = $this->department;
         }
@@ -478,6 +510,10 @@ class items extends Model
 
         if (null !== $this->mainApplyId) {
             $res['main_apply_id'] = $this->mainApplyId;
+        }
+
+        if (null !== $this->mappingCompanyCode) {
+            $res['mapping_company_code'] = $this->mappingCompanyCode;
         }
 
         if (null !== $this->mealAddress) {
@@ -530,6 +566,10 @@ class items extends Model
 
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
+        }
+
+        if (null !== $this->processorOaCode) {
+            $res['processor_oa_code'] = $this->processorOaCode;
         }
 
         if (null !== $this->projectCode) {
@@ -639,6 +679,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['adjust_time'])) {
+            $model->adjustTime = $map['adjust_time'];
+        }
+
         if (isset($map['apply_extend_field'])) {
             $model->applyExtendField = $map['apply_extend_field'];
         }
@@ -707,6 +751,10 @@ class items extends Model
             $model->costCenterNumber = $map['cost_center_number'];
         }
 
+        if (isset($map['cost_department'])) {
+            $model->costDepartment = $map['cost_department'];
+        }
+
         if (isset($map['department'])) {
             $model->department = $map['department'];
         }
@@ -733,6 +781,10 @@ class items extends Model
 
         if (isset($map['main_apply_id'])) {
             $model->mainApplyId = $map['main_apply_id'];
+        }
+
+        if (isset($map['mapping_company_code'])) {
+            $model->mappingCompanyCode = $map['mapping_company_code'];
         }
 
         if (isset($map['meal_address'])) {
@@ -785,6 +837,10 @@ class items extends Model
 
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];
+        }
+
+        if (isset($map['processor_oa_code'])) {
+            $model->processorOaCode = $map['processor_oa_code'];
         }
 
         if (isset($map['project_code'])) {

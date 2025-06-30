@@ -74,7 +74,8 @@ class module extends Model
                 $res['baggage_rule'] = [];
                 $n1 = 0;
                 foreach ($this->baggageRule as $item1) {
-                    $res['baggage_rule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['baggage_rule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class module extends Model
                 $res['change_rule'] = [];
                 $n1 = 0;
                 foreach ($this->changeRule as $item1) {
-                    $res['change_rule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['change_rule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class module extends Model
                 $res['refund_rule'] = [];
                 $n1 = 0;
                 foreach ($this->refundRule as $item1) {
-                    $res['refund_rule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_rule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class module extends Model
                 $res['sell_price_list'] = [];
                 $n1 = 0;
                 foreach ($this->sellPriceList as $item1) {
-                    $res['sell_price_list'][$n1++] = $item1;
+                    $res['sell_price_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +137,8 @@ class module extends Model
                 $model->baggageRule = [];
                 $n1 = 0;
                 foreach ($map['baggage_rule'] as $item1) {
-                    $model->baggageRule[$n1++] = baggageRule::fromMap($item1);
+                    $model->baggageRule[$n1] = baggageRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +148,8 @@ class module extends Model
                 $model->changeRule = [];
                 $n1 = 0;
                 foreach ($map['change_rule'] as $item1) {
-                    $model->changeRule[$n1++] = changeRule::fromMap($item1);
+                    $model->changeRule[$n1] = changeRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +159,8 @@ class module extends Model
                 $model->refundRule = [];
                 $n1 = 0;
                 foreach ($map['refund_rule'] as $item1) {
-                    $model->refundRule[$n1++] = refundRule::fromMap($item1);
+                    $model->refundRule[$n1] = refundRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +174,8 @@ class module extends Model
                 $model->sellPriceList = [];
                 $n1 = 0;
                 foreach ($map['sell_price_list'] as $item1) {
-                    $model->sellPriceList[$n1++] = $item1;
+                    $model->sellPriceList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

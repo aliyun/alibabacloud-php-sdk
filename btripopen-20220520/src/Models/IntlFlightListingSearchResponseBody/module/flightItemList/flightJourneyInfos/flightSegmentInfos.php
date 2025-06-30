@@ -9,7 +9,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseB
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList\flightJourneyInfos\flightSegmentInfos\arrAirportInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList\flightJourneyInfos\flightSegmentInfos\depAirportInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList\flightJourneyInfos\flightSegmentInfos\flightShareInfo;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList\flightJourneyInfos\flightSegmentInfos\flightStopInfo;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList\flightJourneyInfos\flightSegmentInfos\flightStopInfoList;
 
 class flightSegmentInfos extends Model
 {
@@ -37,11 +37,6 @@ class flightSegmentInfos extends Model
      * @var string
      */
     public $arrTime;
-
-    /**
-     * @var string
-     */
-    public $baggageDesc;
 
     /**
      * @var depAirportInfo
@@ -84,9 +79,9 @@ class flightSegmentInfos extends Model
     public $flightSize;
 
     /**
-     * @var flightStopInfo
+     * @var flightStopInfoList[]
      */
-    public $flightStopInfo;
+    public $flightStopInfoList;
 
     /**
      * @var string
@@ -102,16 +97,6 @@ class flightSegmentInfos extends Model
      * @var string
      */
     public $mealDesc;
-
-    /**
-     * @var int
-     */
-    public $miles;
-
-    /**
-     * @var string
-     */
-    public $onTimeRate;
 
     /**
      * @var int
@@ -152,23 +137,12 @@ class flightSegmentInfos extends Model
      * @var string
      */
     public $totalTime;
-
-    /**
-     * @var string
-     */
-    public $transferTime;
-
-    /**
-     * @var int
-     */
-    public $transferTimeNumber;
     protected $_name = [
         'airlineInfo' => 'airline_info',
         'arrAirportInfo' => 'arr_airport_info',
         'arrCityCode' => 'arr_city_code',
         'arrCityName' => 'arr_city_name',
         'arrTime' => 'arr_time',
-        'baggageDesc' => 'baggage_desc',
         'depAirportInfo' => 'dep_airport_info',
         'depCityCode' => 'dep_city_code',
         'depCityName' => 'dep_city_name',
@@ -177,12 +151,10 @@ class flightSegmentInfos extends Model
         'flightNo' => 'flight_no',
         'flightShareInfo' => 'flight_share_info',
         'flightSize' => 'flight_size',
-        'flightStopInfo' => 'flight_stop_info',
+        'flightStopInfoList' => 'flight_stop_info_list',
         'flightType' => 'flight_type',
         'manufacturer' => 'manufacturer',
         'mealDesc' => 'meal_desc',
-        'miles' => 'miles',
-        'onTimeRate' => 'on_time_rate',
         'oneMore' => 'one_more',
         'oneMoreShow' => 'one_more_show',
         'segmentIndex' => 'segment_index',
@@ -191,8 +163,6 @@ class flightSegmentInfos extends Model
         'shortFlightSize' => 'short_flight_size',
         'stop' => 'stop',
         'totalTime' => 'total_time',
-        'transferTime' => 'transfer_time',
-        'transferTimeNumber' => 'transfer_time_number',
     ];
 
     public function validate()
@@ -209,8 +179,8 @@ class flightSegmentInfos extends Model
         if (null !== $this->flightShareInfo) {
             $this->flightShareInfo->validate();
         }
-        if (null !== $this->flightStopInfo) {
-            $this->flightStopInfo->validate();
+        if (\is_array($this->flightStopInfoList)) {
+            Model::validateArray($this->flightStopInfoList);
         }
         parent::validate();
     }
@@ -236,10 +206,6 @@ class flightSegmentInfos extends Model
 
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
-        }
-
-        if (null !== $this->baggageDesc) {
-            $res['baggage_desc'] = $this->baggageDesc;
         }
 
         if (null !== $this->depAirportInfo) {
@@ -274,8 +240,15 @@ class flightSegmentInfos extends Model
             $res['flight_size'] = $this->flightSize;
         }
 
-        if (null !== $this->flightStopInfo) {
-            $res['flight_stop_info'] = null !== $this->flightStopInfo ? $this->flightStopInfo->toArray($noStream) : $this->flightStopInfo;
+        if (null !== $this->flightStopInfoList) {
+            if (\is_array($this->flightStopInfoList)) {
+                $res['flight_stop_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->flightStopInfoList as $item1) {
+                    $res['flight_stop_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->flightType) {
@@ -288,14 +261,6 @@ class flightSegmentInfos extends Model
 
         if (null !== $this->mealDesc) {
             $res['meal_desc'] = $this->mealDesc;
-        }
-
-        if (null !== $this->miles) {
-            $res['miles'] = $this->miles;
-        }
-
-        if (null !== $this->onTimeRate) {
-            $res['on_time_rate'] = $this->onTimeRate;
         }
 
         if (null !== $this->oneMore) {
@@ -330,14 +295,6 @@ class flightSegmentInfos extends Model
             $res['total_time'] = $this->totalTime;
         }
 
-        if (null !== $this->transferTime) {
-            $res['transfer_time'] = $this->transferTime;
-        }
-
-        if (null !== $this->transferTimeNumber) {
-            $res['transfer_time_number'] = $this->transferTimeNumber;
-        }
-
         return $res;
     }
 
@@ -367,10 +324,6 @@ class flightSegmentInfos extends Model
 
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
-        }
-
-        if (isset($map['baggage_desc'])) {
-            $model->baggageDesc = $map['baggage_desc'];
         }
 
         if (isset($map['dep_airport_info'])) {
@@ -405,8 +358,15 @@ class flightSegmentInfos extends Model
             $model->flightSize = $map['flight_size'];
         }
 
-        if (isset($map['flight_stop_info'])) {
-            $model->flightStopInfo = flightStopInfo::fromMap($map['flight_stop_info']);
+        if (isset($map['flight_stop_info_list'])) {
+            if (!empty($map['flight_stop_info_list'])) {
+                $model->flightStopInfoList = [];
+                $n1 = 0;
+                foreach ($map['flight_stop_info_list'] as $item1) {
+                    $model->flightStopInfoList[$n1] = flightStopInfoList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['flight_type'])) {
@@ -419,14 +379,6 @@ class flightSegmentInfos extends Model
 
         if (isset($map['meal_desc'])) {
             $model->mealDesc = $map['meal_desc'];
-        }
-
-        if (isset($map['miles'])) {
-            $model->miles = $map['miles'];
-        }
-
-        if (isset($map['on_time_rate'])) {
-            $model->onTimeRate = $map['on_time_rate'];
         }
 
         if (isset($map['one_more'])) {
@@ -459,14 +411,6 @@ class flightSegmentInfos extends Model
 
         if (isset($map['total_time'])) {
             $model->totalTime = $map['total_time'];
-        }
-
-        if (isset($map['transfer_time'])) {
-            $model->transferTime = $map['transfer_time'];
-        }
-
-        if (isset($map['transfer_time_number'])) {
-            $model->transferTimeNumber = $map['transfer_time_number'];
         }
 
         return $model;

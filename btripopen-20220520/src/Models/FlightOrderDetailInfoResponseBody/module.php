@@ -183,7 +183,8 @@ class module extends Model
                 $res['flight_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightInfoList as $item1) {
-                    $res['flight_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +222,8 @@ class module extends Model
                 $res['ticket_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->ticketInfoList as $item1) {
-                    $res['ticket_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ticket_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +245,8 @@ class module extends Model
                 $res['traveler_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->travelerInfoList as $item1) {
-                    $res['traveler_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traveler_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +295,8 @@ class module extends Model
                 $model->flightInfoList = [];
                 $n1 = 0;
                 foreach ($map['flight_info_list'] as $item1) {
-                    $model->flightInfoList[$n1++] = flightInfoList::fromMap($item1);
+                    $model->flightInfoList[$n1] = flightInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -330,7 +334,8 @@ class module extends Model
                 $model->ticketInfoList = [];
                 $n1 = 0;
                 foreach ($map['ticket_info_list'] as $item1) {
-                    $model->ticketInfoList[$n1++] = ticketInfoList::fromMap($item1);
+                    $model->ticketInfoList[$n1] = ticketInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -352,7 +357,8 @@ class module extends Model
                 $model->travelerInfoList = [];
                 $n1 = 0;
                 foreach ($map['traveler_info_list'] as $item1) {
-                    $model->travelerInfoList[$n1++] = travelerInfoList::fromMap($item1);
+                    $model->travelerInfoList[$n1] = travelerInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

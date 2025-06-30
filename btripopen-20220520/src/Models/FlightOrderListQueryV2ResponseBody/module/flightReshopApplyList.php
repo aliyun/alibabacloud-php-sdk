@@ -110,7 +110,8 @@ class flightReshopApplyList extends Model
                 $res['flight_reshop_apply_ticket_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightReshopApplyTicketList as $item1) {
-                    $res['flight_reshop_apply_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_reshop_apply_ticket_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class flightReshopApplyList extends Model
                 $res['flight_reshop_segment_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightReshopSegmentList as $item1) {
-                    $res['flight_reshop_segment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_reshop_segment_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class flightReshopApplyList extends Model
                 $res['flight_reshop_user_fee_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightReshopUserFeeList as $item1) {
-                    $res['flight_reshop_user_fee_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_reshop_user_fee_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +175,8 @@ class flightReshopApplyList extends Model
                 $res['user_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->userIdList as $item1) {
-                    $res['user_id_list'][$n1++] = $item1;
+                    $res['user_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +197,8 @@ class flightReshopApplyList extends Model
                 $model->flightReshopApplyTicketList = [];
                 $n1 = 0;
                 foreach ($map['flight_reshop_apply_ticket_list'] as $item1) {
-                    $model->flightReshopApplyTicketList[$n1++] = flightReshopApplyTicketList::fromMap($item1);
+                    $model->flightReshopApplyTicketList[$n1] = flightReshopApplyTicketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +208,8 @@ class flightReshopApplyList extends Model
                 $model->flightReshopSegmentList = [];
                 $n1 = 0;
                 foreach ($map['flight_reshop_segment_list'] as $item1) {
-                    $model->flightReshopSegmentList[$n1++] = flightReshopSegmentList::fromMap($item1);
+                    $model->flightReshopSegmentList[$n1] = flightReshopSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +219,8 @@ class flightReshopApplyList extends Model
                 $model->flightReshopUserFeeList = [];
                 $n1 = 0;
                 foreach ($map['flight_reshop_user_fee_list'] as $item1) {
-                    $model->flightReshopUserFeeList[$n1++] = flightReshopUserFeeList::fromMap($item1);
+                    $model->flightReshopUserFeeList[$n1] = flightReshopUserFeeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +262,8 @@ class flightReshopApplyList extends Model
                 $model->userIdList = [];
                 $n1 = 0;
                 foreach ($map['user_id_list'] as $item1) {
-                    $model->userIdList[$n1++] = $item1;
+                    $model->userIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

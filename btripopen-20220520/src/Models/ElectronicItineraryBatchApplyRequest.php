@@ -39,7 +39,8 @@ class ElectronicItineraryBatchApplyRequest extends Model
                 $res['apply_itinerary_list'] = [];
                 $n1 = 0;
                 foreach ($this->applyItineraryList as $item1) {
-                    $res['apply_itinerary_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['apply_itinerary_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ElectronicItineraryBatchApplyRequest extends Model
                 $model->applyItineraryList = [];
                 $n1 = 0;
                 foreach ($map['apply_itinerary_list'] as $item1) {
-                    $model->applyItineraryList[$n1++] = applyItineraryList::fromMap($item1);
+                    $model->applyItineraryList[$n1] = applyItineraryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

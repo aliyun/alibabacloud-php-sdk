@@ -26,24 +26,9 @@ class IntlFlightOtaSearchRequest extends Model
     public $cabinType;
 
     /**
-     * @var bool
-     */
-    public $directOnly;
-
-    /**
      * @var string
      */
     public $isvName;
-
-    /**
-     * @var string
-     */
-    public $language;
-
-    /**
-     * @var bool
-     */
-    public $needShareFlight;
 
     /**
      * @var searchJourneys[]
@@ -56,11 +41,6 @@ class IntlFlightOtaSearchRequest extends Model
     public $searchPassengerList;
 
     /**
-     * @var string
-     */
-    public $supplierCode;
-
-    /**
      * @var int
      */
     public $tripType;
@@ -68,13 +48,9 @@ class IntlFlightOtaSearchRequest extends Model
         'btripUserId' => 'btrip_user_id',
         'buyerName' => 'buyer_name',
         'cabinType' => 'cabin_type',
-        'directOnly' => 'direct_only',
         'isvName' => 'isv_name',
-        'language' => 'language',
-        'needShareFlight' => 'need_share_flight',
         'searchJourneys' => 'search_journeys',
         'searchPassengerList' => 'search_passenger_list',
-        'supplierCode' => 'supplier_code',
         'tripType' => 'trip_type',
     ];
 
@@ -104,20 +80,8 @@ class IntlFlightOtaSearchRequest extends Model
             $res['cabin_type'] = $this->cabinType;
         }
 
-        if (null !== $this->directOnly) {
-            $res['direct_only'] = $this->directOnly;
-        }
-
         if (null !== $this->isvName) {
             $res['isv_name'] = $this->isvName;
-        }
-
-        if (null !== $this->language) {
-            $res['language'] = $this->language;
-        }
-
-        if (null !== $this->needShareFlight) {
-            $res['need_share_flight'] = $this->needShareFlight;
         }
 
         if (null !== $this->searchJourneys) {
@@ -125,7 +89,8 @@ class IntlFlightOtaSearchRequest extends Model
                 $res['search_journeys'] = [];
                 $n1 = 0;
                 foreach ($this->searchJourneys as $item1) {
-                    $res['search_journeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['search_journeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,13 +100,10 @@ class IntlFlightOtaSearchRequest extends Model
                 $res['search_passenger_list'] = [];
                 $n1 = 0;
                 foreach ($this->searchPassengerList as $item1) {
-                    $res['search_passenger_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['search_passenger_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->supplierCode) {
-            $res['supplier_code'] = $this->supplierCode;
         }
 
         if (null !== $this->tripType) {
@@ -171,20 +133,8 @@ class IntlFlightOtaSearchRequest extends Model
             $model->cabinType = $map['cabin_type'];
         }
 
-        if (isset($map['direct_only'])) {
-            $model->directOnly = $map['direct_only'];
-        }
-
         if (isset($map['isv_name'])) {
             $model->isvName = $map['isv_name'];
-        }
-
-        if (isset($map['language'])) {
-            $model->language = $map['language'];
-        }
-
-        if (isset($map['need_share_flight'])) {
-            $model->needShareFlight = $map['need_share_flight'];
         }
 
         if (isset($map['search_journeys'])) {
@@ -192,7 +142,8 @@ class IntlFlightOtaSearchRequest extends Model
                 $model->searchJourneys = [];
                 $n1 = 0;
                 foreach ($map['search_journeys'] as $item1) {
-                    $model->searchJourneys[$n1++] = searchJourneys::fromMap($item1);
+                    $model->searchJourneys[$n1] = searchJourneys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -202,13 +153,10 @@ class IntlFlightOtaSearchRequest extends Model
                 $model->searchPassengerList = [];
                 $n1 = 0;
                 foreach ($map['search_passenger_list'] as $item1) {
-                    $model->searchPassengerList[$n1++] = searchPassengerList::fromMap($item1);
+                    $model->searchPassengerList[$n1] = searchPassengerList::fromMap($item1);
+                    ++$n1;
                 }
             }
-        }
-
-        if (isset($map['supplier_code'])) {
-            $model->supplierCode = $map['supplier_code'];
         }
 
         if (isset($map['trip_type'])) {

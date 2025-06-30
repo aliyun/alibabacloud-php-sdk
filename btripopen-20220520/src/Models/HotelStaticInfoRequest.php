@@ -32,7 +32,8 @@ class HotelStaticInfoRequest extends Model
                 $res['hotel_ids'] = [];
                 $n1 = 0;
                 foreach ($this->hotelIds as $item1) {
-                    $res['hotel_ids'][$n1++] = $item1;
+                    $res['hotel_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class HotelStaticInfoRequest extends Model
                 $model->hotelIds = [];
                 $n1 = 0;
                 foreach ($map['hotel_ids'] as $item1) {
-                    $model->hotelIds[$n1++] = $item1;
+                    $model->hotelIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

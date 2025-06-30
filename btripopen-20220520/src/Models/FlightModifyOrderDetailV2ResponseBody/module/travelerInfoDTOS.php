@@ -134,7 +134,8 @@ class travelerInfoDTOS extends Model
                 $res['origin_ticket_nos'] = [];
                 $n1 = 0;
                 foreach ($this->originTicketNos as $item1) {
-                    $res['origin_ticket_nos'][$n1++] = $item1;
+                    $res['origin_ticket_nos'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class travelerInfoDTOS extends Model
                 $res['ticket_nos'] = [];
                 $n1 = 0;
                 foreach ($this->ticketNos as $item1) {
-                    $res['ticket_nos'][$n1++] = $item1;
+                    $res['ticket_nos'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +216,8 @@ class travelerInfoDTOS extends Model
                 $model->originTicketNos = [];
                 $n1 = 0;
                 foreach ($map['origin_ticket_nos'] as $item1) {
-                    $model->originTicketNos[$n1++] = $item1;
+                    $model->originTicketNos[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -253,7 +256,8 @@ class travelerInfoDTOS extends Model
                 $model->ticketNos = [];
                 $n1 = 0;
                 foreach ($map['ticket_nos'] as $item1) {
-                    $model->ticketNos[$n1++] = $item1;
+                    $model->ticketNos[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

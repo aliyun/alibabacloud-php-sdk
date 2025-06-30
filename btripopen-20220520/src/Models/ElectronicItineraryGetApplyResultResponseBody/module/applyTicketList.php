@@ -26,11 +26,17 @@ class applyTicketList extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $ticketNo;
     protected $_name = [
         'failedCode' => 'failed_code',
         'failedReason' => 'failed_reason',
         'itineraryStatus' => 'itinerary_status',
+        'remark' => 'remark',
         'ticketNo' => 'ticket_no',
     ];
 
@@ -52,6 +58,10 @@ class applyTicketList extends Model
 
         if (null !== $this->itineraryStatus) {
             $res['itinerary_status'] = $this->itineraryStatus;
+        }
+
+        if (null !== $this->remark) {
+            $res['remark'] = $this->remark;
         }
 
         if (null !== $this->ticketNo) {
@@ -79,6 +89,10 @@ class applyTicketList extends Model
 
         if (isset($map['itinerary_status'])) {
             $model->itineraryStatus = $map['itinerary_status'];
+        }
+
+        if (isset($map['remark'])) {
+            $model->remark = $map['remark'];
         }
 
         if (isset($map['ticket_no'])) {

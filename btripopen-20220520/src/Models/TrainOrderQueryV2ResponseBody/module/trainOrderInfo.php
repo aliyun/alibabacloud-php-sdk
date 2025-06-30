@@ -43,7 +43,8 @@ class trainOrderInfo extends Model
                 $res['train_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->trainInfoList as $item1) {
-                    $res['train_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['train_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class trainOrderInfo extends Model
                 $model->trainInfoList = [];
                 $n1 = 0;
                 foreach ($map['train_info_list'] as $item1) {
-                    $model->trainInfoList[$n1++] = trainInfoList::fromMap($item1);
+                    $model->trainInfoList[$n1] = trainInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

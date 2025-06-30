@@ -137,7 +137,8 @@ class occupantInfoList extends Model
                 $res['cost_center_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->costCenterInfoList as $item1) {
-                    $res['cost_center_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cost_center_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +223,8 @@ class occupantInfoList extends Model
                 $model->costCenterInfoList = [];
                 $n1 = 0;
                 foreach ($map['cost_center_info_list'] as $item1) {
-                    $model->costCenterInfoList[$n1++] = costCenterInfoList::fromMap($item1);
+                    $model->costCenterInfoList[$n1] = costCenterInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

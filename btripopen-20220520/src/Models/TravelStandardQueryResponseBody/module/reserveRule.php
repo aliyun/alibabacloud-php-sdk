@@ -47,7 +47,8 @@ class reserveRule extends Model
                 $res['module_config_list'] = [];
                 $n1 = 0;
                 foreach ($this->moduleConfigList as $item1) {
-                    $res['module_config_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['module_config_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class reserveRule extends Model
                 $model->moduleConfigList = [];
                 $n1 = 0;
                 foreach ($map['module_config_list'] as $item1) {
-                    $model->moduleConfigList[$n1++] = moduleConfigList::fromMap($item1);
+                    $model->moduleConfigList[$n1] = moduleConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

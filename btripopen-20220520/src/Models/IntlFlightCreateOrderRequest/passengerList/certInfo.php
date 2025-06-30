@@ -11,11 +11,6 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $certNation;
-
-    /**
-     * @var string
-     */
     public $certNo;
 
     /**
@@ -31,13 +26,12 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $name;
+    public $issuePlace;
     protected $_name = [
-        'certNation' => 'cert_nation',
         'certNo' => 'cert_no',
         'certType' => 'cert_type',
         'certValidDate' => 'cert_valid_date',
-        'name' => 'name',
+        'issuePlace' => 'issue_place',
     ];
 
     public function validate()
@@ -48,10 +42,6 @@ class certInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->certNation) {
-            $res['cert_nation'] = $this->certNation;
-        }
-
         if (null !== $this->certNo) {
             $res['cert_no'] = $this->certNo;
         }
@@ -64,8 +54,8 @@ class certInfo extends Model
             $res['cert_valid_date'] = $this->certValidDate;
         }
 
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->issuePlace) {
+            $res['issue_place'] = $this->issuePlace;
         }
 
         return $res;
@@ -79,10 +69,6 @@ class certInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['cert_nation'])) {
-            $model->certNation = $map['cert_nation'];
-        }
-
         if (isset($map['cert_no'])) {
             $model->certNo = $map['cert_no'];
         }
@@ -95,8 +81,8 @@ class certInfo extends Model
             $model->certValidDate = $map['cert_valid_date'];
         }
 
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['issue_place'])) {
+            $model->issuePlace = $map['issue_place'];
         }
 
         return $model;

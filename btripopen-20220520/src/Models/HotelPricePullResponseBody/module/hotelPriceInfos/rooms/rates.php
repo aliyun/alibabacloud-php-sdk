@@ -247,7 +247,8 @@ class rates extends Model
                 $res['rate_dailys'] = [];
                 $n1 = 0;
                 foreach ($this->rateDailys as $item1) {
-                    $res['rate_dailys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rate_dailys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -360,7 +361,8 @@ class rates extends Model
                 $model->rateDailys = [];
                 $n1 = 0;
                 foreach ($map['rate_dailys'] as $item1) {
-                    $model->rateDailys[$n1++] = rateDailys::fromMap($item1);
+                    $model->rateDailys[$n1] = rateDailys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

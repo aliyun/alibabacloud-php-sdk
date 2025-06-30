@@ -103,7 +103,8 @@ class TrainOrderCreateRequest extends Model
                 $res['book_train_infos'] = [];
                 $n1 = 0;
                 foreach ($this->bookTrainInfos as $item1) {
-                    $res['book_train_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['book_train_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class TrainOrderCreateRequest extends Model
                 $res['passenger_open_info_s'] = [];
                 $n1 = 0;
                 foreach ($this->passengerOpenInfoS as $item1) {
-                    $res['passenger_open_info_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_open_info_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class TrainOrderCreateRequest extends Model
                 $model->bookTrainInfos = [];
                 $n1 = 0;
                 foreach ($map['book_train_infos'] as $item1) {
-                    $model->bookTrainInfos[$n1++] = bookTrainInfos::fromMap($item1);
+                    $model->bookTrainInfos[$n1] = bookTrainInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +207,8 @@ class TrainOrderCreateRequest extends Model
                 $model->passengerOpenInfoS = [];
                 $n1 = 0;
                 foreach ($map['passenger_open_info_s'] as $item1) {
-                    $model->passengerOpenInfoS[$n1++] = passengerOpenInfoS::fromMap($item1);
+                    $model->passengerOpenInfoS[$n1] = passengerOpenInfoS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

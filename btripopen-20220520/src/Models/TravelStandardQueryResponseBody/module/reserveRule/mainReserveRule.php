@@ -56,7 +56,8 @@ class mainReserveRule extends Model
                 $res['open_service_type_list'] = [];
                 $n1 = 0;
                 foreach ($this->openServiceTypeList as $item1) {
-                    $res['open_service_type_list'][$n1++] = $item1;
+                    $res['open_service_type_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class mainReserveRule extends Model
                 $model->openServiceTypeList = [];
                 $n1 = 0;
                 foreach ($map['open_service_type_list'] as $item1) {
-                    $model->openServiceTypeList[$n1++] = $item1;
+                    $model->openServiceTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -82,6 +82,21 @@ class ModuleOrderItemListRefundChangeRuleOfferPenaltyInfoMapValue extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var string
+     */
+    public $depTime;
+
+    /**
+     * @var string
+     */
+    public $segmentNumber;
+
+    /**
+     * @var string[]
+     */
+    public $descInfos;
     protected $_name = [
         'struct' => 'struct',
         'cancelFeeInd' => 'cancel_fee_ind',
@@ -98,10 +113,16 @@ class ModuleOrderItemListRefundChangeRuleOfferPenaltyInfoMapValue extends Model
         'endTime' => 'end_time',
         'timeUnitCode' => 'time_unit_code',
         'title' => 'title',
+        'depTime' => 'dep_time',
+        'segmentNumber' => 'segment_number',
+        'descInfos' => 'desc_infos',
     ];
 
     public function validate()
     {
+        if (\is_array($this->descInfos)) {
+            Model::validateArray($this->descInfos);
+        }
         parent::validate();
     }
 
@@ -166,6 +187,23 @@ class ModuleOrderItemListRefundChangeRuleOfferPenaltyInfoMapValue extends Model
 
         if (null !== $this->title) {
             $res['title'] = $this->title;
+        }
+
+        if (null !== $this->depTime) {
+            $res['dep_time'] = $this->depTime;
+        }
+
+        if (null !== $this->segmentNumber) {
+            $res['segment_number'] = $this->segmentNumber;
+        }
+
+        if (null !== $this->descInfos) {
+            if (\is_array($this->descInfos)) {
+                $res['desc_infos'] = [];
+                foreach ($this->descInfos as $key1 => $value1) {
+                    $res['desc_infos'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
@@ -237,6 +275,23 @@ class ModuleOrderItemListRefundChangeRuleOfferPenaltyInfoMapValue extends Model
 
         if (isset($map['title'])) {
             $model->title = $map['title'];
+        }
+
+        if (isset($map['dep_time'])) {
+            $model->depTime = $map['dep_time'];
+        }
+
+        if (isset($map['segment_number'])) {
+            $model->segmentNumber = $map['segment_number'];
+        }
+
+        if (isset($map['desc_infos'])) {
+            if (!empty($map['desc_infos'])) {
+                $model->descInfos = [];
+                foreach ($map['desc_infos'] as $key1 => $value1) {
+                    $model->descInfos[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

@@ -116,7 +116,8 @@ class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityValue extends Model
                 $res['link_cabins'] = [];
                 $n1 = 0;
                 foreach ($this->linkCabins as $item1) {
-                    $res['link_cabins'][$n1++] = $item1;
+                    $res['link_cabins'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +178,8 @@ class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityValue extends Model
                 $model->linkCabins = [];
                 $n1 = 0;
                 foreach ($map['link_cabins'] as $item1) {
-                    $model->linkCabins[$n1++] = $item1;
+                    $model->linkCabins[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

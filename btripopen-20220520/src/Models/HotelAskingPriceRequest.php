@@ -138,7 +138,8 @@ class HotelAskingPriceRequest extends Model
                 $res['shids'] = [];
                 $n1 = 0;
                 foreach ($this->shids as $item1) {
-                    $res['shids'][$n1++] = $item1;
+                    $res['shids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class HotelAskingPriceRequest extends Model
                 $model->shids = [];
                 $n1 = 0;
                 foreach ($map['shids'] as $item1) {
-                    $model->shids[$n1++] = $item1;
+                    $model->shids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

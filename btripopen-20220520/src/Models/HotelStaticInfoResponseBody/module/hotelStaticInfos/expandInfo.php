@@ -114,7 +114,8 @@ class expandInfo extends Model
                 $res['hotel_facilities'] = [];
                 $n1 = 0;
                 foreach ($this->hotelFacilities as $item1) {
-                    $res['hotel_facilities'][$n1++] = $item1;
+                    $res['hotel_facilities'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class expandInfo extends Model
                 $res['room_facilities'] = [];
                 $n1 = 0;
                 foreach ($this->roomFacilities as $item1) {
-                    $res['room_facilities'][$n1++] = $item1;
+                    $res['room_facilities'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +148,8 @@ class expandInfo extends Model
                 $res['service'] = [];
                 $n1 = 0;
                 foreach ($this->service as $item1) {
-                    $res['service'][$n1++] = $item1;
+                    $res['service'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +190,8 @@ class expandInfo extends Model
                 $model->hotelFacilities = [];
                 $n1 = 0;
                 foreach ($map['hotel_facilities'] as $item1) {
-                    $model->hotelFacilities[$n1++] = $item1;
+                    $model->hotelFacilities[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +209,8 @@ class expandInfo extends Model
                 $model->roomFacilities = [];
                 $n1 = 0;
                 foreach ($map['room_facilities'] as $item1) {
-                    $model->roomFacilities[$n1++] = $item1;
+                    $model->roomFacilities[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +224,8 @@ class expandInfo extends Model
                 $model->service = [];
                 $n1 = 0;
                 foreach ($map['service'] as $item1) {
-                    $model->service[$n1++] = $item1;
+                    $model->service[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class ApplyInvoiceTaskRequest extends Model
                 $res['invoice_task_list'] = [];
                 $n1 = 0;
                 foreach ($this->invoiceTaskList as $item1) {
-                    $res['invoice_task_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['invoice_task_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ApplyInvoiceTaskRequest extends Model
                 $model->invoiceTaskList = [];
                 $n1 = 0;
                 foreach ($map['invoice_task_list'] as $item1) {
-                    $model->invoiceTaskList[$n1++] = invoiceTaskList::fromMap($item1);
+                    $model->invoiceTaskList[$n1] = invoiceTaskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

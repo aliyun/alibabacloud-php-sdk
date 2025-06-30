@@ -121,7 +121,8 @@ class HotelOrderPreValidateRequest extends Model
                 $res['daily_list'] = [];
                 $n1 = 0;
                 foreach ($this->dailyList as $item1) {
-                    $res['daily_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['daily_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +140,8 @@ class HotelOrderPreValidateRequest extends Model
                 $res['occupant_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->occupantInfoList as $item1) {
-                    $res['occupant_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['occupant_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +198,8 @@ class HotelOrderPreValidateRequest extends Model
                 $model->dailyList = [];
                 $n1 = 0;
                 foreach ($map['daily_list'] as $item1) {
-                    $model->dailyList[$n1++] = dailyList::fromMap($item1);
+                    $model->dailyList[$n1] = dailyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +217,8 @@ class HotelOrderPreValidateRequest extends Model
                 $model->occupantInfoList = [];
                 $n1 = 0;
                 foreach ($map['occupant_info_list'] as $item1) {
-                    $model->occupantInfoList[$n1++] = occupantInfoList::fromMap($item1);
+                    $model->occupantInfoList[$n1] = occupantInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

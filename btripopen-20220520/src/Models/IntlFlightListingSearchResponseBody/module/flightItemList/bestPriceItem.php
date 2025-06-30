@@ -5,14 +5,20 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList\bestPriceItem\agreementPriceCodes;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue;
 
 class bestPriceItem extends Model
 {
     /**
-     * @var string[]
+     * @var agreementPriceCodes[]
      */
     public $agreementPriceCodes;
+
+    /**
+     * @var string
+     */
+    public $itemId;
 
     /**
      * @var string
@@ -25,6 +31,7 @@ class bestPriceItem extends Model
     public $shoppingItemMap;
     protected $_name = [
         'agreementPriceCodes' => 'agreement_price_codes',
+        'itemId' => 'item_id',
         'itemType' => 'item_type',
         'shoppingItemMap' => 'shopping_item_map',
     ];
@@ -48,9 +55,14 @@ class bestPriceItem extends Model
                 $res['agreement_price_codes'] = [];
                 $n1 = 0;
                 foreach ($this->agreementPriceCodes as $item1) {
-                    $res['agreement_price_codes'][$n1++] = $item1;
+                    $res['agreement_price_codes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->itemId) {
+            $res['item_id'] = $this->itemId;
         }
 
         if (null !== $this->itemType) {
@@ -82,9 +94,14 @@ class bestPriceItem extends Model
                 $model->agreementPriceCodes = [];
                 $n1 = 0;
                 foreach ($map['agreement_price_codes'] as $item1) {
-                    $model->agreementPriceCodes[$n1++] = $item1;
+                    $model->agreementPriceCodes[$n1] = agreementPriceCodes::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['item_id'])) {
+            $model->itemId = $map['item_id'];
         }
 
         if (isset($map['item_type'])) {

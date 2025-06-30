@@ -42,7 +42,8 @@ class module extends Model
                 $res['activated_service_type_list'] = [];
                 $n1 = 0;
                 foreach ($this->activatedServiceTypeList as $item1) {
-                    $res['activated_service_type_list'][$n1++] = $item1;
+                    $res['activated_service_type_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class module extends Model
                 $model->activatedServiceTypeList = [];
                 $n1 = 0;
                 foreach ($map['activated_service_type_list'] as $item1) {
-                    $model->activatedServiceTypeList[$n1++] = $item1;
+                    $model->activatedServiceTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

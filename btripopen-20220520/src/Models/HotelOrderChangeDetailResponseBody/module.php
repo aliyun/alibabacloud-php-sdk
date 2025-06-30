@@ -137,7 +137,8 @@ class module extends Model
                 $res['room_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->roomInfoList as $item1) {
-                    $res['room_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['room_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +207,8 @@ class module extends Model
                 $model->roomInfoList = [];
                 $n1 = 0;
                 foreach ($map['room_info_list'] as $item1) {
-                    $model->roomInfoList[$n1++] = roomInfoList::fromMap($item1);
+                    $model->roomInfoList[$n1] = roomInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

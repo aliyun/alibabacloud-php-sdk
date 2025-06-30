@@ -61,7 +61,8 @@ class segmentVisaRemark extends Model
                 $res['stop_city_visa_remarks'] = [];
                 $n1 = 0;
                 foreach ($this->stopCityVisaRemarks as $item1) {
-                    $res['stop_city_visa_remarks'][$n1++] = $item1;
+                    $res['stop_city_visa_remarks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class segmentVisaRemark extends Model
                 $res['stop_city_visa_types'] = [];
                 $n1 = 0;
                 foreach ($this->stopCityVisaTypes as $item1) {
-                    $res['stop_city_visa_types'][$n1++] = $item1;
+                    $res['stop_city_visa_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class segmentVisaRemark extends Model
                 $model->stopCityVisaRemarks = [];
                 $n1 = 0;
                 foreach ($map['stop_city_visa_remarks'] as $item1) {
-                    $model->stopCityVisaRemarks[$n1++] = $item1;
+                    $model->stopCityVisaRemarks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class segmentVisaRemark extends Model
                 $model->stopCityVisaTypes = [];
                 $n1 = 0;
                 foreach ($map['stop_city_visa_types'] as $item1) {
-                    $model->stopCityVisaTypes[$n1++] = $item1;
+                    $model->stopCityVisaTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

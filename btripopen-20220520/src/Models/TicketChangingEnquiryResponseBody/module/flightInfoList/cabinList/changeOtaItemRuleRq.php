@@ -53,7 +53,8 @@ class changeOtaItemRuleRq extends Model
                 $res['baggage_details'] = [];
                 $n1 = 0;
                 foreach ($this->baggageDetails as $item1) {
-                    $res['baggage_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['baggage_details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class changeOtaItemRuleRq extends Model
                 $res['change_details'] = [];
                 $n1 = 0;
                 foreach ($this->changeDetails as $item1) {
-                    $res['change_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['change_details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class changeOtaItemRuleRq extends Model
                 $res['refund_details'] = [];
                 $n1 = 0;
                 foreach ($this->refundDetails as $item1) {
-                    $res['refund_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class changeOtaItemRuleRq extends Model
                 $model->baggageDetails = [];
                 $n1 = 0;
                 foreach ($map['baggage_details'] as $item1) {
-                    $model->baggageDetails[$n1++] = baggageDetails::fromMap($item1);
+                    $model->baggageDetails[$n1] = baggageDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class changeOtaItemRuleRq extends Model
                 $model->changeDetails = [];
                 $n1 = 0;
                 foreach ($map['change_details'] as $item1) {
-                    $model->changeDetails[$n1++] = changeDetails::fromMap($item1);
+                    $model->changeDetails[$n1] = changeDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class changeOtaItemRuleRq extends Model
                 $model->refundDetails = [];
                 $n1 = 0;
                 foreach ($map['refund_details'] as $item1) {
-                    $model->refundDetails[$n1++] = refundDetails::fromMap($item1);
+                    $model->refundDetails[$n1] = refundDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

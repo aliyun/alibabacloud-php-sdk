@@ -87,7 +87,8 @@ class module extends Model
                 $res['multi_refund_cal_list'] = [];
                 $n1 = 0;
                 foreach ($this->multiRefundCalList as $item1) {
-                    $res['multi_refund_cal_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['multi_refund_cal_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class module extends Model
                 $res['return_reason'] = [];
                 $n1 = 0;
                 foreach ($this->returnReason as $item1) {
-                    $res['return_reason'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['return_reason'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +144,8 @@ class module extends Model
                 $model->multiRefundCalList = [];
                 $n1 = 0;
                 foreach ($map['multi_refund_cal_list'] as $item1) {
-                    $model->multiRefundCalList[$n1++] = multiRefundCalList::fromMap($item1);
+                    $model->multiRefundCalList[$n1] = multiRefundCalList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +163,8 @@ class module extends Model
                 $model->returnReason = [];
                 $n1 = 0;
                 foreach ($map['return_reason'] as $item1) {
-                    $model->returnReason[$n1++] = returnReason::fromMap($item1);
+                    $model->returnReason[$n1] = returnReason::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

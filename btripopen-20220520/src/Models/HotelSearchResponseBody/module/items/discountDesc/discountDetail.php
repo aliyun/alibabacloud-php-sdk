@@ -38,7 +38,8 @@ class discountDetail extends Model
                 $res['label_name'] = [];
                 $n1 = 0;
                 foreach ($this->labelName as $item1) {
-                    $res['label_name'][$n1++] = $item1;
+                    $res['label_name'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class discountDetail extends Model
                 $model->labelName = [];
                 $n1 = 0;
                 foreach ($map['label_name'] as $item1) {
-                    $model->labelName[$n1++] = $item1;
+                    $model->labelName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

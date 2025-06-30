@@ -319,7 +319,8 @@ class ApplyModifyRequest extends Model
                 $res['external_traveler_list'] = [];
                 $n1 = 0;
                 foreach ($this->externalTravelerList as $item1) {
-                    $res['external_traveler_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['external_traveler_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -353,7 +354,8 @@ class ApplyModifyRequest extends Model
                 $res['itinerary_list'] = [];
                 $n1 = 0;
                 foreach ($this->itineraryList as $item1) {
-                    $res['itinerary_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['itinerary_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -367,7 +369,8 @@ class ApplyModifyRequest extends Model
                 $res['itinerary_set_list'] = [];
                 $n1 = 0;
                 foreach ($this->itinerarySetList as $item1) {
-                    $res['itinerary_set_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['itinerary_set_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -421,7 +424,8 @@ class ApplyModifyRequest extends Model
                 $res['traveler_list'] = [];
                 $n1 = 0;
                 foreach ($this->travelerList as $item1) {
-                    $res['traveler_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traveler_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -431,7 +435,8 @@ class ApplyModifyRequest extends Model
                 $res['traveler_standard'] = [];
                 $n1 = 0;
                 foreach ($this->travelerStandard as $item1) {
-                    $res['traveler_standard'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traveler_standard'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -512,7 +517,8 @@ class ApplyModifyRequest extends Model
                 $model->externalTravelerList = [];
                 $n1 = 0;
                 foreach ($map['external_traveler_list'] as $item1) {
-                    $model->externalTravelerList[$n1++] = externalTravelerList::fromMap($item1);
+                    $model->externalTravelerList[$n1] = externalTravelerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -546,7 +552,8 @@ class ApplyModifyRequest extends Model
                 $model->itineraryList = [];
                 $n1 = 0;
                 foreach ($map['itinerary_list'] as $item1) {
-                    $model->itineraryList[$n1++] = itineraryList::fromMap($item1);
+                    $model->itineraryList[$n1] = itineraryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -560,7 +567,8 @@ class ApplyModifyRequest extends Model
                 $model->itinerarySetList = [];
                 $n1 = 0;
                 foreach ($map['itinerary_set_list'] as $item1) {
-                    $model->itinerarySetList[$n1++] = itinerarySetList::fromMap($item1);
+                    $model->itinerarySetList[$n1] = itinerarySetList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -614,7 +622,8 @@ class ApplyModifyRequest extends Model
                 $model->travelerList = [];
                 $n1 = 0;
                 foreach ($map['traveler_list'] as $item1) {
-                    $model->travelerList[$n1++] = travelerList::fromMap($item1);
+                    $model->travelerList[$n1] = travelerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -624,7 +633,8 @@ class ApplyModifyRequest extends Model
                 $model->travelerStandard = [];
                 $n1 = 0;
                 foreach ($map['traveler_standard'] as $item1) {
-                    $model->travelerStandard[$n1++] = travelerStandard::fromMap($item1);
+                    $model->travelerStandard[$n1] = travelerStandard::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

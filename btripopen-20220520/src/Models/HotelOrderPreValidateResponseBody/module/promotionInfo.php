@@ -57,7 +57,8 @@ class promotionInfo extends Model
                 $res['promotion_detail_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->promotionDetailInfoList as $item1) {
-                    $res['promotion_detail_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['promotion_detail_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class promotionInfo extends Model
                 $model->promotionDetailInfoList = [];
                 $n1 = 0;
                 foreach ($map['promotion_detail_info_list'] as $item1) {
-                    $model->promotionDetailInfoList[$n1++] = promotionDetailInfoList::fromMap($item1);
+                    $model->promotionDetailInfoList[$n1] = promotionDetailInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -181,7 +181,8 @@ class transferDetailList extends Model
                 $res['seat_infos'] = [];
                 $n1 = 0;
                 foreach ($this->seatInfos as $item1) {
-                    $res['seat_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['seat_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -266,7 +267,8 @@ class transferDetailList extends Model
                 $model->seatInfos = [];
                 $n1 = 0;
                 foreach ($map['seat_infos'] as $item1) {
-                    $model->seatInfos[$n1++] = seatInfos::fromMap($item1);
+                    $model->seatInfos[$n1] = seatInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

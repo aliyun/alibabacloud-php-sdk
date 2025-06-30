@@ -33,7 +33,8 @@ class module extends Model
                 $res['all_city_base_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->allCityBaseInfoList as $item1) {
-                    $res['all_city_base_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['all_city_base_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class module extends Model
                 $model->allCityBaseInfoList = [];
                 $n1 = 0;
                 foreach ($map['all_city_base_info_list'] as $item1) {
-                    $model->allCityBaseInfoList[$n1++] = allCityBaseInfoList::fromMap($item1);
+                    $model->allCityBaseInfoList[$n1] = allCityBaseInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

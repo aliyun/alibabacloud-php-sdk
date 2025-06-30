@@ -76,7 +76,8 @@ class subItems extends Model
                 $res['segment_keys'] = [];
                 $n1 = 0;
                 foreach ($this->segmentKeys as $item1) {
-                    $res['segment_keys'][$n1++] = $item1;
+                    $res['segment_keys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class subItems extends Model
                 $model->segmentKeys = [];
                 $n1 = 0;
                 foreach ($map['segment_keys'] as $item1) {
-                    $model->segmentKeys[$n1++] = $item1;
+                    $model->segmentKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -75,7 +75,8 @@ class QueryGroupCorpListResponseBody extends Model
                 $res['module'] = [];
                 $n1 = 0;
                 foreach ($this->module as $item1) {
-                    $res['module'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['module'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class QueryGroupCorpListResponseBody extends Model
                 $model->module = [];
                 $n1 = 0;
                 foreach ($map['module'] as $item1) {
-                    $model->module[$n1++] = module::fromMap($item1);
+                    $model->module[$n1] = module::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

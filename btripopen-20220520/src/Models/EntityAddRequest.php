@@ -39,7 +39,8 @@ class EntityAddRequest extends Model
                 $res['entity_d_o_list'] = [];
                 $n1 = 0;
                 foreach ($this->entityDOList as $item1) {
-                    $res['entity_d_o_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['entity_d_o_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class EntityAddRequest extends Model
                 $model->entityDOList = [];
                 $n1 = 0;
                 foreach ($map['entity_d_o_list'] as $item1) {
-                    $model->entityDOList[$n1++] = entityDOList::fromMap($item1);
+                    $model->entityDOList[$n1] = entityDOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

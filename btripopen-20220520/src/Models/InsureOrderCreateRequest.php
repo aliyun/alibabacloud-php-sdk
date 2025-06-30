@@ -97,7 +97,8 @@ class InsureOrderCreateRequest extends Model
                 $res['ins_person_and_segment_list'] = [];
                 $n1 = 0;
                 foreach ($this->insPersonAndSegmentList as $item1) {
-                    $res['ins_person_and_segment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ins_person_and_segment_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +151,8 @@ class InsureOrderCreateRequest extends Model
                 $model->insPersonAndSegmentList = [];
                 $n1 = 0;
                 foreach ($map['ins_person_and_segment_list'] as $item1) {
-                    $model->insPersonAndSegmentList[$n1++] = insPersonAndSegmentList::fromMap($item1);
+                    $model->insPersonAndSegmentList[$n1] = insPersonAndSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

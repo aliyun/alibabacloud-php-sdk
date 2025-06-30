@@ -12,12 +12,17 @@ class IntlFlightInventoryPriceCheckRequest extends Model
     /**
      * @var string
      */
-    public $isvName;
+    public $btripUserId;
 
     /**
      * @var string
      */
-    public $language;
+    public $buyerName;
+
+    /**
+     * @var string
+     */
+    public $isvName;
 
     /**
      * @var int
@@ -33,24 +38,13 @@ class IntlFlightInventoryPriceCheckRequest extends Model
      * @var passengerList[]
      */
     public $passengerList;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $userName;
     protected $_name = [
+        'btripUserId' => 'btrip_user_id',
+        'buyerName' => 'buyer_name',
         'isvName' => 'isv_name',
-        'language' => 'language',
         'orderPrice' => 'order_price',
         'otaItemId' => 'ota_item_id',
         'passengerList' => 'passenger_list',
-        'userId' => 'user_id',
-        'userName' => 'user_name',
     ];
 
     public function validate()
@@ -64,12 +58,16 @@ class IntlFlightInventoryPriceCheckRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->isvName) {
-            $res['isv_name'] = $this->isvName;
+        if (null !== $this->btripUserId) {
+            $res['btrip_user_id'] = $this->btripUserId;
         }
 
-        if (null !== $this->language) {
-            $res['language'] = $this->language;
+        if (null !== $this->buyerName) {
+            $res['buyer_name'] = $this->buyerName;
+        }
+
+        if (null !== $this->isvName) {
+            $res['isv_name'] = $this->isvName;
         }
 
         if (null !== $this->orderPrice) {
@@ -85,17 +83,10 @@ class IntlFlightInventoryPriceCheckRequest extends Model
                 $res['passenger_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerList as $item1) {
-                    $res['passenger_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
-        }
-
-        if (null !== $this->userName) {
-            $res['user_name'] = $this->userName;
         }
 
         return $res;
@@ -109,12 +100,16 @@ class IntlFlightInventoryPriceCheckRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['isv_name'])) {
-            $model->isvName = $map['isv_name'];
+        if (isset($map['btrip_user_id'])) {
+            $model->btripUserId = $map['btrip_user_id'];
         }
 
-        if (isset($map['language'])) {
-            $model->language = $map['language'];
+        if (isset($map['buyer_name'])) {
+            $model->buyerName = $map['buyer_name'];
+        }
+
+        if (isset($map['isv_name'])) {
+            $model->isvName = $map['isv_name'];
         }
 
         if (isset($map['order_price'])) {
@@ -130,17 +125,10 @@ class IntlFlightInventoryPriceCheckRequest extends Model
                 $model->passengerList = [];
                 $n1 = 0;
                 foreach ($map['passenger_list'] as $item1) {
-                    $model->passengerList[$n1++] = passengerList::fromMap($item1);
+                    $model->passengerList[$n1] = passengerList::fromMap($item1);
+                    ++$n1;
                 }
             }
-        }
-
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
-        }
-
-        if (isset($map['user_name'])) {
-            $model->userName = $map['user_name'];
         }
 
         return $model;

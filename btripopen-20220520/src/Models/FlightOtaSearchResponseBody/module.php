@@ -33,7 +33,8 @@ class module extends Model
                 $res['flight_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightList as $item1) {
-                    $res['flight_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class module extends Model
                 $model->flightList = [];
                 $n1 = 0;
                 foreach ($map['flight_list'] as $item1) {
-                    $model->flightList[$n1++] = flightList::fromMap($item1);
+                    $model->flightList[$n1] = flightList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

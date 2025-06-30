@@ -69,7 +69,8 @@ class CarApplyQueryResponseBody extends Model
                 $res['apply_list'] = [];
                 $n1 = 0;
                 foreach ($this->applyList as $item1) {
-                    $res['apply_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['apply_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class CarApplyQueryResponseBody extends Model
                 $model->applyList = [];
                 $n1 = 0;
                 foreach ($map['apply_list'] as $item1) {
-                    $model->applyList[$n1++] = applyList::fromMap($item1);
+                    $model->applyList[$n1] = applyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

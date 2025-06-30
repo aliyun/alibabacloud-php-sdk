@@ -43,7 +43,8 @@ class module extends Model
                 $res['train_station_search_v_o_s'] = [];
                 $n1 = 0;
                 foreach ($this->trainStationSearchVOS as $item1) {
-                    $res['train_station_search_v_o_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['train_station_search_v_o_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class module extends Model
                 $res['train_transfer_station_search_v_os'] = [];
                 $n1 = 0;
                 foreach ($this->trainTransferStationSearchVOs as $item1) {
-                    $res['train_transfer_station_search_v_os'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['train_transfer_station_search_v_os'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class module extends Model
                 $model->trainStationSearchVOS = [];
                 $n1 = 0;
                 foreach ($map['train_station_search_v_o_s'] as $item1) {
-                    $model->trainStationSearchVOS[$n1++] = trainStationSearchVOS::fromMap($item1);
+                    $model->trainStationSearchVOS[$n1] = trainStationSearchVOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class module extends Model
                 $model->trainTransferStationSearchVOs = [];
                 $n1 = 0;
                 foreach ($map['train_transfer_station_search_v_os'] as $item1) {
-                    $model->trainTransferStationSearchVOs[$n1++] = trainTransferStationSearchVOs::fromMap($item1);
+                    $model->trainTransferStationSearchVOs[$n1] = trainTransferStationSearchVOs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

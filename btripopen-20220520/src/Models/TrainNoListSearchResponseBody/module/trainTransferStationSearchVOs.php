@@ -79,7 +79,8 @@ class trainTransferStationSearchVOs extends Model
                 $res['transfer_detail_list'] = [];
                 $n1 = 0;
                 foreach ($this->transferDetailList as $item1) {
-                    $res['transfer_detail_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['transfer_detail_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class trainTransferStationSearchVOs extends Model
                 $model->transferDetailList = [];
                 $n1 = 0;
                 foreach ($map['transfer_detail_list'] as $item1) {
-                    $model->transferDetailList[$n1++] = transferDetailList::fromMap($item1);
+                    $model->transferDetailList[$n1] = transferDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

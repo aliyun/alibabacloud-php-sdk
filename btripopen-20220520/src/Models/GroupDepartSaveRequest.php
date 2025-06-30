@@ -88,7 +88,8 @@ class GroupDepartSaveRequest extends Model
                 $res['sub_corp_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->subCorpIdList as $item1) {
-                    $res['sub_corp_id_list'][$n1++] = $item1;
+                    $res['sub_corp_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class GroupDepartSaveRequest extends Model
                 $model->subCorpIdList = [];
                 $n1 = 0;
                 foreach ($map['sub_corp_id_list'] as $item1) {
-                    $model->subCorpIdList[$n1++] = $item1;
+                    $model->subCorpIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

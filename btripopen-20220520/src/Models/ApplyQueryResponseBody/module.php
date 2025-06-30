@@ -301,7 +301,8 @@ class module extends Model
                 $res['approver_list'] = [];
                 $n1 = 0;
                 foreach ($this->approverList as $item1) {
-                    $res['approver_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['approver_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -343,7 +344,8 @@ class module extends Model
                 $res['external_traveler_list'] = [];
                 $n1 = 0;
                 foreach ($this->externalTravelerList as $item1) {
-                    $res['external_traveler_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['external_traveler_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -385,7 +387,8 @@ class module extends Model
                 $res['itinerary_list'] = [];
                 $n1 = 0;
                 foreach ($this->itineraryList as $item1) {
-                    $res['itinerary_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['itinerary_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -399,7 +402,8 @@ class module extends Model
                 $res['itinerary_set_list'] = [];
                 $n1 = 0;
                 foreach ($this->itinerarySetList as $item1) {
-                    $res['itinerary_set_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['itinerary_set_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -449,7 +453,8 @@ class module extends Model
                 $res['traveler_list'] = [];
                 $n1 = 0;
                 foreach ($this->travelerList as $item1) {
-                    $res['traveler_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traveler_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -506,7 +511,8 @@ class module extends Model
                 $model->approverList = [];
                 $n1 = 0;
                 foreach ($map['approver_list'] as $item1) {
-                    $model->approverList[$n1++] = approverList::fromMap($item1);
+                    $model->approverList[$n1] = approverList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -548,7 +554,8 @@ class module extends Model
                 $model->externalTravelerList = [];
                 $n1 = 0;
                 foreach ($map['external_traveler_list'] as $item1) {
-                    $model->externalTravelerList[$n1++] = externalTravelerList::fromMap($item1);
+                    $model->externalTravelerList[$n1] = externalTravelerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -590,7 +597,8 @@ class module extends Model
                 $model->itineraryList = [];
                 $n1 = 0;
                 foreach ($map['itinerary_list'] as $item1) {
-                    $model->itineraryList[$n1++] = itineraryList::fromMap($item1);
+                    $model->itineraryList[$n1] = itineraryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -604,7 +612,8 @@ class module extends Model
                 $model->itinerarySetList = [];
                 $n1 = 0;
                 foreach ($map['itinerary_set_list'] as $item1) {
-                    $model->itinerarySetList[$n1++] = itinerarySetList::fromMap($item1);
+                    $model->itinerarySetList[$n1] = itinerarySetList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -654,7 +663,8 @@ class module extends Model
                 $model->travelerList = [];
                 $n1 = 0;
                 foreach ($map['traveler_list'] as $item1) {
-                    $model->travelerList[$n1++] = travelerList::fromMap($item1);
+                    $model->travelerList[$n1] = travelerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

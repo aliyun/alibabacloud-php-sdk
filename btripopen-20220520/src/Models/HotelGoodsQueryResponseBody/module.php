@@ -139,7 +139,8 @@ class module extends Model
                 $res['descriptions'] = [];
                 $n1 = 0;
                 foreach ($this->descriptions as $item1) {
-                    $res['descriptions'][$n1++] = $item1;
+                    $res['descriptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +150,8 @@ class module extends Model
                 $res['dinamic_banner_pic_urls'] = [];
                 $n1 = 0;
                 foreach ($this->dinamicBannerPicUrls as $item1) {
-                    $res['dinamic_banner_pic_urls'][$n1++] = $item1;
+                    $res['dinamic_banner_pic_urls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,7 +177,8 @@ class module extends Model
                 $res['rooms'] = [];
                 $n1 = 0;
                 foreach ($this->rooms as $item1) {
-                    $res['rooms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rooms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +228,8 @@ class module extends Model
                 $model->descriptions = [];
                 $n1 = 0;
                 foreach ($map['descriptions'] as $item1) {
-                    $model->descriptions[$n1++] = $item1;
+                    $model->descriptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +239,8 @@ class module extends Model
                 $model->dinamicBannerPicUrls = [];
                 $n1 = 0;
                 foreach ($map['dinamic_banner_pic_urls'] as $item1) {
-                    $model->dinamicBannerPicUrls[$n1++] = $item1;
+                    $model->dinamicBannerPicUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -261,7 +266,8 @@ class module extends Model
                 $model->rooms = [];
                 $n1 = 0;
                 foreach ($map['rooms'] as $item1) {
-                    $model->rooms[$n1++] = rooms::fromMap($item1);
+                    $model->rooms[$n1] = rooms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class segmentAvailableCertList extends Model
                 $res['cert_types'] = [];
                 $n1 = 0;
                 foreach ($this->certTypes as $item1) {
-                    $res['cert_types'][$n1++] = $item1;
+                    $res['cert_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class segmentAvailableCertList extends Model
                 $model->certTypes = [];
                 $n1 = 0;
                 foreach ($map['cert_types'] as $item1) {
-                    $model->certTypes[$n1++] = $item1;
+                    $model->certTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

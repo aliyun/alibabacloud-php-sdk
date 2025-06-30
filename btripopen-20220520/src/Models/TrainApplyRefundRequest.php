@@ -63,7 +63,8 @@ class TrainApplyRefundRequest extends Model
                 $res['refund_train_infos'] = [];
                 $n1 = 0;
                 foreach ($this->refundTrainInfos as $item1) {
-                    $res['refund_train_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_train_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class TrainApplyRefundRequest extends Model
                 $model->refundTrainInfos = [];
                 $n1 = 0;
                 foreach ($map['refund_train_infos'] as $item1) {
-                    $model->refundTrainInfos[$n1++] = refundTrainInfos::fromMap($item1);
+                    $model->refundTrainInfos[$n1] = refundTrainInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

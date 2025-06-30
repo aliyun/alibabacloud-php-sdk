@@ -33,7 +33,8 @@ class module extends Model
                 $res['segment_available_cert_list'] = [];
                 $n1 = 0;
                 foreach ($this->segmentAvailableCertList as $item1) {
-                    $res['segment_available_cert_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['segment_available_cert_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class module extends Model
                 $model->segmentAvailableCertList = [];
                 $n1 = 0;
                 foreach ($map['segment_available_cert_list'] as $item1) {
-                    $model->segmentAvailableCertList[$n1++] = segmentAvailableCertList::fromMap($item1);
+                    $model->segmentAvailableCertList[$n1] = segmentAvailableCertList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

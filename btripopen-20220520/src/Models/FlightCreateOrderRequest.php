@@ -221,7 +221,8 @@ class FlightCreateOrderRequest extends Model
                 $res['traveler_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->travelerInfoList as $item1) {
-                    $res['traveler_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traveler_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -319,7 +320,8 @@ class FlightCreateOrderRequest extends Model
                 $model->travelerInfoList = [];
                 $n1 = 0;
                 foreach ($map['traveler_info_list'] as $item1) {
-                    $model->travelerInfoList[$n1++] = travelerInfoList::fromMap($item1);
+                    $model->travelerInfoList[$n1] = travelerInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

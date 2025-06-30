@@ -290,7 +290,8 @@ class flightInfoList extends Model
                 $res['stop_city'] = [];
                 $n1 = 0;
                 foreach ($this->stopCity as $item1) {
-                    $res['stop_city'][$n1++] = $item1;
+                    $res['stop_city'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -300,7 +301,8 @@ class flightInfoList extends Model
                 $res['stop_city_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->stopCityInfoList as $item1) {
-                    $res['stop_city_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['stop_city_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -417,7 +419,8 @@ class flightInfoList extends Model
                 $model->stopCity = [];
                 $n1 = 0;
                 foreach ($map['stop_city'] as $item1) {
-                    $model->stopCity[$n1++] = $item1;
+                    $model->stopCity[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -427,7 +430,8 @@ class flightInfoList extends Model
                 $model->stopCityInfoList = [];
                 $n1 = 0;
                 foreach ($map['stop_city_info_list'] as $item1) {
-                    $model->stopCityInfoList[$n1++] = stopCityInfoList::fromMap($item1);
+                    $model->stopCityInfoList[$n1] = stopCityInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

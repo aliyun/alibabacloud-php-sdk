@@ -67,7 +67,8 @@ class changeDetails extends Model
                 $res['extra_contents'] = [];
                 $n1 = 0;
                 foreach ($this->extraContents as $item1) {
-                    $res['extra_contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['extra_contents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class changeDetails extends Model
                 $res['refund_sub_items'] = [];
                 $n1 = 0;
                 foreach ($this->refundSubItems as $item1) {
-                    $res['refund_sub_items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_sub_items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +116,8 @@ class changeDetails extends Model
                 $model->extraContents = [];
                 $n1 = 0;
                 foreach ($map['extra_contents'] as $item1) {
-                    $model->extraContents[$n1++] = extraContents::fromMap($item1);
+                    $model->extraContents[$n1] = extraContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +131,8 @@ class changeDetails extends Model
                 $model->refundSubItems = [];
                 $n1 = 0;
                 foreach ($map['refund_sub_items'] as $item1) {
-                    $model->refundSubItems[$n1++] = refundSubItems::fromMap($item1);
+                    $model->refundSubItems[$n1] = refundSubItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

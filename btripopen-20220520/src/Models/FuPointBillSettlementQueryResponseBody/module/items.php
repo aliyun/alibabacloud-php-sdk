@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $adjustTime;
+
+    /**
+     * @var string
+     */
     public $alipayId;
 
     /**
@@ -139,6 +144,11 @@ class items extends Model
     public $costCenterNumber;
 
     /**
+     * @var string
+     */
+    public $costDepartment;
+
+    /**
      * @var float
      */
     public $deductibleTax;
@@ -196,6 +206,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $mappingCompanyCode;
+
+    /**
+     * @var string
+     */
     public $orderId;
 
     /**
@@ -232,6 +247,11 @@ class items extends Model
      * @var int
      */
     public $primaryId;
+
+    /**
+     * @var string
+     */
+    public $processorOaCode;
 
     /**
      * @var string
@@ -383,6 +403,7 @@ class items extends Model
      */
     public $voucherTypeDesc;
     protected $_name = [
+        'adjustTime' => 'adjust_time',
         'alipayId' => 'alipay_id',
         'alipayTradeNo' => 'alipay_trade_no',
         'applyArrCityCode' => 'apply_arr_city_code',
@@ -409,6 +430,7 @@ class items extends Model
         'categoryOrderSettlePrice' => 'category_order_settle_price',
         'costCenter' => 'cost_center',
         'costCenterNumber' => 'cost_center_number',
+        'costDepartment' => 'cost_department',
         'deductibleTax' => 'deductible_tax',
         'department' => 'department',
         'departmentId' => 'department_id',
@@ -420,6 +442,7 @@ class items extends Model
         'invoiceTitle' => 'invoice_title',
         'location' => 'location',
         'makeInvoice' => 'make_invoice',
+        'mappingCompanyCode' => 'mapping_company_code',
         'orderId' => 'order_id',
         'orderStatusDesc' => 'order_status_desc',
         'originCategory' => 'origin_category',
@@ -428,6 +451,7 @@ class items extends Model
         'paymentDepartmentId' => 'payment_department_id',
         'paymentDepartmentName' => 'payment_department_name',
         'primaryId' => 'primary_id',
+        'processorOaCode' => 'processor_oa_code',
         'projectCode' => 'project_code',
         'projectName' => 'project_name',
         'purchaseOrderId' => 'purchase_order_id',
@@ -468,6 +492,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adjustTime) {
+            $res['adjust_time'] = $this->adjustTime;
+        }
+
         if (null !== $this->alipayId) {
             $res['alipay_id'] = $this->alipayId;
         }
@@ -572,6 +600,10 @@ class items extends Model
             $res['cost_center_number'] = $this->costCenterNumber;
         }
 
+        if (null !== $this->costDepartment) {
+            $res['cost_department'] = $this->costDepartment;
+        }
+
         if (null !== $this->deductibleTax) {
             $res['deductible_tax'] = $this->deductibleTax;
         }
@@ -616,6 +648,10 @@ class items extends Model
             $res['make_invoice'] = $this->makeInvoice;
         }
 
+        if (null !== $this->mappingCompanyCode) {
+            $res['mapping_company_code'] = $this->mappingCompanyCode;
+        }
+
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
@@ -646,6 +682,10 @@ class items extends Model
 
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
+        }
+
+        if (null !== $this->processorOaCode) {
+            $res['processor_oa_code'] = $this->processorOaCode;
         }
 
         if (null !== $this->projectCode) {
@@ -779,6 +819,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['adjust_time'])) {
+            $model->adjustTime = $map['adjust_time'];
+        }
+
         if (isset($map['alipay_id'])) {
             $model->alipayId = $map['alipay_id'];
         }
@@ -883,6 +927,10 @@ class items extends Model
             $model->costCenterNumber = $map['cost_center_number'];
         }
 
+        if (isset($map['cost_department'])) {
+            $model->costDepartment = $map['cost_department'];
+        }
+
         if (isset($map['deductible_tax'])) {
             $model->deductibleTax = $map['deductible_tax'];
         }
@@ -927,6 +975,10 @@ class items extends Model
             $model->makeInvoice = $map['make_invoice'];
         }
 
+        if (isset($map['mapping_company_code'])) {
+            $model->mappingCompanyCode = $map['mapping_company_code'];
+        }
+
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
@@ -957,6 +1009,10 @@ class items extends Model
 
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];
+        }
+
+        if (isset($map['processor_oa_code'])) {
+            $model->processorOaCode = $map['processor_oa_code'];
         }
 
         if (isset($map['project_code'])) {

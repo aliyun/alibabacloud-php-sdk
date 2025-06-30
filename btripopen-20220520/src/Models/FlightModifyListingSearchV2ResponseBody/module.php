@@ -73,7 +73,8 @@ class module extends Model
                 $res['direct_flight_list'] = [];
                 $n1 = 0;
                 foreach ($this->directFlightList as $item1) {
-                    $res['direct_flight_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['direct_flight_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class module extends Model
                 $res['transfer_flight_list'] = [];
                 $n1 = 0;
                 foreach ($this->transferFlightList as $item1) {
-                    $res['transfer_flight_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['transfer_flight_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +126,8 @@ class module extends Model
                 $model->directFlightList = [];
                 $n1 = 0;
                 foreach ($map['direct_flight_list'] as $item1) {
-                    $model->directFlightList[$n1++] = directFlightList::fromMap($item1);
+                    $model->directFlightList[$n1] = directFlightList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class module extends Model
                 $model->transferFlightList = [];
                 $n1 = 0;
                 foreach ($map['transfer_flight_list'] as $item1) {
-                    $model->transferFlightList[$n1++] = transferFlightList::fromMap($item1);
+                    $model->transferFlightList[$n1] = transferFlightList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

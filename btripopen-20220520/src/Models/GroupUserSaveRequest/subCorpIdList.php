@@ -62,7 +62,8 @@ class subCorpIdList extends Model
                 $res['depart_ids'] = [];
                 $n1 = 0;
                 foreach ($this->departIds as $item1) {
-                    $res['depart_ids'][$n1++] = $item1;
+                    $res['depart_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class subCorpIdList extends Model
                 $model->departIds = [];
                 $n1 = 0;
                 foreach ($map['depart_ids'] as $item1) {
-                    $model->departIds[$n1++] = $item1;
+                    $model->departIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

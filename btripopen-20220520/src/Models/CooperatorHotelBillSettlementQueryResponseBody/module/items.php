@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $adjustTime;
+
+    /**
+     * @var string
+     */
     public $alipayTradeNo;
 
     /**
@@ -47,6 +52,11 @@ class items extends Model
      * @var float
      */
     public $averageNights;
+
+    /**
+     * @var string
+     */
+    public $baseLocation;
 
     /**
      * @var string
@@ -186,6 +196,16 @@ class items extends Model
     /**
      * @var string
      */
+    public $costDepartment;
+
+    /**
+     * @var string
+     */
+    public $customContent;
+
+    /**
+     * @var string
+     */
     public $department;
 
     /**
@@ -254,6 +274,11 @@ class items extends Model
     public $isShareStr;
 
     /**
+     * @var string
+     */
+    public $mappingCompanyCode;
+
+    /**
      * @var int
      */
     public $nights;
@@ -304,9 +329,24 @@ class items extends Model
     public $personSettlePrice;
 
     /**
+     * @var string
+     */
+    public $position;
+
+    /**
+     * @var string
+     */
+    public $positionLevel;
+
+    /**
      * @var int
      */
     public $primaryId;
+
+    /**
+     * @var string
+     */
+    public $processorOaCode;
 
     /**
      * @var string
@@ -463,6 +503,7 @@ class items extends Model
      */
     public $voucherTypeDesc;
     protected $_name = [
+        'adjustTime' => 'adjust_time',
         'alipayTradeNo' => 'alipay_trade_no',
         'applyArrCityCode' => 'apply_arr_city_code',
         'applyArrCityName' => 'apply_arr_city_name',
@@ -471,6 +512,7 @@ class items extends Model
         'applyExtendField' => 'apply_extend_field',
         'applyId' => 'apply_id',
         'averageNights' => 'average_nights',
+        'baseLocation' => 'base_location',
         'billRecordTime' => 'bill_record_time',
         'bookChannel' => 'book_channel',
         'bookMode' => 'book_mode',
@@ -498,6 +540,8 @@ class items extends Model
         'corpTotalFee' => 'corp_total_fee',
         'costCenter' => 'cost_center',
         'costCenterNumber' => 'cost_center_number',
+        'costDepartment' => 'cost_department',
+        'customContent' => 'custom_content',
         'department' => 'department',
         'departmentId' => 'department_id',
         'exceedReason' => 'exceed_reason',
@@ -512,6 +556,7 @@ class items extends Model
         'isEarlyDeparture' => 'is_early_departure',
         'isNegotiation' => 'is_negotiation',
         'isShareStr' => 'is_share_str',
+        'mappingCompanyCode' => 'mapping_company_code',
         'nights' => 'nights',
         'orderId' => 'order_id',
         'orderPrice' => 'order_price',
@@ -522,7 +567,10 @@ class items extends Model
         'paymentDepartmentName' => 'payment_department_name',
         'personRefundFee' => 'person_refund_fee',
         'personSettlePrice' => 'person_settle_price',
+        'position' => 'position',
+        'positionLevel' => 'position_level',
         'primaryId' => 'primary_id',
+        'processorOaCode' => 'processor_oa_code',
         'projectCode' => 'project_code',
         'projectName' => 'project_name',
         'promotionFee' => 'promotion_fee',
@@ -564,6 +612,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adjustTime) {
+            $res['adjust_time'] = $this->adjustTime;
+        }
+
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
         }
@@ -594,6 +646,10 @@ class items extends Model
 
         if (null !== $this->averageNights) {
             $res['average_nights'] = $this->averageNights;
+        }
+
+        if (null !== $this->baseLocation) {
+            $res['base_location'] = $this->baseLocation;
         }
 
         if (null !== $this->billRecordTime) {
@@ -704,6 +760,14 @@ class items extends Model
             $res['cost_center_number'] = $this->costCenterNumber;
         }
 
+        if (null !== $this->costDepartment) {
+            $res['cost_department'] = $this->costDepartment;
+        }
+
+        if (null !== $this->customContent) {
+            $res['custom_content'] = $this->customContent;
+        }
+
         if (null !== $this->department) {
             $res['department'] = $this->department;
         }
@@ -760,6 +824,10 @@ class items extends Model
             $res['is_share_str'] = $this->isShareStr;
         }
 
+        if (null !== $this->mappingCompanyCode) {
+            $res['mapping_company_code'] = $this->mappingCompanyCode;
+        }
+
         if (null !== $this->nights) {
             $res['nights'] = $this->nights;
         }
@@ -800,8 +868,20 @@ class items extends Model
             $res['person_settle_price'] = $this->personSettlePrice;
         }
 
+        if (null !== $this->position) {
+            $res['position'] = $this->position;
+        }
+
+        if (null !== $this->positionLevel) {
+            $res['position_level'] = $this->positionLevel;
+        }
+
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
+        }
+
+        if (null !== $this->processorOaCode) {
+            $res['processor_oa_code'] = $this->processorOaCode;
         }
 
         if (null !== $this->projectCode) {
@@ -939,6 +1019,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['adjust_time'])) {
+            $model->adjustTime = $map['adjust_time'];
+        }
+
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
         }
@@ -969,6 +1053,10 @@ class items extends Model
 
         if (isset($map['average_nights'])) {
             $model->averageNights = $map['average_nights'];
+        }
+
+        if (isset($map['base_location'])) {
+            $model->baseLocation = $map['base_location'];
         }
 
         if (isset($map['bill_record_time'])) {
@@ -1079,6 +1167,14 @@ class items extends Model
             $model->costCenterNumber = $map['cost_center_number'];
         }
 
+        if (isset($map['cost_department'])) {
+            $model->costDepartment = $map['cost_department'];
+        }
+
+        if (isset($map['custom_content'])) {
+            $model->customContent = $map['custom_content'];
+        }
+
         if (isset($map['department'])) {
             $model->department = $map['department'];
         }
@@ -1135,6 +1231,10 @@ class items extends Model
             $model->isShareStr = $map['is_share_str'];
         }
 
+        if (isset($map['mapping_company_code'])) {
+            $model->mappingCompanyCode = $map['mapping_company_code'];
+        }
+
         if (isset($map['nights'])) {
             $model->nights = $map['nights'];
         }
@@ -1175,8 +1275,20 @@ class items extends Model
             $model->personSettlePrice = $map['person_settle_price'];
         }
 
+        if (isset($map['position'])) {
+            $model->position = $map['position'];
+        }
+
+        if (isset($map['position_level'])) {
+            $model->positionLevel = $map['position_level'];
+        }
+
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];
+        }
+
+        if (isset($map['processor_oa_code'])) {
+            $model->processorOaCode = $map['processor_oa_code'];
         }
 
         if (isset($map['project_code'])) {

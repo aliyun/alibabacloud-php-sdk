@@ -211,7 +211,8 @@ class travelerList extends Model
                 $res['car_city_set'] = [];
                 $n1 = 0;
                 foreach ($this->carCitySet as $item1) {
-                    $res['car_city_set'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['car_city_set'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +250,8 @@ class travelerList extends Model
                 $res['hotel_citys'] = [];
                 $n1 = 0;
                 foreach ($this->hotelCitys as $item1) {
-                    $res['hotel_citys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotel_citys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +261,8 @@ class travelerList extends Model
                 $res['hotel_intl_citys'] = [];
                 $n1 = 0;
                 foreach ($this->hotelIntlCitys as $item1) {
-                    $res['hotel_intl_citys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotel_intl_citys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -352,7 +355,8 @@ class travelerList extends Model
                 $model->carCitySet = [];
                 $n1 = 0;
                 foreach ($map['car_city_set'] as $item1) {
-                    $model->carCitySet[$n1++] = carCitySet::fromMap($item1);
+                    $model->carCitySet[$n1] = carCitySet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -390,7 +394,8 @@ class travelerList extends Model
                 $model->hotelCitys = [];
                 $n1 = 0;
                 foreach ($map['hotel_citys'] as $item1) {
-                    $model->hotelCitys[$n1++] = hotelCitys::fromMap($item1);
+                    $model->hotelCitys[$n1] = hotelCitys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -400,7 +405,8 @@ class travelerList extends Model
                 $model->hotelIntlCitys = [];
                 $n1 = 0;
                 foreach ($map['hotel_intl_citys'] as $item1) {
-                    $model->hotelIntlCitys[$n1++] = hotelIntlCitys::fromMap($item1);
+                    $model->hotelIntlCitys[$n1] = hotelIntlCitys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

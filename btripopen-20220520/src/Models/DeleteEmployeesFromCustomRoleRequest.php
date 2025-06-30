@@ -42,7 +42,8 @@ class DeleteEmployeesFromCustomRoleRequest extends Model
                 $res['user_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->userIdList as $item1) {
-                    $res['user_id_list'][$n1++] = $item1;
+                    $res['user_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DeleteEmployeesFromCustomRoleRequest extends Model
                 $model->userIdList = [];
                 $n1 = 0;
                 foreach ($map['user_id_list'] as $item1) {
-                    $model->userIdList[$n1++] = $item1;
+                    $model->userIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

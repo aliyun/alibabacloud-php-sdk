@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCh
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckRequest\passengerList\certInfo;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckRequest\passengerList\subsidiaryCertInfoList;
 
 class passengerList extends Model
 {
@@ -16,16 +15,6 @@ class passengerList extends Model
     public $birthday;
 
     /**
-     * @var string
-     */
-    public $cascadeDeptMask;
-
-    /**
-     * @var string
-     */
-    public $cascadeDeptName;
-
-    /**
      * @var certInfo
      */
     public $certInfo;
@@ -33,22 +22,7 @@ class passengerList extends Model
     /**
      * @var string
      */
-    public $costCenterName;
-
-    /**
-     * @var string
-     */
-    public $costCenterNumber;
-
-    /**
-     * @var string
-     */
-    public $deptId;
-
-    /**
-     * @var string
-     */
-    public $deptName;
+    public $fullName;
 
     /**
      * @var int
@@ -58,22 +32,7 @@ class passengerList extends Model
     /**
      * @var string
      */
-    public $invoiceId;
-
-    /**
-     * @var string
-     */
-    public $invoiceTitle;
-
-    /**
-     * @var string
-     */
     public $jobNo;
-
-    /**
-     * @var string
-     */
-    public $mobileCountryCode;
 
     /**
      * @var string
@@ -86,29 +45,14 @@ class passengerList extends Model
     public $nationalityCode;
 
     /**
-     * @var int
-     */
-    public $passengerType;
-
-    /**
      * @var string
      */
     public $phone;
 
     /**
-     * @var string
+     * @var int
      */
-    public $projectCode;
-
-    /**
-     * @var string
-     */
-    public $projectTitle;
-
-    /**
-     * @var subsidiaryCertInfoList[]
-     */
-    public $subsidiaryCertInfoList;
+    public $type;
 
     /**
      * @var string
@@ -121,25 +65,14 @@ class passengerList extends Model
     public $userType;
     protected $_name = [
         'birthday' => 'birthday',
-        'cascadeDeptMask' => 'cascade_dept_mask',
-        'cascadeDeptName' => 'cascade_dept_name',
         'certInfo' => 'cert_info',
-        'costCenterName' => 'cost_center_name',
-        'costCenterNumber' => 'cost_center_number',
-        'deptId' => 'dept_id',
-        'deptName' => 'dept_name',
+        'fullName' => 'full_name',
         'gender' => 'gender',
-        'invoiceId' => 'invoice_id',
-        'invoiceTitle' => 'invoice_title',
         'jobNo' => 'job_no',
-        'mobileCountryCode' => 'mobile_country_code',
         'nationality' => 'nationality',
         'nationalityCode' => 'nationality_code',
-        'passengerType' => 'passenger_type',
         'phone' => 'phone',
-        'projectCode' => 'project_code',
-        'projectTitle' => 'project_title',
-        'subsidiaryCertInfoList' => 'subsidiary_cert_info_list',
+        'type' => 'type',
         'userId' => 'user_id',
         'userType' => 'user_type',
     ];
@@ -148,9 +81,6 @@ class passengerList extends Model
     {
         if (null !== $this->certInfo) {
             $this->certInfo->validate();
-        }
-        if (\is_array($this->subsidiaryCertInfoList)) {
-            Model::validateArray($this->subsidiaryCertInfoList);
         }
         parent::validate();
     }
@@ -162,52 +92,20 @@ class passengerList extends Model
             $res['birthday'] = $this->birthday;
         }
 
-        if (null !== $this->cascadeDeptMask) {
-            $res['cascade_dept_mask'] = $this->cascadeDeptMask;
-        }
-
-        if (null !== $this->cascadeDeptName) {
-            $res['cascade_dept_name'] = $this->cascadeDeptName;
-        }
-
         if (null !== $this->certInfo) {
             $res['cert_info'] = null !== $this->certInfo ? $this->certInfo->toArray($noStream) : $this->certInfo;
         }
 
-        if (null !== $this->costCenterName) {
-            $res['cost_center_name'] = $this->costCenterName;
-        }
-
-        if (null !== $this->costCenterNumber) {
-            $res['cost_center_number'] = $this->costCenterNumber;
-        }
-
-        if (null !== $this->deptId) {
-            $res['dept_id'] = $this->deptId;
-        }
-
-        if (null !== $this->deptName) {
-            $res['dept_name'] = $this->deptName;
+        if (null !== $this->fullName) {
+            $res['full_name'] = $this->fullName;
         }
 
         if (null !== $this->gender) {
             $res['gender'] = $this->gender;
         }
 
-        if (null !== $this->invoiceId) {
-            $res['invoice_id'] = $this->invoiceId;
-        }
-
-        if (null !== $this->invoiceTitle) {
-            $res['invoice_title'] = $this->invoiceTitle;
-        }
-
         if (null !== $this->jobNo) {
             $res['job_no'] = $this->jobNo;
-        }
-
-        if (null !== $this->mobileCountryCode) {
-            $res['mobile_country_code'] = $this->mobileCountryCode;
         }
 
         if (null !== $this->nationality) {
@@ -218,30 +116,12 @@ class passengerList extends Model
             $res['nationality_code'] = $this->nationalityCode;
         }
 
-        if (null !== $this->passengerType) {
-            $res['passenger_type'] = $this->passengerType;
-        }
-
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
         }
 
-        if (null !== $this->projectCode) {
-            $res['project_code'] = $this->projectCode;
-        }
-
-        if (null !== $this->projectTitle) {
-            $res['project_title'] = $this->projectTitle;
-        }
-
-        if (null !== $this->subsidiaryCertInfoList) {
-            if (\is_array($this->subsidiaryCertInfoList)) {
-                $res['subsidiary_cert_info_list'] = [];
-                $n1 = 0;
-                foreach ($this->subsidiaryCertInfoList as $item1) {
-                    $res['subsidiary_cert_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         if (null !== $this->userId) {
@@ -267,52 +147,20 @@ class passengerList extends Model
             $model->birthday = $map['birthday'];
         }
 
-        if (isset($map['cascade_dept_mask'])) {
-            $model->cascadeDeptMask = $map['cascade_dept_mask'];
-        }
-
-        if (isset($map['cascade_dept_name'])) {
-            $model->cascadeDeptName = $map['cascade_dept_name'];
-        }
-
         if (isset($map['cert_info'])) {
             $model->certInfo = certInfo::fromMap($map['cert_info']);
         }
 
-        if (isset($map['cost_center_name'])) {
-            $model->costCenterName = $map['cost_center_name'];
-        }
-
-        if (isset($map['cost_center_number'])) {
-            $model->costCenterNumber = $map['cost_center_number'];
-        }
-
-        if (isset($map['dept_id'])) {
-            $model->deptId = $map['dept_id'];
-        }
-
-        if (isset($map['dept_name'])) {
-            $model->deptName = $map['dept_name'];
+        if (isset($map['full_name'])) {
+            $model->fullName = $map['full_name'];
         }
 
         if (isset($map['gender'])) {
             $model->gender = $map['gender'];
         }
 
-        if (isset($map['invoice_id'])) {
-            $model->invoiceId = $map['invoice_id'];
-        }
-
-        if (isset($map['invoice_title'])) {
-            $model->invoiceTitle = $map['invoice_title'];
-        }
-
         if (isset($map['job_no'])) {
             $model->jobNo = $map['job_no'];
-        }
-
-        if (isset($map['mobile_country_code'])) {
-            $model->mobileCountryCode = $map['mobile_country_code'];
         }
 
         if (isset($map['nationality'])) {
@@ -323,30 +171,12 @@ class passengerList extends Model
             $model->nationalityCode = $map['nationality_code'];
         }
 
-        if (isset($map['passenger_type'])) {
-            $model->passengerType = $map['passenger_type'];
-        }
-
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
         }
 
-        if (isset($map['project_code'])) {
-            $model->projectCode = $map['project_code'];
-        }
-
-        if (isset($map['project_title'])) {
-            $model->projectTitle = $map['project_title'];
-        }
-
-        if (isset($map['subsidiary_cert_info_list'])) {
-            if (!empty($map['subsidiary_cert_info_list'])) {
-                $model->subsidiaryCertInfoList = [];
-                $n1 = 0;
-                foreach ($map['subsidiary_cert_info_list'] as $item1) {
-                    $model->subsidiaryCertInfoList[$n1++] = subsidiaryCertInfoList::fromMap($item1);
-                }
-            }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         if (isset($map['user_id'])) {

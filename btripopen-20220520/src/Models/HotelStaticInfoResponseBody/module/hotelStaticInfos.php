@@ -334,7 +334,8 @@ class hotelStaticInfos extends Model
                 $res['imageinfos'] = [];
                 $n1 = 0;
                 foreach ($this->imageinfos as $item1) {
-                    $res['imageinfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['imageinfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -348,7 +349,8 @@ class hotelStaticInfos extends Model
                 $res['invoice_types'] = [];
                 $n1 = 0;
                 foreach ($this->invoiceTypes as $item1) {
-                    $res['invoice_types'][$n1++] = $item1;
+                    $res['invoice_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -374,7 +376,8 @@ class hotelStaticInfos extends Model
                 $res['room_infos'] = [];
                 $n1 = 0;
                 foreach ($this->roomInfos as $item1) {
-                    $res['room_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['room_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -504,7 +507,8 @@ class hotelStaticInfos extends Model
                 $model->imageinfos = [];
                 $n1 = 0;
                 foreach ($map['imageinfos'] as $item1) {
-                    $model->imageinfos[$n1++] = imageinfos::fromMap($item1);
+                    $model->imageinfos[$n1] = imageinfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -518,7 +522,8 @@ class hotelStaticInfos extends Model
                 $model->invoiceTypes = [];
                 $n1 = 0;
                 foreach ($map['invoice_types'] as $item1) {
-                    $model->invoiceTypes[$n1++] = $item1;
+                    $model->invoiceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -544,7 +549,8 @@ class hotelStaticInfos extends Model
                 $model->roomInfos = [];
                 $n1 = 0;
                 foreach ($map['room_infos'] as $item1) {
-                    $model->roomInfos[$n1++] = roomInfos::fromMap($item1);
+                    $model->roomInfos[$n1] = roomInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

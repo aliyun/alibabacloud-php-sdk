@@ -38,7 +38,8 @@ class shutterDocs extends Model
                 $res['contents'] = [];
                 $n1 = 0;
                 foreach ($this->contents as $item1) {
-                    $res['contents'][$n1++] = $item1;
+                    $res['contents'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class shutterDocs extends Model
                 $model->contents = [];
                 $n1 = 0;
                 foreach ($map['contents'] as $item1) {
-                    $model->contents[$n1++] = $item1;
+                    $model->contents[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

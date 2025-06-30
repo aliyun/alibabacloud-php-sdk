@@ -57,7 +57,8 @@ class flightOrderTicketList extends Model
                 $res['cabin_class'] = [];
                 $n1 = 0;
                 foreach ($this->cabinClass as $item1) {
-                    $res['cabin_class'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cabin_class'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class flightOrderTicketList extends Model
                 $model->cabinClass = [];
                 $n1 = 0;
                 foreach ($map['cabin_class'] as $item1) {
-                    $model->cabinClass[$n1++] = cabinClass::fromMap($item1);
+                    $model->cabinClass[$n1] = cabinClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

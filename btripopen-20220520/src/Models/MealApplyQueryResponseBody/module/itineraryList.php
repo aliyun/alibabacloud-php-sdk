@@ -51,7 +51,8 @@ class itineraryList extends Model
                 $res['cities'] = [];
                 $n1 = 0;
                 foreach ($this->cities as $item1) {
-                    $res['cities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class itineraryList extends Model
                 $model->cities = [];
                 $n1 = 0;
                 foreach ($map['cities'] as $item1) {
-                    $model->cities[$n1++] = cities::fromMap($item1);
+                    $model->cities[$n1] = cities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class popularSuggestInfos extends Model
                 $res['popular_infos'] = [];
                 $n1 = 0;
                 foreach ($this->popularInfos as $item1) {
-                    $res['popular_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['popular_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class popularSuggestInfos extends Model
                 $model->popularInfos = [];
                 $n1 = 0;
                 foreach ($map['popular_infos'] as $item1) {
-                    $model->popularInfos[$n1++] = popularInfos::fromMap($item1);
+                    $model->popularInfos[$n1] = popularInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

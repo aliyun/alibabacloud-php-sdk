@@ -19,11 +19,6 @@ class selectedFlights extends Model
     public $arrCityCode;
 
     /**
-     * @var int
-     */
-    public $cabinType;
-
-    /**
      * @var string
      */
     public $depAirportCode;
@@ -50,7 +45,6 @@ class selectedFlights extends Model
     protected $_name = [
         'arrAirportCode' => 'arr_airport_code',
         'arrCityCode' => 'arr_city_code',
-        'cabinType' => 'cabin_type',
         'depAirportCode' => 'dep_airport_code',
         'depCityCode' => 'dep_city_code',
         'flightTime' => 'flight_time',
@@ -72,10 +66,6 @@ class selectedFlights extends Model
 
         if (null !== $this->arrCityCode) {
             $res['arr_city_code'] = $this->arrCityCode;
-        }
-
-        if (null !== $this->cabinType) {
-            $res['cabin_type'] = $this->cabinType;
         }
 
         if (null !== $this->depAirportCode) {
@@ -115,10 +105,6 @@ class selectedFlights extends Model
 
         if (isset($map['arr_city_code'])) {
             $model->arrCityCode = $map['arr_city_code'];
-        }
-
-        if (isset($map['cabin_type'])) {
-            $model->cabinType = $map['cabin_type'];
         }
 
         if (isset($map['dep_airport_code'])) {

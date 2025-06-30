@@ -187,7 +187,8 @@ class module extends Model
                 $res['dest_flight_info_d_t_o_s'] = [];
                 $n1 = 0;
                 foreach ($this->destFlightInfoDTOS as $item1) {
-                    $res['dest_flight_info_d_t_o_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dest_flight_info_d_t_o_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -241,7 +242,8 @@ class module extends Model
                 $res['traveler_info_d_t_o_s'] = [];
                 $n1 = 0;
                 foreach ($this->travelerInfoDTOS as $item1) {
-                    $res['traveler_info_d_t_o_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traveler_info_d_t_o_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -290,7 +292,8 @@ class module extends Model
                 $model->destFlightInfoDTOS = [];
                 $n1 = 0;
                 foreach ($map['dest_flight_info_d_t_o_s'] as $item1) {
-                    $model->destFlightInfoDTOS[$n1++] = destFlightInfoDTOS::fromMap($item1);
+                    $model->destFlightInfoDTOS[$n1] = destFlightInfoDTOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -344,7 +347,8 @@ class module extends Model
                 $model->travelerInfoDTOS = [];
                 $n1 = 0;
                 foreach ($map['traveler_info_d_t_o_s'] as $item1) {
-                    $model->travelerInfoDTOS[$n1++] = travelerInfoDTOS::fromMap($item1);
+                    $model->travelerInfoDTOS[$n1] = travelerInfoDTOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

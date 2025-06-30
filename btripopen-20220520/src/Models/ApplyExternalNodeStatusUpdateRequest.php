@@ -49,7 +49,8 @@ class ApplyExternalNodeStatusUpdateRequest extends Model
                 $res['operation_records'] = [];
                 $n1 = 0;
                 foreach ($this->operationRecords as $item1) {
-                    $res['operation_records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['operation_records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ApplyExternalNodeStatusUpdateRequest extends Model
                 $model->operationRecords = [];
                 $n1 = 0;
                 foreach ($map['operation_records'] as $item1) {
-                    $model->operationRecords[$n1++] = operationRecords::fromMap($item1);
+                    $model->operationRecords[$n1] = operationRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

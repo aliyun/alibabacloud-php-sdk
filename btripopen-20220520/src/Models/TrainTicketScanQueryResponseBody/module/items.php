@@ -49,6 +49,11 @@ class items extends Model
     public $department;
 
     /**
+     * @var int
+     */
+    public $feeTypeShowCode;
+
+    /**
      * @var string
      */
     public $id;
@@ -56,7 +61,22 @@ class items extends Model
     /**
      * @var string
      */
+    public $invoiceDate;
+
+    /**
+     * @var int
+     */
+    public $invoiceMaterial;
+
+    /**
+     * @var string
+     */
     public $invoiceTitle;
+
+    /**
+     * @var string
+     */
+    public $ofdUrl;
 
     /**
      * @var int
@@ -76,12 +96,27 @@ class items extends Model
     /**
      * @var string
      */
+    public $pdfUrl;
+
+    /**
+     * @var string
+     */
     public $price;
 
     /**
      * @var string
      */
     public $project;
+
+    /**
+     * @var string
+     */
+    public $purchaserName;
+
+    /**
+     * @var string
+     */
+    public $purchaserTaxNo;
 
     /**
      * @var string
@@ -126,13 +161,20 @@ class items extends Model
         'depStation' => 'dep_station',
         'depTime' => 'dep_time',
         'department' => 'department',
+        'feeTypeShowCode' => 'fee_type_show_code',
         'id' => 'id',
+        'invoiceDate' => 'invoice_date',
+        'invoiceMaterial' => 'invoice_material',
         'invoiceTitle' => 'invoice_title',
+        'ofdUrl' => 'ofd_url',
         'orderId' => 'order_id',
         'ossUrl' => 'oss_url',
         'passenger' => 'passenger',
+        'pdfUrl' => 'pdf_url',
         'price' => 'price',
         'project' => 'project',
+        'purchaserName' => 'purchaser_name',
+        'purchaserTaxNo' => 'purchaser_tax_no',
         'seat' => 'seat',
         'seatNo' => 'seat_no',
         'serialNumber' => 'serial_number',
@@ -182,12 +224,28 @@ class items extends Model
             $res['department'] = $this->department;
         }
 
+        if (null !== $this->feeTypeShowCode) {
+            $res['fee_type_show_code'] = $this->feeTypeShowCode;
+        }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
 
+        if (null !== $this->invoiceDate) {
+            $res['invoice_date'] = $this->invoiceDate;
+        }
+
+        if (null !== $this->invoiceMaterial) {
+            $res['invoice_material'] = $this->invoiceMaterial;
+        }
+
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
+        }
+
+        if (null !== $this->ofdUrl) {
+            $res['ofd_url'] = $this->ofdUrl;
         }
 
         if (null !== $this->orderId) {
@@ -202,12 +260,24 @@ class items extends Model
             $res['passenger'] = $this->passenger;
         }
 
+        if (null !== $this->pdfUrl) {
+            $res['pdf_url'] = $this->pdfUrl;
+        }
+
         if (null !== $this->price) {
             $res['price'] = $this->price;
         }
 
         if (null !== $this->project) {
             $res['project'] = $this->project;
+        }
+
+        if (null !== $this->purchaserName) {
+            $res['purchaser_name'] = $this->purchaserName;
+        }
+
+        if (null !== $this->purchaserTaxNo) {
+            $res['purchaser_tax_no'] = $this->purchaserTaxNo;
         }
 
         if (null !== $this->seat) {
@@ -281,12 +351,28 @@ class items extends Model
             $model->department = $map['department'];
         }
 
+        if (isset($map['fee_type_show_code'])) {
+            $model->feeTypeShowCode = $map['fee_type_show_code'];
+        }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
 
+        if (isset($map['invoice_date'])) {
+            $model->invoiceDate = $map['invoice_date'];
+        }
+
+        if (isset($map['invoice_material'])) {
+            $model->invoiceMaterial = $map['invoice_material'];
+        }
+
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
+        }
+
+        if (isset($map['ofd_url'])) {
+            $model->ofdUrl = $map['ofd_url'];
         }
 
         if (isset($map['order_id'])) {
@@ -301,12 +387,24 @@ class items extends Model
             $model->passenger = $map['passenger'];
         }
 
+        if (isset($map['pdf_url'])) {
+            $model->pdfUrl = $map['pdf_url'];
+        }
+
         if (isset($map['price'])) {
             $model->price = $map['price'];
         }
 
         if (isset($map['project'])) {
             $model->project = $map['project'];
+        }
+
+        if (isset($map['purchaser_name'])) {
+            $model->purchaserName = $map['purchaser_name'];
+        }
+
+        if (isset($map['purchaser_tax_no'])) {
+            $model->purchaserTaxNo = $map['purchaser_tax_no'];
         }
 
         if (isset($map['seat'])) {

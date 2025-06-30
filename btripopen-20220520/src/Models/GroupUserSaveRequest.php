@@ -99,7 +99,8 @@ class GroupUserSaveRequest extends Model
                 $res['cert_list'] = [];
                 $n1 = 0;
                 foreach ($this->certList as $item1) {
-                    $res['cert_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cert_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class GroupUserSaveRequest extends Model
                 $res['sub_corp_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->subCorpIdList as $item1) {
-                    $res['sub_corp_id_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sub_corp_id_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +164,8 @@ class GroupUserSaveRequest extends Model
                 $model->certList = [];
                 $n1 = 0;
                 foreach ($map['cert_list'] as $item1) {
-                    $model->certList[$n1++] = certList::fromMap($item1);
+                    $model->certList[$n1] = certList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +191,8 @@ class GroupUserSaveRequest extends Model
                 $model->subCorpIdList = [];
                 $n1 = 0;
                 foreach ($map['sub_corp_id_list'] as $item1) {
-                    $model->subCorpIdList[$n1++] = subCorpIdList::fromMap($item1);
+                    $model->subCorpIdList[$n1] = subCorpIdList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

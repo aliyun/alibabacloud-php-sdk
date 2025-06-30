@@ -22,16 +22,10 @@ class contactInfo extends Model
      * @var string
      */
     public $contactPhone;
-
-    /**
-     * @var bool
-     */
-    public $sendMsgToPassenger;
     protected $_name = [
         'contactEmail' => 'contact_email',
         'contactName' => 'contact_name',
         'contactPhone' => 'contact_phone',
-        'sendMsgToPassenger' => 'send_msg_to_passenger',
     ];
 
     public function validate()
@@ -52,10 +46,6 @@ class contactInfo extends Model
 
         if (null !== $this->contactPhone) {
             $res['contact_phone'] = $this->contactPhone;
-        }
-
-        if (null !== $this->sendMsgToPassenger) {
-            $res['send_msg_to_passenger'] = $this->sendMsgToPassenger;
         }
 
         return $res;
@@ -79,10 +69,6 @@ class contactInfo extends Model
 
         if (isset($map['contact_phone'])) {
             $model->contactPhone = $map['contact_phone'];
-        }
-
-        if (isset($map['send_msg_to_passenger'])) {
-            $model->sendMsgToPassenger = $map['send_msg_to_passenger'];
         }
 
         return $model;

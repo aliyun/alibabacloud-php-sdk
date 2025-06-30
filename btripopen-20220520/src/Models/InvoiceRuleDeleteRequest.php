@@ -49,7 +49,8 @@ class InvoiceRuleDeleteRequest extends Model
                 $res['entities'] = [];
                 $n1 = 0;
                 foreach ($this->entities as $item1) {
-                    $res['entities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['entities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class InvoiceRuleDeleteRequest extends Model
                 $model->entities = [];
                 $n1 = 0;
                 foreach ($map['entities'] as $item1) {
-                    $model->entities[$n1++] = entities::fromMap($item1);
+                    $model->entities[$n1] = entities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

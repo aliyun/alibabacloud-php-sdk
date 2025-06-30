@@ -69,7 +69,8 @@ class hotelPriceInfos extends Model
                 $res['rooms'] = [];
                 $n1 = 0;
                 foreach ($this->rooms as $item1) {
-                    $res['rooms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rooms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class hotelPriceInfos extends Model
                 $model->rooms = [];
                 $n1 = 0;
                 foreach ($map['rooms'] as $item1) {
-                    $model->rooms[$n1++] = rooms::fromMap($item1);
+                    $model->rooms[$n1] = rooms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class module extends Model
                 $res['ins_order_policy_list'] = [];
                 $n1 = 0;
                 foreach ($this->insOrderPolicyList as $item1) {
-                    $res['ins_order_policy_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ins_order_policy_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class module extends Model
                 $model->insOrderPolicyList = [];
                 $n1 = 0;
                 foreach ($map['ins_order_policy_list'] as $item1) {
-                    $model->insOrderPolicyList[$n1++] = insOrderPolicyList::fromMap($item1);
+                    $model->insOrderPolicyList[$n1] = insOrderPolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -71,7 +71,8 @@ class ApplyListQueryResponseBody extends Model
                 $res['module_list'] = [];
                 $n1 = 0;
                 foreach ($this->moduleList as $item1) {
-                    $res['module_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['module_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ApplyListQueryResponseBody extends Model
                 $model->moduleList = [];
                 $n1 = 0;
                 foreach ($map['module_list'] as $item1) {
-                    $model->moduleList[$n1++] = moduleList::fromMap($item1);
+                    $model->moduleList[$n1] = moduleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

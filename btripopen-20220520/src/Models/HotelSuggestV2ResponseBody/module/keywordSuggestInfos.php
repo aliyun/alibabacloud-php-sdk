@@ -103,7 +103,8 @@ class keywordSuggestInfos extends Model
                 $res['business_area_with_city'] = [];
                 $n1 = 0;
                 foreach ($this->businessAreaWithCity as $item1) {
-                    $res['business_area_with_city'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['business_area_with_city'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +169,8 @@ class keywordSuggestInfos extends Model
                 $model->businessAreaWithCity = [];
                 $n1 = 0;
                 foreach ($map['business_area_with_city'] as $item1) {
-                    $model->businessAreaWithCity[$n1++] = businessAreaWithCity::fromMap($item1);
+                    $model->businessAreaWithCity[$n1] = businessAreaWithCity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -93,7 +93,8 @@ class module extends Model
                 $res['change_ticket_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->changeTicketInfoList as $item1) {
-                    $res['change_ticket_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['change_ticket_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class module extends Model
                 $res['passenger_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerInfoList as $item1) {
-                    $res['passenger_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +123,8 @@ class module extends Model
                 $res['price_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->priceInfoList as $item1) {
-                    $res['price_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['price_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +134,8 @@ class module extends Model
                 $res['refund_ticket_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->refundTicketInfoList as $item1) {
-                    $res['refund_ticket_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_ticket_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +160,8 @@ class module extends Model
                 $model->changeTicketInfoList = [];
                 $n1 = 0;
                 foreach ($map['change_ticket_info_list'] as $item1) {
-                    $model->changeTicketInfoList[$n1++] = changeTicketInfoList::fromMap($item1);
+                    $model->changeTicketInfoList[$n1] = changeTicketInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +179,8 @@ class module extends Model
                 $model->passengerInfoList = [];
                 $n1 = 0;
                 foreach ($map['passenger_info_list'] as $item1) {
-                    $model->passengerInfoList[$n1++] = passengerInfoList::fromMap($item1);
+                    $model->passengerInfoList[$n1] = passengerInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +190,8 @@ class module extends Model
                 $model->priceInfoList = [];
                 $n1 = 0;
                 foreach ($map['price_info_list'] as $item1) {
-                    $model->priceInfoList[$n1++] = priceInfoList::fromMap($item1);
+                    $model->priceInfoList[$n1] = priceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +201,8 @@ class module extends Model
                 $model->refundTicketInfoList = [];
                 $n1 = 0;
                 foreach ($map['refund_ticket_info_list'] as $item1) {
-                    $model->refundTicketInfoList[$n1++] = refundTicketInfoList::fromMap($item1);
+                    $model->refundTicketInfoList[$n1] = refundTicketInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

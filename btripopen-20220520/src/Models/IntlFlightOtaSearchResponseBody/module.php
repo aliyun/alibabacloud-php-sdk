@@ -43,7 +43,8 @@ class module extends Model
                 $res['flight_journey_infos'] = [];
                 $n1 = 0;
                 foreach ($this->flightJourneyInfos as $item1) {
-                    $res['flight_journey_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_journey_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class module extends Model
                 $res['item_list'] = [];
                 $n1 = 0;
                 foreach ($this->itemList as $item1) {
-                    $res['item_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['item_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class module extends Model
                 $model->flightJourneyInfos = [];
                 $n1 = 0;
                 foreach ($map['flight_journey_infos'] as $item1) {
-                    $model->flightJourneyInfos[$n1++] = flightJourneyInfos::fromMap($item1);
+                    $model->flightJourneyInfos[$n1] = flightJourneyInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class module extends Model
                 $model->itemList = [];
                 $n1 = 0;
                 foreach ($map['item_list'] as $item1) {
-                    $model->itemList[$n1++] = itemList::fromMap($item1);
+                    $model->itemList[$n1] = itemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

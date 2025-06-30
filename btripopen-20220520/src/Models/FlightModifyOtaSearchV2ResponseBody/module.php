@@ -75,7 +75,8 @@ class module extends Model
                 $res['agentInfos'] = [];
                 $n1 = 0;
                 foreach ($this->agentInfos as $item1) {
-                    $res['agentInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['agentInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,12 +95,14 @@ class module extends Model
                 $n1 = 0;
                 foreach ($this->flightSegmentInfos as $item1) {
                     if (\is_array($item1)) {
-                        $res['flight_segment_infos'][$n1++] = [];
+                        $res['flight_segment_infos'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['flight_segment_infos'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['flight_segment_infos'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +131,8 @@ class module extends Model
                 $model->agentInfos = [];
                 $n1 = 0;
                 foreach ($map['agentInfos'] as $item1) {
-                    $model->agentInfos[$n1++] = agentInfos::fromMap($item1);
+                    $model->agentInfos[$n1] = agentInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -147,12 +151,14 @@ class module extends Model
                 $n1 = 0;
                 foreach ($map['flight_segment_infos'] as $item1) {
                     if (!empty($item1)) {
-                        $model->flightSegmentInfos[$n1++] = [];
+                        $model->flightSegmentInfos[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->flightSegmentInfos[$n1++][$n2++] = flightSegmentInfos::fromMap($item2);
+                            $model->flightSegmentInfos[$n1][$n2] = flightSegmentInfos::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

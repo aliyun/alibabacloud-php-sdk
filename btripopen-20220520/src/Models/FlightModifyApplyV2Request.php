@@ -121,7 +121,8 @@ class FlightModifyApplyV2Request extends Model
                 $res['passenger_segment_relations'] = [];
                 $n1 = 0;
                 foreach ($this->passengerSegmentRelations as $item1) {
-                    $res['passenger_segment_relations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_segment_relations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +183,8 @@ class FlightModifyApplyV2Request extends Model
                 $model->passengerSegmentRelations = [];
                 $n1 = 0;
                 foreach ($map['passenger_segment_relations'] as $item1) {
-                    $model->passengerSegmentRelations[$n1++] = passengerSegmentRelations::fromMap($item1);
+                    $model->passengerSegmentRelations[$n1] = passengerSegmentRelations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

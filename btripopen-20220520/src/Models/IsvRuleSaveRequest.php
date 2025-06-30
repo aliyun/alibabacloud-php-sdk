@@ -71,7 +71,8 @@ class IsvRuleSaveRequest extends Model
                 $res['bookuser_list'] = [];
                 $n1 = 0;
                 foreach ($this->bookuserList as $item1) {
-                    $res['bookuser_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['bookuser_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class IsvRuleSaveRequest extends Model
                 $model->bookuserList = [];
                 $n1 = 0;
                 foreach ($map['bookuser_list'] as $item1) {
-                    $model->bookuserList[$n1++] = bookuserList::fromMap($item1);
+                    $model->bookuserList[$n1] = bookuserList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

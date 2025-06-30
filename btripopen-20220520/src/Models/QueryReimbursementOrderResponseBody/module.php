@@ -211,7 +211,8 @@ class module extends Model
                 $res['expenses'] = [];
                 $n1 = 0;
                 foreach ($this->expenses as $item1) {
-                    $res['expenses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['expenses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +246,8 @@ class module extends Model
                 $res['itineraries'] = [];
                 $n1 = 0;
                 foreach ($this->itineraries as $item1) {
-                    $res['itineraries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['itineraries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +261,8 @@ class module extends Model
                 $res['payment_infos'] = [];
                 $n1 = 0;
                 foreach ($this->paymentInfos as $item1) {
-                    $res['payment_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['payment_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -344,7 +347,8 @@ class module extends Model
                 $model->expenses = [];
                 $n1 = 0;
                 foreach ($map['expenses'] as $item1) {
-                    $model->expenses[$n1++] = expenses::fromMap($item1);
+                    $model->expenses[$n1] = expenses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +382,8 @@ class module extends Model
                 $model->itineraries = [];
                 $n1 = 0;
                 foreach ($map['itineraries'] as $item1) {
-                    $model->itineraries[$n1++] = itineraries::fromMap($item1);
+                    $model->itineraries[$n1] = itineraries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -392,7 +397,8 @@ class module extends Model
                 $model->paymentInfos = [];
                 $n1 = 0;
                 foreach ($map['payment_infos'] as $item1) {
-                    $model->paymentInfos[$n1++] = paymentInfos::fromMap($item1);
+                    $model->paymentInfos[$n1] = paymentInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

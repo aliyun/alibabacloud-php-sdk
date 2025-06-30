@@ -109,7 +109,8 @@ class expenses extends Model
                 $res['expense_compositions'] = [];
                 $n1 = 0;
                 foreach ($this->expenseCompositions as $item1) {
-                    $res['expense_compositions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['expense_compositions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class expenses extends Model
                 $res['invoice_infos'] = [];
                 $n1 = 0;
                 foreach ($this->invoiceInfos as $item1) {
-                    $res['invoice_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['invoice_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +178,8 @@ class expenses extends Model
                 $model->expenseCompositions = [];
                 $n1 = 0;
                 foreach ($map['expense_compositions'] as $item1) {
-                    $model->expenseCompositions[$n1++] = expenseCompositions::fromMap($item1);
+                    $model->expenseCompositions[$n1] = expenseCompositions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +201,8 @@ class expenses extends Model
                 $model->invoiceInfos = [];
                 $n1 = 0;
                 foreach ($map['invoice_infos'] as $item1) {
-                    $model->invoiceInfos[$n1++] = invoiceInfos::fromMap($item1);
+                    $model->invoiceInfos[$n1] = invoiceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

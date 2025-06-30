@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderRequest\contactInfo;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderRequest\costCenter;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderRequest\passengerList;
 
 class IntlFlightCreateOrderRequest extends Model
@@ -22,14 +21,19 @@ class IntlFlightCreateOrderRequest extends Model
     public $asyncCreateOrderMode;
 
     /**
+     * @var string
+     */
+    public $btripUserId;
+
+    /**
+     * @var string
+     */
+    public $buyerName;
+
+    /**
      * @var contactInfo
      */
     public $contactInfo;
-
-    /**
-     * @var costCenter
-     */
-    public $costCenter;
 
     /**
      * @var string[]
@@ -42,9 +46,9 @@ class IntlFlightCreateOrderRequest extends Model
     public $isvName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $language;
+    public $orderPrice;
 
     /**
      * @var string
@@ -65,45 +69,25 @@ class IntlFlightCreateOrderRequest extends Model
      * @var string
      */
     public $renderKey;
-
-    /**
-     * @var int
-     */
-    public $totalPriceCent;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $userName;
     protected $_name = [
         'asyncCreateOrderKey' => 'async_create_order_key',
         'asyncCreateOrderMode' => 'async_create_order_mode',
+        'btripUserId' => 'btrip_user_id',
+        'buyerName' => 'buyer_name',
         'contactInfo' => 'contact_info',
-        'costCenter' => 'cost_center',
         'extraInfo' => 'extra_info',
         'isvName' => 'isv_name',
-        'language' => 'language',
+        'orderPrice' => 'order_price',
         'otaItemId' => 'ota_item_id',
         'outOrderId' => 'out_order_id',
         'passengerList' => 'passenger_list',
         'renderKey' => 'render_key',
-        'totalPriceCent' => 'total_price_cent',
-        'userId' => 'user_id',
-        'userName' => 'user_name',
     ];
 
     public function validate()
     {
         if (null !== $this->contactInfo) {
             $this->contactInfo->validate();
-        }
-        if (null !== $this->costCenter) {
-            $this->costCenter->validate();
         }
         if (\is_array($this->extraInfo)) {
             Model::validateArray($this->extraInfo);
@@ -125,12 +109,16 @@ class IntlFlightCreateOrderRequest extends Model
             $res['async_create_order_mode'] = $this->asyncCreateOrderMode;
         }
 
-        if (null !== $this->contactInfo) {
-            $res['contact_info'] = null !== $this->contactInfo ? $this->contactInfo->toArray($noStream) : $this->contactInfo;
+        if (null !== $this->btripUserId) {
+            $res['btrip_user_id'] = $this->btripUserId;
         }
 
-        if (null !== $this->costCenter) {
-            $res['cost_center'] = null !== $this->costCenter ? $this->costCenter->toArray($noStream) : $this->costCenter;
+        if (null !== $this->buyerName) {
+            $res['buyer_name'] = $this->buyerName;
+        }
+
+        if (null !== $this->contactInfo) {
+            $res['contact_info'] = null !== $this->contactInfo ? $this->contactInfo->toArray($noStream) : $this->contactInfo;
         }
 
         if (null !== $this->extraInfo) {
@@ -146,8 +134,8 @@ class IntlFlightCreateOrderRequest extends Model
             $res['isv_name'] = $this->isvName;
         }
 
-        if (null !== $this->language) {
-            $res['language'] = $this->language;
+        if (null !== $this->orderPrice) {
+            $res['order_price'] = $this->orderPrice;
         }
 
         if (null !== $this->otaItemId) {
@@ -163,25 +151,14 @@ class IntlFlightCreateOrderRequest extends Model
                 $res['passenger_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerList as $item1) {
-                    $res['passenger_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->renderKey) {
             $res['render_key'] = $this->renderKey;
-        }
-
-        if (null !== $this->totalPriceCent) {
-            $res['total_price_cent'] = $this->totalPriceCent;
-        }
-
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
-        }
-
-        if (null !== $this->userName) {
-            $res['user_name'] = $this->userName;
         }
 
         return $res;
@@ -203,12 +180,16 @@ class IntlFlightCreateOrderRequest extends Model
             $model->asyncCreateOrderMode = $map['async_create_order_mode'];
         }
 
-        if (isset($map['contact_info'])) {
-            $model->contactInfo = contactInfo::fromMap($map['contact_info']);
+        if (isset($map['btrip_user_id'])) {
+            $model->btripUserId = $map['btrip_user_id'];
         }
 
-        if (isset($map['cost_center'])) {
-            $model->costCenter = costCenter::fromMap($map['cost_center']);
+        if (isset($map['buyer_name'])) {
+            $model->buyerName = $map['buyer_name'];
+        }
+
+        if (isset($map['contact_info'])) {
+            $model->contactInfo = contactInfo::fromMap($map['contact_info']);
         }
 
         if (isset($map['extra_info'])) {
@@ -224,8 +205,8 @@ class IntlFlightCreateOrderRequest extends Model
             $model->isvName = $map['isv_name'];
         }
 
-        if (isset($map['language'])) {
-            $model->language = $map['language'];
+        if (isset($map['order_price'])) {
+            $model->orderPrice = $map['order_price'];
         }
 
         if (isset($map['ota_item_id'])) {
@@ -241,25 +222,14 @@ class IntlFlightCreateOrderRequest extends Model
                 $model->passengerList = [];
                 $n1 = 0;
                 foreach ($map['passenger_list'] as $item1) {
-                    $model->passengerList[$n1++] = passengerList::fromMap($item1);
+                    $model->passengerList[$n1] = passengerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['render_key'])) {
             $model->renderKey = $map['render_key'];
-        }
-
-        if (isset($map['total_price_cent'])) {
-            $model->totalPriceCent = $map['total_price_cent'];
-        }
-
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
-        }
-
-        if (isset($map['user_name'])) {
-            $model->userName = $map['user_name'];
         }
 
         return $model;

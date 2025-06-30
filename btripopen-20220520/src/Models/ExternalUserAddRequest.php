@@ -79,7 +79,8 @@ class ExternalUserAddRequest extends Model
                 $res['cert_request_list'] = [];
                 $n1 = 0;
                 foreach ($this->certRequestList as $item1) {
-                    $res['cert_request_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cert_request_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +129,8 @@ class ExternalUserAddRequest extends Model
                 $model->certRequestList = [];
                 $n1 = 0;
                 foreach ($map['cert_request_list'] as $item1) {
-                    $model->certRequestList[$n1++] = certRequestList::fromMap($item1);
+                    $model->certRequestList[$n1] = certRequestList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

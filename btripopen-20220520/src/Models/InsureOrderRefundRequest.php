@@ -87,7 +87,8 @@ class InsureOrderRefundRequest extends Model
                 $res['policy_no_list'] = [];
                 $n1 = 0;
                 foreach ($this->policyNoList as $item1) {
-                    $res['policy_no_list'][$n1++] = $item1;
+                    $res['policy_no_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class InsureOrderRefundRequest extends Model
                 $res['sub_ins_order_ids'] = [];
                 $n1 = 0;
                 foreach ($this->subInsOrderIds as $item1) {
-                    $res['sub_ins_order_ids'][$n1++] = $item1;
+                    $res['sub_ins_order_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class InsureOrderRefundRequest extends Model
                 $model->policyNoList = [];
                 $n1 = 0;
                 foreach ($map['policy_no_list'] as $item1) {
-                    $model->policyNoList[$n1++] = $item1;
+                    $model->policyNoList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class InsureOrderRefundRequest extends Model
                 $model->subInsOrderIds = [];
                 $n1 = 0;
                 foreach ($map['sub_ins_order_ids'] as $item1) {
-                    $model->subInsOrderIds[$n1++] = $item1;
+                    $model->subInsOrderIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

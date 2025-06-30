@@ -100,7 +100,8 @@ class expenseCompositions extends Model
                 $res['remind_tag_list'] = [];
                 $n1 = 0;
                 foreach ($this->remindTagList as $item1) {
-                    $res['remind_tag_list'][$n1++] = $item1;
+                    $res['remind_tag_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class expenseCompositions extends Model
                 $model->remindTagList = [];
                 $n1 = 0;
                 foreach ($map['remind_tag_list'] as $item1) {
-                    $model->remindTagList[$n1++] = $item1;
+                    $model->remindTagList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

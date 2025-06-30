@@ -45,7 +45,8 @@ class module extends Model
                 $res['citys'] = [];
                 $n1 = 0;
                 foreach ($this->citys as $item1) {
-                    $res['citys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['citys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class module extends Model
                 $model->citys = [];
                 $n1 = 0;
                 foreach ($map['citys'] as $item1) {
-                    $model->citys[$n1++] = citys::fromMap($item1);
+                    $model->citys[$n1] = citys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

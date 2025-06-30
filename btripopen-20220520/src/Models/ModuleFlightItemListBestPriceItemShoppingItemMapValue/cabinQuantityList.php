@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue\cabinQuantityList\cabin;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue\cabinQuantityList\cabinInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue\cabinQuantityList\segmentPosition;
 
 class cabinQuantityList extends Model
@@ -16,12 +16,12 @@ class cabinQuantityList extends Model
     public $segmentPosition;
 
     /**
-     * @var cabin
+     * @var cabinInfo
      */
-    public $cabin;
+    public $cabinInfo;
     protected $_name = [
         'segmentPosition' => 'segment_position',
-        'cabin' => 'cabin',
+        'cabinInfo' => 'cabin_info',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class cabinQuantityList extends Model
         if (null !== $this->segmentPosition) {
             $this->segmentPosition->validate();
         }
-        if (null !== $this->cabin) {
-            $this->cabin->validate();
+        if (null !== $this->cabinInfo) {
+            $this->cabinInfo->validate();
         }
         parent::validate();
     }
@@ -42,8 +42,8 @@ class cabinQuantityList extends Model
             $res['segment_position'] = null !== $this->segmentPosition ? $this->segmentPosition->toArray($noStream) : $this->segmentPosition;
         }
 
-        if (null !== $this->cabin) {
-            $res['cabin'] = null !== $this->cabin ? $this->cabin->toArray($noStream) : $this->cabin;
+        if (null !== $this->cabinInfo) {
+            $res['cabin_info'] = null !== $this->cabinInfo ? $this->cabinInfo->toArray($noStream) : $this->cabinInfo;
         }
 
         return $res;
@@ -61,8 +61,8 @@ class cabinQuantityList extends Model
             $model->segmentPosition = segmentPosition::fromMap($map['segment_position']);
         }
 
-        if (isset($map['cabin'])) {
-            $model->cabin = cabin::fromMap($map['cabin']);
+        if (isset($map['cabin_info'])) {
+            $model->cabinInfo = cabinInfo::fromMap($map['cabin_info']);
         }
 
         return $model;

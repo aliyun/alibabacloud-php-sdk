@@ -361,7 +361,8 @@ class module extends Model
                 $res['insure_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->insureInfoList as $item1) {
-                    $res['insure_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['insure_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +384,8 @@ class module extends Model
                 $res['price_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->priceInfoList as $item1) {
-                    $res['price_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['price_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -433,7 +435,8 @@ class module extends Model
                 $res['user_affiliate_list'] = [];
                 $n1 = 0;
                 foreach ($this->userAffiliateList as $item1) {
-                    $res['user_affiliate_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['user_affiliate_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -546,7 +549,8 @@ class module extends Model
                 $model->insureInfoList = [];
                 $n1 = 0;
                 foreach ($map['insure_info_list'] as $item1) {
-                    $model->insureInfoList[$n1++] = insureInfoList::fromMap($item1);
+                    $model->insureInfoList[$n1] = insureInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -568,7 +572,8 @@ class module extends Model
                 $model->priceInfoList = [];
                 $n1 = 0;
                 foreach ($map['price_info_list'] as $item1) {
-                    $model->priceInfoList[$n1++] = priceInfoList::fromMap($item1);
+                    $model->priceInfoList[$n1] = priceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -618,7 +623,8 @@ class module extends Model
                 $model->userAffiliateList = [];
                 $n1 = 0;
                 foreach ($map['user_affiliate_list'] as $item1) {
-                    $model->userAffiliateList[$n1++] = userAffiliateList::fromMap($item1);
+                    $model->userAffiliateList[$n1] = userAffiliateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class bedInfoGroupList extends Model
                 $res['bed_infos'] = [];
                 $n1 = 0;
                 foreach ($this->bedInfos as $item1) {
-                    $res['bed_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['bed_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class bedInfoGroupList extends Model
                 $model->bedInfos = [];
                 $n1 = 0;
                 foreach ($map['bed_infos'] as $item1) {
-                    $model->bedInfos[$n1++] = bedInfos::fromMap($item1);
+                    $model->bedInfos[$n1] = bedInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

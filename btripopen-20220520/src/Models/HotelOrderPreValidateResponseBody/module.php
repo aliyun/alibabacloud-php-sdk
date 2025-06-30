@@ -103,7 +103,8 @@ class module extends Model
                 $res['rate_plan_daily'] = [];
                 $n1 = 0;
                 foreach ($this->ratePlanDaily as $item1) {
-                    $res['rate_plan_daily'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rate_plan_daily'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class module extends Model
                 $model->ratePlanDaily = [];
                 $n1 = 0;
                 foreach ($map['rate_plan_daily'] as $item1) {
-                    $model->ratePlanDaily[$n1++] = ratePlanDaily::fromMap($item1);
+                    $model->ratePlanDaily[$n1] = ratePlanDaily::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

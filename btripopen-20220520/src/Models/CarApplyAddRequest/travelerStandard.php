@@ -39,7 +39,8 @@ class travelerStandard extends Model
                 $res['car_city_set'] = [];
                 $n1 = 0;
                 foreach ($this->carCitySet as $item1) {
-                    $res['car_city_set'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['car_city_set'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class travelerStandard extends Model
                 $model->carCitySet = [];
                 $n1 = 0;
                 foreach ($map['car_city_set'] as $item1) {
-                    $model->carCitySet[$n1++] = carCitySet::fromMap($item1);
+                    $model->carCitySet[$n1] = carCitySet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -11,17 +11,17 @@ class IntlFlightOrderPayCheckResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $resultCode;
-
-    /**
-     * @var string
-     */
-    public $resultMsg;
 
     /**
      * @var bool
@@ -33,11 +33,11 @@ class IntlFlightOrderPayCheckResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'requestId' => 'request_id',
-        'resultCode' => 'result_code',
-        'resultMsg' => 'result_msg',
+        'code' => 'code',
+        'message' => 'message',
+        'requestId' => 'requestId',
         'success' => 'success',
-        'traceId' => 'trace_id',
+        'traceId' => 'traceId',
     ];
 
     public function validate()
@@ -48,16 +48,16 @@ class IntlFlightOrderPayCheckResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
+
         if (null !== $this->requestId) {
-            $res['request_id'] = $this->requestId;
-        }
-
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
+            $res['requestId'] = $this->requestId;
         }
 
         if (null !== $this->success) {
@@ -65,7 +65,7 @@ class IntlFlightOrderPayCheckResponseBody extends Model
         }
 
         if (null !== $this->traceId) {
-            $res['trace_id'] = $this->traceId;
+            $res['traceId'] = $this->traceId;
         }
 
         return $res;
@@ -79,24 +79,24 @@ class IntlFlightOrderPayCheckResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['request_id'])) {
-            $model->requestId = $map['request_id'];
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
         }
 
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
 
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
 
-        if (isset($map['trace_id'])) {
-            $model->traceId = $map['trace_id'];
+        if (isset($map['traceId'])) {
+            $model->traceId = $map['traceId'];
         }
 
         return $model;

@@ -106,7 +106,8 @@ class module extends Model
                 $res['out_dept_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->outDeptIdList as $item1) {
-                    $res['out_dept_id_list'][$n1++] = $item1;
+                    $res['out_dept_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class module extends Model
                 $model->outDeptIdList = [];
                 $n1 = 0;
                 foreach ($map['out_dept_id_list'] as $item1) {
-                    $model->outDeptIdList[$n1++] = $item1;
+                    $model->outDeptIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

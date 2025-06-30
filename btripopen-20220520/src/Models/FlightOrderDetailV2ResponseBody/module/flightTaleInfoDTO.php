@@ -51,7 +51,8 @@ class flightTaleInfoDTO extends Model
                 $res['journeys'] = [];
                 $n1 = 0;
                 foreach ($this->journeys as $item1) {
-                    $res['journeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['journeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class flightTaleInfoDTO extends Model
                 $model->journeys = [];
                 $n1 = 0;
                 foreach ($map['journeys'] as $item1) {
-                    $model->journeys[$n1++] = journeys::fromMap($item1);
+                    $model->journeys[$n1] = journeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

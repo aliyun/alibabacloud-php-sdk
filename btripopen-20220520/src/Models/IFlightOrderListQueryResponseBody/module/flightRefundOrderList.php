@@ -102,7 +102,8 @@ class flightRefundOrderList extends Model
                 $res['flight_order_refund_ticket_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightOrderRefundTicketList as $item1) {
-                    $res['flight_order_refund_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_order_refund_ticket_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class flightRefundOrderList extends Model
                 $res['flight_refund_segment_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightRefundSegmentList as $item1) {
-                    $res['flight_refund_segment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_refund_segment_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class flightRefundOrderList extends Model
                 $res['passenger_fee'] = [];
                 $n1 = 0;
                 foreach ($this->passengerFee as $item1) {
-                    $res['passenger_fee'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_fee'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +135,8 @@ class flightRefundOrderList extends Model
                 $res['passenger_info'] = [];
                 $n1 = 0;
                 foreach ($this->passengerInfo as $item1) {
-                    $res['passenger_info'][$n1++] = $item1;
+                    $res['passenger_info'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +181,8 @@ class flightRefundOrderList extends Model
                 $model->flightOrderRefundTicketList = [];
                 $n1 = 0;
                 foreach ($map['flight_order_refund_ticket_list'] as $item1) {
-                    $model->flightOrderRefundTicketList[$n1++] = flightOrderRefundTicketList::fromMap($item1);
+                    $model->flightOrderRefundTicketList[$n1] = flightOrderRefundTicketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +192,8 @@ class flightRefundOrderList extends Model
                 $model->flightRefundSegmentList = [];
                 $n1 = 0;
                 foreach ($map['flight_refund_segment_list'] as $item1) {
-                    $model->flightRefundSegmentList[$n1++] = flightRefundSegmentList::fromMap($item1);
+                    $model->flightRefundSegmentList[$n1] = flightRefundSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +203,8 @@ class flightRefundOrderList extends Model
                 $model->passengerFee = [];
                 $n1 = 0;
                 foreach ($map['passenger_fee'] as $item1) {
-                    $model->passengerFee[$n1++] = passengerFee::fromMap($item1);
+                    $model->passengerFee[$n1] = passengerFee::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +214,8 @@ class flightRefundOrderList extends Model
                 $model->passengerInfo = [];
                 $n1 = 0;
                 foreach ($map['passenger_info'] as $item1) {
-                    $model->passengerInfo[$n1++] = $item1;
+                    $model->passengerInfo[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

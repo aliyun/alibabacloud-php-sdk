@@ -301,7 +301,8 @@ class flightList extends Model
                 $res['cabin_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->cabinInfoList as $item1) {
-                    $res['cabin_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cabin_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -339,7 +340,8 @@ class flightList extends Model
                 $res['flight_rule_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightRuleList as $item1) {
-                    $res['flight_rule_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_rule_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -480,7 +482,8 @@ class flightList extends Model
                 $model->cabinInfoList = [];
                 $n1 = 0;
                 foreach ($map['cabin_info_list'] as $item1) {
-                    $model->cabinInfoList[$n1++] = cabinInfoList::fromMap($item1);
+                    $model->cabinInfoList[$n1] = cabinInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -518,7 +521,8 @@ class flightList extends Model
                 $model->flightRuleList = [];
                 $n1 = 0;
                 foreach ($map['flight_rule_list'] as $item1) {
-                    $model->flightRuleList[$n1++] = flightRuleList::fromMap($item1);
+                    $model->flightRuleList[$n1] = flightRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

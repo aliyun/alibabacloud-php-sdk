@@ -20,6 +20,11 @@ class refundChangeRule extends Model
     public $changeFeeInd;
 
     /**
+     * @var string
+     */
+    public $changeRuleDesc;
+
+    /**
      * @var ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue[][]
      */
     public $offerPenaltyInfoMap;
@@ -30,14 +35,21 @@ class refundChangeRule extends Model
     public $refundChangeDigest;
 
     /**
+     * @var string
+     */
+    public $refundRuleDesc;
+
+    /**
      * @var bool
      */
     public $structuredRefund;
     protected $_name = [
         'cancelFeeInd' => 'cancel_fee_ind',
         'changeFeeInd' => 'change_fee_ind',
+        'changeRuleDesc' => 'change_rule_desc',
         'offerPenaltyInfoMap' => 'offer_penalty_info_map',
         'refundChangeDigest' => 'refund_change_digest',
+        'refundRuleDesc' => 'refund_rule_desc',
         'structuredRefund' => 'structured_refund',
     ];
 
@@ -60,6 +72,10 @@ class refundChangeRule extends Model
             $res['change_fee_ind'] = $this->changeFeeInd;
         }
 
+        if (null !== $this->changeRuleDesc) {
+            $res['change_rule_desc'] = $this->changeRuleDesc;
+        }
+
         if (null !== $this->offerPenaltyInfoMap) {
             if (\is_array($this->offerPenaltyInfoMap)) {
                 $res['offer_penalty_info_map'] = [];
@@ -68,7 +84,8 @@ class refundChangeRule extends Model
                         $res['offer_penalty_info_map'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['offer_penalty_info_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['offer_penalty_info_map'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -77,6 +94,10 @@ class refundChangeRule extends Model
 
         if (null !== $this->refundChangeDigest) {
             $res['refund_change_digest'] = $this->refundChangeDigest;
+        }
+
+        if (null !== $this->refundRuleDesc) {
+            $res['refund_rule_desc'] = $this->refundRuleDesc;
         }
 
         if (null !== $this->structuredRefund) {
@@ -102,6 +123,10 @@ class refundChangeRule extends Model
             $model->changeFeeInd = $map['change_fee_ind'];
         }
 
+        if (isset($map['change_rule_desc'])) {
+            $model->changeRuleDesc = $map['change_rule_desc'];
+        }
+
         if (isset($map['offer_penalty_info_map'])) {
             if (!empty($map['offer_penalty_info_map'])) {
                 $model->offerPenaltyInfoMap = [];
@@ -110,7 +135,8 @@ class refundChangeRule extends Model
                         $model->offerPenaltyInfoMap[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->offerPenaltyInfoMap[$key1][$n2++] = ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue::fromMap($item2);
+                            $model->offerPenaltyInfoMap[$key1][$n2] = ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }
@@ -119,6 +145,10 @@ class refundChangeRule extends Model
 
         if (isset($map['refund_change_digest'])) {
             $model->refundChangeDigest = $map['refund_change_digest'];
+        }
+
+        if (isset($map['refund_rule_desc'])) {
+            $model->refundRuleDesc = $map['refund_rule_desc'];
         }
 
         if (isset($map['structured_refund'])) {

@@ -60,7 +60,8 @@ class baggageSubItems extends Model
                 $res['baggage_sub_content_visualizes'] = [];
                 $n1 = 0;
                 foreach ($this->baggageSubContentVisualizes as $item1) {
-                    $res['baggage_sub_content_visualizes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['baggage_sub_content_visualizes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +71,8 @@ class baggageSubItems extends Model
                 $res['extra_content_visualizes'] = [];
                 $n1 = 0;
                 foreach ($this->extraContentVisualizes as $item1) {
-                    $res['extra_content_visualizes'][$n1++] = $item1;
+                    $res['extra_content_visualizes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class baggageSubItems extends Model
                 $model->baggageSubContentVisualizes = [];
                 $n1 = 0;
                 foreach ($map['baggage_sub_content_visualizes'] as $item1) {
-                    $model->baggageSubContentVisualizes[$n1++] = baggageSubContentVisualizes::fromMap($item1);
+                    $model->baggageSubContentVisualizes[$n1] = baggageSubContentVisualizes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class baggageSubItems extends Model
                 $model->extraContentVisualizes = [];
                 $n1 = 0;
                 foreach ($map['extra_content_visualizes'] as $item1) {
-                    $model->extraContentVisualizes[$n1++] = $item1;
+                    $model->extraContentVisualizes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

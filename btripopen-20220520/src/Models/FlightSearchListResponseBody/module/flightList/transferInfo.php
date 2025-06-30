@@ -125,7 +125,8 @@ class transferInfo extends Model
                 $res['transfer_flight_rule_list'] = [];
                 $n1 = 0;
                 foreach ($this->transferFlightRuleList as $item1) {
-                    $res['transfer_flight_rule_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['transfer_flight_rule_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +179,8 @@ class transferInfo extends Model
                 $model->transferFlightRuleList = [];
                 $n1 = 0;
                 foreach ($map['transfer_flight_rule_list'] as $item1) {
-                    $model->transferFlightRuleList[$n1++] = transferFlightRuleList::fromMap($item1);
+                    $model->transferFlightRuleList[$n1] = transferFlightRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

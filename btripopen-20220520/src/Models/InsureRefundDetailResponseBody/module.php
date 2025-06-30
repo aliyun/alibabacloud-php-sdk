@@ -97,7 +97,8 @@ class module extends Model
                 $res['sub_order_refund_list'] = [];
                 $n1 = 0;
                 foreach ($this->subOrderRefundList as $item1) {
-                    $res['sub_order_refund_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sub_order_refund_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class module extends Model
                 $model->subOrderRefundList = [];
                 $n1 = 0;
                 foreach ($map['sub_order_refund_list'] as $item1) {
-                    $model->subOrderRefundList[$n1++] = subOrderRefundList::fromMap($item1);
+                    $model->subOrderRefundList[$n1] = subOrderRefundList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

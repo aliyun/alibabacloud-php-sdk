@@ -115,7 +115,8 @@ class flightJourneyInfos extends Model
                 $res['flight_segment_infos'] = [];
                 $n1 = 0;
                 foreach ($this->flightSegmentInfos as $item1) {
-                    $res['flight_segment_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_segment_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +173,8 @@ class flightJourneyInfos extends Model
                 $model->flightSegmentInfos = [];
                 $n1 = 0;
                 foreach ($map['flight_segment_infos'] as $item1) {
-                    $model->flightSegmentInfos[$n1++] = flightSegmentInfos::fromMap($item1);
+                    $model->flightSegmentInfos[$n1] = flightSegmentInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

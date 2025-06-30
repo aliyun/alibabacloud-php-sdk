@@ -335,7 +335,8 @@ class items extends Model
                 $res['invoice_details'] = [];
                 $n1 = 0;
                 foreach ($this->invoiceDetails as $item1) {
-                    $res['invoice_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['invoice_details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -520,7 +521,8 @@ class items extends Model
                 $model->invoiceDetails = [];
                 $n1 = 0;
                 foreach ($map['invoice_details'] as $item1) {
-                    $model->invoiceDetails[$n1++] = invoiceDetails::fromMap($item1);
+                    $model->invoiceDetails[$n1] = invoiceDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

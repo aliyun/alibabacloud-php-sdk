@@ -11,12 +11,17 @@ class IntlFlightInventoryPriceCheckShrinkRequest extends Model
     /**
      * @var string
      */
-    public $isvName;
+    public $btripUserId;
 
     /**
      * @var string
      */
-    public $language;
+    public $buyerName;
+
+    /**
+     * @var string
+     */
+    public $isvName;
 
     /**
      * @var int
@@ -32,24 +37,13 @@ class IntlFlightInventoryPriceCheckShrinkRequest extends Model
      * @var string
      */
     public $passengerListShrink;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $userName;
     protected $_name = [
+        'btripUserId' => 'btrip_user_id',
+        'buyerName' => 'buyer_name',
         'isvName' => 'isv_name',
-        'language' => 'language',
         'orderPrice' => 'order_price',
         'otaItemId' => 'ota_item_id',
         'passengerListShrink' => 'passenger_list',
-        'userId' => 'user_id',
-        'userName' => 'user_name',
     ];
 
     public function validate()
@@ -60,12 +54,16 @@ class IntlFlightInventoryPriceCheckShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->isvName) {
-            $res['isv_name'] = $this->isvName;
+        if (null !== $this->btripUserId) {
+            $res['btrip_user_id'] = $this->btripUserId;
         }
 
-        if (null !== $this->language) {
-            $res['language'] = $this->language;
+        if (null !== $this->buyerName) {
+            $res['buyer_name'] = $this->buyerName;
+        }
+
+        if (null !== $this->isvName) {
+            $res['isv_name'] = $this->isvName;
         }
 
         if (null !== $this->orderPrice) {
@@ -80,14 +78,6 @@ class IntlFlightInventoryPriceCheckShrinkRequest extends Model
             $res['passenger_list'] = $this->passengerListShrink;
         }
 
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
-        }
-
-        if (null !== $this->userName) {
-            $res['user_name'] = $this->userName;
-        }
-
         return $res;
     }
 
@@ -99,12 +89,16 @@ class IntlFlightInventoryPriceCheckShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['isv_name'])) {
-            $model->isvName = $map['isv_name'];
+        if (isset($map['btrip_user_id'])) {
+            $model->btripUserId = $map['btrip_user_id'];
         }
 
-        if (isset($map['language'])) {
-            $model->language = $map['language'];
+        if (isset($map['buyer_name'])) {
+            $model->buyerName = $map['buyer_name'];
+        }
+
+        if (isset($map['isv_name'])) {
+            $model->isvName = $map['isv_name'];
         }
 
         if (isset($map['order_price'])) {
@@ -117,14 +111,6 @@ class IntlFlightInventoryPriceCheckShrinkRequest extends Model
 
         if (isset($map['passenger_list'])) {
             $model->passengerListShrink = $map['passenger_list'];
-        }
-
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
-        }
-
-        if (isset($map['user_name'])) {
-            $model->userName = $map['user_name'];
         }
 
         return $model;

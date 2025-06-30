@@ -87,7 +87,8 @@ class TicketChangingApplyRequest extends Model
                 $res['modify_flight_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->modifyFlightInfoList as $item1) {
-                    $res['modify_flight_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['modify_flight_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class TicketChangingApplyRequest extends Model
                 $model->modifyFlightInfoList = [];
                 $n1 = 0;
                 foreach ($map['modify_flight_info_list'] as $item1) {
-                    $model->modifyFlightInfoList[$n1++] = modifyFlightInfoList::fromMap($item1);
+                    $model->modifyFlightInfoList[$n1] = modifyFlightInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

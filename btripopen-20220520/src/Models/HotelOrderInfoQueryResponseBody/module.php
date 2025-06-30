@@ -99,7 +99,8 @@ class module extends Model
                 $res['hotel_order_refund_info'] = [];
                 $n1 = 0;
                 foreach ($this->hotelOrderRefundInfo as $item1) {
-                    $res['hotel_order_refund_info'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotel_order_refund_info'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class module extends Model
                 $res['room_traver_info'] = [];
                 $n1 = 0;
                 foreach ($this->roomTraverInfo as $item1) {
-                    $res['room_traver_info'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['room_traver_info'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +148,8 @@ class module extends Model
                 $model->hotelOrderRefundInfo = [];
                 $n1 = 0;
                 foreach ($map['hotel_order_refund_info'] as $item1) {
-                    $model->hotelOrderRefundInfo[$n1++] = hotelOrderRefundInfo::fromMap($item1);
+                    $model->hotelOrderRefundInfo[$n1] = hotelOrderRefundInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +159,8 @@ class module extends Model
                 $model->roomTraverInfo = [];
                 $n1 = 0;
                 foreach ($map['room_traver_info'] as $item1) {
-                    $model->roomTraverInfo[$n1++] = roomTraverInfo::fromMap($item1);
+                    $model->roomTraverInfo[$n1] = roomTraverInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

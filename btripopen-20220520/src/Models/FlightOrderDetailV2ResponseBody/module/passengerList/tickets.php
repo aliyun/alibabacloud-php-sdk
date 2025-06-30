@@ -103,7 +103,8 @@ class tickets extends Model
                 $res['segment_open_ticket_list'] = [];
                 $n1 = 0;
                 foreach ($this->segmentOpenTicketList as $item1) {
-                    $res['segment_open_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['segment_open_ticket_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +161,8 @@ class tickets extends Model
                 $model->segmentOpenTicketList = [];
                 $n1 = 0;
                 foreach ($map['segment_open_ticket_list'] as $item1) {
-                    $model->segmentOpenTicketList[$n1++] = segmentOpenTicketList::fromMap($item1);
+                    $model->segmentOpenTicketList[$n1] = segmentOpenTicketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

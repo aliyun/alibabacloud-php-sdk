@@ -212,7 +212,8 @@ class flightRefundSegmentList extends Model
                 $res['stop_city'] = [];
                 $n1 = 0;
                 foreach ($this->stopCity as $item1) {
-                    $res['stop_city'][$n1++] = $item1;
+                    $res['stop_city'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -305,7 +306,8 @@ class flightRefundSegmentList extends Model
                 $model->stopCity = [];
                 $n1 = 0;
                 foreach ($map['stop_city'] as $item1) {
-                    $model->stopCity[$n1++] = $item1;
+                    $model->stopCity[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

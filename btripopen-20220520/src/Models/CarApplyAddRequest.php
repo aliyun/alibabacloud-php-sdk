@@ -189,7 +189,8 @@ class CarApplyAddRequest extends Model
                 $res['traveler_standard'] = [];
                 $n1 = 0;
                 foreach ($this->travelerStandard as $item1) {
-                    $res['traveler_standard'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traveler_standard'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +275,8 @@ class CarApplyAddRequest extends Model
                 $model->travelerStandard = [];
                 $n1 = 0;
                 foreach ($map['traveler_standard'] as $item1) {
-                    $model->travelerStandard[$n1++] = travelerStandard::fromMap($item1);
+                    $model->travelerStandard[$n1] = travelerStandard::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

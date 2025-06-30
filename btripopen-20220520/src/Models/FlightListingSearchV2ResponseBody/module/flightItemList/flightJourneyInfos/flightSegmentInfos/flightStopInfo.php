@@ -110,7 +110,8 @@ class flightStopInfo extends Model
                 $res['stop_city_names'] = [];
                 $n1 = 0;
                 foreach ($this->stopCityNames as $item1) {
-                    $res['stop_city_names'][$n1++] = $item1;
+                    $res['stop_city_names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class flightStopInfo extends Model
                 $model->stopCityNames = [];
                 $n1 = 0;
                 foreach ($map['stop_city_names'] as $item1) {
-                    $model->stopCityNames[$n1++] = $item1;
+                    $model->stopCityNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

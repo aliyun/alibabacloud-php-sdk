@@ -11,20 +11,20 @@ class searchPrice extends Model
     /**
      * @var int
      */
-    public $ticketPrice;
+    public $sellPrice;
 
     /**
      * @var int
      */
-    public $sellPrice;
+    public $ticketPrice;
 
     /**
      * @var int
      */
     public $tax;
     protected $_name = [
-        'ticketPrice' => 'ticket_price',
         'sellPrice' => 'sell_price',
+        'ticketPrice' => 'ticket_price',
         'tax' => 'tax',
     ];
 
@@ -36,12 +36,12 @@ class searchPrice extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ticketPrice) {
-            $res['ticket_price'] = $this->ticketPrice;
-        }
-
         if (null !== $this->sellPrice) {
             $res['sell_price'] = $this->sellPrice;
+        }
+
+        if (null !== $this->ticketPrice) {
+            $res['ticket_price'] = $this->ticketPrice;
         }
 
         if (null !== $this->tax) {
@@ -59,12 +59,12 @@ class searchPrice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ticket_price'])) {
-            $model->ticketPrice = $map['ticket_price'];
-        }
-
         if (isset($map['sell_price'])) {
             $model->sellPrice = $map['sell_price'];
+        }
+
+        if (isset($map['ticket_price'])) {
+            $model->ticketPrice = $map['ticket_price'];
         }
 
         if (isset($map['tax'])) {

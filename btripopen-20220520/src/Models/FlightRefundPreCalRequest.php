@@ -53,7 +53,8 @@ class FlightRefundPreCalRequest extends Model
                 $res['passenger_segment_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerSegmentInfoList as $item1) {
-                    $res['passenger_segment_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_segment_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class FlightRefundPreCalRequest extends Model
                 $model->passengerSegmentInfoList = [];
                 $n1 = 0;
                 foreach ($map['passenger_segment_info_list'] as $item1) {
-                    $model->passengerSegmentInfoList[$n1++] = passengerSegmentInfoList::fromMap($item1);
+                    $model->passengerSegmentInfoList[$n1] = passengerSegmentInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

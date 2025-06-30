@@ -256,7 +256,8 @@ class module extends Model
                 $res['flight_order_ticket_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightOrderTicketList as $item1) {
-                    $res['flight_order_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_order_ticket_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -266,7 +267,8 @@ class module extends Model
                 $res['flight_order_user_fee_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightOrderUserFeeList as $item1) {
-                    $res['flight_order_user_fee_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_order_user_fee_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +278,8 @@ class module extends Model
                 $res['flight_refund_apply_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightRefundApplyList as $item1) {
-                    $res['flight_refund_apply_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_refund_apply_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -286,7 +289,8 @@ class module extends Model
                 $res['flight_reshop_apply_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightReshopApplyList as $item1) {
-                    $res['flight_reshop_apply_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_reshop_apply_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -296,7 +300,8 @@ class module extends Model
                 $res['flight_segment_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightSegmentList as $item1) {
-                    $res['flight_segment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_segment_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +323,8 @@ class module extends Model
                 $res['insure_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->insureInfoList as $item1) {
-                    $res['insure_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['insure_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -344,7 +350,8 @@ class module extends Model
                 $res['price_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->priceInfoList as $item1) {
-                    $res['price_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['price_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -362,7 +369,8 @@ class module extends Model
                 $res['thirdpart_itinerary_id'] = [];
                 $n1 = 0;
                 foreach ($this->thirdpartItineraryId as $item1) {
-                    $res['thirdpart_itinerary_id'][$n1++] = $item1;
+                    $res['thirdpart_itinerary_id'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -388,7 +396,8 @@ class module extends Model
                 $res['user_affiliate_list'] = [];
                 $n1 = 0;
                 foreach ($this->userAffiliateList as $item1) {
-                    $res['user_affiliate_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['user_affiliate_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -437,7 +446,8 @@ class module extends Model
                 $model->flightOrderTicketList = [];
                 $n1 = 0;
                 foreach ($map['flight_order_ticket_list'] as $item1) {
-                    $model->flightOrderTicketList[$n1++] = flightOrderTicketList::fromMap($item1);
+                    $model->flightOrderTicketList[$n1] = flightOrderTicketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -447,7 +457,8 @@ class module extends Model
                 $model->flightOrderUserFeeList = [];
                 $n1 = 0;
                 foreach ($map['flight_order_user_fee_list'] as $item1) {
-                    $model->flightOrderUserFeeList[$n1++] = flightOrderUserFeeList::fromMap($item1);
+                    $model->flightOrderUserFeeList[$n1] = flightOrderUserFeeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -457,7 +468,8 @@ class module extends Model
                 $model->flightRefundApplyList = [];
                 $n1 = 0;
                 foreach ($map['flight_refund_apply_list'] as $item1) {
-                    $model->flightRefundApplyList[$n1++] = flightRefundApplyList::fromMap($item1);
+                    $model->flightRefundApplyList[$n1] = flightRefundApplyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -467,7 +479,8 @@ class module extends Model
                 $model->flightReshopApplyList = [];
                 $n1 = 0;
                 foreach ($map['flight_reshop_apply_list'] as $item1) {
-                    $model->flightReshopApplyList[$n1++] = flightReshopApplyList::fromMap($item1);
+                    $model->flightReshopApplyList[$n1] = flightReshopApplyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -477,7 +490,8 @@ class module extends Model
                 $model->flightSegmentList = [];
                 $n1 = 0;
                 foreach ($map['flight_segment_list'] as $item1) {
-                    $model->flightSegmentList[$n1++] = flightSegmentList::fromMap($item1);
+                    $model->flightSegmentList[$n1] = flightSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -499,7 +513,8 @@ class module extends Model
                 $model->insureInfoList = [];
                 $n1 = 0;
                 foreach ($map['insure_info_list'] as $item1) {
-                    $model->insureInfoList[$n1++] = insureInfoList::fromMap($item1);
+                    $model->insureInfoList[$n1] = insureInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -525,7 +540,8 @@ class module extends Model
                 $model->priceInfoList = [];
                 $n1 = 0;
                 foreach ($map['price_info_list'] as $item1) {
-                    $model->priceInfoList[$n1++] = priceInfoList::fromMap($item1);
+                    $model->priceInfoList[$n1] = priceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -543,7 +559,8 @@ class module extends Model
                 $model->thirdpartItineraryId = [];
                 $n1 = 0;
                 foreach ($map['thirdpart_itinerary_id'] as $item1) {
-                    $model->thirdpartItineraryId[$n1++] = $item1;
+                    $model->thirdpartItineraryId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -569,7 +586,8 @@ class module extends Model
                 $model->userAffiliateList = [];
                 $n1 = 0;
                 foreach ($map['user_affiliate_list'] as $item1) {
-                    $model->userAffiliateList[$n1++] = userAffiliateList::fromMap($item1);
+                    $model->userAffiliateList[$n1] = userAffiliateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

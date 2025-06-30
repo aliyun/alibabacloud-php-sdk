@@ -54,7 +54,8 @@ class UpdateDepartmentRequest extends Model
                 $res['manager_employee_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->managerEmployeeIdList as $item1) {
-                    $res['manager_employee_id_list'][$n1++] = $item1;
+                    $res['manager_employee_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class UpdateDepartmentRequest extends Model
                 $model->managerEmployeeIdList = [];
                 $n1 = 0;
                 foreach ($map['manager_employee_id_list'] as $item1) {
-                    $model->managerEmployeeIdList[$n1++] = $item1;
+                    $model->managerEmployeeIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

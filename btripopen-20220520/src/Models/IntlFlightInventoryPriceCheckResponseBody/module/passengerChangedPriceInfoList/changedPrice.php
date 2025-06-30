@@ -11,16 +11,6 @@ class changedPrice extends Model
     /**
      * @var int
      */
-    public $buildPrice;
-
-    /**
-     * @var int
-     */
-    public $oilPrice;
-
-    /**
-     * @var int
-     */
     public $taxPrice;
 
     /**
@@ -28,8 +18,6 @@ class changedPrice extends Model
      */
     public $ticketPrice;
     protected $_name = [
-        'buildPrice' => 'build_price',
-        'oilPrice' => 'oil_price',
         'taxPrice' => 'tax_price',
         'ticketPrice' => 'ticket_price',
     ];
@@ -42,14 +30,6 @@ class changedPrice extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->buildPrice) {
-            $res['build_price'] = $this->buildPrice;
-        }
-
-        if (null !== $this->oilPrice) {
-            $res['oil_price'] = $this->oilPrice;
-        }
-
         if (null !== $this->taxPrice) {
             $res['tax_price'] = $this->taxPrice;
         }
@@ -69,14 +49,6 @@ class changedPrice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['build_price'])) {
-            $model->buildPrice = $map['build_price'];
-        }
-
-        if (isset($map['oil_price'])) {
-            $model->oilPrice = $map['oil_price'];
-        }
-
         if (isset($map['tax_price'])) {
             $model->taxPrice = $map['tax_price'];
         }

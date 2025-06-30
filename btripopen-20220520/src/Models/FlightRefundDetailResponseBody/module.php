@@ -115,7 +115,8 @@ class module extends Model
                 $res['refund_fee_list'] = [];
                 $n1 = 0;
                 foreach ($this->refundFeeList as $item1) {
-                    $res['refund_fee_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_fee_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +173,8 @@ class module extends Model
                 $model->refundFeeList = [];
                 $n1 = 0;
                 foreach ($map['refund_fee_list'] as $item1) {
-                    $model->refundFeeList[$n1++] = refundFeeList::fromMap($item1);
+                    $model->refundFeeList[$n1] = refundFeeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

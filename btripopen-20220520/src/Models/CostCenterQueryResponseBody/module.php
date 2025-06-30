@@ -99,7 +99,8 @@ class module extends Model
                 $res['entity_d_o_s'] = [];
                 $n1 = 0;
                 foreach ($this->entityDOS as $item1) {
-                    $res['entity_d_o_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['entity_d_o_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class module extends Model
                 $model->entityDOS = [];
                 $n1 = 0;
                 foreach ($map['entity_d_o_s'] as $item1) {
-                    $model->entityDOS[$n1++] = entityDOS::fromMap($item1);
+                    $model->entityDOS[$n1] = entityDOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

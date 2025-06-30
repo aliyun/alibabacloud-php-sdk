@@ -11,15 +11,15 @@ class segmentPosition extends Model
     /**
      * @var int
      */
-    public $segmentIndex;
+    public $journeyIndex;
 
     /**
      * @var int
      */
-    public $journeyIndex;
+    public $segmentIndex;
     protected $_name = [
-        'segmentIndex' => 'segment_index',
         'journeyIndex' => 'journey_index',
+        'segmentIndex' => 'segment_index',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class segmentPosition extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->segmentIndex) {
-            $res['segment_index'] = $this->segmentIndex;
-        }
-
         if (null !== $this->journeyIndex) {
             $res['journey_index'] = $this->journeyIndex;
+        }
+
+        if (null !== $this->segmentIndex) {
+            $res['segment_index'] = $this->segmentIndex;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class segmentPosition extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['segment_index'])) {
-            $model->segmentIndex = $map['segment_index'];
-        }
-
         if (isset($map['journey_index'])) {
             $model->journeyIndex = $map['journey_index'];
+        }
+
+        if (isset($map['segment_index'])) {
+            $model->segmentIndex = $map['segment_index'];
         }
 
         return $model;

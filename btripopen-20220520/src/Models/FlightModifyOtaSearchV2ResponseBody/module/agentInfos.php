@@ -104,7 +104,8 @@ class agentInfos extends Model
                         $res['attribute_show_info_map'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['attribute_show_info_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['attribute_show_info_map'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -170,7 +171,8 @@ class agentInfos extends Model
                         $model->attributeShowInfoMap[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->attributeShowInfoMap[$key1][$n2++] = ModuleAgentInfosAttributeShowInfoMapValue::fromMap($item2);
+                            $model->attributeShowInfoMap[$key1][$n2] = ModuleAgentInfosAttributeShowInfoMapValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }

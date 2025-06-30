@@ -65,7 +65,8 @@ class discountDesc extends Model
                 $res['discount_detail'] = [];
                 $n1 = 0;
                 foreach ($this->discountDetail as $item1) {
-                    $res['discount_detail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['discount_detail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class discountDesc extends Model
                 $model->discountDetail = [];
                 $n1 = 0;
                 foreach ($map['discount_detail'] as $item1) {
-                    $model->discountDetail[$n1++] = discountDetail::fromMap($item1);
+                    $model->discountDetail[$n1] = discountDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

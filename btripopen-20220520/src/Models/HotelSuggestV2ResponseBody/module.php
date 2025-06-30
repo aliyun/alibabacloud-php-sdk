@@ -59,7 +59,8 @@ class module extends Model
                 $res['guess_suggest_infos'] = [];
                 $n1 = 0;
                 foreach ($this->guessSuggestInfos as $item1) {
-                    $res['guess_suggest_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['guess_suggest_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class module extends Model
                 $res['keyword_suggest_infos'] = [];
                 $n1 = 0;
                 foreach ($this->keywordSuggestInfos as $item1) {
-                    $res['keyword_suggest_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['keyword_suggest_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +81,8 @@ class module extends Model
                 $res['popular_suggest_infos'] = [];
                 $n1 = 0;
                 foreach ($this->popularSuggestInfos as $item1) {
-                    $res['popular_suggest_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['popular_suggest_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +107,8 @@ class module extends Model
                 $model->guessSuggestInfos = [];
                 $n1 = 0;
                 foreach ($map['guess_suggest_infos'] as $item1) {
-                    $model->guessSuggestInfos[$n1++] = guessSuggestInfos::fromMap($item1);
+                    $model->guessSuggestInfos[$n1] = guessSuggestInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +118,8 @@ class module extends Model
                 $model->keywordSuggestInfos = [];
                 $n1 = 0;
                 foreach ($map['keyword_suggest_infos'] as $item1) {
-                    $model->keywordSuggestInfos[$n1++] = keywordSuggestInfos::fromMap($item1);
+                    $model->keywordSuggestInfos[$n1] = keywordSuggestInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +129,8 @@ class module extends Model
                 $model->popularSuggestInfos = [];
                 $n1 = 0;
                 foreach ($map['popular_suggest_infos'] as $item1) {
-                    $model->popularSuggestInfos[$n1++] = popularSuggestInfos::fromMap($item1);
+                    $model->popularSuggestInfos[$n1] = popularSuggestInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

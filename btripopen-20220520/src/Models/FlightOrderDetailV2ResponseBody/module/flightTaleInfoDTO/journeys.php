@@ -193,7 +193,8 @@ class journeys extends Model
                 $res['segment_list'] = [];
                 $n1 = 0;
                 foreach ($this->segmentList as $item1) {
-                    $res['segment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['segment_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -278,7 +279,8 @@ class journeys extends Model
                 $model->segmentList = [];
                 $n1 = 0;
                 foreach ($map['segment_list'] as $item1) {
-                    $model->segmentList[$n1++] = segmentList::fromMap($item1);
+                    $model->segmentList[$n1] = segmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

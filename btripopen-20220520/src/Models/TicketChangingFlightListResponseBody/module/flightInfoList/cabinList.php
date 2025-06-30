@@ -99,7 +99,8 @@ class cabinList extends Model
                 $res['modify_price_list'] = [];
                 $n1 = 0;
                 foreach ($this->modifyPriceList as $item1) {
-                    $res['modify_price_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['modify_price_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class cabinList extends Model
                 $model->modifyPriceList = [];
                 $n1 = 0;
                 foreach ($map['modify_price_list'] as $item1) {
-                    $model->modifyPriceList[$n1++] = modifyPriceList::fromMap($item1);
+                    $model->modifyPriceList[$n1] = modifyPriceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

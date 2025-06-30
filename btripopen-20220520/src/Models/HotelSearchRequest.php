@@ -165,7 +165,8 @@ class HotelSearchRequest extends Model
                 $res['brand_code'] = [];
                 $n1 = 0;
                 foreach ($this->brandCode as $item1) {
-                    $res['brand_code'][$n1++] = $item1;
+                    $res['brand_code'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +244,8 @@ class HotelSearchRequest extends Model
                 $res['shids'] = [];
                 $n1 = 0;
                 foreach ($this->shids as $item1) {
-                    $res['shids'][$n1++] = $item1;
+                    $res['shids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +278,8 @@ class HotelSearchRequest extends Model
                 $model->brandCode = [];
                 $n1 = 0;
                 foreach ($map['brand_code'] as $item1) {
-                    $model->brandCode[$n1++] = $item1;
+                    $model->brandCode[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -354,7 +357,8 @@ class HotelSearchRequest extends Model
                 $model->shids = [];
                 $n1 = 0;
                 foreach ($map['shids'] as $item1) {
-                    $model->shids[$n1++] = $item1;
+                    $model->shids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

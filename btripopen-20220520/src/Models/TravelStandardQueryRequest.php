@@ -52,7 +52,8 @@ class TravelStandardQueryRequest extends Model
                 $res['service_type_list'] = [];
                 $n1 = 0;
                 foreach ($this->serviceTypeList as $item1) {
-                    $res['service_type_list'][$n1++] = $item1;
+                    $res['service_type_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class TravelStandardQueryRequest extends Model
                 $model->serviceTypeList = [];
                 $n1 = 0;
                 foreach ($map['service_type_list'] as $item1) {
-                    $model->serviceTypeList[$n1++] = $item1;
+                    $model->serviceTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

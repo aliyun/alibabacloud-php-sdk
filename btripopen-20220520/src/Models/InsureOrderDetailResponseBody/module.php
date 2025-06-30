@@ -63,7 +63,8 @@ class module extends Model
                 $res['insure_order_detail_list'] = [];
                 $n1 = 0;
                 foreach ($this->insureOrderDetailList as $item1) {
-                    $res['insure_order_detail_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['insure_order_detail_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class module extends Model
                 $model->insureOrderDetailList = [];
                 $n1 = 0;
                 foreach ($map['insure_order_detail_list'] as $item1) {
-                    $model->insureOrderDetailList[$n1++] = insureOrderDetailList::fromMap($item1);
+                    $model->insureOrderDetailList[$n1] = insureOrderDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

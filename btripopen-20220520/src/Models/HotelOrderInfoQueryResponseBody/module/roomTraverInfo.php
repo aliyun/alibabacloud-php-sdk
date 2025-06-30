@@ -53,7 +53,8 @@ class roomTraverInfo extends Model
                 $res['traver_infos'] = [];
                 $n1 = 0;
                 foreach ($this->traverInfos as $item1) {
-                    $res['traver_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['traver_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class roomTraverInfo extends Model
                 $model->traverInfos = [];
                 $n1 = 0;
                 foreach ($map['traver_infos'] as $item1) {
-                    $model->traverInfos[$n1++] = traverInfos::fromMap($item1);
+                    $model->traverInfos[$n1] = traverInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

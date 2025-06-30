@@ -61,7 +61,8 @@ class module extends Model
                 $res['multi_refund_fee_d_t_o_s'] = [];
                 $n1 = 0;
                 foreach ($this->multiRefundFeeDTOS as $item1) {
-                    $res['multi_refund_fee_d_t_o_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['multi_refund_fee_d_t_o_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class module extends Model
                 $res['refund_reason_option_d_t_o_s'] = [];
                 $n1 = 0;
                 foreach ($this->refundReasonOptionDTOS as $item1) {
-                    $res['refund_reason_option_d_t_o_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_reason_option_d_t_o_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class module extends Model
                 $model->multiRefundFeeDTOS = [];
                 $n1 = 0;
                 foreach ($map['multi_refund_fee_d_t_o_s'] as $item1) {
-                    $model->multiRefundFeeDTOS[$n1++] = multiRefundFeeDTOS::fromMap($item1);
+                    $model->multiRefundFeeDTOS[$n1] = multiRefundFeeDTOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class module extends Model
                 $model->refundReasonOptionDTOS = [];
                 $n1 = 0;
                 foreach ($map['refund_reason_option_d_t_o_s'] as $item1) {
-                    $model->refundReasonOptionDTOS[$n1++] = refundReasonOptionDTOS::fromMap($item1);
+                    $model->refundReasonOptionDTOS[$n1] = refundReasonOptionDTOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

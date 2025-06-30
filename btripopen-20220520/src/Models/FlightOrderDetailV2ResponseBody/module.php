@@ -240,7 +240,8 @@ class module extends Model
                 $res['passenger_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerList as $item1) {
-                    $res['passenger_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -354,7 +355,8 @@ class module extends Model
                 $model->passengerList = [];
                 $n1 = 0;
                 foreach ($map['passenger_list'] as $item1) {
-                    $model->passengerList[$n1++] = passengerList::fromMap($item1);
+                    $model->passengerList[$n1] = passengerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

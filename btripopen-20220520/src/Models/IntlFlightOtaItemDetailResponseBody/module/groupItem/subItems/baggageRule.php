@@ -52,7 +52,8 @@ class baggageRule extends Model
                         $res['baggage_info_map'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['baggage_info_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['baggage_info_map'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -86,7 +87,8 @@ class baggageRule extends Model
                         $model->baggageInfoMap[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->baggageInfoMap[$key1][$n2++] = ModuleGroupItemSubItemsBaggageRuleBaggageInfoMapValue::fromMap($item2);
+                            $model->baggageInfoMap[$key1][$n2] = ModuleGroupItemSubItemsBaggageRuleBaggageInfoMapValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }

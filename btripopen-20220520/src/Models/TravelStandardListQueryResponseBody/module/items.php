@@ -53,7 +53,8 @@ class items extends Model
                 $res['reserve_rule_desc'] = [];
                 $n1 = 0;
                 foreach ($this->reserveRuleDesc as $item1) {
-                    $res['reserve_rule_desc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['reserve_rule_desc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class items extends Model
                 $model->reserveRuleDesc = [];
                 $n1 = 0;
                 foreach ($map['reserve_rule_desc'] as $item1) {
-                    $model->reserveRuleDesc[$n1++] = reserveRuleDesc::fromMap($item1);
+                    $model->reserveRuleDesc[$n1] = reserveRuleDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -100,7 +100,8 @@ class FlightListingSearchV2Request extends Model
                 $res['cabin_type_list'] = [];
                 $n1 = 0;
                 foreach ($this->cabinTypeList as $item1) {
-                    $res['cabin_type_list'][$n1++] = $item1;
+                    $res['cabin_type_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class FlightListingSearchV2Request extends Model
                 $res['search_journeys'] = [];
                 $n1 = 0;
                 foreach ($this->searchJourneys as $item1) {
-                    $res['search_journeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['search_journeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +169,8 @@ class FlightListingSearchV2Request extends Model
                 $model->cabinTypeList = [];
                 $n1 = 0;
                 foreach ($map['cabin_type_list'] as $item1) {
-                    $model->cabinTypeList[$n1++] = $item1;
+                    $model->cabinTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +204,8 @@ class FlightListingSearchV2Request extends Model
                 $model->searchJourneys = [];
                 $n1 = 0;
                 foreach ($map['search_journeys'] as $item1) {
-                    $model->searchJourneys[$n1++] = searchJourneys::fromMap($item1);
+                    $model->searchJourneys[$n1] = searchJourneys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

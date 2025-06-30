@@ -53,7 +53,8 @@ class module extends Model
                 $res['refund_train_details'] = [];
                 $n1 = 0;
                 foreach ($this->refundTrainDetails as $item1) {
-                    $res['refund_train_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_train_details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class module extends Model
                 $model->refundTrainDetails = [];
                 $n1 = 0;
                 foreach ($map['refund_train_details'] as $item1) {
-                    $model->refundTrainDetails[$n1++] = refundTrainDetails::fromMap($item1);
+                    $model->refundTrainDetails[$n1] = refundTrainDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

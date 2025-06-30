@@ -16,6 +16,11 @@ class TrainBillSettlementQueryRequest extends Model
     /**
      * @var int
      */
+    public $orderId;
+
+    /**
+     * @var int
+     */
     public $pageNo;
 
     /**
@@ -44,6 +49,7 @@ class TrainBillSettlementQueryRequest extends Model
     public $scrollMod;
     protected $_name = [
         'billBatch' => 'bill_batch',
+        'orderId' => 'order_id',
         'pageNo' => 'page_no',
         'pageSize' => 'page_size',
         'periodEnd' => 'period_end',
@@ -62,6 +68,10 @@ class TrainBillSettlementQueryRequest extends Model
         $res = [];
         if (null !== $this->billBatch) {
             $res['bill_batch'] = $this->billBatch;
+        }
+
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
         }
 
         if (null !== $this->pageNo) {
@@ -101,6 +111,10 @@ class TrainBillSettlementQueryRequest extends Model
         $model = new self();
         if (isset($map['bill_batch'])) {
             $model->billBatch = $map['bill_batch'];
+        }
+
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
         }
 
         if (isset($map['page_no'])) {

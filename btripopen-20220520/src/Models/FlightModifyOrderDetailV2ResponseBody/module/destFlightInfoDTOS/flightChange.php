@@ -72,7 +72,8 @@ class flightChange extends Model
                 $res['passenger_names'] = [];
                 $n1 = 0;
                 foreach ($this->passengerNames as $item1) {
-                    $res['passenger_names'][$n1++] = $item1;
+                    $res['passenger_names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class flightChange extends Model
                 $model->passengerNames = [];
                 $n1 = 0;
                 foreach ($map['passenger_names'] as $item1) {
-                    $model->passengerNames[$n1++] = $item1;
+                    $model->passengerNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

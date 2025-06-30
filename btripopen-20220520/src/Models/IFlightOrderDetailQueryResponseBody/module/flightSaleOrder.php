@@ -195,7 +195,8 @@ class flightSaleOrder extends Model
                 $res['flight_order_insure_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightOrderInsureList as $item1) {
-                    $res['flight_order_insure_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_order_insure_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class flightSaleOrder extends Model
                 $res['flight_order_ticket_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightOrderTicketList as $item1) {
-                    $res['flight_order_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_order_ticket_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +217,8 @@ class flightSaleOrder extends Model
                 $res['flight_segment_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightSegmentList as $item1) {
-                    $res['flight_segment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_segment_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,7 +260,8 @@ class flightSaleOrder extends Model
                 $res['passenger_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerList as $item1) {
-                    $res['passenger_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +322,8 @@ class flightSaleOrder extends Model
                 $model->flightOrderInsureList = [];
                 $n1 = 0;
                 foreach ($map['flight_order_insure_list'] as $item1) {
-                    $model->flightOrderInsureList[$n1++] = flightOrderInsureList::fromMap($item1);
+                    $model->flightOrderInsureList[$n1] = flightOrderInsureList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -328,7 +333,8 @@ class flightSaleOrder extends Model
                 $model->flightOrderTicketList = [];
                 $n1 = 0;
                 foreach ($map['flight_order_ticket_list'] as $item1) {
-                    $model->flightOrderTicketList[$n1++] = flightOrderTicketList::fromMap($item1);
+                    $model->flightOrderTicketList[$n1] = flightOrderTicketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +344,8 @@ class flightSaleOrder extends Model
                 $model->flightSegmentList = [];
                 $n1 = 0;
                 foreach ($map['flight_segment_list'] as $item1) {
-                    $model->flightSegmentList[$n1++] = flightSegmentList::fromMap($item1);
+                    $model->flightSegmentList[$n1] = flightSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -380,7 +387,8 @@ class flightSaleOrder extends Model
                 $model->passengerList = [];
                 $n1 = 0;
                 foreach ($map['passenger_list'] as $item1) {
-                    $model->passengerList[$n1++] = passengerList::fromMap($item1);
+                    $model->passengerList[$n1] = passengerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

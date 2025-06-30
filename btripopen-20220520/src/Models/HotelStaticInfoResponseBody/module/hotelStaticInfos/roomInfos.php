@@ -151,7 +151,8 @@ class roomInfos extends Model
                 $res['bed_info_group_list'] = [];
                 $n1 = 0;
                 foreach ($this->bedInfoGroupList as $item1) {
-                    $res['bed_info_group_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['bed_info_group_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class roomInfos extends Model
                 $res['bed_infos'] = [];
                 $n1 = 0;
                 foreach ($this->bedInfos as $item1) {
-                    $res['bed_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['bed_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +197,8 @@ class roomInfos extends Model
                 $res['room_facility_list'] = [];
                 $n1 = 0;
                 foreach ($this->roomFacilityList as $item1) {
-                    $res['room_facility_list'][$n1++] = $item1;
+                    $res['room_facility_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +216,8 @@ class roomInfos extends Model
                 $res['room_images'] = [];
                 $n1 = 0;
                 foreach ($this->roomImages as $item1) {
-                    $res['room_images'][$n1++] = $item1;
+                    $res['room_images'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +266,8 @@ class roomInfos extends Model
                 $model->bedInfoGroupList = [];
                 $n1 = 0;
                 foreach ($map['bed_info_group_list'] as $item1) {
-                    $model->bedInfoGroupList[$n1++] = bedInfoGroupList::fromMap($item1);
+                    $model->bedInfoGroupList[$n1] = bedInfoGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -272,7 +277,8 @@ class roomInfos extends Model
                 $model->bedInfos = [];
                 $n1 = 0;
                 foreach ($map['bed_infos'] as $item1) {
-                    $model->bedInfos[$n1++] = bedInfos::fromMap($item1);
+                    $model->bedInfos[$n1] = bedInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +312,8 @@ class roomInfos extends Model
                 $model->roomFacilityList = [];
                 $n1 = 0;
                 foreach ($map['room_facility_list'] as $item1) {
-                    $model->roomFacilityList[$n1++] = $item1;
+                    $model->roomFacilityList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -324,7 +331,8 @@ class roomInfos extends Model
                 $model->roomImages = [];
                 $n1 = 0;
                 foreach ($map['room_images'] as $item1) {
-                    $model->roomImages[$n1++] = $item1;
+                    $model->roomImages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

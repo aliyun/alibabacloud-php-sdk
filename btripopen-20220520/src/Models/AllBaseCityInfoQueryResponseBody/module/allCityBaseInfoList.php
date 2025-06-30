@@ -92,7 +92,8 @@ class allCityBaseInfoList extends Model
                 $res['other_name_list'] = [];
                 $n1 = 0;
                 foreach ($this->otherNameList as $item1) {
-                    $res['other_name_list'][$n1++] = $item1;
+                    $res['other_name_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class allCityBaseInfoList extends Model
                 $model->otherNameList = [];
                 $n1 = 0;
                 foreach ($map['other_name_list'] as $item1) {
-                    $model->otherNameList[$n1++] = $item1;
+                    $model->otherNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

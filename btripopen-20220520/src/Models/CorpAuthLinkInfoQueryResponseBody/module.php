@@ -43,7 +43,8 @@ class module extends Model
                 $res['link_corps'] = [];
                 $n1 = 0;
                 foreach ($this->linkCorps as $item1) {
-                    $res['link_corps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['link_corps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class module extends Model
                 $model->linkCorps = [];
                 $n1 = 0;
                 foreach ($map['link_corps'] as $item1) {
-                    $model->linkCorps[$n1++] = linkCorps::fromMap($item1);
+                    $model->linkCorps[$n1] = linkCorps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

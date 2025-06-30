@@ -59,7 +59,8 @@ class module extends Model
                 $res['passenger_changed_price_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerChangedPriceInfoList as $item1) {
-                    $res['passenger_changed_price_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_changed_price_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class module extends Model
                 $model->passengerChangedPriceInfoList = [];
                 $n1 = 0;
                 foreach ($map['passenger_changed_price_info_list'] as $item1) {
-                    $model->passengerChangedPriceInfoList[$n1++] = passengerChangedPriceInfoList::fromMap($item1);
+                    $model->passengerChangedPriceInfoList[$n1] = passengerChangedPriceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

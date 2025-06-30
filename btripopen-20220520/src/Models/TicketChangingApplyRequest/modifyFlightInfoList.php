@@ -83,7 +83,8 @@ class modifyFlightInfoList extends Model
                 $res['passenger_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerInfoList as $item1) {
-                    $res['passenger_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class modifyFlightInfoList extends Model
                 $model->passengerInfoList = [];
                 $n1 = 0;
                 foreach ($map['passenger_info_list'] as $item1) {
-                    $model->passengerInfoList[$n1++] = passengerInfoList::fromMap($item1);
+                    $model->passengerInfoList[$n1] = passengerInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

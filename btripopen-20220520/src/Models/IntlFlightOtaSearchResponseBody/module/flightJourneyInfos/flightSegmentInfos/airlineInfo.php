@@ -11,33 +11,21 @@ class airlineInfo extends Model
     /**
      * @var string
      */
-    public $airlineChineseName;
-
-    /**
-     * @var string
-     */
-    public $airlineChineseShortName;
-
-    /**
-     * @var string
-     */
     public $airlineCode;
 
     /**
      * @var string
      */
-    public $airlineIcon;
+    public $airlineName;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $cheapFlight;
+    public $shortName;
     protected $_name = [
-        'airlineChineseName' => 'airline_chinese_name',
-        'airlineChineseShortName' => 'airline_chinese_short_name',
         'airlineCode' => 'airline_code',
-        'airlineIcon' => 'airline_icon',
-        'cheapFlight' => 'cheap_flight',
+        'airlineName' => 'airline_name',
+        'shortName' => 'short_name',
     ];
 
     public function validate()
@@ -48,24 +36,16 @@ class airlineInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->airlineChineseName) {
-            $res['airline_chinese_name'] = $this->airlineChineseName;
-        }
-
-        if (null !== $this->airlineChineseShortName) {
-            $res['airline_chinese_short_name'] = $this->airlineChineseShortName;
-        }
-
         if (null !== $this->airlineCode) {
             $res['airline_code'] = $this->airlineCode;
         }
 
-        if (null !== $this->airlineIcon) {
-            $res['airline_icon'] = $this->airlineIcon;
+        if (null !== $this->airlineName) {
+            $res['airline_name'] = $this->airlineName;
         }
 
-        if (null !== $this->cheapFlight) {
-            $res['cheap_flight'] = $this->cheapFlight;
+        if (null !== $this->shortName) {
+            $res['short_name'] = $this->shortName;
         }
 
         return $res;
@@ -79,24 +59,16 @@ class airlineInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['airline_chinese_name'])) {
-            $model->airlineChineseName = $map['airline_chinese_name'];
-        }
-
-        if (isset($map['airline_chinese_short_name'])) {
-            $model->airlineChineseShortName = $map['airline_chinese_short_name'];
-        }
-
         if (isset($map['airline_code'])) {
             $model->airlineCode = $map['airline_code'];
         }
 
-        if (isset($map['airline_icon'])) {
-            $model->airlineIcon = $map['airline_icon'];
+        if (isset($map['airline_name'])) {
+            $model->airlineName = $map['airline_name'];
         }
 
-        if (isset($map['cheap_flight'])) {
-            $model->cheapFlight = $map['cheap_flight'];
+        if (isset($map['short_name'])) {
+            $model->shortName = $map['short_name'];
         }
 
         return $model;

@@ -210,7 +210,8 @@ class itineraryList extends Model
                 $res['province_travel_city_adcodes'] = [];
                 $n1 = 0;
                 foreach ($this->provinceTravelCityAdcodes as $item1) {
-                    $res['province_travel_city_adcodes'][$n1++] = $item1;
+                    $res['province_travel_city_adcodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -307,7 +308,8 @@ class itineraryList extends Model
                 $model->provinceTravelCityAdcodes = [];
                 $n1 = 0;
                 foreach ($map['province_travel_city_adcodes'] as $item1) {
-                    $model->provinceTravelCityAdcodes[$n1++] = $item1;
+                    $model->provinceTravelCityAdcodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

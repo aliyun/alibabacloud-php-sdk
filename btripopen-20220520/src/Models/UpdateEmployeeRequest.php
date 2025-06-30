@@ -174,7 +174,8 @@ class UpdateEmployeeRequest extends Model
                 $res['base_city_code_list'] = [];
                 $n1 = 0;
                 foreach ($this->baseCityCodeList as $item1) {
-                    $res['base_city_code_list'][$n1++] = $item1;
+                    $res['base_city_code_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +185,8 @@ class UpdateEmployeeRequest extends Model
                 $res['base_location_list'] = [];
                 $n1 = 0;
                 foreach ($this->baseLocationList as $item1) {
-                    $res['base_location_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['base_location_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +200,8 @@ class UpdateEmployeeRequest extends Model
                 $res['cert_list'] = [];
                 $n1 = 0;
                 foreach ($this->certList as $item1) {
-                    $res['cert_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cert_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +211,8 @@ class UpdateEmployeeRequest extends Model
                 $res['custom_role_code_list'] = [];
                 $n1 = 0;
                 foreach ($this->customRoleCodeList as $item1) {
-                    $res['custom_role_code_list'][$n1++] = $item1;
+                    $res['custom_role_code_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -246,7 +250,8 @@ class UpdateEmployeeRequest extends Model
                 $res['out_dept_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->outDeptIdList as $item1) {
-                    $res['out_dept_id_list'][$n1++] = $item1;
+                    $res['out_dept_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -299,7 +304,8 @@ class UpdateEmployeeRequest extends Model
                 $model->baseCityCodeList = [];
                 $n1 = 0;
                 foreach ($map['base_city_code_list'] as $item1) {
-                    $model->baseCityCodeList[$n1++] = $item1;
+                    $model->baseCityCodeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,7 +315,8 @@ class UpdateEmployeeRequest extends Model
                 $model->baseLocationList = [];
                 $n1 = 0;
                 foreach ($map['base_location_list'] as $item1) {
-                    $model->baseLocationList[$n1++] = baseLocationList::fromMap($item1);
+                    $model->baseLocationList[$n1] = baseLocationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -323,7 +330,8 @@ class UpdateEmployeeRequest extends Model
                 $model->certList = [];
                 $n1 = 0;
                 foreach ($map['cert_list'] as $item1) {
-                    $model->certList[$n1++] = certList::fromMap($item1);
+                    $model->certList[$n1] = certList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -333,7 +341,8 @@ class UpdateEmployeeRequest extends Model
                 $model->customRoleCodeList = [];
                 $n1 = 0;
                 foreach ($map['custom_role_code_list'] as $item1) {
-                    $model->customRoleCodeList[$n1++] = $item1;
+                    $model->customRoleCodeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -371,7 +380,8 @@ class UpdateEmployeeRequest extends Model
                 $model->outDeptIdList = [];
                 $n1 = 0;
                 foreach ($map['out_dept_id_list'] as $item1) {
-                    $model->outDeptIdList[$n1++] = $item1;
+                    $model->outDeptIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

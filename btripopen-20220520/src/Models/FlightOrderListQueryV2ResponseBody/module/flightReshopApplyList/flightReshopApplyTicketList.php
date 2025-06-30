@@ -57,7 +57,8 @@ class flightReshopApplyTicketList extends Model
                 $res['flight_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightList as $item1) {
-                    $res['flight_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class flightReshopApplyTicketList extends Model
                 $res['relate_ticket_no_list'] = [];
                 $n1 = 0;
                 foreach ($this->relateTicketNoList as $item1) {
-                    $res['relate_ticket_no_list'][$n1++] = $item1;
+                    $res['relate_ticket_no_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +79,8 @@ class flightReshopApplyTicketList extends Model
                 $res['ticket_no_list'] = [];
                 $n1 = 0;
                 foreach ($this->ticketNoList as $item1) {
-                    $res['ticket_no_list'][$n1++] = $item1;
+                    $res['ticket_no_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class flightReshopApplyTicketList extends Model
                 $model->flightList = [];
                 $n1 = 0;
                 foreach ($map['flight_list'] as $item1) {
-                    $model->flightList[$n1++] = flightList::fromMap($item1);
+                    $model->flightList[$n1] = flightList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +116,8 @@ class flightReshopApplyTicketList extends Model
                 $model->relateTicketNoList = [];
                 $n1 = 0;
                 foreach ($map['relate_ticket_no_list'] as $item1) {
-                    $model->relateTicketNoList[$n1++] = $item1;
+                    $model->relateTicketNoList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +127,8 @@ class flightReshopApplyTicketList extends Model
                 $model->ticketNoList = [];
                 $n1 = 0;
                 foreach ($map['ticket_no_list'] as $item1) {
-                    $model->ticketNoList[$n1++] = $item1;
+                    $model->ticketNoList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

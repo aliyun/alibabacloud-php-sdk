@@ -133,7 +133,8 @@ class module extends Model
                 $res['apply_intention_info_do_list'] = [];
                 $n1 = 0;
                 foreach ($this->applyIntentionInfoDoList as $item1) {
-                    $res['apply_intention_info_do_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['apply_intention_info_do_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +211,8 @@ class module extends Model
                 $model->applyIntentionInfoDoList = [];
                 $n1 = 0;
                 foreach ($map['apply_intention_info_do_list'] as $item1) {
-                    $model->applyIntentionInfoDoList[$n1++] = applyIntentionInfoDoList::fromMap($item1);
+                    $model->applyIntentionInfoDoList[$n1] = applyIntentionInfoDoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

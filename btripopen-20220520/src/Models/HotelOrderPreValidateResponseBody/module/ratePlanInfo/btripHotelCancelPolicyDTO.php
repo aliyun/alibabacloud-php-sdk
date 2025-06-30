@@ -51,7 +51,8 @@ class btripHotelCancelPolicyDTO extends Model
                 $res['btrip_hotel_cancel_policy_info_d_t_o_list'] = [];
                 $n1 = 0;
                 foreach ($this->btripHotelCancelPolicyInfoDTOList as $item1) {
-                    $res['btrip_hotel_cancel_policy_info_d_t_o_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['btrip_hotel_cancel_policy_info_d_t_o_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class btripHotelCancelPolicyDTO extends Model
                 $model->btripHotelCancelPolicyInfoDTOList = [];
                 $n1 = 0;
                 foreach ($map['btrip_hotel_cancel_policy_info_d_t_o_list'] as $item1) {
-                    $model->btripHotelCancelPolicyInfoDTOList[$n1++] = btripHotelCancelPolicyInfoDTOList::fromMap($item1);
+                    $model->btripHotelCancelPolicyInfoDTOList[$n1] = btripHotelCancelPolicyInfoDTOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

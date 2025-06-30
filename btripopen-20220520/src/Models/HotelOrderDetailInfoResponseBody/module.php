@@ -349,7 +349,8 @@ class module extends Model
                 $res['hotel_sale_order_room_infos'] = [];
                 $n1 = 0;
                 foreach ($this->hotelSaleOrderRoomInfos as $item1) {
-                    $res['hotel_sale_order_room_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotel_sale_order_room_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -371,7 +372,8 @@ class module extends Model
                 $res['occupant_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->occupantInfoList as $item1) {
-                    $res['occupant_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['occupant_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -417,7 +419,8 @@ class module extends Model
                 $res['room_night_price_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->roomNightPriceInfoList as $item1) {
-                    $res['room_night_price_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['room_night_price_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -534,7 +537,8 @@ class module extends Model
                 $model->hotelSaleOrderRoomInfos = [];
                 $n1 = 0;
                 foreach ($map['hotel_sale_order_room_infos'] as $item1) {
-                    $model->hotelSaleOrderRoomInfos[$n1++] = hotelSaleOrderRoomInfos::fromMap($item1);
+                    $model->hotelSaleOrderRoomInfos[$n1] = hotelSaleOrderRoomInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -556,7 +560,8 @@ class module extends Model
                 $model->occupantInfoList = [];
                 $n1 = 0;
                 foreach ($map['occupant_info_list'] as $item1) {
-                    $model->occupantInfoList[$n1++] = occupantInfoList::fromMap($item1);
+                    $model->occupantInfoList[$n1] = occupantInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -602,7 +607,8 @@ class module extends Model
                 $model->roomNightPriceInfoList = [];
                 $n1 = 0;
                 foreach ($map['room_night_price_info_list'] as $item1) {
-                    $model->roomNightPriceInfoList[$n1++] = roomNightPriceInfoList::fromMap($item1);
+                    $model->roomNightPriceInfoList[$n1] = roomNightPriceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -124,7 +124,8 @@ class SyncSingleUserRequest extends Model
                 $res['third_depart_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->thirdDepartIdList as $item1) {
-                    $res['third_depart_id_list'][$n1++] = $item1;
+                    $res['third_depart_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +186,8 @@ class SyncSingleUserRequest extends Model
                 $model->thirdDepartIdList = [];
                 $n1 = 0;
                 foreach ($map['third_depart_id_list'] as $item1) {
-                    $model->thirdDepartIdList[$n1++] = $item1;
+                    $model->thirdDepartIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

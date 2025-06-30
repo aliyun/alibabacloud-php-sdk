@@ -10,9 +10,14 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderResponseBod
 class IntlFlightCreateOrderResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $httpStatusCode;
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
 
     /**
      * @var module
@@ -25,16 +30,6 @@ class IntlFlightCreateOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $resultCode;
-
-    /**
-     * @var string
-     */
-    public $resultMsg;
-
-    /**
      * @var bool
      */
     public $success;
@@ -44,11 +39,10 @@ class IntlFlightCreateOrderResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'httpStatusCode' => 'http_status_code',
+        'code' => 'code',
+        'message' => 'message',
         'module' => 'module',
         'requestId' => 'requestId',
-        'resultCode' => 'result_code',
-        'resultMsg' => 'result_msg',
         'success' => 'success',
         'traceId' => 'traceId',
     ];
@@ -64,8 +58,12 @@ class IntlFlightCreateOrderResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['http_status_code'] = $this->httpStatusCode;
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
 
         if (null !== $this->module) {
@@ -74,14 +72,6 @@ class IntlFlightCreateOrderResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
-        }
-
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
 
         if (null !== $this->success) {
@@ -103,8 +93,12 @@ class IntlFlightCreateOrderResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['http_status_code'])) {
-            $model->httpStatusCode = $map['http_status_code'];
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
 
         if (isset($map['module'])) {
@@ -113,14 +107,6 @@ class IntlFlightCreateOrderResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
 
         if (isset($map['success'])) {

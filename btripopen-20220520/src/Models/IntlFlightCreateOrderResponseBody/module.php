@@ -16,17 +16,17 @@ class module extends Model
     /**
      * @var string
      */
-    public $latestPayTime;
-
-    /**
-     * @var int
-     */
     public $orderId;
 
     /**
      * @var string
      */
     public $outOrderId;
+
+    /**
+     * @var string
+     */
+    public $payLatestTime;
 
     /**
      * @var int
@@ -44,9 +44,9 @@ class module extends Model
     public $totalPrice;
     protected $_name = [
         'asyncCreateOrderKey' => 'async_create_order_key',
-        'latestPayTime' => 'latest_pay_time',
         'orderId' => 'order_id',
         'outOrderId' => 'out_order_id',
+        'payLatestTime' => 'pay_latest_time',
         'payStatus' => 'pay_status',
         'status' => 'status',
         'totalPrice' => 'total_price',
@@ -64,16 +64,16 @@ class module extends Model
             $res['async_create_order_key'] = $this->asyncCreateOrderKey;
         }
 
-        if (null !== $this->latestPayTime) {
-            $res['latest_pay_time'] = $this->latestPayTime;
-        }
-
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
 
         if (null !== $this->outOrderId) {
             $res['out_order_id'] = $this->outOrderId;
+        }
+
+        if (null !== $this->payLatestTime) {
+            $res['pay_latest_time'] = $this->payLatestTime;
         }
 
         if (null !== $this->payStatus) {
@@ -103,16 +103,16 @@ class module extends Model
             $model->asyncCreateOrderKey = $map['async_create_order_key'];
         }
 
-        if (isset($map['latest_pay_time'])) {
-            $model->latestPayTime = $map['latest_pay_time'];
-        }
-
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
 
         if (isset($map['out_order_id'])) {
             $model->outOrderId = $map['out_order_id'];
+        }
+
+        if (isset($map['pay_latest_time'])) {
+            $model->payLatestTime = $map['pay_latest_time'];
         }
 
         if (isset($map['pay_status'])) {

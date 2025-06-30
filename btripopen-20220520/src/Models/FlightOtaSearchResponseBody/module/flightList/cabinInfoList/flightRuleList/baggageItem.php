@@ -67,7 +67,8 @@ class baggageItem extends Model
                 $res['baggage_sub_items'] = [];
                 $n1 = 0;
                 foreach ($this->baggageSubItems as $item1) {
-                    $res['baggage_sub_items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['baggage_sub_items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class baggageItem extends Model
                 $model->baggageSubItems = [];
                 $n1 = 0;
                 foreach ($map['baggage_sub_items'] as $item1) {
-                    $model->baggageSubItems[$n1++] = baggageSubItems::fromMap($item1);
+                    $model->baggageSubItems[$n1] = baggageSubItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -53,7 +53,8 @@ class citys extends Model
                 $res['districts'] = [];
                 $n1 = 0;
                 foreach ($this->districts as $item1) {
-                    $res['districts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['districts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class citys extends Model
                 $model->districts = [];
                 $n1 = 0;
                 foreach ($map['districts'] as $item1) {
-                    $model->districts[$n1++] = districts::fromMap($item1);
+                    $model->districts[$n1] = districts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

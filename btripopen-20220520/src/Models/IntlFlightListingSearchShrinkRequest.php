@@ -24,24 +24,9 @@ class IntlFlightListingSearchShrinkRequest extends Model
     public $cabinType;
 
     /**
-     * @var bool
-     */
-    public $directOnly;
-
-    /**
      * @var string
      */
     public $isvName;
-
-    /**
-     * @var string
-     */
-    public $language;
-
-    /**
-     * @var bool
-     */
-    public $needShareFlight;
 
     /**
      * @var bool
@@ -71,11 +56,6 @@ class IntlFlightListingSearchShrinkRequest extends Model
     /**
      * @var string
      */
-    public $supplierCode;
-
-    /**
-     * @var string
-     */
     public $token;
 
     /**
@@ -86,16 +66,12 @@ class IntlFlightListingSearchShrinkRequest extends Model
         'btripUserId' => 'btrip_user_id',
         'buyerName' => 'buyer_name',
         'cabinType' => 'cabin_type',
-        'directOnly' => 'direct_only',
         'isvName' => 'isv_name',
-        'language' => 'language',
-        'needShareFlight' => 'need_share_flight',
         'outWheelSearch' => 'out_wheel_search',
         'queryRecordId' => 'query_record_id',
         'searchJourneysShrink' => 'search_journeys',
         'searchMode' => 'search_mode',
         'searchPassengerListShrink' => 'search_passenger_list',
-        'supplierCode' => 'supplier_code',
         'token' => 'token',
         'tripType' => 'trip_type',
     ];
@@ -120,20 +96,8 @@ class IntlFlightListingSearchShrinkRequest extends Model
             $res['cabin_type'] = $this->cabinType;
         }
 
-        if (null !== $this->directOnly) {
-            $res['direct_only'] = $this->directOnly;
-        }
-
         if (null !== $this->isvName) {
             $res['isv_name'] = $this->isvName;
-        }
-
-        if (null !== $this->language) {
-            $res['language'] = $this->language;
-        }
-
-        if (null !== $this->needShareFlight) {
-            $res['need_share_flight'] = $this->needShareFlight;
         }
 
         if (null !== $this->outWheelSearch) {
@@ -154,10 +118,6 @@ class IntlFlightListingSearchShrinkRequest extends Model
 
         if (null !== $this->searchPassengerListShrink) {
             $res['search_passenger_list'] = $this->searchPassengerListShrink;
-        }
-
-        if (null !== $this->supplierCode) {
-            $res['supplier_code'] = $this->supplierCode;
         }
 
         if (null !== $this->token) {
@@ -191,20 +151,8 @@ class IntlFlightListingSearchShrinkRequest extends Model
             $model->cabinType = $map['cabin_type'];
         }
 
-        if (isset($map['direct_only'])) {
-            $model->directOnly = $map['direct_only'];
-        }
-
         if (isset($map['isv_name'])) {
             $model->isvName = $map['isv_name'];
-        }
-
-        if (isset($map['language'])) {
-            $model->language = $map['language'];
-        }
-
-        if (isset($map['need_share_flight'])) {
-            $model->needShareFlight = $map['need_share_flight'];
         }
 
         if (isset($map['out_wheel_search'])) {
@@ -225,10 +173,6 @@ class IntlFlightListingSearchShrinkRequest extends Model
 
         if (isset($map['search_passenger_list'])) {
             $model->searchPassengerListShrink = $map['search_passenger_list'];
-        }
-
-        if (isset($map['supplier_code'])) {
-            $model->supplierCode = $map['supplier_code'];
         }
 
         if (isset($map['token'])) {

@@ -53,7 +53,8 @@ class module extends Model
                 $res['record_tasks'] = [];
                 $n1 = 0;
                 foreach ($this->recordTasks as $item1) {
-                    $res['record_tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['record_tasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class module extends Model
                 $res['running_tasks'] = [];
                 $n1 = 0;
                 foreach ($this->runningTasks as $item1) {
-                    $res['running_tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['running_tasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class module extends Model
                 $model->recordTasks = [];
                 $n1 = 0;
                 foreach ($map['record_tasks'] as $item1) {
-                    $model->recordTasks[$n1++] = recordTasks::fromMap($item1);
+                    $model->recordTasks[$n1] = recordTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class module extends Model
                 $model->runningTasks = [];
                 $n1 = 0;
                 foreach ($map['running_tasks'] as $item1) {
-                    $model->runningTasks[$n1++] = runningTasks::fromMap($item1);
+                    $model->runningTasks[$n1] = runningTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

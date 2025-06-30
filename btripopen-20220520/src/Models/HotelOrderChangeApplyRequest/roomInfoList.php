@@ -38,7 +38,8 @@ class roomInfoList extends Model
                 $res['cancel_date'] = [];
                 $n1 = 0;
                 foreach ($this->cancelDate as $item1) {
-                    $res['cancel_date'][$n1++] = $item1;
+                    $res['cancel_date'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class roomInfoList extends Model
                 $model->cancelDate = [];
                 $n1 = 0;
                 foreach ($map['cancel_date'] as $item1) {
-                    $model->cancelDate[$n1++] = $item1;
+                    $model->cancelDate[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

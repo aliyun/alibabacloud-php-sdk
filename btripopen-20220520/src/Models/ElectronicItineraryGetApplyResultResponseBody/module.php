@@ -39,7 +39,8 @@ class module extends Model
                 $res['apply_ticket_list'] = [];
                 $n1 = 0;
                 foreach ($this->applyTicketList as $item1) {
-                    $res['apply_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['apply_ticket_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class module extends Model
                 $model->applyTicketList = [];
                 $n1 = 0;
                 foreach ($map['apply_ticket_list'] as $item1) {
-                    $model->applyTicketList[$n1++] = applyTicketList::fromMap($item1);
+                    $model->applyTicketList[$n1] = applyTicketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

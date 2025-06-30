@@ -94,7 +94,8 @@ class itemList extends Model
                         $res['sub_item_position_map'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['sub_item_position_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['sub_item_position_map'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -106,7 +107,8 @@ class itemList extends Model
                 $res['sub_items'] = [];
                 $n1 = 0;
                 foreach ($this->subItems as $item1) {
-                    $res['sub_items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sub_items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +154,8 @@ class itemList extends Model
                         $model->subItemPositionMap[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->subItemPositionMap[$key1][$n2++] = ModuleFlightItemListItemListSubItemPositionMapValue::fromMap($item2);
+                            $model->subItemPositionMap[$key1][$n2] = ModuleFlightItemListItemListSubItemPositionMapValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }
@@ -164,7 +167,8 @@ class itemList extends Model
                 $model->subItems = [];
                 $n1 = 0;
                 foreach ($map['sub_items'] as $item1) {
-                    $model->subItems[$n1++] = subItems::fromMap($item1);
+                    $model->subItems[$n1] = subItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

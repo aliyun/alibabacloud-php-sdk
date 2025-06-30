@@ -21,12 +21,17 @@ class IntlFlightCreateOrderShrinkRequest extends Model
     /**
      * @var string
      */
-    public $contactInfoShrink;
+    public $btripUserId;
 
     /**
      * @var string
      */
-    public $costCenterShrink;
+    public $buyerName;
+
+    /**
+     * @var string
+     */
+    public $contactInfoShrink;
 
     /**
      * @var string
@@ -39,9 +44,9 @@ class IntlFlightCreateOrderShrinkRequest extends Model
     public $isvName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $language;
+    public $orderPrice;
 
     /**
      * @var string
@@ -62,36 +67,19 @@ class IntlFlightCreateOrderShrinkRequest extends Model
      * @var string
      */
     public $renderKey;
-
-    /**
-     * @var int
-     */
-    public $totalPriceCent;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $userName;
     protected $_name = [
         'asyncCreateOrderKey' => 'async_create_order_key',
         'asyncCreateOrderMode' => 'async_create_order_mode',
+        'btripUserId' => 'btrip_user_id',
+        'buyerName' => 'buyer_name',
         'contactInfoShrink' => 'contact_info',
-        'costCenterShrink' => 'cost_center',
         'extraInfoShrink' => 'extra_info',
         'isvName' => 'isv_name',
-        'language' => 'language',
+        'orderPrice' => 'order_price',
         'otaItemId' => 'ota_item_id',
         'outOrderId' => 'out_order_id',
         'passengerListShrink' => 'passenger_list',
         'renderKey' => 'render_key',
-        'totalPriceCent' => 'total_price_cent',
-        'userId' => 'user_id',
-        'userName' => 'user_name',
     ];
 
     public function validate()
@@ -110,12 +98,16 @@ class IntlFlightCreateOrderShrinkRequest extends Model
             $res['async_create_order_mode'] = $this->asyncCreateOrderMode;
         }
 
-        if (null !== $this->contactInfoShrink) {
-            $res['contact_info'] = $this->contactInfoShrink;
+        if (null !== $this->btripUserId) {
+            $res['btrip_user_id'] = $this->btripUserId;
         }
 
-        if (null !== $this->costCenterShrink) {
-            $res['cost_center'] = $this->costCenterShrink;
+        if (null !== $this->buyerName) {
+            $res['buyer_name'] = $this->buyerName;
+        }
+
+        if (null !== $this->contactInfoShrink) {
+            $res['contact_info'] = $this->contactInfoShrink;
         }
 
         if (null !== $this->extraInfoShrink) {
@@ -126,8 +118,8 @@ class IntlFlightCreateOrderShrinkRequest extends Model
             $res['isv_name'] = $this->isvName;
         }
 
-        if (null !== $this->language) {
-            $res['language'] = $this->language;
+        if (null !== $this->orderPrice) {
+            $res['order_price'] = $this->orderPrice;
         }
 
         if (null !== $this->otaItemId) {
@@ -144,18 +136,6 @@ class IntlFlightCreateOrderShrinkRequest extends Model
 
         if (null !== $this->renderKey) {
             $res['render_key'] = $this->renderKey;
-        }
-
-        if (null !== $this->totalPriceCent) {
-            $res['total_price_cent'] = $this->totalPriceCent;
-        }
-
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
-        }
-
-        if (null !== $this->userName) {
-            $res['user_name'] = $this->userName;
         }
 
         return $res;
@@ -177,12 +157,16 @@ class IntlFlightCreateOrderShrinkRequest extends Model
             $model->asyncCreateOrderMode = $map['async_create_order_mode'];
         }
 
-        if (isset($map['contact_info'])) {
-            $model->contactInfoShrink = $map['contact_info'];
+        if (isset($map['btrip_user_id'])) {
+            $model->btripUserId = $map['btrip_user_id'];
         }
 
-        if (isset($map['cost_center'])) {
-            $model->costCenterShrink = $map['cost_center'];
+        if (isset($map['buyer_name'])) {
+            $model->buyerName = $map['buyer_name'];
+        }
+
+        if (isset($map['contact_info'])) {
+            $model->contactInfoShrink = $map['contact_info'];
         }
 
         if (isset($map['extra_info'])) {
@@ -193,8 +177,8 @@ class IntlFlightCreateOrderShrinkRequest extends Model
             $model->isvName = $map['isv_name'];
         }
 
-        if (isset($map['language'])) {
-            $model->language = $map['language'];
+        if (isset($map['order_price'])) {
+            $model->orderPrice = $map['order_price'];
         }
 
         if (isset($map['ota_item_id'])) {
@@ -211,18 +195,6 @@ class IntlFlightCreateOrderShrinkRequest extends Model
 
         if (isset($map['render_key'])) {
             $model->renderKey = $map['render_key'];
-        }
-
-        if (isset($map['total_price_cent'])) {
-            $model->totalPriceCent = $map['total_price_cent'];
-        }
-
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
-        }
-
-        if (isset($map['user_name'])) {
-            $model->userName = $map['user_name'];
         }
 
         return $model;

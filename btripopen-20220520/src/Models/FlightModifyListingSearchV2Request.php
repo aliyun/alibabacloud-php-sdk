@@ -109,7 +109,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $res['cabin_class'] = [];
                 $n1 = 0;
                 foreach ($this->cabinClass as $item1) {
-                    $res['cabin_class'][$n1++] = $item1;
+                    $res['cabin_class'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $res['dep_date'] = [];
                 $n1 = 0;
                 foreach ($this->depDate as $item1) {
-                    $res['dep_date'][$n1++] = $item1;
+                    $res['dep_date'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +147,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $res['passenger_segment_relations'] = [];
                 $n1 = 0;
                 foreach ($this->passengerSegmentRelations as $item1) {
-                    $res['passenger_segment_relations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_segment_relations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +166,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $res['selected_segments'] = [];
                 $n1 = 0;
                 foreach ($this->selectedSegments as $item1) {
-                    $res['selected_segments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['selected_segments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +196,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $model->cabinClass = [];
                 $n1 = 0;
                 foreach ($map['cabin_class'] as $item1) {
-                    $model->cabinClass[$n1++] = $item1;
+                    $model->cabinClass[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +207,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $model->depDate = [];
                 $n1 = 0;
                 foreach ($map['dep_date'] as $item1) {
-                    $model->depDate[$n1++] = $item1;
+                    $model->depDate[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +234,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $model->passengerSegmentRelations = [];
                 $n1 = 0;
                 foreach ($map['passenger_segment_relations'] as $item1) {
-                    $model->passengerSegmentRelations[$n1++] = passengerSegmentRelations::fromMap($item1);
+                    $model->passengerSegmentRelations[$n1] = passengerSegmentRelations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -246,7 +253,8 @@ class FlightModifyListingSearchV2Request extends Model
                 $model->selectedSegments = [];
                 $n1 = 0;
                 foreach ($map['selected_segments'] as $item1) {
-                    $model->selectedSegments[$n1++] = selectedSegments::fromMap($item1);
+                    $model->selectedSegments[$n1] = selectedSegments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

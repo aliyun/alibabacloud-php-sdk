@@ -230,7 +230,8 @@ class passengerList extends Model
                 $res['credentials'] = [];
                 $n1 = 0;
                 foreach ($this->credentials as $item1) {
-                    $res['credentials'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['credentials'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +309,8 @@ class passengerList extends Model
                 $res['ticket_nos'] = [];
                 $n1 = 0;
                 foreach ($this->ticketNos as $item1) {
-                    $res['ticket_nos'][$n1++] = $item1;
+                    $res['ticket_nos'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +320,8 @@ class passengerList extends Model
                 $res['tickets'] = [];
                 $n1 = 0;
                 foreach ($this->tickets as $item1) {
-                    $res['tickets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tickets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -371,7 +374,8 @@ class passengerList extends Model
                 $model->credentials = [];
                 $n1 = 0;
                 foreach ($map['credentials'] as $item1) {
-                    $model->credentials[$n1++] = credentials::fromMap($item1);
+                    $model->credentials[$n1] = credentials::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -449,7 +453,8 @@ class passengerList extends Model
                 $model->ticketNos = [];
                 $n1 = 0;
                 foreach ($map['ticket_nos'] as $item1) {
-                    $model->ticketNos[$n1++] = $item1;
+                    $model->ticketNos[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -459,7 +464,8 @@ class passengerList extends Model
                 $model->tickets = [];
                 $n1 = 0;
                 foreach ($map['tickets'] as $item1) {
-                    $model->tickets[$n1++] = tickets::fromMap($item1);
+                    $model->tickets[$n1] = tickets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -313,7 +313,8 @@ class rates extends Model
                 $res['btrip_hotel_cancel_desc'] = [];
                 $n1 = 0;
                 foreach ($this->btripHotelCancelDesc as $item1) {
-                    $res['btrip_hotel_cancel_desc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['btrip_hotel_cancel_desc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -363,7 +364,8 @@ class rates extends Model
                 $res['hotel_detail_rate_price_d_t_o'] = [];
                 $n1 = 0;
                 foreach ($this->hotelDetailRatePriceDTO as $item1) {
-                    $res['hotel_detail_rate_price_d_t_o'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotel_detail_rate_price_d_t_o'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -508,7 +510,8 @@ class rates extends Model
                 $model->btripHotelCancelDesc = [];
                 $n1 = 0;
                 foreach ($map['btrip_hotel_cancel_desc'] as $item1) {
-                    $model->btripHotelCancelDesc[$n1++] = btripHotelCancelDesc::fromMap($item1);
+                    $model->btripHotelCancelDesc[$n1] = btripHotelCancelDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -558,7 +561,8 @@ class rates extends Model
                 $model->hotelDetailRatePriceDTO = [];
                 $n1 = 0;
                 foreach ($map['hotel_detail_rate_price_d_t_o'] as $item1) {
-                    $model->hotelDetailRatePriceDTO[$n1++] = hotelDetailRatePriceDTO::fromMap($item1);
+                    $model->hotelDetailRatePriceDTO[$n1] = hotelDetailRatePriceDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

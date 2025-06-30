@@ -11,9 +11,15 @@ class module extends Model
     /**
      * @var int
      */
-    public $price;
+    public $actualPayPrice;
+
+    /**
+     * @var int
+     */
+    public $payStatus;
     protected $_name = [
-        'price' => 'price',
+        'actualPayPrice' => 'actual_pay_price',
+        'payStatus' => 'pay_status',
     ];
 
     public function validate()
@@ -24,8 +30,12 @@ class module extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->price) {
-            $res['price'] = $this->price;
+        if (null !== $this->actualPayPrice) {
+            $res['actual_pay_price'] = $this->actualPayPrice;
+        }
+
+        if (null !== $this->payStatus) {
+            $res['pay_status'] = $this->payStatus;
         }
 
         return $res;
@@ -39,8 +49,12 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['price'])) {
-            $model->price = $map['price'];
+        if (isset($map['actual_pay_price'])) {
+            $model->actualPayPrice = $map['actual_pay_price'];
+        }
+
+        if (isset($map['pay_status'])) {
+            $model->payStatus = $map['pay_status'];
         }
 
         return $model;

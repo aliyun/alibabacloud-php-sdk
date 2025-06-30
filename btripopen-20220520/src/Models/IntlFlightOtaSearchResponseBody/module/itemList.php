@@ -5,22 +5,16 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\itemList\flightRuleInfoList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\itemList\agreementPriceCodes;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\itemList\subItems;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleItemListShoppingItemMapValue;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleItemListSubItemPositionMapValue;
 
 class itemList extends Model
 {
     /**
-     * @var string[]
+     * @var agreementPriceCodes[]
      */
     public $agreementPriceCodes;
-
-    /**
-     * @var flightRuleInfoList[]
-     */
-    public $flightRuleInfoList;
 
     /**
      * @var string
@@ -38,21 +32,14 @@ class itemList extends Model
     public $shoppingItemMap;
 
     /**
-     * @var ModuleItemListSubItemPositionMapValue[][]
-     */
-    public $subItemPositionMap;
-
-    /**
      * @var subItems[]
      */
     public $subItems;
     protected $_name = [
         'agreementPriceCodes' => 'agreement_price_codes',
-        'flightRuleInfoList' => 'flight_rule_info_list',
         'itemId' => 'item_id',
         'itemType' => 'item_type',
         'shoppingItemMap' => 'shopping_item_map',
-        'subItemPositionMap' => 'sub_item_position_map',
         'subItems' => 'sub_items',
     ];
 
@@ -61,14 +48,8 @@ class itemList extends Model
         if (\is_array($this->agreementPriceCodes)) {
             Model::validateArray($this->agreementPriceCodes);
         }
-        if (\is_array($this->flightRuleInfoList)) {
-            Model::validateArray($this->flightRuleInfoList);
-        }
         if (\is_array($this->shoppingItemMap)) {
             Model::validateArray($this->shoppingItemMap);
-        }
-        if (\is_array($this->subItemPositionMap)) {
-            Model::validateArray($this->subItemPositionMap);
         }
         if (\is_array($this->subItems)) {
             Model::validateArray($this->subItems);
@@ -84,17 +65,8 @@ class itemList extends Model
                 $res['agreement_price_codes'] = [];
                 $n1 = 0;
                 foreach ($this->agreementPriceCodes as $item1) {
-                    $res['agreement_price_codes'][$n1++] = $item1;
-                }
-            }
-        }
-
-        if (null !== $this->flightRuleInfoList) {
-            if (\is_array($this->flightRuleInfoList)) {
-                $res['flight_rule_info_list'] = [];
-                $n1 = 0;
-                foreach ($this->flightRuleInfoList as $item1) {
-                    $res['flight_rule_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['agreement_price_codes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,27 +88,13 @@ class itemList extends Model
             }
         }
 
-        if (null !== $this->subItemPositionMap) {
-            if (\is_array($this->subItemPositionMap)) {
-                $res['sub_item_position_map'] = [];
-                foreach ($this->subItemPositionMap as $key1 => $value1) {
-                    if (\is_array($value1)) {
-                        $res['sub_item_position_map'][$key1] = [];
-                        $n2 = 0;
-                        foreach ($value1 as $item2) {
-                            $res['sub_item_position_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
-                        }
-                    }
-                }
-            }
-        }
-
         if (null !== $this->subItems) {
             if (\is_array($this->subItems)) {
                 $res['sub_items'] = [];
                 $n1 = 0;
                 foreach ($this->subItems as $item1) {
-                    $res['sub_items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sub_items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,17 +115,8 @@ class itemList extends Model
                 $model->agreementPriceCodes = [];
                 $n1 = 0;
                 foreach ($map['agreement_price_codes'] as $item1) {
-                    $model->agreementPriceCodes[$n1++] = $item1;
-                }
-            }
-        }
-
-        if (isset($map['flight_rule_info_list'])) {
-            if (!empty($map['flight_rule_info_list'])) {
-                $model->flightRuleInfoList = [];
-                $n1 = 0;
-                foreach ($map['flight_rule_info_list'] as $item1) {
-                    $model->flightRuleInfoList[$n1++] = flightRuleInfoList::fromMap($item1);
+                    $model->agreementPriceCodes[$n1] = agreementPriceCodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -189,27 +138,13 @@ class itemList extends Model
             }
         }
 
-        if (isset($map['sub_item_position_map'])) {
-            if (!empty($map['sub_item_position_map'])) {
-                $model->subItemPositionMap = [];
-                foreach ($map['sub_item_position_map'] as $key1 => $value1) {
-                    if (!empty($value1)) {
-                        $model->subItemPositionMap[$key1] = [];
-                        $n2 = 0;
-                        foreach ($value1 as $item2) {
-                            $model->subItemPositionMap[$key1][$n2++] = ModuleItemListSubItemPositionMapValue::fromMap($item2);
-                        }
-                    }
-                }
-            }
-        }
-
         if (isset($map['sub_items'])) {
             if (!empty($map['sub_items'])) {
                 $model->subItems = [];
                 $n1 = 0;
                 foreach ($map['sub_items'] as $item1) {
-                    $model->subItems[$n1++] = subItems::fromMap($item1);
+                    $model->subItems[$n1] = subItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

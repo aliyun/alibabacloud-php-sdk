@@ -68,7 +68,8 @@ class refundChangeRule extends Model
                         $res['offer_penalty_info_map'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['offer_penalty_info_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['offer_penalty_info_map'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -110,7 +111,8 @@ class refundChangeRule extends Model
                         $model->offerPenaltyInfoMap[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->offerPenaltyInfoMap[$key1][$n2++] = ModuleGroupItemSubItemsRefundChangeRuleOfferPenaltyInfoMapValue::fromMap($item2);
+                            $model->offerPenaltyInfoMap[$key1][$n2] = ModuleGroupItemSubItemsRefundChangeRuleOfferPenaltyInfoMapValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }

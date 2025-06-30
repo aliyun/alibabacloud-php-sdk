@@ -102,7 +102,8 @@ class flightModifyOrderList extends Model
                 $res['flight_modify_segment_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightModifySegmentList as $item1) {
-                    $res['flight_modify_segment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_modify_segment_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class flightModifyOrderList extends Model
                 $res['flight_order_modify_ticket_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightOrderModifyTicketList as $item1) {
-                    $res['flight_order_modify_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_order_modify_ticket_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class flightModifyOrderList extends Model
                 $res['passenger_fee'] = [];
                 $n1 = 0;
                 foreach ($this->passengerFee as $item1) {
-                    $res['passenger_fee'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_fee'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class flightModifyOrderList extends Model
                 $res['passenger_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerList as $item1) {
-                    $res['passenger_list'][$n1++] = $item1;
+                    $res['passenger_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +181,8 @@ class flightModifyOrderList extends Model
                 $model->flightModifySegmentList = [];
                 $n1 = 0;
                 foreach ($map['flight_modify_segment_list'] as $item1) {
-                    $model->flightModifySegmentList[$n1++] = flightModifySegmentList::fromMap($item1);
+                    $model->flightModifySegmentList[$n1] = flightModifySegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +192,8 @@ class flightModifyOrderList extends Model
                 $model->flightOrderModifyTicketList = [];
                 $n1 = 0;
                 foreach ($map['flight_order_modify_ticket_list'] as $item1) {
-                    $model->flightOrderModifyTicketList[$n1++] = flightOrderModifyTicketList::fromMap($item1);
+                    $model->flightOrderModifyTicketList[$n1] = flightOrderModifyTicketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +207,8 @@ class flightModifyOrderList extends Model
                 $model->passengerFee = [];
                 $n1 = 0;
                 foreach ($map['passenger_fee'] as $item1) {
-                    $model->passengerFee[$n1++] = passengerFee::fromMap($item1);
+                    $model->passengerFee[$n1] = passengerFee::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +218,8 @@ class flightModifyOrderList extends Model
                 $model->passengerList = [];
                 $n1 = 0;
                 foreach ($map['passenger_list'] as $item1) {
-                    $model->passengerList[$n1++] = $item1;
+                    $model->passengerList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

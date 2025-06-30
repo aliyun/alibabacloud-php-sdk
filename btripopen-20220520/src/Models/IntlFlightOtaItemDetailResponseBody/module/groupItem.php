@@ -84,7 +84,8 @@ class groupItem extends Model
                 $res['agreement_price_codes'] = [];
                 $n1 = 0;
                 foreach ($this->agreementPriceCodes as $item1) {
-                    $res['agreement_price_codes'][$n1++] = $item1;
+                    $res['agreement_price_codes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class groupItem extends Model
                 $res['flight_rule_info_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightRuleInfoList as $item1) {
-                    $res['flight_rule_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_rule_info_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +126,8 @@ class groupItem extends Model
                         $res['sub_item_position_map'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['sub_item_position_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['sub_item_position_map'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -136,7 +139,8 @@ class groupItem extends Model
                 $res['sub_items'] = [];
                 $n1 = 0;
                 foreach ($this->subItems as $item1) {
-                    $res['sub_items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sub_items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +161,8 @@ class groupItem extends Model
                 $model->agreementPriceCodes = [];
                 $n1 = 0;
                 foreach ($map['agreement_price_codes'] as $item1) {
-                    $model->agreementPriceCodes[$n1++] = $item1;
+                    $model->agreementPriceCodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +172,8 @@ class groupItem extends Model
                 $model->flightRuleInfoList = [];
                 $n1 = 0;
                 foreach ($map['flight_rule_info_list'] as $item1) {
-                    $model->flightRuleInfoList[$n1++] = flightRuleInfoList::fromMap($item1);
+                    $model->flightRuleInfoList[$n1] = flightRuleInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +203,8 @@ class groupItem extends Model
                         $model->subItemPositionMap[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->subItemPositionMap[$key1][$n2++] = ModuleGroupItemSubItemPositionMapValue::fromMap($item2);
+                            $model->subItemPositionMap[$key1][$n2] = ModuleGroupItemSubItemPositionMapValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }
@@ -209,7 +216,8 @@ class groupItem extends Model
                 $model->subItems = [];
                 $n1 = 0;
                 foreach ($map['sub_items'] as $item1) {
-                    $model->subItems[$n1++] = subItems::fromMap($item1);
+                    $model->subItems[$n1] = subItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

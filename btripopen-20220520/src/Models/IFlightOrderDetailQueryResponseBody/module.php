@@ -53,7 +53,8 @@ class module extends Model
                 $res['flight_modify_order_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightModifyOrderList as $item1) {
-                    $res['flight_modify_order_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_modify_order_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class module extends Model
                 $res['flight_refund_order_list'] = [];
                 $n1 = 0;
                 foreach ($this->flightRefundOrderList as $item1) {
-                    $res['flight_refund_order_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['flight_refund_order_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class module extends Model
                 $model->flightModifyOrderList = [];
                 $n1 = 0;
                 foreach ($map['flight_modify_order_list'] as $item1) {
-                    $model->flightModifyOrderList[$n1++] = flightModifyOrderList::fromMap($item1);
+                    $model->flightModifyOrderList[$n1] = flightModifyOrderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class module extends Model
                 $model->flightRefundOrderList = [];
                 $n1 = 0;
                 foreach ($map['flight_refund_order_list'] as $item1) {
-                    $model->flightRefundOrderList[$n1++] = flightRefundOrderList::fromMap($item1);
+                    $model->flightRefundOrderList[$n1] = flightRefundOrderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class dataList extends Model
 {
     /**
+     * @var string
+     */
+    public $adjustTime;
+
+    /**
      * @var int
      */
     public $advanceDay;
@@ -101,6 +106,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $baseLocation;
+
+    /**
+     * @var string
+     */
     public $billRecordTime;
 
     /**
@@ -189,9 +199,19 @@ class dataList extends Model
     public $costCenterNumber;
 
     /**
+     * @var string
+     */
+    public $costDepartment;
+
+    /**
      * @var float
      */
     public $coupon;
+
+    /**
+     * @var string
+     */
+    public $customContent;
 
     /**
      * @var float
@@ -306,6 +326,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $mappingCompanyCode;
+
+    /**
+     * @var string
+     */
     public $mostDifferenceDeptTime;
 
     /**
@@ -364,9 +389,24 @@ class dataList extends Model
     public $paymentDepartmentName;
 
     /**
+     * @var string
+     */
+    public $position;
+
+    /**
+     * @var string
+     */
+    public $positionLevel;
+
+    /**
      * @var int
      */
     public $primaryId;
+
+    /**
+     * @var string
+     */
+    public $processorOaCode;
 
     /**
      * @var string
@@ -528,6 +568,7 @@ class dataList extends Model
      */
     public $voyageName;
     protected $_name = [
+        'adjustTime' => 'adjust_time',
         'advanceDay' => 'advance_day',
         'airlineCorpCode' => 'airline_corp_code',
         'airlineCorpName' => 'airline_corp_name',
@@ -546,6 +587,7 @@ class dataList extends Model
         'arrDate' => 'arr_date',
         'arrStation' => 'arr_station',
         'arrTime' => 'arr_time',
+        'baseLocation' => 'base_location',
         'billRecordTime' => 'bill_record_time',
         'bookMode' => 'book_mode',
         'bookTime' => 'book_time',
@@ -564,7 +606,9 @@ class dataList extends Model
         'corpPayOrderFee' => 'corp_pay_order_fee',
         'costCenter' => 'cost_center',
         'costCenterNumber' => 'cost_center_number',
+        'costDepartment' => 'cost_department',
         'coupon' => 'coupon',
+        'customContent' => 'custom_content',
         'deductibleTax' => 'deductible_tax',
         'depAirportCode' => 'dep_airport_code',
         'depCityCode' => 'dep_city_code',
@@ -587,6 +631,7 @@ class dataList extends Model
         'insuranceNumber' => 'insurance_number',
         'insuranceProductName' => 'insurance_product_name',
         'invoiceTitle' => 'invoice_title',
+        'mappingCompanyCode' => 'mapping_company_code',
         'mostDifferenceDeptTime' => 'most_difference_dept_time',
         'mostDifferenceDiscount' => 'most_difference_discount',
         'mostDifferenceFlightNo' => 'most_difference_flight_no',
@@ -599,7 +644,10 @@ class dataList extends Model
         'overApplyId' => 'over_apply_id',
         'paymentDepartmentId' => 'payment_department_id',
         'paymentDepartmentName' => 'payment_department_name',
+        'position' => 'position',
+        'positionLevel' => 'position_level',
         'primaryId' => 'primary_id',
+        'processorOaCode' => 'processor_oa_code',
         'projectCode' => 'project_code',
         'projectName' => 'project_name',
         'refundChangeCost' => 'refund_change_cost',
@@ -642,6 +690,10 @@ class dataList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adjustTime) {
+            $res['adjust_time'] = $this->adjustTime;
+        }
+
         if (null !== $this->advanceDay) {
             $res['advance_day'] = $this->advanceDay;
         }
@@ -712,6 +764,10 @@ class dataList extends Model
 
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
+        }
+
+        if (null !== $this->baseLocation) {
+            $res['base_location'] = $this->baseLocation;
         }
 
         if (null !== $this->billRecordTime) {
@@ -786,8 +842,16 @@ class dataList extends Model
             $res['cost_center_number'] = $this->costCenterNumber;
         }
 
+        if (null !== $this->costDepartment) {
+            $res['cost_department'] = $this->costDepartment;
+        }
+
         if (null !== $this->coupon) {
             $res['coupon'] = $this->coupon;
+        }
+
+        if (null !== $this->customContent) {
+            $res['custom_content'] = $this->customContent;
         }
 
         if (null !== $this->deductibleTax) {
@@ -878,6 +942,10 @@ class dataList extends Model
             $res['invoice_title'] = $this->invoiceTitle;
         }
 
+        if (null !== $this->mappingCompanyCode) {
+            $res['mapping_company_code'] = $this->mappingCompanyCode;
+        }
+
         if (null !== $this->mostDifferenceDeptTime) {
             $res['most_difference_dept_time'] = $this->mostDifferenceDeptTime;
         }
@@ -926,8 +994,20 @@ class dataList extends Model
             $res['payment_department_name'] = $this->paymentDepartmentName;
         }
 
+        if (null !== $this->position) {
+            $res['position'] = $this->position;
+        }
+
+        if (null !== $this->positionLevel) {
+            $res['position_level'] = $this->positionLevel;
+        }
+
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
+        }
+
+        if (null !== $this->processorOaCode) {
+            $res['processor_oa_code'] = $this->processorOaCode;
         }
 
         if (null !== $this->projectCode) {
@@ -1069,6 +1149,10 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['adjust_time'])) {
+            $model->adjustTime = $map['adjust_time'];
+        }
+
         if (isset($map['advance_day'])) {
             $model->advanceDay = $map['advance_day'];
         }
@@ -1139,6 +1223,10 @@ class dataList extends Model
 
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
+        }
+
+        if (isset($map['base_location'])) {
+            $model->baseLocation = $map['base_location'];
         }
 
         if (isset($map['bill_record_time'])) {
@@ -1213,8 +1301,16 @@ class dataList extends Model
             $model->costCenterNumber = $map['cost_center_number'];
         }
 
+        if (isset($map['cost_department'])) {
+            $model->costDepartment = $map['cost_department'];
+        }
+
         if (isset($map['coupon'])) {
             $model->coupon = $map['coupon'];
+        }
+
+        if (isset($map['custom_content'])) {
+            $model->customContent = $map['custom_content'];
         }
 
         if (isset($map['deductible_tax'])) {
@@ -1305,6 +1401,10 @@ class dataList extends Model
             $model->invoiceTitle = $map['invoice_title'];
         }
 
+        if (isset($map['mapping_company_code'])) {
+            $model->mappingCompanyCode = $map['mapping_company_code'];
+        }
+
         if (isset($map['most_difference_dept_time'])) {
             $model->mostDifferenceDeptTime = $map['most_difference_dept_time'];
         }
@@ -1353,8 +1453,20 @@ class dataList extends Model
             $model->paymentDepartmentName = $map['payment_department_name'];
         }
 
+        if (isset($map['position'])) {
+            $model->position = $map['position'];
+        }
+
+        if (isset($map['position_level'])) {
+            $model->positionLevel = $map['position_level'];
+        }
+
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];
+        }
+
+        if (isset($map['processor_oa_code'])) {
+            $model->processorOaCode = $map['processor_oa_code'];
         }
 
         if (isset($map['project_code'])) {

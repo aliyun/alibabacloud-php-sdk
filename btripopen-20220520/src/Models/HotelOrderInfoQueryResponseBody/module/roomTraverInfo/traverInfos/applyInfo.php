@@ -69,7 +69,8 @@ class applyInfo extends Model
                 $res['exceed_apply'] = [];
                 $n1 = 0;
                 foreach ($this->exceedApply as $item1) {
-                    $res['exceed_apply'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['exceed_apply'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class applyInfo extends Model
                 $model->exceedApply = [];
                 $n1 = 0;
                 foreach ($map['exceed_apply'] as $item1) {
-                    $model->exceedApply[$n1++] = exceedApply::fromMap($item1);
+                    $model->exceedApply[$n1] = exceedApply::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

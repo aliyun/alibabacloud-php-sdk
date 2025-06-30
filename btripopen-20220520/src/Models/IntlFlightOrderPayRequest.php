@@ -9,9 +9,14 @@ use AlibabaCloud\Dara\Model;
 class IntlFlightOrderPayRequest extends Model
 {
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $extParams;
+    public $btripUserId;
+
+    /**
+     * @var string
+     */
+    public $buyerName;
 
     /**
      * @var string
@@ -24,40 +29,37 @@ class IntlFlightOrderPayRequest extends Model
     public $orderId;
 
     /**
+     * @var int
+     */
+    public $orderPrice;
+
+    /**
      * @var string
      */
     public $outOrderId;
-
-    /**
-     * @var int
-     */
-    public $totalPrice;
     protected $_name = [
-        'extParams' => 'ext_params',
+        'btripUserId' => 'btrip_user_id',
+        'buyerName' => 'buyer_name',
         'isvName' => 'isv_name',
         'orderId' => 'order_id',
+        'orderPrice' => 'order_price',
         'outOrderId' => 'out_order_id',
-        'totalPrice' => 'total_price',
     ];
 
     public function validate()
     {
-        if (\is_array($this->extParams)) {
-            Model::validateArray($this->extParams);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->extParams) {
-            if (\is_array($this->extParams)) {
-                $res['ext_params'] = [];
-                foreach ($this->extParams as $key1 => $value1) {
-                    $res['ext_params'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->btripUserId) {
+            $res['btrip_user_id'] = $this->btripUserId;
+        }
+
+        if (null !== $this->buyerName) {
+            $res['buyer_name'] = $this->buyerName;
         }
 
         if (null !== $this->isvName) {
@@ -68,12 +70,12 @@ class IntlFlightOrderPayRequest extends Model
             $res['order_id'] = $this->orderId;
         }
 
-        if (null !== $this->outOrderId) {
-            $res['out_order_id'] = $this->outOrderId;
+        if (null !== $this->orderPrice) {
+            $res['order_price'] = $this->orderPrice;
         }
 
-        if (null !== $this->totalPrice) {
-            $res['total_price'] = $this->totalPrice;
+        if (null !== $this->outOrderId) {
+            $res['out_order_id'] = $this->outOrderId;
         }
 
         return $res;
@@ -87,13 +89,12 @@ class IntlFlightOrderPayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ext_params'])) {
-            if (!empty($map['ext_params'])) {
-                $model->extParams = [];
-                foreach ($map['ext_params'] as $key1 => $value1) {
-                    $model->extParams[$key1] = $value1;
-                }
-            }
+        if (isset($map['btrip_user_id'])) {
+            $model->btripUserId = $map['btrip_user_id'];
+        }
+
+        if (isset($map['buyer_name'])) {
+            $model->buyerName = $map['buyer_name'];
         }
 
         if (isset($map['isv_name'])) {
@@ -104,12 +105,12 @@ class IntlFlightOrderPayRequest extends Model
             $model->orderId = $map['order_id'];
         }
 
-        if (isset($map['out_order_id'])) {
-            $model->outOrderId = $map['out_order_id'];
+        if (isset($map['order_price'])) {
+            $model->orderPrice = $map['order_price'];
         }
 
-        if (isset($map['total_price'])) {
-            $model->totalPrice = $map['total_price'];
+        if (isset($map['out_order_id'])) {
+            $model->outOrderId = $map['out_order_id'];
         }
 
         return $model;

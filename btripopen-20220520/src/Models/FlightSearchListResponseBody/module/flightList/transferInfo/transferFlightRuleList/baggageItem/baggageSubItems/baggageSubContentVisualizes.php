@@ -70,7 +70,8 @@ class baggageSubContentVisualizes extends Model
                 $res['baggage_desc'] = [];
                 $n1 = 0;
                 foreach ($this->baggageDesc as $item1) {
-                    $res['baggage_desc'][$n1++] = $item1;
+                    $res['baggage_desc'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class baggageSubContentVisualizes extends Model
                 $model->baggageDesc = [];
                 $n1 = 0;
                 foreach ($map['baggage_desc'] as $item1) {
-                    $model->baggageDesc[$n1++] = $item1;
+                    $model->baggageDesc[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

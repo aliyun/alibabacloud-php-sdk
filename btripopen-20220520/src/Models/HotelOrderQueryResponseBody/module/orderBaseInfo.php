@@ -186,7 +186,8 @@ class orderBaseInfo extends Model
                 $res['exceed_apply_nos'] = [];
                 $n1 = 0;
                 foreach ($this->exceedApplyNos as $item1) {
-                    $res['exceed_apply_nos'][$n1++] = $item1;
+                    $res['exceed_apply_nos'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +292,8 @@ class orderBaseInfo extends Model
                 $model->exceedApplyNos = [];
                 $n1 = 0;
                 foreach ($map['exceed_apply_nos'] as $item1) {
-                    $model->exceedApplyNos[$n1++] = $item1;
+                    $model->exceedApplyNos[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

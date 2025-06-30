@@ -166,7 +166,8 @@ class rooms extends Model
                 $res['rates'] = [];
                 $n1 = 0;
                 foreach ($this->rates as $item1) {
-                    $res['rates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +181,8 @@ class rooms extends Model
                 $res['room_facility'] = [];
                 $n1 = 0;
                 foreach ($this->roomFacility as $item1) {
-                    $res['room_facility'][$n1++] = $item1;
+                    $res['room_facility'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +192,8 @@ class rooms extends Model
                 $res['room_service'] = [];
                 $n1 = 0;
                 foreach ($this->roomService as $item1) {
-                    $res['room_service'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['room_service'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +262,8 @@ class rooms extends Model
                 $model->rates = [];
                 $n1 = 0;
                 foreach ($map['rates'] as $item1) {
-                    $model->rates[$n1++] = rates::fromMap($item1);
+                    $model->rates[$n1] = rates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -273,7 +277,8 @@ class rooms extends Model
                 $model->roomFacility = [];
                 $n1 = 0;
                 foreach ($map['room_facility'] as $item1) {
-                    $model->roomFacility[$n1++] = $item1;
+                    $model->roomFacility[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -283,7 +288,8 @@ class rooms extends Model
                 $model->roomService = [];
                 $n1 = 0;
                 foreach ($map['room_service'] as $item1) {
-                    $model->roomService[$n1++] = roomService::fromMap($item1);
+                    $model->roomService[$n1] = roomService::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -89,7 +89,8 @@ class module extends Model
                 $res['change_infos'] = [];
                 $n1 = 0;
                 foreach ($this->changeInfos as $item1) {
-                    $res['change_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['change_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class module extends Model
                 $res['offlineRefundDetails'] = [];
                 $n1 = 0;
                 foreach ($this->offlineRefundDetails as $item1) {
-                    $res['offlineRefundDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['offlineRefundDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +119,8 @@ class module extends Model
                 $res['passenger_info_s'] = [];
                 $n1 = 0;
                 foreach ($this->passengerInfoS as $item1) {
-                    $res['passenger_info_s'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_info_s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +130,8 @@ class module extends Model
                 $res['refund_infos'] = [];
                 $n1 = 0;
                 foreach ($this->refundInfos as $item1) {
-                    $res['refund_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refund_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +156,8 @@ class module extends Model
                 $model->changeInfos = [];
                 $n1 = 0;
                 foreach ($map['change_infos'] as $item1) {
-                    $model->changeInfos[$n1++] = changeInfos::fromMap($item1);
+                    $model->changeInfos[$n1] = changeInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +167,8 @@ class module extends Model
                 $model->offlineRefundDetails = [];
                 $n1 = 0;
                 foreach ($map['offlineRefundDetails'] as $item1) {
-                    $model->offlineRefundDetails[$n1++] = offlineRefundDetails::fromMap($item1);
+                    $model->offlineRefundDetails[$n1] = offlineRefundDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +186,8 @@ class module extends Model
                 $model->passengerInfoS = [];
                 $n1 = 0;
                 foreach ($map['passenger_info_s'] as $item1) {
-                    $model->passengerInfoS[$n1++] = passengerInfoS::fromMap($item1);
+                    $model->passengerInfoS[$n1] = passengerInfoS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +197,8 @@ class module extends Model
                 $model->refundInfos = [];
                 $n1 = 0;
                 foreach ($map['refund_infos'] as $item1) {
-                    $model->refundInfos[$n1++] = refundInfos::fromMap($item1);
+                    $model->refundInfos[$n1] = refundInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

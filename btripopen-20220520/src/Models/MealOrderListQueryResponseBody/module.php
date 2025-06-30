@@ -33,7 +33,8 @@ class module extends Model
                 $res['order_list'] = [];
                 $n1 = 0;
                 foreach ($this->orderList as $item1) {
-                    $res['order_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['order_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class module extends Model
                 $model->orderList = [];
                 $n1 = 0;
                 foreach ($map['order_list'] as $item1) {
-                    $model->orderList[$n1++] = orderList::fromMap($item1);
+                    $model->orderList[$n1] = orderList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

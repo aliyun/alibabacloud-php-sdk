@@ -48,7 +48,8 @@ class roomInfoList extends Model
                 $res['cancel_date'] = [];
                 $n1 = 0;
                 foreach ($this->cancelDate as $item1) {
-                    $res['cancel_date'][$n1++] = $item1;
+                    $res['cancel_date'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -58,7 +59,8 @@ class roomInfoList extends Model
                 $res['room_daily_refund_infos'] = [];
                 $n1 = 0;
                 foreach ($this->roomDailyRefundInfos as $item1) {
-                    $res['room_daily_refund_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['room_daily_refund_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class roomInfoList extends Model
                 $model->cancelDate = [];
                 $n1 = 0;
                 foreach ($map['cancel_date'] as $item1) {
-                    $model->cancelDate[$n1++] = $item1;
+                    $model->cancelDate[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class roomInfoList extends Model
                 $model->roomDailyRefundInfos = [];
                 $n1 = 0;
                 foreach ($map['room_daily_refund_infos'] as $item1) {
-                    $model->roomDailyRefundInfos[$n1++] = roomDailyRefundInfos::fromMap($item1);
+                    $model->roomDailyRefundInfos[$n1] = roomDailyRefundInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -447,7 +447,6 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayCheckResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayResponse;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailResponse;
@@ -455,6 +454,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertResponse;
@@ -515,6 +517,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillSplitGetHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillSplitGetRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillSplitGetResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillSplitGetShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryResponse;
@@ -667,6 +673,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VasBillSettlementQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VasBillSettlementQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VasBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VatInvoiceScanQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VatInvoiceScanQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VatInvoiceScanQueryResponse;
@@ -3041,6 +3050,10 @@ class BtripOpen extends OpenApiClient
             @$query['bill_batch'] = $request->billBatch;
         }
 
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
         if (null !== $request->pageNo) {
             @$query['page_no'] = $request->pageNo;
         }
@@ -3720,6 +3733,10 @@ class BtripOpen extends OpenApiClient
             @$query['cooperator_id'] = $request->cooperatorId;
         }
 
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
         if (null !== $request->pageNo) {
             @$query['page_no'] = $request->pageNo;
         }
@@ -3816,6 +3833,10 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->cooperatorId) {
             @$query['cooperator_id'] = $request->cooperatorId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
 
         if (null !== $request->pageNo) {
@@ -5990,6 +6011,10 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
 
         if (null !== $request->pageNo) {
@@ -9172,6 +9197,10 @@ class BtripOpen extends OpenApiClient
             @$query['cooperator_id'] = $request->cooperatorId;
         }
 
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
         if (null !== $request->pageNo) {
             @$query['page_no'] = $request->pageNo;
         }
@@ -9678,6 +9707,10 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
 
         if (null !== $request->pageNo) {
@@ -11758,6 +11791,10 @@ class BtripOpen extends OpenApiClient
             @$query['bill_batch'] = $request->billBatch;
         }
 
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
         if (null !== $request->pageNo) {
             @$query['page_no'] = $request->pageNo;
         }
@@ -11854,6 +11891,10 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->category) {
             @$query['category'] = $request->category;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
 
         if (null !== $request->pageNo) {
@@ -12769,10 +12810,6 @@ class BtripOpen extends OpenApiClient
             $request->contactInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
         }
 
-        if (null !== $tmpReq->costCenter) {
-            $request->costCenterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->costCenter, 'cost_center', 'json');
-        }
-
         if (null !== $tmpReq->extraInfo) {
             $request->extraInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extraInfo, 'extra_info', 'json');
         }
@@ -12781,61 +12818,53 @@ class BtripOpen extends OpenApiClient
             $request->passengerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerList, 'passenger_list', 'json');
         }
 
-        $query = [];
+        $body = [];
         if (null !== $request->asyncCreateOrderKey) {
-            @$query['async_create_order_key'] = $request->asyncCreateOrderKey;
+            @$body['async_create_order_key'] = $request->asyncCreateOrderKey;
         }
 
         if (null !== $request->asyncCreateOrderMode) {
-            @$query['async_create_order_mode'] = $request->asyncCreateOrderMode;
+            @$body['async_create_order_mode'] = $request->asyncCreateOrderMode;
+        }
+
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
+        }
+
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
 
         if (null !== $request->contactInfoShrink) {
-            @$query['contact_info'] = $request->contactInfoShrink;
-        }
-
-        if (null !== $request->costCenterShrink) {
-            @$query['cost_center'] = $request->costCenterShrink;
+            @$body['contact_info'] = $request->contactInfoShrink;
         }
 
         if (null !== $request->extraInfoShrink) {
-            @$query['extra_info'] = $request->extraInfoShrink;
+            @$body['extra_info'] = $request->extraInfoShrink;
         }
 
         if (null !== $request->isvName) {
-            @$query['isv_name'] = $request->isvName;
+            @$body['isv_name'] = $request->isvName;
         }
 
-        if (null !== $request->language) {
-            @$query['language'] = $request->language;
+        if (null !== $request->orderPrice) {
+            @$body['order_price'] = $request->orderPrice;
         }
 
         if (null !== $request->otaItemId) {
-            @$query['ota_item_id'] = $request->otaItemId;
+            @$body['ota_item_id'] = $request->otaItemId;
         }
 
         if (null !== $request->outOrderId) {
-            @$query['out_order_id'] = $request->outOrderId;
+            @$body['out_order_id'] = $request->outOrderId;
         }
 
         if (null !== $request->passengerListShrink) {
-            @$query['passenger_list'] = $request->passengerListShrink;
+            @$body['passenger_list'] = $request->passengerListShrink;
         }
 
         if (null !== $request->renderKey) {
-            @$query['render_key'] = $request->renderKey;
-        }
-
-        if (null !== $request->totalPriceCent) {
-            @$query['total_price_cent'] = $request->totalPriceCent;
-        }
-
-        if (null !== $request->userId) {
-            @$query['user_id'] = $request->userId;
-        }
-
-        if (null !== $request->userName) {
-            @$query['user_name'] = $request->userName;
+            @$body['render_key'] = $request->renderKey;
         }
 
         $realHeaders = [];
@@ -12849,17 +12878,17 @@ class BtripOpen extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'IntlFlightCreateOrder',
             'version' => '2022-05-20',
             'protocol' => 'HTTPS',
             'pathname' => '/intl-flight/v1/order/action/create',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
 
@@ -12910,12 +12939,16 @@ class BtripOpen extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->isvName) {
-            @$query['isv_name'] = $request->isvName;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
 
-        if (null !== $request->language) {
-            @$query['language'] = $request->language;
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
+        }
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
 
         if (null !== $request->orderPrice) {
@@ -12928,14 +12961,6 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->passengerListShrink) {
             @$query['passenger_list'] = $request->passengerListShrink;
-        }
-
-        if (null !== $request->userId) {
-            @$query['user_id'] = $request->userId;
-        }
-
-        if (null !== $request->userName) {
-            @$query['user_name'] = $request->userName;
         }
 
         $realHeaders = [];
@@ -13026,20 +13051,8 @@ class BtripOpen extends OpenApiClient
             @$query['cabin_type'] = $request->cabinType;
         }
 
-        if (null !== $request->directOnly) {
-            @$query['direct_only'] = $request->directOnly;
-        }
-
         if (null !== $request->isvName) {
             @$query['isv_name'] = $request->isvName;
-        }
-
-        if (null !== $request->language) {
-            @$query['language'] = $request->language;
-        }
-
-        if (null !== $request->needShareFlight) {
-            @$query['need_share_flight'] = $request->needShareFlight;
         }
 
         if (null !== $request->outWheelSearch) {
@@ -13060,10 +13073,6 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->searchPassengerListShrink) {
             @$query['search_passenger_list'] = $request->searchPassengerListShrink;
-        }
-
-        if (null !== $request->supplierCode) {
-            @$query['supplier_code'] = $request->supplierCode;
         }
 
         if (null !== $request->token) {
@@ -13139,21 +13148,25 @@ class BtripOpen extends OpenApiClient
     public function intlFlightOrderCancelWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->isvName) {
-            @$query['isv_name'] = $request->isvName;
+        $body = [];
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
 
-        if (null !== $request->memo) {
-            @$query['memo'] = $request->memo;
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
+        }
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
 
         if (null !== $request->orderId) {
-            @$query['order_id'] = $request->orderId;
+            @$body['order_id'] = $request->orderId;
         }
 
         if (null !== $request->outOrderId) {
-            @$query['out_order_id'] = $request->outOrderId;
+            @$body['out_order_id'] = $request->outOrderId;
         }
 
         $realHeaders = [];
@@ -13167,17 +13180,17 @@ class BtripOpen extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'IntlFlightOrderCancel',
             'version' => '2022-05-20',
             'protocol' => 'HTTPS',
             'pathname' => '/intl-flight/v1/order/action/cancel',
-            'method' => 'DELETE',
+            'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
 
@@ -13222,6 +13235,14 @@ class BtripOpen extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
+        }
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
+        }
+
         if (null !== $request->isvName) {
             @$query['isv_name'] = $request->isvName;
         }
@@ -13284,46 +13305,44 @@ class BtripOpen extends OpenApiClient
     /**
      * 国际机票订单支付.
      *
-     * @param tmpReq - IntlFlightOrderPayRequest
+     * @param request - IntlFlightOrderPayRequest
      * @param headers - IntlFlightOrderPayHeaders
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns IntlFlightOrderPayResponse
      *
-     * @param IntlFlightOrderPayRequest $tmpReq
+     * @param IntlFlightOrderPayRequest $request
      * @param IntlFlightOrderPayHeaders $headers
      * @param RuntimeOptions            $runtime
      *
      * @return IntlFlightOrderPayResponse
      */
-    public function intlFlightOrderPayWithOptions($tmpReq, $headers, $runtime)
+    public function intlFlightOrderPayWithOptions($request, $headers, $runtime)
     {
-        $tmpReq->validate();
-        $request = new IntlFlightOrderPayShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->extParams) {
-            $request->extParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extParams, 'ext_params', 'json');
+        $request->validate();
+        $body = [];
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
 
-        $query = [];
-        if (null !== $request->extParamsShrink) {
-            @$query['ext_params'] = $request->extParamsShrink;
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
 
         if (null !== $request->isvName) {
-            @$query['isv_name'] = $request->isvName;
+            @$body['isv_name'] = $request->isvName;
         }
 
         if (null !== $request->orderId) {
-            @$query['order_id'] = $request->orderId;
+            @$body['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->orderPrice) {
+            @$body['order_price'] = $request->orderPrice;
         }
 
         if (null !== $request->outOrderId) {
-            @$query['out_order_id'] = $request->outOrderId;
-        }
-
-        if (null !== $request->totalPrice) {
-            @$query['total_price'] = $request->totalPrice;
+            @$body['out_order_id'] = $request->outOrderId;
         }
 
         $realHeaders = [];
@@ -13337,7 +13356,7 @@ class BtripOpen extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'IntlFlightOrderPay',
@@ -13347,7 +13366,7 @@ class BtripOpen extends OpenApiClient
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
 
@@ -13392,6 +13411,14 @@ class BtripOpen extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
+        }
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
+        }
+
         if (null !== $request->isvName) {
             @$query['isv_name'] = $request->isvName;
         }
@@ -13580,20 +13607,8 @@ class BtripOpen extends OpenApiClient
             @$query['cabin_type'] = $request->cabinType;
         }
 
-        if (null !== $request->directOnly) {
-            @$query['direct_only'] = $request->directOnly;
-        }
-
         if (null !== $request->isvName) {
             @$query['isv_name'] = $request->isvName;
-        }
-
-        if (null !== $request->language) {
-            @$query['language'] = $request->language;
-        }
-
-        if (null !== $request->needShareFlight) {
-            @$query['need_share_flight'] = $request->needShareFlight;
         }
 
         if (null !== $request->searchJourneysShrink) {
@@ -13602,10 +13617,6 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->searchPassengerListShrink) {
             @$query['search_passenger_list'] = $request->searchPassengerListShrink;
-        }
-
-        if (null !== $request->supplierCode) {
-            @$query['supplier_code'] = $request->supplierCode;
         }
 
         if (null !== $request->tripType) {
@@ -13657,6 +13668,92 @@ class BtripOpen extends OpenApiClient
         $headers = new IntlFlightOtaSearchHeaders([]);
 
         return $this->intlFlightOtaSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票改签咨询.
+     *
+     * @param request - IntlFlightReShopConsultRequest
+     * @param headers - IntlFlightReShopConsultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopConsultResponse
+     *
+     * @param IntlFlightReShopConsultRequest $request
+     * @param IntlFlightReShopConsultHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IntlFlightReShopConsultResponse
+     */
+    public function intlFlightReShopConsultWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
+        }
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
+        }
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopConsult',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/consult',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopConsultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签咨询.
+     *
+     * @param request - IntlFlightReShopConsultRequest
+     *
+     * @returns IntlFlightReShopConsultResponse
+     *
+     * @param IntlFlightReShopConsultRequest $request
+     *
+     * @return IntlFlightReShopConsultResponse
+     */
+    public function intlFlightReShopConsult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopConsultHeaders([]);
+
+        return $this->intlFlightReShopConsultWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -14822,6 +14919,10 @@ class BtripOpen extends OpenApiClient
             @$query['bill_batch'] = $request->billBatch;
         }
 
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
         if (null !== $request->pageNo) {
             @$query['page_no'] = $request->pageNo;
         }
@@ -15181,6 +15282,94 @@ class BtripOpen extends OpenApiClient
         $headers = new MonthBillGetHeaders([]);
 
         return $this->monthBillGetWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询拆分版企业月账单.
+     *
+     * @param tmpReq - MonthBillSplitGetRequest
+     * @param headers - MonthBillSplitGetHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MonthBillSplitGetResponse
+     *
+     * @param MonthBillSplitGetRequest $tmpReq
+     * @param MonthBillSplitGetHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MonthBillSplitGetResponse
+     */
+    public function monthBillSplitGetWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MonthBillSplitGetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->billSplitKeyList) {
+            $request->billSplitKeyListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->billSplitKeyList, 'bill_split_key_list', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billMonth) {
+            @$query['bill_month'] = $request->billMonth;
+        }
+
+        if (null !== $request->billSplitKeyListShrink) {
+            @$query['bill_split_key_list'] = $request->billSplitKeyListShrink;
+        }
+
+        if (null !== $request->billSplitMode) {
+            @$query['bill_split_mode'] = $request->billSplitMode;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MonthBillSplitGet',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/v1/month-bill-split',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MonthBillSplitGetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询拆分版企业月账单.
+     *
+     * @param request - MonthBillSplitGetRequest
+     *
+     * @returns MonthBillSplitGetResponse
+     *
+     * @param MonthBillSplitGetRequest $request
+     *
+     * @return MonthBillSplitGetResponse
+     */
+    public function monthBillSplitGet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MonthBillSplitGetHeaders([]);
+
+        return $this->monthBillSplitGetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -16858,6 +17047,10 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
 
         if (null !== $request->pageNo) {
@@ -19207,6 +19400,108 @@ class BtripOpen extends OpenApiClient
         $headers = new UserQueryHeaders([]);
 
         return $this->userQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询增值服务记账数据.
+     *
+     * @param request - VasBillSettlementQueryRequest
+     * @param headers - VasBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VasBillSettlementQueryResponse
+     *
+     * @param VasBillSettlementQueryRequest $request
+     * @param VasBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return VasBillSettlementQueryResponse
+     */
+    public function vasBillSettlementQueryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->cooperatorId) {
+            @$query['cooperator_id'] = $request->cooperatorId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
+        }
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
+        }
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
+        }
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
+        }
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VasBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/vas/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return VasBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询增值服务记账数据.
+     *
+     * @param request - VasBillSettlementQueryRequest
+     *
+     * @returns VasBillSettlementQueryResponse
+     *
+     * @param VasBillSettlementQueryRequest $request
+     *
+     * @return VasBillSettlementQueryResponse
+     */
+    public function vasBillSettlementQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new VasBillSettlementQueryHeaders([]);
+
+        return $this->vasBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**

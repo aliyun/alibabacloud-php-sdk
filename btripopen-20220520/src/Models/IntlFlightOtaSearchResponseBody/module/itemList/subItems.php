@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchRespons
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\itemList\subItems\baggageRule;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\itemList\subItems\refundChangeRule;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\itemList\subItems\segmentPositionList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleItemListSubItemsShoppingItemMapValue;
 
 class subItems extends Model
@@ -27,6 +28,11 @@ class subItems extends Model
     public $segmentKeys;
 
     /**
+     * @var segmentPositionList[]
+     */
+    public $segmentPositionList;
+
+    /**
      * @var ModuleItemListSubItemsShoppingItemMapValue[]
      */
     public $shoppingItemMap;
@@ -39,6 +45,7 @@ class subItems extends Model
         'baggageRule' => 'baggage_rule',
         'refundChangeRule' => 'refund_change_rule',
         'segmentKeys' => 'segment_keys',
+        'segmentPositionList' => 'segment_position_list',
         'shoppingItemMap' => 'shopping_item_map',
         'uniqKey' => 'uniq_key',
     ];
@@ -53,6 +60,9 @@ class subItems extends Model
         }
         if (\is_array($this->segmentKeys)) {
             Model::validateArray($this->segmentKeys);
+        }
+        if (\is_array($this->segmentPositionList)) {
+            Model::validateArray($this->segmentPositionList);
         }
         if (\is_array($this->shoppingItemMap)) {
             Model::validateArray($this->shoppingItemMap);
@@ -76,7 +86,19 @@ class subItems extends Model
                 $res['segment_keys'] = [];
                 $n1 = 0;
                 foreach ($this->segmentKeys as $item1) {
-                    $res['segment_keys'][$n1++] = $item1;
+                    $res['segment_keys'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->segmentPositionList) {
+            if (\is_array($this->segmentPositionList)) {
+                $res['segment_position_list'] = [];
+                $n1 = 0;
+                foreach ($this->segmentPositionList as $item1) {
+                    $res['segment_position_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +140,19 @@ class subItems extends Model
                 $model->segmentKeys = [];
                 $n1 = 0;
                 foreach ($map['segment_keys'] as $item1) {
-                    $model->segmentKeys[$n1++] = $item1;
+                    $model->segmentKeys[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['segment_position_list'])) {
+            if (!empty($map['segment_position_list'])) {
+                $model->segmentPositionList = [];
+                $n1 = 0;
+                foreach ($map['segment_position_list'] as $item1) {
+                    $model->segmentPositionList[$n1] = segmentPositionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

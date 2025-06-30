@@ -55,7 +55,8 @@ class offlineRefundDetails extends Model
                 $res['offline_refund_infos'] = [];
                 $n1 = 0;
                 foreach ($this->offlineRefundInfos as $item1) {
-                    $res['offline_refund_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['offline_refund_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class offlineRefundDetails extends Model
                 $model->offlineRefundInfos = [];
                 $n1 = 0;
                 foreach ($map['offline_refund_infos'] as $item1) {
-                    $model->offlineRefundInfos[$n1++] = offlineRefundInfos::fromMap($item1);
+                    $model->offlineRefundInfos[$n1] = offlineRefundInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

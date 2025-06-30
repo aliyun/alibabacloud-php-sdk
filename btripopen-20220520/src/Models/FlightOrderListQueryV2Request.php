@@ -104,7 +104,8 @@ class FlightOrderListQueryV2Request extends Model
                 $res['approve_id'] = [];
                 $n1 = 0;
                 foreach ($this->approveId as $item1) {
-                    $res['approve_id'][$n1++] = $item1;
+                    $res['approve_id'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class FlightOrderListQueryV2Request extends Model
                 $res['booker_id'] = [];
                 $n1 = 0;
                 foreach ($this->bookerId as $item1) {
-                    $res['booker_id'][$n1++] = $item1;
+                    $res['booker_id'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +126,8 @@ class FlightOrderListQueryV2Request extends Model
                 $res['depart_id'] = [];
                 $n1 = 0;
                 foreach ($this->departId as $item1) {
-                    $res['depart_id'][$n1++] = $item1;
+                    $res['depart_id'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class FlightOrderListQueryV2Request extends Model
                 $res['supplier'] = [];
                 $n1 = 0;
                 foreach ($this->supplier as $item1) {
-                    $res['supplier'][$n1++] = $item1;
+                    $res['supplier'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +164,8 @@ class FlightOrderListQueryV2Request extends Model
                 $res['thirdpart_approve_id'] = [];
                 $n1 = 0;
                 foreach ($this->thirdpartApproveId as $item1) {
-                    $res['thirdpart_approve_id'][$n1++] = $item1;
+                    $res['thirdpart_approve_id'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +194,8 @@ class FlightOrderListQueryV2Request extends Model
                 $model->approveId = [];
                 $n1 = 0;
                 foreach ($map['approve_id'] as $item1) {
-                    $model->approveId[$n1++] = $item1;
+                    $model->approveId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +205,8 @@ class FlightOrderListQueryV2Request extends Model
                 $model->bookerId = [];
                 $n1 = 0;
                 foreach ($map['booker_id'] as $item1) {
-                    $model->bookerId[$n1++] = $item1;
+                    $model->bookerId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +216,8 @@ class FlightOrderListQueryV2Request extends Model
                 $model->departId = [];
                 $n1 = 0;
                 foreach ($map['depart_id'] as $item1) {
-                    $model->departId[$n1++] = $item1;
+                    $model->departId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +243,8 @@ class FlightOrderListQueryV2Request extends Model
                 $model->supplier = [];
                 $n1 = 0;
                 foreach ($map['supplier'] as $item1) {
-                    $model->supplier[$n1++] = $item1;
+                    $model->supplier[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +254,8 @@ class FlightOrderListQueryV2Request extends Model
                 $model->thirdpartApproveId = [];
                 $n1 = 0;
                 foreach ($map['thirdpart_approve_id'] as $item1) {
-                    $model->thirdpartApproveId[$n1++] = $item1;
+                    $model->thirdpartApproveId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

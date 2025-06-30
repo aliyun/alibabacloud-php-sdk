@@ -32,7 +32,8 @@ class HotelRoomInfoRequest extends Model
                 $res['room_ids'] = [];
                 $n1 = 0;
                 foreach ($this->roomIds as $item1) {
-                    $res['room_ids'][$n1++] = $item1;
+                    $res['room_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class HotelRoomInfoRequest extends Model
                 $model->roomIds = [];
                 $n1 = 0;
                 foreach ($map['room_ids'] as $item1) {
-                    $model->roomIds[$n1++] = $item1;
+                    $model->roomIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

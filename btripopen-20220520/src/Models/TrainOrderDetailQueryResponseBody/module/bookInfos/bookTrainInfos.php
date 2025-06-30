@@ -87,7 +87,8 @@ class bookTrainInfos extends Model
                 $res['book_ticket_infos'] = [];
                 $n1 = 0;
                 foreach ($this->bookTicketInfos as $item1) {
-                    $res['book_ticket_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['book_ticket_infos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class bookTrainInfos extends Model
                 $model->bookTicketInfos = [];
                 $n1 = 0;
                 foreach ($map['book_ticket_infos'] as $item1) {
-                    $model->bookTicketInfos[$n1++] = bookTicketInfos::fromMap($item1);
+                    $model->bookTicketInfos[$n1] = bookTicketInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

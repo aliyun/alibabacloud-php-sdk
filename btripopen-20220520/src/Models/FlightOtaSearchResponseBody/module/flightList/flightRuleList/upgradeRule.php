@@ -43,7 +43,8 @@ class upgradeRule extends Model
                 $res['info'] = [];
                 $n1 = 0;
                 foreach ($this->info as $item1) {
-                    $res['info'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['info'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class upgradeRule extends Model
                 $model->info = [];
                 $n1 = 0;
                 foreach ($map['info'] as $item1) {
-                    $model->info[$n1++] = info::fromMap($item1);
+                    $model->info[$n1] = info::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

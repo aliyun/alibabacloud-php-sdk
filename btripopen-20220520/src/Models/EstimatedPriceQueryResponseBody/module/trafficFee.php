@@ -57,7 +57,8 @@ class trafficFee extends Model
                 $res['btrip_routes'] = [];
                 $n1 = 0;
                 foreach ($this->btripRoutes as $item1) {
-                    $res['btrip_routes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['btrip_routes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class trafficFee extends Model
                 $model->btripRoutes = [];
                 $n1 = 0;
                 foreach ($map['btrip_routes'] as $item1) {
-                    $model->btripRoutes[$n1++] = btripRoutes::fromMap($item1);
+                    $model->btripRoutes[$n1] = btripRoutes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

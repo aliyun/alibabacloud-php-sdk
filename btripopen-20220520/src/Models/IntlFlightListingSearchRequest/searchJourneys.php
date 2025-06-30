@@ -63,7 +63,8 @@ class searchJourneys extends Model
                 $res['selected_flights'] = [];
                 $n1 = 0;
                 foreach ($this->selectedFlights as $item1) {
-                    $res['selected_flights'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['selected_flights'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class searchJourneys extends Model
                 $model->selectedFlights = [];
                 $n1 = 0;
                 foreach ($map['selected_flights'] as $item1) {
-                    $model->selectedFlights[$n1++] = selectedFlights::fromMap($item1);
+                    $model->selectedFlights[$n1] = selectedFlights::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

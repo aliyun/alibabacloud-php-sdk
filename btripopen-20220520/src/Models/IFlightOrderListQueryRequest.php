@@ -83,7 +83,8 @@ class IFlightOrderListQueryRequest extends Model
                 $res['apply_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->applyIdList as $item1) {
-                    $res['apply_id_list'][$n1++] = $item1;
+                    $res['apply_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class IFlightOrderListQueryRequest extends Model
                 $res['book_type_list'] = [];
                 $n1 = 0;
                 foreach ($this->bookTypeList as $item1) {
-                    $res['book_type_list'][$n1++] = $item1;
+                    $res['book_type_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class IFlightOrderListQueryRequest extends Model
                 $res['booker_id'] = [];
                 $n1 = 0;
                 foreach ($this->bookerId as $item1) {
-                    $res['booker_id'][$n1++] = $item1;
+                    $res['booker_id'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +132,8 @@ class IFlightOrderListQueryRequest extends Model
                 $res['third_part_apply_id_list'] = [];
                 $n1 = 0;
                 foreach ($this->thirdPartApplyIdList as $item1) {
-                    $res['third_part_apply_id_list'][$n1++] = $item1;
+                    $res['third_part_apply_id_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +154,8 @@ class IFlightOrderListQueryRequest extends Model
                 $model->applyIdList = [];
                 $n1 = 0;
                 foreach ($map['apply_id_list'] as $item1) {
-                    $model->applyIdList[$n1++] = $item1;
+                    $model->applyIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +165,8 @@ class IFlightOrderListQueryRequest extends Model
                 $model->bookTypeList = [];
                 $n1 = 0;
                 foreach ($map['book_type_list'] as $item1) {
-                    $model->bookTypeList[$n1++] = $item1;
+                    $model->bookTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +176,8 @@ class IFlightOrderListQueryRequest extends Model
                 $model->bookerId = [];
                 $n1 = 0;
                 foreach ($map['booker_id'] as $item1) {
-                    $model->bookerId[$n1++] = $item1;
+                    $model->bookerId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +203,8 @@ class IFlightOrderListQueryRequest extends Model
                 $model->thirdPartApplyIdList = [];
                 $n1 = 0;
                 foreach ($map['third_part_apply_id_list'] as $item1) {
-                    $model->thirdPartApplyIdList[$n1++] = $item1;
+                    $model->thirdPartApplyIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -21,6 +21,11 @@ class CooperatorFlightBillSettlementQueryRequest extends Model
     /**
      * @var int
      */
+    public $orderId;
+
+    /**
+     * @var int
+     */
     public $pageNo;
 
     /**
@@ -50,6 +55,7 @@ class CooperatorFlightBillSettlementQueryRequest extends Model
     protected $_name = [
         'billBatch' => 'bill_batch',
         'cooperatorId' => 'cooperator_id',
+        'orderId' => 'order_id',
         'pageNo' => 'page_no',
         'pageSize' => 'page_size',
         'periodEnd' => 'period_end',
@@ -72,6 +78,10 @@ class CooperatorFlightBillSettlementQueryRequest extends Model
 
         if (null !== $this->cooperatorId) {
             $res['cooperator_id'] = $this->cooperatorId;
+        }
+
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
         }
 
         if (null !== $this->pageNo) {
@@ -115,6 +125,10 @@ class CooperatorFlightBillSettlementQueryRequest extends Model
 
         if (isset($map['cooperator_id'])) {
             $model->cooperatorId = $map['cooperator_id'];
+        }
+
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
         }
 
         if (isset($map['page_no'])) {

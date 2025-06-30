@@ -66,7 +66,8 @@ class orderItemList extends Model
                 $res['passenger_price_list'] = [];
                 $n1 = 0;
                 foreach ($this->passengerPriceList as $item1) {
-                    $res['passenger_price_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['passenger_price_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,7 +81,8 @@ class orderItemList extends Model
                 $res['segment_key_list'] = [];
                 $n1 = 0;
                 foreach ($this->segmentKeyList as $item1) {
-                    $res['segment_key_list'][$n1++] = $item1;
+                    $res['segment_key_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +107,8 @@ class orderItemList extends Model
                 $model->passengerPriceList = [];
                 $n1 = 0;
                 foreach ($map['passenger_price_list'] as $item1) {
-                    $model->passengerPriceList[$n1++] = passengerPriceList::fromMap($item1);
+                    $model->passengerPriceList[$n1] = passengerPriceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +122,8 @@ class orderItemList extends Model
                 $model->segmentKeyList = [];
                 $n1 = 0;
                 foreach ($map['segment_key_list'] as $item1) {
-                    $model->segmentKeyList[$n1++] = $item1;
+                    $model->segmentKeyList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
