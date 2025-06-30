@@ -221,6 +221,11 @@ class desktopGroups extends Model
     public $resetType;
 
     /**
+     * @var string
+     */
+    public $simpleUserGroupId;
+
+    /**
      * @var int
      */
     public $status;
@@ -317,6 +322,7 @@ class desktopGroups extends Model
         'protocolType' => 'ProtocolType',
         'ratioThreshold' => 'RatioThreshold',
         'resetType' => 'ResetType',
+        'simpleUserGroupId' => 'SimpleUserGroupId',
         'status' => 'Status',
         'stopDuration' => 'StopDuration',
         'subnetId' => 'SubnetId',
@@ -537,6 +543,10 @@ class desktopGroups extends Model
 
         if (null !== $this->resetType) {
             $res['ResetType'] = $this->resetType;
+        }
+
+        if (null !== $this->simpleUserGroupId) {
+            $res['SimpleUserGroupId'] = $this->simpleUserGroupId;
         }
 
         if (null !== $this->status) {
@@ -788,6 +798,10 @@ class desktopGroups extends Model
 
         if (isset($map['ResetType'])) {
             $model->resetType = $map['ResetType'];
+        }
+
+        if (isset($map['SimpleUserGroupId'])) {
+            $model->simpleUserGroupId = $map['SimpleUserGroupId'];
         }
 
         if (isset($map['Status'])) {

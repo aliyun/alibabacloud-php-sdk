@@ -849,6 +849,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->simpleUserGroupId) {
+            @$query['SimpleUserGroupId'] = $request->simpleUserGroupId;
+        }
+
         if (null !== $request->userGroupName) {
             @$query['UserGroupName'] = $request->userGroupName;
         }
@@ -4114,6 +4118,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->sessionType) {
             @$query['SessionType'] = $request->sessionType;
+        }
+
+        if (null !== $request->simpleUserGroupId) {
+            @$query['SimpleUserGroupId'] = $request->simpleUserGroupId;
         }
 
         if (null !== $request->snapshotPolicyId) {
@@ -8054,6 +8062,10 @@ class Ecd extends OpenApiClient
             @$query['DesktopGroupName'] = $request->desktopGroupName;
         }
 
+        if (null !== $request->desktopType) {
+            @$query['DesktopType'] = $request->desktopType;
+        }
+
         if (null !== $request->endUserIds) {
             @$query['EndUserIds'] = $request->endUserIds;
         }
@@ -9125,6 +9137,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 查询EIP监控.
+     *
      * @param request - DescribeFlowMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9186,6 +9200,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 查询EIP监控.
+     *
      * @param request - DescribeFlowMetricRequest
      *
      * @returns DescribeFlowMetricResponse
@@ -18334,6 +18350,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->simpleUserGroupId) {
+            @$query['SimpleUserGroupId'] = $request->simpleUserGroupId;
         }
 
         if (null !== $request->userGroupName) {

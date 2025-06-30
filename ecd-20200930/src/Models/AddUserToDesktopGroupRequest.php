@@ -36,6 +36,11 @@ class AddUserToDesktopGroupRequest extends Model
     /**
      * @var string
      */
+    public $simpleUserGroupId;
+
+    /**
+     * @var string
+     */
     public $userGroupName;
 
     /**
@@ -48,6 +53,7 @@ class AddUserToDesktopGroupRequest extends Model
         'desktopGroupIds' => 'DesktopGroupIds',
         'endUserIds' => 'EndUserIds',
         'regionId' => 'RegionId',
+        'simpleUserGroupId' => 'SimpleUserGroupId',
         'userGroupName' => 'UserGroupName',
         'userOuPath' => 'UserOuPath',
     ];
@@ -98,6 +104,10 @@ class AddUserToDesktopGroupRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->simpleUserGroupId) {
+            $res['SimpleUserGroupId'] = $this->simpleUserGroupId;
         }
 
         if (null !== $this->userGroupName) {
@@ -151,6 +161,10 @@ class AddUserToDesktopGroupRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SimpleUserGroupId'])) {
+            $model->simpleUserGroupId = $map['SimpleUserGroupId'];
         }
 
         if (isset($map['UserGroupName'])) {

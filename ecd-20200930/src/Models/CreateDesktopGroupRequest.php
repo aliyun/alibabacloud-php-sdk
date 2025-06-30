@@ -247,6 +247,11 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @var string
      */
+    public $simpleUserGroupId;
+
+    /**
+     * @var string
+     */
     public $snapshotPolicyId;
 
     /**
@@ -351,6 +356,7 @@ class CreateDesktopGroupRequest extends Model
         'resetType' => 'ResetType',
         'scaleStrategyId' => 'ScaleStrategyId',
         'sessionType' => 'SessionType',
+        'simpleUserGroupId' => 'SimpleUserGroupId',
         'snapshotPolicyId' => 'SnapshotPolicyId',
         'stopDuration' => 'StopDuration',
         'systemDiskCategory' => 'SystemDiskCategory',
@@ -572,6 +578,10 @@ class CreateDesktopGroupRequest extends Model
 
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
+        }
+
+        if (null !== $this->simpleUserGroupId) {
+            $res['SimpleUserGroupId'] = $this->simpleUserGroupId;
         }
 
         if (null !== $this->snapshotPolicyId) {
@@ -833,6 +843,10 @@ class CreateDesktopGroupRequest extends Model
 
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];
+        }
+
+        if (isset($map['SimpleUserGroupId'])) {
+            $model->simpleUserGroupId = $map['SimpleUserGroupId'];
         }
 
         if (isset($map['SnapshotPolicyId'])) {

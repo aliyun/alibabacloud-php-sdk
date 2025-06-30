@@ -30,6 +30,11 @@ class DescribeDesktopGroupsRequest extends Model
     public $desktopGroupName;
 
     /**
+     * @var string
+     */
+    public $desktopType;
+
+    /**
      * @var string[]
      */
     public $endUserIds;
@@ -108,6 +113,7 @@ class DescribeDesktopGroupsRequest extends Model
         'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
         'desktopGroupName' => 'DesktopGroupName',
+        'desktopType' => 'DesktopType',
         'endUserIds' => 'EndUserIds',
         'excludedEndUserIds' => 'ExcludedEndUserIds',
         'imageId' => 'ImageId',
@@ -179,6 +185,10 @@ class DescribeDesktopGroupsRequest extends Model
 
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
+        }
+
+        if (null !== $this->desktopType) {
+            $res['DesktopType'] = $this->desktopType;
         }
 
         if (null !== $this->endUserIds) {
@@ -308,6 +318,10 @@ class DescribeDesktopGroupsRequest extends Model
 
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
+        }
+
+        if (isset($map['DesktopType'])) {
+            $model->desktopType = $map['DesktopType'];
         }
 
         if (isset($map['EndUserIds'])) {
