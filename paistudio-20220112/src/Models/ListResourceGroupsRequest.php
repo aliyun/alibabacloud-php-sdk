@@ -36,6 +36,11 @@ class ListResourceGroupsRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupIDs;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -58,6 +63,7 @@ class ListResourceGroupsRequest extends Model
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'resourceGroupIDs' => 'ResourceGroupIDs',
         'resourceType' => 'ResourceType',
         'showAll' => 'ShowAll',
         'sortBy' => 'SortBy',
@@ -90,6 +96,10 @@ class ListResourceGroupsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceGroupIDs) {
+            $res['ResourceGroupIDs'] = $this->resourceGroupIDs;
         }
 
         if (null !== $this->resourceType) {
@@ -137,6 +147,10 @@ class ListResourceGroupsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceGroupIDs'])) {
+            $model->resourceGroupIDs = $map['ResourceGroupIDs'];
         }
 
         if (isset($map['ResourceType'])) {

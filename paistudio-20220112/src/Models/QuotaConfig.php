@@ -39,6 +39,11 @@ class QuotaConfig extends Model
     public $enableSubQuotaPreemption;
 
     /**
+     * @var EniCacheConfig
+     */
+    public $eniCacheConfig;
+
+    /**
      * @var OversoldUsageConfig
      */
     public $oversoldUsageInfo;
@@ -47,6 +52,11 @@ class QuotaConfig extends Model
      * @var WorkspaceSpecs[]
      */
     public $resourceSpecs;
+
+    /**
+     * @var SandboxCacheConfig
+     */
+    public $sandboxCacheConfig;
 
     /**
      * @var SelfQuotaPreemptionConfig
@@ -79,8 +89,10 @@ class QuotaConfig extends Model
         'enableGPUShare' => 'EnableGPUShare',
         'enablePreemptSubquotaWorkloads' => 'EnablePreemptSubquotaWorkloads',
         'enableSubQuotaPreemption' => 'EnableSubQuotaPreemption',
+        'eniCacheConfig' => 'EniCacheConfig',
         'oversoldUsageInfo' => 'OversoldUsageInfo',
         'resourceSpecs' => 'ResourceSpecs',
+        'sandboxCacheConfig' => 'SandboxCacheConfig',
         'selfQuotaPreemptionConfig' => 'SelfQuotaPreemptionConfig',
         'subQuotaPreemptionConfig' => 'SubQuotaPreemptionConfig',
         'supportGPUDrivers' => 'SupportGPUDrivers',
@@ -93,11 +105,17 @@ class QuotaConfig extends Model
         if (null !== $this->ACS) {
             $this->ACS->validate();
         }
+        if (null !== $this->eniCacheConfig) {
+            $this->eniCacheConfig->validate();
+        }
         if (null !== $this->oversoldUsageInfo) {
             $this->oversoldUsageInfo->validate();
         }
         if (\is_array($this->resourceSpecs)) {
             Model::validateArray($this->resourceSpecs);
+        }
+        if (null !== $this->sandboxCacheConfig) {
+            $this->sandboxCacheConfig->validate();
         }
         if (null !== $this->selfQuotaPreemptionConfig) {
             $this->selfQuotaPreemptionConfig->validate();
@@ -141,6 +159,10 @@ class QuotaConfig extends Model
             $res['EnableSubQuotaPreemption'] = $this->enableSubQuotaPreemption;
         }
 
+        if (null !== $this->eniCacheConfig) {
+            $res['EniCacheConfig'] = null !== $this->eniCacheConfig ? $this->eniCacheConfig->toArray($noStream) : $this->eniCacheConfig;
+        }
+
         if (null !== $this->oversoldUsageInfo) {
             $res['OversoldUsageInfo'] = null !== $this->oversoldUsageInfo ? $this->oversoldUsageInfo->toArray($noStream) : $this->oversoldUsageInfo;
         }
@@ -154,6 +176,10 @@ class QuotaConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->sandboxCacheConfig) {
+            $res['SandboxCacheConfig'] = null !== $this->sandboxCacheConfig ? $this->sandboxCacheConfig->toArray($noStream) : $this->sandboxCacheConfig;
         }
 
         if (null !== $this->selfQuotaPreemptionConfig) {
@@ -218,6 +244,10 @@ class QuotaConfig extends Model
             $model->enableSubQuotaPreemption = $map['EnableSubQuotaPreemption'];
         }
 
+        if (isset($map['EniCacheConfig'])) {
+            $model->eniCacheConfig = EniCacheConfig::fromMap($map['EniCacheConfig']);
+        }
+
         if (isset($map['OversoldUsageInfo'])) {
             $model->oversoldUsageInfo = OversoldUsageConfig::fromMap($map['OversoldUsageInfo']);
         }
@@ -231,6 +261,10 @@ class QuotaConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SandboxCacheConfig'])) {
+            $model->sandboxCacheConfig = SandboxCacheConfig::fromMap($map['SandboxCacheConfig']);
         }
 
         if (isset($map['SelfQuotaPreemptionConfig'])) {

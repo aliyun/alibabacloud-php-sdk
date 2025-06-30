@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class MachineGroup extends Model
 {
     /**
+     * @var int
+     */
+    public $cpu;
+
+    /**
      * @var string
      */
     public $creatorID;
@@ -59,9 +64,29 @@ class MachineGroup extends Model
     public $gmtStartedTime;
 
     /**
+     * @var int
+     */
+    public $gpu;
+
+    /**
+     * @var int
+     */
+    public $gpuMemory;
+
+    /**
+     * @var string
+     */
+    public $gpuType;
+
+    /**
      * @var string
      */
     public $machineGroupID;
+
+    /**
+     * @var int
+     */
+    public $memory;
 
     /**
      * @var string
@@ -101,6 +126,11 @@ class MachineGroup extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -108,6 +138,7 @@ class MachineGroup extends Model
      */
     public $supportedDrivers;
     protected $_name = [
+        'cpu' => 'Cpu',
         'creatorID' => 'CreatorID',
         'defaultDriver' => 'DefaultDriver',
         'diskCapacity' => 'DiskCapacity',
@@ -118,7 +149,11 @@ class MachineGroup extends Model
         'gmtExpiredTime' => 'GmtExpiredTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'gmtStartedTime' => 'GmtStartedTime',
+        'gpu' => 'Gpu',
+        'gpuMemory' => 'GpuMemory',
+        'gpuType' => 'GpuType',
         'machineGroupID' => 'MachineGroupID',
+        'memory' => 'Memory',
         'orderInstanceId' => 'OrderInstanceId',
         'paymentDuration' => 'PaymentDuration',
         'paymentDurationUnit' => 'PaymentDurationUnit',
@@ -126,6 +161,7 @@ class MachineGroup extends Model
         'reasonCode' => 'ReasonCode',
         'reasonMessage' => 'ReasonMessage',
         'resourceGroupID' => 'ResourceGroupID',
+        'resourceType' => 'ResourceType',
         'status' => 'Status',
         'supportedDrivers' => 'SupportedDrivers',
     ];
@@ -141,6 +177,10 @@ class MachineGroup extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+
         if (null !== $this->creatorID) {
             $res['CreatorID'] = $this->creatorID;
         }
@@ -181,8 +221,24 @@ class MachineGroup extends Model
             $res['GmtStartedTime'] = $this->gmtStartedTime;
         }
 
+        if (null !== $this->gpu) {
+            $res['Gpu'] = $this->gpu;
+        }
+
+        if (null !== $this->gpuMemory) {
+            $res['GpuMemory'] = $this->gpuMemory;
+        }
+
+        if (null !== $this->gpuType) {
+            $res['GpuType'] = $this->gpuType;
+        }
+
         if (null !== $this->machineGroupID) {
             $res['MachineGroupID'] = $this->machineGroupID;
+        }
+
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
         }
 
         if (null !== $this->orderInstanceId) {
@@ -213,6 +269,10 @@ class MachineGroup extends Model
             $res['ResourceGroupID'] = $this->resourceGroupID;
         }
 
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -239,6 +299,10 @@ class MachineGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+
         if (isset($map['CreatorID'])) {
             $model->creatorID = $map['CreatorID'];
         }
@@ -279,8 +343,24 @@ class MachineGroup extends Model
             $model->gmtStartedTime = $map['GmtStartedTime'];
         }
 
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
+        }
+
+        if (isset($map['GpuMemory'])) {
+            $model->gpuMemory = $map['GpuMemory'];
+        }
+
+        if (isset($map['GpuType'])) {
+            $model->gpuType = $map['GpuType'];
+        }
+
         if (isset($map['MachineGroupID'])) {
             $model->machineGroupID = $map['MachineGroupID'];
+        }
+
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
         }
 
         if (isset($map['OrderInstanceId'])) {
@@ -309,6 +389,10 @@ class MachineGroup extends Model
 
         if (isset($map['ResourceGroupID'])) {
             $model->resourceGroupID = $map['ResourceGroupID'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['Status'])) {

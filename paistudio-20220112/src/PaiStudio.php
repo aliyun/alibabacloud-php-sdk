@@ -2848,6 +2848,10 @@ class PaiStudio extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->resourceGroupIDs) {
+            @$query['ResourceGroupIDs'] = $request->resourceGroupIDs;
+        }
+
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
         }
