@@ -30,11 +30,17 @@ class AssumeRoleWithSAMLResponseBody extends Model
      * @var SAMLAssertionInfo
      */
     public $SAMLAssertionInfo;
+
+    /**
+     * @var string
+     */
+    public $sourceIdentity;
     protected $_name = [
         'assumedRoleUser' => 'AssumedRoleUser',
         'credentials' => 'Credentials',
         'requestId' => 'RequestId',
         'SAMLAssertionInfo' => 'SAMLAssertionInfo',
+        'sourceIdentity' => 'SourceIdentity',
     ];
 
     public function validate()
@@ -70,6 +76,10 @@ class AssumeRoleWithSAMLResponseBody extends Model
             $res['SAMLAssertionInfo'] = null !== $this->SAMLAssertionInfo ? $this->SAMLAssertionInfo->toArray($noStream) : $this->SAMLAssertionInfo;
         }
 
+        if (null !== $this->sourceIdentity) {
+            $res['SourceIdentity'] = $this->sourceIdentity;
+        }
+
         return $res;
     }
 
@@ -95,6 +105,10 @@ class AssumeRoleWithSAMLResponseBody extends Model
 
         if (isset($map['SAMLAssertionInfo'])) {
             $model->SAMLAssertionInfo = SAMLAssertionInfo::fromMap($map['SAMLAssertionInfo']);
+        }
+
+        if (isset($map['SourceIdentity'])) {
+            $model->sourceIdentity = $map['SourceIdentity'];
         }
 
         return $model;

@@ -24,10 +24,16 @@ class AssumeRoleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $sourceIdentity;
     protected $_name = [
         'assumedRoleUser' => 'AssumedRoleUser',
         'credentials' => 'Credentials',
         'requestId' => 'RequestId',
+        'sourceIdentity' => 'SourceIdentity',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class AssumeRoleResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->sourceIdentity) {
+            $res['SourceIdentity'] = $this->sourceIdentity;
+        }
+
         return $res;
     }
 
@@ -77,6 +87,10 @@ class AssumeRoleResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SourceIdentity'])) {
+            $model->sourceIdentity = $map['SourceIdentity'];
         }
 
         return $model;

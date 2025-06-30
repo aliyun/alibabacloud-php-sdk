@@ -32,12 +32,18 @@ class AssumeRoleRequest extends Model
      * @var string
      */
     public $roleSessionName;
+
+    /**
+     * @var string
+     */
+    public $sourceIdentity;
     protected $_name = [
         'durationSeconds' => 'DurationSeconds',
         'externalId' => 'ExternalId',
         'policy' => 'Policy',
         'roleArn' => 'RoleArn',
         'roleSessionName' => 'RoleSessionName',
+        'sourceIdentity' => 'SourceIdentity',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class AssumeRoleRequest extends Model
 
         if (null !== $this->roleSessionName) {
             $res['RoleSessionName'] = $this->roleSessionName;
+        }
+
+        if (null !== $this->sourceIdentity) {
+            $res['SourceIdentity'] = $this->sourceIdentity;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class AssumeRoleRequest extends Model
 
         if (isset($map['RoleSessionName'])) {
             $model->roleSessionName = $map['RoleSessionName'];
+        }
+
+        if (isset($map['SourceIdentity'])) {
+            $model->sourceIdentity = $map['SourceIdentity'];
         }
 
         return $model;

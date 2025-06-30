@@ -30,11 +30,17 @@ class AssumeRoleWithOIDCResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $sourceIdentity;
     protected $_name = [
         'assumedRoleUser' => 'AssumedRoleUser',
         'credentials' => 'Credentials',
         'OIDCTokenInfo' => 'OIDCTokenInfo',
         'requestId' => 'RequestId',
+        'sourceIdentity' => 'SourceIdentity',
     ];
 
     public function validate()
@@ -70,6 +76,10 @@ class AssumeRoleWithOIDCResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->sourceIdentity) {
+            $res['SourceIdentity'] = $this->sourceIdentity;
+        }
+
         return $res;
     }
 
@@ -95,6 +105,10 @@ class AssumeRoleWithOIDCResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SourceIdentity'])) {
+            $model->sourceIdentity = $map['SourceIdentity'];
         }
 
         return $model;

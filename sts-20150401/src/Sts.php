@@ -138,6 +138,10 @@ class Sts extends OpenApiClient
             @$query['RoleSessionName'] = $request->roleSessionName;
         }
 
+        if (null !== $request->sourceIdentity) {
+            @$query['SourceIdentity'] = $request->sourceIdentity;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -152,11 +156,8 @@ class Sts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssumeRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssumeRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssumeRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -250,11 +251,8 @@ class Sts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssumeRoleWithOIDCResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssumeRoleWithOIDCResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssumeRoleWithOIDCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -338,11 +336,8 @@ class Sts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssumeRoleWithSAMLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssumeRoleWithSAMLResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssumeRoleWithSAMLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -395,11 +390,8 @@ class Sts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCallerIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCallerIdentityResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCallerIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
