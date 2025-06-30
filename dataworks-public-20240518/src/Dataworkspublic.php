@@ -1256,16 +1256,72 @@ class Dataworkspublic extends OpenApiClient
             $request->transformationRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
         }
 
-        $query = Utils::query($request->toMap());
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->destinationDataSourceSettingsShrink) {
+            @$body['DestinationDataSourceSettings'] = $request->destinationDataSourceSettingsShrink;
+        }
+
+        if (null !== $request->destinationDataSourceType) {
+            @$body['DestinationDataSourceType'] = $request->destinationDataSourceType;
+        }
+
+        if (null !== $request->jobName) {
+            @$body['JobName'] = $request->jobName;
+        }
+
+        if (null !== $request->jobSettingsShrink) {
+            @$body['JobSettings'] = $request->jobSettingsShrink;
+        }
+
+        if (null !== $request->jobType) {
+            @$body['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->migrationType) {
+            @$body['MigrationType'] = $request->migrationType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->resourceSettingsShrink) {
+            @$body['ResourceSettings'] = $request->resourceSettingsShrink;
+        }
+
+        if (null !== $request->sourceDataSourceSettingsShrink) {
+            @$body['SourceDataSourceSettings'] = $request->sourceDataSourceSettingsShrink;
+        }
+
+        if (null !== $request->sourceDataSourceType) {
+            @$body['SourceDataSourceType'] = $request->sourceDataSourceType;
+        }
+
+        if (null !== $request->tableMappingsShrink) {
+            @$body['TableMappings'] = $request->tableMappingsShrink;
+        }
+
+        if (null !== $request->transformationRulesShrink) {
+            @$body['TransformationRules'] = $request->transformationRulesShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDIJob',
             'version' => '2024-05-18',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -14385,16 +14441,50 @@ class Dataworkspublic extends OpenApiClient
             $request->transformationRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
         }
 
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $body = [];
+        if (null !== $request->DIJobId) {
+            @$body['DIJobId'] = $request->DIJobId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->jobSettingsShrink) {
+            @$body['JobSettings'] = $request->jobSettingsShrink;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->resourceSettingsShrink) {
+            @$body['ResourceSettings'] = $request->resourceSettingsShrink;
+        }
+
+        if (null !== $request->tableMappingsShrink) {
+            @$body['TableMappings'] = $request->tableMappingsShrink;
+        }
+
+        if (null !== $request->transformationRulesShrink) {
+            @$body['TransformationRules'] = $request->transformationRulesShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDIJob',
             'version' => '2024-05-18',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
