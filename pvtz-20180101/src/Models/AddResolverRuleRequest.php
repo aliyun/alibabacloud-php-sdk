@@ -4,108 +4,129 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverRuleRequest\edgeDnsClusters;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverRuleRequest\forwardIp;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverRuleRequest\vpcs;
 
 class AddResolverRuleRequest extends Model
 {
     /**
-     * @description The outbound endpoint ID. The outbound endpoint is used to forward the DNS requests to the specified destination IP addresses.
-     *
-     * This parameter is required.
-     * @example hr****
-     *
+     * @var edgeDnsClusters[]
+     */
+    public $edgeDnsClusters;
+
+    /**
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The IP addresses and ports of the external DNS servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded. You can enter up to **six** IP addresses and ports. Both private and public IP addresses are supported.
-     *
-     * This parameter is required.
      * @var forwardIp[]
      */
     public $forwardIp;
 
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * Default value: en.
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The name of the forwarding rule. You can name the rule based on your business requirements.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the forwarding rule. The parameter value can only be OUTBOUND, which indicates that DNS requests are forwarded to one or more external IP addresses.
-     *
-     * >  You cannot change the value of Type after you create the forwarding rule.
-     * @example OUTBOUND
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The zone for which you want to forward DNS requests.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
+     * @var vpcs[]
+     */
+    public $vpcs;
+
+    /**
      * @var string
      */
     public $zoneName;
     protected $_name = [
+        'edgeDnsClusters' => 'EdgeDnsClusters',
         'endpointId' => 'EndpointId',
-        'forwardIp'  => 'ForwardIp',
-        'lang'       => 'Lang',
-        'name'       => 'Name',
-        'type'       => 'Type',
-        'zoneName'   => 'ZoneName',
+        'forwardIp' => 'ForwardIp',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'type' => 'Type',
+        'vpcs' => 'Vpcs',
+        'zoneName' => 'ZoneName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->edgeDnsClusters)) {
+            Model::validateArray($this->edgeDnsClusters);
+        }
+        if (\is_array($this->forwardIp)) {
+            Model::validateArray($this->forwardIp);
+        }
+        if (\is_array($this->vpcs)) {
+            Model::validateArray($this->vpcs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->endpointId) {
-            $res['EndpointId'] = $this->endpointId;
-        }
-        if (null !== $this->forwardIp) {
-            $res['ForwardIp'] = [];
-            if (null !== $this->forwardIp && \is_array($this->forwardIp)) {
-                $n = 0;
-                foreach ($this->forwardIp as $item) {
-                    $res['ForwardIp'][$n++] = null !== $item ? $item->toMap() : $item;
+        if (null !== $this->edgeDnsClusters) {
+            if (\is_array($this->edgeDnsClusters)) {
+                $res['EdgeDnsClusters'] = [];
+                $n1 = 0;
+                foreach ($this->edgeDnsClusters as $item1) {
+                    $res['EdgeDnsClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
+        }
+
+        if (null !== $this->forwardIp) {
+            if (\is_array($this->forwardIp)) {
+                $res['ForwardIp'] = [];
+                $n1 = 0;
+                foreach ($this->forwardIp as $item1) {
+                    $res['ForwardIp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
+        if (null !== $this->vpcs) {
+            if (\is_array($this->vpcs)) {
+                $res['Vpcs'] = [];
+                $n1 = 0;
+                foreach ($this->vpcs as $item1) {
+                    $res['Vpcs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->zoneName) {
             $res['ZoneName'] = $this->zoneName;
         }
@@ -113,35 +134,63 @@ class AddResolverRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddResolverRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndpointId'])) {
-            $model->endpointId = $map['EndpointId'];
-        }
-        if (isset($map['ForwardIp'])) {
-            if (!empty($map['ForwardIp'])) {
-                $model->forwardIp = [];
-                $n                = 0;
-                foreach ($map['ForwardIp'] as $item) {
-                    $model->forwardIp[$n++] = null !== $item ? forwardIp::fromMap($item) : $item;
+        if (isset($map['EdgeDnsClusters'])) {
+            if (!empty($map['EdgeDnsClusters'])) {
+                $model->edgeDnsClusters = [];
+                $n1 = 0;
+                foreach ($map['EdgeDnsClusters'] as $item1) {
+                    $model->edgeDnsClusters[$n1] = edgeDnsClusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
+        }
+
+        if (isset($map['ForwardIp'])) {
+            if (!empty($map['ForwardIp'])) {
+                $model->forwardIp = [];
+                $n1 = 0;
+                foreach ($map['ForwardIp'] as $item1) {
+                    $model->forwardIp[$n1] = forwardIp::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
+        if (isset($map['Vpcs'])) {
+            if (!empty($map['Vpcs'])) {
+                $model->vpcs = [];
+                $n1 = 0;
+                foreach ($map['Vpcs'] as $item1) {
+                    $model->vpcs[$n1] = vpcs::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ZoneName'])) {
             $model->zoneName = $map['ZoneName'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeStatisticSummaryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeStatisticSummaryResponseBody\vpcRequestTops\vpcRequestTop;
-use AlibabaCloud\Tea\Model;
 
 class vpcRequestTops extends Model
 {
@@ -19,17 +19,22 @@ class vpcRequestTops extends Model
 
     public function validate()
     {
+        if (\is_array($this->vpcRequestTop)) {
+            Model::validateArray($this->vpcRequestTop);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcRequestTop) {
-            $res['VpcRequestTop'] = [];
-            if (null !== $this->vpcRequestTop && \is_array($this->vpcRequestTop)) {
-                $n = 0;
-                foreach ($this->vpcRequestTop as $item) {
-                    $res['VpcRequestTop'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vpcRequestTop)) {
+                $res['VpcRequestTop'] = [];
+                $n1 = 0;
+                foreach ($this->vpcRequestTop as $item1) {
+                    $res['VpcRequestTop'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class vpcRequestTops extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpcRequestTops
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcRequestTop'])) {
             if (!empty($map['VpcRequestTop'])) {
                 $model->vpcRequestTop = [];
-                $n                    = 0;
-                foreach ($map['VpcRequestTop'] as $item) {
-                    $model->vpcRequestTop[$n++] = null !== $item ? vpcRequestTop::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VpcRequestTop'] as $item1) {
+                    $model->vpcRequestTop[$n1] = vpcRequestTop::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

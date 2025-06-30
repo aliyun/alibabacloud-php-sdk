@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeChangeLogsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeChangeLogsResponseBody\changeLogs\changeLog;
-use AlibabaCloud\Tea\Model;
 
 class changeLogs extends Model
 {
@@ -19,17 +19,22 @@ class changeLogs extends Model
 
     public function validate()
     {
+        if (\is_array($this->changeLog)) {
+            Model::validateArray($this->changeLog);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeLog) {
-            $res['ChangeLog'] = [];
-            if (null !== $this->changeLog && \is_array($this->changeLog)) {
-                $n = 0;
-                foreach ($this->changeLog as $item) {
-                    $res['ChangeLog'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->changeLog)) {
+                $res['ChangeLog'] = [];
+                $n1 = 0;
+                foreach ($this->changeLog as $item1) {
+                    $res['ChangeLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class changeLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return changeLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeLog'])) {
             if (!empty($map['ChangeLog'])) {
                 $model->changeLog = [];
-                $n                = 0;
-                foreach ($map['ChangeLog'] as $item) {
-                    $model->changeLog[$n++] = null !== $item ? changeLog::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ChangeLog'] as $item1) {
+                    $model->changeLog[$n1] = changeLog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateSyncEcsHostTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class region extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The user ID to which the region belongs. This parameter is used in cross-account synchronization scenarios.
-     *
-     * @example 141339776561****
-     *
      * @var int
      */
     public $userId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -47,17 +41,18 @@ class region extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return region
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

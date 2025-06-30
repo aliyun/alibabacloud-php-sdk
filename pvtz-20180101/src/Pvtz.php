@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddCustomLineRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddCustomLineResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverEndpointRequest;
@@ -106,11 +105,10 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateZoneRecordRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateZoneRecordResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateZoneRemarkRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateZoneRemarkResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Pvtz extends OpenApiClient
 {
@@ -135,67 +133,82 @@ class Pvtz extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates a custom line.
-     *  *
-     * @param AddCustomLineRequest $request AddCustomLineRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a custom line.
      *
-     * @return AddCustomLineResponse AddCustomLineResponse
+     * @param request - AddCustomLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCustomLineResponse
+     *
+     * @param AddCustomLineRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddCustomLineResponse
      */
     public function addCustomLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dnsCategory)) {
-            $query['DnsCategory'] = $request->dnsCategory;
+        if (null !== $request->dnsCategory) {
+            @$query['DnsCategory'] = $request->dnsCategory;
         }
-        if (!Utils::isUnset($request->ipv4s)) {
-            $query['Ipv4s'] = $request->ipv4s;
+
+        if (null !== $request->ipv4s) {
+            @$query['Ipv4s'] = $request->ipv4s;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->shareScope)) {
-            $query['ShareScope'] = $request->shareScope;
+
+        if (null !== $request->shareScope) {
+            @$query['ShareScope'] = $request->shareScope;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddCustomLine',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCustomLine',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom line.
-     *  *
-     * @param AddCustomLineRequest $request AddCustomLineRequest
+     * Creates a custom line.
      *
-     * @return AddCustomLineResponse AddCustomLineResponse
+     * @param request - AddCustomLineRequest
+     *
+     * @returns AddCustomLineResponse
+     *
+     * @param AddCustomLineRequest $request
+     *
+     * @return AddCustomLineResponse
      */
     public function addCustomLine($request)
     {
@@ -205,59 +218,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Creates an endpoint.
-     *  *
-     * @param AddResolverEndpointRequest $request AddResolverEndpointRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates an endpoint.
      *
-     * @return AddResolverEndpointResponse AddResolverEndpointResponse
+     * @param request - AddResolverEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddResolverEndpointResponse
+     *
+     * @param AddResolverEndpointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddResolverEndpointResponse
      */
     public function addResolverEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipConfig)) {
-            $query['IpConfig'] = $request->ipConfig;
+        if (null !== $request->ipConfig) {
+            @$query['IpConfig'] = $request->ipConfig;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vpcRegionId)) {
-            $query['VpcRegionId'] = $request->vpcRegionId;
+
+        if (null !== $request->vpcRegionId) {
+            @$query['VpcRegionId'] = $request->vpcRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddResolverEndpoint',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddResolverEndpoint',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddResolverEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an endpoint.
-     *  *
-     * @param AddResolverEndpointRequest $request AddResolverEndpointRequest
+     * Creates an endpoint.
      *
-     * @return AddResolverEndpointResponse AddResolverEndpointResponse
+     * @param request - AddResolverEndpointRequest
+     *
+     * @returns AddResolverEndpointResponse
+     *
+     * @param AddResolverEndpointRequest $request
+     *
+     * @return AddResolverEndpointResponse
      */
     public function addResolverEndpoint($request)
     {
@@ -267,65 +295,90 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Creates a forwarding rule.
-     *  *
-     * @description #### [](#)**Precautions**
-     * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
-     *  *
-     * @param AddResolverRuleRequest $request AddResolverRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates a forwarding rule.
      *
-     * @return AddResolverRuleResponse AddResolverRuleResponse
+     * @remarks
+     * #### [](#)**Precautions**
+     * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
+     *
+     * @param request - AddResolverRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddResolverRuleResponse
+     *
+     * @param AddResolverRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddResolverRuleResponse
      */
     public function addResolverRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->edgeDnsClusters) {
+            @$query['EdgeDnsClusters'] = $request->edgeDnsClusters;
         }
-        if (!Utils::isUnset($request->forwardIp)) {
-            $query['ForwardIp'] = $request->forwardIp;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->forwardIp) {
+            @$query['ForwardIp'] = $request->forwardIp;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->zoneName)) {
-            $query['ZoneName'] = $request->zoneName;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
+        if (null !== $request->vpcs) {
+            @$query['Vpcs'] = $request->vpcs;
+        }
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddResolverRule',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddResolverRule',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddResolverRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a forwarding rule.
-     *  *
-     * @description #### [](#)**Precautions**
-     * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
-     *  *
-     * @param AddResolverRuleRequest $request AddResolverRuleRequest
+     * Creates a forwarding rule.
      *
-     * @return AddResolverRuleResponse AddResolverRuleResponse
+     * @remarks
+     * #### [](#)**Precautions**
+     * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
+     *
+     * @param request - AddResolverRuleRequest
+     *
+     * @returns AddResolverRuleResponse
+     *
+     * @param AddResolverRuleRequest $request
+     *
+     * @return AddResolverRuleResponse
      */
     public function addResolverRule($request)
     {
@@ -335,65 +388,80 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
-     *  *
-     * @description #### **Limits**
+     * Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+     *
+     * @remarks
+     * #### **Limits**
      * *   You can set an effective scope across accounts only by using an Alibaba Cloud account instead of a RAM user. You can set an effective scope across accounts registered on the same site. For example, you can perform the operation across accounts that are both registered on the Alibaba Cloud China site or Alibaba Cloud international site. You cannot set an effective scope across accounts registered on different sites. For example, you cannot perform the operation across accounts that are separately registered on the Alibaba Cloud China site and Alibaba Cloud international site.
      * *   No API operation is provided for sending the verification codes that are required for authorization.
      * #### **Precautions**
      * If you set an effective scope across accounts, bills are settled within the account that is used to perform routine management on built-in authoritative zones.
-     *  *
-     * @param AddUserVpcAuthorizationRequest $request AddUserVpcAuthorizationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserVpcAuthorizationResponse AddUserVpcAuthorizationResponse
+     * @param request - AddUserVpcAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserVpcAuthorizationResponse
+     *
+     * @param AddUserVpcAuthorizationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddUserVpcAuthorizationResponse
      */
     public function addUserVpcAuthorizationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authChannel)) {
-            $query['AuthChannel'] = $request->authChannel;
+        if (null !== $request->authChannel) {
+            @$query['AuthChannel'] = $request->authChannel;
         }
-        if (!Utils::isUnset($request->authCode)) {
-            $query['AuthCode'] = $request->authCode;
+
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->authType)) {
-            $query['AuthType'] = $request->authType;
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
         }
-        if (!Utils::isUnset($request->authorizedUserId)) {
-            $query['AuthorizedUserId'] = $request->authorizedUserId;
+
+        if (null !== $request->authorizedUserId) {
+            @$query['AuthorizedUserId'] = $request->authorizedUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserVpcAuthorization',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserVpcAuthorization',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddUserVpcAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
-     *  *
-     * @description #### **Limits**
+     * Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+     *
+     * @remarks
+     * #### **Limits**
      * *   You can set an effective scope across accounts only by using an Alibaba Cloud account instead of a RAM user. You can set an effective scope across accounts registered on the same site. For example, you can perform the operation across accounts that are both registered on the Alibaba Cloud China site or Alibaba Cloud international site. You cannot set an effective scope across accounts registered on different sites. For example, you cannot perform the operation across accounts that are separately registered on the Alibaba Cloud China site and Alibaba Cloud international site.
      * *   No API operation is provided for sending the verification codes that are required for authorization.
      * #### **Precautions**
      * If you set an effective scope across accounts, bills are settled within the account that is used to perform routine management on built-in authoritative zones.
-     *  *
-     * @param AddUserVpcAuthorizationRequest $request AddUserVpcAuthorizationRequest
      *
-     * @return AddUserVpcAuthorizationResponse AddUserVpcAuthorizationResponse
+     * @param request - AddUserVpcAuthorizationRequest
+     *
+     * @returns AddUserVpcAuthorizationResponse
+     *
+     * @param AddUserVpcAuthorizationRequest $request
+     *
+     * @return AddUserVpcAuthorizationResponse
      */
     public function addUserVpcAuthorization($request)
     {
@@ -403,65 +471,82 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Creates a built-in authoritative zone in the regular module or acceleration module.
-     *  *
-     * @param AddZoneRequest $request AddZoneRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Creates a built-in authoritative zone in the regular module or acceleration module.
      *
-     * @return AddZoneResponse AddZoneResponse
+     * @param request - AddZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddZoneResponse
+     *
+     * @param AddZoneRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return AddZoneResponse
      */
     public function addZoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dnsGroup)) {
-            $query['DnsGroup'] = $request->dnsGroup;
+
+        if (null !== $request->dnsGroup) {
+            @$query['DnsGroup'] = $request->dnsGroup;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->proxyPattern)) {
-            $query['ProxyPattern'] = $request->proxyPattern;
+
+        if (null !== $request->proxyPattern) {
+            @$query['ProxyPattern'] = $request->proxyPattern;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->zoneName)) {
-            $query['ZoneName'] = $request->zoneName;
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
         }
-        if (!Utils::isUnset($request->zoneTag)) {
-            $query['ZoneTag'] = $request->zoneTag;
+
+        if (null !== $request->zoneTag) {
+            @$query['ZoneTag'] = $request->zoneTag;
         }
-        if (!Utils::isUnset($request->zoneType)) {
-            $query['ZoneType'] = $request->zoneType;
+
+        if (null !== $request->zoneType) {
+            @$query['ZoneType'] = $request->zoneType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddZone',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddZone',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a built-in authoritative zone in the regular module or acceleration module.
-     *  *
-     * @param AddZoneRequest $request AddZoneRequest
+     * Creates a built-in authoritative zone in the regular module or acceleration module.
      *
-     * @return AddZoneResponse AddZoneResponse
+     * @param request - AddZoneRequest
+     *
+     * @returns AddZoneResponse
+     *
+     * @param AddZoneRequest $request
+     *
+     * @return AddZoneResponse
      */
     public function addZone($request)
     {
@@ -471,77 +556,98 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
-     *  *
-     * @param AddZoneRecordRequest $request AddZoneRecordRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
      *
-     * @return AddZoneRecordResponse AddZoneRecordResponse
+     * @param request - AddZoneRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddZoneRecordResponse
+     *
+     * @param AddZoneRecordRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddZoneRecordResponse
      */
     public function addZoneRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->line)) {
-            $query['Line'] = $request->line;
+
+        if (null !== $request->line) {
+            @$query['Line'] = $request->line;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->rr)) {
-            $query['Rr'] = $request->rr;
+
+        if (null !== $request->rr) {
+            @$query['Rr'] = $request->rr;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
-        if (!Utils::isUnset($request->weight)) {
-            $query['Weight'] = $request->weight;
+
+        if (null !== $request->weight) {
+            @$query['Weight'] = $request->weight;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddZoneRecord',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddZoneRecord',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddZoneRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
-     *  *
-     * @param AddZoneRecordRequest $request AddZoneRecordRequest
+     * Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
      *
-     * @return AddZoneRecordResponse AddZoneRecordResponse
+     * @param request - AddZoneRecordRequest
+     *
+     * @returns AddZoneRecordResponse
+     *
+     * @param AddZoneRecordRequest $request
+     *
+     * @return AddZoneRecordResponse
      */
     public function addZoneRecord($request)
     {
@@ -551,50 +657,62 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Associates a forwarding rule with virtual private clouds (VPCs).
-     *  *
-     * @param BindResolverRuleVpcRequest $request BindResolverRuleVpcRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Associates a forwarding rule with virtual private clouds (VPCs).
      *
-     * @return BindResolverRuleVpcResponse BindResolverRuleVpcResponse
+     * @param request - BindResolverRuleVpcRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindResolverRuleVpcResponse
+     *
+     * @param BindResolverRuleVpcRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BindResolverRuleVpcResponse
      */
     public function bindResolverRuleVpcWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->vpc)) {
-            $query['Vpc'] = $request->vpc;
+
+        if (null !== $request->vpc) {
+            @$query['Vpc'] = $request->vpc;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindResolverRuleVpc',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindResolverRuleVpc',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindResolverRuleVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates a forwarding rule with virtual private clouds (VPCs).
-     *  *
-     * @param BindResolverRuleVpcRequest $request BindResolverRuleVpcRequest
+     * Associates a forwarding rule with virtual private clouds (VPCs).
      *
-     * @return BindResolverRuleVpcResponse BindResolverRuleVpcResponse
+     * @param request - BindResolverRuleVpcRequest
+     *
+     * @returns BindResolverRuleVpcResponse
+     *
+     * @param BindResolverRuleVpcRequest $request
+     *
+     * @return BindResolverRuleVpcResponse
      */
     public function bindResolverRuleVpc($request)
     {
@@ -604,62 +722,78 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
-     *  *
-     * @description ##### [](#)Precautions:
-     * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
-     *  *
-     * @param BindZoneVpcRequest $request BindZoneVpcRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
      *
-     * @return BindZoneVpcResponse BindZoneVpcResponse
+     * @remarks
+     * ##### [](#)Precautions:
+     * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
+     *
+     * @param request - BindZoneVpcRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindZoneVpcResponse
+     *
+     * @param BindZoneVpcRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BindZoneVpcResponse
      */
     public function bindZoneVpcWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->vpcs)) {
-            $query['Vpcs'] = $request->vpcs;
+
+        if (null !== $request->vpcs) {
+            @$query['Vpcs'] = $request->vpcs;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindZoneVpc',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindZoneVpc',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindZoneVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
-     *  *
-     * @description ##### [](#)Precautions:
-     * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
-     *  *
-     * @param BindZoneVpcRequest $request BindZoneVpcRequest
+     * Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
      *
-     * @return BindZoneVpcResponse BindZoneVpcResponse
+     * @remarks
+     * ##### [](#)Precautions:
+     * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
+     *
+     * @param request - BindZoneVpcRequest
+     *
+     * @returns BindZoneVpcResponse
+     *
+     * @param BindZoneVpcRequest $request
+     *
+     * @return BindZoneVpcResponse
      */
     public function bindZoneVpc($request)
     {
@@ -669,50 +803,62 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Changes the logical location of a zone.
-     *  *
-     * @param ChangeZoneDnsGroupRequest $request ChangeZoneDnsGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Changes the logical location of a zone.
      *
-     * @return ChangeZoneDnsGroupResponse ChangeZoneDnsGroupResponse
+     * @param request - ChangeZoneDnsGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeZoneDnsGroupResponse
+     *
+     * @param ChangeZoneDnsGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ChangeZoneDnsGroupResponse
      */
     public function changeZoneDnsGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dnsGroup)) {
-            $query['DnsGroup'] = $request->dnsGroup;
+
+        if (null !== $request->dnsGroup) {
+            @$query['DnsGroup'] = $request->dnsGroup;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeZoneDnsGroup',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeZoneDnsGroup',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeZoneDnsGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the logical location of a zone.
-     *  *
-     * @param ChangeZoneDnsGroupRequest $request ChangeZoneDnsGroupRequest
+     * Changes the logical location of a zone.
      *
-     * @return ChangeZoneDnsGroupResponse ChangeZoneDnsGroupResponse
+     * @param request - ChangeZoneDnsGroupRequest
+     *
+     * @returns ChangeZoneDnsGroupResponse
+     *
+     * @param ChangeZoneDnsGroupRequest $request
+     *
+     * @return ChangeZoneDnsGroupResponse
      */
     public function changeZoneDnsGroup($request)
     {
@@ -722,50 +868,62 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether a zone name can be added based on a rule.
-     *  *
-     * @param CheckZoneNameRequest $request CheckZoneNameRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Checks whether a zone name can be added based on a rule.
      *
-     * @return CheckZoneNameResponse CheckZoneNameResponse
+     * @param request - CheckZoneNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckZoneNameResponse
+     *
+     * @param CheckZoneNameRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CheckZoneNameResponse
      */
     public function checkZoneNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zoneName)) {
-            $query['ZoneName'] = $request->zoneName;
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckZoneName',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckZoneName',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckZoneNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether a zone name can be added based on a rule.
-     *  *
-     * @param CheckZoneNameRequest $request CheckZoneNameRequest
+     * Checks whether a zone name can be added based on a rule.
      *
-     * @return CheckZoneNameResponse CheckZoneNameResponse
+     * @param request - CheckZoneNameRequest
+     *
+     * @returns CheckZoneNameResponse
+     *
+     * @param CheckZoneNameRequest $request
+     *
+     * @return CheckZoneNameResponse
      */
     public function checkZoneName($request)
     {
@@ -775,47 +933,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom line.
-     *  *
-     * @param DeleteCustomLineRequest $request DeleteCustomLineRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom line.
      *
-     * @return DeleteCustomLineResponse DeleteCustomLineResponse
+     * @param request - DeleteCustomLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomLineResponse
+     *
+     * @param DeleteCustomLineRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCustomLineResponse
      */
     public function deleteCustomLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->lineId)) {
-            $query['LineId'] = $request->lineId;
+
+        if (null !== $request->lineId) {
+            @$query['LineId'] = $request->lineId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomLine',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomLine',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom line.
-     *  *
-     * @param DeleteCustomLineRequest $request DeleteCustomLineRequest
+     * Deletes a custom line.
      *
-     * @return DeleteCustomLineResponse DeleteCustomLineResponse
+     * @param request - DeleteCustomLineRequest
+     *
+     * @returns DeleteCustomLineResponse
+     *
+     * @param DeleteCustomLineRequest $request
+     *
+     * @return DeleteCustomLineResponse
      */
     public function deleteCustomLine($request)
     {
@@ -825,47 +994,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an endpoint based on the endpoint ID.
-     *  *
-     * @param DeleteResolverEndpointRequest $request DeleteResolverEndpointRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes an endpoint based on the endpoint ID.
      *
-     * @return DeleteResolverEndpointResponse DeleteResolverEndpointResponse
+     * @param request - DeleteResolverEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResolverEndpointResponse
+     *
+     * @param DeleteResolverEndpointRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteResolverEndpointResponse
      */
     public function deleteResolverEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteResolverEndpoint',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteResolverEndpoint',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteResolverEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an endpoint based on the endpoint ID.
-     *  *
-     * @param DeleteResolverEndpointRequest $request DeleteResolverEndpointRequest
+     * Deletes an endpoint based on the endpoint ID.
      *
-     * @return DeleteResolverEndpointResponse DeleteResolverEndpointResponse
+     * @param request - DeleteResolverEndpointRequest
+     *
+     * @returns DeleteResolverEndpointResponse
+     *
+     * @param DeleteResolverEndpointRequest $request
+     *
+     * @return DeleteResolverEndpointResponse
      */
     public function deleteResolverEndpoint($request)
     {
@@ -875,47 +1055,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a forwarding rule based on the rule ID.
-     *  *
-     * @param DeleteResolverRuleRequest $request DeleteResolverRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes a forwarding rule based on the rule ID.
      *
-     * @return DeleteResolverRuleResponse DeleteResolverRuleResponse
+     * @param request - DeleteResolverRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResolverRuleResponse
+     *
+     * @param DeleteResolverRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteResolverRuleResponse
      */
     public function deleteResolverRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteResolverRule',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteResolverRule',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteResolverRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a forwarding rule based on the rule ID.
-     *  *
-     * @param DeleteResolverRuleRequest $request DeleteResolverRuleRequest
+     * Deletes a forwarding rule based on the rule ID.
      *
-     * @return DeleteResolverRuleResponse DeleteResolverRuleResponse
+     * @param request - DeleteResolverRuleRequest
+     *
+     * @returns DeleteResolverRuleResponse
+     *
+     * @param DeleteResolverRuleRequest $request
+     *
+     * @return DeleteResolverRuleResponse
      */
     public function deleteResolverRule($request)
     {
@@ -925,47 +1116,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
-     *  *
-     * @param DeleteUserVpcAuthorizationRequest $request DeleteUserVpcAuthorizationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
      *
-     * @return DeleteUserVpcAuthorizationResponse DeleteUserVpcAuthorizationResponse
+     * @param request - DeleteUserVpcAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserVpcAuthorizationResponse
+     *
+     * @param DeleteUserVpcAuthorizationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteUserVpcAuthorizationResponse
      */
     public function deleteUserVpcAuthorizationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authType)) {
-            $query['AuthType'] = $request->authType;
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
         }
-        if (!Utils::isUnset($request->authorizedUserId)) {
-            $query['AuthorizedUserId'] = $request->authorizedUserId;
+
+        if (null !== $request->authorizedUserId) {
+            @$query['AuthorizedUserId'] = $request->authorizedUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserVpcAuthorization',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserVpcAuthorization',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteUserVpcAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
-     *  *
-     * @param DeleteUserVpcAuthorizationRequest $request DeleteUserVpcAuthorizationRequest
+     * Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
      *
-     * @return DeleteUserVpcAuthorizationResponse DeleteUserVpcAuthorizationResponse
+     * @param request - DeleteUserVpcAuthorizationRequest
+     *
+     * @returns DeleteUserVpcAuthorizationResponse
+     *
+     * @param DeleteUserVpcAuthorizationRequest $request
+     *
+     * @return DeleteUserVpcAuthorizationResponse
      */
     public function deleteUserVpcAuthorization($request)
     {
@@ -975,59 +1177,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an idle built-in authoritative zone.
-     *  *
-     * @description #### [](#)Precautions
-     * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
-     *  *
-     * @param DeleteZoneRequest $request DeleteZoneRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes an idle built-in authoritative zone.
      *
-     * @return DeleteZoneResponse DeleteZoneResponse
+     * @remarks
+     * #### [](#)Precautions
+     * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
+     *
+     * @param request - DeleteZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteZoneResponse
+     *
+     * @param DeleteZoneRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteZoneResponse
      */
     public function deleteZoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteZone',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteZone',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an idle built-in authoritative zone.
-     *  *
-     * @description #### [](#)Precautions
-     * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
-     *  *
-     * @param DeleteZoneRequest $request DeleteZoneRequest
+     * Deletes an idle built-in authoritative zone.
      *
-     * @return DeleteZoneResponse DeleteZoneResponse
+     * @remarks
+     * #### [](#)Precautions
+     * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
+     *
+     * @param request - DeleteZoneRequest
+     *
+     * @returns DeleteZoneResponse
+     *
+     * @param DeleteZoneRequest $request
+     *
+     * @return DeleteZoneResponse
      */
     public function deleteZone($request)
     {
@@ -1037,59 +1254,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
-     *  *
-     * @description #### **Precautions**
-     * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
-     *  *
-     * @param DeleteZoneRecordRequest $request DeleteZoneRecordRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
      *
-     * @return DeleteZoneRecordResponse DeleteZoneRecordResponse
+     * @remarks
+     * #### **Precautions**
+     * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
+     *
+     * @param request - DeleteZoneRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteZoneRecordResponse
+     *
+     * @param DeleteZoneRecordRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteZoneRecordResponse
      */
     public function deleteZoneRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteZoneRecord',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteZoneRecord',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteZoneRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
-     *  *
-     * @description #### **Precautions**
-     * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
-     *  *
-     * @param DeleteZoneRecordRequest $request DeleteZoneRecordRequest
+     * Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
      *
-     * @return DeleteZoneRecordResponse DeleteZoneRecordResponse
+     * @remarks
+     * #### **Precautions**
+     * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
+     *
+     * @param request - DeleteZoneRecordRequest
+     *
+     * @returns DeleteZoneRecordResponse
+     *
+     * @param DeleteZoneRecordRequest $request
+     *
+     * @return DeleteZoneRecordResponse
      */
     public function deleteZoneRecord($request)
     {
@@ -1099,74 +1331,94 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
-     *  *
-     * @description #### **Precautions**
-     * You can query the operation logs of Private DNS that are generated within the last six months.
-     *  *
-     * @param DescribeChangeLogsRequest $request DescribeChangeLogsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
      *
-     * @return DescribeChangeLogsResponse DescribeChangeLogsResponse
+     * @remarks
+     * #### **Precautions**
+     * You can query the operation logs of Private DNS that are generated within the last six months.
+     *
+     * @param request - DescribeChangeLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeChangeLogsResponse
+     *
+     * @param DescribeChangeLogsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeChangeLogsResponse
      */
     public function describeChangeLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChangeLogs',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChangeLogs',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
-     *  *
-     * @description #### **Precautions**
-     * You can query the operation logs of Private DNS that are generated within the last six months.
-     *  *
-     * @param DescribeChangeLogsRequest $request DescribeChangeLogsRequest
+     * Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
      *
-     * @return DescribeChangeLogsResponse DescribeChangeLogsResponse
+     * @remarks
+     * #### **Precautions**
+     * You can query the operation logs of Private DNS that are generated within the last six months.
+     *
+     * @param request - DescribeChangeLogsRequest
+     *
+     * @returns DescribeChangeLogsResponse
+     *
+     * @param DescribeChangeLogsRequest $request
+     *
+     * @return DescribeChangeLogsResponse
      */
     public function describeChangeLogs($request)
     {
@@ -1176,47 +1428,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a custom line.
-     *  *
-     * @param DescribeCustomLineInfoRequest $request DescribeCustomLineInfoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a custom line.
      *
-     * @return DescribeCustomLineInfoResponse DescribeCustomLineInfoResponse
+     * @param request - DescribeCustomLineInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomLineInfoResponse
+     *
+     * @param DescribeCustomLineInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCustomLineInfoResponse
      */
     public function describeCustomLineInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->lineId)) {
-            $query['LineId'] = $request->lineId;
+
+        if (null !== $request->lineId) {
+            @$query['LineId'] = $request->lineId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomLineInfo',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomLineInfo',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomLineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a custom line.
-     *  *
-     * @param DescribeCustomLineInfoRequest $request DescribeCustomLineInfoRequest
+     * Queries the information about a custom line.
      *
-     * @return DescribeCustomLineInfoResponse DescribeCustomLineInfoResponse
+     * @param request - DescribeCustomLineInfoRequest
+     *
+     * @returns DescribeCustomLineInfoResponse
+     *
+     * @param DescribeCustomLineInfoRequest $request
+     *
+     * @return DescribeCustomLineInfoResponse
      */
     public function describeCustomLineInfo($request)
     {
@@ -1226,50 +1489,62 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom lines.
-     *  *
-     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of custom lines.
      *
-     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
+     * @param request - DescribeCustomLinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomLinesResponse
+     *
+     * @param DescribeCustomLinesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeCustomLinesResponse
      */
     public function describeCustomLinesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomLines',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomLines',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of custom lines.
-     *  *
-     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
+     * Queries a list of custom lines.
      *
-     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
+     * @param request - DescribeCustomLinesRequest
+     *
+     * @returns DescribeCustomLinesResponse
+     *
+     * @param DescribeCustomLinesRequest $request
+     *
+     * @return DescribeCustomLinesResponse
      */
     public function describeCustomLines($request)
     {
@@ -1279,59 +1554,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->authorizedUserId)) {
-            $query['AuthorizedUserId'] = $request->authorizedUserId;
+
+        if (null !== $request->authorizedUserId) {
+            @$query['AuthorizedUserId'] = $request->authorizedUserId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->vpcType)) {
-            $query['VpcType'] = $request->vpcType;
+
+        if (null !== $request->vpcType) {
+            @$query['VpcType'] = $request->vpcType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1341,65 +1631,82 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
-     *  *
-     * @param DescribeRequestGraphRequest $request DescribeRequestGraphRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
      *
-     * @return DescribeRequestGraphResponse DescribeRequestGraphResponse
+     * @param request - DescribeRequestGraphRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRequestGraphResponse
+     *
+     * @param DescribeRequestGraphRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRequestGraphResponse
      */
     public function describeRequestGraphWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRequestGraph',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRequestGraph',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRequestGraphResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
-     *  *
-     * @param DescribeRequestGraphRequest $request DescribeRequestGraphRequest
+     * Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
      *
-     * @return DescribeRequestGraphResponse DescribeRequestGraphResponse
+     * @param request - DescribeRequestGraphRequest
+     *
+     * @returns DescribeRequestGraphResponse
+     *
+     * @param DescribeRequestGraphRequest $request
+     *
+     * @return DescribeRequestGraphResponse
      */
     public function describeRequestGraph($request)
     {
@@ -1409,50 +1716,62 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of available zones.
-     *  *
-     * @param DescribeResolverAvailableZonesRequest $request DescribeResolverAvailableZonesRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of available zones.
      *
-     * @return DescribeResolverAvailableZonesResponse DescribeResolverAvailableZonesResponse
+     * @param request - DescribeResolverAvailableZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResolverAvailableZonesResponse
+     *
+     * @param DescribeResolverAvailableZonesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResolverAvailableZonesResponse
      */
     public function describeResolverAvailableZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->azId)) {
-            $query['AzId'] = $request->azId;
+        if (null !== $request->azId) {
+            @$query['AzId'] = $request->azId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resolverRegionId)) {
-            $query['ResolverRegionId'] = $request->resolverRegionId;
+
+        if (null !== $request->resolverRegionId) {
+            @$query['ResolverRegionId'] = $request->resolverRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResolverAvailableZones',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResolverAvailableZones',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResolverAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of available zones.
-     *  *
-     * @param DescribeResolverAvailableZonesRequest $request DescribeResolverAvailableZonesRequest
+     * Queries a list of available zones.
      *
-     * @return DescribeResolverAvailableZonesResponse DescribeResolverAvailableZonesResponse
+     * @param request - DescribeResolverAvailableZonesRequest
+     *
+     * @returns DescribeResolverAvailableZonesResponse
+     *
+     * @param DescribeResolverAvailableZonesRequest $request
+     *
+     * @return DescribeResolverAvailableZonesResponse
      */
     public function describeResolverAvailableZones($request)
     {
@@ -1462,47 +1781,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an endpoint based on the endpoint ID.
-     *  *
-     * @param DescribeResolverEndpointRequest $request DescribeResolverEndpointRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an endpoint based on the endpoint ID.
      *
-     * @return DescribeResolverEndpointResponse DescribeResolverEndpointResponse
+     * @param request - DescribeResolverEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResolverEndpointResponse
+     *
+     * @param DescribeResolverEndpointRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeResolverEndpointResponse
      */
     public function describeResolverEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResolverEndpoint',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResolverEndpoint',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResolverEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an endpoint based on the endpoint ID.
-     *  *
-     * @param DescribeResolverEndpointRequest $request DescribeResolverEndpointRequest
+     * Queries the information about an endpoint based on the endpoint ID.
      *
-     * @return DescribeResolverEndpointResponse DescribeResolverEndpointResponse
+     * @param request - DescribeResolverEndpointRequest
+     *
+     * @returns DescribeResolverEndpointResponse
+     *
+     * @param DescribeResolverEndpointRequest $request
+     *
+     * @return DescribeResolverEndpointResponse
      */
     public function describeResolverEndpoint($request)
     {
@@ -1512,59 +1842,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of endpoints.
-     *  *
-     * @param DescribeResolverEndpointsRequest $request DescribeResolverEndpointsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of endpoints.
      *
-     * @return DescribeResolverEndpointsResponse DescribeResolverEndpointsResponse
+     * @param request - DescribeResolverEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResolverEndpointsResponse
+     *
+     * @param DescribeResolverEndpointsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeResolverEndpointsResponse
      */
     public function describeResolverEndpointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->vpcRegionId)) {
-            $query['VpcRegionId'] = $request->vpcRegionId;
+
+        if (null !== $request->vpcRegionId) {
+            @$query['VpcRegionId'] = $request->vpcRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResolverEndpoints',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResolverEndpoints',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResolverEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of endpoints.
-     *  *
-     * @param DescribeResolverEndpointsRequest $request DescribeResolverEndpointsRequest
+     * Queries a list of endpoints.
      *
-     * @return DescribeResolverEndpointsResponse DescribeResolverEndpointsResponse
+     * @param request - DescribeResolverEndpointsRequest
+     *
+     * @returns DescribeResolverEndpointsResponse
+     *
+     * @param DescribeResolverEndpointsRequest $request
+     *
+     * @return DescribeResolverEndpointsResponse
      */
     public function describeResolverEndpoints($request)
     {
@@ -1574,47 +1919,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a forwarding rule based on the ID of the forwarding rule.
-     *  *
-     * @param DescribeResolverRuleRequest $request DescribeResolverRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a forwarding rule based on the ID of the forwarding rule.
      *
-     * @return DescribeResolverRuleResponse DescribeResolverRuleResponse
+     * @param request - DescribeResolverRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResolverRuleResponse
+     *
+     * @param DescribeResolverRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeResolverRuleResponse
      */
     public function describeResolverRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResolverRule',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResolverRule',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResolverRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a forwarding rule based on the ID of the forwarding rule.
-     *  *
-     * @param DescribeResolverRuleRequest $request DescribeResolverRuleRequest
+     * Queries the information about a forwarding rule based on the ID of the forwarding rule.
      *
-     * @return DescribeResolverRuleResponse DescribeResolverRuleResponse
+     * @param request - DescribeResolverRuleRequest
+     *
+     * @returns DescribeResolverRuleResponse
+     *
+     * @param DescribeResolverRuleRequest $request
+     *
+     * @return DescribeResolverRuleResponse
      */
     public function describeResolverRule($request)
     {
@@ -1624,59 +1980,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of forwarding rules.
-     *  *
-     * @param DescribeResolverRulesRequest $request DescribeResolverRulesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of forwarding rules.
      *
-     * @return DescribeResolverRulesResponse DescribeResolverRulesResponse
+     * @param request - DescribeResolverRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResolverRulesResponse
+     *
+     * @param DescribeResolverRulesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeResolverRulesResponse
      */
     public function describeResolverRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->needDetailAttributes)) {
-            $query['NeedDetailAttributes'] = $request->needDetailAttributes;
+
+        if (null !== $request->needDetailAttributes) {
+            @$query['NeedDetailAttributes'] = $request->needDetailAttributes;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResolverRules',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResolverRules',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResolverRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of forwarding rules.
-     *  *
-     * @param DescribeResolverRulesRequest $request DescribeResolverRulesRequest
+     * Queries a list of forwarding rules.
      *
-     * @return DescribeResolverRulesResponse DescribeResolverRulesResponse
+     * @param request - DescribeResolverRulesRequest
+     *
+     * @returns DescribeResolverRulesResponse
+     *
+     * @param DescribeResolverRulesRequest $request
+     *
+     * @return DescribeResolverRulesResponse
      */
     public function describeResolverRules($request)
     {
@@ -1686,47 +2057,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
-     *  *
-     * @param DescribeStatisticSummaryRequest $request DescribeStatisticSummaryRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
      *
-     * @return DescribeStatisticSummaryResponse DescribeStatisticSummaryResponse
+     * @param request - DescribeStatisticSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeStatisticSummaryResponse
+     *
+     * @param DescribeStatisticSummaryRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeStatisticSummaryResponse
      */
     public function describeStatisticSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStatisticSummary',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStatisticSummary',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeStatisticSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
-     *  *
-     * @param DescribeStatisticSummaryRequest $request DescribeStatisticSummaryRequest
+     * Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
      *
-     * @return DescribeStatisticSummaryResponse DescribeStatisticSummaryResponse
+     * @param request - DescribeStatisticSummaryRequest
+     *
+     * @returns DescribeStatisticSummaryResponse
+     *
+     * @param DescribeStatisticSummaryRequest $request
+     *
+     * @return DescribeStatisticSummaryResponse
      */
     public function describeStatisticSummary($request)
     {
@@ -1736,51 +2118,64 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a hostname synchronization task based on a zone ID.
-     *  *
-     * @description You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
-     *  *
-     * @param DescribeSyncEcsHostTaskRequest $request DescribeSyncEcsHostTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a hostname synchronization task based on a zone ID.
      *
-     * @return DescribeSyncEcsHostTaskResponse DescribeSyncEcsHostTaskResponse
+     * @remarks
+     * You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
+     *
+     * @param request - DescribeSyncEcsHostTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSyncEcsHostTaskResponse
+     *
+     * @param DescribeSyncEcsHostTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSyncEcsHostTaskResponse
      */
     public function describeSyncEcsHostTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSyncEcsHostTask',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSyncEcsHostTask',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSyncEcsHostTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a hostname synchronization task based on a zone ID.
-     *  *
-     * @description You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
-     *  *
-     * @param DescribeSyncEcsHostTaskRequest $request DescribeSyncEcsHostTaskRequest
+     * Queries the information about a hostname synchronization task based on a zone ID.
      *
-     * @return DescribeSyncEcsHostTaskResponse DescribeSyncEcsHostTaskResponse
+     * @remarks
+     * You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
+     *
+     * @param request - DescribeSyncEcsHostTaskRequest
+     *
+     * @returns DescribeSyncEcsHostTaskResponse
+     *
+     * @param DescribeSyncEcsHostTaskRequest $request
+     *
+     * @return DescribeSyncEcsHostTaskResponse
      */
     public function describeSyncEcsHostTask($request)
     {
@@ -1790,59 +2185,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tags added to zones.
-     *  *
-     * @description #### **Precautions**
-     * You can call this API operation to query the information about tags added only to zones.
-     *  *
-     * @param DescribeTagsRequest $request DescribeTagsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of tags added to zones.
      *
-     * @return DescribeTagsResponse DescribeTagsResponse
+     * @remarks
+     * #### **Precautions**
+     * You can call this API operation to query the information about tags added only to zones.
+     *
+     * @param request - DescribeTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTags',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of tags added to zones.
-     *  *
-     * @description #### **Precautions**
-     * You can call this API operation to query the information about tags added only to zones.
-     *  *
-     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * Queries a list of tags added to zones.
      *
-     * @return DescribeTagsResponse DescribeTagsResponse
+     * @remarks
+     * #### **Precautions**
+     * You can call this API operation to query the information about tags added only to zones.
+     *
+     * @param request - DescribeTagsRequest
+     *
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     *
+     * @return DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -1852,44 +2262,54 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
-     *  *
-     * @param DescribeUserServiceStatusRequest $request DescribeUserServiceStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
      *
-     * @return DescribeUserServiceStatusResponse DescribeUserServiceStatusResponse
+     * @param request - DescribeUserServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserServiceStatusResponse
+     *
+     * @param DescribeUserServiceStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUserServiceStatusResponse
      */
     public function describeUserServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserServiceStatus',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserServiceStatus',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
-     *  *
-     * @param DescribeUserServiceStatusRequest $request DescribeUserServiceStatusRequest
+     * Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
      *
-     * @return DescribeUserServiceStatusResponse DescribeUserServiceStatusResponse
+     * @param request - DescribeUserServiceStatusRequest
+     *
+     * @returns DescribeUserServiceStatusResponse
+     *
+     * @param DescribeUserServiceStatusRequest $request
+     *
+     * @return DescribeUserServiceStatusResponse
      */
     public function describeUserServiceStatus($request)
     {
@@ -1899,53 +2319,66 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
-     *  *
-     * @param DescribeUserVpcAuthorizationsRequest $request DescribeUserVpcAuthorizationsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
      *
-     * @return DescribeUserVpcAuthorizationsResponse DescribeUserVpcAuthorizationsResponse
+     * @param request - DescribeUserVpcAuthorizationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserVpcAuthorizationsResponse
+     *
+     * @param DescribeUserVpcAuthorizationsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeUserVpcAuthorizationsResponse
      */
     public function describeUserVpcAuthorizationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authType)) {
-            $query['AuthType'] = $request->authType;
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
         }
-        if (!Utils::isUnset($request->authorizedUserId)) {
-            $query['AuthorizedUserId'] = $request->authorizedUserId;
+
+        if (null !== $request->authorizedUserId) {
+            @$query['AuthorizedUserId'] = $request->authorizedUserId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserVpcAuthorizations',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserVpcAuthorizations',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserVpcAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
-     *  *
-     * @param DescribeUserVpcAuthorizationsRequest $request DescribeUserVpcAuthorizationsRequest
+     * Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
      *
-     * @return DescribeUserVpcAuthorizationsResponse DescribeUserVpcAuthorizationsResponse
+     * @param request - DescribeUserVpcAuthorizationsRequest
+     *
+     * @returns DescribeUserVpcAuthorizationsResponse
+     *
+     * @param DescribeUserVpcAuthorizationsRequest $request
+     *
+     * @return DescribeUserVpcAuthorizationsResponse
      */
     public function describeUserVpcAuthorizations($request)
     {
@@ -1955,47 +2388,58 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
-     *  *
-     * @param DescribeZoneInfoRequest $request DescribeZoneInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
      *
-     * @return DescribeZoneInfoResponse DescribeZoneInfoResponse
+     * @param request - DescribeZoneInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZoneInfoResponse
+     *
+     * @param DescribeZoneInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeZoneInfoResponse
      */
     public function describeZoneInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZoneInfo',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZoneInfo',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeZoneInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
-     *  *
-     * @param DescribeZoneInfoRequest $request DescribeZoneInfoRequest
+     * Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
      *
-     * @return DescribeZoneInfoResponse DescribeZoneInfoResponse
+     * @param request - DescribeZoneInfoRequest
+     *
+     * @returns DescribeZoneInfoResponse
+     *
+     * @param DescribeZoneInfoRequest $request
+     *
+     * @return DescribeZoneInfoResponse
      */
     public function describeZoneInfo($request)
     {
@@ -2005,44 +2449,54 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a Domain Name System (DNS) record.
-     *  *
-     * @param DescribeZoneRecordRequest $request DescribeZoneRecordRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a Domain Name System (DNS) record.
      *
-     * @return DescribeZoneRecordResponse DescribeZoneRecordResponse
+     * @param request - DescribeZoneRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZoneRecordResponse
+     *
+     * @param DescribeZoneRecordRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeZoneRecordResponse
      */
     public function describeZoneRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZoneRecord',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZoneRecord',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeZoneRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a Domain Name System (DNS) record.
-     *  *
-     * @param DescribeZoneRecordRequest $request DescribeZoneRecordRequest
+     * Queries the information about a Domain Name System (DNS) record.
      *
-     * @return DescribeZoneRecordResponse DescribeZoneRecordResponse
+     * @param request - DescribeZoneRecordRequest
+     *
+     * @returns DescribeZoneRecordResponse
+     *
+     * @param DescribeZoneRecordRequest $request
+     *
+     * @return DescribeZoneRecordResponse
      */
     public function describeZoneRecord($request)
     {
@@ -2052,65 +2506,82 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Domain Name System (DNS) records.
-     *  *
-     * @param DescribeZoneRecordsRequest $request DescribeZoneRecordsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of Domain Name System (DNS) records.
      *
-     * @return DescribeZoneRecordsResponse DescribeZoneRecordsResponse
+     * @param request - DescribeZoneRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZoneRecordsResponse
+     *
+     * @param DescribeZoneRecordsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeZoneRecordsResponse
      */
     public function describeZoneRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchMode)) {
-            $query['SearchMode'] = $request->searchMode;
+
+        if (null !== $request->searchMode) {
+            @$query['SearchMode'] = $request->searchMode;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZoneRecords',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZoneRecords',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeZoneRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of Domain Name System (DNS) records.
-     *  *
-     * @param DescribeZoneRecordsRequest $request DescribeZoneRecordsRequest
+     * Queries a list of Domain Name System (DNS) records.
      *
-     * @return DescribeZoneRecordsResponse DescribeZoneRecordsResponse
+     * @param request - DescribeZoneRecordsRequest
+     *
+     * @returns DescribeZoneRecordsResponse
+     *
+     * @param DescribeZoneRecordsRequest $request
+     *
+     * @return DescribeZoneRecordsResponse
      */
     public function describeZoneRecords($request)
     {
@@ -2120,51 +2591,64 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
-     *  *
-     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
-     *  *
-     * @param DescribeZoneVpcTreeRequest $request DescribeZoneVpcTreeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
      *
-     * @return DescribeZoneVpcTreeResponse DescribeZoneVpcTreeResponse
+     * @remarks
+     * We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
+     *
+     * @param request - DescribeZoneVpcTreeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZoneVpcTreeResponse
+     *
+     * @param DescribeZoneVpcTreeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeZoneVpcTreeResponse
      */
     public function describeZoneVpcTreeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZoneVpcTree',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZoneVpcTree',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeZoneVpcTreeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
-     *  *
-     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
-     *  *
-     * @param DescribeZoneVpcTreeRequest $request DescribeZoneVpcTreeRequest
+     * Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
      *
-     * @return DescribeZoneVpcTreeResponse DescribeZoneVpcTreeResponse
+     * @remarks
+     * We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
+     *
+     * @param request - DescribeZoneVpcTreeRequest
+     *
+     * @returns DescribeZoneVpcTreeResponse
+     *
+     * @param DescribeZoneVpcTreeRequest $request
+     *
+     * @return DescribeZoneVpcTreeResponse
      */
     public function describeZoneVpcTree($request)
     {
@@ -2174,74 +2658,94 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of zones within the current account.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of zones within the current account.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryRegionId)) {
-            $query['QueryRegionId'] = $request->queryRegionId;
+
+        if (null !== $request->queryRegionId) {
+            @$query['QueryRegionId'] = $request->queryRegionId;
         }
-        if (!Utils::isUnset($request->queryVpcId)) {
-            $query['QueryVpcId'] = $request->queryVpcId;
+
+        if (null !== $request->queryVpcId) {
+            @$query['QueryVpcId'] = $request->queryVpcId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceTag)) {
-            $query['ResourceTag'] = $request->resourceTag;
+
+        if (null !== $request->resourceTag) {
+            @$query['ResourceTag'] = $request->resourceTag;
         }
-        if (!Utils::isUnset($request->searchMode)) {
-            $query['SearchMode'] = $request->searchMode;
+
+        if (null !== $request->searchMode) {
+            @$query['SearchMode'] = $request->searchMode;
         }
-        if (!Utils::isUnset($request->zoneTag)) {
-            $query['ZoneTag'] = $request->zoneTag;
+
+        if (null !== $request->zoneTag) {
+            @$query['ZoneTag'] = $request->zoneTag;
         }
-        if (!Utils::isUnset($request->zoneType)) {
-            $query['ZoneType'] = $request->zoneType;
+
+        if (null !== $request->zoneType) {
+            @$query['ZoneType'] = $request->zoneType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZones',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZones',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of zones within the current account.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * Queries a list of zones within the current account.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     *
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -2251,65 +2755,82 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tags added to zones.
-     *  *
-     * @description #### [](#)**Precautions**
-     * You can call this API operation to query tags added only to zones.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries a list of tags added to zones.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @remarks
+     * #### [](#)**Precautions**
+     * You can call this API operation to query tags added only to zones.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of tags added to zones.
-     *  *
-     * @description #### [](#)**Precautions**
-     * You can call this API operation to query tags added only to zones.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries a list of tags added to zones.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @remarks
+     * #### [](#)**Precautions**
+     * You can call this API operation to query tags added only to zones.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2319,59 +2840,74 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Changes a resource group.
-     *  *
-     * @description #### [](#)Precautions
-     * You can call this API operation to change a resource group only for a zone.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Changes a resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @remarks
+     * #### [](#)Precautions
+     * You can call this API operation to change a resource group only for a zone.
+     *
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes a resource group.
-     *  *
-     * @description #### [](#)Precautions
-     * You can call this API operation to change a resource group only for a zone.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Changes a resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @remarks
+     * #### [](#)Precautions
+     * You can call this API operation to change a resource group only for a zone.
+     *
+     * @param request - MoveResourceGroupRequest
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -2381,71 +2917,90 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom lines.
-     *  *
-     * @param SearchCustomLinesRequest $request SearchCustomLinesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of custom lines.
      *
-     * @return SearchCustomLinesResponse SearchCustomLinesResponse
+     * @param request - SearchCustomLinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchCustomLinesResponse
+     *
+     * @param SearchCustomLinesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SearchCustomLinesResponse
      */
     public function searchCustomLinesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimestampEnd)) {
-            $query['CreateTimestampEnd'] = $request->createTimestampEnd;
+        if (null !== $request->createTimestampEnd) {
+            @$query['CreateTimestampEnd'] = $request->createTimestampEnd;
         }
-        if (!Utils::isUnset($request->createTimestampStart)) {
-            $query['CreateTimestampStart'] = $request->createTimestampStart;
+
+        if (null !== $request->createTimestampStart) {
+            @$query['CreateTimestampStart'] = $request->createTimestampStart;
         }
-        if (!Utils::isUnset($request->creator)) {
-            $query['Creator'] = $request->creator;
+
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->ipv4)) {
-            $query['Ipv4'] = $request->ipv4;
+
+        if (null !== $request->ipv4) {
+            @$query['Ipv4'] = $request->ipv4;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->updateTimestampEnd)) {
-            $query['UpdateTimestampEnd'] = $request->updateTimestampEnd;
+
+        if (null !== $request->updateTimestampEnd) {
+            @$query['UpdateTimestampEnd'] = $request->updateTimestampEnd;
         }
-        if (!Utils::isUnset($request->updateTimestampStart)) {
-            $query['UpdateTimestampStart'] = $request->updateTimestampStart;
+
+        if (null !== $request->updateTimestampStart) {
+            @$query['UpdateTimestampStart'] = $request->updateTimestampStart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchCustomLines',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchCustomLines',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of custom lines.
-     *  *
-     * @param SearchCustomLinesRequest $request SearchCustomLinesRequest
+     * Queries a list of custom lines.
      *
-     * @return SearchCustomLinesResponse SearchCustomLinesResponse
+     * @param request - SearchCustomLinesRequest
+     *
+     * @returns SearchCustomLinesResponse
+     *
+     * @param SearchCustomLinesRequest $request
+     *
+     * @return SearchCustomLinesResponse
      */
     public function searchCustomLines($request)
     {
@@ -2455,56 +3010,70 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Enables the recursive resolution proxy for subdomain names.
-     *  *
-     * @param SetProxyPatternRequest $request SetProxyPatternRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Enables the recursive resolution proxy for subdomain names.
      *
-     * @return SetProxyPatternResponse SetProxyPatternResponse
+     * @param request - SetProxyPatternRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetProxyPatternResponse
+     *
+     * @param SetProxyPatternRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetProxyPatternResponse
      */
     public function setProxyPatternWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->proxyPattern)) {
-            $query['ProxyPattern'] = $request->proxyPattern;
+
+        if (null !== $request->proxyPattern) {
+            @$query['ProxyPattern'] = $request->proxyPattern;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetProxyPattern',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetProxyPattern',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetProxyPatternResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the recursive resolution proxy for subdomain names.
-     *  *
-     * @param SetProxyPatternRequest $request SetProxyPatternRequest
+     * Enables the recursive resolution proxy for subdomain names.
      *
-     * @return SetProxyPatternResponse SetProxyPatternResponse
+     * @param request - SetProxyPatternRequest
+     *
+     * @returns SetProxyPatternResponse
+     *
+     * @param SetProxyPatternRequest $request
+     *
+     * @return SetProxyPatternResponse
      */
     public function setProxyPattern($request)
     {
@@ -2514,56 +3083,70 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables a Domain Name System (DNS) record.
-     *  *
-     * @param SetZoneRecordStatusRequest $request SetZoneRecordStatusRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Enables or disables a Domain Name System (DNS) record.
      *
-     * @return SetZoneRecordStatusResponse SetZoneRecordStatusResponse
+     * @param request - SetZoneRecordStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetZoneRecordStatusResponse
+     *
+     * @param SetZoneRecordStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetZoneRecordStatusResponse
      */
     public function setZoneRecordStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetZoneRecordStatus',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetZoneRecordStatus',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetZoneRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables a Domain Name System (DNS) record.
-     *  *
-     * @param SetZoneRecordStatusRequest $request SetZoneRecordStatusRequest
+     * Enables or disables a Domain Name System (DNS) record.
      *
-     * @return SetZoneRecordStatusResponse SetZoneRecordStatusResponse
+     * @param request - SetZoneRecordStatusRequest
+     *
+     * @returns SetZoneRecordStatusResponse
+     *
+     * @param SetZoneRecordStatusRequest $request
+     *
+     * @return SetZoneRecordStatusResponse
      */
     public function setZoneRecordStatus($request)
     {
@@ -2573,62 +3156,78 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds or modifies tags for zones.
-     *  *
-     * @description ##### [](#)Precautions
-     * You can configure tags only for zones.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds or modifies tags for zones.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * ##### [](#)Precautions
+     * You can configure tags only for zones.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->overWrite)) {
-            $query['OverWrite'] = $request->overWrite;
+
+        if (null !== $request->overWrite) {
+            @$query['OverWrite'] = $request->overWrite;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds or modifies tags for zones.
-     *  *
-     * @description ##### [](#)Precautions
-     * You can configure tags only for zones.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds or modifies tags for zones.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * ##### [](#)Precautions
+     * You can configure tags only for zones.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2638,62 +3237,78 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Removes the tags of multiple zones at a time.
-     *  *
-     * @description #### [](#)**Precautions**
-     * You can call this API operation to remove tags added only to zones.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes the tags of multiple zones at a time.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     * #### [](#)**Precautions**
+     * You can call this API operation to remove tags added only to zones.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes the tags of multiple zones at a time.
-     *  *
-     * @description #### [](#)**Precautions**
-     * You can call this API operation to remove tags added only to zones.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes the tags of multiple zones at a time.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     * #### [](#)**Precautions**
+     * You can call this API operation to remove tags added only to zones.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2703,53 +3318,66 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a custom line.
-     *  *
-     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies a custom line.
      *
-     * @return UpdateCustomLineResponse UpdateCustomLineResponse
+     * @param request - UpdateCustomLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomLineResponse
+     *
+     * @param UpdateCustomLineRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCustomLineResponse
      */
     public function updateCustomLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipv4s)) {
-            $query['Ipv4s'] = $request->ipv4s;
+        if (null !== $request->ipv4s) {
+            @$query['Ipv4s'] = $request->ipv4s;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->lineId)) {
-            $query['LineId'] = $request->lineId;
+
+        if (null !== $request->lineId) {
+            @$query['LineId'] = $request->lineId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCustomLine',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCustomLine',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a custom line.
-     *  *
-     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
+     * Modifies a custom line.
      *
-     * @return UpdateCustomLineResponse UpdateCustomLineResponse
+     * @param request - UpdateCustomLineRequest
+     *
+     * @returns UpdateCustomLineResponse
+     *
+     * @param UpdateCustomLineRequest $request
+     *
+     * @return UpdateCustomLineResponse
      */
     public function updateCustomLine($request)
     {
@@ -2759,53 +3387,66 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a Domain Name System (DNS) record based on the record ID.
-     *  *
-     * @param UpdateRecordRemarkRequest $request UpdateRecordRemarkRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of a Domain Name System (DNS) record based on the record ID.
      *
-     * @return UpdateRecordRemarkResponse UpdateRecordRemarkResponse
+     * @param request - UpdateRecordRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRecordRemarkResponse
+     *
+     * @param UpdateRecordRemarkRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateRecordRemarkResponse
      */
     public function updateRecordRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRecordRemark',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRecordRemark',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateRecordRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of a Domain Name System (DNS) record based on the record ID.
-     *  *
-     * @param UpdateRecordRemarkRequest $request UpdateRecordRemarkRequest
+     * Modifies the description of a Domain Name System (DNS) record based on the record ID.
      *
-     * @return UpdateRecordRemarkResponse UpdateRecordRemarkResponse
+     * @param request - UpdateRecordRemarkRequest
+     *
+     * @returns UpdateRecordRemarkResponse
+     *
+     * @param UpdateRecordRemarkRequest $request
+     *
+     * @return UpdateRecordRemarkResponse
      */
     public function updateRecordRemark($request)
     {
@@ -2815,53 +3456,66 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an endpoint.
-     *  *
-     * @param UpdateResolverEndpointRequest $request UpdateResolverEndpointRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies an endpoint.
      *
-     * @return UpdateResolverEndpointResponse UpdateResolverEndpointResponse
+     * @param request - UpdateResolverEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResolverEndpointResponse
+     *
+     * @param UpdateResolverEndpointRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateResolverEndpointResponse
      */
     public function updateResolverEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->ipConfig)) {
-            $query['IpConfig'] = $request->ipConfig;
+
+        if (null !== $request->ipConfig) {
+            @$query['IpConfig'] = $request->ipConfig;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResolverEndpoint',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateResolverEndpoint',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateResolverEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an endpoint.
-     *  *
-     * @param UpdateResolverEndpointRequest $request UpdateResolverEndpointRequest
+     * Modifies an endpoint.
      *
-     * @return UpdateResolverEndpointResponse UpdateResolverEndpointResponse
+     * @param request - UpdateResolverEndpointRequest
+     *
+     * @returns UpdateResolverEndpointResponse
+     *
+     * @param UpdateResolverEndpointRequest $request
+     *
+     * @return UpdateResolverEndpointResponse
      */
     public function updateResolverEndpoint($request)
     {
@@ -2871,56 +3525,70 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a forwarding rule.
-     *  *
-     * @param UpdateResolverRuleRequest $request UpdateResolverRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies a forwarding rule.
      *
-     * @return UpdateResolverRuleResponse UpdateResolverRuleResponse
+     * @param request - UpdateResolverRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResolverRuleResponse
+     *
+     * @param UpdateResolverRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateResolverRuleResponse
      */
     public function updateResolverRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->forwardIp)) {
-            $query['ForwardIp'] = $request->forwardIp;
+
+        if (null !== $request->forwardIp) {
+            @$query['ForwardIp'] = $request->forwardIp;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResolverRule',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateResolverRule',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateResolverRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a forwarding rule.
-     *  *
-     * @param UpdateResolverRuleRequest $request UpdateResolverRuleRequest
+     * Modifies a forwarding rule.
      *
-     * @return UpdateResolverRuleResponse UpdateResolverRuleResponse
+     * @param request - UpdateResolverRuleRequest
+     *
+     * @returns UpdateResolverRuleResponse
+     *
+     * @param UpdateResolverRuleRequest $request
+     *
+     * @return UpdateResolverRuleResponse
      */
     public function updateResolverRule($request)
     {
@@ -2930,53 +3598,66 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds or updates a hostname synchronization task.
-     *  *
-     * @param UpdateSyncEcsHostTaskRequest $request UpdateSyncEcsHostTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Adds or updates a hostname synchronization task.
      *
-     * @return UpdateSyncEcsHostTaskResponse UpdateSyncEcsHostTaskResponse
+     * @param request - UpdateSyncEcsHostTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSyncEcsHostTaskResponse
+     *
+     * @param UpdateSyncEcsHostTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateSyncEcsHostTaskResponse
      */
     public function updateSyncEcsHostTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSyncEcsHostTask',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSyncEcsHostTask',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSyncEcsHostTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds or updates a hostname synchronization task.
-     *  *
-     * @param UpdateSyncEcsHostTaskRequest $request UpdateSyncEcsHostTaskRequest
+     * Adds or updates a hostname synchronization task.
      *
-     * @return UpdateSyncEcsHostTaskResponse UpdateSyncEcsHostTaskResponse
+     * @param request - UpdateSyncEcsHostTaskRequest
+     *
+     * @returns UpdateSyncEcsHostTaskResponse
+     *
+     * @param UpdateSyncEcsHostTaskRequest $request
+     *
+     * @return UpdateSyncEcsHostTaskResponse
      */
     public function updateSyncEcsHostTask($request)
     {
@@ -2986,80 +3667,102 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
-     *  *
-     * @description #### **Precautions**
-     * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
-     *  *
-     * @param UpdateZoneRecordRequest $request UpdateZoneRecordRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
      *
-     * @return UpdateZoneRecordResponse UpdateZoneRecordResponse
+     * @remarks
+     * #### **Precautions**
+     * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
+     *
+     * @param request - UpdateZoneRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateZoneRecordResponse
+     *
+     * @param UpdateZoneRecordRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateZoneRecordResponse
      */
     public function updateZoneRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->line)) {
-            $query['Line'] = $request->line;
+
+        if (null !== $request->line) {
+            @$query['Line'] = $request->line;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
-        if (!Utils::isUnset($request->rr)) {
-            $query['Rr'] = $request->rr;
+
+        if (null !== $request->rr) {
+            @$query['Rr'] = $request->rr;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
-        if (!Utils::isUnset($request->weight)) {
-            $query['Weight'] = $request->weight;
+
+        if (null !== $request->weight) {
+            @$query['Weight'] = $request->weight;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateZoneRecord',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateZoneRecord',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateZoneRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
-     *  *
-     * @description #### **Precautions**
-     * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
-     *  *
-     * @param UpdateZoneRecordRequest $request UpdateZoneRecordRequest
+     * Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
      *
-     * @return UpdateZoneRecordResponse UpdateZoneRecordResponse
+     * @remarks
+     * #### **Precautions**
+     * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
+     *
+     * @param request - UpdateZoneRecordRequest
+     *
+     * @returns UpdateZoneRecordResponse
+     *
+     * @param UpdateZoneRecordRequest $request
+     *
+     * @return UpdateZoneRecordResponse
      */
     public function updateZoneRecord($request)
     {
@@ -3069,56 +3772,70 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a built-in authoritative zone.
-     *  *
-     * @param UpdateZoneRemarkRequest $request UpdateZoneRemarkRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of a built-in authoritative zone.
      *
-     * @return UpdateZoneRemarkResponse UpdateZoneRemarkResponse
+     * @param request - UpdateZoneRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateZoneRemarkResponse
+     *
+     * @param UpdateZoneRemarkRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateZoneRemarkResponse
      */
     public function updateZoneRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateZoneRemark',
-            'version'     => '2018-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateZoneRemark',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateZoneRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of a built-in authoritative zone.
-     *  *
-     * @param UpdateZoneRemarkRequest $request UpdateZoneRemarkRequest
+     * Modifies the description of a built-in authoritative zone.
      *
-     * @return UpdateZoneRemarkResponse UpdateZoneRemarkResponse
+     * @param request - UpdateZoneRemarkRequest
+     *
+     * @returns UpdateZoneRemarkResponse
+     *
+     * @param UpdateZoneRemarkRequest $request
+     *
+     * @return UpdateZoneRemarkResponse
      */
     public function updateZoneRemark($request)
     {

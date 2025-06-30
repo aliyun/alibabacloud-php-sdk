@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddCustomLineResponseBody extends Model
 {
     /**
-     * @description The unique ID of the custom line.
-     *
-     * @example 1065001
-     *
      * @var string
      */
     public $lineId;
 
     /**
-     * @description The name of the custom line.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The request ID.
-     *
-     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'lineId'    => 'LineId',
-        'name'      => 'Name',
+        'lineId' => 'LineId',
+        'name' => 'Name',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lineId) {
             $res['LineId'] = $this->lineId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,20 +51,22 @@ class AddCustomLineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCustomLineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LineId'])) {
             $model->lineId = $map['LineId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

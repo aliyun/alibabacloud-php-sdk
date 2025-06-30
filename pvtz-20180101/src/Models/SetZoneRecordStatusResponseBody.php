@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetZoneRecordStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the DNS record.
-     *
-     * @example 207541****
-     *
      * @var int
      */
     public $recordId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 39CB16E5-4180-49F2-A060-23C0ECEB80D9
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The state of the DNS record. Valid values:
-     *
-     *   ENABLE: The DNS record is enabled.
-     *   DISABLE: The DNS record is disabled.
-     *
-     * @example DISABLE
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'recordId'  => 'RecordId',
+        'recordId' => 'RecordId',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,20 +51,22 @@ class SetZoneRecordStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetZoneRecordStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

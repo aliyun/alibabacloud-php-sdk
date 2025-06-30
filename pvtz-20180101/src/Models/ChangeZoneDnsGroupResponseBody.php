@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeZoneDnsGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The global ID of the zone.
-     *
-     * @example e0cff188756b1d4579b25e54b66cb830
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -47,17 +41,18 @@ class ChangeZoneDnsGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeZoneDnsGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

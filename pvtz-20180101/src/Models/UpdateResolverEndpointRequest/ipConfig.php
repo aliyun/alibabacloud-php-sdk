@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateResolverEndpointRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipConfig extends Model
 {
     /**
-     * @description The ID of the zone to which the vSwitch belongs.
-     *
-     * @example cn-hangzhou-a
-     *
      * @var string
      */
     public $azId;
 
     /**
-     * @description The IPv4 CIDR block of the vSwitch.
-     *
-     * @example 172.16.XX.XX/24
-     *
      * @var string
      */
     public $cidrBlock;
 
     /**
-     * @description The source IP address of outbound traffic. The IP address must be within the specified CIDR block. If you leave this parameter empty, the system automatically allocates an IP address.
-     *
-     * @example 172.16.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The vSwitch ID.
-     *
-     * @example vsw-0jlgeyq4oazkh5xue****
-     *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'azId'      => 'AzId',
+        'azId' => 'AzId',
         'cidrBlock' => 'CidrBlock',
-        'ip'        => 'Ip',
+        'ip' => 'Ip',
         'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->azId) {
             $res['AzId'] = $this->azId;
         }
+
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -73,23 +61,26 @@ class ipConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AzId'])) {
             $model->azId = $map['AzId'];
         }
+
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

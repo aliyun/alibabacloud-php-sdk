@@ -4,90 +4,91 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeStatisticSummaryResponseBody\vpcRequestTops;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeStatisticSummaryResponseBody\zoneRequestTops;
-use AlibabaCloud\Tea\Model;
 
 class DescribeStatisticSummaryResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example A73F3BD0-B1A8-42A9-A9B6-689BBABC4891
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2254
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The top three VPCs with the largest number of DNS requests.
-     *
      * @var vpcRequestTops
      */
     public $vpcRequestTops;
 
     /**
-     * @description The top three zones with the largest number of DNS requests.
-     *
      * @var zoneRequestTops
      */
     public $zoneRequestTops;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
-        'vpcRequestTops'  => 'VpcRequestTops',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'vpcRequestTops' => 'VpcRequestTops',
         'zoneRequestTops' => 'ZoneRequestTops',
     ];
 
     public function validate()
     {
+        if (null !== $this->vpcRequestTops) {
+            $this->vpcRequestTops->validate();
+        }
+        if (null !== $this->zoneRequestTops) {
+            $this->zoneRequestTops->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->vpcRequestTops) {
-            $res['VpcRequestTops'] = null !== $this->vpcRequestTops ? $this->vpcRequestTops->toMap() : null;
+            $res['VpcRequestTops'] = null !== $this->vpcRequestTops ? $this->vpcRequestTops->toArray($noStream) : $this->vpcRequestTops;
         }
+
         if (null !== $this->zoneRequestTops) {
-            $res['ZoneRequestTops'] = null !== $this->zoneRequestTops ? $this->zoneRequestTops->toMap() : null;
+            $res['ZoneRequestTops'] = null !== $this->zoneRequestTops ? $this->zoneRequestTops->toArray($noStream) : $this->zoneRequestTops;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeStatisticSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['VpcRequestTops'])) {
             $model->vpcRequestTops = vpcRequestTops::fromMap($map['VpcRequestTops']);
         }
+
         if (isset($map['ZoneRequestTops'])) {
             $model->zoneRequestTops = zoneRequestTops::fromMap($map['ZoneRequestTops']);
         }

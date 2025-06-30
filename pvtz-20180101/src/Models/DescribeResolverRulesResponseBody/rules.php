@@ -4,183 +4,179 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody\rules\bindEdgeDnsClusters;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody\rules\bindVpcs;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody\rules\forwardIps;
-use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
-     * @description The VPCs associated with the forwarding rule.
-     *
+     * @var bindEdgeDnsClusters[]
+     */
+    public $bindEdgeDnsClusters;
+
+    /**
      * @var bindVpcs[]
      */
     public $bindVpcs;
 
     /**
-     * @description The time when the forwarding was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-     *
-     * @example 2020-07-13 10:51:44
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The time when the forwarding rule was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1594608704000
-     *
      * @var int
      */
     public $createTimestamp;
 
     /**
-     * @description The endpoint ID.
-     *
-     * @example hr****
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The endpoint name.
-     *
-     * @example endpoint-test
-     *
      * @var string
      */
     public $endpointName;
 
     /**
-     * @description The IP addresses and ports of the external DNS servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded.
-     *
      * @var forwardIps[]
      */
     public $forwardIps;
 
     /**
-     * @description The ID of the forwarding rule.
-     *
-     * @example hr****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the forwarding rule.
-     *
-     * @example forward rule-test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the forwarding rule.
-     *
-     * The parameter value can only be OUTBOUND, which indicates that Domain Name System (DNS) requests are forwarded to one or more external IP addresses.
-     * @example OUTBOUND
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The time when the forwarding rule was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-     *
-     * @example 2020-07-13 10:51:44
-     *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @description The time when the forwarding rule was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1594608704000
-     *
      * @var int
      */
     public $updateTimestamp;
 
     /**
-     * @description The zone for which you want to forward DNS requests.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $zoneName;
     protected $_name = [
-        'bindVpcs'        => 'BindVpcs',
-        'createTime'      => 'CreateTime',
+        'bindEdgeDnsClusters' => 'BindEdgeDnsClusters',
+        'bindVpcs' => 'BindVpcs',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'endpointId'      => 'EndpointId',
-        'endpointName'    => 'EndpointName',
-        'forwardIps'      => 'ForwardIps',
-        'id'              => 'Id',
-        'name'            => 'Name',
-        'type'            => 'Type',
-        'updateTime'      => 'UpdateTime',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'forwardIps' => 'ForwardIps',
+        'id' => 'Id',
+        'name' => 'Name',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
         'updateTimestamp' => 'UpdateTimestamp',
-        'zoneName'        => 'ZoneName',
+        'zoneName' => 'ZoneName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->bindEdgeDnsClusters)) {
+            Model::validateArray($this->bindEdgeDnsClusters);
+        }
+        if (\is_array($this->bindVpcs)) {
+            Model::validateArray($this->bindVpcs);
+        }
+        if (\is_array($this->forwardIps)) {
+            Model::validateArray($this->forwardIps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bindVpcs) {
-            $res['BindVpcs'] = [];
-            if (null !== $this->bindVpcs && \is_array($this->bindVpcs)) {
-                $n = 0;
-                foreach ($this->bindVpcs as $item) {
-                    $res['BindVpcs'][$n++] = null !== $item ? $item->toMap() : $item;
+        if (null !== $this->bindEdgeDnsClusters) {
+            if (\is_array($this->bindEdgeDnsClusters)) {
+                $res['BindEdgeDnsClusters'] = [];
+                $n1 = 0;
+                foreach ($this->bindEdgeDnsClusters as $item1) {
+                    $res['BindEdgeDnsClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->bindVpcs) {
+            if (\is_array($this->bindVpcs)) {
+                $res['BindVpcs'] = [];
+                $n1 = 0;
+                foreach ($this->bindVpcs as $item1) {
+                    $res['BindVpcs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
+
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->endpointName) {
             $res['EndpointName'] = $this->endpointName;
         }
+
         if (null !== $this->forwardIps) {
-            $res['ForwardIps'] = [];
-            if (null !== $this->forwardIps && \is_array($this->forwardIps)) {
-                $n = 0;
-                foreach ($this->forwardIps as $item) {
-                    $res['ForwardIps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->forwardIps)) {
+                $res['ForwardIps'] = [];
+                $n1 = 0;
+                foreach ($this->forwardIps as $item1) {
+                    $res['ForwardIps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->updateTimestamp) {
             $res['UpdateTimestamp'] = $this->updateTimestamp;
         }
+
         if (null !== $this->zoneName) {
             $res['ZoneName'] = $this->zoneName;
         }
@@ -188,59 +184,83 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindEdgeDnsClusters'])) {
+            if (!empty($map['BindEdgeDnsClusters'])) {
+                $model->bindEdgeDnsClusters = [];
+                $n1 = 0;
+                foreach ($map['BindEdgeDnsClusters'] as $item1) {
+                    $model->bindEdgeDnsClusters[$n1] = bindEdgeDnsClusters::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['BindVpcs'])) {
             if (!empty($map['BindVpcs'])) {
                 $model->bindVpcs = [];
-                $n               = 0;
-                foreach ($map['BindVpcs'] as $item) {
-                    $model->bindVpcs[$n++] = null !== $item ? bindVpcs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BindVpcs'] as $item1) {
+                    $model->bindVpcs[$n1] = bindVpcs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }
+
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['EndpointName'])) {
             $model->endpointName = $map['EndpointName'];
         }
+
         if (isset($map['ForwardIps'])) {
             if (!empty($map['ForwardIps'])) {
                 $model->forwardIps = [];
-                $n                 = 0;
-                foreach ($map['ForwardIps'] as $item) {
-                    $model->forwardIps[$n++] = null !== $item ? forwardIps::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ForwardIps'] as $item1) {
+                    $model->forwardIps[$n1] = forwardIps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['UpdateTimestamp'])) {
             $model->updateTimestamp = $map['UpdateTimestamp'];
         }
+
         if (isset($map['ZoneName'])) {
             $model->zoneName = $map['ZoneName'];
         }

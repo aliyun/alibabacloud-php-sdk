@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddResolverEndpointResponseBody extends Model
 {
     /**
-     * @description The endpoint ID.
-     *
-     * @example hra0**
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 32436208-E1AF-4DAB-B3B8-24F5F25B0950
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'endpointId' => 'EndpointId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class AddResolverEndpointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddResolverEndpointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
