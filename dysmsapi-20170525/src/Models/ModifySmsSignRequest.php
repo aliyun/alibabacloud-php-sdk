@@ -91,7 +91,8 @@ class ModifySmsSignRequest extends Model
                 $res['SignFileList'] = [];
                 $n1 = 0;
                 foreach ($this->signFileList as $item1) {
-                    $res['SignFileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SignFileList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class ModifySmsSignRequest extends Model
                 $model->signFileList = [];
                 $n1 = 0;
                 foreach ($map['SignFileList'] as $item1) {
-                    $model->signFileList[$n1++] = signFileList::fromMap($item1);
+                    $model->signFileList[$n1] = signFileList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

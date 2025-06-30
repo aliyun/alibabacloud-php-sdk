@@ -221,7 +221,8 @@ class SubmitSmsQualificationRequest extends Model
                 $res['BusinessLicensePics'] = [];
                 $n1 = 0;
                 foreach ($this->businessLicensePics as $item1) {
-                    $res['BusinessLicensePics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BusinessLicensePics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -275,7 +276,8 @@ class SubmitSmsQualificationRequest extends Model
                 $res['OtherFiles'] = [];
                 $n1 = 0;
                 foreach ($this->otherFiles as $item1) {
-                    $res['OtherFiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OtherFiles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -352,7 +354,8 @@ class SubmitSmsQualificationRequest extends Model
                 $model->businessLicensePics = [];
                 $n1 = 0;
                 foreach ($map['BusinessLicensePics'] as $item1) {
-                    $model->businessLicensePics[$n1++] = businessLicensePics::fromMap($item1);
+                    $model->businessLicensePics[$n1] = businessLicensePics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -406,7 +409,8 @@ class SubmitSmsQualificationRequest extends Model
                 $model->otherFiles = [];
                 $n1 = 0;
                 foreach ($map['OtherFiles'] as $item1) {
-                    $model->otherFiles[$n1++] = otherFiles::fromMap($item1);
+                    $model->otherFiles[$n1] = otherFiles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

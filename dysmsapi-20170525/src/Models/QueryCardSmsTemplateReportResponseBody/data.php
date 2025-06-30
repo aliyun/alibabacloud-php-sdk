@@ -33,11 +33,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->model as $item1) {
                     if (\is_array($item1)) {
-                        $res['model'][$n1++] = [];
+                        $res['model'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['model'][$n1++][$key2] = $value2;
+                            $res['model'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -59,11 +60,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['model'] as $item1) {
                     if (!empty($item1)) {
-                        $model->model[$n1++] = [];
+                        $model->model[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->model[$n1++][$key2] = $value2;
+                            $model->model[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

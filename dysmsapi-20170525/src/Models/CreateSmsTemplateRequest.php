@@ -106,7 +106,8 @@ class CreateSmsTemplateRequest extends Model
                 $res['MoreData'] = [];
                 $n1 = 0;
                 foreach ($this->moreData as $item1) {
-                    $res['MoreData'][$n1++] = $item1;
+                    $res['MoreData'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +172,8 @@ class CreateSmsTemplateRequest extends Model
                 $model->moreData = [];
                 $n1 = 0;
                 foreach ($map['MoreData'] as $item1) {
-                    $model->moreData[$n1++] = $item1;
+                    $model->moreData[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

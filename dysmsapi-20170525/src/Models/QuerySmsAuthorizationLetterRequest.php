@@ -74,7 +74,8 @@ class QuerySmsAuthorizationLetterRequest extends Model
                 $res['AuthorizationLetterIdList'] = [];
                 $n1 = 0;
                 foreach ($this->authorizationLetterIdList as $item1) {
-                    $res['AuthorizationLetterIdList'][$n1++] = $item1;
+                    $res['AuthorizationLetterIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class QuerySmsAuthorizationLetterRequest extends Model
                 $model->authorizationLetterIdList = [];
                 $n1 = 0;
                 foreach ($map['AuthorizationLetterIdList'] as $item1) {
-                    $model->authorizationLetterIdList[$n1++] = $item1;
+                    $model->authorizationLetterIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -89,7 +89,8 @@ class QuerySmsTemplateListResponseBody extends Model
                 $res['SmsTemplateList'] = [];
                 $n1 = 0;
                 foreach ($this->smsTemplateList as $item1) {
-                    $res['SmsTemplateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SmsTemplateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class QuerySmsTemplateListResponseBody extends Model
                 $model->smsTemplateList = [];
                 $n1 = 0;
                 foreach ($map['SmsTemplateList'] as $item1) {
-                    $model->smsTemplateList[$n1++] = smsTemplateList::fromMap($item1);
+                    $model->smsTemplateList[$n1] = smsTemplateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

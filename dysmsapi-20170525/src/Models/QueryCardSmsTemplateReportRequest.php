@@ -52,7 +52,8 @@ class QueryCardSmsTemplateReportRequest extends Model
                 $res['TemplateCodes'] = [];
                 $n1 = 0;
                 foreach ($this->templateCodes as $item1) {
-                    $res['TemplateCodes'][$n1++] = $item1;
+                    $res['TemplateCodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class QueryCardSmsTemplateReportRequest extends Model
                 $model->templateCodes = [];
                 $n1 = 0;
                 foreach ($map['TemplateCodes'] as $item1) {
-                    $model->templateCodes[$n1++] = $item1;
+                    $model->templateCodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

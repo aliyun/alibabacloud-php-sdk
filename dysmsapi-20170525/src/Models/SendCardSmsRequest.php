@@ -99,7 +99,8 @@ class SendCardSmsRequest extends Model
                 $res['CardObjects'] = [];
                 $n1 = 0;
                 foreach ($this->cardObjects as $item1) {
-                    $res['CardObjects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CardObjects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +165,8 @@ class SendCardSmsRequest extends Model
                 $model->cardObjects = [];
                 $n1 = 0;
                 foreach ($map['CardObjects'] as $item1) {
-                    $model->cardObjects[$n1++] = cardObjects::fromMap($item1);
+                    $model->cardObjects[$n1] = cardObjects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

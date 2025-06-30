@@ -32,7 +32,8 @@ class moreDataFileUrlList extends Model
                 $res['MoreDataFileUrl'] = [];
                 $n1 = 0;
                 foreach ($this->moreDataFileUrl as $item1) {
-                    $res['MoreDataFileUrl'][$n1++] = $item1;
+                    $res['MoreDataFileUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class moreDataFileUrlList extends Model
                 $model->moreDataFileUrl = [];
                 $n1 = 0;
                 foreach ($map['MoreDataFileUrl'] as $item1) {
-                    $model->moreDataFileUrl[$n1++] = $item1;
+                    $model->moreDataFileUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -122,7 +122,8 @@ class CreateSmsAuthorizationLetterRequest extends Model
                 $res['SignList'] = [];
                 $n1 = 0;
                 foreach ($this->signList as $item1) {
-                    $res['SignList'][$n1++] = $item1;
+                    $res['SignList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +180,8 @@ class CreateSmsAuthorizationLetterRequest extends Model
                 $model->signList = [];
                 $n1 = 0;
                 foreach ($map['SignList'] as $item1) {
-                    $model->signList[$n1++] = $item1;
+                    $model->signList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

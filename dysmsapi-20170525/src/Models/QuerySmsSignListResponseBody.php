@@ -89,7 +89,8 @@ class QuerySmsSignListResponseBody extends Model
                 $res['SmsSignList'] = [];
                 $n1 = 0;
                 foreach ($this->smsSignList as $item1) {
-                    $res['SmsSignList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SmsSignList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class QuerySmsSignListResponseBody extends Model
                 $model->smsSignList = [];
                 $n1 = 0;
                 foreach ($map['SmsSignList'] as $item1) {
-                    $model->smsSignList[$n1++] = smsSignList::fromMap($item1);
+                    $model->smsSignList[$n1] = smsSignList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

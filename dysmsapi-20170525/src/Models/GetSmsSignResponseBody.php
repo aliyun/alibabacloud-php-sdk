@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignResponseBody\auditInfo;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignResponseBody\signIspRegisterDetailList;
 
 class GetSmsSignResponseBody extends Model
 {
@@ -80,6 +81,11 @@ class GetSmsSignResponseBody extends Model
     public $signCode;
 
     /**
+     * @var signIspRegisterDetailList[]
+     */
+    public $signIspRegisterDetailList;
+
+    /**
      * @var string
      */
     public $signName;
@@ -118,6 +124,7 @@ class GetSmsSignResponseBody extends Model
         'remark' => 'Remark',
         'requestId' => 'RequestId',
         'signCode' => 'SignCode',
+        'signIspRegisterDetailList' => 'SignIspRegisterDetailList',
         'signName' => 'SignName',
         'signStatus' => 'SignStatus',
         'signTag' => 'SignTag',
@@ -132,6 +139,9 @@ class GetSmsSignResponseBody extends Model
         }
         if (\is_array($this->fileUrlList)) {
             Model::validateArray($this->fileUrlList);
+        }
+        if (\is_array($this->signIspRegisterDetailList)) {
+            Model::validateArray($this->signIspRegisterDetailList);
         }
         parent::validate();
     }
@@ -168,7 +178,8 @@ class GetSmsSignResponseBody extends Model
                 $res['FileUrlList'] = [];
                 $n1 = 0;
                 foreach ($this->fileUrlList as $item1) {
-                    $res['FileUrlList'][$n1++] = $item1;
+                    $res['FileUrlList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,6 +210,17 @@ class GetSmsSignResponseBody extends Model
 
         if (null !== $this->signCode) {
             $res['SignCode'] = $this->signCode;
+        }
+
+        if (null !== $this->signIspRegisterDetailList) {
+            if (\is_array($this->signIspRegisterDetailList)) {
+                $res['SignIspRegisterDetailList'] = [];
+                $n1 = 0;
+                foreach ($this->signIspRegisterDetailList as $item1) {
+                    $res['SignIspRegisterDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->signName) {
@@ -261,7 +283,8 @@ class GetSmsSignResponseBody extends Model
                 $model->fileUrlList = [];
                 $n1 = 0;
                 foreach ($map['FileUrlList'] as $item1) {
-                    $model->fileUrlList[$n1++] = $item1;
+                    $model->fileUrlList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,6 +315,17 @@ class GetSmsSignResponseBody extends Model
 
         if (isset($map['SignCode'])) {
             $model->signCode = $map['SignCode'];
+        }
+
+        if (isset($map['SignIspRegisterDetailList'])) {
+            if (!empty($map['SignIspRegisterDetailList'])) {
+                $model->signIspRegisterDetailList = [];
+                $n1 = 0;
+                foreach ($map['SignIspRegisterDetailList'] as $item1) {
+                    $model->signIspRegisterDetailList[$n1] = signIspRegisterDetailList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SignName'])) {

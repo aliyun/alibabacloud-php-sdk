@@ -33,7 +33,8 @@ class smsSendDetailDTOs extends Model
                 $res['SmsSendDetailDTO'] = [];
                 $n1 = 0;
                 foreach ($this->smsSendDetailDTO as $item1) {
-                    $res['SmsSendDetailDTO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SmsSendDetailDTO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class smsSendDetailDTOs extends Model
                 $model->smsSendDetailDTO = [];
                 $n1 = 0;
                 foreach ($map['SmsSendDetailDTO'] as $item1) {
-                    $model->smsSendDetailDTO[$n1++] = smsSendDetailDTO::fromMap($item1);
+                    $model->smsSendDetailDTO[$n1] = smsSendDetailDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
