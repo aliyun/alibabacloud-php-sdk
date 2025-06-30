@@ -41,7 +41,8 @@ class seriesInstance1 extends Model
                 $res['columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['columns'][$n1++] = $item1;
+                    $res['columns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,12 +53,14 @@ class seriesInstance1 extends Model
                 $n1 = 0;
                 foreach ($this->values as $item1) {
                     if (\is_array($item1)) {
-                        $res['values'][$n1++] = [];
+                        $res['values'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['values'][$n1++][$n2++] = $item2;
+                            $res['values'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +81,8 @@ class seriesInstance1 extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['columns'] as $item1) {
-                    $model->columns[$n1++] = $item1;
+                    $model->columns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,12 +93,14 @@ class seriesInstance1 extends Model
                 $n1 = 0;
                 foreach ($map['values'] as $item1) {
                     if (!empty($item1)) {
-                        $model->values[$n1++] = [];
+                        $model->values[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->values[$n1++][$n2++] = $item2;
+                            $model->values[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

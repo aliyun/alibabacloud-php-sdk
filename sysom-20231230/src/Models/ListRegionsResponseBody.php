@@ -58,7 +58,8 @@ class ListRegionsResponseBody extends Model
                 $res['data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['data'][$n1++] = $item1;
+                    $res['data'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListRegionsResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = $item1;
+                    $model->data[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

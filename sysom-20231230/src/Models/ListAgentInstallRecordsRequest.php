@@ -36,6 +36,11 @@ class ListAgentInstallRecordsRequest extends Model
     /**
      * @var string
      */
+    public $region;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'current' => 'current',
@@ -43,6 +48,7 @@ class ListAgentInstallRecordsRequest extends Model
         'pageSize' => 'pageSize',
         'pluginId' => 'plugin_id',
         'pluginVersion' => 'plugin_version',
+        'region' => 'region',
         'status' => 'status',
     ];
 
@@ -72,6 +78,10 @@ class ListAgentInstallRecordsRequest extends Model
 
         if (null !== $this->pluginVersion) {
             $res['plugin_version'] = $this->pluginVersion;
+        }
+
+        if (null !== $this->region) {
+            $res['region'] = $this->region;
         }
 
         if (null !== $this->status) {
@@ -107,6 +117,10 @@ class ListAgentInstallRecordsRequest extends Model
 
         if (isset($map['plugin_version'])) {
             $model->pluginVersion = $map['plugin_version'];
+        }
+
+        if (isset($map['region'])) {
+            $model->region = $map['region'];
         }
 
         if (isset($map['status'])) {

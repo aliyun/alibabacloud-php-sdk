@@ -11,6 +11,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentConfigId;
+
+    /**
+     * @var string
+     */
+    public $agentConfigName;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -38,6 +48,8 @@ class data extends Model
      */
     public $updatedAt;
     protected $_name = [
+        'agentConfigId' => 'agent_config_id',
+        'agentConfigName' => 'agent_config_name',
         'clusterId' => 'cluster_id',
         'createdAt' => 'created_at',
         'grayscaleConfig' => 'grayscale_config',
@@ -54,6 +66,14 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfigId) {
+            $res['agent_config_id'] = $this->agentConfigId;
+        }
+
+        if (null !== $this->agentConfigName) {
+            $res['agent_config_name'] = $this->agentConfigName;
+        }
+
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
@@ -89,6 +109,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agent_config_id'])) {
+            $model->agentConfigId = $map['agent_config_id'];
+        }
+
+        if (isset($map['agent_config_name'])) {
+            $model->agentConfigName = $map['agent_config_name'];
+        }
+
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }

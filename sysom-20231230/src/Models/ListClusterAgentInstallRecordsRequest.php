@@ -11,6 +11,11 @@ class ListClusterAgentInstallRecordsRequest extends Model
     /**
      * @var string
      */
+    public $agentConfigId;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -33,6 +38,7 @@ class ListClusterAgentInstallRecordsRequest extends Model
      */
     public $pluginVersion;
     protected $_name = [
+        'agentConfigId' => 'agent_config_id',
         'clusterId' => 'cluster_id',
         'current' => 'current',
         'pageSize' => 'pageSize',
@@ -48,6 +54,10 @@ class ListClusterAgentInstallRecordsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfigId) {
+            $res['agent_config_id'] = $this->agentConfigId;
+        }
+
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
@@ -79,6 +89,10 @@ class ListClusterAgentInstallRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agent_config_id'])) {
+            $model->agentConfigId = $map['agent_config_id'];
+        }
+
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }

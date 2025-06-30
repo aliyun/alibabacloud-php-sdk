@@ -2005,6 +2005,10 @@ class SysOM extends OpenApiClient
             @$body['cluster_id'] = $request->clusterId;
         }
 
+        if (null !== $request->configId) {
+            @$body['config_id'] = $request->configId;
+        }
+
         if (null !== $request->grayscaleConfig) {
             @$body['grayscale_config'] = $request->grayscaleConfig;
         }
@@ -2313,6 +2317,10 @@ class SysOM extends OpenApiClient
             @$query['plugin_version'] = $request->pluginVersion;
         }
 
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
         if (null !== $request->status) {
             @$query['status'] = $request->status;
         }
@@ -2447,6 +2455,10 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentConfigId) {
+            @$query['agent_config_id'] = $request->agentConfigId;
+        }
+
         if (null !== $request->clusterId) {
             @$query['cluster_id'] = $request->clusterId;
         }
