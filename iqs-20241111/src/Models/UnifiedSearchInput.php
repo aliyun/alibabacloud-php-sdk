@@ -26,6 +26,11 @@ class UnifiedSearchInput extends Model
     /**
      * @var string
      */
+    public $location;
+
+    /**
+     * @var string
+     */
     public $query;
 
     /**
@@ -36,6 +41,7 @@ class UnifiedSearchInput extends Model
         'category' => 'category',
         'contents' => 'contents',
         'engineType' => 'engineType',
+        'location' => 'location',
         'query' => 'query',
         'timeRange' => 'timeRange',
     ];
@@ -61,6 +67,10 @@ class UnifiedSearchInput extends Model
 
         if (null !== $this->engineType) {
             $res['engineType'] = $this->engineType;
+        }
+
+        if (null !== $this->location) {
+            $res['location'] = $this->location;
         }
 
         if (null !== $this->query) {
@@ -92,6 +102,10 @@ class UnifiedSearchInput extends Model
 
         if (isset($map['engineType'])) {
             $model->engineType = $map['engineType'];
+        }
+
+        if (isset($map['location'])) {
+            $model->location = $map['location'];
         }
 
         if (isset($map['query'])) {

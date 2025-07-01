@@ -161,7 +161,8 @@ class ScorePageItem extends Model
                 $res['images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +256,8 @@ class ScorePageItem extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['images'] as $item1) {
-                    $model->images[$n1++] = IncludeImage::fromMap($item1);
+                    $model->images[$n1] = IncludeImage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

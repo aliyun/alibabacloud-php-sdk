@@ -80,7 +80,8 @@ class WeiboItem extends Model
                 $res['images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['images'][$n1++] = $item1;
+                    $res['images'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class WeiboItem extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['images'] as $item1) {
-                    $model->images[$n1++] = $item1;
+                    $model->images[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

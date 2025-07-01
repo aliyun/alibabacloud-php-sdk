@@ -78,7 +78,8 @@ class UnifiedSearchOutput extends Model
                 $res['pageItems'] = [];
                 $n1 = 0;
                 foreach ($this->pageItems as $item1) {
-                    $res['pageItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['pageItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class UnifiedSearchOutput extends Model
                 $res['sceneItems'] = [];
                 $n1 = 0;
                 foreach ($this->sceneItems as $item1) {
-                    $res['sceneItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sceneItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +127,8 @@ class UnifiedSearchOutput extends Model
                 $model->pageItems = [];
                 $n1 = 0;
                 foreach ($map['pageItems'] as $item1) {
-                    $model->pageItems[$n1++] = UnifiedPageItem::fromMap($item1);
+                    $model->pageItems[$n1] = UnifiedPageItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +146,8 @@ class UnifiedSearchOutput extends Model
                 $model->sceneItems = [];
                 $n1 = 0;
                 foreach ($map['sceneItems'] as $item1) {
-                    $model->sceneItems[$n1++] = UnifiedSceneItem::fromMap($item1);
+                    $model->sceneItems[$n1] = UnifiedSceneItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
