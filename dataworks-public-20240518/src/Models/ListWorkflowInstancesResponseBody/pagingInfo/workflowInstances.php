@@ -77,6 +77,11 @@ class workflowInstances extends Model
      * @var int
      */
     public $workflowId;
+
+    /**
+     * @var string
+     */
+    public $workflowParameters;
     protected $_name = [
         'bizDate' => 'BizDate',
         'createTime' => 'CreateTime',
@@ -92,6 +97,7 @@ class workflowInstances extends Model
         'status' => 'Status',
         'type' => 'Type',
         'workflowId' => 'WorkflowId',
+        'workflowParameters' => 'WorkflowParameters',
     ];
 
     public function validate()
@@ -156,6 +162,10 @@ class workflowInstances extends Model
 
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
+        }
+
+        if (null !== $this->workflowParameters) {
+            $res['WorkflowParameters'] = $this->workflowParameters;
         }
 
         return $res;
@@ -223,6 +233,10 @@ class workflowInstances extends Model
 
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];
+        }
+
+        if (isset($map['WorkflowParameters'])) {
+            $model->workflowParameters = $map['WorkflowParameters'];
         }
 
         return $model;
