@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowSubTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class condition extends Model
 {
     /**
-     * @description The modification time. The value must be a UNIX timestamp. Unit: ns.
-     *
-     * @example 1725897600000000000
-     *
      * @var int
      */
     public $modifyTime;
 
     /**
-     * @description The file size. Unit: bytes.
-     *
-     * @example 68
-     *
      * @var int
      */
     public $size;
@@ -30,14 +22,18 @@ class condition extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -45,17 +41,18 @@ class condition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return condition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

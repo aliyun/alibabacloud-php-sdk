@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowSubTasksResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowSubTasksResponseBody\dataFlowSubTask\dataFlowSubTask;
 
 class dataFlowSubTask extends Model
 {
     /**
-     * @var dataFlowSubTask\dataFlowSubTask[]
+     * @var dataFlowSubTask[]
      */
     public $dataFlowSubTask;
     protected $_name = [
         'dataFlowSubTask' => 'DataFlowSubTask',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataFlowSubTask)) {
+            Model::validateArray($this->dataFlowSubTask);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataFlowSubTask) {
-            $res['DataFlowSubTask'] = [];
-            if (null !== $this->dataFlowSubTask && \is_array($this->dataFlowSubTask)) {
-                $n = 0;
-                foreach ($this->dataFlowSubTask as $item) {
-                    $res['DataFlowSubTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataFlowSubTask)) {
+                $res['DataFlowSubTask'] = [];
+                $n1 = 0;
+                foreach ($this->dataFlowSubTask as $item1) {
+                    $res['DataFlowSubTask'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class dataFlowSubTask extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataFlowSubTask
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataFlowSubTask'])) {
             if (!empty($map['DataFlowSubTask'])) {
                 $model->dataFlowSubTask = [];
-                $n = 0;
-                foreach ($map['DataFlowSubTask'] as $item) {
-                    $model->dataFlowSubTask[$n++] = null !== $item ? dataFlowSubTask\dataFlowSubTask::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataFlowSubTask'] as $item1) {
+                    $model->dataFlowSubTask[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

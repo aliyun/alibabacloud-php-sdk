@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointResponseBody\accessPoint;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class posixUser extends Model
 {
     /**
-     * @description The ID of the POSIX user group.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $posixGroupId;
 
     /**
-     * @description The IDs of the secondary user groups.
-     *
      * @var int[]
      */
     public $posixSecondaryGroupIds;
 
     /**
-     * @description The ID of the POSIX user.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $posixUserId;
@@ -38,17 +28,32 @@ class posixUser extends Model
         'posixUserId' => 'PosixUserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->posixSecondaryGroupIds)) {
+            Model::validateArray($this->posixSecondaryGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->posixGroupId) {
             $res['PosixGroupId'] = $this->posixGroupId;
         }
+
         if (null !== $this->posixSecondaryGroupIds) {
-            $res['PosixSecondaryGroupIds'] = $this->posixSecondaryGroupIds;
+            if (\is_array($this->posixSecondaryGroupIds)) {
+                $res['PosixSecondaryGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->posixSecondaryGroupIds as $item1) {
+                    $res['PosixSecondaryGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->posixUserId) {
             $res['PosixUserId'] = $this->posixUserId;
         }
@@ -56,22 +61,29 @@ class posixUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return posixUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PosixGroupId'])) {
             $model->posixGroupId = $map['PosixGroupId'];
         }
+
         if (isset($map['PosixSecondaryGroupIds'])) {
             if (!empty($map['PosixSecondaryGroupIds'])) {
-                $model->posixSecondaryGroupIds = $map['PosixSecondaryGroupIds'];
+                $model->posixSecondaryGroupIds = [];
+                $n1 = 0;
+                foreach ($map['PosixSecondaryGroupIds'] as $item1) {
+                    $model->posixSecondaryGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PosixUserId'])) {
             $model->posixUserId = $map['PosixUserId'];
         }

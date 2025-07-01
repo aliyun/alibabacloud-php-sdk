@@ -4,81 +4,46 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDirQuotasResponseBody\dirQuotaInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userQuotaInfos extends Model
 {
     /**
-     * @description The maximum number of files that a user can create in the directory.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $fileCountLimit;
 
     /**
-     * @description The total number of files that a user has created in the directory.
-     *
-     * @example 5100
-     *
      * @var int
      */
     public $fileCountReal;
 
     /**
-     * @description The type of the quota. Valid values: Accounting and Enforcement.
-     *
-     * @example Accounting
-     *
      * @var string
      */
     public $quotaType;
 
     /**
-     * @description The maximum size of files that a user can create in the directory. Unit: GiB.
-     *
-     * @example 1024
-     *
      * @var int
      */
     public $sizeLimit;
 
     /**
-     * @description The total size of files that a user has created in the directory. Unit: GiB.
-     *
-     * @example 800
-     *
      * @var int
      */
     public $sizeReal;
 
     /**
-     * @description The total size of files that a user has created in the directory. Unit: bytes.
-     *
-     * @example 858995833870
-     *
      * @var int
      */
     public $sizeRealInByte;
 
     /**
-     * @description The ID of the user that you specify to create a quota for the directory. The value depends on the value of the UserType parameter. Valid values: Uid and Gid.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description The type of user. Valid values: Uid, Gid, and AllUsers.
-     *
-     *   If Uid or Gid is returned, a value is returned for UserId.
-     *   If AllUsers is returned, UserId is empty.
-     *
-     * @example Uid
-     *
      * @var string
      */
     public $userType;
@@ -93,32 +58,42 @@ class userQuotaInfos extends Model
         'userType' => 'UserType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileCountLimit) {
             $res['FileCountLimit'] = $this->fileCountLimit;
         }
+
         if (null !== $this->fileCountReal) {
             $res['FileCountReal'] = $this->fileCountReal;
         }
+
         if (null !== $this->quotaType) {
             $res['QuotaType'] = $this->quotaType;
         }
+
         if (null !== $this->sizeLimit) {
             $res['SizeLimit'] = $this->sizeLimit;
         }
+
         if (null !== $this->sizeReal) {
             $res['SizeReal'] = $this->sizeReal;
         }
+
         if (null !== $this->sizeRealInByte) {
             $res['SizeRealInByte'] = $this->sizeRealInByte;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -126,35 +101,42 @@ class userQuotaInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userQuotaInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileCountLimit'])) {
             $model->fileCountLimit = $map['FileCountLimit'];
         }
+
         if (isset($map['FileCountReal'])) {
             $model->fileCountReal = $map['FileCountReal'];
         }
+
         if (isset($map['QuotaType'])) {
             $model->quotaType = $map['QuotaType'];
         }
+
         if (isset($map['SizeLimit'])) {
             $model->sizeLimit = $map['SizeLimit'];
         }
+
         if (isset($map['SizeReal'])) {
             $model->sizeReal = $map['SizeReal'];
         }
+
         if (isset($map['SizeRealInByte'])) {
             $model->sizeRealInByte = $map['SizeRealInByte'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

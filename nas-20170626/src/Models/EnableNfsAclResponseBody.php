@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableNfsAclResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 29F4F360-A6A8-561A-A45B-A0F6882969BA
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class EnableNfsAclResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class EnableNfsAclResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableNfsAclResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

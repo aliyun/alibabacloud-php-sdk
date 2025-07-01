@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessPointResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessPoint extends Model
 {
     /**
-     * @description The domain name of the access point.
-     *
-     * @example ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
-     *
      * @var string
      */
     public $accessPointDomain;
 
     /**
-     * @description The ID of the access point.
-     *
-     * @example ap-ie15yd****
-     *
      * @var string
      */
     public $accessPointId;
@@ -30,14 +22,18 @@ class accessPoint extends Model
         'accessPointId' => 'AccessPointId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessPointDomain) {
             $res['AccessPointDomain'] = $this->accessPointDomain;
         }
+
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
         }
@@ -45,17 +41,18 @@ class accessPoint extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessPoint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPointDomain'])) {
             $model->accessPointDomain = $map['AccessPointDomain'];
         }
+
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];
         }

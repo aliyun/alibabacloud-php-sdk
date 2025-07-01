@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplyAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy.
-     *
-     * This parameter is required.
-     *
-     * @example sp-extreme-233e6****
-     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The IDs of advanced Extreme NAS file systems.
-     *
-     * You can specify a maximum of 100 file system IDs at a time. If you want to apply an automatic snapshot policy to multiple file systems, separate the file system IDs with commas (,).
-     *
-     * This parameter is required.
-     *
-     * @example extreme-233e6****,extreme -23vbp****,extreme -23vas****
-     *
      * @var string
      */
     public $fileSystemIds;
@@ -36,14 +22,18 @@ class ApplyAutoSnapshotPolicyRequest extends Model
         'fileSystemIds' => 'FileSystemIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
+
         if (null !== $this->fileSystemIds) {
             $res['FileSystemIds'] = $this->fileSystemIds;
         }
@@ -51,17 +41,18 @@ class ApplyAutoSnapshotPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyAutoSnapshotPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
+
         if (isset($map['FileSystemIds'])) {
             $model->fileSystemIds = $map['FileSystemIds'];
         }

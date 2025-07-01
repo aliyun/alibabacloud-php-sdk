@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody\fileSystemStatistics\fileSystemStatistic;
-use AlibabaCloud\Tea\Model;
 
 class fileSystemStatistics extends Model
 {
@@ -17,17 +17,24 @@ class fileSystemStatistics extends Model
         'fileSystemStatistic' => 'FileSystemStatistic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileSystemStatistic)) {
+            Model::validateArray($this->fileSystemStatistic);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystemStatistic) {
-            $res['FileSystemStatistic'] = [];
-            if (null !== $this->fileSystemStatistic && \is_array($this->fileSystemStatistic)) {
-                $n = 0;
-                foreach ($this->fileSystemStatistic as $item) {
-                    $res['FileSystemStatistic'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileSystemStatistic)) {
+                $res['FileSystemStatistic'] = [];
+                $n1 = 0;
+                foreach ($this->fileSystemStatistic as $item1) {
+                    $res['FileSystemStatistic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class fileSystemStatistics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileSystemStatistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemStatistic'])) {
             if (!empty($map['FileSystemStatistic'])) {
                 $model->fileSystemStatistic = [];
-                $n = 0;
-                foreach ($map['FileSystemStatistic'] as $item) {
-                    $model->fileSystemStatistic[$n++] = null !== $item ? fileSystemStatistic::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FileSystemStatistic'] as $item1) {
+                    $model->fileSystemStatistic[$n1] = fileSystemStatistic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLogAnalysisResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLogAnalysisResponseBody\analyses\analysis;
-use AlibabaCloud\Tea\Model;
 
 class analyses extends Model
 {
@@ -17,17 +17,24 @@ class analyses extends Model
         'analysis' => 'Analysis',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->analysis)) {
+            Model::validateArray($this->analysis);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysis) {
-            $res['Analysis'] = [];
-            if (null !== $this->analysis && \is_array($this->analysis)) {
-                $n = 0;
-                foreach ($this->analysis as $item) {
-                    $res['Analysis'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->analysis)) {
+                $res['Analysis'] = [];
+                $n1 = 0;
+                foreach ($this->analysis as $item1) {
+                    $res['Analysis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class analyses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return analyses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Analysis'])) {
             if (!empty($map['Analysis'])) {
                 $model->analysis = [];
-                $n = 0;
-                foreach ($map['Analysis'] as $item) {
-                    $model->analysis[$n++] = null !== $item ? analysis::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Analysis'] as $item1) {
+                    $model->analysis[$n1] = analysis::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

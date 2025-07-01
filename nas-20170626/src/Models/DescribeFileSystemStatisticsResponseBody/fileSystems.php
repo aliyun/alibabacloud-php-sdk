@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody\fileSystems\fileSystem;
-use AlibabaCloud\Tea\Model;
 
 class fileSystems extends Model
 {
@@ -17,17 +17,24 @@ class fileSystems extends Model
         'fileSystem' => 'FileSystem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileSystem)) {
+            Model::validateArray($this->fileSystem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystem) {
-            $res['FileSystem'] = [];
-            if (null !== $this->fileSystem && \is_array($this->fileSystem)) {
-                $n = 0;
-                foreach ($this->fileSystem as $item) {
-                    $res['FileSystem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileSystem)) {
+                $res['FileSystem'] = [];
+                $n1 = 0;
+                foreach ($this->fileSystem as $item1) {
+                    $res['FileSystem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class fileSystems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileSystems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystem'])) {
             if (!empty($map['FileSystem'])) {
                 $model->fileSystem = [];
-                $n = 0;
-                foreach ($map['FileSystem'] as $item) {
-                    $model->fileSystem[$n++] = null !== $item ? fileSystem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FileSystem'] as $item1) {
+                    $model->fileSystem[$n1] = fileSystem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

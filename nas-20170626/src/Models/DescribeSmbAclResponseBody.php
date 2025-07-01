@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeSmbAclResponseBody\acl;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSmbAclResponseBody extends Model
 {
     /**
-     * @description The information about the ACL feature.
-     *
      * @var acl
      */
     public $acl;
 
     /**
-     * @description The request ID.
-     *
-     * @example 98696EF0-1607-4E9D-B01D-F20930B6****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeSmbAclResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->acl) {
+            $this->acl->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acl) {
-            $res['Acl'] = null !== $this->acl ? $this->acl->toMap() : null;
+            $res['Acl'] = null !== $this->acl ? $this->acl->toArray($noStream) : $this->acl;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeSmbAclResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSmbAclResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Acl'])) {
             $model->acl = acl::fromMap($map['Acl']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

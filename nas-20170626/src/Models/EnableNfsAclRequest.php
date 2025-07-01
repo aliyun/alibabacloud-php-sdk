@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableNfsAclRequest extends Model
 {
     /**
-     * @description The ID of the file system.
-     *
-     * This parameter is required.
-     *
-     * @example 43f264xxxx
-     *
      * @var string
      */
     public $fileSystemId;
@@ -22,9 +16,12 @@ class EnableNfsAclRequest extends Model
         'fileSystemId' => 'FileSystemId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystemId) {
@@ -34,11 +31,11 @@ class EnableNfsAclRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableNfsAclRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

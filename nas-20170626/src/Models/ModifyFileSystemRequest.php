@@ -4,45 +4,22 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemRequest\options;
-use AlibabaCloud\Tea\Model;
 
 class ModifyFileSystemRequest extends Model
 {
     /**
-     * @description The description of the file system.
-     *
-     * Limits:
-     *
-     *   The description must be 2 to 128 characters in length.
-     *   It must start with a letter but cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-     *
-     * @example NAS-test-1
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the file system.
-     *
-     *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
-     *   The IDs of Extreme NAS file systems must start with `extreme-`. Example: `extreme-0015****`.
-     *   The IDs of Cloud Paralleled File System (CPFS) file systems must start with `cpfs-`. Example: `cpfs-125487****`.
-     * >CPFS file systems are available only on the China site (aliyun.com).
-     *
-     * This parameter is required.
-     *
-     * @example 1ca404****
-     *
      * @var string
      */
     public $fileSystemId;
 
     /**
-     * @description The options.
-     *
      * @var options
      */
     public $options;
@@ -52,38 +29,48 @@ class ModifyFileSystemRequest extends Model
         'options' => 'Options',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->options) {
+            $this->options->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->options) {
-            $res['Options'] = null !== $this->options ? $this->options->toMap() : null;
+            $res['Options'] = null !== $this->options ? $this->options->toArray($noStream) : $this->options;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyFileSystemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['Options'])) {
             $model->options = options::fromMap($map['Options']);
         }
