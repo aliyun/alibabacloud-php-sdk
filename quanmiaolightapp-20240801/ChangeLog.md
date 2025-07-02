@@ -1,3 +1,10 @@
+2025-07-02 Version: 2.8.0
+- Support API GetEssayCorrectionTask.
+- Support API RunEssayCorrection.
+- Support API RunOcrParse.
+- Support API SubmitEssayCorrectionTask.
+
+
 2025-05-30 Version: 2.7.4
 - Update API RunHotTopicChat: add response parameters Body.payload.output.category.
 - Update API RunHotTopicChat: add response parameters Body.payload.output.keyword.

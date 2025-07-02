@@ -33,7 +33,8 @@ class videoShotSnapshotResult extends Model
                 $res['videoShots'] = [];
                 $n1 = 0;
                 foreach ($this->videoShots as $item1) {
-                    $res['videoShots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['videoShots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class videoShotSnapshotResult extends Model
                 $model->videoShots = [];
                 $n1 = 0;
                 foreach ($map['videoShots'] as $item1) {
-                    $model->videoShots[$n1++] = videoShots::fromMap($item1);
+                    $model->videoShots[$n1] = videoShots::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

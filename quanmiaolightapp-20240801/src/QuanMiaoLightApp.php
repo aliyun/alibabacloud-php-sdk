@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatRespo
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEnterpriseVocAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEnterpriseVocAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEssayCorrectionTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEssayCorrectionTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisConfigResponse;
@@ -32,6 +34,8 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResp
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEssayCorrectionRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEssayCorrectionResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatShrinkRequest;
@@ -46,6 +50,8 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWr
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunNetworkContentAuditRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunNetworkContentAuditResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunNetworkContentAuditShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunOcrParseRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunOcrParseResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptChatRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptChatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptContinueRequest;
@@ -66,6 +72,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisShrinkReq
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEssayCorrectionTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEssayCorrectionTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEssayCorrectionTaskShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitTagMiningAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitTagMiningAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitTagMiningAnalysisTaskShrinkRequest;
@@ -464,6 +473,69 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->getEnterpriseVocAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取作业批改结果.
+     *
+     * @param request - GetEssayCorrectionTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEssayCorrectionTaskResponse
+     *
+     * @param string                        $workspaceId
+     * @param GetEssayCorrectionTaskRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetEssayCorrectionTaskResponse
+     */
+    public function getEssayCorrectionTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEssayCorrectionTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/getEssayCorrectionTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEssayCorrectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取作业批改结果.
+     *
+     * @param request - GetEssayCorrectionTaskRequest
+     *
+     * @returns GetEssayCorrectionTaskResponse
+     *
+     * @param string                        $workspaceId
+     * @param GetEssayCorrectionTaskRequest $request
+     *
+     * @return GetEssayCorrectionTaskResponse
+     */
+    public function getEssayCorrectionTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEssayCorrectionTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -966,6 +1038,93 @@ class QuanMiaoLightApp extends OpenApiClient
     }
 
     /**
+     * 作业批改.
+     *
+     * @param request - RunEssayCorrectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunEssayCorrectionResponse
+     *
+     * @param string                    $workspaceId
+     * @param RunEssayCorrectionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunEssayCorrectionResponse
+     */
+    public function runEssayCorrectionWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->answer) {
+            @$body['answer'] = $request->answer;
+        }
+
+        if (null !== $request->grade) {
+            @$body['grade'] = $request->grade;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->otherReviewPoints) {
+            @$body['otherReviewPoints'] = $request->otherReviewPoints;
+        }
+
+        if (null !== $request->question) {
+            @$body['question'] = $request->question;
+        }
+
+        if (null !== $request->subject) {
+            @$body['subject'] = $request->subject;
+        }
+
+        if (null !== $request->totalScore) {
+            @$body['totalScore'] = $request->totalScore;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunEssayCorrection',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/runEssayCorrection',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunEssayCorrectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 作业批改.
+     *
+     * @param request - RunEssayCorrectionRequest
+     *
+     * @returns RunEssayCorrectionResponse
+     *
+     * @param string                    $workspaceId
+     * @param RunEssayCorrectionRequest $request
+     *
+     * @return RunEssayCorrectionResponse
+     */
+    public function runEssayCorrection($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runEssayCorrectionWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 轻应用-热点播报-问答.
      *
      * @param tmpReq - RunHotTopicChatRequest
@@ -1438,6 +1597,77 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->runNetworkContentAuditWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 作业批改.
+     *
+     * @param request - RunOcrParseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunOcrParseResponse
+     *
+     * @param string             $workspaceId
+     * @param RunOcrParseRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RunOcrParseResponse
+     */
+    public function runOcrParseWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileKey) {
+            @$body['fileKey'] = $request->fileKey;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunOcrParse',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/runOcrParse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunOcrParseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 作业批改.
+     *
+     * @param request - RunOcrParseRequest
+     *
+     * @returns RunOcrParseResponse
+     *
+     * @param string             $workspaceId
+     * @param RunOcrParseRequest $request
+     *
+     * @return RunOcrParseResponse
+     */
+    public function runOcrParse($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runOcrParseWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2198,6 +2428,99 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->submitEnterpriseVocAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 提交批改任务
+     *
+     * @param tmpReq - SubmitEssayCorrectionTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitEssayCorrectionTaskResponse
+     *
+     * @param string                           $workspaceId
+     * @param SubmitEssayCorrectionTaskRequest $tmpReq
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitEssayCorrectionTaskResponse
+     */
+    public function submitEssayCorrectionTaskWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitEssayCorrectionTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tasks) {
+            $request->tasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'tasks', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->grade) {
+            @$body['grade'] = $request->grade;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->otherReviewPoints) {
+            @$body['otherReviewPoints'] = $request->otherReviewPoints;
+        }
+
+        if (null !== $request->question) {
+            @$body['question'] = $request->question;
+        }
+
+        if (null !== $request->subject) {
+            @$body['subject'] = $request->subject;
+        }
+
+        if (null !== $request->tasksShrink) {
+            @$body['tasks'] = $request->tasksShrink;
+        }
+
+        if (null !== $request->totalScore) {
+            @$body['totalScore'] = $request->totalScore;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitEssayCorrectionTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/submitEssayCorrectionTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitEssayCorrectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交批改任务
+     *
+     * @param request - SubmitEssayCorrectionTaskRequest
+     *
+     * @returns SubmitEssayCorrectionTaskResponse
+     *
+     * @param string                           $workspaceId
+     * @param SubmitEssayCorrectionTaskRequest $request
+     *
+     * @return SubmitEssayCorrectionTaskResponse
+     */
+    public function submitEssayCorrectionTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitEssayCorrectionTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**

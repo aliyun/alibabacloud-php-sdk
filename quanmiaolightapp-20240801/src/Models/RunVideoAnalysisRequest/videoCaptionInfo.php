@@ -43,7 +43,8 @@ class videoCaptionInfo extends Model
                 $res['videoCaptions'] = [];
                 $n1 = 0;
                 foreach ($this->videoCaptions as $item1) {
-                    $res['videoCaptions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['videoCaptions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class videoCaptionInfo extends Model
                 $model->videoCaptions = [];
                 $n1 = 0;
                 foreach ($map['videoCaptions'] as $item1) {
-                    $model->videoCaptions[$n1++] = videoCaptions::fromMap($item1);
+                    $model->videoCaptions[$n1] = videoCaptions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

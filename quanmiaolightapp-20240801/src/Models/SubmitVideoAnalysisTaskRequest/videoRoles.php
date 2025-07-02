@@ -52,7 +52,8 @@ class videoRoles extends Model
                 $res['urls'] = [];
                 $n1 = 0;
                 foreach ($this->urls as $item1) {
-                    $res['urls'][$n1++] = $item1;
+                    $res['urls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class videoRoles extends Model
                 $model->urls = [];
                 $n1 = 0;
                 foreach ($map['urls'] as $item1) {
-                    $model->urls[$n1++] = $item1;
+                    $model->urls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

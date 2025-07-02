@@ -61,7 +61,8 @@ class data extends Model
                 $res['hotTopicSummaries'] = [];
                 $n1 = 0;
                 foreach ($this->hotTopicSummaries as $item1) {
-                    $res['hotTopicSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotTopicSummaries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class data extends Model
                 $model->hotTopicSummaries = [];
                 $n1 = 0;
                 foreach ($map['hotTopicSummaries'] as $item1) {
-                    $model->hotTopicSummaries[$n1++] = hotTopicSummaries::fromMap($item1);
+                    $model->hotTopicSummaries[$n1] = hotTopicSummaries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

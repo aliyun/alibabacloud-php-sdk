@@ -39,7 +39,8 @@ class videoMindMappings extends Model
                 $res['childNodes'] = [];
                 $n1 = 0;
                 foreach ($this->childNodes as $item1) {
-                    $res['childNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['childNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class videoMindMappings extends Model
                 $model->childNodes = [];
                 $n1 = 0;
                 foreach ($map['childNodes'] as $item1) {
-                    $model->childNodes[$n1++] = childNodes::fromMap($item1);
+                    $model->childNodes[$n1] = childNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

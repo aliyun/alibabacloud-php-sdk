@@ -33,7 +33,8 @@ class filterResult extends Model
                 $res['filterResults'] = [];
                 $n1 = 0;
                 foreach ($this->filterResults as $item1) {
-                    $res['filterResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['filterResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class filterResult extends Model
                 $model->filterResults = [];
                 $n1 = 0;
                 foreach ($map['filterResults'] as $item1) {
-                    $model->filterResults[$n1++] = filterResults::fromMap($item1);
+                    $model->filterResults[$n1] = filterResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

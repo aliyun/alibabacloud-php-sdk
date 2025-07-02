@@ -65,7 +65,8 @@ class RunStyleWritingRequest extends Model
                 $res['learningSamples'] = [];
                 $n1 = 0;
                 foreach ($this->learningSamples as $item1) {
-                    $res['learningSamples'][$n1++] = $item1;
+                    $res['learningSamples'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class RunStyleWritingRequest extends Model
                 $res['referenceMaterials'] = [];
                 $n1 = 0;
                 foreach ($this->referenceMaterials as $item1) {
-                    $res['referenceMaterials'][$n1++] = $item1;
+                    $res['referenceMaterials'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class RunStyleWritingRequest extends Model
                 $model->learningSamples = [];
                 $n1 = 0;
                 foreach ($map['learningSamples'] as $item1) {
-                    $model->learningSamples[$n1++] = $item1;
+                    $model->learningSamples[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class RunStyleWritingRequest extends Model
                 $model->referenceMaterials = [];
                 $n1 = 0;
                 foreach ($map['referenceMaterials'] as $item1) {
-                    $model->referenceMaterials[$n1++] = $item1;
+                    $model->referenceMaterials[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

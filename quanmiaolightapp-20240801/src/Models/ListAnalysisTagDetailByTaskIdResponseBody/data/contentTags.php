@@ -42,7 +42,8 @@ class contentTags extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = $item1;
+                    $res['tags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class contentTags extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

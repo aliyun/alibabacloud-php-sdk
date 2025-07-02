@@ -115,7 +115,8 @@ class output extends Model
                 $res['videoGenerateResults'] = [];
                 $n1 = 0;
                 foreach ($this->videoGenerateResults as $item1) {
-                    $res['videoGenerateResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['videoGenerateResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +165,8 @@ class output extends Model
                 $model->videoGenerateResults = [];
                 $n1 = 0;
                 foreach ($map['videoGenerateResults'] as $item1) {
-                    $model->videoGenerateResults[$n1++] = videoGenerateResults::fromMap($item1);
+                    $model->videoGenerateResults[$n1] = videoGenerateResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

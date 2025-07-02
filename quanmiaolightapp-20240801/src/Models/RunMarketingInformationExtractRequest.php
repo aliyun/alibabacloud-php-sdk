@@ -62,7 +62,8 @@ class RunMarketingInformationExtractRequest extends Model
                 $res['sourceMaterials'] = [];
                 $n1 = 0;
                 foreach ($this->sourceMaterials as $item1) {
-                    $res['sourceMaterials'][$n1++] = $item1;
+                    $res['sourceMaterials'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class RunMarketingInformationExtractRequest extends Model
                 $model->sourceMaterials = [];
                 $n1 = 0;
                 foreach ($map['sourceMaterials'] as $item1) {
-                    $model->sourceMaterials[$n1++] = $item1;
+                    $model->sourceMaterials[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

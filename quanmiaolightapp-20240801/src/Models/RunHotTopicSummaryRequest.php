@@ -56,7 +56,8 @@ class RunHotTopicSummaryRequest extends Model
                 $res['topicIds'] = [];
                 $n1 = 0;
                 foreach ($this->topicIds as $item1) {
-                    $res['topicIds'][$n1++] = $item1;
+                    $res['topicIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class RunHotTopicSummaryRequest extends Model
                 $model->topicIds = [];
                 $n1 = 0;
                 foreach ($map['topicIds'] as $item1) {
-                    $model->topicIds[$n1++] = $item1;
+                    $model->topicIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

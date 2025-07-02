@@ -113,7 +113,8 @@ class RunHotTopicChatRequest extends Model
                 $res['generateOptions'] = [];
                 $n1 = 0;
                 foreach ($this->generateOptions as $item1) {
-                    $res['generateOptions'][$n1++] = $item1;
+                    $res['generateOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +128,8 @@ class RunHotTopicChatRequest extends Model
                 $res['hotTopics'] = [];
                 $n1 = 0;
                 foreach ($this->hotTopics as $item1) {
-                    $res['hotTopics'][$n1++] = $item1;
+                    $res['hotTopics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +143,8 @@ class RunHotTopicChatRequest extends Model
                 $res['messages'] = [];
                 $n1 = 0;
                 foreach ($this->messages as $item1) {
-                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +193,8 @@ class RunHotTopicChatRequest extends Model
                 $model->generateOptions = [];
                 $n1 = 0;
                 foreach ($map['generateOptions'] as $item1) {
-                    $model->generateOptions[$n1++] = $item1;
+                    $model->generateOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +208,8 @@ class RunHotTopicChatRequest extends Model
                 $model->hotTopics = [];
                 $n1 = 0;
                 foreach ($map['hotTopics'] as $item1) {
-                    $model->hotTopics[$n1++] = $item1;
+                    $model->hotTopics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +223,8 @@ class RunHotTopicChatRequest extends Model
                 $model->messages = [];
                 $n1 = 0;
                 foreach ($map['messages'] as $item1) {
-                    $model->messages[$n1++] = messages::fromMap($item1);
+                    $model->messages[$n1] = messages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

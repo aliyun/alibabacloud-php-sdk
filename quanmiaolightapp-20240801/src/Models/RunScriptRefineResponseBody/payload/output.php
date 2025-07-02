@@ -63,11 +63,12 @@ class output extends Model
                 $n1 = 0;
                 foreach ($this->content as $item1) {
                     if (\is_array($item1)) {
-                        $res['content'][$n1++] = [];
+                        $res['content'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['content'][$n1++][$key2] = $value2;
+                            $res['content'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -109,11 +110,12 @@ class output extends Model
                 $n1 = 0;
                 foreach ($map['content'] as $item1) {
                     if (!empty($item1)) {
-                        $model->content[$n1++] = [];
+                        $model->content[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->content[$n1++][$key2] = $value2;
+                            $model->content[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

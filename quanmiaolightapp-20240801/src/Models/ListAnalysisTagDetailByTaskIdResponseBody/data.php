@@ -58,7 +58,8 @@ class data extends Model
                 $res['contentTags'] = [];
                 $n1 = 0;
                 foreach ($this->contentTags as $item1) {
-                    $res['contentTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['contentTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class data extends Model
                 $res['sourceList'] = [];
                 $n1 = 0;
                 foreach ($this->sourceList as $item1) {
-                    $res['sourceList'][$n1++] = $item1;
+                    $res['sourceList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class data extends Model
                 $model->contentTags = [];
                 $n1 = 0;
                 foreach ($map['contentTags'] as $item1) {
-                    $model->contentTags[$n1++] = contentTags::fromMap($item1);
+                    $model->contentTags[$n1] = contentTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class data extends Model
                 $model->sourceList = [];
                 $n1 = 0;
                 foreach ($map['sourceList'] as $item1) {
-                    $model->sourceList[$n1++] = $item1;
+                    $model->sourceList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

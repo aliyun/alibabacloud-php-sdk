@@ -67,7 +67,8 @@ class videoMindMappingGenerateResult extends Model
                 $res['videoMindMappings'] = [];
                 $n1 = 0;
                 foreach ($this->videoMindMappings as $item1) {
-                    $res['videoMindMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['videoMindMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class videoMindMappingGenerateResult extends Model
                 $model->videoMindMappings = [];
                 $n1 = 0;
                 foreach ($map['videoMindMappings'] as $item1) {
-                    $model->videoMindMappings[$n1++] = videoMindMappings::fromMap($item1);
+                    $model->videoMindMappings[$n1] = videoMindMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

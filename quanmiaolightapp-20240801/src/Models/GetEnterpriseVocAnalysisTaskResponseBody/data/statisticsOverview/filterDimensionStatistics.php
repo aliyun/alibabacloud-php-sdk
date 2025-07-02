@@ -33,7 +33,8 @@ class filterDimensionStatistics extends Model
                 $res['tagValueCountStatistic'] = [];
                 $n1 = 0;
                 foreach ($this->tagValueCountStatistic as $item1) {
-                    $res['tagValueCountStatistic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tagValueCountStatistic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class filterDimensionStatistics extends Model
                 $model->tagValueCountStatistic = [];
                 $n1 = 0;
                 foreach ($map['tagValueCountStatistic'] as $item1) {
-                    $model->tagValueCountStatistic[$n1++] = tagValueCountStatistic::fromMap($item1);
+                    $model->tagValueCountStatistic[$n1] = tagValueCountStatistic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

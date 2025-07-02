@@ -165,7 +165,8 @@ class RunVideoAnalysisRequest extends Model
                 $res['excludeGenerateOptions'] = [];
                 $n1 = 0;
                 foreach ($this->excludeGenerateOptions as $item1) {
-                    $res['excludeGenerateOptions'][$n1++] = $item1;
+                    $res['excludeGenerateOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +184,8 @@ class RunVideoAnalysisRequest extends Model
                 $res['generateOptions'] = [];
                 $n1 = 0;
                 foreach ($this->generateOptions as $item1) {
-                    $res['generateOptions'][$n1++] = $item1;
+                    $res['generateOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +227,8 @@ class RunVideoAnalysisRequest extends Model
                 $res['textProcessTasks'] = [];
                 $n1 = 0;
                 foreach ($this->textProcessTasks as $item1) {
-                    $res['textProcessTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['textProcessTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -251,7 +254,8 @@ class RunVideoAnalysisRequest extends Model
                 $res['videoRoles'] = [];
                 $n1 = 0;
                 foreach ($this->videoRoles as $item1) {
-                    $res['videoRoles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['videoRoles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +284,8 @@ class RunVideoAnalysisRequest extends Model
                 $model->excludeGenerateOptions = [];
                 $n1 = 0;
                 foreach ($map['excludeGenerateOptions'] as $item1) {
-                    $model->excludeGenerateOptions[$n1++] = $item1;
+                    $model->excludeGenerateOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -298,7 +303,8 @@ class RunVideoAnalysisRequest extends Model
                 $model->generateOptions = [];
                 $n1 = 0;
                 foreach ($map['generateOptions'] as $item1) {
-                    $model->generateOptions[$n1++] = $item1;
+                    $model->generateOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -340,7 +346,8 @@ class RunVideoAnalysisRequest extends Model
                 $model->textProcessTasks = [];
                 $n1 = 0;
                 foreach ($map['textProcessTasks'] as $item1) {
-                    $model->textProcessTasks[$n1++] = textProcessTasks::fromMap($item1);
+                    $model->textProcessTasks[$n1] = textProcessTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -366,7 +373,8 @@ class RunVideoAnalysisRequest extends Model
                 $model->videoRoles = [];
                 $n1 = 0;
                 foreach ($map['videoRoles'] as $item1) {
-                    $model->videoRoles[$n1++] = videoRoles::fromMap($item1);
+                    $model->videoRoles[$n1] = videoRoles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

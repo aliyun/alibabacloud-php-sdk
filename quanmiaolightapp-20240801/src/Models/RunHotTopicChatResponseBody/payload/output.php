@@ -92,7 +92,8 @@ class output extends Model
                 $res['articles'] = [];
                 $n1 = 0;
                 foreach ($this->articles as $item1) {
-                    $res['articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['articles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class output extends Model
                 $res['hotTopicSummaries'] = [];
                 $n1 = 0;
                 foreach ($this->hotTopicSummaries as $item1) {
-                    $res['hotTopicSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hotTopicSummaries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +126,8 @@ class output extends Model
                 $res['multimodalMedias'] = [];
                 $n1 = 0;
                 foreach ($this->multimodalMedias as $item1) {
-                    $res['multimodalMedias'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['multimodalMedias'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +137,8 @@ class output extends Model
                 $res['recommendQueries'] = [];
                 $n1 = 0;
                 foreach ($this->recommendQueries as $item1) {
-                    $res['recommendQueries'][$n1++] = $item1;
+                    $res['recommendQueries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +167,8 @@ class output extends Model
                 $model->articles = [];
                 $n1 = 0;
                 foreach ($map['articles'] as $item1) {
-                    $model->articles[$n1++] = articles::fromMap($item1);
+                    $model->articles[$n1] = articles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +182,8 @@ class output extends Model
                 $model->hotTopicSummaries = [];
                 $n1 = 0;
                 foreach ($map['hotTopicSummaries'] as $item1) {
-                    $model->hotTopicSummaries[$n1++] = hotTopicSummaries::fromMap($item1);
+                    $model->hotTopicSummaries[$n1] = hotTopicSummaries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +201,8 @@ class output extends Model
                 $model->multimodalMedias = [];
                 $n1 = 0;
                 foreach ($map['multimodalMedias'] as $item1) {
-                    $model->multimodalMedias[$n1++] = multimodalMedias::fromMap($item1);
+                    $model->multimodalMedias[$n1] = multimodalMedias::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +212,8 @@ class output extends Model
                 $model->recommendQueries = [];
                 $n1 = 0;
                 foreach ($map['recommendQueries'] as $item1) {
-                    $model->recommendQueries[$n1++] = $item1;
+                    $model->recommendQueries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
