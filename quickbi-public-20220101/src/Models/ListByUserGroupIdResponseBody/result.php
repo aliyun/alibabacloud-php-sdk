@@ -42,7 +42,8 @@ class result extends Model
                 $res['FailedUserGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->failedUserGroupIds as $item1) {
-                    $res['FailedUserGroupIds'][$n1++] = $item1;
+                    $res['FailedUserGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class result extends Model
                 $res['UserGroupModels'] = [];
                 $n1 = 0;
                 foreach ($this->userGroupModels as $item1) {
-                    $res['UserGroupModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserGroupModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class result extends Model
                 $model->failedUserGroupIds = [];
                 $n1 = 0;
                 foreach ($map['FailedUserGroupIds'] as $item1) {
-                    $model->failedUserGroupIds[$n1++] = $item1;
+                    $model->failedUserGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class result extends Model
                 $model->userGroupModels = [];
                 $n1 = 0;
                 foreach ($map['UserGroupModels'] as $item1) {
-                    $model->userGroupModels[$n1++] = userGroupModels::fromMap($item1);
+                    $model->userGroupModels[$n1] = userGroupModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

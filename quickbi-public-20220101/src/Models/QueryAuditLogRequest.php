@@ -11,6 +11,11 @@ class QueryAuditLogRequest extends Model
     /**
      * @var string
      */
+    public $accessSourceFlag;
+
+    /**
+     * @var string
+     */
     public $endDate;
 
     /**
@@ -41,14 +46,21 @@ class QueryAuditLogRequest extends Model
     /**
      * @var string
      */
+    public $userAccessDevice;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
+        'accessSourceFlag' => 'AccessSourceFlag',
         'endDate' => 'EndDate',
         'logType' => 'LogType',
         'operatorId' => 'OperatorId',
         'operatorTypes' => 'OperatorTypes',
         'resourceType' => 'ResourceType',
         'startDate' => 'StartDate',
+        'userAccessDevice' => 'UserAccessDevice',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -60,6 +72,10 @@ class QueryAuditLogRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessSourceFlag) {
+            $res['AccessSourceFlag'] = $this->accessSourceFlag;
+        }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
@@ -84,6 +100,10 @@ class QueryAuditLogRequest extends Model
             $res['StartDate'] = $this->startDate;
         }
 
+        if (null !== $this->userAccessDevice) {
+            $res['UserAccessDevice'] = $this->userAccessDevice;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -99,6 +119,10 @@ class QueryAuditLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessSourceFlag'])) {
+            $model->accessSourceFlag = $map['AccessSourceFlag'];
+        }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
@@ -121,6 +145,10 @@ class QueryAuditLogRequest extends Model
 
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
+        }
+
+        if (isset($map['UserAccessDevice'])) {
+            $model->userAccessDevice = $map['UserAccessDevice'];
         }
 
         if (isset($map['WorkspaceId'])) {

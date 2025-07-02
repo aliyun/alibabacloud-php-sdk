@@ -4000,6 +4000,10 @@ class Quickbipublic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessSourceFlag) {
+            @$query['AccessSourceFlag'] = $request->accessSourceFlag;
+        }
+
         if (null !== $request->endDate) {
             @$query['EndDate'] = $request->endDate;
         }
@@ -4022,6 +4026,10 @@ class Quickbipublic extends OpenApiClient
 
         if (null !== $request->startDate) {
             @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->userAccessDevice) {
+            @$query['UserAccessDevice'] = $request->userAccessDevice;
         }
 
         if (null !== $request->workspaceId) {
@@ -4703,8 +4711,8 @@ class Quickbipublic extends OpenApiClient
 
     /**
      * Indicates whether the table is a custom SQL table. Valid values:
-     * *   true: custom SQL table
-     * *   false: non-custom SQL table
+     * \\*   true: custom SQL table
+     * \\*   false: non-custom SQL table
      *
      * @param request - QueryDatasetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4744,8 +4752,8 @@ class Quickbipublic extends OpenApiClient
 
     /**
      * Indicates whether the table is a custom SQL table. Valid values:
-     * *   true: custom SQL table
-     * *   false: non-custom SQL table
+     * \\*   true: custom SQL table
+     * \\*   false: non-custom SQL table
      *
      * @param request - QueryDatasetInfoRequest
      *
@@ -6817,7 +6825,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch Management of Smart Q\\&A Authorizations.
+     * Batch Management of Smart Q\\\\\\&A Authorizations.
      *
      * @remarks
      * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
@@ -6879,7 +6887,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch Management of Smart Q\\&A Authorizations.
+     * Batch Management of Smart Q\\\\\\&A Authorizations.
      *
      * @remarks
      * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.

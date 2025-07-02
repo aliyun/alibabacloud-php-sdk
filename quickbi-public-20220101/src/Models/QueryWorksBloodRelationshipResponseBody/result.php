@@ -93,7 +93,8 @@ class result extends Model
                 $res['QueryParams'] = [];
                 $n1 = 0;
                 foreach ($this->queryParams as $item1) {
-                    $res['QueryParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueryParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class result extends Model
                 $model->queryParams = [];
                 $n1 = 0;
                 foreach ($map['QueryParams'] as $item1) {
-                    $model->queryParams[$n1++] = queryParams::fromMap($item1);
+                    $model->queryParams[$n1] = queryParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

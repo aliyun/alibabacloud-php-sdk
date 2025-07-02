@@ -61,7 +61,8 @@ class dataRange extends Model
                 $res['LlmCubes'] = [];
                 $n1 = 0;
                 foreach ($this->llmCubes as $item1) {
-                    $res['LlmCubes'][$n1++] = $item1;
+                    $res['LlmCubes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class dataRange extends Model
                 $res['Themes'] = [];
                 $n1 = 0;
                 foreach ($this->themes as $item1) {
-                    $res['Themes'][$n1++] = $item1;
+                    $res['Themes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class dataRange extends Model
                 $model->llmCubes = [];
                 $n1 = 0;
                 foreach ($map['LlmCubes'] as $item1) {
-                    $model->llmCubes[$n1++] = $item1;
+                    $model->llmCubes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class dataRange extends Model
                 $model->themes = [];
                 $n1 = 0;
                 foreach ($map['Themes'] as $item1) {
-                    $model->themes[$n1++] = $item1;
+                    $model->themes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

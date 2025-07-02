@@ -43,7 +43,8 @@ class result extends Model
                 $res['ApiCopilotLlmCubeModels'] = [];
                 $n1 = 0;
                 foreach ($this->apiCopilotLlmCubeModels as $item1) {
-                    $res['ApiCopilotLlmCubeModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiCopilotLlmCubeModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class result extends Model
                 $res['ApiCopilotThemeModels'] = [];
                 $n1 = 0;
                 foreach ($this->apiCopilotThemeModels as $item1) {
-                    $res['ApiCopilotThemeModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiCopilotThemeModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class result extends Model
                 $model->apiCopilotLlmCubeModels = [];
                 $n1 = 0;
                 foreach ($map['ApiCopilotLlmCubeModels'] as $item1) {
-                    $model->apiCopilotLlmCubeModels[$n1++] = apiCopilotLlmCubeModels::fromMap($item1);
+                    $model->apiCopilotLlmCubeModels[$n1] = apiCopilotLlmCubeModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class result extends Model
                 $model->apiCopilotThemeModels = [];
                 $n1 = 0;
                 foreach ($map['ApiCopilotThemeModels'] as $item1) {
-                    $model->apiCopilotThemeModels[$n1++] = apiCopilotThemeModels::fromMap($item1);
+                    $model->apiCopilotThemeModels[$n1] = apiCopilotThemeModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class result extends Model
                 $res['FailResults'] = [];
                 $n1 = 0;
                 foreach ($this->failResults as $item1) {
-                    $res['FailResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class result extends Model
                 $model->failResults = [];
                 $n1 = 0;
                 foreach ($map['FailResults'] as $item1) {
-                    $model->failResults[$n1++] = failResults::fromMap($item1);
+                    $model->failResults[$n1] = failResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

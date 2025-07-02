@@ -32,7 +32,8 @@ class values extends Model
                 $res['Row'] = [];
                 $n1 = 0;
                 foreach ($this->row as $item1) {
-                    $res['Row'][$n1++] = $item1;
+                    $res['Row'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class values extends Model
                 $model->row = [];
                 $n1 = 0;
                 foreach ($map['Row'] as $item1) {
-                    $model->row[$n1++] = $item1;
+                    $model->row[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

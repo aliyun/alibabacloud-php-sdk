@@ -41,7 +41,8 @@ class usersModel extends Model
                 $res['UserGroups'] = [];
                 $n1 = 0;
                 foreach ($this->userGroups as $item1) {
-                    $res['UserGroups'][$n1++] = $item1;
+                    $res['UserGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class usersModel extends Model
                 $res['Users'] = [];
                 $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = $item1;
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class usersModel extends Model
                 $model->userGroups = [];
                 $n1 = 0;
                 foreach ($map['UserGroups'] as $item1) {
-                    $model->userGroups[$n1++] = $item1;
+                    $model->userGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class usersModel extends Model
                 $model->users = [];
                 $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = $item1;
+                    $model->users[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -77,7 +77,8 @@ class content extends Model
                 $res['ReturnFields'] = [];
                 $n1 = 0;
                 foreach ($this->returnFields as $item1) {
-                    $res['ReturnFields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReturnFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class content extends Model
                 $model->returnFields = [];
                 $n1 = 0;
                 foreach ($map['ReturnFields'] as $item1) {
-                    $model->returnFields[$n1++] = returnFields::fromMap($item1);
+                    $model->returnFields[$n1] = returnFields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

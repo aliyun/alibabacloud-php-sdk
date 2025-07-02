@@ -45,11 +45,12 @@ class filter extends Model
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
                     if (\is_array($item1)) {
-                        $res['Filters'][$n1++] = [];
+                        $res['Filters'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Filters'][$n1++][$key2] = $value2;
+                            $res['Filters'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -79,11 +80,12 @@ class filter extends Model
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     if (!empty($item1)) {
-                        $model->filters[$n1++] = [];
+                        $model->filters[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->filters[$n1++][$key2] = $value2;
+                            $model->filters[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

@@ -114,7 +114,8 @@ class result extends Model
                 $res['RoleIdList'] = [];
                 $n1 = 0;
                 foreach ($this->roleIdList as $item1) {
-                    $res['RoleIdList'][$n1++] = $item1;
+                    $res['RoleIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +172,8 @@ class result extends Model
                 $model->roleIdList = [];
                 $n1 = 0;
                 foreach ($map['RoleIdList'] as $item1) {
-                    $model->roleIdList[$n1++] = $item1;
+                    $model->roleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

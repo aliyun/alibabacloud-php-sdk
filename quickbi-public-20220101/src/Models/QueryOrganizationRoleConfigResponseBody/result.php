@@ -51,7 +51,8 @@ class result extends Model
                 $res['AuthConfigList'] = [];
                 $n1 = 0;
                 foreach ($this->authConfigList as $item1) {
-                    $res['AuthConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class result extends Model
                 $model->authConfigList = [];
                 $n1 = 0;
                 foreach ($map['AuthConfigList'] as $item1) {
-                    $model->authConfigList[$n1++] = authConfigList::fromMap($item1);
+                    $model->authConfigList[$n1] = authConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

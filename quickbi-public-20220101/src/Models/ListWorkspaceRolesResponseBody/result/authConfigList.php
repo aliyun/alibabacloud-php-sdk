@@ -38,7 +38,8 @@ class authConfigList extends Model
                 $res['ActionAuthKeys'] = [];
                 $n1 = 0;
                 foreach ($this->actionAuthKeys as $item1) {
-                    $res['ActionAuthKeys'][$n1++] = $item1;
+                    $res['ActionAuthKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class authConfigList extends Model
                 $model->actionAuthKeys = [];
                 $n1 = 0;
                 foreach ($map['ActionAuthKeys'] as $item1) {
-                    $model->actionAuthKeys[$n1++] = $item1;
+                    $model->actionAuthKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

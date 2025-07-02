@@ -147,7 +147,8 @@ class result extends Model
                 $res['CubeTableList'] = [];
                 $n1 = 0;
                 foreach ($this->cubeTableList as $item1) {
-                    $res['CubeTableList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CubeTableList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +170,8 @@ class result extends Model
                 $res['DimensionList'] = [];
                 $n1 = 0;
                 foreach ($this->dimensionList as $item1) {
-                    $res['DimensionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DimensionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +205,8 @@ class result extends Model
                 $res['MeasureList'] = [];
                 $n1 = 0;
                 foreach ($this->measureList as $item1) {
-                    $res['MeasureList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MeasureList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +251,8 @@ class result extends Model
                 $model->cubeTableList = [];
                 $n1 = 0;
                 foreach ($map['CubeTableList'] as $item1) {
-                    $model->cubeTableList[$n1++] = cubeTableList::fromMap($item1);
+                    $model->cubeTableList[$n1] = cubeTableList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +274,8 @@ class result extends Model
                 $model->dimensionList = [];
                 $n1 = 0;
                 foreach ($map['DimensionList'] as $item1) {
-                    $model->dimensionList[$n1++] = dimensionList::fromMap($item1);
+                    $model->dimensionList[$n1] = dimensionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +309,8 @@ class result extends Model
                 $model->measureList = [];
                 $n1 = 0;
                 foreach ($map['MeasureList'] as $item1) {
-                    $model->measureList[$n1++] = measureList::fromMap($item1);
+                    $model->measureList[$n1] = measureList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -48,7 +48,8 @@ class result extends Model
                 $res['Headers'] = [];
                 $n1 = 0;
                 foreach ($this->headers as $item1) {
-                    $res['Headers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Headers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,11 +64,12 @@ class result extends Model
                 $n1 = 0;
                 foreach ($this->values as $item1) {
                     if (\is_array($item1)) {
-                        $res['Values'][$n1++] = [];
+                        $res['Values'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Values'][$n1++][$key2] = $value2;
+                            $res['Values'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class result extends Model
                 $model->headers = [];
                 $n1 = 0;
                 foreach ($map['Headers'] as $item1) {
-                    $model->headers[$n1++] = headers::fromMap($item1);
+                    $model->headers[$n1] = headers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -103,11 +106,12 @@ class result extends Model
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     if (!empty($item1)) {
-                        $model->values[$n1++] = [];
+                        $model->values[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->values[$n1++][$key2] = $value2;
+                            $model->values[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
