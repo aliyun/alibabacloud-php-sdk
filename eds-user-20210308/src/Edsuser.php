@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyValueResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateGroupRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyRequest;
@@ -25,6 +27,10 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteResourceGroupRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteResourceGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupsRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupsResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupUserRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupUserResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgByLayerRequest;
@@ -49,13 +55,19 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockMfaDeviceRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockMfaDeviceResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockUsersResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyGroupRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveOrgResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveUserOrgRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveUserOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\QuerySyncStatusByAliUidResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveGroupRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveMfaDeviceRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveMfaDeviceResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveOrgRequest;
@@ -75,6 +87,10 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\UnlockUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UnlockUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UpdatePropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UpdatePropertyResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchJoinGroupRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchJoinGroupResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchQuitGroupRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchQuitGroupResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -359,6 +375,75 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkUsedPropertyValueWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建角色.
+     *
+     * @param request - CreateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateGroupResponse
+     */
+    public function createGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->parentGroupId) {
+            @$query['ParentGroupId'] = $request->parentGroupId;
+        }
+
+        if (null !== $request->solutionId) {
+            @$query['SolutionId'] = $request->solutionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroup',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建角色.
+     *
+     * @param request - CreateGroupRequest
+     *
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     *
+     * @return CreateGroupResponse
+     */
+    public function createGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -759,6 +844,140 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserPropertyValueWithOptions($request, $runtime);
+    }
+
+    /**
+     * 全量同步初始化.
+     *
+     * @param request - DescribeGroupUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupUserResponse
+     *
+     * @param DescribeGroupUserRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeGroupUserResponse
+     */
+    public function describeGroupUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->solutionId) {
+            @$query['SolutionId'] = $request->solutionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGroupUser',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGroupUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 全量同步初始化.
+     *
+     * @param request - DescribeGroupUserRequest
+     *
+     * @returns DescribeGroupUserResponse
+     *
+     * @param DescribeGroupUserRequest $request
+     *
+     * @return DescribeGroupUserResponse
+     */
+    public function describeGroupUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGroupUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 全量同步初始化.
+     *
+     * @param request - DescribeGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupsResponse
+     *
+     * @param DescribeGroupsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeGroupsResponse
+     */
+    public function describeGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->solutionId) {
+            @$query['SolutionId'] = $request->solutionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGroups',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 全量同步初始化.
+     *
+     * @param request - DescribeGroupsRequest
+     *
+     * @returns DescribeGroupsResponse
+     *
+     * @param DescribeGroupsRequest $request
+     *
+     * @return DescribeGroupsResponse
+     */
+    public function describeGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -1624,6 +1843,67 @@ class Edsuser extends OpenApiClient
     }
 
     /**
+     * 修改角色.
+     *
+     * @param request - ModifyGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyGroupResponse
+     *
+     * @param ModifyGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ModifyGroupResponse
+     */
+    public function modifyGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->newGroupName) {
+            @$query['NewGroupName'] = $request->newGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyGroup',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改角色.
+     *
+     * @param request - ModifyGroupRequest
+     *
+     * @returns ModifyGroupResponse
+     *
+     * @param ModifyGroupRequest $request
+     *
+     * @return ModifyGroupResponse
+     */
+    public function modifyGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * 修改组织.
      *
      * @param request - ModifyOrgRequest
@@ -1811,6 +2091,67 @@ class Edsuser extends OpenApiClient
     }
 
     /**
+     * 移动用户组织.
+     *
+     * @param request - MoveUserOrgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveUserOrgResponse
+     *
+     * @param MoveUserOrgRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return MoveUserOrgResponse
+     */
+    public function moveUserOrgWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endUserIds) {
+            @$body['EndUserIds'] = $request->endUserIds;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['OrgId'] = $request->orgId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MoveUserOrg',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MoveUserOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移动用户组织.
+     *
+     * @param request - MoveUserOrgRequest
+     *
+     * @returns MoveUserOrgResponse
+     *
+     * @param MoveUserOrgRequest $request
+     *
+     * @return MoveUserOrgResponse
+     */
+    public function moveUserOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveUserOrgWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询edu同步信息.
      *
      * @param request - QuerySyncStatusByAliUidRequest
@@ -1852,6 +2193,63 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySyncStatusByAliUidWithOptions($runtime);
+    }
+
+    /**
+     * 删除角色.
+     *
+     * @param request - RemoveGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveGroupResponse
+     *
+     * @param RemoveGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RemoveGroupResponse
+     */
+    public function removeGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveGroup',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除角色.
+     *
+     * @param request - RemoveGroupRequest
+     *
+     * @returns RemoveGroupResponse
+     *
+     * @param RemoveGroupRequest $request
+     *
+     * @return RemoveGroupResponse
+     */
+    public function removeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2453,5 +2851,127 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用户批量分配角色.
+     *
+     * @param request - UserBatchJoinGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UserBatchJoinGroupResponse
+     *
+     * @param UserBatchJoinGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UserBatchJoinGroupResponse
+     */
+    public function userBatchJoinGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endUserIds) {
+            @$body['EndUserIds'] = $request->endUserIds;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UserBatchJoinGroup',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UserBatchJoinGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户批量分配角色.
+     *
+     * @param request - UserBatchJoinGroupRequest
+     *
+     * @returns UserBatchJoinGroupResponse
+     *
+     * @param UserBatchJoinGroupRequest $request
+     *
+     * @return UserBatchJoinGroupResponse
+     */
+    public function userBatchJoinGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->userBatchJoinGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用户批量移出角色.
+     *
+     * @param request - UserBatchQuitGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UserBatchQuitGroupResponse
+     *
+     * @param UserBatchQuitGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UserBatchQuitGroupResponse
+     */
+    public function userBatchQuitGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endUserIds) {
+            @$body['EndUserIds'] = $request->endUserIds;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UserBatchQuitGroup',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UserBatchQuitGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户批量移出角色.
+     *
+     * @param request - UserBatchQuitGroupRequest
+     *
+     * @returns UserBatchQuitGroupResponse
+     *
+     * @param UserBatchQuitGroupRequest $request
+     *
+     * @return UserBatchQuitGroupResponse
+     */
+    public function userBatchQuitGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->userBatchQuitGroupWithOptions($request, $runtime);
     }
 }

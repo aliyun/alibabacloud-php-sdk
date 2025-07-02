@@ -45,7 +45,8 @@ class DescribeMfaDevicesResponseBody extends Model
                 $res['MfaDevices'] = [];
                 $n1 = 0;
                 foreach ($this->mfaDevices as $item1) {
-                    $res['MfaDevices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MfaDevices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeMfaDevicesResponseBody extends Model
                 $model->mfaDevices = [];
                 $n1 = 0;
                 foreach ($map['MfaDevices'] as $item1) {
-                    $model->mfaDevices[$n1++] = mfaDevices::fromMap($item1);
+                    $model->mfaDevices[$n1] = mfaDevices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

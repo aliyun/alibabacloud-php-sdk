@@ -42,7 +42,8 @@ class CreatePropertyRequest extends Model
                 $res['PropertyValues'] = [];
                 $n1 = 0;
                 foreach ($this->propertyValues as $item1) {
-                    $res['PropertyValues'][$n1++] = $item1;
+                    $res['PropertyValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class CreatePropertyRequest extends Model
                 $model->propertyValues = [];
                 $n1 = 0;
                 foreach ($map['PropertyValues'] as $item1) {
-                    $model->propertyValues[$n1++] = $item1;
+                    $model->propertyValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -83,7 +83,8 @@ class resourceGroup extends Model
                 $res['AppRules'] = [];
                 $n1 = 0;
                 foreach ($this->appRules as $item1) {
-                    $res['AppRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class resourceGroup extends Model
                 $res['Policies'] = [];
                 $n1 = 0;
                 foreach ($this->policies as $item1) {
-                    $res['Policies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Policies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +125,8 @@ class resourceGroup extends Model
                 $res['Timers'] = [];
                 $n1 = 0;
                 foreach ($this->timers as $item1) {
-                    $res['Timers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Timers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +147,8 @@ class resourceGroup extends Model
                 $model->appRules = [];
                 $n1 = 0;
                 foreach ($map['AppRules'] as $item1) {
-                    $model->appRules[$n1++] = appRules::fromMap($item1);
+                    $model->appRules[$n1] = appRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +166,8 @@ class resourceGroup extends Model
                 $model->policies = [];
                 $n1 = 0;
                 foreach ($map['Policies'] as $item1) {
-                    $model->policies[$n1++] = policies::fromMap($item1);
+                    $model->policies[$n1] = policies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +189,8 @@ class resourceGroup extends Model
                 $model->timers = [];
                 $n1 = 0;
                 foreach ($map['Timers'] as $item1) {
-                    $model->timers[$n1++] = timers::fromMap($item1);
+                    $model->timers[$n1] = timers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

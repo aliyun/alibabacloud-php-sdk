@@ -183,7 +183,8 @@ class users extends Model
                 $res['Groups'] = [];
                 $n1 = 0;
                 foreach ($this->groups as $item1) {
-                    $res['Groups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Groups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +214,8 @@ class users extends Model
                 $res['Orgs'] = [];
                 $n1 = 0;
                 foreach ($this->orgs as $item1) {
-                    $res['Orgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Orgs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +233,8 @@ class users extends Model
                 $res['Properties'] = [];
                 $n1 = 0;
                 foreach ($this->properties as $item1) {
-                    $res['Properties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +295,8 @@ class users extends Model
                 $model->groups = [];
                 $n1 = 0;
                 foreach ($map['Groups'] as $item1) {
-                    $model->groups[$n1++] = groups::fromMap($item1);
+                    $model->groups[$n1] = groups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -322,7 +326,8 @@ class users extends Model
                 $model->orgs = [];
                 $n1 = 0;
                 foreach ($map['Orgs'] as $item1) {
-                    $model->orgs[$n1++] = orgs::fromMap($item1);
+                    $model->orgs[$n1] = orgs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -340,7 +345,8 @@ class users extends Model
                 $model->properties = [];
                 $n1 = 0;
                 foreach ($map['Properties'] as $item1) {
-                    $model->properties[$n1++] = properties::fromMap($item1);
+                    $model->properties[$n1] = properties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

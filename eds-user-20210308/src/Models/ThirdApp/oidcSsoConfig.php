@@ -112,7 +112,8 @@ class oidcSsoConfig extends Model
                 $res['GrantScopes'] = [];
                 $n1 = 0;
                 foreach ($this->grantScopes as $item1) {
-                    $res['GrantScopes'][$n1++] = $item1;
+                    $res['GrantScopes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class oidcSsoConfig extends Model
                 $res['GrantTypes'] = [];
                 $n1 = 0;
                 foreach ($this->grantTypes as $item1) {
-                    $res['GrantTypes'][$n1++] = $item1;
+                    $res['GrantTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +142,8 @@ class oidcSsoConfig extends Model
                 $res['RedirectUris'] = [];
                 $n1 = 0;
                 foreach ($this->redirectUris as $item1) {
-                    $res['RedirectUris'][$n1++] = $item1;
+                    $res['RedirectUris'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +184,8 @@ class oidcSsoConfig extends Model
                 $model->grantScopes = [];
                 $n1 = 0;
                 foreach ($map['GrantScopes'] as $item1) {
-                    $model->grantScopes[$n1++] = $item1;
+                    $model->grantScopes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +195,8 @@ class oidcSsoConfig extends Model
                 $model->grantTypes = [];
                 $n1 = 0;
                 foreach ($map['GrantTypes'] as $item1) {
-                    $model->grantTypes[$n1++] = $item1;
+                    $model->grantTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +214,8 @@ class oidcSsoConfig extends Model
                 $model->redirectUris = [];
                 $n1 = 0;
                 foreach ($map['RedirectUris'] as $item1) {
-                    $model->redirectUris[$n1++] = $item1;
+                    $model->redirectUris[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

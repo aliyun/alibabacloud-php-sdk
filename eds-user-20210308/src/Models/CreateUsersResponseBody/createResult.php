@@ -43,7 +43,8 @@ class createResult extends Model
                 $res['CreatedUsers'] = [];
                 $n1 = 0;
                 foreach ($this->createdUsers as $item1) {
-                    $res['CreatedUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CreatedUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class createResult extends Model
                 $res['FailedUsers'] = [];
                 $n1 = 0;
                 foreach ($this->failedUsers as $item1) {
-                    $res['FailedUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class createResult extends Model
                 $model->createdUsers = [];
                 $n1 = 0;
                 foreach ($map['CreatedUsers'] as $item1) {
-                    $model->createdUsers[$n1++] = createdUsers::fromMap($item1);
+                    $model->createdUsers[$n1] = createdUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class createResult extends Model
                 $model->failedUsers = [];
                 $n1 = 0;
                 foreach ($map['FailedUsers'] as $item1) {
-                    $model->failedUsers[$n1++] = failedUsers::fromMap($item1);
+                    $model->failedUsers[$n1] = failedUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

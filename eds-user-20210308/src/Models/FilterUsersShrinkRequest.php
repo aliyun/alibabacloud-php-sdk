@@ -124,7 +124,8 @@ class FilterUsersShrinkRequest extends Model
                 $res['ExcludeEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->excludeEndUserIds as $item1) {
-                    $res['ExcludeEndUserIds'][$n1++] = $item1;
+                    $res['ExcludeEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +179,8 @@ class FilterUsersShrinkRequest extends Model
                 $res['PropertyFilterParam'] = [];
                 $n1 = 0;
                 foreach ($this->propertyFilterParam as $item1) {
-                    $res['PropertyFilterParam'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyFilterParam'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +190,8 @@ class FilterUsersShrinkRequest extends Model
                 $res['PropertyKeyValueFilterParam'] = [];
                 $n1 = 0;
                 foreach ($this->propertyKeyValueFilterParam as $item1) {
-                    $res['PropertyKeyValueFilterParam'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyKeyValueFilterParam'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +216,8 @@ class FilterUsersShrinkRequest extends Model
                 $model->excludeEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['ExcludeEndUserIds'] as $item1) {
-                    $model->excludeEndUserIds[$n1++] = $item1;
+                    $model->excludeEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +271,8 @@ class FilterUsersShrinkRequest extends Model
                 $model->propertyFilterParam = [];
                 $n1 = 0;
                 foreach ($map['PropertyFilterParam'] as $item1) {
-                    $model->propertyFilterParam[$n1++] = propertyFilterParam::fromMap($item1);
+                    $model->propertyFilterParam[$n1] = propertyFilterParam::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -277,7 +282,8 @@ class FilterUsersShrinkRequest extends Model
                 $model->propertyKeyValueFilterParam = [];
                 $n1 = 0;
                 foreach ($map['PropertyKeyValueFilterParam'] as $item1) {
-                    $model->propertyKeyValueFilterParam[$n1++] = propertyKeyValueFilterParam::fromMap($item1);
+                    $model->propertyKeyValueFilterParam[$n1] = propertyKeyValueFilterParam::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

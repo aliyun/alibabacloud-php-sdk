@@ -42,7 +42,8 @@ class resetUsersResult extends Model
                 $res['FailedUsers'] = [];
                 $n1 = 0;
                 foreach ($this->failedUsers as $item1) {
-                    $res['FailedUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class resetUsersResult extends Model
                 $res['ResetUsers'] = [];
                 $n1 = 0;
                 foreach ($this->resetUsers as $item1) {
-                    $res['ResetUsers'][$n1++] = $item1;
+                    $res['ResetUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class resetUsersResult extends Model
                 $model->failedUsers = [];
                 $n1 = 0;
                 foreach ($map['FailedUsers'] as $item1) {
-                    $model->failedUsers[$n1++] = failedUsers::fromMap($item1);
+                    $model->failedUsers[$n1] = failedUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class resetUsersResult extends Model
                 $model->resetUsers = [];
                 $n1 = 0;
                 foreach ($map['ResetUsers'] as $item1) {
-                    $model->resetUsers[$n1++] = $item1;
+                    $model->resetUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

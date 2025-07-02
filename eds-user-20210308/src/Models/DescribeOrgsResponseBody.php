@@ -49,7 +49,8 @@ class DescribeOrgsResponseBody extends Model
                 $res['Orgs'] = [];
                 $n1 = 0;
                 foreach ($this->orgs as $item1) {
-                    $res['Orgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Orgs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeOrgsResponseBody extends Model
                 $model->orgs = [];
                 $n1 = 0;
                 foreach ($map['Orgs'] as $item1) {
-                    $model->orgs[$n1++] = orgs::fromMap($item1);
+                    $model->orgs[$n1] = orgs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

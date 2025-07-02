@@ -43,7 +43,8 @@ class savePropertyValueModel extends Model
                 $res['FailedPropertyValues'] = [];
                 $n1 = 0;
                 foreach ($this->failedPropertyValues as $item1) {
-                    $res['FailedPropertyValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedPropertyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class savePropertyValueModel extends Model
                 $res['SavePropertyValues'] = [];
                 $n1 = 0;
                 foreach ($this->savePropertyValues as $item1) {
-                    $res['SavePropertyValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SavePropertyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class savePropertyValueModel extends Model
                 $model->failedPropertyValues = [];
                 $n1 = 0;
                 foreach ($map['FailedPropertyValues'] as $item1) {
-                    $model->failedPropertyValues[$n1++] = failedPropertyValues::fromMap($item1);
+                    $model->failedPropertyValues[$n1] = failedPropertyValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class savePropertyValueModel extends Model
                 $model->savePropertyValues = [];
                 $n1 = 0;
                 foreach ($map['SavePropertyValues'] as $item1) {
-                    $model->savePropertyValues[$n1++] = savePropertyValues::fromMap($item1);
+                    $model->savePropertyValues[$n1] = savePropertyValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

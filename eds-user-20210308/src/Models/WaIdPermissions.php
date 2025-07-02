@@ -68,7 +68,8 @@ class WaIdPermissions extends Model
                 $res['SubPermissions'] = [];
                 $n1 = 0;
                 foreach ($this->subPermissions as $item1) {
-                    $res['SubPermissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubPermissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class WaIdPermissions extends Model
                 $model->subPermissions = [];
                 $n1 = 0;
                 foreach ($map['SubPermissions'] as $item1) {
-                    $model->subPermissions[$n1++] = self::fromMap($item1);
+                    $model->subPermissions[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

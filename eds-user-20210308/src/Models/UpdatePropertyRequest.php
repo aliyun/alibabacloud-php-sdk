@@ -53,7 +53,8 @@ class UpdatePropertyRequest extends Model
                 $res['PropertyValues'] = [];
                 $n1 = 0;
                 foreach ($this->propertyValues as $item1) {
-                    $res['PropertyValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class UpdatePropertyRequest extends Model
                 $model->propertyValues = [];
                 $n1 = 0;
                 foreach ($map['PropertyValues'] as $item1) {
-                    $model->propertyValues[$n1++] = propertyValues::fromMap($item1);
+                    $model->propertyValues[$n1] = propertyValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

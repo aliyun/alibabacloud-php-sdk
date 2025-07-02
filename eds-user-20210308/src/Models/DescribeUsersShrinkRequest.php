@@ -117,7 +117,8 @@ class DescribeUsersShrinkRequest extends Model
                 $res['EndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1++] = $item1;
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +128,8 @@ class DescribeUsersShrinkRequest extends Model
                 $res['ExcludeEndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->excludeEndUserIds as $item1) {
-                    $res['ExcludeEndUserIds'][$n1++] = $item1;
+                    $res['ExcludeEndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +198,8 @@ class DescribeUsersShrinkRequest extends Model
                 $model->endUserIds = [];
                 $n1 = 0;
                 foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1++] = $item1;
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +209,8 @@ class DescribeUsersShrinkRequest extends Model
                 $model->excludeEndUserIds = [];
                 $n1 = 0;
                 foreach ($map['ExcludeEndUserIds'] as $item1) {
-                    $model->excludeEndUserIds[$n1++] = $item1;
+                    $model->excludeEndUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

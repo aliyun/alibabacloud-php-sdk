@@ -39,7 +39,8 @@ class ListPropertyValueResponseBody extends Model
                 $res['PropertyValueInfos'] = [];
                 $n1 = 0;
                 foreach ($this->propertyValueInfos as $item1) {
-                    $res['PropertyValueInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyValueInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListPropertyValueResponseBody extends Model
                 $model->propertyValueInfos = [];
                 $n1 = 0;
                 foreach ($map['PropertyValueInfos'] as $item1) {
-                    $model->propertyValueInfos[$n1++] = propertyValueInfos::fromMap($item1);
+                    $model->propertyValueInfos[$n1] = propertyValueInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

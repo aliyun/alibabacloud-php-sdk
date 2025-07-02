@@ -49,7 +49,8 @@ class DescribeResourceGroupsResponseBody extends Model
                 $res['ResourceGroup'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroup as $item1) {
-                    $res['ResourceGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeResourceGroupsResponseBody extends Model
                 $model->resourceGroup = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroup'] as $item1) {
-                    $model->resourceGroup[$n1++] = resourceGroup::fromMap($item1);
+                    $model->resourceGroup[$n1] = resourceGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class removeUsersResult extends Model
                 $res['FailedUsers'] = [];
                 $n1 = 0;
                 foreach ($this->failedUsers as $item1) {
-                    $res['FailedUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class removeUsersResult extends Model
                 $res['RemovedUsers'] = [];
                 $n1 = 0;
                 foreach ($this->removedUsers as $item1) {
-                    $res['RemovedUsers'][$n1++] = $item1;
+                    $res['RemovedUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class removeUsersResult extends Model
                 $model->failedUsers = [];
                 $n1 = 0;
                 foreach ($map['FailedUsers'] as $item1) {
-                    $model->failedUsers[$n1++] = failedUsers::fromMap($item1);
+                    $model->failedUsers[$n1] = failedUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class removeUsersResult extends Model
                 $model->removedUsers = [];
                 $n1 = 0;
                 foreach ($map['RemovedUsers'] as $item1) {
-                    $model->removedUsers[$n1++] = $item1;
+                    $model->removedUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

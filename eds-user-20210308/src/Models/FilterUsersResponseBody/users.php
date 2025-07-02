@@ -189,7 +189,8 @@ class users extends Model
                 $res['OrgList'] = [];
                 $n1 = 0;
                 foreach ($this->orgList as $item1) {
-                    $res['OrgList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OrgList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +228,8 @@ class users extends Model
                 $res['SupportLoginIdps'] = [];
                 $n1 = 0;
                 foreach ($this->supportLoginIdps as $item1) {
-                    $res['SupportLoginIdps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportLoginIdps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +239,8 @@ class users extends Model
                 $res['UserSetPropertiesModels'] = [];
                 $n1 = 0;
                 foreach ($this->userSetPropertiesModels as $item1) {
-                    $res['UserSetPropertiesModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserSetPropertiesModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +297,8 @@ class users extends Model
                 $model->orgList = [];
                 $n1 = 0;
                 foreach ($map['OrgList'] as $item1) {
-                    $model->orgList[$n1++] = orgList::fromMap($item1);
+                    $model->orgList[$n1] = orgList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -332,7 +336,8 @@ class users extends Model
                 $model->supportLoginIdps = [];
                 $n1 = 0;
                 foreach ($map['SupportLoginIdps'] as $item1) {
-                    $model->supportLoginIdps[$n1++] = supportLoginIdps::fromMap($item1);
+                    $model->supportLoginIdps[$n1] = supportLoginIdps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -342,7 +347,8 @@ class users extends Model
                 $model->userSetPropertiesModels = [];
                 $n1 = 0;
                 foreach ($map['UserSetPropertiesModels'] as $item1) {
-                    $model->userSetPropertiesModels[$n1++] = userSetPropertiesModels::fromMap($item1);
+                    $model->userSetPropertiesModels[$n1] = userSetPropertiesModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

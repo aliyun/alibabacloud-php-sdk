@@ -63,7 +63,8 @@ class DescribeMfaDevicesRequest extends Model
                 $res['EndUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1++] = $item1;
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DescribeMfaDevicesRequest extends Model
                 $res['SerialNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->serialNumbers as $item1) {
-                    $res['SerialNumbers'][$n1++] = $item1;
+                    $res['SerialNumbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +108,8 @@ class DescribeMfaDevicesRequest extends Model
                 $model->endUserIds = [];
                 $n1 = 0;
                 foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1++] = $item1;
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +127,8 @@ class DescribeMfaDevicesRequest extends Model
                 $model->serialNumbers = [];
                 $n1 = 0;
                 foreach ($map['SerialNumbers'] as $item1) {
-                    $model->serialNumbers[$n1++] = $item1;
+                    $model->serialNumbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

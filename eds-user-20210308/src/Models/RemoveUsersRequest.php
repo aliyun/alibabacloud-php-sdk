@@ -32,7 +32,8 @@ class RemoveUsersRequest extends Model
                 $res['Users'] = [];
                 $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = $item1;
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class RemoveUsersRequest extends Model
                 $model->users = [];
                 $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = $item1;
+                    $model->users[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
