@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $templateDetails;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
@@ -18,6 +23,7 @@ class data extends Model
      */
     public $templateName;
     protected $_name = [
+        'templateDetails' => 'TemplateDetails',
         'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
     ];
@@ -30,6 +36,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->templateDetails) {
+            $res['TemplateDetails'] = $this->templateDetails;
+        }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -49,6 +59,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TemplateDetails'])) {
+            $model->templateDetails = $map['TemplateDetails'];
+        }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
