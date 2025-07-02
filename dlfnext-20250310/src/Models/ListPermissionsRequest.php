@@ -14,6 +14,11 @@ class ListPermissionsRequest extends Model
     public $database;
 
     /**
+     * @var string
+     */
+    public $function;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -37,13 +42,20 @@ class ListPermissionsRequest extends Model
      * @var string
      */
     public $table;
+
+    /**
+     * @var string
+     */
+    public $view;
     protected $_name = [
         'database' => 'database',
+        'function' => 'function',
         'maxResults' => 'maxResults',
         'pageToken' => 'pageToken',
         'principal' => 'principal',
         'resourceType' => 'resourceType',
         'table' => 'table',
+        'view' => 'view',
     ];
 
     public function validate()
@@ -56,6 +68,10 @@ class ListPermissionsRequest extends Model
         $res = [];
         if (null !== $this->database) {
             $res['database'] = $this->database;
+        }
+
+        if (null !== $this->function) {
+            $res['function'] = $this->function;
         }
 
         if (null !== $this->maxResults) {
@@ -78,6 +94,10 @@ class ListPermissionsRequest extends Model
             $res['table'] = $this->table;
         }
 
+        if (null !== $this->view) {
+            $res['view'] = $this->view;
+        }
+
         return $res;
     }
 
@@ -91,6 +111,10 @@ class ListPermissionsRequest extends Model
         $model = new self();
         if (isset($map['database'])) {
             $model->database = $map['database'];
+        }
+
+        if (isset($map['function'])) {
+            $model->function = $map['function'];
         }
 
         if (isset($map['maxResults'])) {
@@ -111,6 +135,10 @@ class ListPermissionsRequest extends Model
 
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+
+        if (isset($map['view'])) {
+            $model->view = $map['view'];
         }
 
         return $model;

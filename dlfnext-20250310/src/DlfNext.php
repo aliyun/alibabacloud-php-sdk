@@ -1320,6 +1320,10 @@ class DlfNext extends OpenApiClient
             @$query['database'] = $request->database;
         }
 
+        if (null !== $request->function) {
+            @$query['function'] = $request->function;
+        }
+
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
         }
@@ -1338,6 +1342,10 @@ class DlfNext extends OpenApiClient
 
         if (null !== $request->table) {
             @$query['table'] = $request->table;
+        }
+
+        if (null !== $request->view) {
+            @$query['view'] = $request->view;
         }
 
         $req = new OpenApiRequest([

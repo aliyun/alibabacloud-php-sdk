@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\Permission\columns;
 
 class Permission extends Model
 {
@@ -14,9 +15,19 @@ class Permission extends Model
     public $access;
 
     /**
+     * @var columns
+     */
+    public $columns;
+
+    /**
      * @var string
      */
     public $database;
+
+    /**
+     * @var string
+     */
+    public $function;
 
     /**
      * @var string
@@ -32,16 +43,27 @@ class Permission extends Model
      * @var string
      */
     public $table;
+
+    /**
+     * @var string
+     */
+    public $view;
     protected $_name = [
         'access' => 'access',
+        'columns' => 'columns',
         'database' => 'database',
+        'function' => 'function',
         'principal' => 'principal',
         'resourceType' => 'resourceType',
         'table' => 'table',
+        'view' => 'view',
     ];
 
     public function validate()
     {
+        if (null !== $this->columns) {
+            $this->columns->validate();
+        }
         parent::validate();
     }
 
@@ -52,8 +74,16 @@ class Permission extends Model
             $res['access'] = $this->access;
         }
 
+        if (null !== $this->columns) {
+            $res['columns'] = null !== $this->columns ? $this->columns->toArray($noStream) : $this->columns;
+        }
+
         if (null !== $this->database) {
             $res['database'] = $this->database;
+        }
+
+        if (null !== $this->function) {
+            $res['function'] = $this->function;
         }
 
         if (null !== $this->principal) {
@@ -66,6 +96,10 @@ class Permission extends Model
 
         if (null !== $this->table) {
             $res['table'] = $this->table;
+        }
+
+        if (null !== $this->view) {
+            $res['view'] = $this->view;
         }
 
         return $res;
@@ -83,8 +117,16 @@ class Permission extends Model
             $model->access = $map['access'];
         }
 
+        if (isset($map['columns'])) {
+            $model->columns = columns::fromMap($map['columns']);
+        }
+
         if (isset($map['database'])) {
             $model->database = $map['database'];
+        }
+
+        if (isset($map['function'])) {
+            $model->function = $map['function'];
         }
 
         if (isset($map['principal'])) {
@@ -97,6 +139,10 @@ class Permission extends Model
 
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+
+        if (isset($map['view'])) {
+            $model->view = $map['view'];
         }
 
         return $model;
