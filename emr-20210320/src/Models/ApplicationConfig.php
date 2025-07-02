@@ -12,38 +12,44 @@ class ApplicationConfig extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $configFileName;
+
     /**
      * @var string
      */
     public $configItemKey;
+
     /**
      * @var string
      */
     public $configItemValue;
+
     /**
      * @var string
      */
     public $configScope;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeGroupName;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'configFileName'  => 'ConfigFileName',
-        'configItemKey'   => 'ConfigItemKey',
+        'configFileName' => 'ConfigFileName',
+        'configItemKey' => 'ConfigItemKey',
         'configItemValue' => 'ConfigItemValue',
-        'configScope'     => 'ConfigScope',
-        'nodeGroupId'     => 'NodeGroupId',
-        'nodeGroupName'   => 'NodeGroupName',
+        'configScope' => 'ConfigScope',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeGroupName' => 'NodeGroupName',
     ];
 
     public function validate()

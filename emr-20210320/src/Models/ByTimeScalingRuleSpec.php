@@ -12,22 +12,25 @@ class ByTimeScalingRuleSpec extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $launchTime;
+
     /**
      * @var string
      */
     public $recurrenceType;
+
     /**
      * @var string
      */
     public $recurrenceValue;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'launchTime'      => 'LaunchTime',
-        'recurrenceType'  => 'RecurrenceType',
+        'endTime' => 'EndTime',
+        'launchTime' => 'LaunchTime',
+        'recurrenceType' => 'RecurrenceType',
         'recurrenceValue' => 'RecurrenceValue',
     ];
 

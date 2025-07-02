@@ -12,27 +12,31 @@ class UpdateScriptRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var Script
      */
     public $script;
+
     /**
      * @var string
      */
     public $scriptId;
+
     /**
      * @var string
      */
     public $scriptType;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'regionId'   => 'RegionId',
-        'script'     => 'Script',
-        'scriptId'   => 'ScriptId',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
+        'script' => 'Script',
+        'scriptId' => 'ScriptId',
         'scriptType' => 'ScriptType',
     ];
 

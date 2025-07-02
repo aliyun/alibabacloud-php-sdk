@@ -12,12 +12,13 @@ class TimeRange extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 

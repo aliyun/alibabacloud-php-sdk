@@ -13,12 +13,13 @@ class GetAutoScalingPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var scalingPolicy
      */
     public $scalingPolicy;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'scalingPolicy' => 'ScalingPolicy',
     ];
 

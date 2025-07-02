@@ -12,37 +12,43 @@ class NodeSelector extends Model
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string[]
      */
     public $nodeGroupIds;
+
     /**
      * @var string
      */
     public $nodeGroupName;
+
     /**
      * @var string[]
      */
     public $nodeGroupNames;
+
     /**
      * @var string[]
      */
     public $nodeGroupTypes;
+
     /**
      * @var string[]
      */
     public $nodeNames;
+
     /**
      * @var string
      */
     public $nodeSelectType;
     protected $_name = [
-        'nodeGroupId'    => 'NodeGroupId',
-        'nodeGroupIds'   => 'NodeGroupIds',
-        'nodeGroupName'  => 'NodeGroupName',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeGroupIds' => 'NodeGroupIds',
+        'nodeGroupName' => 'NodeGroupName',
         'nodeGroupNames' => 'NodeGroupNames',
         'nodeGroupTypes' => 'NodeGroupTypes',
-        'nodeNames'      => 'NodeNames',
+        'nodeNames' => 'NodeNames',
         'nodeSelectType' => 'NodeSelectType',
     ];
 
@@ -73,9 +79,10 @@ class NodeSelector extends Model
         if (null !== $this->nodeGroupIds) {
             if (\is_array($this->nodeGroupIds)) {
                 $res['NodeGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroupIds as $item1) {
-                    $res['NodeGroupIds'][$n1++] = $item1;
+                    $res['NodeGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +94,10 @@ class NodeSelector extends Model
         if (null !== $this->nodeGroupNames) {
             if (\is_array($this->nodeGroupNames)) {
                 $res['NodeGroupNames'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroupNames as $item1) {
-                    $res['NodeGroupNames'][$n1++] = $item1;
+                    $res['NodeGroupNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,9 +105,10 @@ class NodeSelector extends Model
         if (null !== $this->nodeGroupTypes) {
             if (\is_array($this->nodeGroupTypes)) {
                 $res['NodeGroupTypes'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroupTypes as $item1) {
-                    $res['NodeGroupTypes'][$n1++] = $item1;
+                    $res['NodeGroupTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,9 +116,10 @@ class NodeSelector extends Model
         if (null !== $this->nodeNames) {
             if (\is_array($this->nodeNames)) {
                 $res['NodeNames'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->nodeNames as $item1) {
-                    $res['NodeNames'][$n1++] = $item1;
+                    $res['NodeNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,9 +146,10 @@ class NodeSelector extends Model
         if (isset($map['NodeGroupIds'])) {
             if (!empty($map['NodeGroupIds'])) {
                 $model->nodeGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroupIds'] as $item1) {
-                    $model->nodeGroupIds[$n1++] = $item1;
+                    $model->nodeGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,9 +161,10 @@ class NodeSelector extends Model
         if (isset($map['NodeGroupNames'])) {
             if (!empty($map['NodeGroupNames'])) {
                 $model->nodeGroupNames = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroupNames'] as $item1) {
-                    $model->nodeGroupNames[$n1++] = $item1;
+                    $model->nodeGroupNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,9 +172,10 @@ class NodeSelector extends Model
         if (isset($map['NodeGroupTypes'])) {
             if (!empty($map['NodeGroupTypes'])) {
                 $model->nodeGroupTypes = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroupTypes'] as $item1) {
-                    $model->nodeGroupTypes[$n1++] = $item1;
+                    $model->nodeGroupTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,9 +183,10 @@ class NodeSelector extends Model
         if (isset($map['NodeNames'])) {
             if (!empty($map['NodeNames'])) {
                 $model->nodeNames = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['NodeNames'] as $item1) {
-                    $model->nodeNames[$n1++] = $item1;
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

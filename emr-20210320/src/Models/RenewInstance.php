@@ -12,28 +12,32 @@ class RenewInstance extends Model
      * @var int
      */
     public $emrRenewDuration;
+
     /**
      * @var string
      */
     public $emrRenewDurationUnit;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $renewDuration;
+
     /**
      * @var string
      */
     public $renewDurationUnit;
     protected $_name = [
-        'emrRenewDuration'     => 'EmrRenewDuration',
+        'emrRenewDuration' => 'EmrRenewDuration',
         'emrRenewDurationUnit' => 'EmrRenewDurationUnit',
-        'instanceId'           => 'InstanceId',
-        'renewDuration'        => 'RenewDuration',
-        'renewDurationUnit'    => 'RenewDurationUnit',
+        'instanceId' => 'InstanceId',
+        'renewDuration' => 'RenewDuration',
+        'renewDurationUnit' => 'RenewDurationUnit',
     ];
 
     public function validate()

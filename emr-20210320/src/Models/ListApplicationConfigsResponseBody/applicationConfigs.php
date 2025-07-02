@@ -12,68 +12,80 @@ class applicationConfigs extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $configEffectState;
+
     /**
      * @var string
      */
     public $configFileName;
+
     /**
      * @var string
      */
     public $configItemKey;
+
     /**
      * @var string
      */
     public $configItemValue;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $custom;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $initValue;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $updateTime;
     protected $_name = [
-        'applicationName'   => 'ApplicationName',
+        'applicationName' => 'ApplicationName',
         'configEffectState' => 'ConfigEffectState',
-        'configFileName'    => 'ConfigFileName',
-        'configItemKey'     => 'ConfigItemKey',
-        'configItemValue'   => 'ConfigItemValue',
-        'createTime'        => 'CreateTime',
-        'custom'            => 'Custom',
-        'description'       => 'Description',
-        'initValue'         => 'InitValue',
-        'modifier'          => 'Modifier',
-        'nodeGroupId'       => 'NodeGroupId',
-        'nodeId'            => 'NodeId',
-        'updateTime'        => 'UpdateTime',
+        'configFileName' => 'ConfigFileName',
+        'configItemKey' => 'ConfigItemKey',
+        'configItemValue' => 'ConfigItemValue',
+        'createTime' => 'CreateTime',
+        'custom' => 'Custom',
+        'description' => 'Description',
+        'initValue' => 'InitValue',
+        'modifier' => 'Modifier',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeId' => 'NodeId',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

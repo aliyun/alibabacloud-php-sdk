@@ -13,13 +13,14 @@ class GetClusterCloneMetaResponseBody extends Model
      * @var clusterCloneMeta
      */
     public $clusterCloneMeta;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterCloneMeta' => 'ClusterCloneMeta',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

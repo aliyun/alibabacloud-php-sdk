@@ -12,13 +12,14 @@ class UpdateSpecNodeGroup extends Model
      * @var string
      */
     public $newInstanceType;
+
     /**
      * @var string
      */
     public $nodeGroupId;
     protected $_name = [
         'newInstanceType' => 'NewInstanceType',
-        'nodeGroupId'     => 'NodeGroupId',
+        'nodeGroupId' => 'NodeGroupId',
     ];
 
     public function validate()

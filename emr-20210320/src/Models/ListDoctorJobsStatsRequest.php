@@ -14,47 +14,55 @@ class ListDoctorJobsStatsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var endRange
      */
     public $endRange;
+
     /**
      * @var string[]
      */
     public $groupBy;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var startRange
      */
     public $startRange;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'endRange'   => 'EndRange',
-        'groupBy'    => 'GroupBy',
+        'clusterId' => 'ClusterId',
+        'endRange' => 'EndRange',
+        'groupBy' => 'GroupBy',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'orderBy'    => 'OrderBy',
-        'orderType'  => 'OrderType',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
         'startRange' => 'StartRange',
     ];
 
@@ -86,9 +94,10 @@ class ListDoctorJobsStatsRequest extends Model
         if (null !== $this->groupBy) {
             if (\is_array($this->groupBy)) {
                 $res['GroupBy'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->groupBy as $item1) {
-                    $res['GroupBy'][$n1++] = $item1;
+                    $res['GroupBy'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,9 +148,10 @@ class ListDoctorJobsStatsRequest extends Model
         if (isset($map['GroupBy'])) {
             if (!empty($map['GroupBy'])) {
                 $model->groupBy = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['GroupBy'] as $item1) {
-                    $model->groupBy[$n1++] = $item1;
+                    $model->groupBy[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

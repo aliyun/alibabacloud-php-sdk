@@ -12,18 +12,20 @@ class ListReleaseVersionsRequest extends Model
      * @var string
      */
     public $clusterType;
+
     /**
      * @var string
      */
     public $iaasType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clusterType' => 'ClusterType',
-        'iaasType'    => 'IaasType',
-        'regionId'    => 'RegionId',
+        'iaasType' => 'IaasType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

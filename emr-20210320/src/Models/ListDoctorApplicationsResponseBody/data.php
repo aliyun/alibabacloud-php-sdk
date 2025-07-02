@@ -14,58 +14,68 @@ class data extends Model
      * @var analysis
      */
     public $analysis;
+
     /**
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string[]
      */
     public $ids;
+
     /**
      * @var metrics
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $querySql;
+
     /**
      * @var string
      */
     public $queue;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'analysis'  => 'Analysis',
-        'appId'     => 'AppId',
-        'appName'   => 'AppName',
-        'endTime'   => 'EndTime',
-        'ids'       => 'Ids',
-        'metrics'   => 'Metrics',
-        'querySql'  => 'QuerySql',
-        'queue'     => 'Queue',
+        'analysis' => 'Analysis',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'endTime' => 'EndTime',
+        'ids' => 'Ids',
+        'metrics' => 'Metrics',
+        'querySql' => 'QuerySql',
+        'queue' => 'Queue',
         'startTime' => 'StartTime',
-        'type'      => 'Type',
-        'user'      => 'User',
+        'type' => 'Type',
+        'user' => 'User',
     ];
 
     public function validate()
@@ -104,9 +114,10 @@ class data extends Model
         if (null !== $this->ids) {
             if (\is_array($this->ids)) {
                 $res['Ids'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1++] = $item1;
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,9 +176,10 @@ class data extends Model
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
                 $model->ids = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1++] = $item1;
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

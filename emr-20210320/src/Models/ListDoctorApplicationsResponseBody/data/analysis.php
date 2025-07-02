@@ -12,12 +12,13 @@ class analysis extends Model
      * @var int
      */
     public $score;
+
     /**
      * @var string
      */
     public $suggestion;
     protected $_name = [
-        'score'      => 'Score',
+        'score' => 'Score',
         'suggestion' => 'Suggestion',
     ];
 

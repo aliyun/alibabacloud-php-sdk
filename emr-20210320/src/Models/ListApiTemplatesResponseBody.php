@@ -12,28 +12,32 @@ class ListApiTemplatesResponseBody extends Model
      * @var ApiTemplate[]
      */
     public $apiTemplates;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'apiTemplates' => 'ApiTemplates',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,9 +54,10 @@ class ListApiTemplatesResponseBody extends Model
         if (null !== $this->apiTemplates) {
             if (\is_array($this->apiTemplates)) {
                 $res['ApiTemplates'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->apiTemplates as $item1) {
-                    $res['ApiTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiTemplates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +92,10 @@ class ListApiTemplatesResponseBody extends Model
         if (isset($map['ApiTemplates'])) {
             if (!empty($map['ApiTemplates'])) {
                 $model->apiTemplates = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ApiTemplates'] as $item1) {
-                    $model->apiTemplates[$n1++] = ApiTemplate::fromMap($item1);
+                    $model->apiTemplates[$n1] = ApiTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

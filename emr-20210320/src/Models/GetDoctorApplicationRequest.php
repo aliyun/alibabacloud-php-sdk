@@ -12,23 +12,26 @@ class GetDoctorApplicationRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'clusterId' => 'ClusterId',
-        'dateTime'  => 'DateTime',
-        'regionId'  => 'RegionId',
+        'dateTime' => 'DateTime',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

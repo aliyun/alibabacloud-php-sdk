@@ -12,12 +12,13 @@ class AckNode extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var AckNodeSelector
      */
     public $nodeSelector;
     protected $_name = [
-        'nodeId'       => 'NodeId',
+        'nodeId' => 'NodeId',
         'nodeSelector' => 'NodeSelector',
     ];
 

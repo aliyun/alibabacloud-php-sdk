@@ -12,63 +12,74 @@ class ListApiTemplatesDTO extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'apiName'         => 'ApiName',
-        'content'         => 'Content',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
-        'operatorId'      => 'OperatorId',
-        'regionId'        => 'RegionId',
+        'apiName' => 'ApiName',
+        'content' => 'Content',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'operatorId' => 'OperatorId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
-        'userId'          => 'UserId',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'userId' => 'UserId',
     ];
 
     public function validate()

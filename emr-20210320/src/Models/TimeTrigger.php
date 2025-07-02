@@ -12,33 +12,38 @@ class TimeTrigger extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $launchExpirationTime;
+
     /**
      * @var string
      */
     public $launchTime;
+
     /**
      * @var string
      */
     public $recurrenceType;
+
     /**
      * @var string
      */
     public $recurrenceValue;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'              => 'EndTime',
+        'endTime' => 'EndTime',
         'launchExpirationTime' => 'LaunchExpirationTime',
-        'launchTime'           => 'LaunchTime',
-        'recurrenceType'       => 'RecurrenceType',
-        'recurrenceValue'      => 'RecurrenceValue',
-        'startTime'            => 'StartTime',
+        'launchTime' => 'LaunchTime',
+        'recurrenceType' => 'RecurrenceType',
+        'recurrenceValue' => 'RecurrenceValue',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

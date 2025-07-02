@@ -15,32 +15,37 @@ class data extends Model
      * @var appsCount
      */
     public $appsCount;
+
     /**
      * @var memSeconds
      */
     public $memSeconds;
+
     /**
      * @var string
      */
     public $queue;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $user;
+
     /**
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
     protected $_name = [
-        'appsCount'    => 'AppsCount',
-        'memSeconds'   => 'MemSeconds',
-        'queue'        => 'Queue',
-        'type'         => 'Type',
-        'user'         => 'User',
+        'appsCount' => 'AppsCount',
+        'memSeconds' => 'MemSeconds',
+        'queue' => 'Queue',
+        'type' => 'Type',
+        'user' => 'User',
         'vcoreSeconds' => 'VcoreSeconds',
     ];
 

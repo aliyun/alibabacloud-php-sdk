@@ -12,28 +12,32 @@ class Promotion extends Model
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $promotionDesc;
+
     /**
      * @var string
      */
     public $promotionName;
+
     /**
      * @var string
      */
     public $promotionOptionCode;
+
     /**
      * @var string
      */
     public $promotionOptionNo;
     protected $_name = [
-        'productCode'         => 'ProductCode',
-        'promotionDesc'       => 'PromotionDesc',
-        'promotionName'       => 'PromotionName',
+        'productCode' => 'ProductCode',
+        'promotionDesc' => 'PromotionDesc',
+        'promotionName' => 'PromotionName',
         'promotionOptionCode' => 'PromotionOptionCode',
-        'promotionOptionNo'   => 'PromotionOptionNo',
+        'promotionOptionNo' => 'PromotionOptionNo',
     ];
 
     public function validate()

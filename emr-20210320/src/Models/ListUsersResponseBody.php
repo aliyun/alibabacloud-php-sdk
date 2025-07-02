@@ -13,33 +13,38 @@ class ListUsersResponseBody extends Model
      * @var bool
      */
     public $isAdmin;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var users[]
      */
     public $users;
     protected $_name = [
-        'isAdmin'    => 'IsAdmin',
+        'isAdmin' => 'IsAdmin',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'users'      => 'Users',
+        'users' => 'Users',
     ];
 
     public function validate()
@@ -76,9 +81,10 @@ class ListUsersResponseBody extends Model
         if (null !== $this->users) {
             if (\is_array($this->users)) {
                 $res['Users'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,9 +123,10 @@ class ListUsersResponseBody extends Model
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = users::fromMap($item1);
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

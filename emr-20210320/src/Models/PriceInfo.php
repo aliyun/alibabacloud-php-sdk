@@ -12,63 +12,74 @@ class PriceInfo extends Model
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $discountPrice;
+
     /**
      * @var string
      */
     public $originalPrice;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var PromotionInfo[]
      */
     public $promotionResults;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $spotInstanceTypeOriginalPrice;
+
     /**
      * @var string
      */
     public $spotInstanceTypePrice;
+
     /**
      * @var string
      */
     public $spotOriginalPrice;
+
     /**
      * @var string
      */
     public $spotPrice;
+
     /**
      * @var string
      */
     public $taxPrice;
+
     /**
      * @var string
      */
     public $tradePrice;
     protected $_name = [
-        'currency'                      => 'Currency',
-        'discountPrice'                 => 'DiscountPrice',
-        'originalPrice'                 => 'OriginalPrice',
-        'payType'                       => 'PayType',
-        'promotionResults'              => 'PromotionResults',
-        'resourceType'                  => 'ResourceType',
+        'currency' => 'Currency',
+        'discountPrice' => 'DiscountPrice',
+        'originalPrice' => 'OriginalPrice',
+        'payType' => 'PayType',
+        'promotionResults' => 'PromotionResults',
+        'resourceType' => 'ResourceType',
         'spotInstanceTypeOriginalPrice' => 'SpotInstanceTypeOriginalPrice',
-        'spotInstanceTypePrice'         => 'SpotInstanceTypePrice',
-        'spotOriginalPrice'             => 'SpotOriginalPrice',
-        'spotPrice'                     => 'SpotPrice',
-        'taxPrice'                      => 'TaxPrice',
-        'tradePrice'                    => 'TradePrice',
+        'spotInstanceTypePrice' => 'SpotInstanceTypePrice',
+        'spotOriginalPrice' => 'SpotOriginalPrice',
+        'spotPrice' => 'SpotPrice',
+        'taxPrice' => 'TaxPrice',
+        'tradePrice' => 'TradePrice',
     ];
 
     public function validate()
@@ -101,9 +112,10 @@ class PriceInfo extends Model
         if (null !== $this->promotionResults) {
             if (\is_array($this->promotionResults)) {
                 $res['PromotionResults'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->promotionResults as $item1) {
-                    $res['PromotionResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PromotionResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,9 +178,10 @@ class PriceInfo extends Model
         if (isset($map['PromotionResults'])) {
             if (!empty($map['PromotionResults'])) {
                 $model->promotionResults = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['PromotionResults'] as $item1) {
-                    $model->promotionResults[$n1++] = PromotionInfo::fromMap($item1);
+                    $model->promotionResults[$n1] = PromotionInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

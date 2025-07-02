@@ -12,23 +12,26 @@ class pvcs extends Model
      * @var int
      */
     public $dataDiskSize;
+
     /**
      * @var string
      */
     public $dataDiskStorageClass;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $path;
     protected $_name = [
-        'dataDiskSize'         => 'DataDiskSize',
+        'dataDiskSize' => 'DataDiskSize',
         'dataDiskStorageClass' => 'DataDiskStorageClass',
-        'name'                 => 'Name',
-        'path'                 => 'Path',
+        'name' => 'Name',
+        'path' => 'Path',
     ];
 
     public function validate()

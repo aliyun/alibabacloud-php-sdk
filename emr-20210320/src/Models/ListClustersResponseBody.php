@@ -12,27 +12,31 @@ class ListClustersResponseBody extends Model
      * @var ClusterSummary[]
      */
     public $clusters;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'clusters'   => 'Clusters',
+        'clusters' => 'Clusters',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -50,9 +54,10 @@ class ListClustersResponseBody extends Model
         if (null !== $this->clusters) {
             if (\is_array($this->clusters)) {
                 $res['Clusters'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->clusters as $item1) {
-                    $res['Clusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Clusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +92,10 @@ class ListClustersResponseBody extends Model
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Clusters'] as $item1) {
-                    $model->clusters[$n1++] = ClusterSummary::fromMap($item1);
+                    $model->clusters[$n1] = ClusterSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

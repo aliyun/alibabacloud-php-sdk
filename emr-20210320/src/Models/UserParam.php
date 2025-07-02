@@ -12,17 +12,19 @@ class UserParam extends Model
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'password' => 'Password',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
         'userName' => 'UserName',
     ];
 

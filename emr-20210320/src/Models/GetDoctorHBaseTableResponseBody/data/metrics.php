@@ -36,123 +36,146 @@ class metrics extends Model
      * @var coldAccessDay
      */
     public $coldAccessDay;
+
     /**
      * @var coldConfigDay
      */
     public $coldConfigDay;
+
     /**
      * @var coldDataSize
      */
     public $coldDataSize;
+
     /**
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
+
     /**
      * @var dailyReadRequestDayGrowthRatio
      */
     public $dailyReadRequestDayGrowthRatio;
+
     /**
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
+
     /**
      * @var dailyWriteRequestDayGrowthRatio
      */
     public $dailyWriteRequestDayGrowthRatio;
+
     /**
      * @var freezeConfigDay
      */
     public $freezeConfigDay;
+
     /**
      * @var freezeDataSize
      */
     public $freezeDataSize;
+
     /**
      * @var hotDataSize
      */
     public $hotDataSize;
+
     /**
      * @var locality
      */
     public $locality;
+
     /**
      * @var readRequestBalance
      */
     public $readRequestBalance;
+
     /**
      * @var regionBalance
      */
     public $regionBalance;
+
     /**
      * @var regionCount
      */
     public $regionCount;
+
     /**
      * @var regionCountDayGrowthRatio
      */
     public $regionCountDayGrowthRatio;
+
     /**
      * @var regionServerCount
      */
     public $regionServerCount;
+
     /**
      * @var requestBalance
      */
     public $requestBalance;
+
     /**
      * @var storeFileCount
      */
     public $storeFileCount;
+
     /**
      * @var storeFileCountDayGrowthRatio
      */
     public $storeFileCountDayGrowthRatio;
+
     /**
      * @var tableSize
      */
     public $tableSize;
+
     /**
      * @var tableSizeDayGrowthRatio
      */
     public $tableSizeDayGrowthRatio;
+
     /**
      * @var warmConfigDay
      */
     public $warmConfigDay;
+
     /**
      * @var warmDataSize
      */
     public $warmDataSize;
+
     /**
      * @var writeRequestBalance
      */
     public $writeRequestBalance;
     protected $_name = [
-        'coldAccessDay'                   => 'ColdAccessDay',
-        'coldConfigDay'                   => 'ColdConfigDay',
-        'coldDataSize'                    => 'ColdDataSize',
-        'dailyReadRequest'                => 'DailyReadRequest',
-        'dailyReadRequestDayGrowthRatio'  => 'DailyReadRequestDayGrowthRatio',
-        'dailyWriteRequest'               => 'DailyWriteRequest',
+        'coldAccessDay' => 'ColdAccessDay',
+        'coldConfigDay' => 'ColdConfigDay',
+        'coldDataSize' => 'ColdDataSize',
+        'dailyReadRequest' => 'DailyReadRequest',
+        'dailyReadRequestDayGrowthRatio' => 'DailyReadRequestDayGrowthRatio',
+        'dailyWriteRequest' => 'DailyWriteRequest',
         'dailyWriteRequestDayGrowthRatio' => 'DailyWriteRequestDayGrowthRatio',
-        'freezeConfigDay'                 => 'FreezeConfigDay',
-        'freezeDataSize'                  => 'FreezeDataSize',
-        'hotDataSize'                     => 'HotDataSize',
-        'locality'                        => 'Locality',
-        'readRequestBalance'              => 'ReadRequestBalance',
-        'regionBalance'                   => 'RegionBalance',
-        'regionCount'                     => 'RegionCount',
-        'regionCountDayGrowthRatio'       => 'RegionCountDayGrowthRatio',
-        'regionServerCount'               => 'RegionServerCount',
-        'requestBalance'                  => 'RequestBalance',
-        'storeFileCount'                  => 'StoreFileCount',
-        'storeFileCountDayGrowthRatio'    => 'StoreFileCountDayGrowthRatio',
-        'tableSize'                       => 'TableSize',
-        'tableSizeDayGrowthRatio'         => 'TableSizeDayGrowthRatio',
-        'warmConfigDay'                   => 'WarmConfigDay',
-        'warmDataSize'                    => 'WarmDataSize',
-        'writeRequestBalance'             => 'WriteRequestBalance',
+        'freezeConfigDay' => 'FreezeConfigDay',
+        'freezeDataSize' => 'FreezeDataSize',
+        'hotDataSize' => 'HotDataSize',
+        'locality' => 'Locality',
+        'readRequestBalance' => 'ReadRequestBalance',
+        'regionBalance' => 'RegionBalance',
+        'regionCount' => 'RegionCount',
+        'regionCountDayGrowthRatio' => 'RegionCountDayGrowthRatio',
+        'regionServerCount' => 'RegionServerCount',
+        'requestBalance' => 'RequestBalance',
+        'storeFileCount' => 'StoreFileCount',
+        'storeFileCountDayGrowthRatio' => 'StoreFileCountDayGrowthRatio',
+        'tableSize' => 'TableSize',
+        'tableSizeDayGrowthRatio' => 'TableSizeDayGrowthRatio',
+        'warmConfigDay' => 'WarmConfigDay',
+        'warmDataSize' => 'WarmDataSize',
+        'writeRequestBalance' => 'WriteRequestBalance',
     ];
 
     public function validate()

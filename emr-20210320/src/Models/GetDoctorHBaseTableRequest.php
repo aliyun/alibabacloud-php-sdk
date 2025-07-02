@@ -12,22 +12,25 @@ class GetDoctorHBaseTableRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'dateTime'  => 'DateTime',
-        'regionId'  => 'RegionId',
+        'dateTime' => 'DateTime',
+        'regionId' => 'RegionId',
         'tableName' => 'TableName',
     ];
 

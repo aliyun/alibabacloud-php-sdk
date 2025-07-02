@@ -12,13 +12,14 @@ class DeleteClusterRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

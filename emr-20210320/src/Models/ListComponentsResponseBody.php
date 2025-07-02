@@ -13,18 +13,22 @@ class ListComponentsResponseBody extends Model
      * @var components[]
      */
     public $components;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -32,8 +36,8 @@ class ListComponentsResponseBody extends Model
     protected $_name = [
         'components' => 'Components',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,9 +55,10 @@ class ListComponentsResponseBody extends Model
         if (null !== $this->components) {
             if (\is_array($this->components)) {
                 $res['Components'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->components as $item1) {
-                    $res['Components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class ListComponentsResponseBody extends Model
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Components'] as $item1) {
-                    $model->components[$n1++] = components::fromMap($item1);
+                    $model->components[$n1] = components::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

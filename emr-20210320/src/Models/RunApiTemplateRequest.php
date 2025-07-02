@@ -12,23 +12,26 @@ class RunApiTemplateRequest extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'apiName'     => 'ApiName',
+        'apiName' => 'ApiName',
         'clientToken' => 'ClientToken',
-        'regionId'    => 'RegionId',
-        'templateId'  => 'TemplateId',
+        'regionId' => 'RegionId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

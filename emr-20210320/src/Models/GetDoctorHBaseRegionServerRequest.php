@@ -12,22 +12,25 @@ class GetDoctorHBaseRegionServerRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionServerHost;
     protected $_name = [
-        'clusterId'        => 'ClusterId',
-        'dateTime'         => 'DateTime',
-        'regionId'         => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'dateTime' => 'DateTime',
+        'regionId' => 'RegionId',
         'regionServerHost' => 'RegionServerHost',
     ];
 

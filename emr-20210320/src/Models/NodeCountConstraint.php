@@ -12,22 +12,25 @@ class NodeCountConstraint extends Model
      * @var int
      */
     public $max;
+
     /**
      * @var int
      */
     public $min;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int[]
      */
     public $values;
     protected $_name = [
-        'max'    => 'Max',
-        'min'    => 'Min',
-        'type'   => 'Type',
+        'max' => 'Max',
+        'min' => 'Min',
+        'type' => 'Type',
         'values' => 'Values',
     ];
 
@@ -57,9 +60,10 @@ class NodeCountConstraint extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,9 +94,10 @@ class NodeCountConstraint extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

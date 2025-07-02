@@ -12,18 +12,20 @@ class PromotionParam extends Model
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $promotionOptionCode;
+
     /**
      * @var string
      */
     public $promotionOptionNo;
     protected $_name = [
-        'productCode'         => 'ProductCode',
+        'productCode' => 'ProductCode',
         'promotionOptionCode' => 'PromotionOptionCode',
-        'promotionOptionNo'   => 'PromotionOptionNo',
+        'promotionOptionNo' => 'PromotionOptionNo',
     ];
 
     public function validate()

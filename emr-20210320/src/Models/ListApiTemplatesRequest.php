@@ -12,43 +12,50 @@ class ListApiTemplatesRequest extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string[]
      */
     public $templateIds;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'apiName'         => 'ApiName',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'apiName' => 'ApiName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'templateId'      => 'TemplateId',
-        'templateIds'     => 'TemplateIds',
-        'templateName'    => 'TemplateName',
+        'templateId' => 'TemplateId',
+        'templateIds' => 'TemplateIds',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -89,9 +96,10 @@ class ListApiTemplatesRequest extends Model
         if (null !== $this->templateIds) {
             if (\is_array($this->templateIds)) {
                 $res['TemplateIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->templateIds as $item1) {
-                    $res['TemplateIds'][$n1++] = $item1;
+                    $res['TemplateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,9 +146,10 @@ class ListApiTemplatesRequest extends Model
         if (isset($map['TemplateIds'])) {
             if (!empty($map['TemplateIds'])) {
                 $model->templateIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TemplateIds'] as $item1) {
-                    $model->templateIds[$n1++] = $item1;
+                    $model->templateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

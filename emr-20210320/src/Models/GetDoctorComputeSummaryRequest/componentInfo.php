@@ -12,6 +12,7 @@ class componentInfo extends Model
      * @var string
      */
     public $componentName;
+
     /**
      * @var string
      */

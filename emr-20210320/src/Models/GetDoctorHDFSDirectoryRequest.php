@@ -12,23 +12,26 @@ class GetDoctorHDFSDirectoryRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $dirPath;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'dateTime'  => 'DateTime',
-        'dirPath'   => 'DirPath',
-        'regionId'  => 'RegionId',
+        'dateTime' => 'DateTime',
+        'dirPath' => 'DirPath',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

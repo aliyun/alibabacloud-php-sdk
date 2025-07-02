@@ -12,13 +12,14 @@ class CreateNodeGroupResponseBody extends Model
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'nodeGroupId' => 'NodeGroupId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

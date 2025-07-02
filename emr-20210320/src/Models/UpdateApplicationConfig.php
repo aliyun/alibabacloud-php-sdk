@@ -12,23 +12,26 @@ class UpdateApplicationConfig extends Model
      * @var string
      */
     public $configDescription;
+
     /**
      * @var string
      */
     public $configFileName;
+
     /**
      * @var string
      */
     public $configItemKey;
+
     /**
      * @var string
      */
     public $configItemValue;
     protected $_name = [
         'configDescription' => 'ConfigDescription',
-        'configFileName'    => 'ConfigFileName',
-        'configItemKey'     => 'ConfigItemKey',
-        'configItemValue'   => 'ConfigItemValue',
+        'configFileName' => 'ConfigFileName',
+        'configItemKey' => 'ConfigItemKey',
+        'configItemValue' => 'ConfigItemValue',
     ];
 
     public function validate()

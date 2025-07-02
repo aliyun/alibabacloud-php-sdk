@@ -12,12 +12,13 @@ class nodeOfflinePolicy extends Model
      * @var string
      */
     public $mode;
+
     /**
      * @var int
      */
     public $timeoutMs;
     protected $_name = [
-        'mode'      => 'Mode',
+        'mode' => 'Mode',
         'timeoutMs' => 'TimeoutMs',
     ];
 

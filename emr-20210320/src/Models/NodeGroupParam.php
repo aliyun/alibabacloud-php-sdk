@@ -12,88 +12,104 @@ class NodeGroupParam extends Model
      * @var bool
      */
     public $autoPayOrder;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var int
      */
     public $autoRenewDuration;
+
     /**
      * @var string
      */
     public $autoRenewDurationUnit;
+
     /**
      * @var DiskInfo[]
      */
     public $dataDisks;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string[]
      */
     public $instanceTypes;
+
     /**
      * @var int
      */
     public $nodeCount;
+
     /**
      * @var int
      */
     public $nodeGroupIndex;
+
     /**
      * @var string
      */
     public $nodeGroupName;
+
     /**
      * @var string
      */
     public $nodeGroupType;
+
     /**
      * @var int
      */
     public $paymentDuration;
+
     /**
      * @var string
      */
     public $paymentDurationUnit;
+
     /**
      * @var string
      */
     public $paymentType;
+
     /**
      * @var SystemDiskParam
      */
     public $systemDisk;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoPayOrder'          => 'AutoPayOrder',
-        'autoRenew'             => 'AutoRenew',
-        'autoRenewDuration'     => 'AutoRenewDuration',
+        'autoPayOrder' => 'AutoPayOrder',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewDuration' => 'AutoRenewDuration',
         'autoRenewDurationUnit' => 'AutoRenewDurationUnit',
-        'dataDisks'             => 'DataDisks',
-        'description'           => 'Description',
-        'instanceTypes'         => 'InstanceTypes',
-        'nodeCount'             => 'NodeCount',
-        'nodeGroupIndex'        => 'NodeGroupIndex',
-        'nodeGroupName'         => 'NodeGroupName',
-        'nodeGroupType'         => 'NodeGroupType',
-        'paymentDuration'       => 'PaymentDuration',
-        'paymentDurationUnit'   => 'PaymentDurationUnit',
-        'paymentType'           => 'PaymentType',
-        'systemDisk'            => 'SystemDisk',
-        'vSwitchIds'            => 'VSwitchIds',
-        'zoneId'                => 'ZoneId',
+        'dataDisks' => 'DataDisks',
+        'description' => 'Description',
+        'instanceTypes' => 'InstanceTypes',
+        'nodeCount' => 'NodeCount',
+        'nodeGroupIndex' => 'NodeGroupIndex',
+        'nodeGroupName' => 'NodeGroupName',
+        'nodeGroupType' => 'NodeGroupType',
+        'paymentDuration' => 'PaymentDuration',
+        'paymentDurationUnit' => 'PaymentDurationUnit',
+        'paymentType' => 'PaymentType',
+        'systemDisk' => 'SystemDisk',
+        'vSwitchIds' => 'VSwitchIds',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -135,9 +151,10 @@ class NodeGroupParam extends Model
         if (null !== $this->dataDisks) {
             if (\is_array($this->dataDisks)) {
                 $res['DataDisks'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->dataDisks as $item1) {
-                    $res['DataDisks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDisks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,9 +166,10 @@ class NodeGroupParam extends Model
         if (null !== $this->instanceTypes) {
             if (\is_array($this->instanceTypes)) {
                 $res['InstanceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
-                    $res['InstanceTypes'][$n1++] = $item1;
+                    $res['InstanceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,9 +209,10 @@ class NodeGroupParam extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,9 +251,10 @@ class NodeGroupParam extends Model
         if (isset($map['DataDisks'])) {
             if (!empty($map['DataDisks'])) {
                 $model->dataDisks = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['DataDisks'] as $item1) {
-                    $model->dataDisks[$n1++] = DiskInfo::fromMap($item1);
+                    $model->dataDisks[$n1] = DiskInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -246,9 +266,10 @@ class NodeGroupParam extends Model
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['InstanceTypes'] as $item1) {
-                    $model->instanceTypes[$n1++] = $item1;
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -288,9 +309,10 @@ class NodeGroupParam extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

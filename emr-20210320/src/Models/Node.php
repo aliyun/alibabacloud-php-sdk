@@ -12,78 +12,92 @@ class Node extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var int
      */
     public $autoRenewDuration;
+
     /**
      * @var string
      */
     public $autoRenewDurationUnit;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $maintenanceStatus;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeGroupType;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $nodeState;
+
     /**
      * @var string
      */
     public $privateIp;
+
     /**
      * @var string
      */
     public $publicIp;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'             => 'AutoRenew',
-        'autoRenewDuration'     => 'AutoRenewDuration',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewDuration' => 'AutoRenewDuration',
         'autoRenewDurationUnit' => 'AutoRenewDurationUnit',
-        'createTime'            => 'CreateTime',
-        'expireTime'            => 'ExpireTime',
-        'instanceType'          => 'InstanceType',
-        'maintenanceStatus'     => 'MaintenanceStatus',
-        'nodeGroupId'           => 'NodeGroupId',
-        'nodeGroupType'         => 'NodeGroupType',
-        'nodeId'                => 'NodeId',
-        'nodeName'              => 'NodeName',
-        'nodeState'             => 'NodeState',
-        'privateIp'             => 'PrivateIp',
-        'publicIp'              => 'PublicIp',
-        'zoneId'                => 'ZoneId',
+        'createTime' => 'CreateTime',
+        'expireTime' => 'ExpireTime',
+        'instanceType' => 'InstanceType',
+        'maintenanceStatus' => 'MaintenanceStatus',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeGroupType' => 'NodeGroupType',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'nodeState' => 'NodeState',
+        'privateIp' => 'PrivateIp',
+        'publicIp' => 'PublicIp',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

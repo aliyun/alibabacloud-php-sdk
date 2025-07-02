@@ -12,17 +12,19 @@ class MetaStoreConf extends Model
      * @var string
      */
     public $dbPassword;
+
     /**
      * @var string
      */
     public $dbUrl;
+
     /**
      * @var string
      */
     public $dbUserName;
     protected $_name = [
         'dbPassword' => 'DbPassword',
-        'dbUrl'      => 'DbUrl',
+        'dbUrl' => 'DbUrl',
         'dbUserName' => 'DbUserName',
     ];
 

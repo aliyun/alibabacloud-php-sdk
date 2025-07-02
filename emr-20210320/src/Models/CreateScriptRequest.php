@@ -12,27 +12,31 @@ class CreateScriptRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $scriptType;
+
     /**
      * @var Script[]
      */
     public $scripts;
+
     /**
      * @var string
      */
     public $timeoutSecs;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'regionId'    => 'RegionId',
-        'scriptType'  => 'ScriptType',
-        'scripts'     => 'Scripts',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
+        'scriptType' => 'ScriptType',
+        'scripts' => 'Scripts',
         'timeoutSecs' => 'TimeoutSecs',
     ];
 
@@ -62,9 +66,10 @@ class CreateScriptRequest extends Model
         if (null !== $this->scripts) {
             if (\is_array($this->scripts)) {
                 $res['Scripts'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->scripts as $item1) {
-                    $res['Scripts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Scripts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,9 +104,10 @@ class CreateScriptRequest extends Model
         if (isset($map['Scripts'])) {
             if (!empty($map['Scripts'])) {
                 $model->scripts = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Scripts'] as $item1) {
-                    $model->scripts[$n1++] = Script::fromMap($item1);
+                    $model->scripts[$n1] = Script::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

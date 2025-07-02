@@ -20,43 +20,50 @@ class metrics extends Model
      * @var memSeconds
      */
     public $memSeconds;
+
     /**
      * @var memSecondsDayGrowthRatio
      */
     public $memSecondsDayGrowthRatio;
+
     /**
      * @var memUtilization
      */
     public $memUtilization;
+
     /**
      * @var readSize
      */
     public $readSize;
+
     /**
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
+
     /**
      * @var vcoreSecondsDayGrowthRatio
      */
     public $vcoreSecondsDayGrowthRatio;
+
     /**
      * @var vcoreUtilization
      */
     public $vcoreUtilization;
+
     /**
      * @var writeSize
      */
     public $writeSize;
     protected $_name = [
-        'memSeconds'                 => 'MemSeconds',
-        'memSecondsDayGrowthRatio'   => 'MemSecondsDayGrowthRatio',
-        'memUtilization'             => 'MemUtilization',
-        'readSize'                   => 'ReadSize',
-        'vcoreSeconds'               => 'VcoreSeconds',
+        'memSeconds' => 'MemSeconds',
+        'memSecondsDayGrowthRatio' => 'MemSecondsDayGrowthRatio',
+        'memUtilization' => 'MemUtilization',
+        'readSize' => 'ReadSize',
+        'vcoreSeconds' => 'VcoreSeconds',
         'vcoreSecondsDayGrowthRatio' => 'VcoreSecondsDayGrowthRatio',
-        'vcoreUtilization'           => 'VcoreUtilization',
-        'writeSize'                  => 'WriteSize',
+        'vcoreUtilization' => 'VcoreUtilization',
+        'writeSize' => 'WriteSize',
     ];
 
     public function validate()

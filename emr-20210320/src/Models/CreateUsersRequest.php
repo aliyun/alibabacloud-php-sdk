@@ -13,18 +13,20 @@ class CreateUsersRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var users[]
      */
     public $users;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'regionId'  => 'RegionId',
-        'users'     => 'Users',
+        'regionId' => 'RegionId',
+        'users' => 'Users',
     ];
 
     public function validate()
@@ -49,9 +51,10 @@ class CreateUsersRequest extends Model
         if (null !== $this->users) {
             if (\is_array($this->users)) {
                 $res['Users'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +81,10 @@ class CreateUsersRequest extends Model
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = users::fromMap($item1);
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

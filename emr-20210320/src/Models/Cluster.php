@@ -12,108 +12,128 @@ class Cluster extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $clusterState;
+
     /**
      * @var string
      */
     public $clusterType;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $deployMode;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $emrDefaultRole;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var NodeAttributes
      */
     public $nodeAttributes;
+
     /**
      * @var string
      */
     public $paymentType;
+
     /**
      * @var int
      */
     public $readyTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $releaseVersion;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityMode;
+
     /**
      * @var ClusterStateChangeReason
      */
     public $stateChangeReason;
+
     /**
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
+
     /**
      * @var Tag[]
      */
     public $tags;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'clusterState'       => 'ClusterState',
-        'clusterType'        => 'ClusterType',
-        'createTime'         => 'CreateTime',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterState' => 'ClusterState',
+        'clusterType' => 'ClusterType',
+        'createTime' => 'CreateTime',
         'deletionProtection' => 'DeletionProtection',
-        'deployMode'         => 'DeployMode',
-        'description'        => 'Description',
-        'emrDefaultRole'     => 'EmrDefaultRole',
-        'endTime'            => 'EndTime',
-        'expireTime'         => 'ExpireTime',
-        'nodeAttributes'     => 'NodeAttributes',
-        'paymentType'        => 'PaymentType',
-        'readyTime'          => 'ReadyTime',
-        'regionId'           => 'RegionId',
-        'releaseVersion'     => 'ReleaseVersion',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'securityMode'       => 'SecurityMode',
-        'stateChangeReason'  => 'StateChangeReason',
+        'deployMode' => 'DeployMode',
+        'description' => 'Description',
+        'emrDefaultRole' => 'EmrDefaultRole',
+        'endTime' => 'EndTime',
+        'expireTime' => 'ExpireTime',
+        'nodeAttributes' => 'NodeAttributes',
+        'paymentType' => 'PaymentType',
+        'readyTime' => 'ReadyTime',
+        'regionId' => 'RegionId',
+        'releaseVersion' => 'ReleaseVersion',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityMode' => 'SecurityMode',
+        'stateChangeReason' => 'StateChangeReason',
         'subscriptionConfig' => 'SubscriptionConfig',
-        'tags'               => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -219,9 +239,10 @@ class Cluster extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -320,9 +341,10 @@ class Cluster extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

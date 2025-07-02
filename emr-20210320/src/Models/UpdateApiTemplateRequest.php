@@ -12,33 +12,38 @@ class UpdateApiTemplateRequest extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'apiName'         => 'ApiName',
-        'content'         => 'Content',
-        'regionId'        => 'RegionId',
+        'apiName' => 'ApiName',
+        'content' => 'Content',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

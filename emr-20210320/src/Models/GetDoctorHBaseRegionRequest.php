@@ -12,23 +12,26 @@ class GetDoctorHBaseRegionRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $hbaseRegionId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
-        'dateTime'      => 'DateTime',
+        'clusterId' => 'ClusterId',
+        'dateTime' => 'DateTime',
         'hbaseRegionId' => 'HbaseRegionId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

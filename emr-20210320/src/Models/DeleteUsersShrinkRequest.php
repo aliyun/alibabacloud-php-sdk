@@ -12,17 +12,19 @@ class DeleteUsersShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $userNamesShrink;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'regionId'        => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
         'userNamesShrink' => 'UserNames',
     ];
 

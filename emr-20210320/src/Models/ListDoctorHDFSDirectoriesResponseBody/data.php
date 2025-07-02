@@ -13,28 +13,32 @@ class data extends Model
      * @var int
      */
     public $depth;
+
     /**
      * @var string
      */
     public $dirPath;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var metrics
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'depth'   => 'Depth',
+        'depth' => 'Depth',
         'dirPath' => 'DirPath',
-        'group'   => 'Group',
+        'group' => 'Group',
         'metrics' => 'Metrics',
-        'user'    => 'User',
+        'user' => 'User',
     ];
 
     public function validate()

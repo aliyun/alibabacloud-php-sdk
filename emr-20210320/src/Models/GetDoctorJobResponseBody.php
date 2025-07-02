@@ -13,12 +13,13 @@ class GetDoctorJobResponseBody extends Model
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 

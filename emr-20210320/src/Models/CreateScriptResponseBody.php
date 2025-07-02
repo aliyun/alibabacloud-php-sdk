@@ -12,13 +12,14 @@ class CreateScriptResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $scriptId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'scriptId'  => 'ScriptId',
+        'scriptId' => 'ScriptId',
     ];
 
     public function validate()

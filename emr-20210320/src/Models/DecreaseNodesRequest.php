@@ -12,38 +12,44 @@ class DecreaseNodesRequest extends Model
      * @var int
      */
     public $batchInterval;
+
     /**
      * @var int
      */
     public $batchSize;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $decreaseNodeCount;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string[]
      */
     public $nodeIds;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'batchInterval'     => 'BatchInterval',
-        'batchSize'         => 'BatchSize',
-        'clusterId'         => 'ClusterId',
+        'batchInterval' => 'BatchInterval',
+        'batchSize' => 'BatchSize',
+        'clusterId' => 'ClusterId',
         'decreaseNodeCount' => 'DecreaseNodeCount',
-        'nodeGroupId'       => 'NodeGroupId',
-        'nodeIds'           => 'NodeIds',
-        'regionId'          => 'RegionId',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeIds' => 'NodeIds',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -80,9 +86,10 @@ class DecreaseNodesRequest extends Model
         if (null !== $this->nodeIds) {
             if (\is_array($this->nodeIds)) {
                 $res['NodeIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,9 +132,10 @@ class DecreaseNodesRequest extends Model
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

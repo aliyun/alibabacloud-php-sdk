@@ -12,28 +12,32 @@ class CreateApiTemplateRequest extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'apiName'         => 'ApiName',
-        'content'         => 'Content',
-        'regionId'        => 'RegionId',
+        'apiName' => 'ApiName',
+        'content' => 'Content',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'templateName'    => 'TemplateName',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

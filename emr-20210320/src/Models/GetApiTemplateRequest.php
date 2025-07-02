@@ -12,12 +12,13 @@ class GetApiTemplateRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'templateId' => 'TemplateId',
     ];
 

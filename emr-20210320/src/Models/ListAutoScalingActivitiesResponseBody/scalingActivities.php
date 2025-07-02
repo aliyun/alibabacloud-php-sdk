@@ -12,73 +12,86 @@ class scalingActivities extends Model
      * @var string
      */
     public $activityId;
+
     /**
      * @var string
      */
     public $activityState;
+
     /**
      * @var string
      */
     public $activityType;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $expectNum;
+
     /**
      * @var int[]
      */
     public $instanceTypeToNum;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeGroupName;
+
     /**
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'activityId'        => 'ActivityId',
-        'activityState'     => 'ActivityState',
-        'activityType'      => 'ActivityType',
-        'clusterId'         => 'ClusterId',
-        'description'       => 'Description',
-        'endTime'           => 'EndTime',
-        'expectNum'         => 'ExpectNum',
+        'activityId' => 'ActivityId',
+        'activityState' => 'ActivityState',
+        'activityType' => 'ActivityType',
+        'clusterId' => 'ClusterId',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'expectNum' => 'ExpectNum',
         'instanceTypeToNum' => 'InstanceTypeToNum',
-        'nodeGroupId'       => 'NodeGroupId',
-        'nodeGroupName'     => 'NodeGroupName',
-        'operationId'       => 'OperationId',
-        'policyType'        => 'PolicyType',
-        'ruleName'          => 'RuleName',
-        'startTime'         => 'StartTime',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeGroupName' => 'NodeGroupName',
+        'operationId' => 'OperationId',
+        'policyType' => 'PolicyType',
+        'ruleName' => 'RuleName',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

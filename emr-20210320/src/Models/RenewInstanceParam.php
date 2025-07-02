@@ -12,17 +12,19 @@ class RenewInstanceParam extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $renewDuration;
+
     /**
      * @var string
      */
     public $renewDurationUnit;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'renewDuration'     => 'RenewDuration',
+        'instanceId' => 'InstanceId',
+        'renewDuration' => 'RenewDuration',
         'renewDurationUnit' => 'RenewDurationUnit',
     ];
 

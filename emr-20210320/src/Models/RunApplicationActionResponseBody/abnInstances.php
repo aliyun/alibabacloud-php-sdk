@@ -12,12 +12,13 @@ class abnInstances extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
     protected $_name = [
-        'nodeId'   => 'NodeId',
+        'nodeId' => 'NodeId',
         'nodeName' => 'NodeName',
     ];
 

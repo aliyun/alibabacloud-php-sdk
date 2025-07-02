@@ -12,33 +12,38 @@ class PromotionInfo extends Model
      * @var string
      */
     public $canPromFee;
+
     /**
      * @var string
      */
     public $isSelected;
+
     /**
      * @var string
      */
     public $promotionDesc;
+
     /**
      * @var string
      */
     public $promotionName;
+
     /**
      * @var string
      */
     public $promotionOptionCode;
+
     /**
      * @var string
      */
     public $promotionOptionNo;
     protected $_name = [
-        'canPromFee'          => 'CanPromFee',
-        'isSelected'          => 'IsSelected',
-        'promotionDesc'       => 'PromotionDesc',
-        'promotionName'       => 'PromotionName',
+        'canPromFee' => 'CanPromFee',
+        'isSelected' => 'IsSelected',
+        'promotionDesc' => 'PromotionDesc',
+        'promotionName' => 'PromotionName',
         'promotionOptionCode' => 'PromotionOptionCode',
-        'promotionOptionNo'   => 'PromotionOptionNo',
+        'promotionOptionNo' => 'PromotionOptionNo',
     ];
 
     public function validate()

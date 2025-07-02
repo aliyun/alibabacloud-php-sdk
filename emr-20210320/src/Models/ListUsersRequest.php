@@ -12,33 +12,38 @@ class ListUsersRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string[]
      */
     public $userNames;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'userName'   => 'UserName',
-        'userNames'  => 'UserNames',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'userName' => 'UserName',
+        'userNames' => 'UserNames',
     ];
 
     public function validate()
@@ -75,9 +80,10 @@ class ListUsersRequest extends Model
         if (null !== $this->userNames) {
             if (\is_array($this->userNames)) {
                 $res['UserNames'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->userNames as $item1) {
-                    $res['UserNames'][$n1++] = $item1;
+                    $res['UserNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,9 +122,10 @@ class ListUsersRequest extends Model
         if (isset($map['UserNames'])) {
             if (!empty($map['UserNames'])) {
                 $model->userNames = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['UserNames'] as $item1) {
-                    $model->userNames[$n1++] = $item1;
+                    $model->userNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

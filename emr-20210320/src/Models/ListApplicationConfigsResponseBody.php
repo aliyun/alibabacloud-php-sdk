@@ -13,28 +13,32 @@ class ListApplicationConfigsResponseBody extends Model
      * @var applicationConfigs[]
      */
     public $applicationConfigs;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'applicationConfigs' => 'ApplicationConfigs',
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,9 +55,10 @@ class ListApplicationConfigsResponseBody extends Model
         if (null !== $this->applicationConfigs) {
             if (\is_array($this->applicationConfigs)) {
                 $res['ApplicationConfigs'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->applicationConfigs as $item1) {
-                    $res['ApplicationConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApplicationConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class ListApplicationConfigsResponseBody extends Model
         if (isset($map['ApplicationConfigs'])) {
             if (!empty($map['ApplicationConfigs'])) {
                 $model->applicationConfigs = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationConfigs'] as $item1) {
-                    $model->applicationConfigs[$n1++] = applicationConfigs::fromMap($item1);
+                    $model->applicationConfigs[$n1] = applicationConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

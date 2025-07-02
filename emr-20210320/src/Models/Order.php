@@ -12,13 +12,14 @@ class Order extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $orderId;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'orderId'    => 'OrderId',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()

@@ -30,9 +30,10 @@ class ReplacementStrategy extends Model
         if (null !== $this->instanceCategories) {
             if (\is_array($this->instanceCategories)) {
                 $res['InstanceCategories'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->instanceCategories as $item1) {
-                    $res['InstanceCategories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceCategories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,9 +52,10 @@ class ReplacementStrategy extends Model
         if (isset($map['InstanceCategories'])) {
             if (!empty($map['InstanceCategories'])) {
                 $model->instanceCategories = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['InstanceCategories'] as $item1) {
-                    $model->instanceCategories[$n1++] = InstanceCategory::fromMap($item1);
+                    $model->instanceCategories[$n1] = InstanceCategory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

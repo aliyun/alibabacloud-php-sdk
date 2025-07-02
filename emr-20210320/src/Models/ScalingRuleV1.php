@@ -13,37 +13,43 @@ class ScalingRuleV1 extends Model
      * @var string
      */
     public $adjustmentType;
+
     /**
      * @var int
      */
     public $adjustmentValue;
+
     /**
      * @var int
      */
     public $coolDownTime;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var ruleParam
      */
     public $ruleParam;
+
     /**
      * @var string
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $scalingConfigBizId;
     protected $_name = [
-        'adjustmentType'     => 'AdjustmentType',
-        'adjustmentValue'    => 'AdjustmentValue',
-        'coolDownTime'       => 'CoolDownTime',
-        'ruleName'           => 'RuleName',
-        'ruleParam'          => 'RuleParam',
-        'ruleType'           => 'RuleType',
+        'adjustmentType' => 'AdjustmentType',
+        'adjustmentValue' => 'AdjustmentValue',
+        'coolDownTime' => 'CoolDownTime',
+        'ruleName' => 'RuleName',
+        'ruleParam' => 'RuleParam',
+        'ruleType' => 'RuleType',
         'scalingConfigBizId' => 'ScalingConfigBizId',
     ];
 

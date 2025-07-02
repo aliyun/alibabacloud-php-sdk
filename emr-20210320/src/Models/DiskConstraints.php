@@ -12,18 +12,20 @@ class DiskConstraints extends Model
      * @var string[]
      */
     public $categories;
+
     /**
      * @var ValueConstraints
      */
     public $countConstraint;
+
     /**
      * @var ValueConstraints
      */
     public $sizeConstraint;
     protected $_name = [
-        'categories'      => 'Categories',
+        'categories' => 'Categories',
         'countConstraint' => 'CountConstraint',
-        'sizeConstraint'  => 'SizeConstraint',
+        'sizeConstraint' => 'SizeConstraint',
     ];
 
     public function validate()
@@ -46,9 +48,10 @@ class DiskConstraints extends Model
         if (null !== $this->categories) {
             if (\is_array($this->categories)) {
                 $res['Categories'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['Categories'][$n1++] = $item1;
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,9 +78,10 @@ class DiskConstraints extends Model
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
-                    $model->categories[$n1++] = $item1;
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

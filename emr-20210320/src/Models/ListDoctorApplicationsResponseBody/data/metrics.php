@@ -16,22 +16,25 @@ class metrics extends Model
      * @var memSeconds
      */
     public $memSeconds;
+
     /**
      * @var memUtilization
      */
     public $memUtilization;
+
     /**
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
+
     /**
      * @var vcoreUtilization
      */
     public $vcoreUtilization;
     protected $_name = [
-        'memSeconds'       => 'MemSeconds',
-        'memUtilization'   => 'MemUtilization',
-        'vcoreSeconds'     => 'VcoreSeconds',
+        'memSeconds' => 'MemSeconds',
+        'memUtilization' => 'MemUtilization',
+        'vcoreSeconds' => 'VcoreSeconds',
         'vcoreUtilization' => 'VcoreUtilization',
     ];
 

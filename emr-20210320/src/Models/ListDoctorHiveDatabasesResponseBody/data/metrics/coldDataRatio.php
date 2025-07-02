@@ -12,23 +12,26 @@ class coldDataRatio extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $unit;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
         'description' => 'Description',
-        'name'        => 'Name',
-        'unit'        => 'Unit',
-        'value'       => 'Value',
+        'name' => 'Name',
+        'unit' => 'Unit',
+        'value' => 'Value',
     ];
 
     public function validate()

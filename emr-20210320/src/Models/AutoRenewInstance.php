@@ -12,33 +12,38 @@ class AutoRenewInstance extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var int
      */
     public $autoRenewDuration;
+
     /**
      * @var string
      */
     public $autoRenewDurationUnit;
+
     /**
      * @var int
      */
     public $emrAutoRenewDuration;
+
     /**
      * @var string
      */
     public $emrAutoRenewDurationUnit;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'autoRenew'                => 'AutoRenew',
-        'autoRenewDuration'        => 'AutoRenewDuration',
-        'autoRenewDurationUnit'    => 'AutoRenewDurationUnit',
-        'emrAutoRenewDuration'     => 'EmrAutoRenewDuration',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewDuration' => 'AutoRenewDuration',
+        'autoRenewDurationUnit' => 'AutoRenewDurationUnit',
+        'emrAutoRenewDuration' => 'EmrAutoRenewDuration',
         'emrAutoRenewDurationUnit' => 'EmrAutoRenewDurationUnit',
-        'instanceId'               => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

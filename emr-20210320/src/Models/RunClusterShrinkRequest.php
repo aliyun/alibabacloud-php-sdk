@@ -12,93 +12,116 @@ class RunClusterShrinkRequest extends Model
      * @var string
      */
     public $applicationConfigsShrink;
+
     /**
      * @var string
      */
     public $applicationsShrink;
+
     /**
      * @var string
      */
     public $bootstrapScriptsShrink;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $clusterType;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $deployMode;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $nodeAttributesShrink;
+
     /**
      * @var string
      */
     public $nodeGroupsShrink;
+
     /**
      * @var string
      */
     public $paymentType;
+
+    /**
+     * @var string
+     */
+    public $promotionsShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $releaseVersion;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityMode;
+
     /**
      * @var string
      */
     public $subscriptionConfigShrink;
+
     /**
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
         'applicationConfigsShrink' => 'ApplicationConfigs',
-        'applicationsShrink'       => 'Applications',
-        'bootstrapScriptsShrink'   => 'BootstrapScripts',
-        'clientToken'              => 'ClientToken',
-        'clusterName'              => 'ClusterName',
-        'clusterType'              => 'ClusterType',
-        'deletionProtection'       => 'DeletionProtection',
-        'deployMode'               => 'DeployMode',
-        'description'              => 'Description',
-        'nodeAttributesShrink'     => 'NodeAttributes',
-        'nodeGroupsShrink'         => 'NodeGroups',
-        'paymentType'              => 'PaymentType',
-        'regionId'                 => 'RegionId',
-        'releaseVersion'           => 'ReleaseVersion',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'securityMode'             => 'SecurityMode',
+        'applicationsShrink' => 'Applications',
+        'bootstrapScriptsShrink' => 'BootstrapScripts',
+        'clientToken' => 'ClientToken',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'deletionProtection' => 'DeletionProtection',
+        'deployMode' => 'DeployMode',
+        'description' => 'Description',
+        'nodeAttributesShrink' => 'NodeAttributes',
+        'nodeGroupsShrink' => 'NodeGroups',
+        'paymentType' => 'PaymentType',
+        'promotionsShrink' => 'Promotions',
+        'regionId' => 'RegionId',
+        'releaseVersion' => 'ReleaseVersion',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityMode' => 'SecurityMode',
         'subscriptionConfigShrink' => 'SubscriptionConfig',
-        'tagsShrink'               => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()
@@ -155,6 +178,10 @@ class RunClusterShrinkRequest extends Model
 
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->promotionsShrink) {
+            $res['Promotions'] = $this->promotionsShrink;
         }
 
         if (null !== $this->regionId) {
@@ -238,6 +265,10 @@ class RunClusterShrinkRequest extends Model
 
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+
+        if (isset($map['Promotions'])) {
+            $model->promotionsShrink = $map['Promotions'];
         }
 
         if (isset($map['RegionId'])) {

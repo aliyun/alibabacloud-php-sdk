@@ -14,78 +14,92 @@ class scalingActivity extends Model
      * @var string
      */
     public $activityId;
+
     /**
      * @var ScalingActivityResult[]
      */
     public $activityResults;
+
     /**
      * @var string
      */
     public $activityState;
+
     /**
      * @var string
      */
     public $activityType;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $expectNum;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeGroupName;
+
     /**
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var ScalingRule
      */
     public $ruleDetail;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'activityId'      => 'ActivityId',
+        'activityId' => 'ActivityId',
         'activityResults' => 'ActivityResults',
-        'activityState'   => 'ActivityState',
-        'activityType'    => 'ActivityType',
-        'clusterId'       => 'ClusterId',
-        'description'     => 'Description',
-        'endTime'         => 'EndTime',
-        'expectNum'       => 'ExpectNum',
-        'nodeGroupId'     => 'NodeGroupId',
-        'nodeGroupName'   => 'NodeGroupName',
-        'operationId'     => 'OperationId',
-        'policyType'      => 'PolicyType',
-        'ruleDetail'      => 'RuleDetail',
-        'ruleName'        => 'RuleName',
-        'startTime'       => 'StartTime',
+        'activityState' => 'ActivityState',
+        'activityType' => 'ActivityType',
+        'clusterId' => 'ClusterId',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'expectNum' => 'ExpectNum',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeGroupName' => 'NodeGroupName',
+        'operationId' => 'OperationId',
+        'policyType' => 'PolicyType',
+        'ruleDetail' => 'RuleDetail',
+        'ruleName' => 'RuleName',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -109,9 +123,10 @@ class scalingActivity extends Model
         if (null !== $this->activityResults) {
             if (\is_array($this->activityResults)) {
                 $res['ActivityResults'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->activityResults as $item1) {
-                    $res['ActivityResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ActivityResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,9 +201,10 @@ class scalingActivity extends Model
         if (isset($map['ActivityResults'])) {
             if (!empty($map['ActivityResults'])) {
                 $model->activityResults = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ActivityResults'] as $item1) {
-                    $model->activityResults[$n1++] = ScalingActivityResult::fromMap($item1);
+                    $model->activityResults[$n1] = ScalingActivityResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

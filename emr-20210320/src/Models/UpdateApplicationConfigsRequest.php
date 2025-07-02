@@ -12,53 +12,62 @@ class UpdateApplicationConfigsRequest extends Model
      * @var UpdateApplicationConfig[]
      */
     public $applicationConfigs;
+
     /**
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $configAction;
+
     /**
      * @var string
      */
     public $configScope;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var bool
      */
     public $refreshConfig;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'applicationConfigs' => 'ApplicationConfigs',
-        'applicationName'    => 'ApplicationName',
-        'clusterId'          => 'ClusterId',
-        'configAction'       => 'ConfigAction',
-        'configScope'        => 'ConfigScope',
-        'description'        => 'Description',
-        'nodeGroupId'        => 'NodeGroupId',
-        'nodeId'             => 'NodeId',
-        'refreshConfig'      => 'RefreshConfig',
-        'regionId'           => 'RegionId',
+        'applicationName' => 'ApplicationName',
+        'clusterId' => 'ClusterId',
+        'configAction' => 'ConfigAction',
+        'configScope' => 'ConfigScope',
+        'description' => 'Description',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeId' => 'NodeId',
+        'refreshConfig' => 'RefreshConfig',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -75,9 +84,10 @@ class UpdateApplicationConfigsRequest extends Model
         if (null !== $this->applicationConfigs) {
             if (\is_array($this->applicationConfigs)) {
                 $res['ApplicationConfigs'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->applicationConfigs as $item1) {
-                    $res['ApplicationConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApplicationConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,9 +142,10 @@ class UpdateApplicationConfigsRequest extends Model
         if (isset($map['ApplicationConfigs'])) {
             if (!empty($map['ApplicationConfigs'])) {
                 $model->applicationConfigs = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationConfigs'] as $item1) {
-                    $model->applicationConfigs[$n1++] = UpdateApplicationConfig::fromMap($item1);
+                    $model->applicationConfigs[$n1] = UpdateApplicationConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

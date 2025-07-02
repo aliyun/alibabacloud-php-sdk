@@ -14,28 +14,32 @@ class scalingPolicy extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var constraints
      */
     public $constraints;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $scalingPolicyId;
+
     /**
      * @var scalingRules[]
      */
     public $scalingRules;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'constraints'     => 'Constraints',
-        'nodeGroupId'     => 'NodeGroupId',
+        'clusterId' => 'ClusterId',
+        'constraints' => 'Constraints',
+        'nodeGroupId' => 'NodeGroupId',
         'scalingPolicyId' => 'ScalingPolicyId',
-        'scalingRules'    => 'ScalingRules',
+        'scalingRules' => 'ScalingRules',
     ];
 
     public function validate()
@@ -71,9 +75,10 @@ class scalingPolicy extends Model
         if (null !== $this->scalingRules) {
             if (\is_array($this->scalingRules)) {
                 $res['ScalingRules'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->scalingRules as $item1) {
-                    $res['ScalingRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScalingRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,9 +113,10 @@ class scalingPolicy extends Model
         if (isset($map['ScalingRules'])) {
             if (!empty($map['ScalingRules'])) {
                 $model->scalingRules = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ScalingRules'] as $item1) {
-                    $model->scalingRules[$n1++] = scalingRules::fromMap($item1);
+                    $model->scalingRules[$n1] = scalingRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

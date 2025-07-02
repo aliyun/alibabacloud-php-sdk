@@ -12,6 +12,7 @@ class MetricUnitValue extends Model
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */

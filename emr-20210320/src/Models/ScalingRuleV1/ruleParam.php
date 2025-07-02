@@ -12,58 +12,68 @@ class ruleParam extends Model
      * @var string
      */
     public $comparisonOperator;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var int
      */
     public $launchExpirationTime;
+
     /**
      * @var string
      */
     public $launchTime;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $recurrenceEndTime;
+
     /**
      * @var string
      */
     public $recurrenceType;
+
     /**
      * @var string
      */
     public $recurrenceValue;
+
     /**
      * @var string
      */
     public $statistics;
+
     /**
      * @var int
      */
     public $threshold;
     protected $_name = [
-        'comparisonOperator'   => 'ComparisonOperator',
-        'evaluationCount'      => 'EvaluationCount',
+        'comparisonOperator' => 'ComparisonOperator',
+        'evaluationCount' => 'EvaluationCount',
         'launchExpirationTime' => 'LaunchExpirationTime',
-        'launchTime'           => 'LaunchTime',
-        'metricName'           => 'MetricName',
-        'period'               => 'Period',
-        'recurrenceEndTime'    => 'RecurrenceEndTime',
-        'recurrenceType'       => 'RecurrenceType',
-        'recurrenceValue'      => 'RecurrenceValue',
-        'statistics'           => 'Statistics',
-        'threshold'            => 'Threshold',
+        'launchTime' => 'LaunchTime',
+        'metricName' => 'MetricName',
+        'period' => 'Period',
+        'recurrenceEndTime' => 'RecurrenceEndTime',
+        'recurrenceType' => 'RecurrenceType',
+        'recurrenceValue' => 'RecurrenceValue',
+        'statistics' => 'Statistics',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()

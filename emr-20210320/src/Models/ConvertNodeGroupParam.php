@@ -12,23 +12,26 @@ class ConvertNodeGroupParam extends Model
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var int
      */
     public $paymentDuration;
+
     /**
      * @var string
      */
     public $paymentDurationUnit;
+
     /**
      * @var string
      */
     public $paymentType;
     protected $_name = [
-        'nodeGroupId'         => 'NodeGroupId',
-        'paymentDuration'     => 'PaymentDuration',
+        'nodeGroupId' => 'NodeGroupId',
+        'paymentDuration' => 'PaymentDuration',
         'paymentDurationUnit' => 'PaymentDurationUnit',
-        'paymentType'         => 'PaymentType',
+        'paymentType' => 'PaymentType',
     ];
 
     public function validate()

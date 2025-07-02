@@ -17,27 +17,31 @@ class metrics extends Model
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
+
     /**
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
+
     /**
      * @var storeFileCount
      */
     public $storeFileCount;
+
     /**
      * @var totalReadRequest
      */
     public $totalReadRequest;
+
     /**
      * @var totalWriteRequest
      */
     public $totalWriteRequest;
     protected $_name = [
-        'dailyReadRequest'  => 'DailyReadRequest',
+        'dailyReadRequest' => 'DailyReadRequest',
         'dailyWriteRequest' => 'DailyWriteRequest',
-        'storeFileCount'    => 'StoreFileCount',
-        'totalReadRequest'  => 'TotalReadRequest',
+        'storeFileCount' => 'StoreFileCount',
+        'totalReadRequest' => 'TotalReadRequest',
         'totalWriteRequest' => 'TotalWriteRequest',
     ];
 

@@ -12,26 +12,30 @@ class User extends Model
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'group'    => 'Group',
+        'group' => 'Group',
         'password' => 'Password',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
         'userName' => 'UserName',
         'userType' => 'UserType',
     ];

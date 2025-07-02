@@ -12,37 +12,43 @@ class analysis extends Model
      * @var string[]
      */
     public $readRequestHotspotRegionList;
+
     /**
      * @var string
      */
     public $readRequestUnbalanceSuggestion;
+
     /**
      * @var string[]
      */
     public $requestHotspotRegionList;
+
     /**
      * @var string
      */
     public $requestUnbalanceSuggestion;
+
     /**
      * @var int
      */
     public $tableScore;
+
     /**
      * @var string[]
      */
     public $writeRequestHotspotRegionList;
+
     /**
      * @var string
      */
     public $writeRequestUnbalanceSuggestion;
     protected $_name = [
-        'readRequestHotspotRegionList'    => 'ReadRequestHotspotRegionList',
-        'readRequestUnbalanceSuggestion'  => 'ReadRequestUnbalanceSuggestion',
-        'requestHotspotRegionList'        => 'RequestHotspotRegionList',
-        'requestUnbalanceSuggestion'      => 'RequestUnbalanceSuggestion',
-        'tableScore'                      => 'TableScore',
-        'writeRequestHotspotRegionList'   => 'WriteRequestHotspotRegionList',
+        'readRequestHotspotRegionList' => 'ReadRequestHotspotRegionList',
+        'readRequestUnbalanceSuggestion' => 'ReadRequestUnbalanceSuggestion',
+        'requestHotspotRegionList' => 'RequestHotspotRegionList',
+        'requestUnbalanceSuggestion' => 'RequestUnbalanceSuggestion',
+        'tableScore' => 'TableScore',
+        'writeRequestHotspotRegionList' => 'WriteRequestHotspotRegionList',
         'writeRequestUnbalanceSuggestion' => 'WriteRequestUnbalanceSuggestion',
     ];
 
@@ -66,9 +72,10 @@ class analysis extends Model
         if (null !== $this->readRequestHotspotRegionList) {
             if (\is_array($this->readRequestHotspotRegionList)) {
                 $res['ReadRequestHotspotRegionList'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->readRequestHotspotRegionList as $item1) {
-                    $res['ReadRequestHotspotRegionList'][$n1++] = $item1;
+                    $res['ReadRequestHotspotRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,9 +87,10 @@ class analysis extends Model
         if (null !== $this->requestHotspotRegionList) {
             if (\is_array($this->requestHotspotRegionList)) {
                 $res['RequestHotspotRegionList'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->requestHotspotRegionList as $item1) {
-                    $res['RequestHotspotRegionList'][$n1++] = $item1;
+                    $res['RequestHotspotRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,9 +106,10 @@ class analysis extends Model
         if (null !== $this->writeRequestHotspotRegionList) {
             if (\is_array($this->writeRequestHotspotRegionList)) {
                 $res['WriteRequestHotspotRegionList'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->writeRequestHotspotRegionList as $item1) {
-                    $res['WriteRequestHotspotRegionList'][$n1++] = $item1;
+                    $res['WriteRequestHotspotRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,9 +132,10 @@ class analysis extends Model
         if (isset($map['ReadRequestHotspotRegionList'])) {
             if (!empty($map['ReadRequestHotspotRegionList'])) {
                 $model->readRequestHotspotRegionList = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['ReadRequestHotspotRegionList'] as $item1) {
-                    $model->readRequestHotspotRegionList[$n1++] = $item1;
+                    $model->readRequestHotspotRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,9 +147,10 @@ class analysis extends Model
         if (isset($map['RequestHotspotRegionList'])) {
             if (!empty($map['RequestHotspotRegionList'])) {
                 $model->requestHotspotRegionList = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['RequestHotspotRegionList'] as $item1) {
-                    $model->requestHotspotRegionList[$n1++] = $item1;
+                    $model->requestHotspotRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,9 +166,10 @@ class analysis extends Model
         if (isset($map['WriteRequestHotspotRegionList'])) {
             if (!empty($map['WriteRequestHotspotRegionList'])) {
                 $model->writeRequestHotspotRegionList = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['WriteRequestHotspotRegionList'] as $item1) {
-                    $model->writeRequestHotspotRegionList[$n1++] = $item1;
+                    $model->writeRequestHotspotRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

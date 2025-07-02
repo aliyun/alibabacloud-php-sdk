@@ -12,53 +12,62 @@ class ListApplicationConfigsRequest extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $configFileName;
+
     /**
      * @var string
      */
     public $configItemKey;
+
     /**
      * @var string
      */
     public $configItemValue;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'clusterId'       => 'ClusterId',
-        'configFileName'  => 'ConfigFileName',
-        'configItemKey'   => 'ConfigItemKey',
+        'clusterId' => 'ClusterId',
+        'configFileName' => 'ConfigFileName',
+        'configItemKey' => 'ConfigItemKey',
         'configItemValue' => 'ConfigItemValue',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'nodeGroupId'     => 'NodeGroupId',
-        'nodeId'          => 'NodeId',
-        'regionId'        => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeId' => 'NodeId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

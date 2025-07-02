@@ -12,17 +12,19 @@ class CreateApiTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'templateId' => 'TemplateId',
     ];
 

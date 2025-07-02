@@ -12,12 +12,13 @@ class DecreaseNodeGroupParam extends Model
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string[]
      */
     public $releaseInstanceIds;
     protected $_name = [
-        'nodeGroupId'        => 'NodeGroupId',
+        'nodeGroupId' => 'NodeGroupId',
         'releaseInstanceIds' => 'ReleaseInstanceIds',
     ];
 
@@ -39,9 +40,10 @@ class DecreaseNodeGroupParam extends Model
         if (null !== $this->releaseInstanceIds) {
             if (\is_array($this->releaseInstanceIds)) {
                 $res['ReleaseInstanceIds'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->releaseInstanceIds as $item1) {
-                    $res['ReleaseInstanceIds'][$n1++] = $item1;
+                    $res['ReleaseInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,9 +66,10 @@ class DecreaseNodeGroupParam extends Model
         if (isset($map['ReleaseInstanceIds'])) {
             if (!empty($map['ReleaseInstanceIds'])) {
                 $model->releaseInstanceIds = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ReleaseInstanceIds'] as $item1) {
-                    $model->releaseInstanceIds[$n1++] = $item1;
+                    $model->releaseInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

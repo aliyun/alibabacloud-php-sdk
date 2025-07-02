@@ -12,13 +12,14 @@ class components extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $componentName;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'componentName'   => 'ComponentName',
+        'componentName' => 'ComponentName',
     ];
 
     public function validate()

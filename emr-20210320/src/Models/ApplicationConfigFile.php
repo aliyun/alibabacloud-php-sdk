@@ -12,13 +12,14 @@ class ApplicationConfigFile extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $configFileName;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'configFileName'  => 'ConfigFileName',
+        'configFileName' => 'ConfigFileName',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class GetApplicationRequest extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'clusterId'       => 'ClusterId',
-        'regionId'        => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

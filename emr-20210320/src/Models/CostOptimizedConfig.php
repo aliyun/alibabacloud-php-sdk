@@ -12,18 +12,20 @@ class CostOptimizedConfig extends Model
      * @var int
      */
     public $onDemandBaseCapacity;
+
     /**
      * @var int
      */
     public $onDemandPercentageAboveBaseCapacity;
+
     /**
      * @var int
      */
     public $spotInstancePools;
     protected $_name = [
-        'onDemandBaseCapacity'                => 'OnDemandBaseCapacity',
+        'onDemandBaseCapacity' => 'OnDemandBaseCapacity',
         'onDemandPercentageAboveBaseCapacity' => 'OnDemandPercentageAboveBaseCapacity',
-        'spotInstancePools'                   => 'SpotInstancePools',
+        'spotInstancePools' => 'SpotInstancePools',
     ];
 
     public function validate()

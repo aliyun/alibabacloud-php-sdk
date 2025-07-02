@@ -13,28 +13,32 @@ class ListReleaseVersionsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var releaseVersions[]
      */
     public $releaseVersions;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'releaseVersions' => 'ReleaseVersions',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,9 +63,10 @@ class ListReleaseVersionsResponseBody extends Model
         if (null !== $this->releaseVersions) {
             if (\is_array($this->releaseVersions)) {
                 $res['ReleaseVersions'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->releaseVersions as $item1) {
-                    $res['ReleaseVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReleaseVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,9 +101,10 @@ class ListReleaseVersionsResponseBody extends Model
         if (isset($map['ReleaseVersions'])) {
             if (!empty($map['ReleaseVersions'])) {
                 $model->releaseVersions = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ReleaseVersions'] as $item1) {
-                    $model->releaseVersions[$n1++] = releaseVersions::fromMap($item1);
+                    $model->releaseVersions[$n1] = releaseVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

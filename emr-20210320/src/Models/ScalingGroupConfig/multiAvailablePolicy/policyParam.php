@@ -12,23 +12,26 @@ class policyParam extends Model
      * @var int
      */
     public $onDemandBaseCapacity;
+
     /**
      * @var int
      */
     public $onDemandPercentageAboveBaseCapacity;
+
     /**
      * @var int
      */
     public $spotInstancePools;
+
     /**
      * @var bool
      */
     public $spotInstanceRemedy;
     protected $_name = [
-        'onDemandBaseCapacity'                => 'OnDemandBaseCapacity',
+        'onDemandBaseCapacity' => 'OnDemandBaseCapacity',
         'onDemandPercentageAboveBaseCapacity' => 'OnDemandPercentageAboveBaseCapacity',
-        'spotInstancePools'                   => 'SpotInstancePools',
-        'spotInstanceRemedy'                  => 'SpotInstanceRemedy',
+        'spotInstancePools' => 'SpotInstancePools',
+        'spotInstanceRemedy' => 'SpotInstanceRemedy',
     ];
 
     public function validate()

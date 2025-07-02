@@ -12,18 +12,20 @@ class releaseVersions extends Model
      * @var string
      */
     public $iaasType;
+
     /**
      * @var string
      */
     public $releaseVersion;
+
     /**
      * @var string
      */
     public $series;
     protected $_name = [
-        'iaasType'       => 'IaasType',
+        'iaasType' => 'IaasType',
         'releaseVersion' => 'ReleaseVersion',
-        'series'         => 'Series',
+        'series' => 'Series',
     ];
 
     public function validate()

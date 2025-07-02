@@ -12,43 +12,50 @@ class RecommendScalingRule extends Model
      * @var string
      */
     public $activityType;
+
     /**
      * @var int
      */
     public $adjustmentValue;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var float
      */
     public $maxSave;
+
     /**
      * @var MetricsTrigger
      */
     public $metricsTrigger;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var TimeTrigger
      */
     public $timeTrigger;
+
     /**
      * @var string
      */
     public $triggerType;
     protected $_name = [
-        'activityType'    => 'ActivityType',
+        'activityType' => 'ActivityType',
         'adjustmentValue' => 'AdjustmentValue',
-        'instanceType'    => 'InstanceType',
-        'maxSave'         => 'MaxSave',
-        'metricsTrigger'  => 'MetricsTrigger',
-        'ruleName'        => 'RuleName',
-        'timeTrigger'     => 'TimeTrigger',
-        'triggerType'     => 'TriggerType',
+        'instanceType' => 'InstanceType',
+        'maxSave' => 'MaxSave',
+        'metricsTrigger' => 'MetricsTrigger',
+        'ruleName' => 'RuleName',
+        'timeTrigger' => 'TimeTrigger',
+        'triggerType' => 'TriggerType',
     ];
 
     public function validate()

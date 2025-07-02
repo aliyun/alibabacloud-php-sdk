@@ -13,18 +13,20 @@ class data extends Model
      * @var metrics
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $regionServerHost;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'metrics'          => 'Metrics',
+        'metrics' => 'Metrics',
         'regionServerHost' => 'RegionServerHost',
-        'tableName'        => 'TableName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

@@ -12,47 +12,55 @@ class Operation extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $operationState;
+
     /**
      * @var string
      */
     public $operationType;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var OperationStateChangeReason
      */
     public $stateChangeReason;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
-        'endTime'           => 'EndTime',
-        'operationId'       => 'OperationId',
-        'operationState'    => 'OperationState',
-        'operationType'     => 'OperationType',
-        'startTime'         => 'StartTime',
+        'clusterId' => 'ClusterId',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'operationId' => 'OperationId',
+        'operationState' => 'OperationState',
+        'operationType' => 'OperationType',
+        'startTime' => 'StartTime',
         'stateChangeReason' => 'StateChangeReason',
     ];
 

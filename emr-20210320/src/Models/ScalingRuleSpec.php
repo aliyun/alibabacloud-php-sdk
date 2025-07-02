@@ -14,38 +14,44 @@ class ScalingRuleSpec extends Model
      * @var int
      */
     public $adjustmentValue;
+
     /**
      * @var byLoadScalingRuleSpec
      */
     public $byLoadScalingRuleSpec;
+
     /**
      * @var byTimeScalingRuleSpec
      */
     public $byTimeScalingRuleSpec;
+
     /**
      * @var int
      */
     public $coolDownInterval;
+
     /**
      * @var string
      */
     public $scalingActivityType;
+
     /**
      * @var string
      */
     public $scalingRuleName;
+
     /**
      * @var string
      */
     public $scalingRuleType;
     protected $_name = [
-        'adjustmentValue'       => 'AdjustmentValue',
+        'adjustmentValue' => 'AdjustmentValue',
         'byLoadScalingRuleSpec' => 'ByLoadScalingRuleSpec',
         'byTimeScalingRuleSpec' => 'ByTimeScalingRuleSpec',
-        'coolDownInterval'      => 'CoolDownInterval',
-        'scalingActivityType'   => 'ScalingActivityType',
-        'scalingRuleName'       => 'ScalingRuleName',
-        'scalingRuleType'       => 'ScalingRuleType',
+        'coolDownInterval' => 'CoolDownInterval',
+        'scalingActivityType' => 'ScalingActivityType',
+        'scalingRuleName' => 'ScalingRuleName',
+        'scalingRuleType' => 'ScalingRuleType',
     ];
 
     public function validate()

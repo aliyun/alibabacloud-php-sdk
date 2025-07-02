@@ -12,53 +12,62 @@ class NodeAttributes extends Model
      * @var bool
      */
     public $dataDiskEncrypted;
+
     /**
      * @var string
      */
     public $dataDiskKMSKeyId;
+
     /**
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var string
      */
     public $masterRootPassword;
+
     /**
      * @var string
      */
     public $ramRole;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var bool
      */
     public $systemDiskEncrypted;
+
     /**
      * @var string
      */
     public $systemDiskKMSKeyId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'dataDiskEncrypted'   => 'DataDiskEncrypted',
-        'dataDiskKMSKeyId'    => 'DataDiskKMSKeyId',
-        'keyPairName'         => 'KeyPairName',
-        'masterRootPassword'  => 'MasterRootPassword',
-        'ramRole'             => 'RamRole',
-        'securityGroupId'     => 'SecurityGroupId',
+        'dataDiskEncrypted' => 'DataDiskEncrypted',
+        'dataDiskKMSKeyId' => 'DataDiskKMSKeyId',
+        'keyPairName' => 'KeyPairName',
+        'masterRootPassword' => 'MasterRootPassword',
+        'ramRole' => 'RamRole',
+        'securityGroupId' => 'SecurityGroupId',
         'systemDiskEncrypted' => 'SystemDiskEncrypted',
-        'systemDiskKMSKeyId'  => 'SystemDiskKMSKeyId',
-        'vpcId'               => 'VpcId',
-        'zoneId'              => 'ZoneId',
+        'systemDiskKMSKeyId' => 'SystemDiskKMSKeyId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

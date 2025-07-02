@@ -12,6 +12,7 @@ class GetOperationResponseBody extends Model
      * @var Operation
      */
     public $operation;
+
     /**
      * @var string
      */

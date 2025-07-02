@@ -12,18 +12,20 @@ class componentInstances extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $componentName;
+
     /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'componentName'   => 'ComponentName',
-        'nodeId'          => 'NodeId',
+        'componentName' => 'ComponentName',
+        'nodeId' => 'NodeId',
     ];
 
     public function validate()

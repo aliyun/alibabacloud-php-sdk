@@ -12,73 +12,86 @@ class ScalingActivity extends Model
      * @var string
      */
     public $cause;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $essScalingRuleId;
+
     /**
      * @var int
      */
     public $expectNum;
+
     /**
      * @var string
      */
     public $hostGroupName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $scalingGroupId;
+
     /**
      * @var string
      */
     public $scalingRuleName;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalCapacity;
+
     /**
      * @var string
      */
     public $transition;
     protected $_name = [
-        'cause'            => 'Cause',
-        'description'      => 'Description',
-        'endTime'          => 'EndTime',
+        'cause' => 'Cause',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
         'essScalingRuleId' => 'EssScalingRuleId',
-        'expectNum'        => 'ExpectNum',
-        'hostGroupName'    => 'HostGroupName',
-        'id'               => 'Id',
-        'instanceIds'      => 'InstanceIds',
-        'scalingGroupId'   => 'ScalingGroupId',
-        'scalingRuleName'  => 'ScalingRuleName',
-        'startTime'        => 'StartTime',
-        'status'           => 'Status',
-        'totalCapacity'    => 'TotalCapacity',
-        'transition'       => 'Transition',
+        'expectNum' => 'ExpectNum',
+        'hostGroupName' => 'HostGroupName',
+        'id' => 'Id',
+        'instanceIds' => 'InstanceIds',
+        'scalingGroupId' => 'ScalingGroupId',
+        'scalingRuleName' => 'ScalingRuleName',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'totalCapacity' => 'TotalCapacity',
+        'transition' => 'Transition',
     ];
 
     public function validate()

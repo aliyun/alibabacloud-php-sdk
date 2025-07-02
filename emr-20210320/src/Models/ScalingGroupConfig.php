@@ -16,73 +16,86 @@ class ScalingGroupConfig extends Model
      * @var string
      */
     public $dataDiskCategory;
+
     /**
      * @var int
      */
     public $dataDiskCount;
+
     /**
      * @var int
      */
     public $dataDiskSize;
+
     /**
      * @var int
      */
     public $defaultCoolDownTime;
+
     /**
      * @var instanceTypeList[]
      */
     public $instanceTypeList;
+
     /**
      * @var multiAvailablePolicy
      */
     public $multiAvailablePolicy;
+
     /**
      * @var nodeOfflinePolicy
      */
     public $nodeOfflinePolicy;
+
     /**
      * @var privatePoolOptions
      */
     public $privatePoolOptions;
+
     /**
      * @var int
      */
     public $scalingMaxSize;
+
     /**
      * @var int
      */
     public $scalingMinSize;
+
     /**
      * @var string
      */
     public $spotStrategy;
+
     /**
      * @var string
      */
     public $sysDiskCategory;
+
     /**
      * @var int
      */
     public $sysDiskSize;
+
     /**
      * @var string
      */
     public $triggerMode;
     protected $_name = [
-        'dataDiskCategory'     => 'DataDiskCategory',
-        'dataDiskCount'        => 'DataDiskCount',
-        'dataDiskSize'         => 'DataDiskSize',
-        'defaultCoolDownTime'  => 'DefaultCoolDownTime',
-        'instanceTypeList'     => 'InstanceTypeList',
+        'dataDiskCategory' => 'DataDiskCategory',
+        'dataDiskCount' => 'DataDiskCount',
+        'dataDiskSize' => 'DataDiskSize',
+        'defaultCoolDownTime' => 'DefaultCoolDownTime',
+        'instanceTypeList' => 'InstanceTypeList',
         'multiAvailablePolicy' => 'MultiAvailablePolicy',
-        'nodeOfflinePolicy'    => 'NodeOfflinePolicy',
-        'privatePoolOptions'   => 'PrivatePoolOptions',
-        'scalingMaxSize'       => 'ScalingMaxSize',
-        'scalingMinSize'       => 'ScalingMinSize',
-        'spotStrategy'         => 'SpotStrategy',
-        'sysDiskCategory'      => 'SysDiskCategory',
-        'sysDiskSize'          => 'SysDiskSize',
-        'triggerMode'          => 'TriggerMode',
+        'nodeOfflinePolicy' => 'NodeOfflinePolicy',
+        'privatePoolOptions' => 'PrivatePoolOptions',
+        'scalingMaxSize' => 'ScalingMaxSize',
+        'scalingMinSize' => 'ScalingMinSize',
+        'spotStrategy' => 'SpotStrategy',
+        'sysDiskCategory' => 'SysDiskCategory',
+        'sysDiskSize' => 'SysDiskSize',
+        'triggerMode' => 'TriggerMode',
     ];
 
     public function validate()
@@ -124,9 +137,10 @@ class ScalingGroupConfig extends Model
         if (null !== $this->instanceTypeList) {
             if (\is_array($this->instanceTypeList)) {
                 $res['InstanceTypeList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->instanceTypeList as $item1) {
-                    $res['InstanceTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,9 +211,10 @@ class ScalingGroupConfig extends Model
         if (isset($map['InstanceTypeList'])) {
             if (!empty($map['InstanceTypeList'])) {
                 $model->instanceTypeList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['InstanceTypeList'] as $item1) {
-                    $model->instanceTypeList[$n1++] = instanceTypeList::fromMap($item1);
+                    $model->instanceTypeList[$n1] = instanceTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,33 +12,38 @@ class analysis extends Model
      * @var int
      */
     public $healthyJobCount;
+
     /**
      * @var int
      */
     public $needAttentionJobCount;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var float
      */
     public $scoreDayGrowthRatio;
+
     /**
      * @var int
      */
     public $subHealthyJobCount;
+
     /**
      * @var int
      */
     public $unhealthyJobCount;
     protected $_name = [
-        'healthyJobCount'       => 'HealthyJobCount',
+        'healthyJobCount' => 'HealthyJobCount',
         'needAttentionJobCount' => 'NeedAttentionJobCount',
-        'score'                 => 'Score',
-        'scoreDayGrowthRatio'   => 'ScoreDayGrowthRatio',
-        'subHealthyJobCount'    => 'SubHealthyJobCount',
-        'unhealthyJobCount'     => 'UnhealthyJobCount',
+        'score' => 'Score',
+        'scoreDayGrowthRatio' => 'ScoreDayGrowthRatio',
+        'subHealthyJobCount' => 'SubHealthyJobCount',
+        'unhealthyJobCount' => 'UnhealthyJobCount',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class UpdateScriptShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $scriptShrink;
+
     /**
      * @var string
      */
     public $scriptId;
+
     /**
      * @var string
      */
     public $scriptType;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'regionId'     => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
         'scriptShrink' => 'Script',
-        'scriptId'     => 'ScriptId',
-        'scriptType'   => 'ScriptType',
+        'scriptId' => 'ScriptId',
+        'scriptType' => 'ScriptType',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ByTimeScalingRule extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $launchExpirationTime;
+
     /**
      * @var int
      */
     public $launchTime;
+
     /**
      * @var string
      */
     public $recurrenceType;
+
     /**
      * @var string
      */
     public $recurrenceValue;
     protected $_name = [
-        'endTime'              => 'EndTime',
+        'endTime' => 'EndTime',
         'launchExpirationTime' => 'LaunchExpirationTime',
-        'launchTime'           => 'LaunchTime',
-        'recurrenceType'       => 'RecurrenceType',
-        'recurrenceValue'      => 'RecurrenceValue',
+        'launchTime' => 'LaunchTime',
+        'recurrenceType' => 'RecurrenceType',
+        'recurrenceValue' => 'RecurrenceValue',
     ];
 
     public function validate()

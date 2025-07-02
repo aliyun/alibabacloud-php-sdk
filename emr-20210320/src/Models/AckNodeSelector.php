@@ -14,6 +14,7 @@ class AckNodeSelector extends Model
      * @var labels[]
      */
     public $labels;
+
     /**
      * @var taints[]
      */
@@ -40,9 +41,10 @@ class AckNodeSelector extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,9 +52,10 @@ class AckNodeSelector extends Model
         if (null !== $this->taints) {
             if (\is_array($this->taints)) {
                 $res['Taints'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->taints as $item1) {
-                    $res['Taints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Taints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,9 +74,10 @@ class AckNodeSelector extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -81,9 +85,10 @@ class AckNodeSelector extends Model
         if (isset($map['Taints'])) {
             if (!empty($map['Taints'])) {
                 $model->taints = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Taints'] as $item1) {
-                    $model->taints[$n1++] = taints::fromMap($item1);
+                    $model->taints[$n1] = taints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

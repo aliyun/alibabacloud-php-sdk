@@ -12,18 +12,20 @@ class FailedReason extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class applications extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $applicationState;
+
     /**
      * @var string
      */
     public $applicationVersion;
+
     /**
      * @var string
      */
     public $communityVersion;
     protected $_name = [
-        'applicationName'    => 'ApplicationName',
-        'applicationState'   => 'ApplicationState',
+        'applicationName' => 'ApplicationName',
+        'applicationState' => 'ApplicationState',
         'applicationVersion' => 'ApplicationVersion',
-        'communityVersion'   => 'CommunityVersion',
+        'communityVersion' => 'CommunityVersion',
     ];
 
     public function validate()

@@ -13,18 +13,20 @@ class data extends Model
      * @var string[]
      */
     public $componentTypes;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var summaryReport
      */
     public $summaryReport;
     protected $_name = [
         'componentTypes' => 'ComponentTypes',
-        'dateTime'       => 'DateTime',
-        'summaryReport'  => 'SummaryReport',
+        'dateTime' => 'DateTime',
+        'summaryReport' => 'SummaryReport',
     ];
 
     public function validate()
@@ -44,9 +46,10 @@ class data extends Model
         if (null !== $this->componentTypes) {
             if (\is_array($this->componentTypes)) {
                 $res['ComponentTypes'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->componentTypes as $item1) {
-                    $res['ComponentTypes'][$n1++] = $item1;
+                    $res['ComponentTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,9 +76,10 @@ class data extends Model
         if (isset($map['ComponentTypes'])) {
             if (!empty($map['ComponentTypes'])) {
                 $model->componentTypes = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ComponentTypes'] as $item1) {
-                    $model->componentTypes[$n1++] = $item1;
+                    $model->componentTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

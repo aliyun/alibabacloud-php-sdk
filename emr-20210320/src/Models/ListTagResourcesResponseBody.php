@@ -13,28 +13,32 @@ class ListTagResourcesResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var tagResources[]
      */
     public $tagResources;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'tagResources' => 'TagResources',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,9 +67,10 @@ class ListTagResourcesResponseBody extends Model
         if (null !== $this->tagResources) {
             if (\is_array($this->tagResources)) {
                 $res['TagResources'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->tagResources as $item1) {
-                    $res['TagResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,9 +105,10 @@ class ListTagResourcesResponseBody extends Model
         if (isset($map['TagResources'])) {
             if (!empty($map['TagResources'])) {
                 $model->tagResources = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['TagResources'] as $item1) {
-                    $model->tagResources[$n1++] = tagResources::fromMap($item1);
+                    $model->tagResources[$n1] = tagResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,10 +12,12 @@ class CreateNodeGroupRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var NodeGroupConfig
      */
     public $nodeGroup;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class CreateNodeGroupRequest extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'nodeGroup' => 'NodeGroup',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -22,53 +22,62 @@ class metrics extends Model
      * @var avgGc
      */
     public $avgGc;
+
     /**
      * @var cacheRatio
      */
     public $cacheRatio;
+
     /**
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
+
     /**
      * @var dailyReadRequestDayGrowthRatio
      */
     public $dailyReadRequestDayGrowthRatio;
+
     /**
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
+
     /**
      * @var dailyWriteRequestDayGrowthRatio
      */
     public $dailyWriteRequestDayGrowthRatio;
+
     /**
      * @var regionCount
      */
     public $regionCount;
+
     /**
      * @var totalReadRequest
      */
     public $totalReadRequest;
+
     /**
      * @var totalRequest
      */
     public $totalRequest;
+
     /**
      * @var totalWriteRequest
      */
     public $totalWriteRequest;
     protected $_name = [
-        'avgGc'                           => 'AvgGc',
-        'cacheRatio'                      => 'CacheRatio',
-        'dailyReadRequest'                => 'DailyReadRequest',
-        'dailyReadRequestDayGrowthRatio'  => 'DailyReadRequestDayGrowthRatio',
-        'dailyWriteRequest'               => 'DailyWriteRequest',
+        'avgGc' => 'AvgGc',
+        'cacheRatio' => 'CacheRatio',
+        'dailyReadRequest' => 'DailyReadRequest',
+        'dailyReadRequestDayGrowthRatio' => 'DailyReadRequestDayGrowthRatio',
+        'dailyWriteRequest' => 'DailyWriteRequest',
         'dailyWriteRequestDayGrowthRatio' => 'DailyWriteRequestDayGrowthRatio',
-        'regionCount'                     => 'RegionCount',
-        'totalReadRequest'                => 'TotalReadRequest',
-        'totalRequest'                    => 'TotalRequest',
-        'totalWriteRequest'               => 'TotalWriteRequest',
+        'regionCount' => 'RegionCount',
+        'totalReadRequest' => 'TotalReadRequest',
+        'totalRequest' => 'TotalRequest',
+        'totalWriteRequest' => 'TotalWriteRequest',
     ];
 
     public function validate()

@@ -14,17 +14,19 @@ class data extends Model
      * @var analysis
      */
     public $analysis;
+
     /**
      * @var metrics
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'analysis'  => 'Analysis',
-        'metrics'   => 'Metrics',
+        'analysis' => 'Analysis',
+        'metrics' => 'Metrics',
         'tableName' => 'TableName',
     ];
 

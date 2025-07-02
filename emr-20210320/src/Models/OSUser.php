@@ -12,18 +12,20 @@ class OSUser extends Model
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'group'    => 'Group',
+        'group' => 'Group',
         'password' => 'Password',
-        'user'     => 'User',
+        'user' => 'User',
     ];
 
     public function validate()

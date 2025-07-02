@@ -12,23 +12,26 @@ class DeploymentSetConstraints extends Model
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var string
      */
     public $enableState;
+
     /**
      * @var ReplacementStrategy
      */
     public $replacementStrategy;
+
     /**
      * @var string[]
      */
     public $values;
     protected $_name = [
-        'defaultValue'        => 'DefaultValue',
-        'enableState'         => 'EnableState',
+        'defaultValue' => 'DefaultValue',
+        'enableState' => 'EnableState',
         'replacementStrategy' => 'ReplacementStrategy',
-        'values'              => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -60,9 +63,10 @@ class DeploymentSetConstraints extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,9 +97,10 @@ class DeploymentSetConstraints extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

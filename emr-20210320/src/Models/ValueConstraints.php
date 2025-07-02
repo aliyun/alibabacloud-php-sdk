@@ -12,33 +12,38 @@ class ValueConstraints extends Model
      * @var int
      */
     public $defaultValue;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var int
      */
     public $step;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int[]
      */
     public $values;
     protected $_name = [
         'defaultValue' => 'DefaultValue',
-        'end'          => 'End',
-        'start'        => 'Start',
-        'step'         => 'Step',
-        'type'         => 'Type',
-        'values'       => 'Values',
+        'end' => 'End',
+        'start' => 'Start',
+        'step' => 'Step',
+        'type' => 'Type',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -75,9 +80,10 @@ class ValueConstraints extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,9 +122,10 @@ class ValueConstraints extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

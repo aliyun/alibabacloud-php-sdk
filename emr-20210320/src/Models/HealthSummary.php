@@ -12,36 +12,42 @@ class HealthSummary extends Model
      * @var int
      */
     public $badCount;
+
     /**
      * @var int
      */
     public $goodCount;
+
     /**
      * @var int
      */
     public $noneCount;
+
     /**
      * @var int
      */
     public $stoppedCount;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $unknownCount;
+
     /**
      * @var int
      */
     public $warningCount;
     protected $_name = [
-        'badCount'     => 'BadCount',
-        'goodCount'    => 'GoodCount',
-        'noneCount'    => 'NoneCount',
+        'badCount' => 'BadCount',
+        'goodCount' => 'GoodCount',
+        'noneCount' => 'NoneCount',
         'stoppedCount' => 'StoppedCount',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
         'unknownCount' => 'UnknownCount',
         'warningCount' => 'WarningCount',
     ];

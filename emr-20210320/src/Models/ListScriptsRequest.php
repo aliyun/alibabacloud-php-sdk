@@ -12,43 +12,50 @@ class ListScriptsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $scriptId;
+
     /**
      * @var string
      */
     public $scriptName;
+
     /**
      * @var string
      */
     public $scriptType;
+
     /**
      * @var string[]
      */
     public $statuses;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'scriptId'   => 'ScriptId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'scriptId' => 'ScriptId',
         'scriptName' => 'ScriptName',
         'scriptType' => 'ScriptType',
-        'statuses'   => 'Statuses',
+        'statuses' => 'Statuses',
     ];
 
     public function validate()
@@ -93,9 +100,10 @@ class ListScriptsRequest extends Model
         if (null !== $this->statuses) {
             if (\is_array($this->statuses)) {
                 $res['Statuses'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1++] = $item1;
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,9 +150,10 @@ class ListScriptsRequest extends Model
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
                 $model->statuses = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1++] = $item1;
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

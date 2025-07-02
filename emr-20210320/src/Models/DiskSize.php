@@ -12,13 +12,14 @@ class DiskSize extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
         'category' => 'Category',
-        'size'     => 'Size',
+        'size' => 'Size',
     ];
 
     public function validate()

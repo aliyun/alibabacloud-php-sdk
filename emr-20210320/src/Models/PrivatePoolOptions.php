@@ -12,12 +12,13 @@ class PrivatePoolOptions extends Model
      * @var string
      */
     public $matchCriteria;
+
     /**
      * @var string[]
      */
     public $privatePoolIds;
     protected $_name = [
-        'matchCriteria'  => 'MatchCriteria',
+        'matchCriteria' => 'MatchCriteria',
         'privatePoolIds' => 'PrivatePoolIds',
     ];
 
@@ -39,9 +40,10 @@ class PrivatePoolOptions extends Model
         if (null !== $this->privatePoolIds) {
             if (\is_array($this->privatePoolIds)) {
                 $res['PrivatePoolIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->privatePoolIds as $item1) {
-                    $res['PrivatePoolIds'][$n1++] = $item1;
+                    $res['PrivatePoolIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,9 +66,10 @@ class PrivatePoolOptions extends Model
         if (isset($map['PrivatePoolIds'])) {
             if (!empty($map['PrivatePoolIds'])) {
                 $model->privatePoolIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['PrivatePoolIds'] as $item1) {
-                    $model->privatePoolIds[$n1++] = $item1;
+                    $model->privatePoolIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

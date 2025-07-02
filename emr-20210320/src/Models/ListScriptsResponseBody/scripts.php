@@ -13,68 +13,80 @@ class scripts extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $executionFailStrategy;
+
     /**
      * @var string
      */
     public $executionMoment;
+
     /**
      * @var string
      */
     public $executionState;
+
     /**
      * @var int
      */
     public $lastUpdateTime;
+
     /**
      * @var NodeSelector
      */
     public $nodeSelector;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $scriptArgs;
+
     /**
      * @var string
      */
     public $scriptId;
+
     /**
      * @var string
      */
     public $scriptName;
+
     /**
      * @var string
      */
     public $scriptPath;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'action'                => 'Action',
-        'endTime'               => 'EndTime',
+        'action' => 'Action',
+        'endTime' => 'EndTime',
         'executionFailStrategy' => 'ExecutionFailStrategy',
-        'executionMoment'       => 'ExecutionMoment',
-        'executionState'        => 'ExecutionState',
-        'lastUpdateTime'        => 'LastUpdateTime',
-        'nodeSelector'          => 'NodeSelector',
-        'regionId'              => 'RegionId',
-        'scriptArgs'            => 'ScriptArgs',
-        'scriptId'              => 'ScriptId',
-        'scriptName'            => 'ScriptName',
-        'scriptPath'            => 'ScriptPath',
-        'startTime'             => 'StartTime',
+        'executionMoment' => 'ExecutionMoment',
+        'executionState' => 'ExecutionState',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'nodeSelector' => 'NodeSelector',
+        'regionId' => 'RegionId',
+        'scriptArgs' => 'ScriptArgs',
+        'scriptId' => 'ScriptId',
+        'scriptName' => 'ScriptName',
+        'scriptPath' => 'ScriptPath',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

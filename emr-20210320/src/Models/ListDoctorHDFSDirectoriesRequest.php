@@ -12,43 +12,50 @@ class ListDoctorHDFSDirectoriesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $dirPath;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'dateTime'   => 'DateTime',
-        'dirPath'    => 'DirPath',
+        'clusterId' => 'ClusterId',
+        'dateTime' => 'DateTime',
+        'dirPath' => 'DirPath',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'orderBy'    => 'OrderBy',
-        'orderType'  => 'OrderType',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -13,32 +13,37 @@ class actions extends Model
      * @var string
      */
     public $actionName;
+
     /**
      * @var actionParams[]
      */
     public $actionParams;
+
     /**
      * @var string
      */
     public $command;
+
     /**
      * @var string
      */
     public $componentName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $runActionScope;
     protected $_name = [
-        'actionName'     => 'ActionName',
-        'actionParams'   => 'ActionParams',
-        'command'        => 'Command',
-        'componentName'  => 'ComponentName',
-        'description'    => 'Description',
+        'actionName' => 'ActionName',
+        'actionParams' => 'ActionParams',
+        'command' => 'Command',
+        'componentName' => 'ComponentName',
+        'description' => 'Description',
         'runActionScope' => 'RunActionScope',
     ];
 
@@ -60,9 +65,10 @@ class actions extends Model
         if (null !== $this->actionParams) {
             if (\is_array($this->actionParams)) {
                 $res['ActionParams'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->actionParams as $item1) {
-                    $res['ActionParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ActionParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class actions extends Model
         if (isset($map['ActionParams'])) {
             if (!empty($map['ActionParams'])) {
                 $model->actionParams = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ActionParams'] as $item1) {
-                    $model->actionParams[$n1++] = actionParams::fromMap($item1);
+                    $model->actionParams[$n1] = actionParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

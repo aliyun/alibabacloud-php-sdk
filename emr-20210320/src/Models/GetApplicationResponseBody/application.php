@@ -13,28 +13,32 @@ class application extends Model
      * @var actions[]
      */
     public $actions;
+
     /**
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $applicationState;
+
     /**
      * @var string
      */
     public $applicationVersion;
+
     /**
      * @var string
      */
     public $communityVersion;
     protected $_name = [
-        'actions'            => 'Actions',
-        'applicationName'    => 'ApplicationName',
-        'applicationState'   => 'ApplicationState',
+        'actions' => 'Actions',
+        'applicationName' => 'ApplicationName',
+        'applicationState' => 'ApplicationState',
         'applicationVersion' => 'ApplicationVersion',
-        'communityVersion'   => 'CommunityVersion',
+        'communityVersion' => 'CommunityVersion',
     ];
 
     public function validate()
@@ -51,9 +55,10 @@ class application extends Model
         if (null !== $this->actions) {
             if (\is_array($this->actions)) {
                 $res['Actions'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->actions as $item1) {
-                    $res['Actions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Actions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class application extends Model
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Actions'] as $item1) {
-                    $model->actions[$n1++] = actions::fromMap($item1);
+                    $model->actions[$n1] = actions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

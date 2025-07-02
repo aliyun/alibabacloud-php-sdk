@@ -12,38 +12,44 @@ class ScalingRule extends Model
      * @var string
      */
     public $activityType;
+
     /**
      * @var int
      */
     public $adjustmentValue;
+
     /**
      * @var MetricsTrigger
      */
     public $metricsTrigger;
+
     /**
      * @var int
      */
     public $minAdjustmentValue;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var TimeTrigger
      */
     public $timeTrigger;
+
     /**
      * @var string
      */
     public $triggerType;
     protected $_name = [
-        'activityType'       => 'ActivityType',
-        'adjustmentValue'    => 'AdjustmentValue',
-        'metricsTrigger'     => 'MetricsTrigger',
+        'activityType' => 'ActivityType',
+        'adjustmentValue' => 'AdjustmentValue',
+        'metricsTrigger' => 'MetricsTrigger',
         'minAdjustmentValue' => 'MinAdjustmentValue',
-        'ruleName'           => 'RuleName',
-        'timeTrigger'        => 'TimeTrigger',
-        'triggerType'        => 'TriggerType',
+        'ruleName' => 'RuleName',
+        'timeTrigger' => 'TimeTrigger',
+        'triggerType' => 'TriggerType',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class ListScriptsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var scripts[]
      */
     public $scripts;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'scripts'    => 'Scripts',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'scripts' => 'Scripts',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,9 +67,10 @@ class ListScriptsResponseBody extends Model
         if (null !== $this->scripts) {
             if (\is_array($this->scripts)) {
                 $res['Scripts'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->scripts as $item1) {
-                    $res['Scripts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Scripts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,9 +105,10 @@ class ListScriptsResponseBody extends Model
         if (isset($map['Scripts'])) {
             if (!empty($map['Scripts'])) {
                 $model->scripts = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Scripts'] as $item1) {
-                    $model->scripts[$n1++] = scripts::fromMap($item1);
+                    $model->scripts[$n1] = scripts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,33 +12,38 @@ class valueAttribute extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $valueIncrementStep;
+
     /**
      * @var string
      */
     public $valueMaximum;
+
     /**
      * @var string
      */
     public $valueMinimum;
+
     /**
      * @var string
      */
     public $valueType;
+
     /**
      * @var string
      */
     public $valueUnit;
     protected $_name = [
-        'description'        => 'Description',
+        'description' => 'Description',
         'valueIncrementStep' => 'ValueIncrementStep',
-        'valueMaximum'       => 'ValueMaximum',
-        'valueMinimum'       => 'ValueMinimum',
-        'valueType'          => 'ValueType',
-        'valueUnit'          => 'ValueUnit',
+        'valueMaximum' => 'ValueMaximum',
+        'valueMinimum' => 'ValueMinimum',
+        'valueType' => 'ValueType',
+        'valueUnit' => 'ValueUnit',
     ];
 
     public function validate()

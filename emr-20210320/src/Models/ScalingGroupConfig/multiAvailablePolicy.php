@@ -13,13 +13,14 @@ class multiAvailablePolicy extends Model
      * @var policyParam
      */
     public $policyParam;
+
     /**
      * @var string
      */
     public $policyType;
     protected $_name = [
         'policyParam' => 'PolicyParam',
-        'policyType'  => 'PolicyType',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class Toleration extends Model
      * @var string
      */
     public $effect;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'effect'   => 'Effect',
-        'key'      => 'Key',
+        'effect' => 'Effect',
+        'key' => 'Key',
         'operator' => 'Operator',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

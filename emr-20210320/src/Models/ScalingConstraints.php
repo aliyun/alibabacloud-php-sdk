@@ -12,6 +12,7 @@ class ScalingConstraints extends Model
      * @var int
      */
     public $maxCapacity;
+
     /**
      * @var int
      */

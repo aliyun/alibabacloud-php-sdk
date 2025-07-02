@@ -12,43 +12,50 @@ class ListDoctorHiveDatabasesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $databaseNames;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'databaseNames' => 'DatabaseNames',
-        'dateTime'      => 'DateTime',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'orderBy'       => 'OrderBy',
-        'orderType'     => 'OrderType',
-        'regionId'      => 'RegionId',
+        'dateTime' => 'DateTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -69,9 +76,10 @@ class ListDoctorHiveDatabasesRequest extends Model
         if (null !== $this->databaseNames) {
             if (\is_array($this->databaseNames)) {
                 $res['DatabaseNames'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->databaseNames as $item1) {
-                    $res['DatabaseNames'][$n1++] = $item1;
+                    $res['DatabaseNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,9 +126,10 @@ class ListDoctorHiveDatabasesRequest extends Model
         if (isset($map['DatabaseNames'])) {
             if (!empty($map['DatabaseNames'])) {
                 $model->databaseNames = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DatabaseNames'] as $item1) {
-                    $model->databaseNames[$n1++] = $item1;
+                    $model->databaseNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

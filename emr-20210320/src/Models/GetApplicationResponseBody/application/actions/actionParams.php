@@ -13,17 +13,19 @@ class actionParams extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var valueAttribute
      */
     public $valueAttribute;
     protected $_name = [
-        'description'    => 'Description',
-        'key'            => 'Key',
+        'description' => 'Description',
+        'key' => 'Key',
         'valueAttribute' => 'ValueAttribute',
     ];
 

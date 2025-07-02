@@ -12,12 +12,13 @@ class privatePoolOptions extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $matchCriteria;
     protected $_name = [
-        'id'            => 'Id',
+        'id' => 'Id',
         'matchCriteria' => 'MatchCriteria',
     ];
 

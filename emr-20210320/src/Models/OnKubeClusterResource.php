@@ -12,12 +12,13 @@ class OnKubeClusterResource extends Model
      * @var string
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $memory;
     protected $_name = [
-        'cpu'    => 'Cpu',
+        'cpu' => 'Cpu',
         'memory' => 'Memory',
     ];
 

@@ -12,53 +12,62 @@ class ApplicationConfigParam extends Model
      * @var string
      */
     public $configAction;
+
     /**
      * @var string
      */
     public $configFileName;
+
     /**
      * @var string
      */
     public $configItemDescription;
+
     /**
      * @var string
      */
     public $configItemKey;
+
     /**
      * @var string
      */
     public $configItemValue;
+
     /**
      * @var string
      */
     public $configScope;
+
     /**
      * @var string
      */
     public $effectiveActions;
+
     /**
      * @var string
      */
     public $effectiveType;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
-        'configAction'          => 'ConfigAction',
-        'configFileName'        => 'ConfigFileName',
+        'configAction' => 'ConfigAction',
+        'configFileName' => 'ConfigFileName',
         'configItemDescription' => 'ConfigItemDescription',
-        'configItemKey'         => 'ConfigItemKey',
-        'configItemValue'       => 'ConfigItemValue',
-        'configScope'           => 'ConfigScope',
-        'effectiveActions'      => 'EffectiveActions',
-        'effectiveType'         => 'EffectiveType',
-        'nodeGroupId'           => 'NodeGroupId',
-        'nodeId'                => 'NodeId',
+        'configItemKey' => 'ConfigItemKey',
+        'configItemValue' => 'ConfigItemValue',
+        'configScope' => 'ConfigScope',
+        'effectiveActions' => 'EffectiveActions',
+        'effectiveType' => 'EffectiveType',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeId' => 'NodeId',
     ];
 
     public function validate()

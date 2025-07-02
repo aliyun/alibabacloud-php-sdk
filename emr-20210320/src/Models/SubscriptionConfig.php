@@ -12,28 +12,32 @@ class SubscriptionConfig extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var int
      */
     public $autoRenewDuration;
+
     /**
      * @var string
      */
     public $autoRenewDurationUnit;
+
     /**
      * @var int
      */
     public $paymentDuration;
+
     /**
      * @var string
      */
     public $paymentDurationUnit;
     protected $_name = [
-        'autoRenew'             => 'AutoRenew',
-        'autoRenewDuration'     => 'AutoRenewDuration',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewDuration' => 'AutoRenewDuration',
         'autoRenewDurationUnit' => 'AutoRenewDurationUnit',
-        'paymentDuration'       => 'PaymentDuration',
-        'paymentDurationUnit'   => 'PaymentDurationUnit',
+        'paymentDuration' => 'PaymentDuration',
+        'paymentDurationUnit' => 'PaymentDurationUnit',
     ];
 
     public function validate()

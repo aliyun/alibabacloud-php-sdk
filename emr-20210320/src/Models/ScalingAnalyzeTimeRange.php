@@ -12,18 +12,20 @@ class ScalingAnalyzeTimeRange extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -5,38 +5,25 @@
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSUGIResponseBody\data;
 
-class GetDoctorHDFSUGIResponseBody extends Model
+class PutManagedScalingPolicyResponseBody extends Model
 {
-    /**
-     * @var data
-     */
-    public $data;
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
-        }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,10 +39,6 @@ class GetDoctorHDFSUGIResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

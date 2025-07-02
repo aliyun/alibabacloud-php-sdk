@@ -12,23 +12,26 @@ class ListDoctorReportsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

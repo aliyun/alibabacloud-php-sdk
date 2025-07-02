@@ -13,28 +13,32 @@ class ListAutoScalingActivitiesResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var scalingActivities[]
      */
     public $scalingActivities;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'requestId'         => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'scalingActivities' => 'ScalingActivities',
-        'totalCount'        => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,9 +67,10 @@ class ListAutoScalingActivitiesResponseBody extends Model
         if (null !== $this->scalingActivities) {
             if (\is_array($this->scalingActivities)) {
                 $res['ScalingActivities'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->scalingActivities as $item1) {
-                    $res['ScalingActivities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScalingActivities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,9 +105,10 @@ class ListAutoScalingActivitiesResponseBody extends Model
         if (isset($map['ScalingActivities'])) {
             if (!empty($map['ScalingActivities'])) {
                 $model->scalingActivities = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ScalingActivities'] as $item1) {
-                    $model->scalingActivities[$n1++] = scalingActivities::fromMap($item1);
+                    $model->scalingActivities[$n1] = scalingActivities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

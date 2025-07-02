@@ -12,18 +12,20 @@ class RunClusterResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'operationId' => 'OperationId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

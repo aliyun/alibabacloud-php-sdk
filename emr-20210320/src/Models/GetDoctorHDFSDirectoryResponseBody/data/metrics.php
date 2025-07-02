@@ -45,168 +45,200 @@ class metrics extends Model
      * @var coldDataDayGrowthSize
      */
     public $coldDataDayGrowthSize;
+
     /**
      * @var coldDataSize
      */
     public $coldDataSize;
+
     /**
      * @var coldDataSizeDayGrowthRatio
      */
     public $coldDataSizeDayGrowthRatio;
+
     /**
      * @var emptyFileCount
      */
     public $emptyFileCount;
+
     /**
      * @var emptyFileCountDayGrowthRatio
      */
     public $emptyFileCountDayGrowthRatio;
+
     /**
      * @var emptyFileDayGrowthCount
      */
     public $emptyFileDayGrowthCount;
+
     /**
      * @var freezeDataDayGrowthSize
      */
     public $freezeDataDayGrowthSize;
+
     /**
      * @var freezeDataSize
      */
     public $freezeDataSize;
+
     /**
      * @var freezeDataSizeDayGrowthRatio
      */
     public $freezeDataSizeDayGrowthRatio;
+
     /**
      * @var hotDataDayGrowthSize
      */
     public $hotDataDayGrowthSize;
+
     /**
      * @var hotDataSize
      */
     public $hotDataSize;
+
     /**
      * @var hotDataSizeDayGrowthRatio
      */
     public $hotDataSizeDayGrowthRatio;
+
     /**
      * @var largeFileCount
      */
     public $largeFileCount;
+
     /**
      * @var largeFileCountDayGrowthRatio
      */
     public $largeFileCountDayGrowthRatio;
+
     /**
      * @var largeFileDayGrowthCount
      */
     public $largeFileDayGrowthCount;
+
     /**
      * @var mediumFileCount
      */
     public $mediumFileCount;
+
     /**
      * @var mediumFileCountDayGrowthRatio
      */
     public $mediumFileCountDayGrowthRatio;
+
     /**
      * @var mediumFileDayGrowthCount
      */
     public $mediumFileDayGrowthCount;
+
     /**
      * @var smallFileCount
      */
     public $smallFileCount;
+
     /**
      * @var smallFileCountDayGrowthRatio
      */
     public $smallFileCountDayGrowthRatio;
+
     /**
      * @var smallFileDayGrowthCount
      */
     public $smallFileDayGrowthCount;
+
     /**
      * @var tinyFileCount
      */
     public $tinyFileCount;
+
     /**
      * @var tinyFileCountDayGrowthRatio
      */
     public $tinyFileCountDayGrowthRatio;
+
     /**
      * @var tinyFileDayGrowthCount
      */
     public $tinyFileDayGrowthCount;
+
     /**
      * @var totalDataDayGrowthSize
      */
     public $totalDataDayGrowthSize;
+
     /**
      * @var totalDataSize
      */
     public $totalDataSize;
+
     /**
      * @var totalDataSizeDayGrowthRatio
      */
     public $totalDataSizeDayGrowthRatio;
+
     /**
      * @var totalFileCount
      */
     public $totalFileCount;
+
     /**
      * @var totalFileCountDayGrowthRatio
      */
     public $totalFileCountDayGrowthRatio;
+
     /**
      * @var totalFileDayGrowthCount
      */
     public $totalFileDayGrowthCount;
+
     /**
      * @var warmDataDayGrowthSize
      */
     public $warmDataDayGrowthSize;
+
     /**
      * @var warmDataSize
      */
     public $warmDataSize;
+
     /**
      * @var warmDataSizeDayGrowthRatio
      */
     public $warmDataSizeDayGrowthRatio;
     protected $_name = [
-        'coldDataDayGrowthSize'         => 'ColdDataDayGrowthSize',
-        'coldDataSize'                  => 'ColdDataSize',
-        'coldDataSizeDayGrowthRatio'    => 'ColdDataSizeDayGrowthRatio',
-        'emptyFileCount'                => 'EmptyFileCount',
-        'emptyFileCountDayGrowthRatio'  => 'EmptyFileCountDayGrowthRatio',
-        'emptyFileDayGrowthCount'       => 'EmptyFileDayGrowthCount',
-        'freezeDataDayGrowthSize'       => 'FreezeDataDayGrowthSize',
-        'freezeDataSize'                => 'FreezeDataSize',
-        'freezeDataSizeDayGrowthRatio'  => 'FreezeDataSizeDayGrowthRatio',
-        'hotDataDayGrowthSize'          => 'HotDataDayGrowthSize',
-        'hotDataSize'                   => 'HotDataSize',
-        'hotDataSizeDayGrowthRatio'     => 'HotDataSizeDayGrowthRatio',
-        'largeFileCount'                => 'LargeFileCount',
-        'largeFileCountDayGrowthRatio'  => 'LargeFileCountDayGrowthRatio',
-        'largeFileDayGrowthCount'       => 'LargeFileDayGrowthCount',
-        'mediumFileCount'               => 'MediumFileCount',
+        'coldDataDayGrowthSize' => 'ColdDataDayGrowthSize',
+        'coldDataSize' => 'ColdDataSize',
+        'coldDataSizeDayGrowthRatio' => 'ColdDataSizeDayGrowthRatio',
+        'emptyFileCount' => 'EmptyFileCount',
+        'emptyFileCountDayGrowthRatio' => 'EmptyFileCountDayGrowthRatio',
+        'emptyFileDayGrowthCount' => 'EmptyFileDayGrowthCount',
+        'freezeDataDayGrowthSize' => 'FreezeDataDayGrowthSize',
+        'freezeDataSize' => 'FreezeDataSize',
+        'freezeDataSizeDayGrowthRatio' => 'FreezeDataSizeDayGrowthRatio',
+        'hotDataDayGrowthSize' => 'HotDataDayGrowthSize',
+        'hotDataSize' => 'HotDataSize',
+        'hotDataSizeDayGrowthRatio' => 'HotDataSizeDayGrowthRatio',
+        'largeFileCount' => 'LargeFileCount',
+        'largeFileCountDayGrowthRatio' => 'LargeFileCountDayGrowthRatio',
+        'largeFileDayGrowthCount' => 'LargeFileDayGrowthCount',
+        'mediumFileCount' => 'MediumFileCount',
         'mediumFileCountDayGrowthRatio' => 'MediumFileCountDayGrowthRatio',
-        'mediumFileDayGrowthCount'      => 'MediumFileDayGrowthCount',
-        'smallFileCount'                => 'SmallFileCount',
-        'smallFileCountDayGrowthRatio'  => 'SmallFileCountDayGrowthRatio',
-        'smallFileDayGrowthCount'       => 'SmallFileDayGrowthCount',
-        'tinyFileCount'                 => 'TinyFileCount',
-        'tinyFileCountDayGrowthRatio'   => 'TinyFileCountDayGrowthRatio',
-        'tinyFileDayGrowthCount'        => 'TinyFileDayGrowthCount',
-        'totalDataDayGrowthSize'        => 'TotalDataDayGrowthSize',
-        'totalDataSize'                 => 'TotalDataSize',
-        'totalDataSizeDayGrowthRatio'   => 'TotalDataSizeDayGrowthRatio',
-        'totalFileCount'                => 'TotalFileCount',
-        'totalFileCountDayGrowthRatio'  => 'TotalFileCountDayGrowthRatio',
-        'totalFileDayGrowthCount'       => 'TotalFileDayGrowthCount',
-        'warmDataDayGrowthSize'         => 'WarmDataDayGrowthSize',
-        'warmDataSize'                  => 'WarmDataSize',
-        'warmDataSizeDayGrowthRatio'    => 'WarmDataSizeDayGrowthRatio',
+        'mediumFileDayGrowthCount' => 'MediumFileDayGrowthCount',
+        'smallFileCount' => 'SmallFileCount',
+        'smallFileCountDayGrowthRatio' => 'SmallFileCountDayGrowthRatio',
+        'smallFileDayGrowthCount' => 'SmallFileDayGrowthCount',
+        'tinyFileCount' => 'TinyFileCount',
+        'tinyFileCountDayGrowthRatio' => 'TinyFileCountDayGrowthRatio',
+        'tinyFileDayGrowthCount' => 'TinyFileDayGrowthCount',
+        'totalDataDayGrowthSize' => 'TotalDataDayGrowthSize',
+        'totalDataSize' => 'TotalDataSize',
+        'totalDataSizeDayGrowthRatio' => 'TotalDataSizeDayGrowthRatio',
+        'totalFileCount' => 'TotalFileCount',
+        'totalFileCountDayGrowthRatio' => 'TotalFileCountDayGrowthRatio',
+        'totalFileDayGrowthCount' => 'TotalFileDayGrowthCount',
+        'warmDataDayGrowthSize' => 'WarmDataDayGrowthSize',
+        'warmDataSize' => 'WarmDataSize',
+        'warmDataSizeDayGrowthRatio' => 'WarmDataSizeDayGrowthRatio',
     ];
 
     public function validate()

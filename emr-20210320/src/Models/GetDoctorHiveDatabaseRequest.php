@@ -12,23 +12,26 @@ class GetDoctorHiveDatabaseRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'databaseName' => 'DatabaseName',
-        'dateTime'     => 'DateTime',
-        'regionId'     => 'RegionId',
+        'dateTime' => 'DateTime',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

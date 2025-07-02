@@ -12,23 +12,26 @@ class Disk extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'category'         => 'Category',
-        'count'            => 'Count',
+        'category' => 'Category',
+        'count' => 'Count',
         'performanceLevel' => 'PerformanceLevel',
-        'size'             => 'Size',
+        'size' => 'Size',
     ];
 
     public function validate()

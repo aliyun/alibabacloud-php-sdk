@@ -12,42 +12,49 @@ class ListDoctorHBaseTablesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $tableNames;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'dateTime'   => 'DateTime',
+        'clusterId' => 'ClusterId',
+        'dateTime' => 'DateTime',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'orderBy'    => 'OrderBy',
-        'orderType'  => 'OrderType',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
         'tableNames' => 'TableNames',
     ];
 
@@ -93,9 +100,10 @@ class ListDoctorHBaseTablesRequest extends Model
         if (null !== $this->tableNames) {
             if (\is_array($this->tableNames)) {
                 $res['TableNames'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->tableNames as $item1) {
-                    $res['TableNames'][$n1++] = $item1;
+                    $res['TableNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,9 +150,10 @@ class ListDoctorHBaseTablesRequest extends Model
         if (isset($map['TableNames'])) {
             if (!empty($map['TableNames'])) {
                 $model->tableNames = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['TableNames'] as $item1) {
-                    $model->tableNames[$n1++] = $item1;
+                    $model->tableNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

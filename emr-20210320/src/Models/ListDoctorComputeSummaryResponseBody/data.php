@@ -14,18 +14,20 @@ class data extends Model
      * @var analysis
      */
     public $analysis;
+
     /**
      * @var string
      */
     public $componentName;
+
     /**
      * @var metrics
      */
     public $metrics;
     protected $_name = [
-        'analysis'      => 'Analysis',
+        'analysis' => 'Analysis',
         'componentName' => 'ComponentName',
-        'metrics'       => 'Metrics',
+        'metrics' => 'Metrics',
     ];
 
     public function validate()

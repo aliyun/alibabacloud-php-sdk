@@ -13,27 +13,31 @@ class ListDoctorHiveDatabasesResponseBody extends Model
      * @var data[]
      */
     public $data;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'data'       => 'Data',
+        'data' => 'Data',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,9 +55,10 @@ class ListDoctorHiveDatabasesResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class ListDoctorHiveDatabasesResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,33 +12,38 @@ class formats extends Model
      * @var int
      */
     public $formatDayGrowthSize;
+
     /**
      * @var string
      */
     public $formatName;
+
     /**
      * @var float
      */
     public $formatRatio;
+
     /**
      * @var int
      */
     public $formatSize;
+
     /**
      * @var float
      */
     public $formatSizeDayGrowthRatio;
+
     /**
      * @var string
      */
     public $formatSizeUnit;
     protected $_name = [
-        'formatDayGrowthSize'      => 'FormatDayGrowthSize',
-        'formatName'               => 'FormatName',
-        'formatRatio'              => 'FormatRatio',
-        'formatSize'               => 'FormatSize',
+        'formatDayGrowthSize' => 'FormatDayGrowthSize',
+        'formatName' => 'FormatName',
+        'formatRatio' => 'FormatRatio',
+        'formatSize' => 'FormatSize',
         'formatSizeDayGrowthRatio' => 'FormatSizeDayGrowthRatio',
-        'formatSizeUnit'           => 'FormatSizeUnit',
+        'formatSizeUnit' => 'FormatSizeUnit',
     ];
 
     public function validate()

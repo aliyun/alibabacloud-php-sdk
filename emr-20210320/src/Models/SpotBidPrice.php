@@ -12,12 +12,13 @@ class SpotBidPrice extends Model
      * @var float
      */
     public $bidPrice;
+
     /**
      * @var string
      */
     public $instanceType;
     protected $_name = [
-        'bidPrice'     => 'BidPrice',
+        'bidPrice' => 'BidPrice',
         'instanceType' => 'InstanceType',
     ];
 

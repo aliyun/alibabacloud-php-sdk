@@ -12,13 +12,14 @@ class ConfigEffectActions extends Model
      * @var string
      */
     public $configEffectAction;
+
     /**
      * @var string[]
      */
     public $configFiles;
     protected $_name = [
         'configEffectAction' => 'ConfigEffectAction',
-        'configFiles'        => 'ConfigFiles',
+        'configFiles' => 'ConfigFiles',
     ];
 
     public function validate()
@@ -39,9 +40,10 @@ class ConfigEffectActions extends Model
         if (null !== $this->configFiles) {
             if (\is_array($this->configFiles)) {
                 $res['ConfigFiles'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->configFiles as $item1) {
-                    $res['ConfigFiles'][$n1++] = $item1;
+                    $res['ConfigFiles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,9 +66,10 @@ class ConfigEffectActions extends Model
         if (isset($map['ConfigFiles'])) {
             if (!empty($map['ConfigFiles'])) {
                 $model->configFiles = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ConfigFiles'] as $item1) {
-                    $model->configFiles[$n1++] = $item1;
+                    $model->configFiles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

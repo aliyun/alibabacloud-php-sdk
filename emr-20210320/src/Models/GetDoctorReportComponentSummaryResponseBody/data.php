@@ -12,18 +12,20 @@ class data extends Model
      * @var int
      */
     public $score;
+
     /**
      * @var string
      */
     public $suggestion;
+
     /**
      * @var string
      */
     public $summary;
     protected $_name = [
-        'score'      => 'Score',
+        'score' => 'Score',
         'suggestion' => 'Suggestion',
-        'summary'    => 'Summary',
+        'summary' => 'Summary',
     ];
 
     public function validate()

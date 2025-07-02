@@ -12,59 +12,77 @@ class IncreaseNodesRequest extends Model
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
+
     /**
      * @var bool
      */
     public $autoPayOrder;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $increaseNodeCount;
+
     /**
      * @var int
      */
     public $minIncreaseNodeCount;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var int
      */
     public $paymentDuration;
+
     /**
      * @var string
      */
     public $paymentDurationUnit;
+
+    /**
+     * @var Promotion[]
+     */
+    public $promotions;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'applicationConfigs'   => 'ApplicationConfigs',
-        'autoPayOrder'         => 'AutoPayOrder',
-        'autoRenew'            => 'AutoRenew',
-        'clusterId'            => 'ClusterId',
-        'increaseNodeCount'    => 'IncreaseNodeCount',
+        'applicationConfigs' => 'ApplicationConfigs',
+        'autoPayOrder' => 'AutoPayOrder',
+        'autoRenew' => 'AutoRenew',
+        'clusterId' => 'ClusterId',
+        'increaseNodeCount' => 'IncreaseNodeCount',
         'minIncreaseNodeCount' => 'MinIncreaseNodeCount',
-        'nodeGroupId'          => 'NodeGroupId',
-        'paymentDuration'      => 'PaymentDuration',
-        'paymentDurationUnit'  => 'PaymentDurationUnit',
-        'regionId'             => 'RegionId',
+        'nodeGroupId' => 'NodeGroupId',
+        'paymentDuration' => 'PaymentDuration',
+        'paymentDurationUnit' => 'PaymentDurationUnit',
+        'promotions' => 'Promotions',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
         if (\is_array($this->applicationConfigs)) {
             Model::validateArray($this->applicationConfigs);
+        }
+        if (\is_array($this->promotions)) {
+            Model::validateArray($this->promotions);
         }
         parent::validate();
     }
@@ -75,9 +93,10 @@ class IncreaseNodesRequest extends Model
         if (null !== $this->applicationConfigs) {
             if (\is_array($this->applicationConfigs)) {
                 $res['ApplicationConfigs'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->applicationConfigs as $item1) {
-                    $res['ApplicationConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApplicationConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,6 +133,17 @@ class IncreaseNodesRequest extends Model
             $res['PaymentDurationUnit'] = $this->paymentDurationUnit;
         }
 
+        if (null !== $this->promotions) {
+            if (\is_array($this->promotions)) {
+                $res['Promotions'] = [];
+                $n1 = 0;
+                foreach ($this->promotions as $item1) {
+                    $res['Promotions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -132,9 +162,10 @@ class IncreaseNodesRequest extends Model
         if (isset($map['ApplicationConfigs'])) {
             if (!empty($map['ApplicationConfigs'])) {
                 $model->applicationConfigs = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationConfigs'] as $item1) {
-                    $model->applicationConfigs[$n1++] = ApplicationConfig::fromMap($item1);
+                    $model->applicationConfigs[$n1] = ApplicationConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -169,6 +200,17 @@ class IncreaseNodesRequest extends Model
 
         if (isset($map['PaymentDurationUnit'])) {
             $model->paymentDurationUnit = $map['PaymentDurationUnit'];
+        }
+
+        if (isset($map['Promotions'])) {
+            if (!empty($map['Promotions'])) {
+                $model->promotions = [];
+                $n1 = 0;
+                foreach ($map['Promotions'] as $item1) {
+                    $model->promotions[$n1] = Promotion::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RegionId'])) {

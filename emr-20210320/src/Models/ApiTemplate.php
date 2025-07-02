@@ -12,38 +12,44 @@ class ApiTemplate extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'apiName'         => 'ApiName',
-        'content'         => 'Content',
-        'regionId'        => 'RegionId',
+        'apiName' => 'ApiName',
+        'content' => 'Content',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

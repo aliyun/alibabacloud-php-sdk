@@ -54,8 +54,6 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSClusterResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponse;
-use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSUGIRequest;
-use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSUGIResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHiveClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHiveClusterResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHiveDatabaseRequest;
@@ -126,6 +124,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\PutAutoScalingPolicyRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\PutAutoScalingPolicyResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\PutManagedScalingPolicyRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\PutManagedScalingPolicyResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RemoveAutoScalingPolicyRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RemoveAutoScalingPolicyResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RunApiTemplateRequest;
@@ -161,49 +161,49 @@ class Emr extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-beijing'                  => 'emr.aliyuncs.com',
-            'cn-hangzhou'                 => 'emr.aliyuncs.com',
-            'cn-shanghai'                 => 'emr.aliyuncs.com',
-            'cn-shenzhen'                 => 'emr.aliyuncs.com',
-            'ap-southeast-1'              => 'emr.aliyuncs.com',
-            'us-west-1'                   => 'emr.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'emr.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'emr.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'emr.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'emr.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'emr.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'emr.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'emr.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'emr.aliyuncs.com',
-            'cn-edge-1'                   => 'emr.aliyuncs.com',
-            'cn-fujian'                   => 'emr.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'emr.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'emr.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'emr.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-beijing' => 'emr.aliyuncs.com',
+            'cn-hangzhou' => 'emr.aliyuncs.com',
+            'cn-shanghai' => 'emr.aliyuncs.com',
+            'cn-shenzhen' => 'emr.aliyuncs.com',
+            'ap-southeast-1' => 'emr.aliyuncs.com',
+            'us-west-1' => 'emr.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'emr.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'emr.aliyuncs.com',
+            'cn-north-2-gov-1' => 'emr.aliyuncs.com',
+            'ap-northeast-2-pop' => 'emr.aliyuncs.com',
+            'cn-beijing-finance-1' => 'emr.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'emr.aliyuncs.com',
+            'cn-beijing-gov-1' => 'emr.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'emr.aliyuncs.com',
+            'cn-edge-1' => 'emr.aliyuncs.com',
+            'cn-fujian' => 'emr.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'emr.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'emr.aliyuncs.com',
+            'cn-hangzhou-finance' => 'emr.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'emr.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'emr.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'emr.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'emr.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'emr.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'emr.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'emr.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'emr.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'emr.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'emr.aliyuncs.com',
-            'cn-shanghai-inner'           => 'emr.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'emr.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'emr.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'emr.aliyuncs.com',
+            'cn-qingdao-nebula' => 'emr.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'emr.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'emr.aliyuncs.com',
+            'cn-shanghai-inner' => 'emr.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'emr.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'emr.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'emr.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'emr.aliyuncs.com',
-            'cn-wuhan'                    => 'emr.aliyuncs.com',
-            'cn-yushanfang'               => 'emr.aliyuncs.com',
-            'cn-zhangbei'                 => 'emr.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'emr.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'emr.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'emr.aliyuncs.com',
-            'eu-west-1-oxs'               => 'emr.aliyuncs.com',
-            'rus-west-1-pop'              => 'emr.aliyuncs.com',
+            'cn-shenzhen-inner' => 'emr.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'emr.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'emr.aliyuncs.com',
+            'cn-wuhan' => 'emr.aliyuncs.com',
+            'cn-yushanfang' => 'emr.aliyuncs.com',
+            'cn-zhangbei' => 'emr.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'emr.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'emr.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'emr.aliyuncs.com',
+            'eu-west-1-oxs' => 'emr.aliyuncs.com',
+            'rus-west-1-pop' => 'emr.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emr', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -238,6 +238,7 @@ class Emr extends OpenApiClient
      *
      * @param request - CreateApiTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApiTemplateResponse
      *
      * @param CreateApiTemplateRequest $request
@@ -273,27 +274,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateApiTemplate',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApiTemplate',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApiTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
      *
      * @param request - CreateApiTemplateRequest
+     *
      * @returns CreateApiTemplateResponse
      *
      * @param CreateApiTemplateRequest $request
@@ -312,6 +311,7 @@ class Emr extends OpenApiClient
      *
      * @param request - CreateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateClusterResponse
      *
      * @param CreateClusterRequest $request
@@ -399,27 +399,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCluster',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCluster',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a pay-as-you-go or subscription cluster.
      *
      * @param request - CreateClusterRequest
+     *
      * @returns CreateClusterResponse
      *
      * @param CreateClusterRequest $request
@@ -441,6 +439,7 @@ class Emr extends OpenApiClient
      *
      * @param request - CreateNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNodeGroupResponse
      *
      * @param CreateNodeGroupRequest $request
@@ -468,21 +467,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNodeGroup',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNodeGroup',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNodeGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -492,6 +488,7 @@ class Emr extends OpenApiClient
      * 创建节点组。
      *
      * @param request - CreateNodeGroupRequest
+     *
      * @returns CreateNodeGroupResponse
      *
      * @param CreateNodeGroupRequest $request
@@ -510,6 +507,7 @@ class Emr extends OpenApiClient
      *
      * @param request - CreateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateScriptResponse
      *
      * @param CreateScriptRequest $request
@@ -545,27 +543,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateScript',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateScript',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
      *
      * @param request - CreateScriptRequest
+     *
      * @returns CreateScriptResponse
      *
      * @param CreateScriptRequest $request
@@ -580,10 +576,14 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 创建用户.
+     * Creates multiple users at a time.
+     *
+     * @remarks
+     * You can call this operation to create multiple users at a time.
      *
      * @param request - CreateUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateUsersResponse
      *
      * @param CreateUsersRequest $request
@@ -611,27 +611,28 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUsers',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUsers',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建用户.
+     * Creates multiple users at a time.
+     *
+     * @remarks
+     * You can call this operation to create multiple users at a time.
      *
      * @param request - CreateUsersRequest
+     *
      * @returns CreateUsersResponse
      *
      * @param CreateUsersRequest $request
@@ -646,10 +647,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Perform a scale-out operation on the target node group.
+     * Performs a scale-out operation on the target node group.
      *
      * @param request - DecreaseNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DecreaseNodesResponse
      *
      * @param DecreaseNodesRequest $request
@@ -693,27 +695,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DecreaseNodes',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DecreaseNodes',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DecreaseNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DecreaseNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DecreaseNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Perform a scale-out operation on the target node group.
+     * Performs a scale-out operation on the target node group.
      *
      * @param request - DecreaseNodesRequest
+     *
      * @returns DecreaseNodesResponse
      *
      * @param DecreaseNodesRequest $request
@@ -730,11 +730,9 @@ class Emr extends OpenApiClient
     /**
      * Deletes an API operation template.
      *
-     * @remarks
-     * 创建集群模板
-     *
      * @param request - DeleteApiTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApiTemplateResponse
      *
      * @param DeleteApiTemplateRequest $request
@@ -766,30 +764,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApiTemplate',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApiTemplate',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApiTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes an API operation template.
      *
-     * @remarks
-     * 创建集群模板
-     *
      * @param request - DeleteApiTemplateRequest
+     *
      * @returns DeleteApiTemplateResponse
      *
      * @param DeleteApiTemplateRequest $request
@@ -806,6 +799,7 @@ class Emr extends OpenApiClient
     /**
      * @param request - DeleteClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteClusterResponse
      *
      * @param DeleteClusterRequest $request
@@ -829,25 +823,23 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCluster',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCluster',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteClusterRequest
+     *
      * @returns DeleteClusterResponse
      *
      * @param DeleteClusterRequest $request
@@ -866,6 +858,7 @@ class Emr extends OpenApiClient
      *
      * @param request - DeleteScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteScriptResponse
      *
      * @param DeleteScriptRequest $request
@@ -897,27 +890,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScript',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteScript',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
      *
      * @param request - DeleteScriptRequest
+     *
      * @returns DeleteScriptResponse
      *
      * @param DeleteScriptRequest $request
@@ -932,8 +923,14 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Deletes multiple users at a time.
+     *
+     * @remarks
+     * Deletes multiple users at a time.
+     *
      * @param tmpReq - DeleteUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteUsersResponse
      *
      * @param DeleteUsersRequest $tmpReq
@@ -966,28 +963,31 @@ class Emr extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUsers',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUsers',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes multiple users at a time.
+     *
+     * @remarks
+     * Deletes multiple users at a time.
+     *
      * @param request - DeleteUsersRequest
+     *
      * @returns DeleteUsersResponse
      *
      * @param DeleteUsersRequest $request
@@ -1006,6 +1006,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetApiTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApiTemplateResponse
      *
      * @param GetApiTemplateRequest $request
@@ -1029,27 +1030,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApiTemplate',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApiTemplate',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApiTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the detailed configuration information about an API operation template.
      *
      * @param request - GetApiTemplateRequest
+     *
      * @returns GetApiTemplateResponse
      *
      * @param GetApiTemplateRequest $request
@@ -1069,6 +1068,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApplicationResponse
      *
      * @param GetApplicationRequest $request
@@ -1096,21 +1096,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApplication',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApplication',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1118,6 +1115,7 @@ class Emr extends OpenApiClient
      * 查询应用详情。
      *
      * @param request - GetApplicationRequest
+     *
      * @returns GetApplicationResponse
      *
      * @param GetApplicationRequest $request
@@ -1132,10 +1130,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取弹性伸缩活动详情。
+     * Queries the information about an auto scaling activity.
      *
      * @param request - GetAutoScalingActivityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoScalingActivityResponse
      *
      * @param GetAutoScalingActivityRequest $request
@@ -1163,27 +1162,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoScalingActivity',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoScalingActivity',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAutoScalingActivityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAutoScalingActivityResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAutoScalingActivityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取弹性伸缩活动详情。
+     * Queries the information about an auto scaling activity.
      *
      * @param request - GetAutoScalingActivityRequest
+     *
      * @returns GetAutoScalingActivityResponse
      *
      * @param GetAutoScalingActivityRequest $request
@@ -1198,10 +1195,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * null.
+     * Queries custom auto scaling rules.
      *
      * @param request - GetAutoScalingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoScalingPolicyResponse
      *
      * @param GetAutoScalingPolicyRequest $request
@@ -1229,27 +1227,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoScalingPolicy',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoScalingPolicy',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAutoScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAutoScalingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAutoScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * null.
+     * Queries custom auto scaling rules.
      *
      * @param request - GetAutoScalingPolicyRequest
+     *
      * @returns GetAutoScalingPolicyResponse
      *
      * @param GetAutoScalingPolicyRequest $request
@@ -1268,6 +1264,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetClusterResponse
      *
      * @param GetClusterRequest $request
@@ -1291,27 +1288,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCluster',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCluster',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains the details of a cluster.
      *
      * @param request - GetClusterRequest
+     *
      * @returns GetClusterResponse
      *
      * @param GetClusterRequest $request
@@ -1330,6 +1325,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetClusterCloneMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetClusterCloneMetaResponse
      *
      * @param GetClusterCloneMetaRequest $request
@@ -1353,27 +1349,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetClusterCloneMeta',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetClusterCloneMeta',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetClusterCloneMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetClusterCloneMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetClusterCloneMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
      *
      * @param request - GetClusterCloneMetaRequest
+     *
      * @returns GetClusterCloneMetaResponse
      *
      * @param GetClusterCloneMetaRequest $request
@@ -1395,6 +1389,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorApplicationResponse
      *
      * @param GetDoctorApplicationRequest $request
@@ -1426,21 +1421,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorApplication',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorApplication',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1450,6 +1442,7 @@ class Emr extends OpenApiClient
      * get one doctor analysis app
      *
      * @param request - GetDoctorApplicationRequest
+     *
      * @returns GetDoctorApplicationResponse
      *
      * @param GetDoctorApplicationRequest $request
@@ -1471,6 +1464,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorComputeSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorComputeSummaryResponse
      *
      * @param GetDoctorComputeSummaryRequest $request
@@ -1502,21 +1496,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorComputeSummary',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorComputeSummary',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorComputeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorComputeSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorComputeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1526,6 +1517,7 @@ class Emr extends OpenApiClient
      * get one specific luster engine queue by <type, name>
      *
      * @param request - GetDoctorComputeSummaryRequest
+     *
      * @returns GetDoctorComputeSummaryResponse
      *
      * @param GetDoctorComputeSummaryRequest $request
@@ -1547,6 +1539,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHBaseClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHBaseClusterResponse
      *
      * @param GetDoctorHBaseClusterRequest $request
@@ -1574,21 +1567,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHBaseCluster',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHBaseCluster',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHBaseClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHBaseClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHBaseClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1598,6 +1588,7 @@ class Emr extends OpenApiClient
      * get Doctor HBaseCluster
      *
      * @param request - GetDoctorHBaseClusterRequest
+     *
      * @returns GetDoctorHBaseClusterResponse
      *
      * @param GetDoctorHBaseClusterRequest $request
@@ -1619,6 +1610,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHBaseRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHBaseRegionResponse
      *
      * @param GetDoctorHBaseRegionRequest $request
@@ -1650,21 +1642,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHBaseRegion',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHBaseRegion',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHBaseRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHBaseRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHBaseRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1674,6 +1663,7 @@ class Emr extends OpenApiClient
      * List Doctor HBase Regions
      *
      * @param request - GetDoctorHBaseRegionRequest
+     *
      * @returns GetDoctorHBaseRegionResponse
      *
      * @param GetDoctorHBaseRegionRequest $request
@@ -1695,6 +1685,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHBaseRegionServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHBaseRegionServerResponse
      *
      * @param GetDoctorHBaseRegionServerRequest $request
@@ -1726,21 +1717,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHBaseRegionServer',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHBaseRegionServer',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHBaseRegionServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHBaseRegionServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHBaseRegionServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1750,6 +1738,7 @@ class Emr extends OpenApiClient
      * get Doctor HBaseRegionServer
      *
      * @param request - GetDoctorHBaseRegionServerRequest
+     *
      * @returns GetDoctorHBaseRegionServerResponse
      *
      * @param GetDoctorHBaseRegionServerRequest $request
@@ -1771,6 +1760,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHBaseTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHBaseTableResponse
      *
      * @param GetDoctorHBaseTableRequest $request
@@ -1802,21 +1792,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHBaseTable',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHBaseTable',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHBaseTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHBaseTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHBaseTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1826,6 +1813,7 @@ class Emr extends OpenApiClient
      * get Doctor HBaseTable
      *
      * @param request - GetDoctorHBaseTableRequest
+     *
      * @returns GetDoctorHBaseTableResponse
      *
      * @param GetDoctorHBaseTableRequest $request
@@ -1847,6 +1835,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHDFSClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHDFSClusterResponse
      *
      * @param GetDoctorHDFSClusterRequest $request
@@ -1874,21 +1863,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHDFSCluster',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHDFSCluster',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHDFSClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHDFSClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHDFSClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1898,6 +1884,7 @@ class Emr extends OpenApiClient
      * list Doctor HBaseTableRegions
      *
      * @param request - GetDoctorHDFSClusterRequest
+     *
      * @returns GetDoctorHDFSClusterResponse
      *
      * @param GetDoctorHDFSClusterRequest $request
@@ -1919,6 +1906,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHDFSDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHDFSDirectoryResponse
      *
      * @param GetDoctorHDFSDirectoryRequest $request
@@ -1950,21 +1938,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHDFSDirectory',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHDFSDirectory',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHDFSDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHDFSDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHDFSDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1974,6 +1959,7 @@ class Emr extends OpenApiClient
      * get Doctor HDFSNode
      *
      * @param request - GetDoctorHDFSDirectoryRequest
+     *
      * @returns GetDoctorHDFSDirectoryResponse
      *
      * @param GetDoctorHDFSDirectoryRequest $request
@@ -1988,86 +1974,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
-     *
-     * @remarks
-     * get Doctor HDFS UGI
-     *
-     * @param request - GetDoctorHDFSUGIRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetDoctorHDFSUGIResponse
-     *
-     * @param GetDoctorHDFSUGIRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetDoctorHDFSUGIResponse
-     */
-    public function getDoctorHDFSUGIWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
-        }
-
-        if (null !== $request->dateTime) {
-            @$query['DateTime'] = $request->dateTime;
-        }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDoctorHDFSUGI',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHDFSUGIResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return GetDoctorHDFSUGIResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
-     *
-     * @remarks
-     * get Doctor HDFS UGI
-     *
-     * @param request - GetDoctorHDFSUGIRequest
-     * @returns GetDoctorHDFSUGIResponse
-     *
-     * @param GetDoctorHDFSUGIRequest $request
-     *
-     * @return GetDoctorHDFSUGIResponse
-     */
-    public function getDoctorHDFSUGI($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDoctorHDFSUGIWithOptions($request, $runtime);
-    }
-
-    /**
      * Obtains the analysis results of a Hive cluster.
      *
      * @remarks
@@ -2075,6 +1981,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHiveClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHiveClusterResponse
      *
      * @param GetDoctorHiveClusterRequest $request
@@ -2102,21 +2009,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHiveCluster',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHiveCluster',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHiveClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHiveClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHiveClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2126,6 +2030,7 @@ class Emr extends OpenApiClient
      * list Doctor Hive Cluster
      *
      * @param request - GetDoctorHiveClusterRequest
+     *
      * @returns GetDoctorHiveClusterResponse
      *
      * @param GetDoctorHiveClusterRequest $request
@@ -2147,6 +2052,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHiveDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHiveDatabaseResponse
      *
      * @param GetDoctorHiveDatabaseRequest $request
@@ -2178,21 +2084,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHiveDatabase',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHiveDatabase',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHiveDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHiveDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHiveDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2202,6 +2105,7 @@ class Emr extends OpenApiClient
      * get Doctor Hive Database
      *
      * @param request - GetDoctorHiveDatabaseRequest
+     *
      * @returns GetDoctorHiveDatabaseResponse
      *
      * @param GetDoctorHiveDatabaseRequest $request
@@ -2223,6 +2127,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorHiveTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorHiveTableResponse
      *
      * @param GetDoctorHiveTableRequest $request
@@ -2254,21 +2159,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorHiveTable',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorHiveTable',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorHiveTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorHiveTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorHiveTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2278,6 +2180,7 @@ class Emr extends OpenApiClient
      * get Doctor Hive Table
      *
      * @param request - GetDoctorHiveTableRequest
+     *
      * @returns GetDoctorHiveTableResponse
      *
      * @param GetDoctorHiveTableRequest $request
@@ -2299,6 +2202,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorJobResponse
      *
      * @param GetDoctorJobRequest $request
@@ -2326,21 +2230,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorJob',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorJob',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2350,6 +2251,7 @@ class Emr extends OpenApiClient
      * Get realtime job by yarn
      *
      * @param request - GetDoctorJobRequest
+     *
      * @returns GetDoctorJobResponse
      *
      * @param GetDoctorJobRequest $request
@@ -2371,6 +2273,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetDoctorReportComponentSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoctorReportComponentSummaryResponse
      *
      * @param GetDoctorReportComponentSummaryRequest $request
@@ -2402,21 +2305,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoctorReportComponentSummary',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoctorReportComponentSummary',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorReportComponentSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorReportComponentSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorReportComponentSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2426,6 +2326,7 @@ class Emr extends OpenApiClient
      * get specify component\\"s report analysis by EMR Doctor
      *
      * @param request - GetDoctorReportComponentSummaryRequest
+     *
      * @returns GetDoctorReportComponentSummaryResponse
      *
      * @param GetDoctorReportComponentSummaryRequest $request
@@ -2447,6 +2348,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeGroupResponse
      *
      * @param GetNodeGroupRequest $request
@@ -2474,21 +2376,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeGroup',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNodeGroup',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodeGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2498,6 +2397,7 @@ class Emr extends OpenApiClient
      * 获取节点组详情。
      *
      * @param request - GetNodeGroupRequest
+     *
      * @returns GetNodeGroupResponse
      *
      * @param GetNodeGroupRequest $request
@@ -2516,6 +2416,7 @@ class Emr extends OpenApiClient
      *
      * @param request - GetOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOperationResponse
      *
      * @param GetOperationRequest $request
@@ -2543,27 +2444,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOperation',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOperation',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Gets the details of an asynchronous operation.
      *
      * @param request - GetOperationRequest
+     *
      * @returns GetOperationResponse
      *
      * @param GetOperationRequest $request
@@ -2578,10 +2477,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Scale out the node group.
+     * Scales out the node group.
      *
      * @param request - IncreaseNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns IncreaseNodesResponse
      *
      * @param IncreaseNodesRequest $request
@@ -2629,6 +2529,10 @@ class Emr extends OpenApiClient
             @$query['PaymentDurationUnit'] = $request->paymentDurationUnit;
         }
 
+        if (null !== $request->promotions) {
+            @$query['Promotions'] = $request->promotions;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2637,27 +2541,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IncreaseNodes',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IncreaseNodes',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return IncreaseNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return IncreaseNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return IncreaseNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Scale out the node group.
+     * Scales out the node group.
      *
      * @param request - IncreaseNodesRequest
+     *
      * @returns IncreaseNodesResponse
      *
      * @param IncreaseNodesRequest $request
@@ -2672,10 +2574,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+     * Adds an EMR resource to a resource group. A resource can belong to only one resource group.
      *
      * @param request - JoinResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns JoinResourceGroupResponse
      *
      * @param JoinResourceGroupRequest $request
@@ -2707,27 +2610,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'JoinResourceGroup',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'JoinResourceGroup',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return JoinResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return JoinResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return JoinResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+     * Adds an EMR resource to a resource group. A resource can belong to only one resource group.
      *
      * @param request - JoinResourceGroupRequest
+     *
      * @returns JoinResourceGroupResponse
      *
      * @param JoinResourceGroupRequest $request
@@ -2746,6 +2647,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListApiTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApiTemplatesResponse
      *
      * @param ListApiTemplatesRequest $request
@@ -2793,27 +2695,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApiTemplates',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApiTemplates',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApiTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApiTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApiTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询API模板
      *
      * @param request - ListApiTemplatesRequest
+     *
      * @returns ListApiTemplatesResponse
      *
      * @param ListApiTemplatesRequest $request
@@ -2828,11 +2728,14 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Queries the configurations of the application.
+     *
      * @remarks
      * 查询应用配置。
      *
      * @param request - ListApplicationConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApplicationConfigsResponse
      *
      * @param ListApplicationConfigsRequest $request
@@ -2888,28 +2791,28 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApplicationConfigs',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApplicationConfigs',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApplicationConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the configurations of the application.
+     *
      * @remarks
      * 查询应用配置。
      *
      * @param request - ListApplicationConfigsRequest
+     *
      * @returns ListApplicationConfigsResponse
      *
      * @param ListApplicationConfigsRequest $request
@@ -2924,8 +2827,11 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Queries a list of applications.
+     *
      * @param request - ListApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApplicationsResponse
      *
      * @param ListApplicationsRequest $request
@@ -2961,25 +2867,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApplications',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApplications',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a list of applications.
+     *
      * @param request - ListApplicationsRequest
+     *
      * @returns ListApplicationsResponse
      *
      * @param ListApplicationsRequest $request
@@ -2994,10 +2900,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询弹性伸缩活动列表。
+     * Queries a list of auto scaling activities.
      *
      * @param request - ListAutoScalingActivitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAutoScalingActivitiesResponse
      *
      * @param ListAutoScalingActivitiesRequest $request
@@ -3057,27 +2964,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAutoScalingActivities',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAutoScalingActivities',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAutoScalingActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAutoScalingActivitiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAutoScalingActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询弹性伸缩活动列表。
+     * Queries a list of auto scaling activities.
      *
      * @param request - ListAutoScalingActivitiesRequest
+     *
      * @returns ListAutoScalingActivitiesResponse
      *
      * @param ListAutoScalingActivitiesRequest $request
@@ -3096,6 +3001,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListClustersResponse
      *
      * @param ListClustersRequest $request
@@ -3151,27 +3057,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusters',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClusters',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries E-MapReduce (EMR) clusters.
      *
      * @param request - ListClustersRequest
+     *
      * @returns ListClustersResponse
      *
      * @param ListClustersRequest $request
@@ -3186,11 +3090,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @remarks
-     * 查询组件实例列表。
-     *
      * @param request - ListComponentInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListComponentInstancesResponse
      *
      * @param ListComponentInstancesRequest $request
@@ -3238,32 +3140,31 @@ class Emr extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListComponentInstances',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListComponentInstances',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListComponentInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListComponentInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListComponentInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @remarks
-     * 查询组件实例列表。
-     *
      * @param request - ListComponentInstancesRequest
+     *
      * @returns ListComponentInstancesResponse
      *
      * @param ListComponentInstancesRequest $request
@@ -3280,6 +3181,7 @@ class Emr extends OpenApiClient
     /**
      * @param request - ListComponentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListComponentsResponse
      *
      * @param ListComponentsRequest $request
@@ -3323,25 +3225,23 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListComponents',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListComponents',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListComponentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListComponentsRequest
+     *
      * @returns ListComponentsResponse
      *
      * @param ListComponentsRequest $request
@@ -3363,6 +3263,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorApplicationsResponse
      *
      * @param ListDoctorApplicationsRequest $request
@@ -3422,21 +3323,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorApplications',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorApplications',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3446,6 +3344,7 @@ class Emr extends OpenApiClient
      * list all doctor analysis apps
      *
      * @param request - ListDoctorApplicationsRequest
+     *
      * @returns ListDoctorApplicationsResponse
      *
      * @param ListDoctorApplicationsRequest $request
@@ -3467,6 +3366,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorComputeSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorComputeSummaryResponse
      *
      * @param ListDoctorComputeSummaryRequest $request
@@ -3514,21 +3414,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorComputeSummary',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorComputeSummary',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorComputeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorComputeSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorComputeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3538,6 +3435,7 @@ class Emr extends OpenApiClient
      * list Doctor analysis result of cluster engine queue view
      *
      * @param request - ListDoctorComputeSummaryRequest
+     *
      * @returns ListDoctorComputeSummaryResponse
      *
      * @param ListDoctorComputeSummaryRequest $request
@@ -3559,6 +3457,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorHBaseRegionServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorHBaseRegionServersResponse
      *
      * @param ListDoctorHBaseRegionServersRequest $request
@@ -3606,21 +3505,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorHBaseRegionServers',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorHBaseRegionServers',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorHBaseRegionServersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorHBaseRegionServersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorHBaseRegionServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3630,6 +3526,7 @@ class Emr extends OpenApiClient
      * list Doctor HBaseRegionServers
      *
      * @param request - ListDoctorHBaseRegionServersRequest
+     *
      * @returns ListDoctorHBaseRegionServersResponse
      *
      * @param ListDoctorHBaseRegionServersRequest $request
@@ -3651,6 +3548,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorHBaseTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorHBaseTablesResponse
      *
      * @param ListDoctorHBaseTablesRequest $request
@@ -3698,21 +3596,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorHBaseTables',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorHBaseTables',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorHBaseTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorHBaseTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorHBaseTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3722,6 +3617,7 @@ class Emr extends OpenApiClient
      * list Doctor HBaseTables
      *
      * @param request - ListDoctorHBaseTablesRequest
+     *
      * @returns ListDoctorHBaseTablesResponse
      *
      * @param ListDoctorHBaseTablesRequest $request
@@ -3741,6 +3637,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorHDFSDirectoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorHDFSDirectoriesResponse
      *
      * @param ListDoctorHDFSDirectoriesRequest $request
@@ -3788,21 +3685,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorHDFSDirectories',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorHDFSDirectories',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorHDFSDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorHDFSDirectoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorHDFSDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3810,6 +3704,7 @@ class Emr extends OpenApiClient
      * list Doctor HDFSNodes
      *
      * @param request - ListDoctorHDFSDirectoriesRequest
+     *
      * @returns ListDoctorHDFSDirectoriesResponse
      *
      * @param ListDoctorHDFSDirectoriesRequest $request
@@ -3831,6 +3726,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorHDFSUGIRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorHDFSUGIResponse
      *
      * @param ListDoctorHDFSUGIRequest $request
@@ -3878,21 +3774,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorHDFSUGI',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorHDFSUGI',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorHDFSUGIResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorHDFSUGIResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorHDFSUGIResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3902,6 +3795,7 @@ class Emr extends OpenApiClient
      * list Doctor HDFS UGIs
      *
      * @param request - ListDoctorHDFSUGIRequest
+     *
      * @returns ListDoctorHDFSUGIResponse
      *
      * @param ListDoctorHDFSUGIRequest $request
@@ -3923,6 +3817,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorHiveDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorHiveDatabasesResponse
      *
      * @param ListDoctorHiveDatabasesRequest $request
@@ -3970,21 +3865,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorHiveDatabases',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorHiveDatabases',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorHiveDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorHiveDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorHiveDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3994,6 +3886,7 @@ class Emr extends OpenApiClient
      * list Doctor Hive Databases
      *
      * @param request - ListDoctorHiveDatabasesRequest
+     *
      * @returns ListDoctorHiveDatabasesResponse
      *
      * @param ListDoctorHiveDatabasesRequest $request
@@ -4015,6 +3908,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorHiveTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorHiveTablesResponse
      *
      * @param ListDoctorHiveTablesRequest $request
@@ -4062,21 +3956,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorHiveTables',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorHiveTables',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorHiveTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorHiveTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorHiveTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4086,6 +3977,7 @@ class Emr extends OpenApiClient
      * list Doctor Hive Tables
      *
      * @param request - ListDoctorHiveTablesRequest
+     *
      * @returns ListDoctorHiveTablesResponse
      *
      * @param ListDoctorHiveTablesRequest $request
@@ -4107,6 +3999,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorJobsResponse
      *
      * @param ListDoctorJobsRequest $request
@@ -4170,21 +4063,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorJobs',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorJobs',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4194,6 +4084,7 @@ class Emr extends OpenApiClient
      * list realtime jobs by yarn
      *
      * @param request - ListDoctorJobsRequest
+     *
      * @returns ListDoctorJobsResponse
      *
      * @param ListDoctorJobsRequest $request
@@ -4215,6 +4106,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorJobsStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorJobsStatsResponse
      *
      * @param ListDoctorJobsStatsRequest $request
@@ -4266,21 +4158,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorJobsStats',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorJobsStats',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorJobsStatsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorJobsStatsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorJobsStatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4290,6 +4179,7 @@ class Emr extends OpenApiClient
      * list stats groupBy jobs by yarn
      *
      * @param request - ListDoctorJobsStatsRequest
+     *
      * @returns ListDoctorJobsStatsResponse
      *
      * @param ListDoctorJobsStatsRequest $request
@@ -4311,6 +4201,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListDoctorReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoctorReportsResponse
      *
      * @param ListDoctorReportsRequest $request
@@ -4342,21 +4233,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoctorReports',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoctorReports',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDoctorReportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDoctorReportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDoctorReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4366,6 +4254,7 @@ class Emr extends OpenApiClient
      * list all reports analysis by emr doctor
      *
      * @param request - ListDoctorReportsRequest
+     *
      * @returns ListDoctorReportsResponse
      *
      * @param ListDoctorReportsRequest $request
@@ -4384,6 +4273,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListInstanceTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceTypesResponse
      *
      * @param ListInstanceTypesRequest $request
@@ -4443,27 +4333,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceTypes',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceTypes',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstanceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Lists instance types.
      *
      * @param request - ListInstanceTypesRequest
+     *
      * @returns ListInstanceTypesResponse
      *
      * @param ListInstanceTypesRequest $request
@@ -4482,6 +4370,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListNodeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodeGroupsResponse
      *
      * @param ListNodeGroupsRequest $request
@@ -4525,31 +4414,33 @@ class Emr extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNodeGroups',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodeGroups',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNodeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNodeGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNodeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the list of node groups in an EMR cluster.
      *
      * @param request - ListNodeGroupsRequest
+     *
      * @returns ListNodeGroupsResponse
      *
      * @param ListNodeGroupsRequest $request
@@ -4568,6 +4459,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodesResponse
      *
      * @param ListNodesRequest $request
@@ -4627,27 +4519,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNodes',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodes',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the node list of an EMR cluster.
      *
      * @param request - ListNodesRequest
+     *
      * @returns ListNodesResponse
      *
      * @param ListNodesRequest $request
@@ -4669,6 +4559,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListReleaseVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListReleaseVersionsResponse
      *
      * @param ListReleaseVersionsRequest $request
@@ -4696,21 +4587,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListReleaseVersions',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListReleaseVersions',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListReleaseVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListReleaseVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListReleaseVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4720,6 +4608,7 @@ class Emr extends OpenApiClient
      * 查询主版本。
      *
      * @param request - ListReleaseVersionsRequest
+     *
      * @returns ListReleaseVersionsResponse
      *
      * @param ListReleaseVersionsRequest $request
@@ -4738,6 +4627,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListScriptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListScriptsResponse
      *
      * @param ListScriptsRequest $request
@@ -4785,27 +4675,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScripts',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListScripts',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScriptsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Query EMR cluster bootstrap scripts or regular scripts.
      *
      * @param request - ListScriptsRequest
+     *
      * @returns ListScriptsResponse
      *
      * @param ListScriptsRequest $request
@@ -4824,6 +4712,7 @@ class Emr extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -4863,27 +4752,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the tags that are bound to an EMR cluster.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -4898,8 +4785,14 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Queries a user.
+     *
+     * @remarks
+     * Queries a user.
+     *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -4939,25 +4832,28 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsers',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a user.
+     *
+     * @remarks
+     * Queries a user.
+     *
      * @param request - ListUsersRequest
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -4972,13 +4868,14 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Configures auto scaling rules.
+     * Adds a custom auto scaling rule.
      *
      * @remarks
      * You can call this operation to configure auto scaling policies.
      *
      * @param request - PutAutoScalingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PutAutoScalingPolicyResponse
      *
      * @param PutAutoScalingPolicyRequest $request
@@ -5014,30 +4911,28 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutAutoScalingPolicy',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutAutoScalingPolicy',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutAutoScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutAutoScalingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutAutoScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Configures auto scaling rules.
+     * Adds a custom auto scaling rule.
      *
      * @remarks
      * You can call this operation to configure auto scaling policies.
      *
      * @param request - PutAutoScalingPolicyRequest
+     *
      * @returns PutAutoScalingPolicyResponse
      *
      * @param PutAutoScalingPolicyRequest $request
@@ -5052,8 +4947,72 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param request - PutManagedScalingPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutManagedScalingPolicyResponse
+     *
+     * @param PutManagedScalingPolicyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return PutManagedScalingPolicyResponse
+     */
+    public function putManagedScalingPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->constraints) {
+            @$query['Constraints'] = $request->constraints;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PutManagedScalingPolicy',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutManagedScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - PutManagedScalingPolicyRequest
+     *
+     * @returns PutManagedScalingPolicyResponse
+     *
+     * @param PutManagedScalingPolicyRequest $request
+     *
+     * @return PutManagedScalingPolicyResponse
+     */
+    public function putManagedScalingPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putManagedScalingPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes an auto scaling policy.
+     *
      * @param request - RemoveAutoScalingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveAutoScalingPolicyResponse
      *
      * @param RemoveAutoScalingPolicyRequest $request
@@ -5081,25 +5040,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveAutoScalingPolicy',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveAutoScalingPolicy',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveAutoScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveAutoScalingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveAutoScalingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Removes an auto scaling policy.
+     *
      * @param request - RemoveAutoScalingPolicyRequest
+     *
      * @returns RemoveAutoScalingPolicyResponse
      *
      * @param RemoveAutoScalingPolicyRequest $request
@@ -5116,6 +5075,7 @@ class Emr extends OpenApiClient
     /**
      * @param request - RunApiTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunApiTemplateResponse
      *
      * @param RunApiTemplateRequest $request
@@ -5147,25 +5107,23 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RunApiTemplate',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunApiTemplate',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunApiTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - RunApiTemplateRequest
+     *
      * @returns RunApiTemplateResponse
      *
      * @param RunApiTemplateRequest $request
@@ -5184,6 +5142,7 @@ class Emr extends OpenApiClient
      *
      * @param request - RunApplicationActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunApplicationActionResponse
      *
      * @param RunApplicationActionRequest $request
@@ -5235,27 +5194,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RunApplicationAction',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunApplicationAction',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunApplicationActionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunApplicationActionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunApplicationActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Manages a service deployed in a cluster. For example, you can call this operation to start pr stop a service.
      *
      * @param request - RunApplicationActionRequest
+     *
      * @returns RunApplicationActionResponse
      *
      * @param RunApplicationActionRequest $request
@@ -5277,6 +5234,7 @@ class Emr extends OpenApiClient
      *
      * @param tmpReq - RunClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunClusterResponse
      *
      * @param RunClusterRequest $tmpReq
@@ -5309,6 +5267,10 @@ class Emr extends OpenApiClient
             $request->nodeGroupsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
         }
 
+        if (null !== $tmpReq->promotions) {
+            $request->promotionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promotions, 'Promotions', 'json');
+        }
+
         if (null !== $tmpReq->subscriptionConfig) {
             $request->subscriptionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subscriptionConfig, 'SubscriptionConfig', 'json');
         }
@@ -5318,6 +5280,10 @@ class Emr extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->promotionsShrink) {
+            @$query['Promotions'] = $request->promotionsShrink;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5393,24 +5359,21 @@ class Emr extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunCluster',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunCluster',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5420,6 +5383,7 @@ class Emr extends OpenApiClient
      * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
      *
      * @param request - RunClusterRequest
+     *
      * @returns RunClusterResponse
      *
      * @param RunClusterRequest $request
@@ -5434,10 +5398,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Bind tags to a specified EMR cluster.
+     * Binds tags to a specified EMR cluster.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -5469,27 +5434,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Bind tags to a specified EMR cluster.
+     * Binds tags to a specified EMR cluster.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -5508,6 +5471,7 @@ class Emr extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -5543,27 +5507,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -5585,6 +5547,7 @@ class Emr extends OpenApiClient
      *
      * @param request - UpdateApiTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateApiTemplateResponse
      *
      * @param UpdateApiTemplateRequest $request
@@ -5624,21 +5587,18 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApiTemplate',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateApiTemplate',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApiTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5648,6 +5608,7 @@ class Emr extends OpenApiClient
      * 修改集群模板
      *
      * @param request - UpdateApiTemplateRequest
+     *
      * @returns UpdateApiTemplateResponse
      *
      * @param UpdateApiTemplateRequest $request
@@ -5662,8 +5623,11 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Updates the application configurations.
+     *
      * @param request - UpdateApplicationConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateApplicationConfigsResponse
      *
      * @param UpdateApplicationConfigsRequest $request
@@ -5711,7 +5675,7 @@ class Emr extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->applicationConfigs) {
             @$bodyFlat['ApplicationConfigs'] = $request->applicationConfigs;
@@ -5721,28 +5685,28 @@ class Emr extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApplicationConfigs',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateApplicationConfigs',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateApplicationConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApplicationConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApplicationConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the application configurations.
+     *
      * @param request - UpdateApplicationConfigsRequest
+     *
      * @returns UpdateApplicationConfigsResponse
      *
      * @param UpdateApplicationConfigsRequest $request
@@ -5757,10 +5721,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Update cluster attributes.
+     * Updates cluster attributes.
      *
      * @param request - UpdateClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateClusterAttributeResponse
      *
      * @param UpdateClusterAttributeRequest $request
@@ -5796,27 +5761,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateClusterAttribute',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateClusterAttribute',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Update cluster attributes.
+     * Updates cluster attributes.
      *
      * @param request - UpdateClusterAttributeRequest
+     *
      * @returns UpdateClusterAttributeResponse
      *
      * @param UpdateClusterAttributeRequest $request
@@ -5835,6 +5798,7 @@ class Emr extends OpenApiClient
      *
      * @param tmpReq - UpdateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateScriptResponse
      *
      * @param UpdateScriptRequest $tmpReq
@@ -5876,27 +5840,25 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateScript',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateScript',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
      *
      * @param request - UpdateScriptRequest
+     *
      * @returns UpdateScriptResponse
      *
      * @param UpdateScriptRequest $request
@@ -5911,8 +5873,14 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Updates the information about a user.
+     *
+     * @remarks
+     * Updates the information about a user.
+     *
      * @param request - UpdateUserAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUserAttributeResponse
      *
      * @param UpdateUserAttributeRequest $request
@@ -5952,25 +5920,28 @@ class Emr extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserAttribute',
-            'version'     => '2021-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserAttribute',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the information about a user.
+     *
+     * @remarks
+     * Updates the information about a user.
+     *
      * @param request - UpdateUserAttributeRequest
+     *
      * @returns UpdateUserAttributeResponse
      *
      * @param UpdateUserAttributeRequest $request

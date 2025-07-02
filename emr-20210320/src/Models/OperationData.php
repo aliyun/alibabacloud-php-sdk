@@ -12,13 +12,14 @@ class OperationData extends Model
      * @var int
      */
     public $actualDeliveredAmounts;
+
     /**
      * @var int
      */
     public $toBeDeliveredAmounts;
     protected $_name = [
         'actualDeliveredAmounts' => 'actualDeliveredAmounts',
-        'toBeDeliveredAmounts'   => 'toBeDeliveredAmounts',
+        'toBeDeliveredAmounts' => 'toBeDeliveredAmounts',
     ];
 
     public function validate()

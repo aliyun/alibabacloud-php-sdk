@@ -13,12 +13,13 @@ class GetAutoScalingActivityResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var scalingActivity
      */
     public $scalingActivity;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'scalingActivity' => 'ScalingActivity',
     ];
 

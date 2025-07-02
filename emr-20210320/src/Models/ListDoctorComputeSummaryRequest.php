@@ -12,43 +12,50 @@ class ListDoctorComputeSummaryRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $componentTypes;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'componentTypes' => 'ComponentTypes',
-        'dateTime'       => 'DateTime',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'orderBy'        => 'OrderBy',
-        'orderType'      => 'OrderType',
-        'regionId'       => 'RegionId',
+        'dateTime' => 'DateTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -69,9 +76,10 @@ class ListDoctorComputeSummaryRequest extends Model
         if (null !== $this->componentTypes) {
             if (\is_array($this->componentTypes)) {
                 $res['ComponentTypes'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->componentTypes as $item1) {
-                    $res['ComponentTypes'][$n1++] = $item1;
+                    $res['ComponentTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,9 +126,10 @@ class ListDoctorComputeSummaryRequest extends Model
         if (isset($map['ComponentTypes'])) {
             if (!empty($map['ComponentTypes'])) {
                 $model->componentTypes = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ComponentTypes'] as $item1) {
-                    $model->componentTypes[$n1++] = $item1;
+                    $model->componentTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -12,23 +12,26 @@ class Pod extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $podName;
+
     /**
      * @var string
      */
     public $podStatus;
+
     /**
      * @var string
      */
     public $reason;
     protected $_name = [
-        'message'   => 'Message',
-        'podName'   => 'PodName',
+        'message' => 'Message',
+        'podName' => 'PodName',
         'podStatus' => 'PodStatus',
-        'reason'    => 'Reason',
+        'reason' => 'Reason',
     ];
 
     public function validate()

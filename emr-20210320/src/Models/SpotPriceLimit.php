@@ -12,13 +12,14 @@ class SpotPriceLimit extends Model
      * @var string
      */
     public $instanceType;
+
     /**
      * @var float
      */
     public $priceLimit;
     protected $_name = [
         'instanceType' => 'InstanceType',
-        'priceLimit'   => 'PriceLimit',
+        'priceLimit' => 'PriceLimit',
     ];
 
     public function validate()

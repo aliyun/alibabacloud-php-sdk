@@ -12,38 +12,44 @@ class Script extends Model
      * @var string
      */
     public $executionFailStrategy;
+
     /**
      * @var string
      */
     public $executionMoment;
+
     /**
      * @var NodeSelector
      */
     public $nodeSelector;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $scriptArgs;
+
     /**
      * @var string
      */
     public $scriptName;
+
     /**
      * @var string
      */
     public $scriptPath;
     protected $_name = [
         'executionFailStrategy' => 'ExecutionFailStrategy',
-        'executionMoment'       => 'ExecutionMoment',
-        'nodeSelector'          => 'NodeSelector',
-        'priority'              => 'Priority',
-        'scriptArgs'            => 'ScriptArgs',
-        'scriptName'            => 'ScriptName',
-        'scriptPath'            => 'ScriptPath',
+        'executionMoment' => 'ExecutionMoment',
+        'nodeSelector' => 'NodeSelector',
+        'priority' => 'Priority',
+        'scriptArgs' => 'ScriptArgs',
+        'scriptName' => 'ScriptName',
+        'scriptPath' => 'ScriptPath',
     ];
 
     public function validate()

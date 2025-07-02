@@ -12,23 +12,26 @@ class analysis extends Model
      * @var int
      */
     public $hiveDistributionScore;
+
     /**
      * @var int
      */
     public $hiveFormatScore;
+
     /**
      * @var int
      */
     public $hiveFrequencyScore;
+
     /**
      * @var int
      */
     public $hiveScore;
     protected $_name = [
         'hiveDistributionScore' => 'HiveDistributionScore',
-        'hiveFormatScore'       => 'HiveFormatScore',
-        'hiveFrequencyScore'    => 'HiveFrequencyScore',
-        'hiveScore'             => 'HiveScore',
+        'hiveFormatScore' => 'HiveFormatScore',
+        'hiveFrequencyScore' => 'HiveFrequencyScore',
+        'hiveScore' => 'HiveScore',
     ];
 
     public function validate()

@@ -12,6 +12,7 @@ class constraints extends Model
      * @var int
      */
     public $maxCapacity;
+
     /**
      * @var int
      */

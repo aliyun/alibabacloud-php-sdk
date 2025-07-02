@@ -12,23 +12,26 @@ class ClickhouseConf extends Model
      * @var int
      */
     public $initialReplica;
+
     /**
      * @var int
      */
     public $initialShard;
+
     /**
      * @var int
      */
     public $newNodeCount;
+
     /**
      * @var string
      */
     public $resizeType;
     protected $_name = [
         'initialReplica' => 'InitialReplica',
-        'initialShard'   => 'InitialShard',
-        'newNodeCount'   => 'NewNodeCount',
-        'resizeType'     => 'ResizeType',
+        'initialShard' => 'InitialShard',
+        'newNodeCount' => 'NewNodeCount',
+        'resizeType' => 'ResizeType',
     ];
 
     public function validate()

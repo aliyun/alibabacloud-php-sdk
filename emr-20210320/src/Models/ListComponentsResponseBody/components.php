@@ -13,28 +13,32 @@ class components extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var Attribute[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $componentName;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var int
      */
     public $replica;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'attributes'      => 'Attributes',
-        'componentName'   => 'ComponentName',
-        'namespace'       => 'Namespace',
-        'replica'         => 'Replica',
+        'attributes' => 'Attributes',
+        'componentName' => 'ComponentName',
+        'namespace' => 'Namespace',
+        'replica' => 'Replica',
     ];
 
     public function validate()
@@ -55,9 +59,10 @@ class components extends Model
         if (null !== $this->attributes) {
             if (\is_array($this->attributes)) {
                 $res['Attributes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->attributes as $item1) {
-                    $res['Attributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Attributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,9 +97,10 @@ class components extends Model
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Attributes'] as $item1) {
-                    $model->attributes[$n1++] = Attribute::fromMap($item1);
+                    $model->attributes[$n1] = Attribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

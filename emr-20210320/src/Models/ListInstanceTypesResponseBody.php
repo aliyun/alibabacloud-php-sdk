@@ -12,28 +12,32 @@ class ListInstanceTypesResponseBody extends Model
      * @var InstanceType[]
      */
     public $instanceTypes;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'instanceTypes' => 'InstanceTypes',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,9 +54,10 @@ class ListInstanceTypesResponseBody extends Model
         if (null !== $this->instanceTypes) {
             if (\is_array($this->instanceTypes)) {
                 $res['InstanceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
-                    $res['InstanceTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +92,10 @@ class ListInstanceTypesResponseBody extends Model
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['InstanceTypes'] as $item1) {
-                    $model->instanceTypes[$n1++] = InstanceType::fromMap($item1);
+                    $model->instanceTypes[$n1] = InstanceType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

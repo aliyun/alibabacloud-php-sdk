@@ -26,72 +26,85 @@ class metrics extends Model
      * @var avgLoad
      */
     public $avgLoad;
+
     /**
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
+
     /**
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
+
     /**
      * @var memHeap
      */
     public $memHeap;
+
     /**
      * @var normalAvgLoad
      */
     public $normalAvgLoad;
+
     /**
      * @var regionBalance
      */
     public $regionBalance;
+
     /**
      * @var regionCount
      */
     public $regionCount;
+
     /**
      * @var regionServerCount
      */
     public $regionServerCount;
+
     /**
      * @var storeFileCount
      */
     public $storeFileCount;
+
     /**
      * @var tableCount
      */
     public $tableCount;
+
     /**
      * @var totalDataSize
      */
     public $totalDataSize;
+
     /**
      * @var totalReadRequest
      */
     public $totalReadRequest;
+
     /**
      * @var totalRequest
      */
     public $totalRequest;
+
     /**
      * @var totalWriteRequest
      */
     public $totalWriteRequest;
     protected $_name = [
-        'avgLoad'           => 'AvgLoad',
-        'dailyReadRequest'  => 'DailyReadRequest',
+        'avgLoad' => 'AvgLoad',
+        'dailyReadRequest' => 'DailyReadRequest',
         'dailyWriteRequest' => 'DailyWriteRequest',
-        'memHeap'           => 'MemHeap',
-        'normalAvgLoad'     => 'NormalAvgLoad',
-        'regionBalance'     => 'RegionBalance',
-        'regionCount'       => 'RegionCount',
+        'memHeap' => 'MemHeap',
+        'normalAvgLoad' => 'NormalAvgLoad',
+        'regionBalance' => 'RegionBalance',
+        'regionCount' => 'RegionCount',
         'regionServerCount' => 'RegionServerCount',
-        'storeFileCount'    => 'StoreFileCount',
-        'tableCount'        => 'TableCount',
-        'totalDataSize'     => 'TotalDataSize',
-        'totalReadRequest'  => 'TotalReadRequest',
-        'totalRequest'      => 'TotalRequest',
+        'storeFileCount' => 'StoreFileCount',
+        'tableCount' => 'TableCount',
+        'totalDataSize' => 'TotalDataSize',
+        'totalReadRequest' => 'TotalReadRequest',
+        'totalRequest' => 'TotalRequest',
         'totalWriteRequest' => 'TotalWriteRequest',
     ];
 

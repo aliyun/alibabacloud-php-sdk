@@ -12,42 +12,49 @@ class ListDoctorHBaseRegionServersRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $regionServerHosts;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
-        'dateTime'          => 'DateTime',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'orderBy'           => 'OrderBy',
-        'orderType'         => 'OrderType',
-        'regionId'          => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'dateTime' => 'DateTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
         'regionServerHosts' => 'RegionServerHosts',
     ];
 
@@ -93,9 +100,10 @@ class ListDoctorHBaseRegionServersRequest extends Model
         if (null !== $this->regionServerHosts) {
             if (\is_array($this->regionServerHosts)) {
                 $res['RegionServerHosts'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->regionServerHosts as $item1) {
-                    $res['RegionServerHosts'][$n1++] = $item1;
+                    $res['RegionServerHosts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,9 +150,10 @@ class ListDoctorHBaseRegionServersRequest extends Model
         if (isset($map['RegionServerHosts'])) {
             if (!empty($map['RegionServerHosts'])) {
                 $model->regionServerHosts = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['RegionServerHosts'] as $item1) {
-                    $model->regionServerHosts[$n1++] = $item1;
+                    $model->regionServerHosts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

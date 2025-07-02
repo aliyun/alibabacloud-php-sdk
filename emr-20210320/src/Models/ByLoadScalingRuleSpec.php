@@ -12,33 +12,38 @@ class ByLoadScalingRuleSpec extends Model
      * @var string
      */
     public $comparisonOperator;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $statistics;
+
     /**
      * @var float
      */
     public $threshold;
+
     /**
      * @var int
      */
     public $timeWindow;
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
-        'evaluationCount'    => 'EvaluationCount',
-        'metricName'         => 'MetricName',
-        'statistics'         => 'Statistics',
-        'threshold'          => 'Threshold',
-        'timeWindow'         => 'TimeWindow',
+        'evaluationCount' => 'EvaluationCount',
+        'metricName' => 'MetricName',
+        'statistics' => 'Statistics',
+        'threshold' => 'Threshold',
+        'timeWindow' => 'TimeWindow',
     ];
 
     public function validate()

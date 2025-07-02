@@ -12,18 +12,20 @@ class ResizeDiskNodeGroupParam extends Model
      * @var int
      */
     public $dataDiskCapacity;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var bool
      */
     public $rollingRestart;
     protected $_name = [
         'dataDiskCapacity' => 'DataDiskCapacity',
-        'nodeGroupId'      => 'NodeGroupId',
-        'rollingRestart'   => 'RollingRestart',
+        'nodeGroupId' => 'NodeGroupId',
+        'rollingRestart' => 'RollingRestart',
     ];
 
     public function validate()

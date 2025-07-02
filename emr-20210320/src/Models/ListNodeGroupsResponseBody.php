@@ -12,27 +12,31 @@ class ListNodeGroupsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var NodeGroup[]
      */
     public $nodeGroups;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'nodeGroups' => 'NodeGroups',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -58,9 +62,10 @@ class ListNodeGroupsResponseBody extends Model
         if (null !== $this->nodeGroups) {
             if (\is_array($this->nodeGroups)) {
                 $res['NodeGroups'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroups as $item1) {
-                    $res['NodeGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,9 +100,10 @@ class ListNodeGroupsResponseBody extends Model
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {
                 $model->nodeGroups = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroups'] as $item1) {
-                    $model->nodeGroups[$n1++] = NodeGroup::fromMap($item1);
+                    $model->nodeGroups[$n1] = NodeGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

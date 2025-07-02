@@ -12,28 +12,32 @@ class TriggerCondition extends Model
      * @var string
      */
     public $comparisonOperator;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $statistics;
+
     /**
      * @var Tag[]
      */
     public $tags;
+
     /**
      * @var float
      */
     public $threshold;
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
-        'metricName'         => 'MetricName',
-        'statistics'         => 'Statistics',
-        'tags'               => 'Tags',
-        'threshold'          => 'Threshold',
+        'metricName' => 'MetricName',
+        'statistics' => 'Statistics',
+        'tags' => 'Tags',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()
@@ -62,9 +66,10 @@ class TriggerCondition extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,9 +104,10 @@ class TriggerCondition extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

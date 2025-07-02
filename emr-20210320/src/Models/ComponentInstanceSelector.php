@@ -14,28 +14,32 @@ class ComponentInstanceSelector extends Model
      * @var string
      */
     public $actionScope;
+
     /**
      * @var string
      */
     public $applicationName;
+
     /**
      * @var componentInstances[]
      */
     public $componentInstances;
+
     /**
      * @var components[]
      */
     public $components;
+
     /**
      * @var string
      */
     public $runActionScope;
     protected $_name = [
-        'actionScope'        => 'ActionScope',
-        'applicationName'    => 'ApplicationName',
+        'actionScope' => 'ActionScope',
+        'applicationName' => 'ApplicationName',
         'componentInstances' => 'ComponentInstances',
-        'components'         => 'Components',
-        'runActionScope'     => 'RunActionScope',
+        'components' => 'Components',
+        'runActionScope' => 'RunActionScope',
     ];
 
     public function validate()
@@ -63,9 +67,10 @@ class ComponentInstanceSelector extends Model
         if (null !== $this->componentInstances) {
             if (\is_array($this->componentInstances)) {
                 $res['ComponentInstances'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->componentInstances as $item1) {
-                    $res['ComponentInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComponentInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,9 +78,10 @@ class ComponentInstanceSelector extends Model
         if (null !== $this->components) {
             if (\is_array($this->components)) {
                 $res['Components'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->components as $item1) {
-                    $res['Components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,9 +112,10 @@ class ComponentInstanceSelector extends Model
         if (isset($map['ComponentInstances'])) {
             if (!empty($map['ComponentInstances'])) {
                 $model->componentInstances = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ComponentInstances'] as $item1) {
-                    $model->componentInstances[$n1++] = componentInstances::fromMap($item1);
+                    $model->componentInstances[$n1] = componentInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -116,9 +123,10 @@ class ComponentInstanceSelector extends Model
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Components'] as $item1) {
-                    $model->components[$n1++] = components::fromMap($item1);
+                    $model->components[$n1] = components::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,38 +12,44 @@ class ListComponentsRequest extends Model
      * @var string[]
      */
     public $applicationNames;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $componentNames;
+
     /**
      * @var string[]
      */
     public $componentStates;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'applicationNames' => 'ApplicationNames',
-        'clusterId'        => 'ClusterId',
-        'componentNames'   => 'ComponentNames',
-        'componentStates'  => 'ComponentStates',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'regionId'         => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'componentNames' => 'ComponentNames',
+        'componentStates' => 'ComponentStates',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -66,9 +72,10 @@ class ListComponentsRequest extends Model
         if (null !== $this->applicationNames) {
             if (\is_array($this->applicationNames)) {
                 $res['ApplicationNames'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->applicationNames as $item1) {
-                    $res['ApplicationNames'][$n1++] = $item1;
+                    $res['ApplicationNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,9 +87,10 @@ class ListComponentsRequest extends Model
         if (null !== $this->componentNames) {
             if (\is_array($this->componentNames)) {
                 $res['ComponentNames'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->componentNames as $item1) {
-                    $res['ComponentNames'][$n1++] = $item1;
+                    $res['ComponentNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,9 +98,10 @@ class ListComponentsRequest extends Model
         if (null !== $this->componentStates) {
             if (\is_array($this->componentStates)) {
                 $res['ComponentStates'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->componentStates as $item1) {
-                    $res['ComponentStates'][$n1++] = $item1;
+                    $res['ComponentStates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,9 +132,10 @@ class ListComponentsRequest extends Model
         if (isset($map['ApplicationNames'])) {
             if (!empty($map['ApplicationNames'])) {
                 $model->applicationNames = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationNames'] as $item1) {
-                    $model->applicationNames[$n1++] = $item1;
+                    $model->applicationNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,9 +147,10 @@ class ListComponentsRequest extends Model
         if (isset($map['ComponentNames'])) {
             if (!empty($map['ComponentNames'])) {
                 $model->componentNames = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ComponentNames'] as $item1) {
-                    $model->componentNames[$n1++] = $item1;
+                    $model->componentNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,9 +158,10 @@ class ListComponentsRequest extends Model
         if (isset($map['ComponentStates'])) {
             if (!empty($map['ComponentStates'])) {
                 $model->componentStates = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ComponentStates'] as $item1) {
-                    $model->componentStates[$n1++] = $item1;
+                    $model->componentStates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -12,13 +12,14 @@ class IncreaseNodesResponseBody extends Model
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'operationId' => 'OperationId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

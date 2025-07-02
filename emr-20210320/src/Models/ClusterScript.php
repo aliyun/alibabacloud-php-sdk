@@ -12,38 +12,44 @@ class ClusterScript extends Model
      * @var string
      */
     public $executionFailStrategy;
+
     /**
      * @var string
      */
     public $executionMoment;
+
     /**
      * @var NodeSelector
      */
     public $nodeSelect;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $scriptArgs;
+
     /**
      * @var string
      */
     public $scriptName;
+
     /**
      * @var string
      */
     public $scriptPath;
     protected $_name = [
         'executionFailStrategy' => 'ExecutionFailStrategy',
-        'executionMoment'       => 'ExecutionMoment',
-        'nodeSelect'            => 'NodeSelect',
-        'priority'              => 'Priority',
-        'scriptArgs'            => 'ScriptArgs',
-        'scriptName'            => 'ScriptName',
-        'scriptPath'            => 'ScriptPath',
+        'executionMoment' => 'ExecutionMoment',
+        'nodeSelect' => 'NodeSelect',
+        'priority' => 'Priority',
+        'scriptArgs' => 'ScriptArgs',
+        'scriptName' => 'ScriptName',
+        'scriptPath' => 'ScriptPath',
     ];
 
     public function validate()

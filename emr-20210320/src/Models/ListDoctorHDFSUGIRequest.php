@@ -12,43 +12,50 @@ class ListDoctorHDFSUGIRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'dateTime'   => 'DateTime',
+        'clusterId' => 'ClusterId',
+        'dateTime' => 'DateTime',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'orderBy'    => 'OrderBy',
-        'orderType'  => 'OrderType',
-        'regionId'   => 'RegionId',
-        'type'       => 'Type',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -2,33 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSUGIResponseBody\data\metrics;
+namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class totalDataSize extends Model
+class IntegerMetric extends Model
 {
     /**
      * @var string
      */
-    public $description;
-    /**
-     * @var string
-     */
-    public $name;
-    /**
-     * @var string
-     */
     public $unit;
+
     /**
      * @var int
      */
     public $value;
     protected $_name = [
-        'description' => 'Description',
-        'name'        => 'Name',
-        'unit'        => 'Unit',
-        'value'       => 'Value',
+        'unit' => 'Unit',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -39,14 +30,6 @@ class totalDataSize extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
@@ -66,14 +49,6 @@ class totalDataSize extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }

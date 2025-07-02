@@ -12,33 +12,38 @@ class MetricsTrigger extends Model
      * @var string
      */
     public $conditionLogicOperator;
+
     /**
      * @var TriggerCondition[]
      */
     public $conditions;
+
     /**
      * @var int
      */
     public $coolDownInterval;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var TimeConstraint[]
      */
     public $timeConstraints;
+
     /**
      * @var int
      */
     public $timeWindow;
     protected $_name = [
         'conditionLogicOperator' => 'ConditionLogicOperator',
-        'conditions'             => 'Conditions',
-        'coolDownInterval'       => 'CoolDownInterval',
-        'evaluationCount'        => 'EvaluationCount',
-        'timeConstraints'        => 'TimeConstraints',
-        'timeWindow'             => 'TimeWindow',
+        'conditions' => 'Conditions',
+        'coolDownInterval' => 'CoolDownInterval',
+        'evaluationCount' => 'EvaluationCount',
+        'timeConstraints' => 'TimeConstraints',
+        'timeWindow' => 'TimeWindow',
     ];
 
     public function validate()
@@ -62,9 +67,10 @@ class MetricsTrigger extends Model
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['Conditions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->conditions as $item1) {
-                    $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,9 +86,10 @@ class MetricsTrigger extends Model
         if (null !== $this->timeConstraints) {
             if (\is_array($this->timeConstraints)) {
                 $res['TimeConstraints'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->timeConstraints as $item1) {
-                    $res['TimeConstraints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimeConstraints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,9 +116,10 @@ class MetricsTrigger extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
-                    $model->conditions[$n1++] = TriggerCondition::fromMap($item1);
+                    $model->conditions[$n1] = TriggerCondition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -127,9 +135,10 @@ class MetricsTrigger extends Model
         if (isset($map['TimeConstraints'])) {
             if (!empty($map['TimeConstraints'])) {
                 $model->timeConstraints = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['TimeConstraints'] as $item1) {
-                    $model->timeConstraints[$n1++] = TimeConstraint::fromMap($item1);
+                    $model->timeConstraints[$n1] = TimeConstraint::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

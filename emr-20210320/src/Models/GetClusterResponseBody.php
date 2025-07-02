@@ -12,12 +12,13 @@ class GetClusterResponseBody extends Model
      * @var Cluster
      */
     public $cluster;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cluster'   => 'Cluster',
+        'cluster' => 'Cluster',
         'requestId' => 'RequestId',
     ];
 

@@ -13,28 +13,32 @@ class ListComponentInstancesResponseBody extends Model
      * @var componentInstances[]
      */
     public $componentInstances;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'componentInstances' => 'ComponentInstances',
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,9 +55,10 @@ class ListComponentInstancesResponseBody extends Model
         if (null !== $this->componentInstances) {
             if (\is_array($this->componentInstances)) {
                 $res['ComponentInstances'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->componentInstances as $item1) {
-                    $res['ComponentInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComponentInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class ListComponentInstancesResponseBody extends Model
         if (isset($map['ComponentInstances'])) {
             if (!empty($map['ComponentInstances'])) {
                 $model->componentInstances = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ComponentInstances'] as $item1) {
-                    $model->componentInstances[$n1++] = componentInstances::fromMap($item1);
+                    $model->componentInstances[$n1] = componentInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

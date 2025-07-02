@@ -6,38 +6,33 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetDoctorHDFSUGIRequest extends Model
+class PutManagedScalingPolicyRequest extends Model
 {
     /**
      * @var string
      */
     public $clusterId;
+
     /**
-     * @var string
+     * @var ManagedScalingConstraints
      */
-    public $dateTime;
-    /**
-     * @var string
-     */
-    public $name;
+    public $constraints;
+
     /**
      * @var string
      */
     public $regionId;
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'dateTime'  => 'DateTime',
-        'name'      => 'Name',
-        'regionId'  => 'RegionId',
-        'type'      => 'Type',
+        'constraints' => 'Constraints',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (null !== $this->constraints) {
+            $this->constraints->validate();
+        }
         parent::validate();
     }
 
@@ -48,20 +43,12 @@ class GetDoctorHDFSUGIRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->dateTime) {
-            $res['DateTime'] = $this->dateTime;
-        }
-
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->constraints) {
+            $res['Constraints'] = null !== $this->constraints ? $this->constraints->toArray($noStream) : $this->constraints;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -79,20 +66,12 @@ class GetDoctorHDFSUGIRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['DateTime'])) {
-            $model->dateTime = $map['DateTime'];
-        }
-
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Constraints'])) {
+            $model->constraints = ManagedScalingConstraints::fromMap($map['Constraints']);
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

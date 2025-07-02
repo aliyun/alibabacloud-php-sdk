@@ -12,12 +12,13 @@ class instanceTypeList extends Model
      * @var string
      */
     public $instanceType;
+
     /**
      * @var float
      */
     public $spotPriceLimit;
     protected $_name = [
-        'instanceType'   => 'InstanceType',
+        'instanceType' => 'InstanceType',
         'spotPriceLimit' => 'SpotPriceLimit',
     ];
 

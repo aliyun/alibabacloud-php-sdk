@@ -12,10 +12,12 @@ class volumes extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var string
      */

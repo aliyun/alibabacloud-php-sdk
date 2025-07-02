@@ -12,43 +12,56 @@ class ListNodeGroupsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string[]
      */
     public $nodeGroupIds;
+
     /**
      * @var string[]
      */
     public $nodeGroupNames;
+
     /**
      * @var string[]
      */
     public $nodeGroupStates;
+
     /**
      * @var string[]
      */
     public $nodeGroupTypes;
+
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'nodeGroupIds'    => 'NodeGroupIds',
-        'nodeGroupNames'  => 'NodeGroupNames',
+        'clusterId' => 'ClusterId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'nodeGroupIds' => 'NodeGroupIds',
+        'nodeGroupNames' => 'NodeGroupNames',
         'nodeGroupStates' => 'NodeGroupStates',
-        'nodeGroupTypes'  => 'NodeGroupTypes',
-        'regionId'        => 'RegionId',
+        'nodeGroupTypes' => 'NodeGroupTypes',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -86,9 +99,10 @@ class ListNodeGroupsRequest extends Model
         if (null !== $this->nodeGroupIds) {
             if (\is_array($this->nodeGroupIds)) {
                 $res['NodeGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroupIds as $item1) {
-                    $res['NodeGroupIds'][$n1++] = $item1;
+                    $res['NodeGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,9 +110,10 @@ class ListNodeGroupsRequest extends Model
         if (null !== $this->nodeGroupNames) {
             if (\is_array($this->nodeGroupNames)) {
                 $res['NodeGroupNames'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroupNames as $item1) {
-                    $res['NodeGroupNames'][$n1++] = $item1;
+                    $res['NodeGroupNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,9 +121,10 @@ class ListNodeGroupsRequest extends Model
         if (null !== $this->nodeGroupStates) {
             if (\is_array($this->nodeGroupStates)) {
                 $res['NodeGroupStates'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroupStates as $item1) {
-                    $res['NodeGroupStates'][$n1++] = $item1;
+                    $res['NodeGroupStates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,15 +132,20 @@ class ListNodeGroupsRequest extends Model
         if (null !== $this->nodeGroupTypes) {
             if (\is_array($this->nodeGroupTypes)) {
                 $res['NodeGroupTypes'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->nodeGroupTypes as $item1) {
-                    $res['NodeGroupTypes'][$n1++] = $item1;
+                    $res['NodeGroupTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -153,9 +174,10 @@ class ListNodeGroupsRequest extends Model
         if (isset($map['NodeGroupIds'])) {
             if (!empty($map['NodeGroupIds'])) {
                 $model->nodeGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroupIds'] as $item1) {
-                    $model->nodeGroupIds[$n1++] = $item1;
+                    $model->nodeGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,9 +185,10 @@ class ListNodeGroupsRequest extends Model
         if (isset($map['NodeGroupNames'])) {
             if (!empty($map['NodeGroupNames'])) {
                 $model->nodeGroupNames = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroupNames'] as $item1) {
-                    $model->nodeGroupNames[$n1++] = $item1;
+                    $model->nodeGroupNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,9 +196,10 @@ class ListNodeGroupsRequest extends Model
         if (isset($map['NodeGroupStates'])) {
             if (!empty($map['NodeGroupStates'])) {
                 $model->nodeGroupStates = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroupStates'] as $item1) {
-                    $model->nodeGroupStates[$n1++] = $item1;
+                    $model->nodeGroupStates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,15 +207,20 @@ class ListNodeGroupsRequest extends Model
         if (isset($map['NodeGroupTypes'])) {
             if (!empty($map['NodeGroupTypes'])) {
                 $model->nodeGroupTypes = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['NodeGroupTypes'] as $item1) {
-                    $model->nodeGroupTypes[$n1++] = $item1;
+                    $model->nodeGroupTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

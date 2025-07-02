@@ -12,33 +12,38 @@ class UpdateUserAttributeRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'description' => 'Description',
-        'password'    => 'Password',
-        'regionId'    => 'RegionId',
-        'userId'      => 'UserId',
-        'userName'    => 'UserName',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
     ];
 
     public function validate()

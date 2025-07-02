@@ -12,22 +12,25 @@ class ScalingAnalyzeResult extends Model
      * @var float
      */
     public $actualUsage;
+
     /**
      * @var float
      */
     public $idealUsage;
+
     /**
      * @var int
      */
     public $releaseCores;
+
     /**
      * @var int
      */
     public $reservedCores;
     protected $_name = [
-        'actualUsage'   => 'ActualUsage',
-        'idealUsage'    => 'IdealUsage',
-        'releaseCores'  => 'ReleaseCores',
+        'actualUsage' => 'ActualUsage',
+        'idealUsage' => 'IdealUsage',
+        'releaseCores' => 'ReleaseCores',
         'reservedCores' => 'ReservedCores',
     ];
 

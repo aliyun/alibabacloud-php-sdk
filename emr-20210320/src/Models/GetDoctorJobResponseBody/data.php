@@ -13,63 +13,74 @@ class data extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var int
      */
     public $elapsedTime;
+
     /**
      * @var string
      */
     public $finalStatus;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $launchTime;
+
     /**
      * @var metrics
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $queue;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'appId'       => 'AppId',
-        'appName'     => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'elapsedTime' => 'ElapsedTime',
         'finalStatus' => 'FinalStatus',
-        'finishTime'  => 'FinishTime',
-        'launchTime'  => 'LaunchTime',
-        'metrics'     => 'Metrics',
-        'queue'       => 'Queue',
-        'startTime'   => 'StartTime',
-        'state'       => 'State',
-        'type'        => 'Type',
-        'user'        => 'User',
+        'finishTime' => 'FinishTime',
+        'launchTime' => 'LaunchTime',
+        'metrics' => 'Metrics',
+        'queue' => 'Queue',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'type' => 'Type',
+        'user' => 'User',
     ];
 
     public function validate()

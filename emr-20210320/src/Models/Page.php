@@ -12,22 +12,25 @@ class Page extends Model
      * @var string[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'items'      => 'Items',
+        'items' => 'Items',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'totalCount' => 'TotalCount',
     ];
 
@@ -45,9 +48,10 @@ class Page extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = $item1;
+                    $res['Items'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +82,10 @@ class Page extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = $item1;
+                    $model->items[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

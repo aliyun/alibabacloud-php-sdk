@@ -12,18 +12,20 @@ class GetAutoScalingPolicyRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'nodeGroupId' => 'NodeGroupId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

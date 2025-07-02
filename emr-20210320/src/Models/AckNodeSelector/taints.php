@@ -12,18 +12,20 @@ class taints extends Model
      * @var string
      */
     public $effect;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'effect' => 'Effect',
-        'key'    => 'Key',
-        'value'  => 'Value',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class ListAutoScalingActivitiesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $scalingActivityStates;
+
     /**
      * @var string
      */
     public $scalingActivityType;
+
     /**
      * @var string
      */
     public $scalingPolicyType;
+
     /**
      * @var string
      */
     public $scalingRuleName;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
-        'endTime'               => 'EndTime',
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
-        'nodeGroupId'           => 'NodeGroupId',
-        'regionId'              => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'nodeGroupId' => 'NodeGroupId',
+        'regionId' => 'RegionId',
         'scalingActivityStates' => 'ScalingActivityStates',
-        'scalingActivityType'   => 'ScalingActivityType',
-        'scalingPolicyType'     => 'ScalingPolicyType',
-        'scalingRuleName'       => 'ScalingRuleName',
-        'startTime'             => 'StartTime',
+        'scalingActivityType' => 'ScalingActivityType',
+        'scalingPolicyType' => 'ScalingPolicyType',
+        'scalingRuleName' => 'ScalingRuleName',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -104,9 +114,10 @@ class ListAutoScalingActivitiesRequest extends Model
         if (null !== $this->scalingActivityStates) {
             if (\is_array($this->scalingActivityStates)) {
                 $res['ScalingActivityStates'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->scalingActivityStates as $item1) {
-                    $res['ScalingActivityStates'][$n1++] = $item1;
+                    $res['ScalingActivityStates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,9 +176,10 @@ class ListAutoScalingActivitiesRequest extends Model
         if (isset($map['ScalingActivityStates'])) {
             if (!empty($map['ScalingActivityStates'])) {
                 $model->scalingActivityStates = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ScalingActivityStates'] as $item1) {
-                    $model->scalingActivityStates[$n1++] = $item1;
+                    $model->scalingActivityStates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

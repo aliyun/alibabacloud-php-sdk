@@ -13,18 +13,20 @@ class ComponentLayout extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $componentName;
+
     /**
      * @var nodeSelector
      */
     public $nodeSelector;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'componentName'   => 'ComponentName',
-        'nodeSelector'    => 'NodeSelector',
+        'componentName' => 'ComponentName',
+        'nodeSelector' => 'NodeSelector',
     ];
 
     public function validate()

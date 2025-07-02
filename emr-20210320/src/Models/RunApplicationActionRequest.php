@@ -12,48 +12,56 @@ class RunApplicationActionRequest extends Model
      * @var string
      */
     public $actionName;
+
     /**
      * @var int
      */
     public $batchSize;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var ComponentInstanceSelector
      */
     public $componentInstanceSelector;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executeStrategy;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $rollingExecute;
     protected $_name = [
-        'actionName'                => 'ActionName',
-        'batchSize'                 => 'BatchSize',
-        'clusterId'                 => 'ClusterId',
+        'actionName' => 'ActionName',
+        'batchSize' => 'BatchSize',
+        'clusterId' => 'ClusterId',
         'componentInstanceSelector' => 'ComponentInstanceSelector',
-        'description'               => 'Description',
-        'executeStrategy'           => 'ExecuteStrategy',
-        'interval'                  => 'Interval',
-        'regionId'                  => 'RegionId',
-        'rollingExecute'            => 'RollingExecute',
+        'description' => 'Description',
+        'executeStrategy' => 'ExecuteStrategy',
+        'interval' => 'Interval',
+        'regionId' => 'RegionId',
+        'rollingExecute' => 'RollingExecute',
     ];
 
     public function validate()

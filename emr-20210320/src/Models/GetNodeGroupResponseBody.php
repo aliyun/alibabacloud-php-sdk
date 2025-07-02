@@ -12,6 +12,7 @@ class GetNodeGroupResponseBody extends Model
      * @var NodeGroup
      */
     public $nodeGroup;
+
     /**
      * @var string
      */

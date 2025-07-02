@@ -13,18 +13,20 @@ class RunApplicationActionResponseBody extends Model
      * @var abnInstances[]
      */
     public $abnInstances;
+
     /**
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'abnInstances' => 'AbnInstances',
-        'operationId'  => 'OperationId',
-        'requestId'    => 'RequestId',
+        'operationId' => 'OperationId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,9 +43,10 @@ class RunApplicationActionResponseBody extends Model
         if (null !== $this->abnInstances) {
             if (\is_array($this->abnInstances)) {
                 $res['AbnInstances'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->abnInstances as $item1) {
-                    $res['AbnInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AbnInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,9 +73,10 @@ class RunApplicationActionResponseBody extends Model
         if (isset($map['AbnInstances'])) {
             if (!empty($map['AbnInstances'])) {
                 $model->abnInstances = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AbnInstances'] as $item1) {
-                    $model->abnInstances[$n1++] = abnInstances::fromMap($item1);
+                    $model->abnInstances[$n1] = abnInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

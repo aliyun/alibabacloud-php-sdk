@@ -12,48 +12,62 @@ class ListComponentInstancesRequest extends Model
      * @var string[]
      */
     public $applicationNames;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $componentNames;
+
     /**
      * @var string[]
      */
     public $componentStates;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string[]
      */
     public $nodeIds;
+
     /**
      * @var string[]
      */
     public $nodeNames;
+
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'applicationNames' => 'ApplicationNames',
-        'clusterId'        => 'ClusterId',
-        'componentNames'   => 'ComponentNames',
-        'componentStates'  => 'ComponentStates',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'nodeIds'          => 'NodeIds',
-        'nodeNames'        => 'NodeNames',
-        'regionId'         => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'componentNames' => 'ComponentNames',
+        'componentStates' => 'ComponentStates',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'nodeIds' => 'NodeIds',
+        'nodeNames' => 'NodeNames',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -82,9 +96,10 @@ class ListComponentInstancesRequest extends Model
         if (null !== $this->applicationNames) {
             if (\is_array($this->applicationNames)) {
                 $res['ApplicationNames'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->applicationNames as $item1) {
-                    $res['ApplicationNames'][$n1++] = $item1;
+                    $res['ApplicationNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,9 +111,10 @@ class ListComponentInstancesRequest extends Model
         if (null !== $this->componentNames) {
             if (\is_array($this->componentNames)) {
                 $res['ComponentNames'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->componentNames as $item1) {
-                    $res['ComponentNames'][$n1++] = $item1;
+                    $res['ComponentNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,9 +122,10 @@ class ListComponentInstancesRequest extends Model
         if (null !== $this->componentStates) {
             if (\is_array($this->componentStates)) {
                 $res['ComponentStates'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->componentStates as $item1) {
-                    $res['ComponentStates'][$n1++] = $item1;
+                    $res['ComponentStates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,9 +141,10 @@ class ListComponentInstancesRequest extends Model
         if (null !== $this->nodeIds) {
             if (\is_array($this->nodeIds)) {
                 $res['NodeIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,15 +152,20 @@ class ListComponentInstancesRequest extends Model
         if (null !== $this->nodeNames) {
             if (\is_array($this->nodeNames)) {
                 $res['NodeNames'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->nodeNames as $item1) {
-                    $res['NodeNames'][$n1++] = $item1;
+                    $res['NodeNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -159,9 +182,10 @@ class ListComponentInstancesRequest extends Model
         if (isset($map['ApplicationNames'])) {
             if (!empty($map['ApplicationNames'])) {
                 $model->applicationNames = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationNames'] as $item1) {
-                    $model->applicationNames[$n1++] = $item1;
+                    $model->applicationNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,9 +197,10 @@ class ListComponentInstancesRequest extends Model
         if (isset($map['ComponentNames'])) {
             if (!empty($map['ComponentNames'])) {
                 $model->componentNames = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ComponentNames'] as $item1) {
-                    $model->componentNames[$n1++] = $item1;
+                    $model->componentNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,9 +208,10 @@ class ListComponentInstancesRequest extends Model
         if (isset($map['ComponentStates'])) {
             if (!empty($map['ComponentStates'])) {
                 $model->componentStates = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ComponentStates'] as $item1) {
-                    $model->componentStates[$n1++] = $item1;
+                    $model->componentStates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,9 +227,10 @@ class ListComponentInstancesRequest extends Model
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,15 +238,20 @@ class ListComponentInstancesRequest extends Model
         if (isset($map['NodeNames'])) {
             if (!empty($map['NodeNames'])) {
                 $model->nodeNames = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['NodeNames'] as $item1) {
-                    $model->nodeNames[$n1++] = $item1;
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

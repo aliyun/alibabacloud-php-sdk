@@ -12,33 +12,38 @@ class users extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $keytabHex;
+
     /**
      * @var string
      */
     public $ldapUrl;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'keytabHex'   => 'KeytabHex',
-        'ldapUrl'     => 'LdapUrl',
-        'userId'      => 'UserId',
-        'userName'    => 'UserName',
+        'keytabHex' => 'KeytabHex',
+        'ldapUrl' => 'LdapUrl',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
     ];
 
     public function validate()

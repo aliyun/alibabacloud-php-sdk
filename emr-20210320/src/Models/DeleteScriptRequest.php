@@ -12,22 +12,25 @@ class DeleteScriptRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $scriptId;
+
     /**
      * @var string
      */
     public $scriptType;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'regionId'   => 'RegionId',
-        'scriptId'   => 'ScriptId',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
+        'scriptId' => 'ScriptId',
         'scriptType' => 'ScriptType',
     ];
 

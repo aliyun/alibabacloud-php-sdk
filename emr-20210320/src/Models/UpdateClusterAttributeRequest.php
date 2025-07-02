@@ -12,28 +12,32 @@ class UpdateClusterAttributeRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
         'deletionProtection' => 'DeletionProtection',
-        'description'        => 'Description',
-        'regionId'           => 'RegionId',
+        'description' => 'Description',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

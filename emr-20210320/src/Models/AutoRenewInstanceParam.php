@@ -12,23 +12,26 @@ class AutoRenewInstanceParam extends Model
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $autoRenewDuration;
+
     /**
      * @var string
      */
     public $autoRenewDurationUnit;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'autoRenew'             => 'AutoRenew',
-        'autoRenewDuration'     => 'AutoRenewDuration',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewDuration' => 'AutoRenewDuration',
         'autoRenewDurationUnit' => 'AutoRenewDurationUnit',
-        'instanceId'            => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

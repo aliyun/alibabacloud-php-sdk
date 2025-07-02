@@ -12,43 +12,50 @@ class InstanceType extends Model
      * @var string
      */
     public $cpuArchitecture;
+
     /**
      * @var int
      */
     public $cpuCore;
+
     /**
      * @var string
      */
     public $instanceCategory;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $instanceTypeFamily;
+
     /**
      * @var int
      */
     public $localStorageAmount;
+
     /**
      * @var int
      */
     public $localStorageCapacity;
+
     /**
      * @var bool
      */
     public $optimized;
     protected $_name = [
-        'cpuArchitecture'      => 'CpuArchitecture',
-        'cpuCore'              => 'CpuCore',
-        'instanceCategory'     => 'InstanceCategory',
-        'instanceType'         => 'InstanceType',
-        'instanceTypeFamily'   => 'InstanceTypeFamily',
-        'localStorageAmount'   => 'LocalStorageAmount',
+        'cpuArchitecture' => 'CpuArchitecture',
+        'cpuCore' => 'CpuCore',
+        'instanceCategory' => 'InstanceCategory',
+        'instanceType' => 'InstanceType',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'localStorageAmount' => 'LocalStorageAmount',
         'localStorageCapacity' => 'LocalStorageCapacity',
-        'optimized'            => 'Optimized',
+        'optimized' => 'Optimized',
     ];
 
     public function validate()

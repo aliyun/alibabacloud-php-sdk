@@ -12,17 +12,19 @@ class DeleteUsersRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $userNames;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
         'userNames' => 'UserNames',
     ];
 
@@ -48,9 +50,10 @@ class DeleteUsersRequest extends Model
         if (null !== $this->userNames) {
             if (\is_array($this->userNames)) {
                 $res['UserNames'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->userNames as $item1) {
-                    $res['UserNames'][$n1++] = $item1;
+                    $res['UserNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,9 +80,10 @@ class DeleteUsersRequest extends Model
         if (isset($map['UserNames'])) {
             if (!empty($map['UserNames'])) {
                 $model->userNames = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['UserNames'] as $item1) {
-                    $model->userNames[$n1++] = $item1;
+                    $model->userNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -12,23 +12,26 @@ class GetDoctorReportComponentSummaryRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $componentType;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'componentType' => 'ComponentType',
-        'dateTime'      => 'DateTime',
-        'regionId'      => 'RegionId',
+        'dateTime' => 'DateTime',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

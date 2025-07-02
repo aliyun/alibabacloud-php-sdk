@@ -12,22 +12,25 @@ class formats extends Model
      * @var string
      */
     public $formatName;
+
     /**
      * @var float
      */
     public $formatRatio;
+
     /**
      * @var int
      */
     public $formatSize;
+
     /**
      * @var string
      */
     public $formatSizeUnit;
     protected $_name = [
-        'formatName'     => 'FormatName',
-        'formatRatio'    => 'FormatRatio',
-        'formatSize'     => 'FormatSize',
+        'formatName' => 'FormatName',
+        'formatRatio' => 'FormatRatio',
+        'formatSize' => 'FormatSize',
         'formatSizeUnit' => 'FormatSizeUnit',
     ];
 

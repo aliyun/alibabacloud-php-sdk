@@ -14,12 +14,13 @@ class metrics extends Model
      * @var memSeconds
      */
     public $memSeconds;
+
     /**
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
     protected $_name = [
-        'memSeconds'   => 'MemSeconds',
+        'memSeconds' => 'MemSeconds',
         'vcoreSeconds' => 'VcoreSeconds',
     ];
 

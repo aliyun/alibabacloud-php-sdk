@@ -12,18 +12,20 @@ class constraints extends Model
      * @var int
      */
     public $maxCapacity;
+
     /**
      * @var int
      */
     public $maxOnDemandCapacity;
+
     /**
      * @var int
      */
     public $minCapacity;
     protected $_name = [
-        'maxCapacity'         => 'MaxCapacity',
+        'maxCapacity' => 'MaxCapacity',
         'maxOnDemandCapacity' => 'MaxOnDemandCapacity',
-        'minCapacity'         => 'MinCapacity',
+        'minCapacity' => 'MinCapacity',
     ];
 
     public function validate()

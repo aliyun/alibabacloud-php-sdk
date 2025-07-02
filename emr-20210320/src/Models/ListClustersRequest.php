@@ -12,53 +12,62 @@ class ListClustersRequest extends Model
      * @var string[]
      */
     public $clusterIds;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string[]
      */
     public $clusterStates;
+
     /**
      * @var string[]
      */
     public $clusterTypes;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string[]
      */
     public $paymentTypes;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var Tag[]
      */
     public $tags;
     protected $_name = [
-        'clusterIds'      => 'ClusterIds',
-        'clusterName'     => 'ClusterName',
-        'clusterStates'   => 'ClusterStates',
-        'clusterTypes'    => 'ClusterTypes',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'paymentTypes'    => 'PaymentTypes',
-        'regionId'        => 'RegionId',
+        'clusterIds' => 'ClusterIds',
+        'clusterName' => 'ClusterName',
+        'clusterStates' => 'ClusterStates',
+        'clusterTypes' => 'ClusterTypes',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'paymentTypes' => 'PaymentTypes',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tags'            => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -87,9 +96,10 @@ class ListClustersRequest extends Model
         if (null !== $this->clusterIds) {
             if (\is_array($this->clusterIds)) {
                 $res['ClusterIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->clusterIds as $item1) {
-                    $res['ClusterIds'][$n1++] = $item1;
+                    $res['ClusterIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +111,10 @@ class ListClustersRequest extends Model
         if (null !== $this->clusterStates) {
             if (\is_array($this->clusterStates)) {
                 $res['ClusterStates'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->clusterStates as $item1) {
-                    $res['ClusterStates'][$n1++] = $item1;
+                    $res['ClusterStates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,9 +122,10 @@ class ListClustersRequest extends Model
         if (null !== $this->clusterTypes) {
             if (\is_array($this->clusterTypes)) {
                 $res['ClusterTypes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->clusterTypes as $item1) {
-                    $res['ClusterTypes'][$n1++] = $item1;
+                    $res['ClusterTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,9 +141,10 @@ class ListClustersRequest extends Model
         if (null !== $this->paymentTypes) {
             if (\is_array($this->paymentTypes)) {
                 $res['PaymentTypes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->paymentTypes as $item1) {
-                    $res['PaymentTypes'][$n1++] = $item1;
+                    $res['PaymentTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,9 +160,10 @@ class ListClustersRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,9 +182,10 @@ class ListClustersRequest extends Model
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
                 $model->clusterIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ClusterIds'] as $item1) {
-                    $model->clusterIds[$n1++] = $item1;
+                    $model->clusterIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,9 +197,10 @@ class ListClustersRequest extends Model
         if (isset($map['ClusterStates'])) {
             if (!empty($map['ClusterStates'])) {
                 $model->clusterStates = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ClusterStates'] as $item1) {
-                    $model->clusterStates[$n1++] = $item1;
+                    $model->clusterStates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,9 +208,10 @@ class ListClustersRequest extends Model
         if (isset($map['ClusterTypes'])) {
             if (!empty($map['ClusterTypes'])) {
                 $model->clusterTypes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ClusterTypes'] as $item1) {
-                    $model->clusterTypes[$n1++] = $item1;
+                    $model->clusterTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,9 +227,10 @@ class ListClustersRequest extends Model
         if (isset($map['PaymentTypes'])) {
             if (!empty($map['PaymentTypes'])) {
                 $model->paymentTypes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['PaymentTypes'] as $item1) {
-                    $model->paymentTypes[$n1++] = $item1;
+                    $model->paymentTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,9 +246,10 @@ class ListClustersRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

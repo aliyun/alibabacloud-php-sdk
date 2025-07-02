@@ -12,28 +12,32 @@ class IncreaseNodeGroupParam extends Model
      * @var int
      */
     public $nodeCount;
+
     /**
      * @var string
      */
     public $nodeGroupId;
+
     /**
      * @var int
      */
     public $paymentDuration;
+
     /**
      * @var string
      */
     public $paymentDurationUnit;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'nodeCount'           => 'NodeCount',
-        'nodeGroupId'         => 'NodeGroupId',
-        'paymentDuration'     => 'PaymentDuration',
+        'nodeCount' => 'NodeCount',
+        'nodeGroupId' => 'NodeGroupId',
+        'paymentDuration' => 'PaymentDuration',
         'paymentDurationUnit' => 'PaymentDurationUnit',
-        'vSwitchId'           => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

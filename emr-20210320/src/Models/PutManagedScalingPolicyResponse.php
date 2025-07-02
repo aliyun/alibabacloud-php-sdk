@@ -6,24 +6,26 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetDoctorHDFSUGIResponse extends Model
+class PutManagedScalingPolicyResponse extends Model
 {
     /**
      * @var string[]
      */
     public $headers;
+
     /**
      * @var int
      */
     public $statusCode;
+
     /**
-     * @var GetDoctorHDFSUGIResponseBody
+     * @var PutManagedScalingPolicyResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -82,7 +84,7 @@ class GetDoctorHDFSUGIResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetDoctorHDFSUGIResponseBody::fromMap($map['body']);
+            $model->body = PutManagedScalingPolicyResponseBody::fromMap($map['body']);
         }
 
         return $model;

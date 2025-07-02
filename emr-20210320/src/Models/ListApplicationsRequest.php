@@ -12,28 +12,32 @@ class ListApplicationsRequest extends Model
      * @var string[]
      */
     public $applicationNames;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'applicationNames' => 'ApplicationNames',
-        'clusterId'        => 'ClusterId',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'regionId'         => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -50,9 +54,10 @@ class ListApplicationsRequest extends Model
         if (null !== $this->applicationNames) {
             if (\is_array($this->applicationNames)) {
                 $res['ApplicationNames'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->applicationNames as $item1) {
-                    $res['ApplicationNames'][$n1++] = $item1;
+                    $res['ApplicationNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +92,10 @@ class ListApplicationsRequest extends Model
         if (isset($map['ApplicationNames'])) {
             if (!empty($map['ApplicationNames'])) {
                 $model->applicationNames = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationNames'] as $item1) {
-                    $model->applicationNames[$n1++] = $item1;
+                    $model->applicationNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -15,17 +15,19 @@ class metrics extends Model
      * @var totalDataSize
      */
     public $totalDataSize;
+
     /**
      * @var totalDirCount
      */
     public $totalDirCount;
+
     /**
      * @var totalFileCount
      */
     public $totalFileCount;
     protected $_name = [
-        'totalDataSize'  => 'TotalDataSize',
-        'totalDirCount'  => 'TotalDirCount',
+        'totalDataSize' => 'TotalDataSize',
+        'totalDirCount' => 'TotalDirCount',
         'totalFileCount' => 'TotalFileCount',
     ];
 

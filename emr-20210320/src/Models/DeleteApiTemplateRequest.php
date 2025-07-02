@@ -12,23 +12,26 @@ class DeleteApiTemplateRequest extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'apiName'         => 'ApiName',
-        'regionId'        => 'RegionId',
+        'apiName' => 'ApiName',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

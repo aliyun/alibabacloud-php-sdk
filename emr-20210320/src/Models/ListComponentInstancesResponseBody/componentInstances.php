@@ -12,48 +12,62 @@ class componentInstances extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $bizState;
+
     /**
      * @var string
      */
     public $commissionState;
+
     /**
      * @var string
      */
     public $componentInstanceState;
+
     /**
      * @var string
      */
     public $componentName;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $desiredState;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'applicationName'        => 'ApplicationName',
-        'bizState'               => 'BizState',
-        'commissionState'        => 'CommissionState',
+        'applicationName' => 'ApplicationName',
+        'bizState' => 'BizState',
+        'commissionState' => 'CommissionState',
         'componentInstanceState' => 'ComponentInstanceState',
-        'componentName'          => 'ComponentName',
-        'createTime'             => 'CreateTime',
-        'desiredState'           => 'DesiredState',
-        'nodeId'                 => 'NodeId',
-        'nodeName'               => 'NodeName',
+        'componentName' => 'ComponentName',
+        'createTime' => 'CreateTime',
+        'desiredState' => 'DesiredState',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -98,6 +112,10 @@ class componentInstances extends Model
 
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -145,6 +163,10 @@ class componentInstances extends Model
 
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

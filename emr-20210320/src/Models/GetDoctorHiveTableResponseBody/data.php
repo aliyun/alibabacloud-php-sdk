@@ -15,23 +15,26 @@ class data extends Model
      * @var analysis
      */
     public $analysis;
+
     /**
      * @var formats[]
      */
     public $formats;
+
     /**
      * @var metrics
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $owner;
     protected $_name = [
         'analysis' => 'Analysis',
-        'formats'  => 'Formats',
-        'metrics'  => 'Metrics',
-        'owner'    => 'Owner',
+        'formats' => 'Formats',
+        'metrics' => 'Metrics',
+        'owner' => 'Owner',
     ];
 
     public function validate()
@@ -58,9 +61,10 @@ class data extends Model
         if (null !== $this->formats) {
             if (\is_array($this->formats)) {
                 $res['Formats'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->formats as $item1) {
-                    $res['Formats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Formats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,9 +95,10 @@ class data extends Model
         if (isset($map['Formats'])) {
             if (!empty($map['Formats'])) {
                 $model->formats = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Formats'] as $item1) {
-                    $model->formats[$n1++] = formats::fromMap($item1);
+                    $model->formats[$n1] = formats::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
