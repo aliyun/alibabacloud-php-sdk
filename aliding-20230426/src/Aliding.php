@@ -684,6 +684,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertDropDownListHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertDropDownListRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertDropDownListResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertDropDownListShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertDropDownListShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordResponse;
@@ -15241,10 +15246,6 @@ class Aliding extends OpenApiClient
             @$body['Index'] = $request->index;
         }
 
-        if (null !== $request->operatorId) {
-            @$body['OperatorId'] = $request->operatorId;
-        }
-
         if (null !== $request->pathShrink) {
             @$body['Path'] = $request->pathShrink;
         }
@@ -15298,6 +15299,108 @@ class Aliding extends OpenApiClient
         $headers = new InsertContentWithOptionsHeaders([]);
 
         return $this->insertContentWithOptionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 插入下拉列表.
+     *
+     * @param tmpReq - InsertDropDownListRequest
+     * @param tmpHeader - InsertDropDownListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsertDropDownListResponse
+     *
+     * @param InsertDropDownListRequest $tmpReq
+     * @param InsertDropDownListHeaders $tmpHeader
+     * @param RuntimeOptions            $runtime
+     *
+     * @return InsertDropDownListResponse
+     */
+    public function insertDropDownListWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InsertDropDownListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new InsertDropDownListShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->options) {
+            $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->optionsShrink) {
+            @$body['Options'] = $request->optionsShrink;
+        }
+
+        if (null !== $request->rangeAddress) {
+            @$body['RangeAddress'] = $request->rangeAddress;
+        }
+
+        if (null !== $request->sheetId) {
+            @$body['SheetId'] = $request->sheetId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->workbookId) {
+            @$body['WorkbookId'] = $request->workbookId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InsertDropDownList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/insertDropDownList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InsertDropDownListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 插入下拉列表.
+     *
+     * @param request - InsertDropDownListRequest
+     *
+     * @returns InsertDropDownListResponse
+     *
+     * @param InsertDropDownListRequest $request
+     *
+     * @return InsertDropDownListResponse
+     */
+    public function insertDropDownList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsertDropDownListHeaders([]);
+
+        return $this->insertDropDownListWithOptions($request, $headers, $runtime);
     }
 
     /**

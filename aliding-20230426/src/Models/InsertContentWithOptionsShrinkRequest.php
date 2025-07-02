@@ -26,11 +26,6 @@ class InsertContentWithOptionsShrinkRequest extends Model
     /**
      * @var string
      */
-    public $operatorId;
-
-    /**
-     * @var string
-     */
     public $pathShrink;
 
     /**
@@ -41,7 +36,6 @@ class InsertContentWithOptionsShrinkRequest extends Model
         'contentShrink' => 'Content',
         'documentId' => 'DocumentId',
         'index' => 'Index',
-        'operatorId' => 'OperatorId',
         'pathShrink' => 'Path',
         'tenantContextShrink' => 'TenantContext',
     ];
@@ -64,10 +58,6 @@ class InsertContentWithOptionsShrinkRequest extends Model
 
         if (null !== $this->index) {
             $res['Index'] = $this->index;
-        }
-
-        if (null !== $this->operatorId) {
-            $res['OperatorId'] = $this->operatorId;
         }
 
         if (null !== $this->pathShrink) {
@@ -99,10 +89,6 @@ class InsertContentWithOptionsShrinkRequest extends Model
 
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
-        }
-
-        if (isset($map['OperatorId'])) {
-            $model->operatorId = $map['OperatorId'];
         }
 
         if (isset($map['Path'])) {

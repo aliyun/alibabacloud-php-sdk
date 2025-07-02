@@ -25,11 +25,6 @@ class InsertContentWithOptionsRequest extends Model
     public $index;
 
     /**
-     * @var string
-     */
-    public $operatorId;
-
-    /**
      * @var int[]
      */
     public $path;
@@ -42,7 +37,6 @@ class InsertContentWithOptionsRequest extends Model
         'content' => 'Content',
         'documentId' => 'DocumentId',
         'index' => 'Index',
-        'operatorId' => 'OperatorId',
         'path' => 'Path',
         'tenantContext' => 'TenantContext',
     ];
@@ -79,10 +73,6 @@ class InsertContentWithOptionsRequest extends Model
 
         if (null !== $this->index) {
             $res['Index'] = $this->index;
-        }
-
-        if (null !== $this->operatorId) {
-            $res['OperatorId'] = $this->operatorId;
         }
 
         if (null !== $this->path) {
@@ -126,10 +116,6 @@ class InsertContentWithOptionsRequest extends Model
 
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
-        }
-
-        if (isset($map['OperatorId'])) {
-            $model->operatorId = $map['OperatorId'];
         }
 
         if (isset($map['Path'])) {

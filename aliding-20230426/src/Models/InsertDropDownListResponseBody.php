@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateReportResponseBody extends Model
+class InsertDropDownListResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $a1Notation;
+
     /**
      * @var string
      */
@@ -16,16 +21,17 @@ class CreateReportResponseBody extends Model
     /**
      * @var string
      */
-    public $result;
+    public $vendorRequestId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $vendorType;
     protected $_name = [
+        'a1Notation' => 'a1Notation',
         'requestId' => 'requestId',
-        'result' => 'result',
-        'success' => 'success',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -36,16 +42,20 @@ class CreateReportResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->a1Notation) {
+            $res['a1Notation'] = $this->a1Notation;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->result) {
-            $res['result'] = $this->result;
+        if (null !== $this->vendorRequestId) {
+            $res['vendorRequestId'] = $this->vendorRequestId;
         }
 
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->vendorType) {
+            $res['vendorType'] = $this->vendorType;
         }
 
         return $res;
@@ -59,16 +69,20 @@ class CreateReportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['a1Notation'])) {
+            $model->a1Notation = $map['a1Notation'];
+        }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['result'])) {
-            $model->result = $map['result'];
+        if (isset($map['vendorRequestId'])) {
+            $model->vendorRequestId = $map['vendorRequestId'];
         }
 
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['vendorType'])) {
+            $model->vendorType = $map['vendorType'];
         }
 
         return $model;

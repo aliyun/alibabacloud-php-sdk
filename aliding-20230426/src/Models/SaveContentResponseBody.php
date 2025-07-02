@@ -14,11 +14,17 @@ class SaveContentResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $result;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'requestId' => 'requestId',
+        'result' => 'result',
         'success' => 'success',
     ];
 
@@ -32,6 +38,10 @@ class SaveContentResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->result) {
+            $res['result'] = $this->result;
         }
 
         if (null !== $this->success) {
@@ -51,6 +61,10 @@ class SaveContentResponseBody extends Model
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['result'])) {
+            $model->result = $map['result'];
         }
 
         if (isset($map['success'])) {
