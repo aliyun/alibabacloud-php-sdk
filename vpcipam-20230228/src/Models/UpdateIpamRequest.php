@@ -12,63 +12,74 @@ class UpdateIpamRequest extends Model
      * @var string[]
      */
     public $addOperatingRegion;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamDescription;
+
     /**
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $removeOperatingRegion;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'addOperatingRegion'    => 'AddOperatingRegion',
-        'clientToken'           => 'ClientToken',
-        'dryRun'                => 'DryRun',
-        'ipamDescription'       => 'IpamDescription',
-        'ipamId'                => 'IpamId',
-        'ipamName'              => 'IpamName',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
+        'addOperatingRegion' => 'AddOperatingRegion',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipamDescription' => 'IpamDescription',
+        'ipamId' => 'IpamId',
+        'ipamName' => 'IpamName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'removeOperatingRegion' => 'RemoveOperatingRegion',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -88,9 +99,10 @@ class UpdateIpamRequest extends Model
         if (null !== $this->addOperatingRegion) {
             if (\is_array($this->addOperatingRegion)) {
                 $res['AddOperatingRegion'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->addOperatingRegion as $item1) {
-                    $res['AddOperatingRegion'][$n1++] = $item1;
+                    $res['AddOperatingRegion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,9 +142,10 @@ class UpdateIpamRequest extends Model
         if (null !== $this->removeOperatingRegion) {
             if (\is_array($this->removeOperatingRegion)) {
                 $res['RemoveOperatingRegion'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->removeOperatingRegion as $item1) {
-                    $res['RemoveOperatingRegion'][$n1++] = $item1;
+                    $res['RemoveOperatingRegion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,9 +172,10 @@ class UpdateIpamRequest extends Model
         if (isset($map['AddOperatingRegion'])) {
             if (!empty($map['AddOperatingRegion'])) {
                 $model->addOperatingRegion = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AddOperatingRegion'] as $item1) {
-                    $model->addOperatingRegion[$n1++] = $item1;
+                    $model->addOperatingRegion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,9 +215,10 @@ class UpdateIpamRequest extends Model
         if (isset($map['RemoveOperatingRegion'])) {
             if (!empty($map['RemoveOperatingRegion'])) {
                 $model->removeOperatingRegion = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['RemoveOperatingRegion'] as $item1) {
-                    $model->removeOperatingRegion[$n1++] = $item1;
+                    $model->removeOperatingRegion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

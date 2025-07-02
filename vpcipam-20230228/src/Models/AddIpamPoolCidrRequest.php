@@ -12,28 +12,32 @@ class AddIpamPoolCidrRequest extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cidr'        => 'Cidr',
+        'cidr' => 'Cidr',
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'ipamPoolId'  => 'IpamPoolId',
-        'regionId'    => 'RegionId',
+        'dryRun' => 'DryRun',
+        'ipamPoolId' => 'IpamPoolId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

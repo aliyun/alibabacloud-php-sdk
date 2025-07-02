@@ -12,18 +12,20 @@ class ipamPoolCidrs extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'cidr'       => 'Cidr',
+        'cidr' => 'Cidr',
         'ipamPoolId' => 'IpamPoolId',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

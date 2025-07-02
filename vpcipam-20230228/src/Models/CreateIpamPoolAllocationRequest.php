@@ -12,43 +12,50 @@ class CreateIpamPoolAllocationRequest extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var int
      */
     public $cidrMask;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationDescription;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationName;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cidr'                          => 'Cidr',
-        'cidrMask'                      => 'CidrMask',
-        'clientToken'                   => 'ClientToken',
-        'dryRun'                        => 'DryRun',
+        'cidr' => 'Cidr',
+        'cidrMask' => 'CidrMask',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipamPoolAllocationDescription' => 'IpamPoolAllocationDescription',
-        'ipamPoolAllocationName'        => 'IpamPoolAllocationName',
-        'ipamPoolId'                    => 'IpamPoolId',
-        'regionId'                      => 'RegionId',
+        'ipamPoolAllocationName' => 'IpamPoolAllocationName',
+        'ipamPoolId' => 'IpamPoolId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class ListIpamPoolAllocationsRequest extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string[]
      */
     public $ipamPoolAllocationIds;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationName;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cidr'                   => 'Cidr',
-        'ipamPoolAllocationIds'  => 'IpamPoolAllocationIds',
+        'cidr' => 'Cidr',
+        'ipamPoolAllocationIds' => 'IpamPoolAllocationIds',
         'ipamPoolAllocationName' => 'IpamPoolAllocationName',
-        'ipamPoolId'             => 'IpamPoolId',
-        'maxResults'             => 'MaxResults',
-        'nextToken'              => 'NextToken',
-        'regionId'               => 'RegionId',
+        'ipamPoolId' => 'IpamPoolId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -64,9 +70,10 @@ class ListIpamPoolAllocationsRequest extends Model
         if (null !== $this->ipamPoolAllocationIds) {
             if (\is_array($this->ipamPoolAllocationIds)) {
                 $res['IpamPoolAllocationIds'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->ipamPoolAllocationIds as $item1) {
-                    $res['IpamPoolAllocationIds'][$n1++] = $item1;
+                    $res['IpamPoolAllocationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,9 +116,10 @@ class ListIpamPoolAllocationsRequest extends Model
         if (isset($map['IpamPoolAllocationIds'])) {
             if (!empty($map['IpamPoolAllocationIds'])) {
                 $model->ipamPoolAllocationIds = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['IpamPoolAllocationIds'] as $item1) {
-                    $model->ipamPoolAllocationIds[$n1++] = $item1;
+                    $model->ipamPoolAllocationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

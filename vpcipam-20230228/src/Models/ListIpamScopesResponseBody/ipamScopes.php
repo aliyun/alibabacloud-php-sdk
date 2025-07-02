@@ -13,68 +13,80 @@ class ipamScopes extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamScopeDescription;
+
     /**
      * @var string
      */
     public $ipamScopeId;
+
     /**
      * @var string
      */
     public $ipamScopeName;
+
     /**
      * @var string
      */
     public $ipamScopeType;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $poolCount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'createTime'           => 'CreateTime',
-        'ipamId'               => 'IpamId',
+        'createTime' => 'CreateTime',
+        'ipamId' => 'IpamId',
         'ipamScopeDescription' => 'IpamScopeDescription',
-        'ipamScopeId'          => 'IpamScopeId',
-        'ipamScopeName'        => 'IpamScopeName',
-        'ipamScopeType'        => 'IpamScopeType',
-        'isDefault'            => 'IsDefault',
-        'ownerId'              => 'OwnerId',
-        'poolCount'            => 'PoolCount',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'status'               => 'Status',
-        'tags'                 => 'Tags',
+        'ipamScopeId' => 'IpamScopeId',
+        'ipamScopeName' => 'IpamScopeName',
+        'ipamScopeType' => 'IpamScopeType',
+        'isDefault' => 'IsDefault',
+        'ownerId' => 'OwnerId',
+        'poolCount' => 'PoolCount',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -139,9 +151,10 @@ class ipamScopes extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,9 +221,10 @@ class ipamScopes extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

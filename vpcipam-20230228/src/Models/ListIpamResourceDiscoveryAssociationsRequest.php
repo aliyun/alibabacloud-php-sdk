@@ -12,48 +12,56 @@ class ListIpamResourceDiscoveryAssociationsRequest extends Model
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ipamId'                  => 'IpamId',
+        'ipamId' => 'IpamId',
         'ipamResourceDiscoveryId' => 'IpamResourceDiscoveryId',
-        'maxResults'              => 'MaxResults',
-        'nextToken'               => 'NextToken',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'regionId'                => 'RegionId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

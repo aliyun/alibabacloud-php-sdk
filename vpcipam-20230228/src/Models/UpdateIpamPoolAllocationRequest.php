@@ -12,33 +12,38 @@ class UpdateIpamPoolAllocationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationDescription;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationId;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'                   => 'ClientToken',
-        'dryRun'                        => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipamPoolAllocationDescription' => 'IpamPoolAllocationDescription',
-        'ipamPoolAllocationId'          => 'IpamPoolAllocationId',
-        'ipamPoolAllocationName'        => 'IpamPoolAllocationName',
-        'regionId'                      => 'RegionId',
+        'ipamPoolAllocationId' => 'IpamPoolAllocationId',
+        'ipamPoolAllocationName' => 'IpamPoolAllocationName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

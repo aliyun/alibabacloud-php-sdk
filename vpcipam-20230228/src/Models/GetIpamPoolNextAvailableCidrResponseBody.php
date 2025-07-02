@@ -12,6 +12,7 @@ class GetIpamPoolNextAvailableCidrResponseBody extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */

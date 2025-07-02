@@ -12,38 +12,44 @@ class CreateIpamResponseBody extends Model
      * @var string
      */
     public $defaultResourceDiscoveryAssociationId;
+
     /**
      * @var string
      */
     public $defaultResourceDiscoveryId;
+
     /**
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $privateDefaultScopeId;
+
     /**
      * @var string
      */
     public $publicDefaultScopeId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $resourceDiscoveryAssociationCount;
     protected $_name = [
         'defaultResourceDiscoveryAssociationId' => 'DefaultResourceDiscoveryAssociationId',
-        'defaultResourceDiscoveryId'            => 'DefaultResourceDiscoveryId',
-        'ipamId'                                => 'IpamId',
-        'privateDefaultScopeId'                 => 'PrivateDefaultScopeId',
-        'publicDefaultScopeId'                  => 'PublicDefaultScopeId',
-        'requestId'                             => 'RequestId',
-        'resourceDiscoveryAssociationCount'     => 'ResourceDiscoveryAssociationCount',
+        'defaultResourceDiscoveryId' => 'DefaultResourceDiscoveryId',
+        'ipamId' => 'IpamId',
+        'privateDefaultScopeId' => 'PrivateDefaultScopeId',
+        'publicDefaultScopeId' => 'PublicDefaultScopeId',
+        'requestId' => 'RequestId',
+        'resourceDiscoveryAssociationCount' => 'ResourceDiscoveryAssociationCount',
     ];
 
     public function validate()

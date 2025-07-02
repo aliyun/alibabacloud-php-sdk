@@ -12,13 +12,14 @@ class GetIpamPoolAllocationRequest extends Model
      * @var string
      */
     public $ipamPoolAllocationId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'ipamPoolAllocationId' => 'IpamPoolAllocationId',
-        'regionId'             => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

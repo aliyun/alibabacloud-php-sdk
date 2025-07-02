@@ -12,78 +12,92 @@ class UpdateIpamPoolRequest extends Model
      * @var int
      */
     public $allocationDefaultCidrMask;
+
     /**
      * @var int
      */
     public $allocationMaxCidrMask;
+
     /**
      * @var int
      */
     public $allocationMinCidrMask;
+
     /**
      * @var bool
      */
     public $autoImport;
+
     /**
      * @var bool
      */
     public $clearAllocationDefaultCidrMask;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamPoolDescription;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $ipamPoolName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'allocationDefaultCidrMask'      => 'AllocationDefaultCidrMask',
-        'allocationMaxCidrMask'          => 'AllocationMaxCidrMask',
-        'allocationMinCidrMask'          => 'AllocationMinCidrMask',
-        'autoImport'                     => 'AutoImport',
+        'allocationDefaultCidrMask' => 'AllocationDefaultCidrMask',
+        'allocationMaxCidrMask' => 'AllocationMaxCidrMask',
+        'allocationMinCidrMask' => 'AllocationMinCidrMask',
+        'autoImport' => 'AutoImport',
         'clearAllocationDefaultCidrMask' => 'ClearAllocationDefaultCidrMask',
-        'clientToken'                    => 'ClientToken',
-        'dryRun'                         => 'DryRun',
-        'ipamPoolDescription'            => 'IpamPoolDescription',
-        'ipamPoolId'                     => 'IpamPoolId',
-        'ipamPoolName'                   => 'IpamPoolName',
-        'ownerAccount'                   => 'OwnerAccount',
-        'ownerId'                        => 'OwnerId',
-        'regionId'                       => 'RegionId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipamPoolDescription' => 'IpamPoolDescription',
+        'ipamPoolId' => 'IpamPoolId',
+        'ipamPoolName' => 'IpamPoolName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class AssociateIpamResourceDiscoveryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'dryRun'                  => 'DryRun',
-        'ipamId'                  => 'IpamId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipamId' => 'IpamId',
         'ipamResourceDiscoveryId' => 'IpamResourceDiscoveryId',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'regionId'                => 'RegionId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class ListIpamResourceCidrsRequest extends Model
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $ipamScopeId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'ipamPoolId'      => 'IpamPoolId',
-        'ipamScopeId'     => 'IpamScopeId',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
-        'resourceId'      => 'ResourceId',
+        'ipamPoolId' => 'IpamPoolId',
+        'ipamScopeId' => 'IpamScopeId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'resourceType'    => 'ResourceType',
-        'vpcId'           => 'VpcId',
+        'resourceType' => 'ResourceType',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

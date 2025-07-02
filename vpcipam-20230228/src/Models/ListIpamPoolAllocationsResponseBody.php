@@ -13,33 +13,38 @@ class ListIpamPoolAllocationsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ipamPoolAllocations[]
      */
     public $ipamPoolAllocations;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'               => 'Count',
+        'count' => 'Count',
         'ipamPoolAllocations' => 'IpamPoolAllocations',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'requestId'           => 'RequestId',
-        'totalCount'          => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,9 +65,10 @@ class ListIpamPoolAllocationsResponseBody extends Model
         if (null !== $this->ipamPoolAllocations) {
             if (\is_array($this->ipamPoolAllocations)) {
                 $res['IpamPoolAllocations'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->ipamPoolAllocations as $item1) {
-                    $res['IpamPoolAllocations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpamPoolAllocations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class ListIpamPoolAllocationsResponseBody extends Model
         if (isset($map['IpamPoolAllocations'])) {
             if (!empty($map['IpamPoolAllocations'])) {
                 $model->ipamPoolAllocations = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['IpamPoolAllocations'] as $item1) {
-                    $model->ipamPoolAllocations[$n1++] = ipamPoolAllocations::fromMap($item1);
+                    $model->ipamPoolAllocations[$n1] = ipamPoolAllocations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,28 +12,32 @@ class ListIpamPoolCidrsRequest extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cidr'       => 'Cidr',
+        'cidr' => 'Cidr',
         'ipamPoolId' => 'IpamPoolId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

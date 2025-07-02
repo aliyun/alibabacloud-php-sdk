@@ -13,78 +13,92 @@ class ListIpamPoolsRequest extends Model
      * @var string[]
      */
     public $ipamPoolIds;
+
     /**
      * @var string
      */
     public $ipamPoolName;
+
     /**
      * @var string
      */
     public $ipamScopeId;
+
     /**
      * @var bool
      */
     public $isShared;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolRegionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sourceIpamPoolId;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'ipamPoolIds'          => 'IpamPoolIds',
-        'ipamPoolName'         => 'IpamPoolName',
-        'ipamScopeId'          => 'IpamScopeId',
-        'isShared'             => 'IsShared',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'poolRegionId'         => 'PoolRegionId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ipamPoolIds' => 'IpamPoolIds',
+        'ipamPoolName' => 'IpamPoolName',
+        'ipamScopeId' => 'IpamScopeId',
+        'isShared' => 'IsShared',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'poolRegionId' => 'PoolRegionId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceIpamPoolId'     => 'SourceIpamPoolId',
-        'tags'                 => 'Tags',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIpamPoolId' => 'SourceIpamPoolId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -104,9 +118,10 @@ class ListIpamPoolsRequest extends Model
         if (null !== $this->ipamPoolIds) {
             if (\is_array($this->ipamPoolIds)) {
                 $res['IpamPoolIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ipamPoolIds as $item1) {
-                    $res['IpamPoolIds'][$n1++] = $item1;
+                    $res['IpamPoolIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,9 +181,10 @@ class ListIpamPoolsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,9 +203,10 @@ class ListIpamPoolsRequest extends Model
         if (isset($map['IpamPoolIds'])) {
             if (!empty($map['IpamPoolIds'])) {
                 $model->ipamPoolIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['IpamPoolIds'] as $item1) {
-                    $model->ipamPoolIds[$n1++] = $item1;
+                    $model->ipamPoolIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,9 +266,10 @@ class ListIpamPoolsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

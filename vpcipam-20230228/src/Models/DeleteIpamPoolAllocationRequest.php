@@ -12,23 +12,26 @@ class DeleteIpamPoolAllocationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipamPoolAllocationId' => 'IpamPoolAllocationId',
-        'regionId'             => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

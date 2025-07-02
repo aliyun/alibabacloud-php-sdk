@@ -13,33 +13,38 @@ class ListIpamDiscoveredResourceResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ipamDiscoveredResources[]
      */
     public $ipamDiscoveredResources;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'                   => 'Count',
+        'count' => 'Count',
         'ipamDiscoveredResources' => 'IpamDiscoveredResources',
-        'maxResults'              => 'MaxResults',
-        'nextToken'               => 'NextToken',
-        'requestId'               => 'RequestId',
-        'totalCount'              => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,9 +65,10 @@ class ListIpamDiscoveredResourceResponseBody extends Model
         if (null !== $this->ipamDiscoveredResources) {
             if (\is_array($this->ipamDiscoveredResources)) {
                 $res['IpamDiscoveredResources'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->ipamDiscoveredResources as $item1) {
-                    $res['IpamDiscoveredResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpamDiscoveredResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class ListIpamDiscoveredResourceResponseBody extends Model
         if (isset($map['IpamDiscoveredResources'])) {
             if (!empty($map['IpamDiscoveredResources'])) {
                 $model->ipamDiscoveredResources = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['IpamDiscoveredResources'] as $item1) {
-                    $model->ipamDiscoveredResources[$n1++] = ipamDiscoveredResources::fromMap($item1);
+                    $model->ipamDiscoveredResources[$n1] = ipamDiscoveredResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

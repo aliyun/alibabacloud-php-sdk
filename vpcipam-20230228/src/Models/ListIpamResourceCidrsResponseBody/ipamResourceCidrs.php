@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsResponseBody\ipamResourceCidrs\ipCountDetail;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsResponseBody\ipamResourceCidrs\overlapDetail;
 
 class ipamResourceCidrs extends Model
@@ -13,97 +14,123 @@ class ipamResourceCidrs extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $complianceStatus;
+
+    /**
+     * @var ipCountDetail
+     */
+    public $ipCountDetail;
+
     /**
      * @var string
      */
     public $ipUsage;
+
     /**
      * @var string
      */
     public $ipamAllocationId;
+
     /**
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $ipamScopeId;
+
     /**
      * @var string
      */
     public $managementStatus;
+
     /**
      * @var overlapDetail[]
      */
     public $overlapDetail;
+
     /**
      * @var string
      */
     public $overlapStatus;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $sourceCidr;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'aliUid'           => 'AliUid',
-        'cidr'             => 'Cidr',
+        'aliUid' => 'AliUid',
+        'cidr' => 'Cidr',
         'complianceStatus' => 'ComplianceStatus',
-        'ipUsage'          => 'IpUsage',
+        'ipCountDetail' => 'IpCountDetail',
+        'ipUsage' => 'IpUsage',
         'ipamAllocationId' => 'IpamAllocationId',
-        'ipamId'           => 'IpamId',
-        'ipamPoolId'       => 'IpamPoolId',
-        'ipamScopeId'      => 'IpamScopeId',
+        'ipamId' => 'IpamId',
+        'ipamPoolId' => 'IpamPoolId',
+        'ipamScopeId' => 'IpamScopeId',
         'managementStatus' => 'ManagementStatus',
-        'overlapDetail'    => 'OverlapDetail',
-        'overlapStatus'    => 'OverlapStatus',
-        'resourceId'       => 'ResourceId',
-        'resourceOwnerId'  => 'ResourceOwnerId',
+        'overlapDetail' => 'OverlapDetail',
+        'overlapStatus' => 'OverlapStatus',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
-        'sourceCidr'       => 'SourceCidr',
-        'status'           => 'Status',
-        'vpcId'            => 'VpcId',
+        'resourceType' => 'ResourceType',
+        'sourceCidr' => 'SourceCidr',
+        'status' => 'Status',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (null !== $this->ipCountDetail) {
+            $this->ipCountDetail->validate();
+        }
         if (\is_array($this->overlapDetail)) {
             Model::validateArray($this->overlapDetail);
         }
@@ -123,6 +150,10 @@ class ipamResourceCidrs extends Model
 
         if (null !== $this->complianceStatus) {
             $res['ComplianceStatus'] = $this->complianceStatus;
+        }
+
+        if (null !== $this->ipCountDetail) {
+            $res['IpCountDetail'] = null !== $this->ipCountDetail ? $this->ipCountDetail->toArray($noStream) : $this->ipCountDetail;
         }
 
         if (null !== $this->ipUsage) {
@@ -152,9 +183,10 @@ class ipamResourceCidrs extends Model
         if (null !== $this->overlapDetail) {
             if (\is_array($this->overlapDetail)) {
                 $res['OverlapDetail'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->overlapDetail as $item1) {
-                    $res['OverlapDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OverlapDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,6 +246,10 @@ class ipamResourceCidrs extends Model
             $model->complianceStatus = $map['ComplianceStatus'];
         }
 
+        if (isset($map['IpCountDetail'])) {
+            $model->ipCountDetail = ipCountDetail::fromMap($map['IpCountDetail']);
+        }
+
         if (isset($map['IpUsage'])) {
             $model->ipUsage = $map['IpUsage'];
         }
@@ -241,9 +277,10 @@ class ipamResourceCidrs extends Model
         if (isset($map['OverlapDetail'])) {
             if (!empty($map['OverlapDetail'])) {
                 $model->overlapDetail = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['OverlapDetail'] as $item1) {
-                    $model->overlapDetail[$n1++] = overlapDetail::fromMap($item1);
+                    $model->overlapDetail[$n1] = overlapDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -13,63 +13,74 @@ class ipamResourceDiscoveries extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryDescription;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryId;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryName;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryStatus;
+
     /**
      * @var string[]
      */
     public $operatingRegionList;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $shareType;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'createTime'                       => 'CreateTime',
+        'createTime' => 'CreateTime',
         'ipamResourceDiscoveryDescription' => 'IpamResourceDiscoveryDescription',
-        'ipamResourceDiscoveryId'          => 'IpamResourceDiscoveryId',
-        'ipamResourceDiscoveryName'        => 'IpamResourceDiscoveryName',
-        'ipamResourceDiscoveryStatus'      => 'IpamResourceDiscoveryStatus',
-        'operatingRegionList'              => 'OperatingRegionList',
-        'ownerId'                          => 'OwnerId',
-        'regionId'                         => 'RegionId',
-        'resourceGroupId'                  => 'ResourceGroupId',
-        'shareType'                        => 'ShareType',
-        'tags'                             => 'Tags',
-        'type'                             => 'Type',
+        'ipamResourceDiscoveryId' => 'IpamResourceDiscoveryId',
+        'ipamResourceDiscoveryName' => 'IpamResourceDiscoveryName',
+        'ipamResourceDiscoveryStatus' => 'IpamResourceDiscoveryStatus',
+        'operatingRegionList' => 'OperatingRegionList',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'shareType' => 'ShareType',
+        'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -109,9 +120,10 @@ class ipamResourceDiscoveries extends Model
         if (null !== $this->operatingRegionList) {
             if (\is_array($this->operatingRegionList)) {
                 $res['OperatingRegionList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->operatingRegionList as $item1) {
-                    $res['OperatingRegionList'][$n1++] = $item1;
+                    $res['OperatingRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,9 +147,10 @@ class ipamResourceDiscoveries extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,9 +193,10 @@ class ipamResourceDiscoveries extends Model
         if (isset($map['OperatingRegionList'])) {
             if (!empty($map['OperatingRegionList'])) {
                 $model->operatingRegionList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['OperatingRegionList'] as $item1) {
-                    $model->operatingRegionList[$n1++] = $item1;
+                    $model->operatingRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,9 +220,10 @@ class ipamResourceDiscoveries extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

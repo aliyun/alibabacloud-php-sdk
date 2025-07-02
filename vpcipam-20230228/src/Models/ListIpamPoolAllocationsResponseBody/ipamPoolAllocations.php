@@ -12,68 +12,80 @@ class ipamPoolAllocations extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationDescription;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationId;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationName;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $sourceCidr;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'cidr'                          => 'Cidr',
-        'creationTime'                  => 'CreationTime',
+        'cidr' => 'Cidr',
+        'creationTime' => 'CreationTime',
         'ipamPoolAllocationDescription' => 'IpamPoolAllocationDescription',
-        'ipamPoolAllocationId'          => 'IpamPoolAllocationId',
-        'ipamPoolAllocationName'        => 'IpamPoolAllocationName',
-        'ipamPoolId'                    => 'IpamPoolId',
-        'regionId'                      => 'RegionId',
-        'resourceId'                    => 'ResourceId',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'resourceRegionId'              => 'ResourceRegionId',
-        'resourceType'                  => 'ResourceType',
-        'sourceCidr'                    => 'SourceCidr',
-        'status'                        => 'Status',
+        'ipamPoolAllocationId' => 'IpamPoolAllocationId',
+        'ipamPoolAllocationName' => 'IpamPoolAllocationName',
+        'ipamPoolId' => 'IpamPoolId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceRegionId' => 'ResourceRegionId',
+        'resourceType' => 'ResourceType',
+        'sourceCidr' => 'SourceCidr',
+        'status' => 'Status',
     ];
 
     public function validate()

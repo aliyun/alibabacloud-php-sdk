@@ -13,118 +13,140 @@ class ipamPools extends Model
      * @var int
      */
     public $allocationDefaultCidrMask;
+
     /**
      * @var int
      */
     public $allocationMaxCidrMask;
+
     /**
      * @var int
      */
     public $allocationMinCidrMask;
+
     /**
      * @var bool
      */
     public $autoImport;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $hasSubPool;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamPoolDescription;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $ipamPoolName;
+
     /**
      * @var string
      */
     public $ipamRegionId;
+
     /**
      * @var string
      */
     public $ipamScopeId;
+
     /**
      * @var string
      */
     public $ipamScopeType;
+
     /**
      * @var bool
      */
     public $isShared;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $poolDepth;
+
     /**
      * @var string
      */
     public $poolRegionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceIpamPoolId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
         'allocationDefaultCidrMask' => 'AllocationDefaultCidrMask',
-        'allocationMaxCidrMask'     => 'AllocationMaxCidrMask',
-        'allocationMinCidrMask'     => 'AllocationMinCidrMask',
-        'autoImport'                => 'AutoImport',
-        'createTime'                => 'CreateTime',
-        'hasSubPool'                => 'HasSubPool',
-        'ipVersion'                 => 'IpVersion',
-        'ipamId'                    => 'IpamId',
-        'ipamPoolDescription'       => 'IpamPoolDescription',
-        'ipamPoolId'                => 'IpamPoolId',
-        'ipamPoolName'              => 'IpamPoolName',
-        'ipamRegionId'              => 'IpamRegionId',
-        'ipamScopeId'               => 'IpamScopeId',
-        'ipamScopeType'             => 'IpamScopeType',
-        'isShared'                  => 'IsShared',
-        'ownerId'                   => 'OwnerId',
-        'poolDepth'                 => 'PoolDepth',
-        'poolRegionId'              => 'PoolRegionId',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'sourceIpamPoolId'          => 'SourceIpamPoolId',
-        'status'                    => 'Status',
-        'tags'                      => 'Tags',
+        'allocationMaxCidrMask' => 'AllocationMaxCidrMask',
+        'allocationMinCidrMask' => 'AllocationMinCidrMask',
+        'autoImport' => 'AutoImport',
+        'createTime' => 'CreateTime',
+        'hasSubPool' => 'HasSubPool',
+        'ipVersion' => 'IpVersion',
+        'ipamId' => 'IpamId',
+        'ipamPoolDescription' => 'IpamPoolDescription',
+        'ipamPoolId' => 'IpamPoolId',
+        'ipamPoolName' => 'IpamPoolName',
+        'ipamRegionId' => 'IpamRegionId',
+        'ipamScopeId' => 'IpamScopeId',
+        'ipamScopeType' => 'IpamScopeType',
+        'isShared' => 'IsShared',
+        'ownerId' => 'OwnerId',
+        'poolDepth' => 'PoolDepth',
+        'poolRegionId' => 'PoolRegionId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIpamPoolId' => 'SourceIpamPoolId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -229,9 +251,10 @@ class ipamPools extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -338,9 +361,10 @@ class ipamPools extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

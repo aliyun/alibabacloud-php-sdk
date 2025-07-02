@@ -13,58 +13,68 @@ class ListIpamsRequest extends Model
      * @var string[]
      */
     public $ipamIds;
+
     /**
      * @var string
      */
     public $ipamName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'ipamIds'              => 'IpamIds',
-        'ipamName'             => 'IpamName',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ipamIds' => 'IpamIds',
+        'ipamName' => 'IpamName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tags'                 => 'Tags',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -84,9 +94,10 @@ class ListIpamsRequest extends Model
         if (null !== $this->ipamIds) {
             if (\is_array($this->ipamIds)) {
                 $res['IpamIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->ipamIds as $item1) {
-                    $res['IpamIds'][$n1++] = $item1;
+                    $res['IpamIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,9 +141,10 @@ class ListIpamsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,9 +163,10 @@ class ListIpamsRequest extends Model
         if (isset($map['IpamIds'])) {
             if (!empty($map['IpamIds'])) {
                 $model->ipamIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['IpamIds'] as $item1) {
-                    $model->ipamIds[$n1++] = $item1;
+                    $model->ipamIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,9 +210,10 @@ class ListIpamsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

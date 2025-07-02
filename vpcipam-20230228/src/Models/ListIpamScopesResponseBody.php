@@ -13,32 +13,37 @@ class ListIpamScopesResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ipamScopes[]
      */
     public $ipamScopes;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'      => 'Count',
+        'count' => 'Count',
         'ipamScopes' => 'IpamScopes',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -60,9 +65,10 @@ class ListIpamScopesResponseBody extends Model
         if (null !== $this->ipamScopes) {
             if (\is_array($this->ipamScopes)) {
                 $res['IpamScopes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->ipamScopes as $item1) {
-                    $res['IpamScopes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpamScopes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class ListIpamScopesResponseBody extends Model
         if (isset($map['IpamScopes'])) {
             if (!empty($map['IpamScopes'])) {
                 $model->ipamScopes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['IpamScopes'] as $item1) {
-                    $model->ipamScopes[$n1++] = ipamScopes::fromMap($item1);
+                    $model->ipamScopes[$n1] = ipamScopes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

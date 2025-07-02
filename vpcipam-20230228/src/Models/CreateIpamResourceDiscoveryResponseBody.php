@@ -12,13 +12,14 @@ class CreateIpamResourceDiscoveryResponseBody extends Model
      * @var string
      */
     public $ipamResourceDiscoveryId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ipamResourceDiscoveryId' => 'IpamResourceDiscoveryId',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

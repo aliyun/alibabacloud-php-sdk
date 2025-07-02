@@ -12,28 +12,32 @@ class GetIpamPoolNextAvailableCidrRequest extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var int
      */
     public $cidrMask;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
-        'cidrMask'    => 'CidrMask',
+        'cidrBlock' => 'CidrBlock',
+        'cidrMask' => 'CidrMask',
         'clientToken' => 'ClientToken',
-        'ipamPoolId'  => 'IpamPoolId',
-        'regionId'    => 'RegionId',
+        'ipamPoolId' => 'IpamPoolId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

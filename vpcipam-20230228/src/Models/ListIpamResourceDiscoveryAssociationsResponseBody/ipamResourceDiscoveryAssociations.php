@@ -12,33 +12,38 @@ class ipamResourceDiscoveryAssociations extends Model
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryId;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryOwnerId;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryStatus;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'ipamId'                       => 'IpamId',
-        'ipamResourceDiscoveryId'      => 'IpamResourceDiscoveryId',
+        'ipamId' => 'IpamId',
+        'ipamResourceDiscoveryId' => 'IpamResourceDiscoveryId',
         'ipamResourceDiscoveryOwnerId' => 'IpamResourceDiscoveryOwnerId',
-        'ipamResourceDiscoveryStatus'  => 'IpamResourceDiscoveryStatus',
-        'ipamResourceDiscoveryType'    => 'IpamResourceDiscoveryType',
-        'status'                       => 'Status',
+        'ipamResourceDiscoveryStatus' => 'IpamResourceDiscoveryStatus',
+        'ipamResourceDiscoveryType' => 'IpamResourceDiscoveryType',
+        'status' => 'Status',
     ];
 
     public function validate()

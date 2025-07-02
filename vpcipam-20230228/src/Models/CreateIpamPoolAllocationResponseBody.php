@@ -12,23 +12,26 @@ class CreateIpamPoolAllocationResponseBody extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $ipamPoolAllocationId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sourceCidr;
     protected $_name = [
-        'cidr'                 => 'Cidr',
+        'cidr' => 'Cidr',
         'ipamPoolAllocationId' => 'IpamPoolAllocationId',
-        'requestId'            => 'RequestId',
-        'sourceCidr'           => 'SourceCidr',
+        'requestId' => 'RequestId',
+        'sourceCidr' => 'SourceCidr',
     ];
 
     public function validate()

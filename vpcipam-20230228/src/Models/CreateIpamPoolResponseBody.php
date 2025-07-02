@@ -12,13 +12,14 @@ class CreateIpamPoolResponseBody extends Model
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ipamPoolId' => 'IpamPoolId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

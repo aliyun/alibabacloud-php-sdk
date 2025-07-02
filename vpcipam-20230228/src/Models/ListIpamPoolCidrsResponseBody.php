@@ -13,33 +13,38 @@ class ListIpamPoolCidrsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ipamPoolCidrs[]
      */
     public $ipamPoolCidrs;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'         => 'Count',
+        'count' => 'Count',
         'ipamPoolCidrs' => 'IpamPoolCidrs',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,9 +65,10 @@ class ListIpamPoolCidrsResponseBody extends Model
         if (null !== $this->ipamPoolCidrs) {
             if (\is_array($this->ipamPoolCidrs)) {
                 $res['IpamPoolCidrs'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ipamPoolCidrs as $item1) {
-                    $res['IpamPoolCidrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpamPoolCidrs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class ListIpamPoolCidrsResponseBody extends Model
         if (isset($map['IpamPoolCidrs'])) {
             if (!empty($map['IpamPoolCidrs'])) {
                 $model->ipamPoolCidrs = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['IpamPoolCidrs'] as $item1) {
-                    $model->ipamPoolCidrs[$n1++] = ipamPoolCidrs::fromMap($item1);
+                    $model->ipamPoolCidrs[$n1] = ipamPoolCidrs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

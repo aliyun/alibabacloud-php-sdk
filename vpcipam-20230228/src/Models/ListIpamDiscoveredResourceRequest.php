@@ -12,33 +12,38 @@ class ListIpamDiscoveredResourceRequest extends Model
      * @var string
      */
     public $ipamResourceDiscoveryId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'ipamResourceDiscoveryId' => 'IpamResourceDiscoveryId',
-        'maxResults'              => 'MaxResults',
-        'nextToken'               => 'NextToken',
-        'regionId'                => 'RegionId',
-        'resourceRegionId'        => 'ResourceRegionId',
-        'resourceType'            => 'ResourceType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceRegionId' => 'ResourceRegionId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

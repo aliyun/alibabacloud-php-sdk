@@ -12,13 +12,14 @@ class CreateIpamScopeResponseBody extends Model
      * @var string
      */
     public $ipamScopeId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ipamScopeId' => 'IpamScopeId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

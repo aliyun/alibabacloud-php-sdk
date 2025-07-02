@@ -12,53 +12,62 @@ class UpdateIpamScopeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamScopeDescription;
+
     /**
      * @var string
      */
     public $ipamScopeId;
+
     /**
      * @var string
      */
     public $ipamScopeName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipamScopeDescription' => 'IpamScopeDescription',
-        'ipamScopeId'          => 'IpamScopeId',
-        'ipamScopeName'        => 'IpamScopeName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'ipamScopeId' => 'IpamScopeId',
+        'ipamScopeName' => 'IpamScopeName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

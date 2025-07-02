@@ -13,32 +13,37 @@ class ListIpamsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ipams[]
      */
     public $ipams;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'      => 'Count',
-        'ipams'      => 'Ipams',
+        'count' => 'Count',
+        'ipams' => 'Ipams',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -60,9 +65,10 @@ class ListIpamsResponseBody extends Model
         if (null !== $this->ipams) {
             if (\is_array($this->ipams)) {
                 $res['Ipams'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->ipams as $item1) {
-                    $res['Ipams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class ListIpamsResponseBody extends Model
         if (isset($map['Ipams'])) {
             if (!empty($map['Ipams'])) {
                 $model->ipams = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Ipams'] as $item1) {
-                    $model->ipams[$n1++] = ipams::fromMap($item1);
+                    $model->ipams[$n1] = ipams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

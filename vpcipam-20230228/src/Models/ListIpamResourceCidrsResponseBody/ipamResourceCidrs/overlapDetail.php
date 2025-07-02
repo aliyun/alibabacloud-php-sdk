@@ -12,17 +12,19 @@ class overlapDetail extends Model
      * @var string
      */
     public $overlapResourceCidr;
+
     /**
      * @var string
      */
     public $overlapResourceId;
+
     /**
      * @var string
      */
     public $overlapResourceRegion;
     protected $_name = [
-        'overlapResourceCidr'   => 'OverlapResourceCidr',
-        'overlapResourceId'     => 'OverlapResourceId',
+        'overlapResourceCidr' => 'OverlapResourceCidr',
+        'overlapResourceId' => 'OverlapResourceId',
         'overlapResourceRegion' => 'OverlapResourceRegion',
     ];
 

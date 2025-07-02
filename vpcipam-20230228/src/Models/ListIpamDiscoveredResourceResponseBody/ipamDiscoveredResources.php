@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceResponseBody\ipamDiscoveredResources\ipCountDetail;
 
 class ipamDiscoveredResources extends Model
 {
@@ -12,62 +13,81 @@ class ipamDiscoveredResources extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $discoveryTime;
+
+    /**
+     * @var ipCountDetail
+     */
+    public $ipCountDetail;
+
     /**
      * @var string
      */
     public $ipUsage;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $sourceCidr;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'aliUid'                  => 'AliUid',
-        'cidr'                    => 'Cidr',
-        'discoveryTime'           => 'DiscoveryTime',
-        'ipUsage'                 => 'IpUsage',
+        'aliUid' => 'AliUid',
+        'cidr' => 'Cidr',
+        'discoveryTime' => 'DiscoveryTime',
+        'ipCountDetail' => 'IpCountDetail',
+        'ipUsage' => 'IpUsage',
         'ipamResourceDiscoveryId' => 'IpamResourceDiscoveryId',
-        'resourceId'              => 'ResourceId',
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'resourceRegionId'        => 'ResourceRegionId',
-        'resourceType'            => 'ResourceType',
-        'sourceCidr'              => 'SourceCidr',
-        'vpcId'                   => 'VpcId',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceRegionId' => 'ResourceRegionId',
+        'resourceType' => 'ResourceType',
+        'sourceCidr' => 'SourceCidr',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (null !== $this->ipCountDetail) {
+            $this->ipCountDetail->validate();
+        }
         parent::validate();
     }
 
@@ -84,6 +104,10 @@ class ipamDiscoveredResources extends Model
 
         if (null !== $this->discoveryTime) {
             $res['DiscoveryTime'] = $this->discoveryTime;
+        }
+
+        if (null !== $this->ipCountDetail) {
+            $res['IpCountDetail'] = null !== $this->ipCountDetail ? $this->ipCountDetail->toArray($noStream) : $this->ipCountDetail;
         }
 
         if (null !== $this->ipUsage) {
@@ -139,6 +163,10 @@ class ipamDiscoveredResources extends Model
 
         if (isset($map['DiscoveryTime'])) {
             $model->discoveryTime = $map['DiscoveryTime'];
+        }
+
+        if (isset($map['IpCountDetail'])) {
+            $model->ipCountDetail = ipCountDetail::fromMap($map['IpCountDetail']);
         }
 
         if (isset($map['IpUsage'])) {

@@ -13,32 +13,37 @@ class ListIpamPoolsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ipamPools[]
      */
     public $ipamPools;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'      => 'Count',
-        'ipamPools'  => 'IpamPools',
+        'count' => 'Count',
+        'ipamPools' => 'IpamPools',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -60,9 +65,10 @@ class ListIpamPoolsResponseBody extends Model
         if (null !== $this->ipamPools) {
             if (\is_array($this->ipamPools)) {
                 $res['IpamPools'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ipamPools as $item1) {
-                    $res['IpamPools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpamPools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class ListIpamPoolsResponseBody extends Model
         if (isset($map['IpamPools'])) {
             if (!empty($map['IpamPools'])) {
                 $model->ipamPools = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['IpamPools'] as $item1) {
-                    $model->ipamPools[$n1++] = ipamPools::fromMap($item1);
+                    $model->ipamPools[$n1] = ipamPools::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -13,33 +13,38 @@ class ListIpamResourceCidrsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ipamResourceCidrs[]
      */
     public $ipamResourceCidrs;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'             => 'Count',
+        'count' => 'Count',
         'ipamResourceCidrs' => 'IpamResourceCidrs',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,9 +65,10 @@ class ListIpamResourceCidrsResponseBody extends Model
         if (null !== $this->ipamResourceCidrs) {
             if (\is_array($this->ipamResourceCidrs)) {
                 $res['IpamResourceCidrs'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->ipamResourceCidrs as $item1) {
-                    $res['IpamResourceCidrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpamResourceCidrs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,9 +107,10 @@ class ListIpamResourceCidrsResponseBody extends Model
         if (isset($map['IpamResourceCidrs'])) {
             if (!empty($map['IpamResourceCidrs'])) {
                 $model->ipamResourceCidrs = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['IpamResourceCidrs'] as $item1) {
-                    $model->ipamResourceCidrs[$n1++] = ipamResourceCidrs::fromMap($item1);
+                    $model->ipamResourceCidrs[$n1] = ipamResourceCidrs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

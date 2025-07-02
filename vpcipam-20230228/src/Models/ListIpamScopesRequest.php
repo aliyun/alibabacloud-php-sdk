@@ -13,68 +13,80 @@ class ListIpamScopesRequest extends Model
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string[]
      */
     public $ipamScopeIds;
+
     /**
      * @var string
      */
     public $ipamScopeName;
+
     /**
      * @var string
      */
     public $ipamScopeType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'ipamId'               => 'IpamId',
-        'ipamScopeIds'         => 'IpamScopeIds',
-        'ipamScopeName'        => 'IpamScopeName',
-        'ipamScopeType'        => 'IpamScopeType',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ipamId' => 'IpamId',
+        'ipamScopeIds' => 'IpamScopeIds',
+        'ipamScopeName' => 'IpamScopeName',
+        'ipamScopeType' => 'IpamScopeType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tags'                 => 'Tags',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -98,9 +110,10 @@ class ListIpamScopesRequest extends Model
         if (null !== $this->ipamScopeIds) {
             if (\is_array($this->ipamScopeIds)) {
                 $res['IpamScopeIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ipamScopeIds as $item1) {
-                    $res['IpamScopeIds'][$n1++] = $item1;
+                    $res['IpamScopeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,9 +161,10 @@ class ListIpamScopesRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,9 +187,10 @@ class ListIpamScopesRequest extends Model
         if (isset($map['IpamScopeIds'])) {
             if (!empty($map['IpamScopeIds'])) {
                 $model->ipamScopeIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['IpamScopeIds'] as $item1) {
-                    $model->ipamScopeIds[$n1++] = $item1;
+                    $model->ipamScopeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -223,9 +238,10 @@ class ListIpamScopesRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -13,68 +13,80 @@ class ListIpamResourceDiscoveriesRequest extends Model
      * @var string[]
      */
     public $ipamResourceDiscoveryIds;
+
     /**
      * @var string
      */
     public $ipamResourceDiscoveryName;
+
     /**
      * @var bool
      */
     public $isShared;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'ipamResourceDiscoveryIds'  => 'IpamResourceDiscoveryIds',
+        'ipamResourceDiscoveryIds' => 'IpamResourceDiscoveryIds',
         'ipamResourceDiscoveryName' => 'IpamResourceDiscoveryName',
-        'isShared'                  => 'IsShared',
-        'maxResults'                => 'MaxResults',
-        'nextToken'                 => 'NextToken',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'tags'                      => 'Tags',
-        'type'                      => 'Type',
+        'isShared' => 'IsShared',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -94,9 +106,10 @@ class ListIpamResourceDiscoveriesRequest extends Model
         if (null !== $this->ipamResourceDiscoveryIds) {
             if (\is_array($this->ipamResourceDiscoveryIds)) {
                 $res['IpamResourceDiscoveryIds'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->ipamResourceDiscoveryIds as $item1) {
-                    $res['IpamResourceDiscoveryIds'][$n1++] = $item1;
+                    $res['IpamResourceDiscoveryIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,9 +157,10 @@ class ListIpamResourceDiscoveriesRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,9 +183,10 @@ class ListIpamResourceDiscoveriesRequest extends Model
         if (isset($map['IpamResourceDiscoveryIds'])) {
             if (!empty($map['IpamResourceDiscoveryIds'])) {
                 $model->ipamResourceDiscoveryIds = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['IpamResourceDiscoveryIds'] as $item1) {
-                    $model->ipamResourceDiscoveryIds[$n1++] = $item1;
+                    $model->ipamResourceDiscoveryIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,9 +234,10 @@ class ListIpamResourceDiscoveriesRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

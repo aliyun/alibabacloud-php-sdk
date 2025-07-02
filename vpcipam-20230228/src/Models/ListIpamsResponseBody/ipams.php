@@ -13,83 +13,98 @@ class ipams extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $defaultResourceDiscoveryAssociationId;
+
     /**
      * @var string
      */
     public $defaultResourceDiscoveryId;
+
     /**
      * @var string
      */
     public $ipamDescription;
+
     /**
      * @var string
      */
     public $ipamId;
+
     /**
      * @var string
      */
     public $ipamName;
+
     /**
      * @var string
      */
     public $ipamStatus;
+
     /**
      * @var string[]
      */
     public $operatingRegionList;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $privateDefaultScopeId;
+
     /**
      * @var string
      */
     public $publicDefaultScopeId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceDiscoveryAssociationCount;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $scopeCount;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'createTime'                            => 'CreateTime',
+        'createTime' => 'CreateTime',
         'defaultResourceDiscoveryAssociationId' => 'DefaultResourceDiscoveryAssociationId',
-        'defaultResourceDiscoveryId'            => 'DefaultResourceDiscoveryId',
-        'ipamDescription'                       => 'IpamDescription',
-        'ipamId'                                => 'IpamId',
-        'ipamName'                              => 'IpamName',
-        'ipamStatus'                            => 'IpamStatus',
-        'operatingRegionList'                   => 'OperatingRegionList',
-        'ownerId'                               => 'OwnerId',
-        'privateDefaultScopeId'                 => 'PrivateDefaultScopeId',
-        'publicDefaultScopeId'                  => 'PublicDefaultScopeId',
-        'regionId'                              => 'RegionId',
-        'resourceDiscoveryAssociationCount'     => 'ResourceDiscoveryAssociationCount',
-        'resourceGroupId'                       => 'ResourceGroupId',
-        'scopeCount'                            => 'ScopeCount',
-        'tags'                                  => 'Tags',
+        'defaultResourceDiscoveryId' => 'DefaultResourceDiscoveryId',
+        'ipamDescription' => 'IpamDescription',
+        'ipamId' => 'IpamId',
+        'ipamName' => 'IpamName',
+        'ipamStatus' => 'IpamStatus',
+        'operatingRegionList' => 'OperatingRegionList',
+        'ownerId' => 'OwnerId',
+        'privateDefaultScopeId' => 'PrivateDefaultScopeId',
+        'publicDefaultScopeId' => 'PublicDefaultScopeId',
+        'regionId' => 'RegionId',
+        'resourceDiscoveryAssociationCount' => 'ResourceDiscoveryAssociationCount',
+        'resourceGroupId' => 'ResourceGroupId',
+        'scopeCount' => 'ScopeCount',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -137,9 +152,10 @@ class ipams extends Model
         if (null !== $this->operatingRegionList) {
             if (\is_array($this->operatingRegionList)) {
                 $res['OperatingRegionList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->operatingRegionList as $item1) {
-                    $res['OperatingRegionList'][$n1++] = $item1;
+                    $res['OperatingRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,9 +191,10 @@ class ipams extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,9 +241,10 @@ class ipams extends Model
         if (isset($map['OperatingRegionList'])) {
             if (!empty($map['OperatingRegionList'])) {
                 $model->operatingRegionList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['OperatingRegionList'] as $item1) {
-                    $model->operatingRegionList[$n1++] = $item1;
+                    $model->operatingRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,9 +280,10 @@ class ipams extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

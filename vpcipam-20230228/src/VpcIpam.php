@@ -117,8 +117,20 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+     *
+     * @remarks
+     *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
+     * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
+     * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
+     * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
+     * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
+     * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
+     * *   You can provision at most 50 CIDR blocks to each pool.
+     *
      * @param request - AddIpamPoolCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddIpamPoolCidrResponse
      *
      * @param AddIpamPoolCidrRequest $request
@@ -154,25 +166,34 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddIpamPoolCidr',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddIpamPoolCidr',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddIpamPoolCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+     *
+     * @remarks
+     *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
+     * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
+     * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
+     * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
+     * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
+     * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
+     * *   You can provision at most 50 CIDR blocks to each pool.
+     *
      * @param request - AddIpamPoolCidrRequest
+     *
      * @returns AddIpamPoolCidrResponse
      *
      * @param AddIpamPoolCidrRequest $request
@@ -187,10 +208,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 关联资源发现和IPAM实例。
+     * Associates resource discovery with an IPAM instance.
+     *
+     * @remarks
+     *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
      *
      * @param request - AssociateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateIpamResourceDiscoveryResponse
      *
      * @param AssociateIpamResourceDiscoveryRequest $request
@@ -242,27 +267,28 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateIpamResourceDiscovery',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateIpamResourceDiscovery',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 关联资源发现和IPAM实例。
+     * Associates resource discovery with an IPAM instance.
+     *
+     * @remarks
+     *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
      *
      * @param request - AssociateIpamResourceDiscoveryRequest
+     *
      * @returns AssociateIpamResourceDiscoveryResponse
      *
      * @param AssociateIpamResourceDiscoveryRequest $request
@@ -277,8 +303,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Changes the resource group of an IPAM resource.
+     *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -326,25 +355,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Changes the resource group of an IPAM resource.
+     *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -359,10 +388,18 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 创建IPAM实例。
+     * Creates an IP Address Manager (IPAM).
+     *
+     * @remarks
+     * - You can create only one IPAM with each Alibaba Cloud account in each region.
+     * - Only IPv4 IP addresses can be allocated.
+     * - When you create an IPAM instance:
+     *     - If there is no custom resource discovery in the region, the system creates a default resource discovery associated with the IPAM instance.
+     *     - If there is a custom resource discovery in the region, the system converts it to a default resource discovery and associates it with the IPAM instance.
      *
      * @param request - CreateIpamRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpamResponse
      *
      * @param CreateIpamRequest $request
@@ -426,27 +463,32 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpam',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpam',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpamResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建IPAM实例。
+     * Creates an IP Address Manager (IPAM).
+     *
+     * @remarks
+     * - You can create only one IPAM with each Alibaba Cloud account in each region.
+     * - Only IPv4 IP addresses can be allocated.
+     * - When you create an IPAM instance:
+     *     - If there is no custom resource discovery in the region, the system creates a default resource discovery associated with the IPAM instance.
+     *     - If there is a custom resource discovery in the region, the system converts it to a default resource discovery and associates it with the IPAM instance.
      *
      * @param request - CreateIpamRequest
+     *
      * @returns CreateIpamResponse
      *
      * @param CreateIpamRequest $request
@@ -461,8 +503,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Creates an IP Address Manager (IPAM) pool.
+     *
      * @param request - CreateIpamPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpamPoolResponse
      *
      * @param CreateIpamPoolRequest $request
@@ -554,25 +599,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpamPool',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpamPool',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpamPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates an IP Address Manager (IPAM) pool.
+     *
      * @param request - CreateIpamPoolRequest
+     *
      * @returns CreateIpamPoolResponse
      *
      * @param CreateIpamPoolRequest $request
@@ -587,8 +632,17 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+     *
+     * @remarks
+     *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
+     * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
+     * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
+     * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+     *
      * @param request - CreateIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpamPoolAllocationResponse
      *
      * @param CreateIpamPoolAllocationRequest $request
@@ -636,25 +690,31 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpamPoolAllocation',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpamPoolAllocation',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+     *
+     * @remarks
+     *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
+     * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
+     * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
+     * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+     *
      * @param request - CreateIpamPoolAllocationRequest
+     *
      * @returns CreateIpamPoolAllocationResponse
      *
      * @param CreateIpamPoolAllocationRequest $request
@@ -669,10 +729,15 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 创建自定义类型资源发现。
+     * Creates a custom resource discovery instance.
+     *
+     * @remarks
+     *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
+     * *   You can create only custom resource discovery instances.
      *
      * @param request - CreateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpamResourceDiscoveryResponse
      *
      * @param CreateIpamResourceDiscoveryRequest $request
@@ -736,27 +801,29 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpamResourceDiscovery',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpamResourceDiscovery',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建自定义类型资源发现。
+     * Creates a custom resource discovery instance.
+     *
+     * @remarks
+     *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
+     * *   You can create only custom resource discovery instances.
      *
      * @param request - CreateIpamResourceDiscoveryRequest
+     *
      * @returns CreateIpamResourceDiscoveryResponse
      *
      * @param CreateIpamResourceDiscoveryRequest $request
@@ -771,8 +838,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Creates a public scope and private scope to respectively manage public and private IP addresses.
+     *
      * @param request - CreateIpamScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpamScopeResponse
      *
      * @param CreateIpamScopeRequest $request
@@ -840,25 +910,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpamScope',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpamScope',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIpamScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a public scope and private scope to respectively manage public and private IP addresses.
+     *
      * @param request - CreateIpamScopeRequest
+     *
      * @returns CreateIpamScopeResponse
      *
      * @param CreateIpamScopeRequest $request
@@ -873,8 +943,16 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Deletes an IP Address Manager (IPAM).
+     *
+     * @remarks
+     * ## [](#)Prerequisites
+     * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+     * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+     *
      * @param request - DeleteIpamRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpamResponse
      *
      * @param DeleteIpamRequest $request
@@ -922,25 +1000,30 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpam',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpam',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpamResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpamResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes an IP Address Manager (IPAM).
+     *
+     * @remarks
+     * ## [](#)Prerequisites
+     * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+     * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+     *
      * @param request - DeleteIpamRequest
+     *
      * @returns DeleteIpamResponse
      *
      * @param DeleteIpamRequest $request
@@ -955,8 +1038,17 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Deletes an IP Address Manager (IPAM) scope.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
+     * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
+     * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+     *
      * @param request - DeleteIpamPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpamPoolResponse
      *
      * @param DeleteIpamPoolRequest $request
@@ -1004,25 +1096,31 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpamPool',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpamPool',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpamPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes an IP Address Manager (IPAM) scope.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
+     * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
+     * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+     *
      * @param request - DeleteIpamPoolRequest
+     *
      * @returns DeleteIpamPoolResponse
      *
      * @param DeleteIpamPoolRequest $request
@@ -1037,8 +1135,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+     *
      * @param request - DeleteIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpamPoolAllocationResponse
      *
      * @param DeleteIpamPoolAllocationRequest $request
@@ -1070,25 +1171,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpamPoolAllocation',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpamPoolAllocation',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+     *
      * @param request - DeleteIpamPoolAllocationRequest
+     *
      * @returns DeleteIpamPoolAllocationResponse
      *
      * @param DeleteIpamPoolAllocationRequest $request
@@ -1103,8 +1204,17 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+     *
+     * @remarks
+     *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
+     * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
+     * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
+     * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+     *
      * @param request - DeleteIpamPoolCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpamPoolCidrResponse
      *
      * @param DeleteIpamPoolCidrRequest $request
@@ -1140,25 +1250,31 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpamPoolCidr',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpamPoolCidr',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpamPoolCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+     *
+     * @remarks
+     *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
+     * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
+     * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
+     * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+     *
      * @param request - DeleteIpamPoolCidrRequest
+     *
      * @returns DeleteIpamPoolCidrResponse
      *
      * @param DeleteIpamPoolCidrRequest $request
@@ -1173,10 +1289,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 删除自定义类型的资源发现。
+     * Deletes a custom resource discovery instance.
+     *
+     * @remarks
+     *   If a resource discovery instance is shared, it cannot be deleted.
      *
      * @param request - DeleteIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpamResourceDiscoveryResponse
      *
      * @param DeleteIpamResourceDiscoveryRequest $request
@@ -1224,27 +1344,28 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpamResourceDiscovery',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpamResourceDiscovery',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除自定义类型的资源发现。
+     * Deletes a custom resource discovery instance.
+     *
+     * @remarks
+     *   If a resource discovery instance is shared, it cannot be deleted.
      *
      * @param request - DeleteIpamResourceDiscoveryRequest
+     *
      * @returns DeleteIpamResourceDiscoveryResponse
      *
      * @param DeleteIpamResourceDiscoveryRequest $request
@@ -1259,8 +1380,16 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Deletes an IP Address Manager (IPAM) scope.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * *   You cannot delete the private scope and public scope created by the system.
+     * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+     *
      * @param request - DeleteIpamScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpamScopeResponse
      *
      * @param DeleteIpamScopeRequest $request
@@ -1308,25 +1437,30 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpamScope',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpamScope',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIpamScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes an IP Address Manager (IPAM) scope.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * *   You cannot delete the private scope and public scope created by the system.
+     * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+     *
      * @param request - DeleteIpamScopeRequest
+     *
      * @returns DeleteIpamScopeResponse
      *
      * @param DeleteIpamScopeRequest $request
@@ -1341,10 +1475,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 解关联资源发现和IPAM实例。
+     * Disassociates resource discovery and IPAM instances.
      *
      * @param request - DissociateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DissociateIpamResourceDiscoveryResponse
      *
      * @param DissociateIpamResourceDiscoveryRequest $request
@@ -1396,27 +1531,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DissociateIpamResourceDiscovery',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DissociateIpamResourceDiscovery',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DissociateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DissociateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DissociateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 解关联资源发现和IPAM实例。
+     * Disassociates resource discovery and IPAM instances.
      *
      * @param request - DissociateIpamResourceDiscoveryRequest
+     *
      * @returns DissociateIpamResourceDiscoveryResponse
      *
      * @param DissociateIpamResourceDiscoveryRequest $request
@@ -1431,10 +1564,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询指定IPAM地址池CIDR分配的信息.
+     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
      *
      * @param request - GetIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIpamPoolAllocationResponse
      *
      * @param GetIpamPoolAllocationRequest $request
@@ -1446,31 +1580,29 @@ class VpcIpam extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIpamPoolAllocation',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIpamPoolAllocation',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询指定IPAM地址池CIDR分配的信息.
+     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
      *
      * @param request - GetIpamPoolAllocationRequest
+     *
      * @returns GetIpamPoolAllocationResponse
      *
      * @param GetIpamPoolAllocationRequest $request
@@ -1485,10 +1617,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 获取地址池可用CIDR。
+     * Gets the available CIDR blocks of the IPAM pool.
      *
      * @param request - GetIpamPoolNextAvailableCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIpamPoolNextAvailableCidrResponse
      *
      * @param GetIpamPoolNextAvailableCidrRequest $request
@@ -1500,31 +1633,29 @@ class VpcIpam extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIpamPoolNextAvailableCidr',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIpamPoolNextAvailableCidr',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIpamPoolNextAvailableCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIpamPoolNextAvailableCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIpamPoolNextAvailableCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取地址池可用CIDR。
+     * Gets the available CIDR blocks of the IPAM pool.
      *
      * @param request - GetIpamPoolNextAvailableCidrRequest
+     *
      * @returns GetIpamPoolNextAvailableCidrResponse
      *
      * @param GetIpamPoolNextAvailableCidrRequest $request
@@ -1539,10 +1670,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询IPAM功能的开通状态。
+     * Queries whether IP Address Manager (IPAM) is activated.
      *
      * @param request - GetVpcIpamServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcIpamServiceStatusResponse
      *
      * @param GetVpcIpamServiceStatusRequest $request
@@ -1582,27 +1714,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcIpamServiceStatus',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcIpamServiceStatus',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcIpamServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcIpamServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcIpamServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询IPAM功能的开通状态。
+     * Queries whether IP Address Manager (IPAM) is activated.
      *
      * @param request - GetVpcIpamServiceStatusRequest
+     *
      * @returns GetVpcIpamServiceStatusResponse
      *
      * @param GetVpcIpamServiceStatusRequest $request
@@ -1617,8 +1747,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Queries discovered resources.
+     *
      * @param request - ListIpamDiscoveredResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamDiscoveredResourceResponse
      *
      * @param ListIpamDiscoveredResourceRequest $request
@@ -1658,25 +1791,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamDiscoveredResource',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamDiscoveredResource',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamDiscoveredResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries discovered resources.
+     *
      * @param request - ListIpamDiscoveredResourceRequest
+     *
      * @returns ListIpamDiscoveredResourceResponse
      *
      * @param ListIpamDiscoveredResourceRequest $request
@@ -1691,8 +1824,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+     *
      * @param request - ListIpamPoolAllocationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamPoolAllocationsResponse
      *
      * @param ListIpamPoolAllocationsRequest $request
@@ -1736,25 +1872,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamPoolAllocations',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamPoolAllocations',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamPoolAllocationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamPoolAllocationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamPoolAllocationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+     *
      * @param request - ListIpamPoolAllocationsRequest
+     *
      * @returns ListIpamPoolAllocationsResponse
      *
      * @param ListIpamPoolAllocationsRequest $request
@@ -1769,8 +1905,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+     *
      * @param request - ListIpamPoolCidrsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamPoolCidrsResponse
      *
      * @param ListIpamPoolCidrsRequest $request
@@ -1806,25 +1945,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamPoolCidrs',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamPoolCidrs',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamPoolCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamPoolCidrsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamPoolCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+     *
      * @param request - ListIpamPoolCidrsRequest
+     *
      * @returns ListIpamPoolCidrsResponse
      *
      * @param ListIpamPoolCidrsRequest $request
@@ -1839,8 +1978,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Queries IP Address Manager (IPAM) pools.
+     *
      * @param request - ListIpamPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamPoolsResponse
      *
      * @param ListIpamPoolsRequest $request
@@ -1916,25 +2058,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamPools',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamPools',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries IP Address Manager (IPAM) pools.
+     *
      * @param request - ListIpamPoolsRequest
+     *
      * @returns ListIpamPoolsResponse
      *
      * @param ListIpamPoolsRequest $request
@@ -1949,8 +2091,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Queries resources in an IP Address Manager (IPAM) pool.
+     *
      * @param request - ListIpamResourceCidrsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamResourceCidrsResponse
      *
      * @param ListIpamResourceCidrsRequest $request
@@ -2002,25 +2147,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamResourceCidrs',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamResourceCidrs',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamResourceCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamResourceCidrsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamResourceCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries resources in an IP Address Manager (IPAM) pool.
+     *
      * @param request - ListIpamResourceCidrsRequest
+     *
      * @returns ListIpamResourceCidrsResponse
      *
      * @param ListIpamResourceCidrsRequest $request
@@ -2035,10 +2180,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询ipam资源发现实例.
+     * Queries IPAM resource discovery instances.
      *
      * @param request - ListIpamResourceDiscoveriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamResourceDiscoveriesResponse
      *
      * @param ListIpamResourceDiscoveriesRequest $request
@@ -2106,27 +2252,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamResourceDiscoveries',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamResourceDiscoveries',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamResourceDiscoveriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamResourceDiscoveriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamResourceDiscoveriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询ipam资源发现实例.
+     * Queries IPAM resource discovery instances.
      *
      * @param request - ListIpamResourceDiscoveriesRequest
+     *
      * @returns ListIpamResourceDiscoveriesResponse
      *
      * @param ListIpamResourceDiscoveriesRequest $request
@@ -2141,10 +2285,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查看资源发现和IPAM的关联关系。
+     * Queries the association between resource discovery and IPAM.
      *
      * @param request - ListIpamResourceDiscoveryAssociationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamResourceDiscoveryAssociationsResponse
      *
      * @param ListIpamResourceDiscoveryAssociationsRequest $request
@@ -2196,27 +2341,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamResourceDiscoveryAssociations',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamResourceDiscoveryAssociations',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamResourceDiscoveryAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamResourceDiscoveryAssociationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamResourceDiscoveryAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看资源发现和IPAM的关联关系。
+     * Queries the association between resource discovery and IPAM.
      *
      * @param request - ListIpamResourceDiscoveryAssociationsRequest
+     *
      * @returns ListIpamResourceDiscoveryAssociationsResponse
      *
      * @param ListIpamResourceDiscoveryAssociationsRequest $request
@@ -2231,8 +2374,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Queries IP Address Manager (IPAM) scopes.
+     *
      * @param request - ListIpamScopesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamScopesResponse
      *
      * @param ListIpamScopesRequest $request
@@ -2300,25 +2446,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpamScopes',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpamScopes',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamScopesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamScopesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamScopesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries IP Address Manager (IPAM) scopes.
+     *
      * @param request - ListIpamScopesRequest
+     *
      * @returns ListIpamScopesResponse
      *
      * @param ListIpamScopesRequest $request
@@ -2337,6 +2483,7 @@ class VpcIpam extends OpenApiClient
      *
      * @param request - ListIpamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpamsResponse
      *
      * @param ListIpamsRequest $request
@@ -2396,27 +2543,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpams',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpams',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIpamsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIpamsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIpamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries IP Address Managers (IPAMs).
      *
      * @param request - ListIpamsRequest
+     *
      * @returns ListIpamsResponse
      *
      * @param ListIpamsRequest $request
@@ -2431,10 +2576,18 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询资源标签列表.
+     * Queries a list of resource tags.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2490,27 +2643,32 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询资源标签列表.
+     * Queries a list of resource tags.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2525,10 +2683,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 开通IPAM功能。
+     * Activates IP Address Manager (IPAM).
      *
      * @param request - OpenVpcIpamServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenVpcIpamServiceResponse
      *
      * @param OpenVpcIpamServiceRequest $request
@@ -2568,27 +2727,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenVpcIpamService',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenVpcIpamService',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenVpcIpamServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenVpcIpamServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenVpcIpamServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 开通IPAM功能。
+     * Activates IP Address Manager (IPAM).
      *
      * @param request - OpenVpcIpamServiceRequest
+     *
      * @returns OpenVpcIpamServiceResponse
      *
      * @param OpenVpcIpamServiceRequest $request
@@ -2603,10 +2760,18 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 为资源实例绑定资源标签.
+     * Adds a tag to a resource.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
+     * *   Each tag key that is added to an instance must be unique.
+     * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+     * *   You can add at most 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -2654,27 +2819,32 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 为资源实例绑定资源标签.
+     * Adds a tag to a resource.
+     *
+     * @remarks
+     * ### [](#)Usage notes
+     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
+     * *   Each tag key that is added to an instance must be unique.
+     * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+     * *   You can add at most 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -2689,10 +2859,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 为资源解绑资源标签.
+     * Removes a tag from a resource.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -2744,27 +2915,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 为资源解绑资源标签.
+     * Removes a tag from a resource.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -2779,10 +2948,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 更新ipam.
+     * Updates an IP Address Manager (IPAM).
      *
      * @param request - UpdateIpamRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIpamResponse
      *
      * @param UpdateIpamRequest $request
@@ -2846,27 +3016,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIpam',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIpam',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIpamResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 更新ipam.
+     * Updates an IP Address Manager (IPAM).
      *
      * @param request - UpdateIpamRequest
+     *
      * @returns UpdateIpamResponse
      *
      * @param UpdateIpamRequest $request
@@ -2881,8 +3049,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Modifies the basic information about an IP Address Manager (IPAM) pool.
+     *
      * @param request - UpdateIpamPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIpamPoolResponse
      *
      * @param UpdateIpamPoolRequest $request
@@ -2958,25 +3129,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIpamPool',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIpamPool',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIpamPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Modifies the basic information about an IP Address Manager (IPAM) pool.
+     *
      * @param request - UpdateIpamPoolRequest
+     *
      * @returns UpdateIpamPoolResponse
      *
      * @param UpdateIpamPoolRequest $request
@@ -2991,10 +3162,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 更新IPAM地址池分配信息.
+     * Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
      *
      * @param request - UpdateIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIpamPoolAllocationResponse
      *
      * @param UpdateIpamPoolAllocationRequest $request
@@ -3034,27 +3206,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIpamPoolAllocation',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIpamPoolAllocation',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 更新IPAM地址池分配信息.
+     * Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
      *
      * @param request - UpdateIpamPoolAllocationRequest
+     *
      * @returns UpdateIpamPoolAllocationResponse
      *
      * @param UpdateIpamPoolAllocationRequest $request
@@ -3069,10 +3239,15 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 更新自定义类型资源发现。
+     * Modifies a resource discovery instance.
+     *
+     * @remarks
+     *   You can add or remove effective regions only for custom resource discovery instances.
+     * *   When removing effective regions from a resource discovery instance, the managed region cannot be included.
      *
      * @param request - UpdateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIpamResourceDiscoveryResponse
      *
      * @param UpdateIpamResourceDiscoveryRequest $request
@@ -3136,27 +3311,29 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIpamResourceDiscovery',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIpamResourceDiscovery',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 更新自定义类型资源发现。
+     * Modifies a resource discovery instance.
+     *
+     * @remarks
+     *   You can add or remove effective regions only for custom resource discovery instances.
+     * *   When removing effective regions from a resource discovery instance, the managed region cannot be included.
      *
      * @param request - UpdateIpamResourceDiscoveryRequest
+     *
      * @returns UpdateIpamResourceDiscoveryResponse
      *
      * @param UpdateIpamResourceDiscoveryRequest $request
@@ -3171,8 +3348,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * Modifies the basic information about an IP Address Manager (IPAM) scope.
+     *
      * @param request - UpdateIpamScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIpamScopeResponse
      *
      * @param UpdateIpamScopeRequest $request
@@ -3228,25 +3408,25 @@ class VpcIpam extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIpamScope',
-            'version'     => '2023-02-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIpamScope',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIpamScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Modifies the basic information about an IP Address Manager (IPAM) scope.
+     *
      * @param request - UpdateIpamScopeRequest
+     *
      * @returns UpdateIpamScopeResponse
      *
      * @param UpdateIpamScopeRequest $request

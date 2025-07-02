@@ -13,63 +13,74 @@ class CreateIpamRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipamDescription;
+
     /**
      * @var string
      */
     public $ipamName;
+
     /**
      * @var string[]
      */
     public $operatingRegionList;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'ipamDescription'      => 'IpamDescription',
-        'ipamName'             => 'IpamName',
-        'operatingRegionList'  => 'OperatingRegionList',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipamDescription' => 'IpamDescription',
+        'ipamName' => 'IpamName',
+        'operatingRegionList' => 'OperatingRegionList',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -105,9 +116,10 @@ class CreateIpamRequest extends Model
         if (null !== $this->operatingRegionList) {
             if (\is_array($this->operatingRegionList)) {
                 $res['OperatingRegionList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->operatingRegionList as $item1) {
-                    $res['OperatingRegionList'][$n1++] = $item1;
+                    $res['OperatingRegionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,9 +151,10 @@ class CreateIpamRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,9 +189,10 @@ class CreateIpamRequest extends Model
         if (isset($map['OperatingRegionList'])) {
             if (!empty($map['OperatingRegionList'])) {
                 $model->operatingRegionList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['OperatingRegionList'] as $item1) {
-                    $model->operatingRegionList[$n1++] = $item1;
+                    $model->operatingRegionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,9 +224,10 @@ class CreateIpamRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
