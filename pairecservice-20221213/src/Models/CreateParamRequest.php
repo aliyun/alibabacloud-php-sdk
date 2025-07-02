@@ -31,12 +31,18 @@ class CreateParamRequest extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $value;
     protected $_name = [
         'environment' => 'Environment',
         'instanceId' => 'InstanceId',
         'name' => 'Name',
         'sceneId' => 'SceneId',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 
@@ -62,6 +68,10 @@ class CreateParamRequest extends Model
 
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->value) {
@@ -93,6 +103,10 @@ class CreateParamRequest extends Model
 
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['Value'])) {

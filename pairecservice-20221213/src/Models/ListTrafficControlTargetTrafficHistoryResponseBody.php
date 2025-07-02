@@ -53,7 +53,8 @@ class ListTrafficControlTargetTrafficHistoryResponseBody extends Model
                 $res['TrafficControlTaskTrafficHistories'] = [];
                 $n1 = 0;
                 foreach ($this->trafficControlTaskTrafficHistories as $item1) {
-                    $res['TrafficControlTaskTrafficHistories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficControlTaskTrafficHistories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ListTrafficControlTargetTrafficHistoryResponseBody extends Model
                 $model->trafficControlTaskTrafficHistories = [];
                 $n1 = 0;
                 foreach ($map['TrafficControlTaskTrafficHistories'] as $item1) {
-                    $model->trafficControlTaskTrafficHistories[$n1++] = trafficControlTaskTrafficHistories::fromMap($item1);
+                    $model->trafficControlTaskTrafficHistories[$n1] = trafficControlTaskTrafficHistories::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

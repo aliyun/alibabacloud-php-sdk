@@ -45,7 +45,8 @@ class ListFeatureConsistencyCheckJobsResponseBody extends Model
                 $res['FeatureConsistencyCheckJobs'] = [];
                 $n1 = 0;
                 foreach ($this->featureConsistencyCheckJobs as $item1) {
-                    $res['FeatureConsistencyCheckJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FeatureConsistencyCheckJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListFeatureConsistencyCheckJobsResponseBody extends Model
                 $model->featureConsistencyCheckJobs = [];
                 $n1 = 0;
                 foreach ($map['FeatureConsistencyCheckJobs'] as $item1) {
-                    $model->featureConsistencyCheckJobs[$n1++] = featureConsistencyCheckJobs::fromMap($item1);
+                    $model->featureConsistencyCheckJobs[$n1] = featureConsistencyCheckJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

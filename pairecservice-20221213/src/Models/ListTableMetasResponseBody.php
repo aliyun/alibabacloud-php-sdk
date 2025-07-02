@@ -49,7 +49,8 @@ class ListTableMetasResponseBody extends Model
                 $res['TableMetas'] = [];
                 $n1 = 0;
                 foreach ($this->tableMetas as $item1) {
-                    $res['TableMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableMetas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListTableMetasResponseBody extends Model
                 $model->tableMetas = [];
                 $n1 = 0;
                 foreach ($map['TableMetas'] as $item1) {
-                    $model->tableMetas[$n1++] = tableMetas::fromMap($item1);
+                    $model->tableMetas[$n1] = tableMetas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

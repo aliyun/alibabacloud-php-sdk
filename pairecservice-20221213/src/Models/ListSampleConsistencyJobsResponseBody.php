@@ -49,7 +49,8 @@ class ListSampleConsistencyJobsResponseBody extends Model
                 $res['SampleConsistencyJobs'] = [];
                 $n1 = 0;
                 foreach ($this->sampleConsistencyJobs as $item1) {
-                    $res['SampleConsistencyJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SampleConsistencyJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListSampleConsistencyJobsResponseBody extends Model
                 $model->sampleConsistencyJobs = [];
                 $n1 = 0;
                 foreach ($map['SampleConsistencyJobs'] as $item1) {
-                    $model->sampleConsistencyJobs[$n1++] = sampleConsistencyJobs::fromMap($item1);
+                    $model->sampleConsistencyJobs[$n1] = sampleConsistencyJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

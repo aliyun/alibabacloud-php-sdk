@@ -49,7 +49,8 @@ class ListSubCrowdsResponseBody extends Model
                 $res['SubCrowds'] = [];
                 $n1 = 0;
                 foreach ($this->subCrowds as $item1) {
-                    $res['SubCrowds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubCrowds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListSubCrowdsResponseBody extends Model
                 $model->subCrowds = [];
                 $n1 = 0;
                 foreach ($map['SubCrowds'] as $item1) {
-                    $model->subCrowds[$n1++] = subCrowds::fromMap($item1);
+                    $model->subCrowds[$n1] = subCrowds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -103,7 +103,8 @@ class resourceRules extends Model
                 $res['RuleItems'] = [];
                 $n1 = 0;
                 foreach ($this->ruleItems as $item1) {
-                    $res['RuleItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class resourceRules extends Model
                 $model->ruleItems = [];
                 $n1 = 0;
                 foreach ($map['RuleItems'] as $item1) {
-                    $model->ruleItems[$n1++] = ruleItems::fromMap($item1);
+                    $model->ruleItems[$n1] = ruleItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

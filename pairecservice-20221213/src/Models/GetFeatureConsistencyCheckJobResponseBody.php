@@ -94,7 +94,8 @@ class GetFeatureConsistencyCheckJobResponseBody extends Model
                 $res['Logs'] = [];
                 $n1 = 0;
                 foreach ($this->logs as $item1) {
-                    $res['Logs'][$n1++] = $item1;
+                    $res['Logs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class GetFeatureConsistencyCheckJobResponseBody extends Model
                 $model->logs = [];
                 $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
-                    $model->logs[$n1++] = $item1;
+                    $model->logs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

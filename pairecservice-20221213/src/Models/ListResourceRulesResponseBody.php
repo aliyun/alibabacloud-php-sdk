@@ -49,7 +49,8 @@ class ListResourceRulesResponseBody extends Model
                 $res['ResourceRules'] = [];
                 $n1 = 0;
                 foreach ($this->resourceRules as $item1) {
-                    $res['ResourceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListResourceRulesResponseBody extends Model
                 $model->resourceRules = [];
                 $n1 = 0;
                 foreach ($map['ResourceRules'] as $item1) {
-                    $model->resourceRules[$n1++] = resourceRules::fromMap($item1);
+                    $model->resourceRules[$n1] = resourceRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

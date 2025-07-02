@@ -63,7 +63,8 @@ class ReportSampleConsistencyJobResponseBody extends Model
                 $res['FeaturesDifference'] = [];
                 $n1 = 0;
                 foreach ($this->featuresDifference as $item1) {
-                    $res['FeaturesDifference'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FeaturesDifference'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ReportSampleConsistencyJobResponseBody extends Model
                 $model->featuresDifference = [];
                 $n1 = 0;
                 foreach ($map['FeaturesDifference'] as $item1) {
-                    $model->featuresDifference[$n1++] = featuresDifference::fromMap($item1);
+                    $model->featuresDifference[$n1] = featuresDifference::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

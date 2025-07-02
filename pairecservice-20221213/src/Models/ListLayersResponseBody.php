@@ -45,7 +45,8 @@ class ListLayersResponseBody extends Model
                 $res['Layers'] = [];
                 $n1 = 0;
                 foreach ($this->layers as $item1) {
-                    $res['Layers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Layers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListLayersResponseBody extends Model
                 $model->layers = [];
                 $n1 = 0;
                 foreach ($map['Layers'] as $item1) {
-                    $model->layers[$n1++] = layers::fromMap($item1);
+                    $model->layers[$n1] = layers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

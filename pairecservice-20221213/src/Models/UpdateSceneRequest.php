@@ -55,7 +55,8 @@ class UpdateSceneRequest extends Model
                 $res['Flows'] = [];
                 $n1 = 0;
                 foreach ($this->flows as $item1) {
-                    $res['Flows'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Flows'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class UpdateSceneRequest extends Model
                 $model->flows = [];
                 $n1 = 0;
                 foreach ($map['Flows'] as $item1) {
-                    $model->flows[$n1++] = flows::fromMap($item1);
+                    $model->flows[$n1] = flows::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

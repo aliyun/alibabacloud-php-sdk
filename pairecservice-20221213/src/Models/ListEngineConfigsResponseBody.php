@@ -45,7 +45,8 @@ class ListEngineConfigsResponseBody extends Model
                 $res['EngineConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->engineConfigs as $item1) {
-                    $res['EngineConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EngineConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListEngineConfigsResponseBody extends Model
                 $model->engineConfigs = [];
                 $n1 = 0;
                 foreach ($map['EngineConfigs'] as $item1) {
-                    $model->engineConfigs[$n1++] = engineConfigs::fromMap($item1);
+                    $model->engineConfigs[$n1] = engineConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

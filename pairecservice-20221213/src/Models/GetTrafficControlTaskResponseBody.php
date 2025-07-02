@@ -353,7 +353,8 @@ class GetTrafficControlTaskResponseBody extends Model
                 $res['TrafficControlTargets'] = [];
                 $n1 = 0;
                 foreach ($this->trafficControlTargets as $item1) {
-                    $res['TrafficControlTargets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficControlTargets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -510,7 +511,8 @@ class GetTrafficControlTaskResponseBody extends Model
                 $model->trafficControlTargets = [];
                 $n1 = 0;
                 foreach ($map['TrafficControlTargets'] as $item1) {
-                    $model->trafficControlTargets[$n1++] = trafficControlTargets::fromMap($item1);
+                    $model->trafficControlTargets[$n1] = trafficControlTargets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

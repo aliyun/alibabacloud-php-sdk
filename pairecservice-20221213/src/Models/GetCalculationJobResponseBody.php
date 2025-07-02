@@ -100,7 +100,8 @@ class GetCalculationJobResponseBody extends Model
                 $res['JobMessage'] = [];
                 $n1 = 0;
                 foreach ($this->jobMessage as $item1) {
-                    $res['JobMessage'][$n1++] = $item1;
+                    $res['JobMessage'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class GetCalculationJobResponseBody extends Model
                 $model->jobMessage = [];
                 $n1 = 0;
                 foreach ($map['JobMessage'] as $item1) {
-                    $model->jobMessage[$n1++] = $item1;
+                    $model->jobMessage[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

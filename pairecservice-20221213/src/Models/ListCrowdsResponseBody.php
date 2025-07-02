@@ -45,7 +45,8 @@ class ListCrowdsResponseBody extends Model
                 $res['Crowds'] = [];
                 $n1 = 0;
                 foreach ($this->crowds as $item1) {
-                    $res['Crowds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Crowds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListCrowdsResponseBody extends Model
                 $model->crowds = [];
                 $n1 = 0;
                 foreach ($map['Crowds'] as $item1) {
-                    $model->crowds[$n1++] = crowds::fromMap($item1);
+                    $model->crowds[$n1] = crowds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

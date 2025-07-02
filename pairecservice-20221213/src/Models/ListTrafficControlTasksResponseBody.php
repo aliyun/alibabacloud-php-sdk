@@ -53,7 +53,8 @@ class ListTrafficControlTasksResponseBody extends Model
                 $res['TrafficControlTasks'] = [];
                 $n1 = 0;
                 foreach ($this->trafficControlTasks as $item1) {
-                    $res['TrafficControlTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficControlTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ListTrafficControlTasksResponseBody extends Model
                 $model->trafficControlTasks = [];
                 $n1 = 0;
                 foreach ($map['TrafficControlTasks'] as $item1) {
-                    $model->trafficControlTasks[$n1++] = trafficControlTasks::fromMap($item1);
+                    $model->trafficControlTasks[$n1] = trafficControlTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

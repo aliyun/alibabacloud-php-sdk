@@ -50,7 +50,8 @@ class splitParts extends Model
                 $res['SetPoints'] = [];
                 $n1 = 0;
                 foreach ($this->setPoints as $item1) {
-                    $res['SetPoints'][$n1++] = $item1;
+                    $res['SetPoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class splitParts extends Model
                 $res['SetValues'] = [];
                 $n1 = 0;
                 foreach ($this->setValues as $item1) {
-                    $res['SetValues'][$n1++] = $item1;
+                    $res['SetValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class splitParts extends Model
                 $res['TimePoints'] = [];
                 $n1 = 0;
                 foreach ($this->timePoints as $item1) {
-                    $res['TimePoints'][$n1++] = $item1;
+                    $res['TimePoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class splitParts extends Model
                 $model->setPoints = [];
                 $n1 = 0;
                 foreach ($map['SetPoints'] as $item1) {
-                    $model->setPoints[$n1++] = $item1;
+                    $model->setPoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class splitParts extends Model
                 $model->setValues = [];
                 $n1 = 0;
                 foreach ($map['SetValues'] as $item1) {
-                    $model->setValues[$n1++] = $item1;
+                    $model->setValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class splitParts extends Model
                 $model->timePoints = [];
                 $n1 = 0;
                 foreach ($map['TimePoints'] as $item1) {
-                    $model->timePoints[$n1++] = $item1;
+                    $model->timePoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

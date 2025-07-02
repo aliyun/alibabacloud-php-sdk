@@ -56,7 +56,8 @@ class ReportABMetricGroupResponseBody extends Model
                 $res['GroupDimension'] = [];
                 $n1 = 0;
                 foreach ($this->groupDimension as $item1) {
-                    $res['GroupDimension'][$n1++] = $item1;
+                    $res['GroupDimension'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,7 +91,8 @@ class ReportABMetricGroupResponseBody extends Model
                 $model->groupDimension = [];
                 $n1 = 0;
                 foreach ($map['GroupDimension'] as $item1) {
-                    $model->groupDimension[$n1++] = $item1;
+                    $model->groupDimension[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class QuerySampleConsistencyJobDifferenceResponseBody extends Model
                 $res['DifferenceHistogram'] = [];
                 $n1 = 0;
                 foreach ($this->differenceHistogram as $item1) {
-                    $res['DifferenceHistogram'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DifferenceHistogram'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class QuerySampleConsistencyJobDifferenceResponseBody extends Model
                 $res['NumberFeatureDifferences'] = [];
                 $n1 = 0;
                 foreach ($this->numberFeatureDifferences as $item1) {
-                    $res['NumberFeatureDifferences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NumberFeatureDifferences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class QuerySampleConsistencyJobDifferenceResponseBody extends Model
                 $res['StringFeatureDifferences'] = [];
                 $n1 = 0;
                 foreach ($this->stringFeatureDifferences as $item1) {
-                    $res['StringFeatureDifferences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StringFeatureDifferences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +107,8 @@ class QuerySampleConsistencyJobDifferenceResponseBody extends Model
                 $model->differenceHistogram = [];
                 $n1 = 0;
                 foreach ($map['DifferenceHistogram'] as $item1) {
-                    $model->differenceHistogram[$n1++] = differenceHistogram::fromMap($item1);
+                    $model->differenceHistogram[$n1] = differenceHistogram::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +118,8 @@ class QuerySampleConsistencyJobDifferenceResponseBody extends Model
                 $model->numberFeatureDifferences = [];
                 $n1 = 0;
                 foreach ($map['NumberFeatureDifferences'] as $item1) {
-                    $model->numberFeatureDifferences[$n1++] = numberFeatureDifferences::fromMap($item1);
+                    $model->numberFeatureDifferences[$n1] = numberFeatureDifferences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +133,8 @@ class QuerySampleConsistencyJobDifferenceResponseBody extends Model
                 $model->stringFeatureDifferences = [];
                 $n1 = 0;
                 foreach ($map['StringFeatureDifferences'] as $item1) {
-                    $model->stringFeatureDifferences[$n1++] = stringFeatureDifferences::fromMap($item1);
+                    $model->stringFeatureDifferences[$n1] = stringFeatureDifferences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

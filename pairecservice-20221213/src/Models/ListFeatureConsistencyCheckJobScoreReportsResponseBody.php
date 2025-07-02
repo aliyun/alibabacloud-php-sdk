@@ -59,7 +59,8 @@ class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends Model
                 $res['ReportsOfScoreDiff'] = [];
                 $n1 = 0;
                 foreach ($this->reportsOfScoreDiff as $item1) {
-                    $res['ReportsOfScoreDiff'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReportsOfScoreDiff'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends Model
                 $model->reportsOfScoreDiff = [];
                 $n1 = 0;
                 foreach ($map['ReportsOfScoreDiff'] as $item1) {
-                    $model->reportsOfScoreDiff[$n1++] = reportsOfScoreDiff::fromMap($item1);
+                    $model->reportsOfScoreDiff[$n1] = reportsOfScoreDiff::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

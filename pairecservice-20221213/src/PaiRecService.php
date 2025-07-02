@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTargetRe
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTargetResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateAlgorithmCustomizationScriptRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateAlgorithmCustomizationScriptResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskCodeRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskCodeResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskConfigRequest;
@@ -2326,6 +2328,10 @@ class PaiRecService extends OpenApiClient
             @$body['SceneId'] = $request->sceneId;
         }
 
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
         if (null !== $request->value) {
             @$body['Value'] = $request->value;
         }
@@ -4359,6 +4365,77 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->deleteTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 生成算法定制脚本.
+     *
+     * @param request - GenerateAlgorithmCustomizationScriptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateAlgorithmCustomizationScriptResponse
+     *
+     * @param string                                      $AlgorithmCustomizationId
+     * @param GenerateAlgorithmCustomizationScriptRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GenerateAlgorithmCustomizationScriptResponse
+     */
+    public function generateAlgorithmCustomizationScriptWithOptions($AlgorithmCustomizationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->deployMode) {
+            @$body['DeployMode'] = $request->deployMode;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->moduleFieldTypes) {
+            @$body['ModuleFieldTypes'] = $request->moduleFieldTypes;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateAlgorithmCustomizationScript',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/algorithmcustomizations/' . Url::percentEncode($AlgorithmCustomizationId) . '/action/generatescript',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateAlgorithmCustomizationScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成算法定制脚本.
+     *
+     * @param request - GenerateAlgorithmCustomizationScriptRequest
+     *
+     * @returns GenerateAlgorithmCustomizationScriptResponse
+     *
+     * @param string                                      $AlgorithmCustomizationId
+     * @param GenerateAlgorithmCustomizationScriptRequest $request
+     *
+     * @return GenerateAlgorithmCustomizationScriptResponse
+     */
+    public function generateAlgorithmCustomizationScript($AlgorithmCustomizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateAlgorithmCustomizationScriptWithOptions($AlgorithmCustomizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -7035,6 +7112,10 @@ class PaiRecService extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->encrypted) {
+            @$query['Encrypted'] = $request->encrypted;
+        }
+
         if (null !== $request->environment) {
             @$query['Environment'] = $request->environment;
         }

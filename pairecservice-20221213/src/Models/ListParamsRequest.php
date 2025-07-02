@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListParamsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
      * @var string
      */
     public $environment;
@@ -38,6 +43,7 @@ class ListParamsRequest extends Model
      */
     public $sceneId;
     protected $_name = [
+        'encrypted' => 'Encrypted',
         'environment' => 'Environment',
         'instanceId' => 'InstanceId',
         'name' => 'Name',
@@ -54,6 +60,10 @@ class ListParamsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+
         if (null !== $this->environment) {
             $res['Environment'] = $this->environment;
         }
@@ -89,6 +99,10 @@ class ListParamsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+
         if (isset($map['Environment'])) {
             $model->environment = $map['Environment'];
         }

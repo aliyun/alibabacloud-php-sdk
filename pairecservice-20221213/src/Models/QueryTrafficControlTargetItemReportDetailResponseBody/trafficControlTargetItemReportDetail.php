@@ -43,7 +43,8 @@ class trafficControlTargetItemReportDetail extends Model
                 $res['ItemControlTailReportDetails'] = [];
                 $n1 = 0;
                 foreach ($this->itemControlTailReportDetails as $item1) {
-                    $res['ItemControlTailReportDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ItemControlTailReportDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class trafficControlTargetItemReportDetail extends Model
                 $res['ItemControlTopReportDetails'] = [];
                 $n1 = 0;
                 foreach ($this->itemControlTopReportDetails as $item1) {
-                    $res['ItemControlTopReportDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ItemControlTopReportDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class trafficControlTargetItemReportDetail extends Model
                 $model->itemControlTailReportDetails = [];
                 $n1 = 0;
                 foreach ($map['ItemControlTailReportDetails'] as $item1) {
-                    $model->itemControlTailReportDetails[$n1++] = itemControlTailReportDetails::fromMap($item1);
+                    $model->itemControlTailReportDetails[$n1] = itemControlTailReportDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class trafficControlTargetItemReportDetail extends Model
                 $model->itemControlTopReportDetails = [];
                 $n1 = 0;
                 foreach ($map['ItemControlTopReportDetails'] as $item1) {
-                    $model->itemControlTopReportDetails[$n1++] = itemControlTopReportDetails::fromMap($item1);
+                    $model->itemControlTopReportDetails[$n1] = itemControlTopReportDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

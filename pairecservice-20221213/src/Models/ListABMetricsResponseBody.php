@@ -45,7 +45,8 @@ class ListABMetricsResponseBody extends Model
                 $res['ABMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->ABMetrics as $item1) {
-                    $res['ABMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ABMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListABMetricsResponseBody extends Model
                 $model->ABMetrics = [];
                 $n1 = 0;
                 foreach ($map['ABMetrics'] as $item1) {
-                    $model->ABMetrics[$n1++] = ABMetrics::fromMap($item1);
+                    $model->ABMetrics[$n1] = ABMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

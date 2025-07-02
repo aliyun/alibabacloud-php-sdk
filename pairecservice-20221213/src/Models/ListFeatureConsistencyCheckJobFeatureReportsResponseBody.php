@@ -59,7 +59,8 @@ class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends Model
                 $res['ReportsOfFeatureDiff'] = [];
                 $n1 = 0;
                 foreach ($this->reportsOfFeatureDiff as $item1) {
-                    $res['ReportsOfFeatureDiff'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReportsOfFeatureDiff'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends Model
                 $model->reportsOfFeatureDiff = [];
                 $n1 = 0;
                 foreach ($map['ReportsOfFeatureDiff'] as $item1) {
-                    $model->reportsOfFeatureDiff[$n1++] = reportsOfFeatureDiff::fromMap($item1);
+                    $model->reportsOfFeatureDiff[$n1] = reportsOfFeatureDiff::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

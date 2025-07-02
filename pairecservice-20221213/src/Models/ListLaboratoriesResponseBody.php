@@ -45,7 +45,8 @@ class ListLaboratoriesResponseBody extends Model
                 $res['Laboratories'] = [];
                 $n1 = 0;
                 foreach ($this->laboratories as $item1) {
-                    $res['Laboratories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Laboratories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListLaboratoriesResponseBody extends Model
                 $model->laboratories = [];
                 $n1 = 0;
                 foreach ($map['Laboratories'] as $item1) {
-                    $model->laboratories[$n1++] = laboratories::fromMap($item1);
+                    $model->laboratories[$n1] = laboratories::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

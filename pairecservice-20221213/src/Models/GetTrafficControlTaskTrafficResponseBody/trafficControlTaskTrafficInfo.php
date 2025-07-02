@@ -43,7 +43,8 @@ class trafficControlTaskTrafficInfo extends Model
                 $res['TargetTraffics'] = [];
                 $n1 = 0;
                 foreach ($this->targetTraffics as $item1) {
-                    $res['TargetTraffics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TargetTraffics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class trafficControlTaskTrafficInfo extends Model
                 $model->targetTraffics = [];
                 $n1 = 0;
                 foreach ($map['TargetTraffics'] as $item1) {
-                    $model->targetTraffics[$n1++] = targetTraffics::fromMap($item1);
+                    $model->targetTraffics[$n1] = targetTraffics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class ListFeatureConsistencyCheckJobScoreReportsRequest extends Model
                 $res['ExcludeRequestIds'] = [];
                 $n1 = 0;
                 foreach ($this->excludeRequestIds as $item1) {
-                    $res['ExcludeRequestIds'][$n1++] = $item1;
+                    $res['ExcludeRequestIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListFeatureConsistencyCheckJobScoreReportsRequest extends Model
                 $model->excludeRequestIds = [];
                 $n1 = 0;
                 foreach ($map['ExcludeRequestIds'] as $item1) {
-                    $model->excludeRequestIds[$n1++] = $item1;
+                    $model->excludeRequestIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

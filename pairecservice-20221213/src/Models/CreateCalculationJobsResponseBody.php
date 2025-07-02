@@ -38,7 +38,8 @@ class CreateCalculationJobsResponseBody extends Model
                 $res['CalculationJobIds'] = [];
                 $n1 = 0;
                 foreach ($this->calculationJobIds as $item1) {
-                    $res['CalculationJobIds'][$n1++] = $item1;
+                    $res['CalculationJobIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class CreateCalculationJobsResponseBody extends Model
                 $model->calculationJobIds = [];
                 $n1 = 0;
                 foreach ($map['CalculationJobIds'] as $item1) {
-                    $model->calculationJobIds[$n1++] = $item1;
+                    $model->calculationJobIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
