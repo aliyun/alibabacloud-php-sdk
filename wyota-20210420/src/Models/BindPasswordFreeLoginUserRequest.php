@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindPasswordFreeLoginUserRequest extends Model
 {
@@ -16,6 +16,11 @@ class BindPasswordFreeLoginUserRequest extends Model
     /**
      * @var string
      */
+    public $mainBizType;
+
+    /**
+     * @var string
+     */
     public $serialNumber;
 
     /**
@@ -23,24 +28,32 @@ class BindPasswordFreeLoginUserRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'endUserId'    => 'EndUserId',
+        'endUserId' => 'EndUserId',
+        'mainBizType' => 'MainBizType',
         'serialNumber' => 'SerialNumber',
-        'uuid'         => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
+        if (null !== $this->mainBizType) {
+            $res['MainBizType'] = $this->mainBizType;
+        }
+
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -48,20 +61,26 @@ class BindPasswordFreeLoginUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindPasswordFreeLoginUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
+        if (isset($map['MainBizType'])) {
+            $model->mainBizType = $map['MainBizType'];
+        }
+
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

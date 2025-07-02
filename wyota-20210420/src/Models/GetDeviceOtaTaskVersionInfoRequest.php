@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeviceOtaTaskVersionInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $taskId;
@@ -20,9 +18,10 @@ class GetDeviceOtaTaskVersionInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -32,11 +31,11 @@ class GetDeviceOtaTaskVersionInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeviceOtaTaskVersionInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

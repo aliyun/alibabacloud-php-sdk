@@ -4,25 +4,36 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\RegisterDeviceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
+    /**
+     * @var bool
+     */
+    public $newUpgrade;
+
     /**
      * @var string
      */
     public $uuid;
     protected $_name = [
+        'newUpgrade' => 'NewUpgrade',
         'uuid' => 'Uuid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->newUpgrade) {
+            $res['NewUpgrade'] = $this->newUpgrade;
+        }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -30,14 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NewUpgrade'])) {
+            $model->newUpgrade = $map['NewUpgrade'];
+        }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

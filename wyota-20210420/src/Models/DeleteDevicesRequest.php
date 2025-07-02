@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDevicesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $force;
@@ -25,24 +23,27 @@ class DeleteDevicesRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'force'     => 'Force',
+        'force' => 'Force',
         'serialNos' => 'SerialNos',
-        'uuids'     => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
+
         if (null !== $this->serialNos) {
             $res['SerialNos'] = $this->serialNos;
         }
+
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
@@ -50,20 +51,22 @@ class DeleteDevicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDevicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
+
         if (isset($map['SerialNos'])) {
             $model->serialNos = $map['SerialNos'];
         }
+
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];
         }

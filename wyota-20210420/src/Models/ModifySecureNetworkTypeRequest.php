@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySecureNetworkTypeRequest extends Model
 {
@@ -14,26 +14,26 @@ class ModifySecureNetworkTypeRequest extends Model
     public $secureNetworkType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $serialNo;
     protected $_name = [
         'secureNetworkType' => 'SecureNetworkType',
-        'serialNo'          => 'SerialNo',
+        'serialNo' => 'SerialNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secureNetworkType) {
             $res['SecureNetworkType'] = $this->secureNetworkType;
         }
+
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
@@ -41,17 +41,18 @@ class ModifySecureNetworkTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySecureNetworkTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecureNetworkType'])) {
             $model->secureNetworkType = $map['SecureNetworkType'];
         }
+
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }

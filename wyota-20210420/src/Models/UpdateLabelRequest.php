@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLabelRequest extends Model
 {
@@ -19,19 +19,21 @@ class UpdateLabelRequest extends Model
     public $labelId;
     protected $_name = [
         'labelContent' => 'LabelContent',
-        'labelId'      => 'LabelId',
+        'labelId' => 'LabelId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelContent) {
             $res['LabelContent'] = $this->labelContent;
         }
+
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
@@ -39,17 +41,18 @@ class UpdateLabelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLabelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelContent'])) {
             $model->labelContent = $map['LabelContent'];
         }
+
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }

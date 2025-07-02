@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAppOtaVersionsRequest extends Model
 {
@@ -18,29 +18,45 @@ class DeleteAppOtaVersionsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->versionUidList)) {
+            Model::validateArray($this->versionUidList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->versionUidList) {
-            $res['VersionUidList'] = $this->versionUidList;
+            if (\is_array($this->versionUidList)) {
+                $res['VersionUidList'] = [];
+                $n1 = 0;
+                foreach ($this->versionUidList as $item1) {
+                    $res['VersionUidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAppOtaVersionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VersionUidList'])) {
             if (!empty($map['VersionUidList'])) {
-                $model->versionUidList = $map['VersionUidList'];
+                $model->versionUidList = [];
+                $n1 = 0;
+                foreach ($map['VersionUidList'] as $item1) {
+                    $model->versionUidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

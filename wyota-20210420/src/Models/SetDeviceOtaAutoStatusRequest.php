@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDeviceOtaAutoStatusRequest extends Model
 {
@@ -33,32 +33,37 @@ class SetDeviceOtaAutoStatusRequest extends Model
      */
     public $status;
     protected $_name = [
-        'autoUpdate'             => 'AutoUpdate',
+        'autoUpdate' => 'AutoUpdate',
         'autoUpdateTimeSchedule' => 'AutoUpdateTimeSchedule',
-        'clientType'             => 'ClientType',
-        'forceUpgrade'           => 'ForceUpgrade',
-        'status'                 => 'Status',
+        'clientType' => 'ClientType',
+        'forceUpgrade' => 'ForceUpgrade',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoUpdate) {
             $res['AutoUpdate'] = $this->autoUpdate;
         }
+
         if (null !== $this->autoUpdateTimeSchedule) {
             $res['AutoUpdateTimeSchedule'] = $this->autoUpdateTimeSchedule;
         }
+
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
+
         if (null !== $this->forceUpgrade) {
             $res['ForceUpgrade'] = $this->forceUpgrade;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -66,26 +71,30 @@ class SetDeviceOtaAutoStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDeviceOtaAutoStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoUpdate'])) {
             $model->autoUpdate = $map['AutoUpdate'];
         }
+
         if (isset($map['AutoUpdateTimeSchedule'])) {
             $model->autoUpdateTimeSchedule = $map['AutoUpdateTimeSchedule'];
         }
+
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
+
         if (isset($map['ForceUpgrade'])) {
             $model->forceUpgrade = $map['ForceUpgrade'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

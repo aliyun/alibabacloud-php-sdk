@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ActivateDeviceRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ActivateDeviceResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AddDeviceFromSNRequest;
@@ -84,6 +83,8 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\GetOssConfigRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\GetOssConfigResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\GetVersionDownloadUrlRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\GetVersionDownloadUrlResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\ListBoundDevicesRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\ListBoundDevicesResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListDeviceOtaTaskByTenantRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListDeviceOtaTaskByTenantResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListDeviceSeatsRequest;
@@ -103,6 +104,8 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTerminalsRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTerminalsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTrustDevicesRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTrustDevicesResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\ListUnbindDevicesRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\ListUnbindDevicesResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListUserFbAcIssuesRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListUserFbAcIssuesResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListUserFbIssuesRequest;
@@ -144,12 +147,10 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateLabelRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateLabelResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateTerminalPolicyRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateTerminalPolicyResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Wyota extends OpenApiClient
 {
@@ -157,7 +158,7 @@ class Wyota extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = '';
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('wyota', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -175,55 +176,66 @@ class Wyota extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 设备激活
-     *  *
-     * @param ActivateDeviceRequest $request ActivateDeviceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 设备激活.
      *
-     * @return ActivateDeviceResponse ActivateDeviceResponse
+     * @param request - ActivateDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActivateDeviceResponse
+     *
+     * @param ActivateDeviceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ActivateDeviceResponse
      */
     public function activateDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ActivateDevice',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ActivateDevice',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ActivateDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设备激活
-     *  *
-     * @param ActivateDeviceRequest $request ActivateDeviceRequest
+     * 设备激活.
      *
-     * @return ActivateDeviceResponse ActivateDeviceResponse
+     * @param request - ActivateDeviceRequest
+     *
+     * @returns ActivateDeviceResponse
+     *
+     * @param ActivateDeviceRequest $request
+     *
+     * @return ActivateDeviceResponse
      */
     public function activateDevice($request)
     {
@@ -233,59 +245,74 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 通过序列号添加设备
-     *  *
-     * @param AddDeviceFromSNRequest $request AddDeviceFromSNRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 通过序列号添加设备.
      *
-     * @return AddDeviceFromSNResponse AddDeviceFromSNResponse
+     * @param request - AddDeviceFromSNRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDeviceFromSNResponse
+     *
+     * @param AddDeviceFromSNRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddDeviceFromSNResponse
      */
     public function addDeviceFromSNWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->customProperty)) {
-            $body['CustomProperty'] = $request->customProperty;
+
+        if (null !== $request->customProperty) {
+            @$body['CustomProperty'] = $request->customProperty;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $body['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->labelContents)) {
-            $body['LabelContents'] = $request->labelContents;
+
+        if (null !== $request->labelContents) {
+            @$body['LabelContents'] = $request->labelContents;
         }
-        if (!Utils::isUnset($request->secureNetworkType)) {
-            $body['SecureNetworkType'] = $request->secureNetworkType;
+
+        if (null !== $request->secureNetworkType) {
+            @$body['SecureNetworkType'] = $request->secureNetworkType;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDeviceFromSN',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDeviceFromSN',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDeviceFromSNResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过序列号添加设备
-     *  *
-     * @param AddDeviceFromSNRequest $request AddDeviceFromSNRequest
+     * 通过序列号添加设备.
      *
-     * @return AddDeviceFromSNResponse AddDeviceFromSNResponse
+     * @param request - AddDeviceFromSNRequest
+     *
+     * @returns AddDeviceFromSNResponse
+     *
+     * @param AddDeviceFromSNRequest $request
+     *
+     * @return AddDeviceFromSNResponse
      */
     public function addDeviceFromSN($request)
     {
@@ -295,62 +322,78 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 新增设备座位和标签
-     *  *
-     * @param AddDeviceSeatsAndLabelsRequest $request AddDeviceSeatsAndLabelsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 新增设备座位和标签.
      *
-     * @return AddDeviceSeatsAndLabelsResponse AddDeviceSeatsAndLabelsResponse
+     * @param request - AddDeviceSeatsAndLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDeviceSeatsAndLabelsResponse
+     *
+     * @param AddDeviceSeatsAndLabelsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddDeviceSeatsAndLabelsResponse
      */
     public function addDeviceSeatsAndLabelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->isUnique)) {
-            $body['IsUnique'] = $request->isUnique;
+        if (null !== $request->isUnique) {
+            @$body['IsUnique'] = $request->isUnique;
         }
-        if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
+
+        if (null !== $request->label) {
+            @$body['Label'] = $request->label;
         }
-        if (!Utils::isUnset($request->labelList)) {
-            $body['LabelList'] = $request->labelList;
+
+        if (null !== $request->labelList) {
+            @$body['LabelList'] = $request->labelList;
         }
-        if (!Utils::isUnset($request->seatName)) {
-            $body['SeatName'] = $request->seatName;
+
+        if (null !== $request->seatName) {
+            @$body['SeatName'] = $request->seatName;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDeviceSeatsAndLabels',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'AddDeviceSeatsAndLabels',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDeviceSeatsAndLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增设备座位和标签
-     *  *
-     * @param AddDeviceSeatsAndLabelsRequest $request AddDeviceSeatsAndLabelsRequest
+     * 新增设备座位和标签.
      *
-     * @return AddDeviceSeatsAndLabelsResponse AddDeviceSeatsAndLabelsResponse
+     * @param request - AddDeviceSeatsAndLabelsRequest
+     *
+     * @returns AddDeviceSeatsAndLabelsResponse
+     *
+     * @param AddDeviceSeatsAndLabelsRequest $request
+     *
+     * @return AddDeviceSeatsAndLabelsResponse
      */
     public function addDeviceSeatsAndLabels($request)
     {
@@ -360,56 +403,70 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 通过CSV文件添加设备
-     *  *
-     * @param AddDevicesFromCSVRequest $request AddDevicesFromCSVRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 通过CSV文件添加设备.
      *
-     * @return AddDevicesFromCSVResponse AddDevicesFromCSVResponse
+     * @param request - AddDevicesFromCSVRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDevicesFromCSVResponse
+     *
+     * @param AddDevicesFromCSVRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddDevicesFromCSVResponse
      */
     public function addDevicesFromCSVWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileType)) {
-            $body['FileType'] = $request->fileType;
+
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
         }
-        if (!Utils::isUnset($request->seatCol)) {
-            $body['SeatCol'] = $request->seatCol;
+
+        if (null !== $request->seatCol) {
+            @$body['SeatCol'] = $request->seatCol;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->siteName)) {
-            $body['SiteName'] = $request->siteName;
+
+        if (null !== $request->siteName) {
+            @$body['SiteName'] = $request->siteName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDevicesFromCSV',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDevicesFromCSV',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDevicesFromCSVResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过CSV文件添加设备
-     *  *
-     * @param AddDevicesFromCSVRequest $request AddDevicesFromCSVRequest
+     * 通过CSV文件添加设备.
      *
-     * @return AddDevicesFromCSVResponse AddDevicesFromCSVResponse
+     * @param request - AddDevicesFromCSVRequest
+     *
+     * @returns AddDevicesFromCSVResponse
+     *
+     * @param AddDevicesFromCSVRequest $request
+     *
+     * @return AddDevicesFromCSVResponse
      */
     public function addDevicesFromCSV($request)
     {
@@ -419,44 +476,54 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 添加标签
-     *  *
-     * @param AddLabelsRequest $request AddLabelsRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 添加标签.
      *
-     * @return AddLabelsResponse AddLabelsResponse
+     * @param request - AddLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddLabelsResponse
+     *
+     * @param AddLabelsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddLabelsResponse
      */
     public function addLabelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelContents)) {
-            $body['LabelContents'] = $request->labelContents;
+        if (null !== $request->labelContents) {
+            @$body['LabelContents'] = $request->labelContents;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddLabels',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddLabels',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加标签
-     *  *
-     * @param AddLabelsRequest $request AddLabelsRequest
+     * 添加标签.
      *
-     * @return AddLabelsResponse AddLabelsResponse
+     * @param request - AddLabelsRequest
+     *
+     * @returns AddLabelsResponse
+     *
+     * @param AddLabelsRequest $request
+     *
+     * @return AddLabelsResponse
      */
     public function addLabels($request)
     {
@@ -466,50 +533,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 新增或更新设备工位
-     *  *
-     * @param AddOrUpdateDeviceSeatsRequest $request AddOrUpdateDeviceSeatsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 新增或更新设备工位.
      *
-     * @return AddOrUpdateDeviceSeatsResponse AddOrUpdateDeviceSeatsResponse
+     * @param request - AddOrUpdateDeviceSeatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddOrUpdateDeviceSeatsResponse
+     *
+     * @param AddOrUpdateDeviceSeatsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddOrUpdateDeviceSeatsResponse
      */
     public function addOrUpdateDeviceSeatsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->userCustomId)) {
-            $body['UserCustomId'] = $request->userCustomId;
+
+        if (null !== $request->userCustomId) {
+            @$body['UserCustomId'] = $request->userCustomId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddOrUpdateDeviceSeats',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddOrUpdateDeviceSeats',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddOrUpdateDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增或更新设备工位
-     *  *
-     * @param AddOrUpdateDeviceSeatsRequest $request AddOrUpdateDeviceSeatsRequest
+     * 新增或更新设备工位.
      *
-     * @return AddOrUpdateDeviceSeatsResponse AddOrUpdateDeviceSeatsResponse
+     * @param request - AddOrUpdateDeviceSeatsRequest
+     *
+     * @returns AddOrUpdateDeviceSeatsResponse
+     *
+     * @param AddOrUpdateDeviceSeatsRequest $request
+     *
+     * @return AddOrUpdateDeviceSeatsResponse
      */
     public function addOrUpdateDeviceSeats($request)
     {
@@ -519,50 +598,74 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 添加终端
-     *  *
-     * @param AddTerminalRequest $request AddTerminalRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 添加终端.
      *
-     * @return AddTerminalResponse AddTerminalResponse
+     * @param request - AddTerminalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTerminalResponse
+     *
+     * @param AddTerminalRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddTerminalResponse
      */
     public function addTerminalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $body['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->terminalGroupId)) {
-            $body['TerminalGroupId'] = $request->terminalGroupId;
+
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
         }
+
+        if (null !== $request->serialNumber) {
+            @$body['SerialNumber'] = $request->serialNumber;
+        }
+
+        if (null !== $request->terminalGroupId) {
+            @$body['TerminalGroupId'] = $request->terminalGroupId;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddTerminal',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddTerminal',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加终端
-     *  *
-     * @param AddTerminalRequest $request AddTerminalRequest
+     * 添加终端.
      *
-     * @return AddTerminalResponse AddTerminalResponse
+     * @param request - AddTerminalRequest
+     *
+     * @returns AddTerminalResponse
+     *
+     * @param AddTerminalRequest $request
+     *
+     * @return AddTerminalResponse
      */
     public function addTerminal($request)
     {
@@ -572,46 +675,61 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 添加终端
-     *  *
-     * @param AddTerminalsRequest $request AddTerminalsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 添加终端.
      *
-     * @return AddTerminalsResponse AddTerminalsResponse
+     * @param request - AddTerminalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTerminalsResponse
+     *
+     * @param AddTerminalsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddTerminalsResponse
      */
     public function addTerminalsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->addTerminalParams)) {
-            $bodyFlat['AddTerminalParams'] = $request->addTerminalParams;
+        if (null !== $request->addTerminalParams) {
+            @$bodyFlat['AddTerminalParams'] = $request->addTerminalParams;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddTerminals',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddTerminals',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加终端
-     *  *
-     * @param AddTerminalsRequest $request AddTerminalsRequest
+     * 添加终端.
      *
-     * @return AddTerminalsResponse AddTerminalsResponse
+     * @param request - AddTerminalsRequest
+     *
+     * @returns AddTerminalsResponse
+     *
+     * @param AddTerminalsRequest $request
+     *
+     * @return AddTerminalsResponse
      */
     public function addTerminals($request)
     {
@@ -621,47 +739,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 设备绑定终端用户
-     *  *
-     * @param AttachEndUsersRequest $request AttachEndUsersRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 设备绑定终端用户.
      *
-     * @return AttachEndUsersResponse AttachEndUsersResponse
+     * @param request - AttachEndUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachEndUsersResponse
+     *
+     * @param AttachEndUsersRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AttachEndUsersResponse
      */
     public function attachEndUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endUserIds)) {
-            $body['EndUserIds'] = $request->endUserIds;
+        if (null !== $request->endUserIds) {
+            @$body['EndUserIds'] = $request->endUserIds;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachEndUsers',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachEndUsers',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachEndUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设备绑定终端用户
-     *  *
-     * @param AttachEndUsersRequest $request AttachEndUsersRequest
+     * 设备绑定终端用户.
      *
-     * @return AttachEndUsersResponse AttachEndUsersResponse
+     * @param request - AttachEndUsersRequest
+     *
+     * @returns AttachEndUsersResponse
+     *
+     * @param AttachEndUsersRequest $request
+     *
+     * @return AttachEndUsersResponse
      */
     public function attachEndUsers($request)
     {
@@ -671,50 +800,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 设备绑定标签
-     *  *
-     * @param AttachLabelRequest $request AttachLabelRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 设备绑定标签.
      *
-     * @return AttachLabelResponse AttachLabelResponse
+     * @param request - AttachLabelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachLabelResponse
+     *
+     * @param AttachLabelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AttachLabelResponse
      */
     public function attachLabelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelContent)) {
-            $body['LabelContent'] = $request->labelContent;
+        if (null !== $request->labelContent) {
+            @$body['LabelContent'] = $request->labelContent;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+
+        if (null !== $request->labelId) {
+            @$body['LabelId'] = $request->labelId;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachLabel',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachLabel',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设备绑定标签
-     *  *
-     * @param AttachLabelRequest $request AttachLabelRequest
+     * 设备绑定标签.
      *
-     * @return AttachLabelResponse AttachLabelResponse
+     * @param request - AttachLabelRequest
+     *
+     * @returns AttachLabelResponse
+     *
+     * @param AttachLabelRequest $request
+     *
+     * @return AttachLabelResponse
      */
     public function attachLabel($request)
     {
@@ -724,50 +865,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 批量绑定标签
-     *  *
-     * @param AttachLabelsRequest $request AttachLabelsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 批量绑定标签.
      *
-     * @return AttachLabelsResponse AttachLabelsResponse
+     * @param request - AttachLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachLabelsResponse
+     *
+     * @param AttachLabelsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AttachLabelsResponse
      */
     public function attachLabelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelIds)) {
-            $body['LabelIds'] = $request->labelIds;
+        if (null !== $request->labelIds) {
+            @$body['LabelIds'] = $request->labelIds;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->serialNoList)) {
-            $body['SerialNoList'] = $request->serialNoList;
+
+        if (null !== $request->serialNoList) {
+            @$body['SerialNoList'] = $request->serialNoList;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachLabels',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachLabels',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量绑定标签
-     *  *
-     * @param AttachLabelsRequest $request AttachLabelsRequest
+     * 批量绑定标签.
      *
-     * @return AttachLabelsResponse AttachLabelsResponse
+     * @param request - AttachLabelsRequest
+     *
+     * @returns AttachLabelsResponse
+     *
+     * @param AttachLabelsRequest $request
+     *
+     * @return AttachLabelsResponse
      */
     public function attachLabels($request)
     {
@@ -777,50 +930,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 绑定免账号登录用户
-     *  *
-     * @param BindAccountLessLoginUserRequest $request BindAccountLessLoginUserRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 绑定免账号登录用户.
      *
-     * @return BindAccountLessLoginUserResponse BindAccountLessLoginUserResponse
+     * @param request - BindAccountLessLoginUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindAccountLessLoginUserResponse
+     *
+     * @param BindAccountLessLoginUserRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BindAccountLessLoginUserResponse
      */
     public function bindAccountLessLoginUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $body['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->serialNumber) {
+            @$body['SerialNumber'] = $request->serialNumber;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BindAccountLessLoginUser',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAccountLessLoginUser',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindAccountLessLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定免账号登录用户
-     *  *
-     * @param BindAccountLessLoginUserRequest $request BindAccountLessLoginUserRequest
+     * 绑定免账号登录用户.
      *
-     * @return BindAccountLessLoginUserResponse BindAccountLessLoginUserResponse
+     * @param request - BindAccountLessLoginUserRequest
+     *
+     * @returns BindAccountLessLoginUserResponse
+     *
+     * @param BindAccountLessLoginUserRequest $request
+     *
+     * @return BindAccountLessLoginUserResponse
      */
     public function bindAccountLessLoginUser($request)
     {
@@ -830,50 +995,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 绑定免账号登录用户
-     *  *
-     * @param BindPasswordFreeLoginUserRequest $request BindPasswordFreeLoginUserRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 绑定免账号登录用户.
      *
-     * @return BindPasswordFreeLoginUserResponse BindPasswordFreeLoginUserResponse
+     * @param request - BindPasswordFreeLoginUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindPasswordFreeLoginUserResponse
+     *
+     * @param BindPasswordFreeLoginUserRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return BindPasswordFreeLoginUserResponse
      */
     public function bindPasswordFreeLoginUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $body['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->serialNumber) {
+            @$body['SerialNumber'] = $request->serialNumber;
         }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BindPasswordFreeLoginUser',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindPasswordFreeLoginUser',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindPasswordFreeLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定免账号登录用户
-     *  *
-     * @param BindPasswordFreeLoginUserRequest $request BindPasswordFreeLoginUserRequest
+     * 绑定免账号登录用户.
      *
-     * @return BindPasswordFreeLoginUserResponse BindPasswordFreeLoginUserResponse
+     * @param request - BindPasswordFreeLoginUserRequest
+     *
+     * @returns BindPasswordFreeLoginUserResponse
+     *
+     * @param BindPasswordFreeLoginUserRequest $request
+     *
+     * @return BindPasswordFreeLoginUserResponse
      */
     public function bindPasswordFreeLoginUser($request)
     {
@@ -883,71 +1064,106 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 检查uuid有效性
-     *  *
-     * @param CheckUuidValidRequest $request CheckUuidValidRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 检查uuid有效性.
      *
-     * @return CheckUuidValidResponse CheckUuidValidResponse
+     * @param request - CheckUuidValidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckUuidValidResponse
+     *
+     * @param CheckUuidValidRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CheckUuidValidResponse
      */
     public function checkUuidValidWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bluetooth)) {
-            $body['Bluetooth'] = $request->bluetooth;
+        if (null !== $request->bluetooth) {
+            @$body['Bluetooth'] = $request->bluetooth;
         }
-        if (!Utils::isUnset($request->buildId)) {
-            $body['BuildId'] = $request->buildId;
+
+        if (null !== $request->buildId) {
+            @$body['BuildId'] = $request->buildId;
         }
-        if (!Utils::isUnset($request->chipId)) {
-            $body['ChipId'] = $request->chipId;
+
+        if (null !== $request->chipId) {
+            @$body['ChipId'] = $request->chipId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->customId)) {
-            $body['CustomId'] = $request->customId;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->etherMac)) {
-            $body['EtherMac'] = $request->etherMac;
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->etherMac) {
+            @$body['EtherMac'] = $request->etherMac;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->wlan)) {
-            $body['Wlan'] = $request->wlan;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->wosAppVersion)) {
-            $body['WosAppVersion'] = $request->wosAppVersion;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
+        if (null !== $request->wlan) {
+            @$body['Wlan'] = $request->wlan;
+        }
+
+        if (null !== $request->wosAppVersion) {
+            @$body['WosAppVersion'] = $request->wosAppVersion;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckUuidValid',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'CheckUuidValid',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckUuidValidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 检查uuid有效性
-     *  *
-     * @param CheckUuidValidRequest $request CheckUuidValidRequest
+     * 检查uuid有效性.
      *
-     * @return CheckUuidValidResponse CheckUuidValidResponse
+     * @param request - CheckUuidValidRequest
+     *
+     * @returns CheckUuidValidResponse
+     *
+     * @param CheckUuidValidRequest $request
+     *
+     * @return CheckUuidValidResponse
      */
     public function checkUuidValid($request)
     {
@@ -957,83 +1173,110 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateAppOtaTaskRequest $request CreateAppOtaTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建任务
      *
-     * @return CreateAppOtaTaskResponse CreateAppOtaTaskResponse
+     * @param request - CreateAppOtaTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppOtaTaskResponse
+     *
+     * @param CreateAppOtaTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAppOtaTaskResponse
      */
     public function createAppOtaTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersionUid)) {
-            $query['AppVersionUid'] = $request->appVersionUid;
+        if (null !== $request->appVersionUid) {
+            @$query['AppVersionUid'] = $request->appVersionUid;
         }
-        if (!Utils::isUnset($request->channel)) {
-            $query['Channel'] = $request->channel;
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->clientIdList)) {
-            $query['ClientIdList'] = $request->clientIdList;
+
+        if (null !== $request->clientIdList) {
+            @$query['ClientIdList'] = $request->clientIdList;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->creator)) {
-            $query['Creator'] = $request->creator;
+
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->forceUpgrade)) {
-            $query['ForceUpgrade'] = $request->forceUpgrade;
+
+        if (null !== $request->forceUpgrade) {
+            @$query['ForceUpgrade'] = $request->forceUpgrade;
         }
-        if (!Utils::isUnset($request->label)) {
-            $query['Label'] = $request->label;
+
+        if (null !== $request->label) {
+            @$query['Label'] = $request->label;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->project)) {
-            $query['Project'] = $request->project;
+
+        if (null !== $request->project) {
+            @$query['Project'] = $request->project;
         }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $query['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
         }
+
+        if (null !== $request->tenantIdList) {
+            @$query['TenantIdList'] = $request->tenantIdList;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppOtaTask',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAppOtaTask',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAppOtaTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateAppOtaTaskRequest $request CreateAppOtaTaskRequest
+     * 创建任务
      *
-     * @return CreateAppOtaTaskResponse CreateAppOtaTaskResponse
+     * @param request - CreateAppOtaTaskRequest
+     *
+     * @returns CreateAppOtaTaskResponse
+     *
+     * @param CreateAppOtaTaskRequest $request
+     *
+     * @return CreateAppOtaTaskResponse
      */
     public function createAppOtaTask($request)
     {
@@ -1043,98 +1286,130 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 创建版本
-     *  *
-     * @param CreateAppOtaVersionRequest $request CreateAppOtaVersionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建版本.
      *
-     * @return CreateAppOtaVersionResponse CreateAppOtaVersionResponse
+     * @param request - CreateAppOtaVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppOtaVersionResponse
+     *
+     * @param CreateAppOtaVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateAppOtaVersionResponse
      */
     public function createAppOtaVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['AppVersion'] = $request->appVersion;
+        if (null !== $request->appVersion) {
+            @$query['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->arch)) {
-            $query['Arch'] = $request->arch;
+
+        if (null !== $request->arch) {
+            @$query['Arch'] = $request->arch;
         }
-        if (!Utils::isUnset($request->channel)) {
-            $query['Channel'] = $request->channel;
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->creator)) {
-            $query['Creator'] = $request->creator;
+
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->downloadUrl)) {
-            $query['DownloadUrl'] = $request->downloadUrl;
+
+        if (null !== $request->downloadUrl) {
+            @$query['DownloadUrl'] = $request->downloadUrl;
         }
-        if (!Utils::isUnset($request->md5)) {
-            $query['Md5'] = $request->md5;
+
+        if (null !== $request->md5) {
+            @$query['Md5'] = $request->md5;
         }
-        if (!Utils::isUnset($request->os)) {
-            $query['Os'] = $request->os;
+
+        if (null !== $request->os) {
+            @$query['Os'] = $request->os;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->otaType)) {
-            $query['OtaType'] = $request->otaType;
+
+        if (null !== $request->otaType) {
+            @$query['OtaType'] = $request->otaType;
         }
-        if (!Utils::isUnset($request->project)) {
-            $query['Project'] = $request->project;
+
+        if (null !== $request->project) {
+            @$query['Project'] = $request->project;
         }
-        if (!Utils::isUnset($request->releaseNote)) {
-            $query['ReleaseNote'] = $request->releaseNote;
+
+        if (null !== $request->relationVersionUids) {
+            @$query['RelationVersionUids'] = $request->relationVersionUids;
         }
-        if (!Utils::isUnset($request->releaseNoteEn)) {
-            $query['ReleaseNoteEn'] = $request->releaseNoteEn;
+
+        if (null !== $request->releaseNote) {
+            @$query['ReleaseNote'] = $request->releaseNote;
         }
-        if (!Utils::isUnset($request->releaseNoteJp)) {
-            $query['ReleaseNoteJp'] = $request->releaseNoteJp;
+
+        if (null !== $request->releaseNoteEn) {
+            @$query['ReleaseNoteEn'] = $request->releaseNoteEn;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->releaseNoteJp) {
+            @$query['ReleaseNoteJp'] = $request->releaseNoteJp;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->snapshotRegionId)) {
-            $query['SnapshotRegionId'] = $request->snapshotRegionId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->snapshotRegionId) {
+            @$query['SnapshotRegionId'] = $request->snapshotRegionId;
         }
-        if (!Utils::isUnset($request->versionType)) {
-            $query['VersionType'] = $request->versionType;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
+        if (null !== $request->versionType) {
+            @$query['VersionType'] = $request->versionType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppOtaVersion',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAppOtaVersion',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAppOtaVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建版本
-     *  *
-     * @param CreateAppOtaVersionRequest $request CreateAppOtaVersionRequest
+     * 创建版本.
      *
-     * @return CreateAppOtaVersionResponse CreateAppOtaVersionResponse
+     * @param request - CreateAppOtaVersionRequest
+     *
+     * @returns CreateAppOtaVersionResponse
+     *
+     * @param CreateAppOtaVersionRequest $request
+     *
+     * @return CreateAppOtaVersionResponse
      */
     public function createAppOtaVersion($request)
     {
@@ -1144,44 +1419,54 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 删除版本
-     *  *
-     * @param DeleteAppOtaVersionsRequest $request DeleteAppOtaVersionsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 删除版本.
      *
-     * @return DeleteAppOtaVersionsResponse DeleteAppOtaVersionsResponse
+     * @param request - DeleteAppOtaVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppOtaVersionsResponse
+     *
+     * @param DeleteAppOtaVersionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteAppOtaVersionsResponse
      */
     public function deleteAppOtaVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->versionUidList)) {
-            $query['VersionUidList'] = $request->versionUidList;
+        if (null !== $request->versionUidList) {
+            @$query['VersionUidList'] = $request->versionUidList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAppOtaVersions',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAppOtaVersions',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteAppOtaVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除版本
-     *  *
-     * @param DeleteAppOtaVersionsRequest $request DeleteAppOtaVersionsRequest
+     * 删除版本.
      *
-     * @return DeleteAppOtaVersionsResponse DeleteAppOtaVersionsResponse
+     * @param request - DeleteAppOtaVersionsRequest
+     *
+     * @returns DeleteAppOtaVersionsResponse
+     *
+     * @param DeleteAppOtaVersionsRequest $request
+     *
+     * @return DeleteAppOtaVersionsResponse
      */
     public function deleteAppOtaVersions($request)
     {
@@ -1191,52 +1476,64 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 删除设备
-     *  *
-     * @param DeleteDevicesRequest $request DeleteDevicesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 删除设备.
      *
-     * @return DeleteDevicesResponse DeleteDevicesResponse
+     * @param request - DeleteDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDevicesResponse
+     *
+     * @param DeleteDevicesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDevicesResponse
      */
     public function deleteDevicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->uuids)) {
-            $query['Uuids'] = $request->uuids;
+        if (null !== $request->uuids) {
+            @$query['Uuids'] = $request->uuids;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->force)) {
-            $body['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$body['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->serialNos)) {
-            $body['SerialNos'] = $request->serialNos;
+
+        if (null !== $request->serialNos) {
+            @$body['SerialNos'] = $request->serialNos;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDevices',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDevices',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除设备
-     *  *
-     * @param DeleteDevicesRequest $request DeleteDevicesRequest
+     * 删除设备.
      *
-     * @return DeleteDevicesResponse DeleteDevicesResponse
+     * @param request - DeleteDevicesRequest
+     *
+     * @returns DeleteDevicesResponse
+     *
+     * @param DeleteDevicesRequest $request
+     *
+     * @return DeleteDevicesResponse
      */
     public function deleteDevices($request)
     {
@@ -1246,50 +1543,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param DeleteLabelRequest $request DeleteLabelRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 删除标签.
      *
-     * @return DeleteLabelResponse DeleteLabelResponse
+     * @param request - DeleteLabelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLabelResponse
+     *
+     * @param DeleteLabelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteLabelResponse
      */
     public function deleteLabelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->force)) {
-            $body['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$body['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->labelContent)) {
-            $body['LabelContent'] = $request->labelContent;
+
+        if (null !== $request->labelContent) {
+            @$body['LabelContent'] = $request->labelContent;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+
+        if (null !== $request->labelId) {
+            @$body['LabelId'] = $request->labelId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLabel',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLabel',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param DeleteLabelRequest $request DeleteLabelRequest
+     * 删除标签.
      *
-     * @return DeleteLabelResponse DeleteLabelResponse
+     * @param request - DeleteLabelRequest
+     *
+     * @returns DeleteLabelResponse
+     *
+     * @param DeleteLabelRequest $request
+     *
+     * @return DeleteLabelResponse
      */
     public function deleteLabel($request)
     {
@@ -1299,62 +1608,86 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询版本
-     *  *
-     * @param DescribeAppOtaVersionRequest $request DescribeAppOtaVersionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询版本.
      *
-     * @return DescribeAppOtaVersionResponse DescribeAppOtaVersionResponse
+     * @param request - DescribeAppOtaVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppOtaVersionResponse
+     *
+     * @param DescribeAppOtaVersionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAppOtaVersionResponse
      */
     public function describeAppOtaVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['AppVersion'] = $request->appVersion;
+        if (null !== $request->appVersion) {
+            @$query['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->channel)) {
-            $query['Channel'] = $request->channel;
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->creator)) {
-            $query['Creator'] = $request->creator;
+
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->project)) {
-            $query['Project'] = $request->project;
+
+        if (null !== $request->nullChannel) {
+            @$query['NullChannel'] = $request->nullChannel;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->otaType) {
+            @$query['OtaType'] = $request->otaType;
         }
-        if (!Utils::isUnset($request->versionUid)) {
-            $query['VersionUid'] = $request->versionUid;
+
+        if (null !== $request->project) {
+            @$query['Project'] = $request->project;
         }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->versionUid) {
+            @$query['VersionUid'] = $request->versionUid;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppOtaVersion',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppOtaVersion',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAppOtaVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询版本
-     *  *
-     * @param DescribeAppOtaVersionRequest $request DescribeAppOtaVersionRequest
+     * 查询版本.
      *
-     * @return DescribeAppOtaVersionResponse DescribeAppOtaVersionResponse
+     * @param request - DescribeAppOtaVersionRequest
+     *
+     * @returns DescribeAppOtaVersionResponse
+     *
+     * @param DescribeAppOtaVersionRequest $request
+     *
+     * @return DescribeAppOtaVersionResponse
      */
     public function describeAppOtaVersion($request)
     {
@@ -1364,59 +1697,74 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询设备座位
-     *  *
-     * @param DescribeDeviceSeatsRequest $request DescribeDeviceSeatsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询设备座位.
      *
-     * @return DescribeDeviceSeatsResponse DescribeDeviceSeatsResponse
+     * @param request - DescribeDeviceSeatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDeviceSeatsResponse
+     *
+     * @param DescribeDeviceSeatsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDeviceSeatsResponse
      */
     public function describeDeviceSeatsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->serialNoList)) {
-            $body['SerialNoList'] = $request->serialNoList;
+
+        if (null !== $request->serialNoList) {
+            @$body['SerialNoList'] = $request->serialNoList;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDeviceSeats',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'DescribeDeviceSeats',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询设备座位
-     *  *
-     * @param DescribeDeviceSeatsRequest $request DescribeDeviceSeatsRequest
+     * 查询设备座位.
      *
-     * @return DescribeDeviceSeatsResponse DescribeDeviceSeatsResponse
+     * @param request - DescribeDeviceSeatsRequest
+     *
+     * @returns DescribeDeviceSeatsResponse
+     *
+     * @param DescribeDeviceSeatsRequest $request
+     *
+     * @return DescribeDeviceSeatsResponse
      */
     public function describeDeviceSeats($request)
     {
@@ -1426,53 +1774,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询版本信息
-     *  *
-     * @param DescribeDeviceVersionDetailRequest $request DescribeDeviceVersionDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询版本信息.
      *
-     * @return DescribeDeviceVersionDetailResponse DescribeDeviceVersionDetailResponse
+     * @param request - DescribeDeviceVersionDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDeviceVersionDetailResponse
+     *
+     * @param DescribeDeviceVersionDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDeviceVersionDetailResponse
      */
     public function describeDeviceVersionDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $body['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$body['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->versionName)) {
-            $body['VersionName'] = $request->versionName;
+
+        if (null !== $request->versionName) {
+            @$body['VersionName'] = $request->versionName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDeviceVersionDetail',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'DescribeDeviceVersionDetail',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDeviceVersionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询版本信息
-     *  *
-     * @param DescribeDeviceVersionDetailRequest $request DescribeDeviceVersionDetailRequest
+     * 查询版本信息.
      *
-     * @return DescribeDeviceVersionDetailResponse DescribeDeviceVersionDetailResponse
+     * @param request - DescribeDeviceVersionDetailRequest
+     *
+     * @returns DescribeDeviceVersionDetailResponse
+     *
+     * @param DescribeDeviceVersionDetailRequest $request
+     *
+     * @return DescribeDeviceVersionDetailResponse
      */
     public function describeDeviceVersionDetail($request)
     {
@@ -1482,53 +1843,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询设备标签数量
-     *  *
-     * @param DescribeSnLabelCountsRequest $request DescribeSnLabelCountsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询设备标签数量.
      *
-     * @return DescribeSnLabelCountsResponse DescribeSnLabelCountsResponse
+     * @param request - DescribeSnLabelCountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSnLabelCountsResponse
+     *
+     * @param DescribeSnLabelCountsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSnLabelCountsResponse
      */
     public function describeSnLabelCountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelList)) {
-            $body['LabelList'] = $request->labelList;
+        if (null !== $request->labelList) {
+            @$body['LabelList'] = $request->labelList;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
-        if (!Utils::isUnset($request->zoneName)) {
-            $body['ZoneName'] = $request->zoneName;
+
+        if (null !== $request->zoneName) {
+            @$body['ZoneName'] = $request->zoneName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSnLabelCounts',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSnLabelCounts',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSnLabelCountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询设备标签数量
-     *  *
-     * @param DescribeSnLabelCountsRequest $request DescribeSnLabelCountsRequest
+     * 查询设备标签数量.
      *
-     * @return DescribeSnLabelCountsResponse DescribeSnLabelCountsResponse
+     * @param request - DescribeSnLabelCountsRequest
+     *
+     * @returns DescribeSnLabelCountsResponse
+     *
+     * @param DescribeSnLabelCountsRequest $request
+     *
+     * @return DescribeSnLabelCountsResponse
      */
     public function describeSnLabelCounts($request)
     {
@@ -1538,56 +1912,70 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作区域
-     *  *
-     * @param DescribeWorkZonesRequest $request DescribeWorkZonesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询工作区域
      *
-     * @return DescribeWorkZonesResponse DescribeWorkZonesResponse
+     * @param request - DescribeWorkZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWorkZonesResponse
+     *
+     * @param DescribeWorkZonesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeWorkZonesResponse
      */
     public function describeWorkZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->zoneIdList)) {
-            $body['ZoneIdList'] = $request->zoneIdList;
+
+        if (null !== $request->zoneIdList) {
+            @$body['ZoneIdList'] = $request->zoneIdList;
         }
-        if (!Utils::isUnset($request->zoneNameList)) {
-            $body['ZoneNameList'] = $request->zoneNameList;
+
+        if (null !== $request->zoneNameList) {
+            @$body['ZoneNameList'] = $request->zoneNameList;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWorkZones',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'DescribeWorkZones',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeWorkZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询工作区域
-     *  *
-     * @param DescribeWorkZonesRequest $request DescribeWorkZonesRequest
+     * 查询工作区域
      *
-     * @return DescribeWorkZonesResponse DescribeWorkZonesResponse
+     * @param request - DescribeWorkZonesRequest
+     *
+     * @returns DescribeWorkZonesResponse
+     *
+     * @param DescribeWorkZonesRequest $request
+     *
+     * @return DescribeWorkZonesResponse
      */
     public function describeWorkZones($request)
     {
@@ -1597,47 +1985,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 设备解绑终端用户
-     *  *
-     * @param DetachEndUsersRequest $request DetachEndUsersRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 设备解绑终端用户.
      *
-     * @return DetachEndUsersResponse DetachEndUsersResponse
+     * @param request - DetachEndUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachEndUsersResponse
+     *
+     * @param DetachEndUsersRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DetachEndUsersResponse
      */
     public function detachEndUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endUserIds)) {
-            $body['EndUserIds'] = $request->endUserIds;
+        if (null !== $request->endUserIds) {
+            @$body['EndUserIds'] = $request->endUserIds;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachEndUsers',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachEndUsers',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachEndUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设备解绑终端用户
-     *  *
-     * @param DetachEndUsersRequest $request DetachEndUsersRequest
+     * 设备解绑终端用户.
      *
-     * @return DetachEndUsersResponse DetachEndUsersResponse
+     * @param request - DetachEndUsersRequest
+     *
+     * @returns DetachEndUsersResponse
+     *
+     * @param DetachEndUsersRequest $request
+     *
+     * @return DetachEndUsersResponse
      */
     public function detachEndUsers($request)
     {
@@ -1647,50 +2046,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 设备绑定标签
-     *  *
-     * @param DetachLabelRequest $request DetachLabelRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 设备绑定标签.
      *
-     * @return DetachLabelResponse DetachLabelResponse
+     * @param request - DetachLabelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachLabelResponse
+     *
+     * @param DetachLabelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DetachLabelResponse
      */
     public function detachLabelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelContent)) {
-            $body['LabelContent'] = $request->labelContent;
+        if (null !== $request->labelContent) {
+            @$body['LabelContent'] = $request->labelContent;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+
+        if (null !== $request->labelId) {
+            @$body['LabelId'] = $request->labelId;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachLabel',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachLabel',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设备绑定标签
-     *  *
-     * @param DetachLabelRequest $request DetachLabelRequest
+     * 设备绑定标签.
      *
-     * @return DetachLabelResponse DetachLabelResponse
+     * @param request - DetachLabelRequest
+     *
+     * @returns DetachLabelResponse
+     *
+     * @param DetachLabelRequest $request
+     *
+     * @return DetachLabelResponse
      */
     public function detachLabel($request)
     {
@@ -1700,50 +2111,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 批量解绑标签
-     *  *
-     * @param DetachLabelsRequest $request DetachLabelsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 批量解绑标签.
      *
-     * @return DetachLabelsResponse DetachLabelsResponse
+     * @param request - DetachLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachLabelsResponse
+     *
+     * @param DetachLabelsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DetachLabelsResponse
      */
     public function detachLabelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelIds)) {
-            $body['LabelIds'] = $request->labelIds;
+        if (null !== $request->labelIds) {
+            @$body['LabelIds'] = $request->labelIds;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->serialNoList)) {
-            $body['SerialNoList'] = $request->serialNoList;
+
+        if (null !== $request->serialNoList) {
+            @$body['SerialNoList'] = $request->serialNoList;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachLabels',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachLabels',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量解绑标签
-     *  *
-     * @param DetachLabelsRequest $request DetachLabelsRequest
+     * 批量解绑标签.
      *
-     * @return DetachLabelsResponse DetachLabelsResponse
+     * @param request - DetachLabelsRequest
+     *
+     * @returns DetachLabelsResponse
+     *
+     * @param DetachLabelsRequest $request
+     *
+     * @return DetachLabelsResponse
      */
     public function detachLabels($request)
     {
@@ -1753,47 +2176,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户上传的文件
-     *  *
-     * @param GenerateOssUrlRequest $request GenerateOssUrlRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询用户上传的文件.
      *
-     * @return GenerateOssUrlResponse GenerateOssUrlResponse
+     * @param request - GenerateOssUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateOssUrlResponse
+     *
+     * @param GenerateOssUrlRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GenerateOssUrlResponse
      */
     public function generateOssUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->objectNameList)) {
-            $body['ObjectNameList'] = $request->objectNameList;
+        if (null !== $request->objectNameList) {
+            @$body['ObjectNameList'] = $request->objectNameList;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateOssUrl',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GenerateOssUrl',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GenerateOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户上传的文件
-     *  *
-     * @param GenerateOssUrlRequest $request GenerateOssUrlRequest
+     * 查询用户上传的文件.
      *
-     * @return GenerateOssUrlResponse GenerateOssUrlResponse
+     * @param request - GenerateOssUrlRequest
+     *
+     * @returns GenerateOssUrlResponse
+     *
+     * @param GenerateOssUrlRequest $request
+     *
+     * @return GenerateOssUrlResponse
      */
     public function generateOssUrl($request)
     {
@@ -1803,56 +2237,70 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用最新版本
-     *  *
-     * @param GetAppOtaLatestVersionRequest $request GetAppOtaLatestVersionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取应用最新版本.
      *
-     * @return GetAppOtaLatestVersionResponse GetAppOtaLatestVersionResponse
+     * @param request - GetAppOtaLatestVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppOtaLatestVersionResponse
+     *
+     * @param GetAppOtaLatestVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAppOtaLatestVersionResponse
      */
     public function getAppOtaLatestVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseVersion)) {
-            $query['BaseVersion'] = $request->baseVersion;
+        if (null !== $request->baseVersion) {
+            @$query['BaseVersion'] = $request->baseVersion;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->clientUid)) {
-            $query['ClientUid'] = $request->clientUid;
+
+        if (null !== $request->clientUid) {
+            @$query['ClientUid'] = $request->clientUid;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->project)) {
-            $query['Project'] = $request->project;
+
+        if (null !== $request->project) {
+            @$query['Project'] = $request->project;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAppOtaLatestVersion',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GetAppOtaLatestVersion',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAppOtaLatestVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取应用最新版本
-     *  *
-     * @param GetAppOtaLatestVersionRequest $request GetAppOtaLatestVersionRequest
+     * 获取应用最新版本.
      *
-     * @return GetAppOtaLatestVersionResponse GetAppOtaLatestVersionResponse
+     * @param request - GetAppOtaLatestVersionRequest
+     *
+     * @returns GetAppOtaLatestVersionResponse
+     *
+     * @param GetAppOtaLatestVersionRequest $request
+     *
+     * @return GetAppOtaLatestVersionResponse
      */
     public function getAppOtaLatestVersion($request)
     {
@@ -1862,59 +2310,74 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备配置
-     *  *
-     * @param GetDeviceConfigsRequest $request GetDeviceConfigsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取设备配置.
      *
-     * @return GetDeviceConfigsResponse GetDeviceConfigsResponse
+     * @param request - GetDeviceConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceConfigsResponse
+     *
+     * @param GetDeviceConfigsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDeviceConfigsResponse
      */
     public function getDeviceConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $body['DeviceId'] = $request->deviceId;
+        if (null !== $request->deviceId) {
+            @$body['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $body['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$body['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->urclVersion)) {
-            $body['UrclVersion'] = $request->urclVersion;
+
+        if (null !== $request->urclVersion) {
+            @$body['UrclVersion'] = $request->urclVersion;
         }
-        if (!Utils::isUnset($request->userCustomId)) {
-            $body['UserCustomId'] = $request->userCustomId;
+
+        if (null !== $request->userCustomId) {
+            @$body['UserCustomId'] = $request->userCustomId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceConfigs',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceConfigs',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取设备配置
-     *  *
-     * @param GetDeviceConfigsRequest $request GetDeviceConfigsRequest
+     * 获取设备配置.
      *
-     * @return GetDeviceConfigsResponse GetDeviceConfigsResponse
+     * @param request - GetDeviceConfigsRequest
+     *
+     * @returns GetDeviceConfigsResponse
+     *
+     * @param GetDeviceConfigsRequest $request
+     *
+     * @return GetDeviceConfigsResponse
      */
     public function getDeviceConfigs($request)
     {
@@ -1924,44 +2387,54 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取是否开启自动升级状态
-     *  *
-     * @param GetDeviceOtaAutoStatusRequest $request GetDeviceOtaAutoStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取是否开启自动升级状态
      *
-     * @return GetDeviceOtaAutoStatusResponse GetDeviceOtaAutoStatusResponse
+     * @param request - GetDeviceOtaAutoStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceOtaAutoStatusResponse
+     *
+     * @param GetDeviceOtaAutoStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDeviceOtaAutoStatusResponse
      */
     public function getDeviceOtaAutoStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientType)) {
-            $body['ClientType'] = $request->clientType;
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceOtaAutoStatus',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceOtaAutoStatus',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceOtaAutoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取是否开启自动升级状态
-     *  *
-     * @param GetDeviceOtaAutoStatusRequest $request GetDeviceOtaAutoStatusRequest
+     * 获取是否开启自动升级状态
      *
-     * @return GetDeviceOtaAutoStatusResponse GetDeviceOtaAutoStatusResponse
+     * @param request - GetDeviceOtaAutoStatusRequest
+     *
+     * @returns GetDeviceOtaAutoStatusResponse
+     *
+     * @param GetDeviceOtaAutoStatusRequest $request
+     *
+     * @return GetDeviceOtaAutoStatusResponse
      */
     public function getDeviceOtaAutoStatus($request)
     {
@@ -1971,71 +2444,90 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备升级信息
-     *  *
-     * @param GetDeviceOtaInfoRequest $request GetDeviceOtaInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取设备升级信息.
      *
-     * @return GetDeviceOtaInfoResponse GetDeviceOtaInfoResponse
+     * @param request - GetDeviceOtaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceOtaInfoResponse
+     *
+     * @param GetDeviceOtaInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDeviceOtaInfoResponse
      */
     public function getDeviceOtaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->baseVersion)) {
-            $body['BaseVersion'] = $request->baseVersion;
+        if (null !== $request->baseVersion) {
+            @$body['BaseVersion'] = $request->baseVersion;
         }
-        if (!Utils::isUnset($request->channel)) {
-            $body['Channel'] = $request->channel;
+
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $body['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$body['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $body['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$body['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->osVersion)) {
-            $body['OsVersion'] = $request->osVersion;
+
+        if (null !== $request->osVersion) {
+            @$body['OsVersion'] = $request->osVersion;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->targetVersionType)) {
-            $body['TargetVersionType'] = $request->targetVersionType;
+
+        if (null !== $request->targetVersionType) {
+            @$body['TargetVersionType'] = $request->targetVersionType;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceOtaInfo',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceOtaInfo',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取设备升级信息
-     *  *
-     * @param GetDeviceOtaInfoRequest $request GetDeviceOtaInfoRequest
+     * 获取设备升级信息.
      *
-     * @return GetDeviceOtaInfoResponse GetDeviceOtaInfoResponse
+     * @param request - GetDeviceOtaInfoRequest
+     *
+     * @returns GetDeviceOtaInfoResponse
+     *
+     * @param GetDeviceOtaInfoRequest $request
+     *
+     * @return GetDeviceOtaInfoResponse
      */
     public function getDeviceOtaInfo($request)
     {
@@ -2045,53 +2537,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备升级信息
-     *  *
-     * @param GetDeviceOtaInfoTestRequest $request GetDeviceOtaInfoTestRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取设备升级信息.
      *
-     * @return GetDeviceOtaInfoTestResponse GetDeviceOtaInfoTestResponse
+     * @param request - GetDeviceOtaInfoTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceOtaInfoTestResponse
+     *
+     * @param GetDeviceOtaInfoTestRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDeviceOtaInfoTestResponse
      */
     public function getDeviceOtaInfoTestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->baseVersion)) {
-            $body['BaseVersion'] = $request->baseVersion;
+        if (null !== $request->baseVersion) {
+            @$body['BaseVersion'] = $request->baseVersion;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $body['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$body['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceOtaInfoTest',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceOtaInfoTest',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceOtaInfoTestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取设备升级信息
-     *  *
-     * @param GetDeviceOtaInfoTestRequest $request GetDeviceOtaInfoTestRequest
+     * 获取设备升级信息.
      *
-     * @return GetDeviceOtaInfoTestResponse GetDeviceOtaInfoTestResponse
+     * @param request - GetDeviceOtaInfoTestRequest
+     *
+     * @returns GetDeviceOtaInfoTestResponse
+     *
+     * @param GetDeviceOtaInfoTestRequest $request
+     *
+     * @return GetDeviceOtaInfoTestResponse
      */
     public function getDeviceOtaInfoTest($request)
     {
@@ -2101,44 +2606,54 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户任务版本信息
-     *  *
-     * @param GetDeviceOtaTaskVersionInfoRequest $request GetDeviceOtaTaskVersionInfoRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 获取租户任务版本信息.
      *
-     * @return GetDeviceOtaTaskVersionInfoResponse GetDeviceOtaTaskVersionInfoResponse
+     * @param request - GetDeviceOtaTaskVersionInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceOtaTaskVersionInfoResponse
+     *
+     * @param GetDeviceOtaTaskVersionInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetDeviceOtaTaskVersionInfoResponse
      */
     public function getDeviceOtaTaskVersionInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceOtaTaskVersionInfo',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceOtaTaskVersionInfo',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceOtaTaskVersionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户任务版本信息
-     *  *
-     * @param GetDeviceOtaTaskVersionInfoRequest $request GetDeviceOtaTaskVersionInfoRequest
+     * 获取租户任务版本信息.
      *
-     * @return GetDeviceOtaTaskVersionInfoResponse GetDeviceOtaTaskVersionInfoResponse
+     * @param request - GetDeviceOtaTaskVersionInfoRequest
+     *
+     * @returns GetDeviceOtaTaskVersionInfoResponse
+     *
+     * @param GetDeviceOtaTaskVersionInfoRequest $request
+     *
+     * @return GetDeviceOtaTaskVersionInfoResponse
      */
     public function getDeviceOtaTaskVersionInfo($request)
     {
@@ -2148,53 +2663,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获得设备升级详情
-     *  *
-     * @param GetDeviceUpgradeStatusRequest $request GetDeviceUpgradeStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获得设备升级详情.
      *
-     * @return GetDeviceUpgradeStatusResponse GetDeviceUpgradeStatusResponse
+     * @param request - GetDeviceUpgradeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceUpgradeStatusResponse
+     *
+     * @param GetDeviceUpgradeStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDeviceUpgradeStatusResponse
      */
     public function getDeviceUpgradeStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['AppVersion'] = $request->appVersion;
+        if (null !== $request->appVersion) {
+            @$query['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->clientUid)) {
-            $query['ClientUid'] = $request->clientUid;
+
+        if (null !== $request->clientUid) {
+            @$query['ClientUid'] = $request->clientUid;
         }
-        if (!Utils::isUnset($request->project)) {
-            $query['Project'] = $request->project;
+
+        if (null !== $request->project) {
+            @$query['Project'] = $request->project;
         }
-        if (!Utils::isUnset($request->taskUid)) {
-            $query['TaskUid'] = $request->taskUid;
+
+        if (null !== $request->taskUid) {
+            @$query['TaskUid'] = $request->taskUid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceUpgradeStatus',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceUpgradeStatus',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获得设备升级详情
-     *  *
-     * @param GetDeviceUpgradeStatusRequest $request GetDeviceUpgradeStatusRequest
+     * 获得设备升级详情.
      *
-     * @return GetDeviceUpgradeStatusResponse GetDeviceUpgradeStatusResponse
+     * @param request - GetDeviceUpgradeStatusRequest
+     *
+     * @returns GetDeviceUpgradeStatusResponse
+     *
+     * @param GetDeviceUpgradeStatusRequest $request
+     *
+     * @return GetDeviceUpgradeStatusResponse
      */
     public function getDeviceUpgradeStatus($request)
     {
@@ -2204,50 +2732,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 导出设备工位列表
-     *  *
-     * @param GetExportDeviceInfoOssUrlRequest $request GetExportDeviceInfoOssUrlRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 导出设备工位列表.
      *
-     * @return GetExportDeviceInfoOssUrlResponse GetExportDeviceInfoOssUrlResponse
+     * @param request - GetExportDeviceInfoOssUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExportDeviceInfoOssUrlResponse
+     *
+     * @param GetExportDeviceInfoOssUrlRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetExportDeviceInfoOssUrlResponse
      */
     public function getExportDeviceInfoOssUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
-        if (!Utils::isUnset($request->zoneName)) {
-            $body['ZoneName'] = $request->zoneName;
+
+        if (null !== $request->zoneName) {
+            @$body['ZoneName'] = $request->zoneName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetExportDeviceInfoOssUrl',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExportDeviceInfoOssUrl',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExportDeviceInfoOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出设备工位列表
-     *  *
-     * @param GetExportDeviceInfoOssUrlRequest $request GetExportDeviceInfoOssUrlRequest
+     * 导出设备工位列表.
      *
-     * @return GetExportDeviceInfoOssUrlResponse GetExportDeviceInfoOssUrlResponse
+     * @param request - GetExportDeviceInfoOssUrlRequest
+     *
+     * @returns GetExportDeviceInfoOssUrlResponse
+     *
+     * @param GetExportDeviceInfoOssUrlRequest $request
+     *
+     * @return GetExportDeviceInfoOssUrlResponse
      */
     public function getExportDeviceInfoOssUrl($request)
     {
@@ -2257,50 +2797,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询OSS配置信息
-     *  *
-     * @param GetFbOssConfigRequest $request GetFbOssConfigRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询OSS配置信息.
      *
-     * @return GetFbOssConfigResponse GetFbOssConfigResponse
+     * @param request - GetFbOssConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFbOssConfigResponse
+     *
+     * @param GetFbOssConfigRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetFbOssConfigResponse
      */
     public function getFbOssConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dirPrefix)) {
-            $body['DirPrefix'] = $request->dirPrefix;
+        if (null !== $request->dirPrefix) {
+            @$body['DirPrefix'] = $request->dirPrefix;
         }
-        if (!Utils::isUnset($request->isDedicatedLine)) {
-            $body['IsDedicatedLine'] = $request->isDedicatedLine;
+
+        if (null !== $request->isDedicatedLine) {
+            @$body['IsDedicatedLine'] = $request->isDedicatedLine;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFbOssConfig',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GetFbOssConfig',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFbOssConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询OSS配置信息
-     *  *
-     * @param GetFbOssConfigRequest $request GetFbOssConfigRequest
+     * 查询OSS配置信息.
      *
-     * @return GetFbOssConfigResponse GetFbOssConfigResponse
+     * @param request - GetFbOssConfigRequest
+     *
+     * @returns GetFbOssConfigResponse
+     *
+     * @param GetFbOssConfigRequest $request
+     *
+     * @return GetFbOssConfigResponse
      */
     public function getFbOssConfig($request)
     {
@@ -2310,44 +2862,54 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取OSS配置
-     *  *
-     * @param GetOssConfigRequest $request GetOssConfigRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取OSS配置.
      *
-     * @return GetOssConfigResponse GetOssConfigResponse
+     * @param request - GetOssConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOssConfigResponse
+     *
+     * @param GetOssConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetOssConfigResponse
      */
     public function getOssConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOssConfig',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOssConfig',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOssConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取OSS配置
-     *  *
-     * @param GetOssConfigRequest $request GetOssConfigRequest
+     * 获取OSS配置.
      *
-     * @return GetOssConfigResponse GetOssConfigResponse
+     * @param request - GetOssConfigRequest
+     *
+     * @returns GetOssConfigResponse
+     *
+     * @param GetOssConfigRequest $request
+     *
+     * @return GetOssConfigResponse
      */
     public function getOssConfig($request)
     {
@@ -2357,44 +2919,54 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取版本下载地址
-     *  *
-     * @param GetVersionDownloadUrlRequest $request GetVersionDownloadUrlRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取版本下载地址
      *
-     * @return GetVersionDownloadUrlResponse GetVersionDownloadUrlResponse
+     * @param request - GetVersionDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVersionDownloadUrlResponse
+     *
+     * @param GetVersionDownloadUrlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetVersionDownloadUrlResponse
      */
     public function getVersionDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->versionName)) {
-            $query['VersionName'] = $request->versionName;
+        if (null !== $request->versionName) {
+            @$query['VersionName'] = $request->versionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVersionDownloadUrl',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVersionDownloadUrl',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVersionDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取版本下载地址
-     *  *
-     * @param GetVersionDownloadUrlRequest $request GetVersionDownloadUrlRequest
+     * 获取版本下载地址
      *
-     * @return GetVersionDownloadUrlResponse GetVersionDownloadUrlResponse
+     * @param request - GetVersionDownloadUrlRequest
+     *
+     * @returns GetVersionDownloadUrlResponse
+     *
+     * @param GetVersionDownloadUrlRequest $request
+     *
+     * @return GetVersionDownloadUrlResponse
      */
     public function getVersionDownloadUrl($request)
     {
@@ -2404,47 +2976,159 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户ota任务
-     *  *
-     * @param ListDeviceOtaTaskByTenantRequest $request ListDeviceOtaTaskByTenantRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 获取用户已绑定的可信设备列表.
      *
-     * @return ListDeviceOtaTaskByTenantResponse ListDeviceOtaTaskByTenantResponse
+     * @param request - ListBoundDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBoundDevicesResponse
+     *
+     * @param ListBoundDevicesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBoundDevicesResponse
+     */
+    public function listBoundDevicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->adDomain) {
+            @$body['AdDomain'] = $request->adDomain;
+        }
+
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
+        }
+
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->inManage) {
+            @$body['InManage'] = $request->inManage;
+        }
+
+        if (null !== $request->lastLoginUser) {
+            @$body['LastLoginUser'] = $request->lastLoginUser;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
+        }
+
+        if (null !== $request->userType) {
+            @$body['UserType'] = $request->userType;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBoundDevices',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBoundDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户已绑定的可信设备列表.
+     *
+     * @param request - ListBoundDevicesRequest
+     *
+     * @returns ListBoundDevicesResponse
+     *
+     * @param ListBoundDevicesRequest $request
+     *
+     * @return ListBoundDevicesResponse
+     */
+    public function listBoundDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBoundDevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取租户ota任务
+     *
+     * @param request - ListDeviceOtaTaskByTenantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceOtaTaskByTenantResponse
+     *
+     * @param ListDeviceOtaTaskByTenantRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDeviceOtaTaskByTenantResponse
      */
     public function listDeviceOtaTaskByTenantWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceOtaTaskByTenant',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDeviceOtaTaskByTenant',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeviceOtaTaskByTenantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户ota任务
-     *  *
-     * @param ListDeviceOtaTaskByTenantRequest $request ListDeviceOtaTaskByTenantRequest
+     * 获取租户ota任务
      *
-     * @return ListDeviceOtaTaskByTenantResponse ListDeviceOtaTaskByTenantResponse
+     * @param request - ListDeviceOtaTaskByTenantRequest
+     *
+     * @returns ListDeviceOtaTaskByTenantResponse
+     *
+     * @param ListDeviceOtaTaskByTenantRequest $request
+     *
+     * @return ListDeviceOtaTaskByTenantResponse
      */
     public function listDeviceOtaTaskByTenant($request)
     {
@@ -2454,56 +3138,70 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询设备座位列表
-     *  *
-     * @param ListDeviceSeatsRequest $request ListDeviceSeatsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询设备座位列表.
      *
-     * @return ListDeviceSeatsResponse ListDeviceSeatsResponse
+     * @param request - ListDeviceSeatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceSeatsResponse
+     *
+     * @param ListDeviceSeatsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDeviceSeatsResponse
      */
     public function listDeviceSeatsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
+        if (null !== $request->label) {
+            @$body['Label'] = $request->label;
         }
-        if (!Utils::isUnset($request->seatNo)) {
-            $body['SeatNo'] = $request->seatNo;
+
+        if (null !== $request->seatNo) {
+            @$body['SeatNo'] = $request->seatNo;
         }
-        if (!Utils::isUnset($request->serialNoList)) {
-            $body['SerialNoList'] = $request->serialNoList;
+
+        if (null !== $request->serialNoList) {
+            @$body['SerialNoList'] = $request->serialNoList;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceSeats',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDeviceSeats',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询设备座位列表
-     *  *
-     * @param ListDeviceSeatsRequest $request ListDeviceSeatsRequest
+     * 查询设备座位列表.
      *
-     * @return ListDeviceSeatsResponse ListDeviceSeatsResponse
+     * @param request - ListDeviceSeatsRequest
+     *
+     * @returns ListDeviceSeatsResponse
+     *
+     * @param ListDeviceSeatsRequest $request
+     *
+     * @return ListDeviceSeatsResponse
      */
     public function listDeviceSeats($request)
     {
@@ -2513,97 +3211,128 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备列表
-     *  *
-     * @param ListDevicesRequest $request ListDevicesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 获取设备列表.
      *
-     * @return ListDevicesResponse ListDevicesResponse
+     * @param request - ListDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDevicesResponse
+     *
+     * @param ListDevicesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDevicesResponse
      */
     public function listDevicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->deviceIpV4)) {
-            $query['DeviceIpV4'] = $request->deviceIpV4;
+
+        if (null !== $request->deviceIpV4) {
+            @$query['DeviceIpV4'] = $request->deviceIpV4;
         }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
+
+        if (null !== $request->deviceName) {
+            @$query['DeviceName'] = $request->deviceName;
         }
-        if (!Utils::isUnset($request->deviceOS)) {
-            $query['DeviceOS'] = $request->deviceOS;
+
+        if (null !== $request->deviceOS) {
+            @$query['DeviceOS'] = $request->deviceOS;
         }
-        if (!Utils::isUnset($request->devicePlatform)) {
-            $query['DevicePlatform'] = $request->devicePlatform;
+
+        if (null !== $request->devicePlatform) {
+            @$query['DevicePlatform'] = $request->devicePlatform;
         }
-        if (!Utils::isUnset($request->locationInfo)) {
-            $query['LocationInfo'] = $request->locationInfo;
+
+        if (null !== $request->lastLoginUser) {
+            @$query['LastLoginUser'] = $request->lastLoginUser;
         }
-        if (!Utils::isUnset($request->userType)) {
-            $query['UserType'] = $request->userType;
+
+        if (null !== $request->locationInfo) {
+            @$query['LocationInfo'] = $request->locationInfo;
         }
+
+        if (null !== $request->userType) {
+            @$query['UserType'] = $request->userType;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->buildId)) {
-            $body['BuildId'] = $request->buildId;
+
+        if (null !== $request->buildId) {
+            @$body['BuildId'] = $request->buildId;
         }
-        if (!Utils::isUnset($request->deviceGroupId)) {
-            $body['DeviceGroupId'] = $request->deviceGroupId;
+
+        if (null !== $request->deviceGroupId) {
+            @$body['DeviceGroupId'] = $request->deviceGroupId;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->labelContent)) {
-            $body['LabelContent'] = $request->labelContent;
+
+        if (null !== $request->labelContent) {
+            @$body['LabelContent'] = $request->labelContent;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+
+        if (null !== $request->labelId) {
+            @$body['LabelId'] = $request->labelId;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDevices',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDevices',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取设备列表
-     *  *
-     * @param ListDevicesRequest $request ListDevicesRequest
+     * 获取设备列表.
      *
-     * @return ListDevicesResponse ListDevicesResponse
+     * @param request - ListDevicesRequest
+     *
+     * @returns ListDevicesResponse
+     *
+     * @param ListDevicesRequest $request
+     *
+     * @return ListDevicesResponse
      */
     public function listDevices($request)
     {
@@ -2613,34 +3342,41 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户问题标签
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询用户问题标签.
      *
-     * @return ListFbIssueLabelsResponse ListFbIssueLabelsResponse
+     * @param request - ListFbIssueLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFbIssueLabelsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListFbIssueLabelsResponse
      */
     public function listFbIssueLabelsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListFbIssueLabels',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ListFbIssueLabels',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFbIssueLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户问题标签
-     *  *
-     * @return ListFbIssueLabelsResponse ListFbIssueLabelsResponse
+     * 查询用户问题标签.
+     *
+     * @returns ListFbIssueLabelsResponse
+     *
+     * @return ListFbIssueLabelsResponse
      */
     public function listFbIssueLabels()
     {
@@ -2650,47 +3386,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 根据语言类型和调用方查询标签列表
-     *  *
-     * @param ListFbIssueLabelsByLCRequest $request ListFbIssueLabelsByLCRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 根据语言类型和调用方查询标签列表.
      *
-     * @return ListFbIssueLabelsByLCResponse ListFbIssueLabelsByLCResponse
+     * @param request - ListFbIssueLabelsByLCRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFbIssueLabelsByLCResponse
+     *
+     * @param ListFbIssueLabelsByLCRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListFbIssueLabelsByLCResponse
      */
     public function listFbIssueLabelsByLCWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->caller)) {
-            $body['Caller'] = $request->caller;
+        if (null !== $request->caller) {
+            @$body['Caller'] = $request->caller;
         }
-        if (!Utils::isUnset($request->languageType)) {
-            $body['LanguageType'] = $request->languageType;
+
+        if (null !== $request->languageType) {
+            @$body['LanguageType'] = $request->languageType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFbIssueLabelsByLC',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ListFbIssueLabelsByLC',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFbIssueLabelsByLCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据语言类型和调用方查询标签列表
-     *  *
-     * @param ListFbIssueLabelsByLCRequest $request ListFbIssueLabelsByLCRequest
+     * 根据语言类型和调用方查询标签列表.
      *
-     * @return ListFbIssueLabelsByLCResponse ListFbIssueLabelsByLCResponse
+     * @param request - ListFbIssueLabelsByLCRequest
+     *
+     * @returns ListFbIssueLabelsByLCResponse
+     *
+     * @param ListFbIssueLabelsByLCRequest $request
+     *
+     * @return ListFbIssueLabelsByLCResponse
      */
     public function listFbIssueLabelsByLC($request)
     {
@@ -2700,53 +3447,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param ListLabelsRequest $request ListLabelsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取标签列表.
      *
-     * @return ListLabelsResponse ListLabelsResponse
+     * @param request - ListLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLabelsResponse
+     *
+     * @param ListLabelsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListLabelsResponse
      */
     public function listLabelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelContent)) {
-            $body['LabelContent'] = $request->labelContent;
+        if (null !== $request->labelContent) {
+            @$body['LabelContent'] = $request->labelContent;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+
+        if (null !== $request->labelId) {
+            @$body['LabelId'] = $request->labelId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListLabels',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLabels',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param ListLabelsRequest $request ListLabelsRequest
+     * 获取标签列表.
      *
-     * @return ListLabelsResponse ListLabelsResponse
+     * @param request - ListLabelsRequest
+     *
+     * @returns ListLabelsResponse
+     *
+     * @param ListLabelsRequest $request
+     *
+     * @return ListLabelsResponse
      */
     public function listLabels($request)
     {
@@ -2756,50 +3516,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户升级设备信息
-     *  *
-     * @param ListTenantDeviceOtaInfoRequest $request ListTenantDeviceOtaInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取租户升级设备信息.
      *
-     * @return ListTenantDeviceOtaInfoResponse ListTenantDeviceOtaInfoResponse
+     * @param request - ListTenantDeviceOtaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTenantDeviceOtaInfoResponse
+     *
+     * @param ListTenantDeviceOtaInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListTenantDeviceOtaInfoResponse
      */
     public function listTenantDeviceOtaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTenantDeviceOtaInfo',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTenantDeviceOtaInfo',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTenantDeviceOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户升级设备信息
-     *  *
-     * @param ListTenantDeviceOtaInfoRequest $request ListTenantDeviceOtaInfoRequest
+     * 获取租户升级设备信息.
      *
-     * @return ListTenantDeviceOtaInfoResponse ListTenantDeviceOtaInfoResponse
+     * @param request - ListTenantDeviceOtaInfoRequest
+     *
+     * @returns ListTenantDeviceOtaInfoResponse
+     *
+     * @param ListTenantDeviceOtaInfoRequest $request
+     *
+     * @return ListTenantDeviceOtaInfoResponse
      */
     public function listTenantDeviceOtaInfo($request)
     {
@@ -2809,80 +3581,102 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询终端列表
-     *  *
-     * @param ListTerminalRequest $request ListTerminalRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询终端列表.
      *
-     * @return ListTerminalResponse ListTerminalResponse
+     * @param request - ListTerminalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTerminalResponse
+     *
+     * @param ListTerminalRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTerminalResponse
      */
     public function listTerminalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->buildId)) {
-            $body['BuildId'] = $request->buildId;
+
+        if (null !== $request->buildId) {
+            @$body['BuildId'] = $request->buildId;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $body['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->inManage)) {
-            $body['InManage'] = $request->inManage;
+
+        if (null !== $request->inManage) {
+            @$body['InManage'] = $request->inManage;
         }
-        if (!Utils::isUnset($request->ipv4)) {
-            $body['Ipv4'] = $request->ipv4;
+
+        if (null !== $request->ipv4) {
+            @$body['Ipv4'] = $request->ipv4;
         }
-        if (!Utils::isUnset($request->locationInfo)) {
-            $body['LocationInfo'] = $request->locationInfo;
+
+        if (null !== $request->locationInfo) {
+            @$body['LocationInfo'] = $request->locationInfo;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->searchKeyword)) {
-            $body['SearchKeyword'] = $request->searchKeyword;
+
+        if (null !== $request->searchKeyword) {
+            @$body['SearchKeyword'] = $request->searchKeyword;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $body['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->serialNumber) {
+            @$body['SerialNumber'] = $request->serialNumber;
         }
-        if (!Utils::isUnset($request->terminalGroupId)) {
-            $body['TerminalGroupId'] = $request->terminalGroupId;
+
+        if (null !== $request->terminalGroupId) {
+            @$body['TerminalGroupId'] = $request->terminalGroupId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTerminal',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTerminal',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询终端列表
-     *  *
-     * @param ListTerminalRequest $request ListTerminalRequest
+     * 查询终端列表.
      *
-     * @return ListTerminalResponse ListTerminalResponse
+     * @param request - ListTerminalRequest
+     *
+     * @returns ListTerminalResponse
+     *
+     * @param ListTerminalRequest $request
+     *
+     * @return ListTerminalResponse
      */
     public function listTerminal($request)
     {
@@ -2892,70 +3686,93 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询终端基本信息
-     *  *
-     * @param ListTerminalsRequest $request ListTerminalsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 批量查询终端基本信息.
      *
-     * @return ListTerminalsResponse ListTerminalsResponse
+     * @param request - ListTerminalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTerminalsResponse
+     *
+     * @param ListTerminalsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTerminalsResponse
      */
     public function listTerminalsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->inManage)) {
-            $body['InManage'] = $request->inManage;
+        if (null !== $request->inManage) {
+            @$body['InManage'] = $request->inManage;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->passwordFreeLoginUser)) {
-            $body['PasswordFreeLoginUser'] = $request->passwordFreeLoginUser;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->searchKeyword)) {
-            $body['SearchKeyword'] = $request->searchKeyword;
+
+        if (null !== $request->passwordFreeLoginUser) {
+            @$body['PasswordFreeLoginUser'] = $request->passwordFreeLoginUser;
         }
+
+        if (null !== $request->searchKeyword) {
+            @$body['SearchKeyword'] = $request->searchKeyword;
+        }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->serialNumbers)) {
-            $bodyFlat['SerialNumbers'] = $request->serialNumbers;
+        if (null !== $request->serialNumbers) {
+            @$bodyFlat['SerialNumbers'] = $request->serialNumbers;
         }
-        if (!Utils::isUnset($request->terminalGroupId)) {
-            $body['TerminalGroupId'] = $request->terminalGroupId;
+
+        if (null !== $request->terminalGroupId) {
+            @$body['TerminalGroupId'] = $request->terminalGroupId;
         }
-        if (!Utils::isUnset($request->uuids)) {
-            $bodyFlat['Uuids'] = $request->uuids;
+
+        if (null !== $request->uuids) {
+            @$bodyFlat['Uuids'] = $request->uuids;
         }
-        if (!Utils::isUnset($request->withBindUser)) {
-            $body['WithBindUser'] = $request->withBindUser;
+
+        if (null !== $request->withBindUser) {
+            @$body['WithBindUser'] = $request->withBindUser;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTerminals',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTerminals',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量查询终端基本信息
-     *  *
-     * @param ListTerminalsRequest $request ListTerminalsRequest
+     * 批量查询终端基本信息.
      *
-     * @return ListTerminalsResponse ListTerminalsResponse
+     * @param request - ListTerminalsRequest
+     *
+     * @returns ListTerminalsResponse
+     *
+     * @param ListTerminalsRequest $request
+     *
+     * @return ListTerminalsResponse
      */
     public function listTerminals($request)
     {
@@ -2965,53 +3782,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询可信设备列表
-     *  *
-     * @param ListTrustDevicesRequest $request ListTrustDevicesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询可信设备列表.
      *
-     * @return ListTrustDevicesResponse ListTrustDevicesResponse
+     * @param request - ListTrustDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrustDevicesResponse
+     *
+     * @param ListTrustDevicesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTrustDevicesResponse
      */
     public function listTrustDevicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelContent)) {
-            $body['LabelContent'] = $request->labelContent;
+        if (null !== $request->labelContent) {
+            @$body['LabelContent'] = $request->labelContent;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+
+        if (null !== $request->labelId) {
+            @$body['LabelId'] = $request->labelId;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->userCustomId)) {
-            $body['UserCustomId'] = $request->userCustomId;
+
+        if (null !== $request->userCustomId) {
+            @$body['UserCustomId'] = $request->userCustomId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTrustDevices',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ListTrustDevices',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTrustDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询可信设备列表
-     *  *
-     * @param ListTrustDevicesRequest $request ListTrustDevicesRequest
+     * 查询可信设备列表.
      *
-     * @return ListTrustDevicesResponse ListTrustDevicesResponse
+     * @param request - ListTrustDevicesRequest
+     *
+     * @returns ListTrustDevicesResponse
+     *
+     * @param ListTrustDevicesRequest $request
+     *
+     * @return ListTrustDevicesResponse
      */
     public function listTrustDevices($request)
     {
@@ -3021,68 +3851,187 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询问题反馈列表
-     *  *
-     * @param ListUserFbAcIssuesRequest $request ListUserFbAcIssuesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取用户未绑定的可信设备列表.
      *
-     * @return ListUserFbAcIssuesResponse ListUserFbAcIssuesResponse
+     * @param request - ListUnbindDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUnbindDevicesResponse
+     *
+     * @param ListUnbindDevicesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUnbindDevicesResponse
+     */
+    public function listUnbindDevicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->adDomain) {
+            @$body['AdDomain'] = $request->adDomain;
+        }
+
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
+        }
+
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->inManage) {
+            @$body['InManage'] = $request->inManage;
+        }
+
+        if (null !== $request->lastLoginUser) {
+            @$body['LastLoginUser'] = $request->lastLoginUser;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
+        }
+
+        if (null !== $request->userType) {
+            @$body['UserType'] = $request->userType;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListUnbindDevices',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUnbindDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户未绑定的可信设备列表.
+     *
+     * @param request - ListUnbindDevicesRequest
+     *
+     * @returns ListUnbindDevicesResponse
+     *
+     * @param ListUnbindDevicesRequest $request
+     *
+     * @return ListUnbindDevicesResponse
+     */
+    public function listUnbindDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUnbindDevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询问题反馈列表.
+     *
+     * @param request - ListUserFbAcIssuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserFbAcIssuesResponse
+     *
+     * @param ListUserFbAcIssuesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListUserFbAcIssuesResponse
      */
     public function listUserFbAcIssuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->account)) {
-            $body['Account'] = $request->account;
+        if (null !== $request->account) {
+            @$body['Account'] = $request->account;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->errorMessage)) {
-            $body['ErrorMessage'] = $request->errorMessage;
+
+        if (null !== $request->errorMessage) {
+            @$body['ErrorMessage'] = $request->errorMessage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->issueId)) {
-            $body['IssueId'] = $request->issueId;
+
+        if (null !== $request->issueId) {
+            @$body['IssueId'] = $request->issueId;
         }
-        if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
+
+        if (null !== $request->label) {
+            @$body['Label'] = $request->label;
         }
-        if (!Utils::isUnset($request->reservedA)) {
-            $body['ReservedA'] = $request->reservedA;
+
+        if (null !== $request->reservedA) {
+            @$body['ReservedA'] = $request->reservedA;
         }
-        if (!Utils::isUnset($request->reservedB)) {
-            $body['ReservedB'] = $request->reservedB;
+
+        if (null !== $request->reservedB) {
+            @$body['ReservedB'] = $request->reservedB;
         }
-        if (!Utils::isUnset($request->userEmail)) {
-            $body['UserEmail'] = $request->userEmail;
+
+        if (null !== $request->userEmail) {
+            @$body['UserEmail'] = $request->userEmail;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListUserFbAcIssues',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ListUserFbAcIssues',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserFbAcIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询问题反馈列表
-     *  *
-     * @param ListUserFbAcIssuesRequest $request ListUserFbAcIssuesRequest
+     * 查询问题反馈列表.
      *
-     * @return ListUserFbAcIssuesResponse ListUserFbAcIssuesResponse
+     * @param request - ListUserFbAcIssuesRequest
+     *
+     * @returns ListUserFbAcIssuesResponse
+     *
+     * @param ListUserFbAcIssuesRequest $request
+     *
+     * @return ListUserFbAcIssuesResponse
      */
     public function listUserFbAcIssues($request)
     {
@@ -3092,98 +4041,126 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户反馈问题列表
-     *  *
-     * @param ListUserFbIssuesRequest $request ListUserFbIssuesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询用户反馈问题列表.
      *
-     * @return ListUserFbIssuesResponse ListUserFbIssuesResponse
+     * @param request - ListUserFbIssuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserFbIssuesResponse
+     *
+     * @param ListUserFbIssuesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListUserFbIssuesResponse
      */
     public function listUserFbIssuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientModel)) {
-            $body['ClientModel'] = $request->clientModel;
+
+        if (null !== $request->clientModel) {
+            @$body['ClientModel'] = $request->clientModel;
         }
-        if (!Utils::isUnset($request->clientSn)) {
-            $body['ClientSn'] = $request->clientSn;
+
+        if (null !== $request->clientSn) {
+            @$body['ClientSn'] = $request->clientSn;
         }
-        if (!Utils::isUnset($request->customerId)) {
-            $body['CustomerId'] = $request->customerId;
+
+        if (null !== $request->customerId) {
+            @$body['CustomerId'] = $request->customerId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $body['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$body['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->errorCode)) {
-            $body['ErrorCode'] = $request->errorCode;
+
+        if (null !== $request->errorCode) {
+            @$body['ErrorCode'] = $request->errorCode;
         }
-        if (!Utils::isUnset($request->errorMsg)) {
-            $body['ErrorMsg'] = $request->errorMsg;
+
+        if (null !== $request->errorMsg) {
+            @$body['ErrorMsg'] = $request->errorMsg;
         }
-        if (!Utils::isUnset($request->fbType)) {
-            $body['FbType'] = $request->fbType;
+
+        if (null !== $request->fbType) {
+            @$body['FbType'] = $request->fbType;
         }
-        if (!Utils::isUnset($request->issueId)) {
-            $body['IssueId'] = $request->issueId;
+
+        if (null !== $request->issueId) {
+            @$body['IssueId'] = $request->issueId;
         }
-        if (!Utils::isUnset($request->issueLabel)) {
-            $body['IssueLabel'] = $request->issueLabel;
+
+        if (null !== $request->issueLabel) {
+            @$body['IssueLabel'] = $request->issueLabel;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userEmail)) {
-            $body['UserEmail'] = $request->userEmail;
+
+        if (null !== $request->userEmail) {
+            @$body['UserEmail'] = $request->userEmail;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->wasRead)) {
-            $body['WasRead'] = $request->wasRead;
+
+        if (null !== $request->wasRead) {
+            @$body['WasRead'] = $request->wasRead;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListUserFbIssues',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ListUserFbIssues',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserFbIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户反馈问题列表
-     *  *
-     * @param ListUserFbIssuesRequest $request ListUserFbIssuesRequest
+     * 查询用户反馈问题列表.
      *
-     * @return ListUserFbIssuesResponse ListUserFbIssuesResponse
+     * @param request - ListUserFbIssuesRequest
+     *
+     * @returns ListUserFbIssuesResponse
+     *
+     * @param ListUserFbIssuesRequest $request
+     *
+     * @return ListUserFbIssuesResponse
      */
     public function listUserFbIssues($request)
     {
@@ -3193,50 +4170,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 修改设备安全入网类型
-     *  *
-     * @param ModifyDevicesSecureNetworkTypeRequest $request ModifyDevicesSecureNetworkTypeRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 修改设备安全入网类型.
      *
-     * @return ModifyDevicesSecureNetworkTypeResponse ModifyDevicesSecureNetworkTypeResponse
+     * @param request - ModifyDevicesSecureNetworkTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDevicesSecureNetworkTypeResponse
+     *
+     * @param ModifyDevicesSecureNetworkTypeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyDevicesSecureNetworkTypeResponse
      */
     public function modifyDevicesSecureNetworkTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->allDevices)) {
-            $body['AllDevices'] = $request->allDevices;
+        if (null !== $request->allDevices) {
+            @$body['AllDevices'] = $request->allDevices;
         }
-        if (!Utils::isUnset($request->secureNetworkType)) {
-            $body['SecureNetworkType'] = $request->secureNetworkType;
+
+        if (null !== $request->secureNetworkType) {
+            @$body['SecureNetworkType'] = $request->secureNetworkType;
         }
-        if (!Utils::isUnset($request->serialNos)) {
-            $body['SerialNos'] = $request->serialNos;
+
+        if (null !== $request->serialNos) {
+            @$body['SerialNos'] = $request->serialNos;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDevicesSecureNetworkType',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDevicesSecureNetworkType',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDevicesSecureNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改设备安全入网类型
-     *  *
-     * @param ModifyDevicesSecureNetworkTypeRequest $request ModifyDevicesSecureNetworkTypeRequest
+     * 修改设备安全入网类型.
      *
-     * @return ModifyDevicesSecureNetworkTypeResponse ModifyDevicesSecureNetworkTypeResponse
+     * @param request - ModifyDevicesSecureNetworkTypeRequest
+     *
+     * @returns ModifyDevicesSecureNetworkTypeResponse
+     *
+     * @param ModifyDevicesSecureNetworkTypeRequest $request
+     *
+     * @return ModifyDevicesSecureNetworkTypeResponse
      */
     public function modifyDevicesSecureNetworkType($request)
     {
@@ -3246,47 +4235,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 匿名api修改安全入网配置
-     *  *
-     * @param ModifySecureNetworkTypeRequest $request ModifySecureNetworkTypeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 匿名api修改安全入网配置.
      *
-     * @return ModifySecureNetworkTypeResponse ModifySecureNetworkTypeResponse
+     * @param request - ModifySecureNetworkTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySecureNetworkTypeResponse
+     *
+     * @param ModifySecureNetworkTypeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifySecureNetworkTypeResponse
      */
     public function modifySecureNetworkTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->secureNetworkType)) {
-            $body['SecureNetworkType'] = $request->secureNetworkType;
+        if (null !== $request->secureNetworkType) {
+            @$body['SecureNetworkType'] = $request->secureNetworkType;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecureNetworkType',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySecureNetworkType',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifySecureNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 匿名api修改安全入网配置
-     *  *
-     * @param ModifySecureNetworkTypeRequest $request ModifySecureNetworkTypeRequest
+     * 匿名api修改安全入网配置.
      *
-     * @return ModifySecureNetworkTypeResponse ModifySecureNetworkTypeResponse
+     * @param request - ModifySecureNetworkTypeRequest
+     *
+     * @returns ModifySecureNetworkTypeResponse
+     *
+     * @param ModifySecureNetworkTypeRequest $request
+     *
+     * @return ModifySecureNetworkTypeResponse
      */
     public function modifySecureNetworkType($request)
     {
@@ -3296,83 +4296,106 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 设备注册
-     *  *
-     * @param RegisterDeviceRequest $request RegisterDeviceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 设备注册.
      *
-     * @return RegisterDeviceResponse RegisterDeviceResponse
+     * @param request - RegisterDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RegisterDeviceResponse
+     *
+     * @param RegisterDeviceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RegisterDeviceResponse
      */
     public function registerDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bluetooth)) {
-            $body['Bluetooth'] = $request->bluetooth;
+        if (null !== $request->bluetooth) {
+            @$body['Bluetooth'] = $request->bluetooth;
         }
-        if (!Utils::isUnset($request->buildId)) {
-            $body['BuildId'] = $request->buildId;
+
+        if (null !== $request->buildId) {
+            @$body['BuildId'] = $request->buildId;
         }
-        if (!Utils::isUnset($request->chipId)) {
-            $body['ChipId'] = $request->chipId;
+
+        if (null !== $request->chipId) {
+            @$body['ChipId'] = $request->chipId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $body['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $body['Cpu'] = $request->cpu;
+
+        if (null !== $request->cpu) {
+            @$body['Cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->customId)) {
-            $body['CustomId'] = $request->customId;
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
         }
-        if (!Utils::isUnset($request->etherMac)) {
-            $body['EtherMac'] = $request->etherMac;
+
+        if (null !== $request->etherMac) {
+            @$body['EtherMac'] = $request->etherMac;
         }
-        if (!Utils::isUnset($request->memory)) {
-            $body['Memory'] = $request->memory;
+
+        if (null !== $request->memory) {
+            @$body['Memory'] = $request->memory;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->storage)) {
-            $body['Storage'] = $request->storage;
+
+        if (null !== $request->storage) {
+            @$body['Storage'] = $request->storage;
         }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$body['Token'] = $request->token;
         }
-        if (!Utils::isUnset($request->wlan)) {
-            $body['Wlan'] = $request->wlan;
+
+        if (null !== $request->wlan) {
+            @$body['Wlan'] = $request->wlan;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RegisterDevice',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'RegisterDevice',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设备注册
-     *  *
-     * @param RegisterDeviceRequest $request RegisterDeviceRequest
+     * 设备注册.
      *
-     * @return RegisterDeviceResponse RegisterDeviceResponse
+     * @param request - RegisterDeviceRequest
+     *
+     * @returns RegisterDeviceResponse
+     *
+     * @param RegisterDeviceRequest $request
+     *
+     * @return RegisterDeviceResponse
      */
     public function registerDevice($request)
     {
@@ -3382,68 +4405,86 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 上报升级信息
-     *  *
-     * @param ReportAppOtaInfoRequest $request ReportAppOtaInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 上报升级信息.
      *
-     * @return ReportAppOtaInfoResponse ReportAppOtaInfoResponse
+     * @param request - ReportAppOtaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportAppOtaInfoResponse
+     *
+     * @param ReportAppOtaInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ReportAppOtaInfoResponse
      */
     public function reportAppOtaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseVersion)) {
-            $query['BaseVersion'] = $request->baseVersion;
+        if (null !== $request->baseVersion) {
+            @$query['BaseVersion'] = $request->baseVersion;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->clientUid)) {
-            $query['ClientUid'] = $request->clientUid;
+
+        if (null !== $request->clientUid) {
+            @$query['ClientUid'] = $request->clientUid;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->project)) {
-            $query['Project'] = $request->project;
+
+        if (null !== $request->project) {
+            @$query['Project'] = $request->project;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->targetVersion)) {
-            $query['TargetVersion'] = $request->targetVersion;
+
+        if (null !== $request->targetVersion) {
+            @$query['TargetVersion'] = $request->targetVersion;
         }
-        if (!Utils::isUnset($request->taskUid)) {
-            $query['TaskUid'] = $request->taskUid;
+
+        if (null !== $request->taskUid) {
+            @$query['TaskUid'] = $request->taskUid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReportAppOtaInfo',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ReportAppOtaInfo',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReportAppOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 上报升级信息
-     *  *
-     * @param ReportAppOtaInfoRequest $request ReportAppOtaInfoRequest
+     * 上报升级信息.
      *
-     * @return ReportAppOtaInfoResponse ReportAppOtaInfoResponse
+     * @param request - ReportAppOtaInfoRequest
+     *
+     * @returns ReportAppOtaInfoResponse
+     *
+     * @param ReportAppOtaInfoRequest $request
+     *
+     * @return ReportAppOtaInfoResponse
      */
     public function reportAppOtaInfo($request)
     {
@@ -3453,59 +4494,74 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 升级信息上报
-     *  *
-     * @param ReportDeviceOtaInfoRequest $request ReportDeviceOtaInfoRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 升级信息上报.
      *
-     * @return ReportDeviceOtaInfoResponse ReportDeviceOtaInfoResponse
+     * @param request - ReportDeviceOtaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportDeviceOtaInfoResponse
+     *
+     * @param ReportDeviceOtaInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ReportDeviceOtaInfoResponse
      */
     public function reportDeviceOtaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->baseVersion)) {
-            $body['BaseVersion'] = $request->baseVersion;
+        if (null !== $request->baseVersion) {
+            @$body['BaseVersion'] = $request->baseVersion;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $body['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$body['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->note)) {
-            $body['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$body['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->targetVersion)) {
-            $body['TargetVersion'] = $request->targetVersion;
+
+        if (null !== $request->targetVersion) {
+            @$body['TargetVersion'] = $request->targetVersion;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReportDeviceOtaInfo',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ReportDeviceOtaInfo',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReportDeviceOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 升级信息上报
-     *  *
-     * @param ReportDeviceOtaInfoRequest $request ReportDeviceOtaInfoRequest
+     * 升级信息上报.
      *
-     * @return ReportDeviceOtaInfoResponse ReportDeviceOtaInfoResponse
+     * @param request - ReportDeviceOtaInfoRequest
+     *
+     * @returns ReportDeviceOtaInfoResponse
+     *
+     * @param ReportDeviceOtaInfoRequest $request
+     *
+     * @return ReportDeviceOtaInfoResponse
      */
     public function reportDeviceOtaInfo($request)
     {
@@ -3515,73 +4571,92 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 应用中心用户问题反馈
-     *  *
-     * @param ReportUserFbAcIssueRequest $tmpReq  ReportUserFbAcIssueRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 应用中心用户问题反馈.
      *
-     * @return ReportUserFbAcIssueResponse ReportUserFbAcIssueResponse
+     * @param tmpReq - ReportUserFbAcIssueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportUserFbAcIssueResponse
+     *
+     * @param ReportUserFbAcIssueRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ReportUserFbAcIssueResponse
      */
     public function reportUserFbAcIssueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ReportUserFbAcIssueShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fileList)) {
-            $request->fileListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fileList, 'FileList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileList) {
+            $request->fileListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileList, 'FileList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->account)) {
-            $body['Account'] = $request->account;
+        if (null !== $request->account) {
+            @$body['Account'] = $request->account;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->errorMsg)) {
-            $body['ErrorMsg'] = $request->errorMsg;
+
+        if (null !== $request->errorMsg) {
+            @$body['ErrorMsg'] = $request->errorMsg;
         }
-        if (!Utils::isUnset($request->fileListShrink)) {
-            $body['FileList'] = $request->fileListShrink;
+
+        if (null !== $request->fileListShrink) {
+            @$body['FileList'] = $request->fileListShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->reservedA)) {
-            $body['ReservedA'] = $request->reservedA;
+
+        if (null !== $request->reservedA) {
+            @$body['ReservedA'] = $request->reservedA;
         }
-        if (!Utils::isUnset($request->reservedB)) {
-            $body['ReservedB'] = $request->reservedB;
+
+        if (null !== $request->reservedB) {
+            @$body['ReservedB'] = $request->reservedB;
         }
-        if (!Utils::isUnset($request->userEmail)) {
-            $body['UserEmail'] = $request->userEmail;
+
+        if (null !== $request->userEmail) {
+            @$body['UserEmail'] = $request->userEmail;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReportUserFbAcIssue',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ReportUserFbAcIssue',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReportUserFbAcIssueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 应用中心用户问题反馈
-     *  *
-     * @param ReportUserFbAcIssueRequest $request ReportUserFbAcIssueRequest
+     * 应用中心用户问题反馈.
      *
-     * @return ReportUserFbAcIssueResponse ReportUserFbAcIssueResponse
+     * @param request - ReportUserFbAcIssueRequest
+     *
+     * @returns ReportUserFbAcIssueResponse
+     *
+     * @param ReportUserFbAcIssueRequest $request
+     *
+     * @return ReportUserFbAcIssueResponse
      */
     public function reportUserFbAcIssue($request)
     {
@@ -3591,121 +4666,160 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 上报用户反馈问题
-     *  *
-     * @param ReportUserFbIssueRequest $tmpReq  ReportUserFbIssueRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 上报用户反馈问题.
      *
-     * @return ReportUserFbIssueResponse ReportUserFbIssueResponse
+     * @param tmpReq - ReportUserFbIssueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportUserFbIssueResponse
+     *
+     * @param ReportUserFbIssueRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReportUserFbIssueResponse
      */
     public function reportUserFbIssueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ReportUserFbIssueShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fileList)) {
-            $request->fileListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fileList, 'FileList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileList) {
+            $request->fileListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileList, 'FileList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientAppVersion) {
+            @$body['ClientAppVersion'] = $request->clientAppVersion;
         }
-        if (!Utils::isUnset($request->clientModel)) {
-            $body['ClientModel'] = $request->clientModel;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOsName)) {
-            $body['ClientOsName'] = $request->clientOsName;
+
+        if (null !== $request->clientModel) {
+            @$body['ClientModel'] = $request->clientModel;
         }
-        if (!Utils::isUnset($request->clientSn)) {
-            $body['ClientSn'] = $request->clientSn;
+
+        if (null !== $request->clientOsName) {
+            @$body['ClientOsName'] = $request->clientOsName;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientSn) {
+            @$body['ClientSn'] = $request->clientSn;
         }
-        if (!Utils::isUnset($request->customerId)) {
-            $body['CustomerId'] = $request->customerId;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->customerId) {
+            @$body['CustomerId'] = $request->customerId;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $body['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->desktopType)) {
-            $body['DesktopType'] = $request->desktopType;
+
+        if (null !== $request->desktopId) {
+            @$body['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->errorCode)) {
-            $body['ErrorCode'] = $request->errorCode;
+
+        if (null !== $request->desktopType) {
+            @$body['DesktopType'] = $request->desktopType;
         }
-        if (!Utils::isUnset($request->errorMsg)) {
-            $body['ErrorMsg'] = $request->errorMsg;
+
+        if (null !== $request->errorCode) {
+            @$body['ErrorCode'] = $request->errorCode;
         }
-        if (!Utils::isUnset($request->fbType)) {
-            $body['FbType'] = $request->fbType;
+
+        if (null !== $request->errorMsg) {
+            @$body['ErrorMsg'] = $request->errorMsg;
         }
-        if (!Utils::isUnset($request->fileListShrink)) {
-            $body['FileList'] = $request->fileListShrink;
+
+        if (null !== $request->fbType) {
+            @$body['FbType'] = $request->fbType;
         }
-        if (!Utils::isUnset($request->issueLabel)) {
-            $body['IssueLabel'] = $request->issueLabel;
+
+        if (null !== $request->fileListShrink) {
+            @$body['FileList'] = $request->fileListShrink;
         }
-        if (!Utils::isUnset($request->occurTime)) {
-            $body['OccurTime'] = $request->occurTime;
+
+        if (null !== $request->issueLabel) {
+            @$body['IssueLabel'] = $request->issueLabel;
         }
-        if (!Utils::isUnset($request->reservedA)) {
-            $body['ReservedA'] = $request->reservedA;
+
+        if (null !== $request->occurTime) {
+            @$body['OccurTime'] = $request->occurTime;
         }
-        if (!Utils::isUnset($request->reservedB)) {
-            $body['ReservedB'] = $request->reservedB;
+
+        if (null !== $request->reservedA) {
+            @$body['ReservedA'] = $request->reservedA;
         }
-        if (!Utils::isUnset($request->telNo)) {
-            $body['TelNo'] = $request->telNo;
+
+        if (null !== $request->reservedB) {
+            @$body['ReservedB'] = $request->reservedB;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->telNo) {
+            @$body['TelNo'] = $request->telNo;
         }
-        if (!Utils::isUnset($request->userEmail)) {
-            $body['UserEmail'] = $request->userEmail;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userEmail) {
+            @$body['UserEmail'] = $request->userEmail;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['UserName'] = $request->userName;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
         }
-        if (!Utils::isUnset($request->wyId)) {
-            $body['WyId'] = $request->wyId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
+        if (null !== $request->wyId) {
+            @$body['WyId'] = $request->wyId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReportUserFbIssue',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ReportUserFbIssue',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReportUserFbIssueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 上报用户反馈问题
-     *  *
-     * @param ReportUserFbIssueRequest $request ReportUserFbIssueRequest
+     * 上报用户反馈问题.
      *
-     * @return ReportUserFbIssueResponse ReportUserFbIssueResponse
+     * @param request - ReportUserFbIssueRequest
+     *
+     * @returns ReportUserFbIssueResponse
+     *
+     * @param ReportUserFbIssueRequest $request
+     *
+     * @return ReportUserFbIssueResponse
      */
     public function reportUserFbIssue($request)
     {
@@ -3715,60 +4829,75 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 向终端发送运维命令
-     *  *
-     * @param SendOpsMessageToTerminalsRequest $request SendOpsMessageToTerminalsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 向终端发送运维命令.
      *
-     * @return SendOpsMessageToTerminalsResponse SendOpsMessageToTerminalsResponse
+     * @param request - SendOpsMessageToTerminalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendOpsMessageToTerminalsResponse
+     *
+     * @param SendOpsMessageToTerminalsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SendOpsMessageToTerminalsResponse
      */
     public function sendOpsMessageToTerminalsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->delay)) {
-            $query['Delay'] = $request->delay;
+        if (null !== $request->delay) {
+            @$query['Delay'] = $request->delay;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->msg)) {
-            $body['Msg'] = $request->msg;
+        if (null !== $request->msg) {
+            @$body['Msg'] = $request->msg;
         }
-        if (!Utils::isUnset($request->opsAction)) {
-            $body['OpsAction'] = $request->opsAction;
+
+        if (null !== $request->opsAction) {
+            @$body['OpsAction'] = $request->opsAction;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->uuids)) {
-            $bodyFlat['Uuids'] = $request->uuids;
+        if (null !== $request->uuids) {
+            @$bodyFlat['Uuids'] = $request->uuids;
         }
-        if (!Utils::isUnset($request->waitForAck)) {
-            $body['WaitForAck'] = $request->waitForAck;
+
+        if (null !== $request->waitForAck) {
+            @$body['WaitForAck'] = $request->waitForAck;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendOpsMessageToTerminals',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendOpsMessageToTerminals',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendOpsMessageToTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 向终端发送运维命令
-     *  *
-     * @param SendOpsMessageToTerminalsRequest $request SendOpsMessageToTerminalsRequest
+     * 向终端发送运维命令.
      *
-     * @return SendOpsMessageToTerminalsResponse SendOpsMessageToTerminalsResponse
+     * @param request - SendOpsMessageToTerminalsRequest
+     *
+     * @returns SendOpsMessageToTerminalsResponse
+     *
+     * @param SendOpsMessageToTerminalsRequest $request
+     *
+     * @return SendOpsMessageToTerminalsResponse
      */
     public function sendOpsMessageToTerminals($request)
     {
@@ -3778,56 +4907,70 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 设置租户ota自动开启/关闭
-     *  *
-     * @param SetDeviceOtaAutoStatusRequest $request SetDeviceOtaAutoStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 设置租户ota自动开启/关闭.
      *
-     * @return SetDeviceOtaAutoStatusResponse SetDeviceOtaAutoStatusResponse
+     * @param request - SetDeviceOtaAutoStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDeviceOtaAutoStatusResponse
+     *
+     * @param SetDeviceOtaAutoStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SetDeviceOtaAutoStatusResponse
      */
     public function setDeviceOtaAutoStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoUpdate)) {
-            $body['AutoUpdate'] = $request->autoUpdate;
+        if (null !== $request->autoUpdate) {
+            @$body['AutoUpdate'] = $request->autoUpdate;
         }
-        if (!Utils::isUnset($request->autoUpdateTimeSchedule)) {
-            $body['AutoUpdateTimeSchedule'] = $request->autoUpdateTimeSchedule;
+
+        if (null !== $request->autoUpdateTimeSchedule) {
+            @$body['AutoUpdateTimeSchedule'] = $request->autoUpdateTimeSchedule;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $body['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->forceUpgrade)) {
-            $body['ForceUpgrade'] = $request->forceUpgrade;
+
+        if (null !== $request->forceUpgrade) {
+            @$body['ForceUpgrade'] = $request->forceUpgrade;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetDeviceOtaAutoStatus',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDeviceOtaAutoStatus',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDeviceOtaAutoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置租户ota自动开启/关闭
-     *  *
-     * @param SetDeviceOtaAutoStatusRequest $request SetDeviceOtaAutoStatusRequest
+     * 设置租户ota自动开启/关闭.
      *
-     * @return SetDeviceOtaAutoStatusResponse SetDeviceOtaAutoStatusResponse
+     * @param request - SetDeviceOtaAutoStatusRequest
+     *
+     * @returns SetDeviceOtaAutoStatusResponse
+     *
+     * @param SetDeviceOtaAutoStatusRequest $request
+     *
+     * @return SetDeviceOtaAutoStatusResponse
      */
     public function setDeviceOtaAutoStatus($request)
     {
@@ -3837,47 +4980,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 租户设置设备ota任务的状态
-     *  *
-     * @param SetDeviceOtaTaskStatusRequest $request SetDeviceOtaTaskStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 租户设置设备ota任务的状态
      *
-     * @return SetDeviceOtaTaskStatusResponse SetDeviceOtaTaskStatusResponse
+     * @param request - SetDeviceOtaTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDeviceOtaTaskStatusResponse
+     *
+     * @param SetDeviceOtaTaskStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SetDeviceOtaTaskStatusResponse
      */
     public function setDeviceOtaTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->operationStatus)) {
-            $body['OperationStatus'] = $request->operationStatus;
+        if (null !== $request->operationStatus) {
+            @$body['OperationStatus'] = $request->operationStatus;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetDeviceOtaTaskStatus',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDeviceOtaTaskStatus',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDeviceOtaTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 租户设置设备ota任务的状态
-     *  *
-     * @param SetDeviceOtaTaskStatusRequest $request SetDeviceOtaTaskStatusRequest
+     * 租户设置设备ota任务的状态
      *
-     * @return SetDeviceOtaTaskStatusResponse SetDeviceOtaTaskStatusResponse
+     * @param request - SetDeviceOtaTaskStatusRequest
+     *
+     * @returns SetDeviceOtaTaskStatusResponse
+     *
+     * @param SetDeviceOtaTaskStatusRequest $request
+     *
+     * @return SetDeviceOtaTaskStatusResponse
      */
     public function setDeviceOtaTaskStatus($request)
     {
@@ -3887,47 +5041,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 解绑免账号登录用户
-     *  *
-     * @param UnbindAccountLessLoginUserRequest $request UnbindAccountLessLoginUserRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 解绑免账号登录用户.
      *
-     * @return UnbindAccountLessLoginUserResponse UnbindAccountLessLoginUserResponse
+     * @param request - UnbindAccountLessLoginUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindAccountLessLoginUserResponse
+     *
+     * @param UnbindAccountLessLoginUserRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UnbindAccountLessLoginUserResponse
      */
     public function unbindAccountLessLoginUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->serialNumber)) {
-            $body['SerialNumber'] = $request->serialNumber;
+        if (null !== $request->serialNumber) {
+            @$body['SerialNumber'] = $request->serialNumber;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnbindAccountLessLoginUser',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindAccountLessLoginUser',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindAccountLessLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑免账号登录用户
-     *  *
-     * @param UnbindAccountLessLoginUserRequest $request UnbindAccountLessLoginUserRequest
+     * 解绑免账号登录用户.
      *
-     * @return UnbindAccountLessLoginUserResponse UnbindAccountLessLoginUserResponse
+     * @param request - UnbindAccountLessLoginUserRequest
+     *
+     * @returns UnbindAccountLessLoginUserResponse
+     *
+     * @param UnbindAccountLessLoginUserRequest $request
+     *
+     * @return UnbindAccountLessLoginUserResponse
      */
     public function unbindAccountLessLoginUser($request)
     {
@@ -3937,49 +5102,60 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 解绑设备座位
-     *  *
-     * @param UnbindDeviceSeatsRequest $tmpReq  UnbindDeviceSeatsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 解绑设备座位.
      *
-     * @return UnbindDeviceSeatsResponse UnbindDeviceSeatsResponse
+     * @param tmpReq - UnbindDeviceSeatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindDeviceSeatsResponse
+     *
+     * @param UnbindDeviceSeatsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UnbindDeviceSeatsResponse
      */
     public function unbindDeviceSeatsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UnbindDeviceSeatsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->serialNoList)) {
-            $request->serialNoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serialNoList, 'SerialNoList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serialNoList) {
+            $request->serialNoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serialNoList, 'SerialNoList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->serialNoListShrink)) {
-            $body['SerialNoList'] = $request->serialNoListShrink;
+        if (null !== $request->serialNoListShrink) {
+            @$body['SerialNoList'] = $request->serialNoListShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnbindDeviceSeats',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindDeviceSeats',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑设备座位
-     *  *
-     * @param UnbindDeviceSeatsRequest $request UnbindDeviceSeatsRequest
+     * 解绑设备座位.
      *
-     * @return UnbindDeviceSeatsResponse UnbindDeviceSeatsResponse
+     * @param request - UnbindDeviceSeatsRequest
+     *
+     * @returns UnbindDeviceSeatsResponse
+     *
+     * @param UnbindDeviceSeatsRequest $request
+     *
+     * @return UnbindDeviceSeatsResponse
      */
     public function unbindDeviceSeats($request)
     {
@@ -3989,47 +5165,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 解绑免密登录用户
-     *  *
-     * @param UnbindPasswordFreeLoginUserRequest $request UnbindPasswordFreeLoginUserRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 解绑免密登录用户.
      *
-     * @return UnbindPasswordFreeLoginUserResponse UnbindPasswordFreeLoginUserResponse
+     * @param request - UnbindPasswordFreeLoginUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindPasswordFreeLoginUserResponse
+     *
+     * @param UnbindPasswordFreeLoginUserRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UnbindPasswordFreeLoginUserResponse
      */
     public function unbindPasswordFreeLoginUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->serialNumber)) {
-            $body['SerialNumber'] = $request->serialNumber;
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->serialNumber) {
+            @$body['SerialNumber'] = $request->serialNumber;
         }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnbindPasswordFreeLoginUser',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindPasswordFreeLoginUser',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindPasswordFreeLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑免密登录用户
-     *  *
-     * @param UnbindPasswordFreeLoginUserRequest $request UnbindPasswordFreeLoginUserRequest
+     * 解绑免密登录用户.
      *
-     * @return UnbindPasswordFreeLoginUserResponse UnbindPasswordFreeLoginUserResponse
+     * @param request - UnbindPasswordFreeLoginUserRequest
+     *
+     * @returns UnbindPasswordFreeLoginUserResponse
+     *
+     * @param UnbindPasswordFreeLoginUserRequest $request
+     *
+     * @return UnbindPasswordFreeLoginUserResponse
      */
     public function unbindPasswordFreeLoginUser($request)
     {
@@ -4039,50 +5230,62 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 更新设备别名
-     *  *
-     * @param UpdateAliasRequest $request UpdateAliasRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 更新设备别名.
      *
-     * @return UpdateAliasResponse UpdateAliasResponse
+     * @param request - UpdateAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAliasResponse
+     *
+     * @param UpdateAliasRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAliasResponse
      */
     public function updateAliasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAlias',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAlias',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新设备别名
-     *  *
-     * @param UpdateAliasRequest $request UpdateAliasRequest
+     * 更新设备别名.
      *
-     * @return UpdateAliasResponse UpdateAliasResponse
+     * @param request - UpdateAliasRequest
+     *
+     * @returns UpdateAliasResponse
+     *
+     * @param UpdateAliasRequest $request
+     *
+     * @return UpdateAliasResponse
      */
     public function updateAlias($request)
     {
@@ -4092,59 +5295,74 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 批量更新设备绑定的终端用户
-     *  *
-     * @param UpdateDeviceBindedEndUserRequest $request UpdateDeviceBindedEndUserRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 批量更新设备绑定的终端用户.
      *
-     * @return UpdateDeviceBindedEndUserResponse UpdateDeviceBindedEndUserResponse
+     * @param request - UpdateDeviceBindedEndUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDeviceBindedEndUserResponse
+     *
+     * @param UpdateDeviceBindedEndUserRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateDeviceBindedEndUserResponse
      */
     public function updateDeviceBindedEndUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->serialNo)) {
-            $body['SerialNo'] = $request->serialNo;
+        if (null !== $request->serialNo) {
+            @$body['SerialNo'] = $request->serialNo;
         }
-        if (!Utils::isUnset($request->sourceAdEndUsers)) {
-            $body['SourceAdEndUsers'] = $request->sourceAdEndUsers;
+
+        if (null !== $request->sourceAdEndUsers) {
+            @$body['SourceAdEndUsers'] = $request->sourceAdEndUsers;
         }
-        if (!Utils::isUnset($request->sourceEndUserIds)) {
-            $body['SourceEndUserIds'] = $request->sourceEndUserIds;
+
+        if (null !== $request->sourceEndUserIds) {
+            @$body['SourceEndUserIds'] = $request->sourceEndUserIds;
         }
-        if (!Utils::isUnset($request->targetAdEndUsers)) {
-            $body['TargetAdEndUsers'] = $request->targetAdEndUsers;
+
+        if (null !== $request->targetAdEndUsers) {
+            @$body['TargetAdEndUsers'] = $request->targetAdEndUsers;
         }
-        if (!Utils::isUnset($request->targetEndUserIds)) {
-            $body['TargetEndUserIds'] = $request->targetEndUserIds;
+
+        if (null !== $request->targetEndUserIds) {
+            @$body['TargetEndUserIds'] = $request->targetEndUserIds;
         }
-        if (!Utils::isUnset($request->userType)) {
-            $body['UserType'] = $request->userType;
+
+        if (null !== $request->userType) {
+            @$body['UserType'] = $request->userType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDeviceBindedEndUser',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDeviceBindedEndUser',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDeviceBindedEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量更新设备绑定的终端用户
-     *  *
-     * @param UpdateDeviceBindedEndUserRequest $request UpdateDeviceBindedEndUserRequest
+     * 批量更新设备绑定的终端用户.
      *
-     * @return UpdateDeviceBindedEndUserResponse UpdateDeviceBindedEndUserResponse
+     * @param request - UpdateDeviceBindedEndUserRequest
+     *
+     * @returns UpdateDeviceBindedEndUserResponse
+     *
+     * @param UpdateDeviceBindedEndUserRequest $request
+     *
+     * @return UpdateDeviceBindedEndUserResponse
      */
     public function updateDeviceBindedEndUser($request)
     {
@@ -4154,47 +5372,58 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 修改标签
-     *  *
-     * @param UpdateLabelRequest $request UpdateLabelRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 修改标签.
      *
-     * @return UpdateLabelResponse UpdateLabelResponse
+     * @param request - UpdateLabelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLabelResponse
+     *
+     * @param UpdateLabelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateLabelResponse
      */
     public function updateLabelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labelContent)) {
-            $body['LabelContent'] = $request->labelContent;
+        if (null !== $request->labelContent) {
+            @$body['LabelContent'] = $request->labelContent;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+
+        if (null !== $request->labelId) {
+            @$body['LabelId'] = $request->labelId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLabel',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLabel',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改标签
-     *  *
-     * @param UpdateLabelRequest $request UpdateLabelRequest
+     * 修改标签.
      *
-     * @return UpdateLabelResponse UpdateLabelResponse
+     * @param request - UpdateLabelRequest
+     *
+     * @returns UpdateLabelResponse
+     *
+     * @param UpdateLabelRequest $request
+     *
+     * @return UpdateLabelResponse
      */
     public function updateLabel($request)
     {
@@ -4204,113 +5433,221 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * @summary 修改终端策略
-     *  *
-     * @param UpdateTerminalPolicyRequest $request UpdateTerminalPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 修改终端策略.
      *
-     * @return UpdateTerminalPolicyResponse UpdateTerminalPolicyResponse
+     * @param request - UpdateTerminalPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTerminalPolicyResponse
+     *
+     * @param UpdateTerminalPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateTerminalPolicyResponse
      */
     public function updateTerminalPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->backgroundModeTitle)) {
-            $body['BackgroundModeTitle'] = $request->backgroundModeTitle;
+        if (null !== $request->allowManualLockScreen) {
+            @$body['AllowManualLockScreen'] = $request->allowManualLockScreen;
         }
-        if (!Utils::isUnset($request->displayLayout)) {
-            $body['DisplayLayout'] = $request->displayLayout;
+
+        if (null !== $request->backgroundModeTitle) {
+            @$body['BackgroundModeTitle'] = $request->backgroundModeTitle;
         }
-        if (!Utils::isUnset($request->displayResolution)) {
-            $body['DisplayResolution'] = $request->displayResolution;
+
+        if (null !== $request->customScreenCastRes) {
+            @$body['CustomScreenCastRes'] = $request->customScreenCastRes;
         }
-        if (!Utils::isUnset($request->displayScaleRatio)) {
-            $body['DisplayScaleRatio'] = $request->displayScaleRatio;
+
+        if (null !== $request->displayLayout) {
+            @$body['DisplayLayout'] = $request->displayLayout;
         }
-        if (!Utils::isUnset($request->enableAutoLockScreen)) {
-            $body['EnableAutoLockScreen'] = $request->enableAutoLockScreen;
+
+        if (null !== $request->displayResolution) {
+            @$body['DisplayResolution'] = $request->displayResolution;
         }
-        if (!Utils::isUnset($request->enableAutoLogin)) {
-            $body['EnableAutoLogin'] = $request->enableAutoLogin;
+
+        if (null !== $request->displayScaleRatio) {
+            @$body['DisplayScaleRatio'] = $request->displayScaleRatio;
         }
-        if (!Utils::isUnset($request->enableBackgroundMode)) {
-            $body['EnableBackgroundMode'] = $request->enableBackgroundMode;
+
+        if (null !== $request->enableAutoLockScreen) {
+            @$body['EnableAutoLockScreen'] = $request->enableAutoLockScreen;
         }
-        if (!Utils::isUnset($request->enableBluetooth)) {
-            $body['EnableBluetooth'] = $request->enableBluetooth;
+
+        if (null !== $request->enableAutoLogin) {
+            @$body['EnableAutoLogin'] = $request->enableAutoLogin;
         }
-        if (!Utils::isUnset($request->enableModifyPassword)) {
-            $body['EnableModifyPassword'] = $request->enableModifyPassword;
+
+        if (null !== $request->enableBackgroundMode) {
+            @$body['EnableBackgroundMode'] = $request->enableBackgroundMode;
         }
-        if (!Utils::isUnset($request->enableScheduledReboot)) {
-            $body['EnableScheduledReboot'] = $request->enableScheduledReboot;
+
+        if (null !== $request->enableBluetooth) {
+            @$body['EnableBluetooth'] = $request->enableBluetooth;
         }
-        if (!Utils::isUnset($request->enableScheduledShutdown)) {
-            $body['EnableScheduledShutdown'] = $request->enableScheduledShutdown;
+
+        if (null !== $request->enableControlPanel) {
+            @$body['EnableControlPanel'] = $request->enableControlPanel;
         }
-        if (!Utils::isUnset($request->enableSwitchPersonal)) {
-            $body['EnableSwitchPersonal'] = $request->enableSwitchPersonal;
+
+        if (null !== $request->enableImmersiveMode) {
+            @$body['EnableImmersiveMode'] = $request->enableImmersiveMode;
         }
-        if (!Utils::isUnset($request->enableWlan)) {
-            $body['EnableWlan'] = $request->enableWlan;
+
+        if (null !== $request->enableLockScreenHotKey) {
+            @$body['EnableLockScreenHotKey'] = $request->enableLockScreenHotKey;
         }
-        if (!Utils::isUnset($request->idleTimeout)) {
-            $body['IdleTimeout'] = $request->idleTimeout;
+
+        if (null !== $request->enableModifyPassword) {
+            @$body['EnableModifyPassword'] = $request->enableModifyPassword;
         }
-        if (!Utils::isUnset($request->idleTimeoutAction)) {
-            $body['IdleTimeoutAction'] = $request->idleTimeoutAction;
+
+        if (null !== $request->enableScanLogin) {
+            @$body['EnableScanLogin'] = $request->enableScanLogin;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->enableScheduledReboot) {
+            @$body['EnableScheduledReboot'] = $request->enableScheduledReboot;
         }
-        if (!Utils::isUnset($request->powerButtonDefine)) {
-            $body['PowerButtonDefine'] = $request->powerButtonDefine;
+
+        if (null !== $request->enableScheduledShutdown) {
+            @$body['EnableScheduledShutdown'] = $request->enableScheduledShutdown;
         }
-        if (!Utils::isUnset($request->powerButtonDefineForAs)) {
-            $body['PowerButtonDefineForAs'] = $request->powerButtonDefineForAs;
+
+        if (null !== $request->enableSmsLogin) {
+            @$body['EnableSmsLogin'] = $request->enableSmsLogin;
         }
-        if (!Utils::isUnset($request->powerButtonDefineForNs)) {
-            $body['PowerButtonDefineForNs'] = $request->powerButtonDefineForNs;
+
+        if (null !== $request->enableSwitchPersonal) {
+            @$body['EnableSwitchPersonal'] = $request->enableSwitchPersonal;
         }
-        if (!Utils::isUnset($request->powerOnBehavior)) {
-            $body['PowerOnBehavior'] = $request->powerOnBehavior;
+
+        if (null !== $request->enableWlan) {
+            @$body['EnableWlan'] = $request->enableWlan;
         }
-        if (!Utils::isUnset($request->scheduledReboot)) {
-            $body['ScheduledReboot'] = $request->scheduledReboot;
+
+        if (null !== $request->followCloudReboot) {
+            @$body['FollowCloudReboot'] = $request->followCloudReboot;
         }
-        if (!Utils::isUnset($request->scheduledShutdown)) {
-            $body['ScheduledShutdown'] = $request->scheduledShutdown;
+
+        if (null !== $request->followCloudShutdown) {
+            @$body['FollowCloudShutdown'] = $request->followCloudShutdown;
         }
-        if (!Utils::isUnset($request->settingLock)) {
-            $body['SettingLock'] = $request->settingLock;
+
+        if (null !== $request->followTerminalReboot) {
+            @$body['FollowTerminalReboot'] = $request->followTerminalReboot;
         }
-        if (!Utils::isUnset($request->terminalPolicyId)) {
-            $body['TerminalPolicyId'] = $request->terminalPolicyId;
+
+        if (null !== $request->followTerminalShutdown) {
+            @$body['FollowTerminalShutdown'] = $request->followTerminalShutdown;
         }
+
+        if (null !== $request->forceSetPinCode) {
+            @$body['ForceSetPinCode'] = $request->forceSetPinCode;
+        }
+
+        if (null !== $request->idleTimeout) {
+            @$body['IdleTimeout'] = $request->idleTimeout;
+        }
+
+        if (null !== $request->idleTimeoutAction) {
+            @$body['IdleTimeoutAction'] = $request->idleTimeoutAction;
+        }
+
+        if (null !== $request->lockScreenPasswordRequired) {
+            @$body['LockScreenPasswordRequired'] = $request->lockScreenPasswordRequired;
+        }
+
+        if (null !== $request->lockScreenTimeout) {
+            @$body['LockScreenTimeout'] = $request->lockScreenTimeout;
+        }
+
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->powerButtonDefine) {
+            @$body['PowerButtonDefine'] = $request->powerButtonDefine;
+        }
+
+        if (null !== $request->powerButtonDefineForAs) {
+            @$body['PowerButtonDefineForAs'] = $request->powerButtonDefineForAs;
+        }
+
+        if (null !== $request->powerButtonDefineForNs) {
+            @$body['PowerButtonDefineForNs'] = $request->powerButtonDefineForNs;
+        }
+
+        if (null !== $request->powerOnBehavior) {
+            @$body['PowerOnBehavior'] = $request->powerOnBehavior;
+        }
+
+        if (null !== $request->runningMode) {
+            @$body['RunningMode'] = $request->runningMode;
+        }
+
+        if (null !== $request->scheduledReboot) {
+            @$body['ScheduledReboot'] = $request->scheduledReboot;
+        }
+
+        if (null !== $request->scheduledShutdown) {
+            @$body['ScheduledShutdown'] = $request->scheduledShutdown;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->screenCastResPaths) {
+            @$bodyFlat['ScreenCastResPaths'] = $request->screenCastResPaths;
+        }
+
+        if (null !== $request->settingLock) {
+            @$body['SettingLock'] = $request->settingLock;
+        }
+
+        if (null !== $request->terminalPolicyId) {
+            @$body['TerminalPolicyId'] = $request->terminalPolicyId;
+        }
+
+        if (null !== $request->unlockMethod) {
+            @$body['UnlockMethod'] = $request->unlockMethod;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTerminalPolicy',
-            'version'     => '2021-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTerminalPolicy',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTerminalPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改终端策略
-     *  *
-     * @param UpdateTerminalPolicyRequest $request UpdateTerminalPolicyRequest
+     * 修改终端策略.
      *
-     * @return UpdateTerminalPolicyResponse UpdateTerminalPolicyResponse
+     * @param request - UpdateTerminalPolicyRequest
+     *
+     * @returns UpdateTerminalPolicyResponse
+     *
+     * @param UpdateTerminalPolicyRequest $request
+     *
+     * @return UpdateTerminalPolicyResponse
      */
     public function updateTerminalPolicy($request)
     {

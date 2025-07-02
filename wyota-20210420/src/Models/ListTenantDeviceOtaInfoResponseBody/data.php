@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListTenantDeviceOtaInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTenantDeviceOtaInfoResponseBody\data\tenantDeviceOtaInfos;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->tenantDeviceOtaInfos)) {
+            Model::validateArray($this->tenantDeviceOtaInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantDeviceOtaInfos) {
-            $res['TenantDeviceOtaInfos'] = [];
-            if (null !== $this->tenantDeviceOtaInfos && \is_array($this->tenantDeviceOtaInfos)) {
-                $n = 0;
-                foreach ($this->tenantDeviceOtaInfos as $item) {
-                    $res['TenantDeviceOtaInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tenantDeviceOtaInfos)) {
+                $res['TenantDeviceOtaInfos'] = [];
+                $n1 = 0;
+                foreach ($this->tenantDeviceOtaInfos as $item1) {
+                    $res['TenantDeviceOtaInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantDeviceOtaInfos'])) {
             if (!empty($map['TenantDeviceOtaInfos'])) {
                 $model->tenantDeviceOtaInfos = [];
-                $n                           = 0;
-                foreach ($map['TenantDeviceOtaInfos'] as $item) {
-                    $model->tenantDeviceOtaInfos[$n++] = null !== $item ? tenantDeviceOtaInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TenantDeviceOtaInfos'] as $item1) {
+                    $model->tenantDeviceOtaInfos[$n1] = tenantDeviceOtaInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

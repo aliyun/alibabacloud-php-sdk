@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDevicesSecureNetworkTypeRequest extends Model
 {
@@ -14,8 +14,6 @@ class ModifyDevicesSecureNetworkTypeRequest extends Model
     public $allDevices;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $secureNetworkType;
@@ -25,24 +23,27 @@ class ModifyDevicesSecureNetworkTypeRequest extends Model
      */
     public $serialNos;
     protected $_name = [
-        'allDevices'        => 'AllDevices',
+        'allDevices' => 'AllDevices',
         'secureNetworkType' => 'SecureNetworkType',
-        'serialNos'         => 'SerialNos',
+        'serialNos' => 'SerialNos',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allDevices) {
             $res['AllDevices'] = $this->allDevices;
         }
+
         if (null !== $this->secureNetworkType) {
             $res['SecureNetworkType'] = $this->secureNetworkType;
         }
+
         if (null !== $this->serialNos) {
             $res['SerialNos'] = $this->serialNos;
         }
@@ -50,20 +51,22 @@ class ModifyDevicesSecureNetworkTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDevicesSecureNetworkTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllDevices'])) {
             $model->allDevices = $map['AllDevices'];
         }
+
         if (isset($map['SecureNetworkType'])) {
             $model->secureNetworkType = $map['SecureNetworkType'];
         }
+
         if (isset($map['SerialNos'])) {
             $model->serialNos = $map['SerialNos'];
         }

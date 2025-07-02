@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetachLabelRequest extends Model
 {
@@ -19,30 +19,31 @@ class DetachLabelRequest extends Model
     public $labelId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $serialNo;
     protected $_name = [
         'labelContent' => 'LabelContent',
-        'labelId'      => 'LabelId',
-        'serialNo'     => 'SerialNo',
+        'labelId' => 'LabelId',
+        'serialNo' => 'SerialNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelContent) {
             $res['LabelContent'] = $this->labelContent;
         }
+
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
+
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
@@ -50,20 +51,22 @@ class DetachLabelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachLabelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelContent'])) {
             $model->labelContent = $map['LabelContent'];
         }
+
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }
+
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }

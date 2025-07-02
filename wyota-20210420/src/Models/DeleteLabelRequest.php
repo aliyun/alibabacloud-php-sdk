@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLabelRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $force;
@@ -25,24 +23,27 @@ class DeleteLabelRequest extends Model
      */
     public $labelId;
     protected $_name = [
-        'force'        => 'Force',
+        'force' => 'Force',
         'labelContent' => 'LabelContent',
-        'labelId'      => 'LabelId',
+        'labelId' => 'LabelId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
+
         if (null !== $this->labelContent) {
             $res['LabelContent'] = $this->labelContent;
         }
+
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
@@ -50,20 +51,22 @@ class DeleteLabelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLabelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
+
         if (isset($map['LabelContent'])) {
             $model->labelContent = $map['LabelContent'];
         }
+
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }

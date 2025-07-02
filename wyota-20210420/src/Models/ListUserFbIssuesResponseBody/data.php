@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListUserFbIssuesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListUserFbIssuesResponseBody\data\feedbackIssueData;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,26 +19,32 @@ class data extends Model
      */
     public $feedbackIssueData;
     protected $_name = [
-        'count'             => 'Count',
+        'count' => 'Count',
         'feedbackIssueData' => 'FeedbackIssueData',
     ];
 
     public function validate()
     {
+        if (\is_array($this->feedbackIssueData)) {
+            Model::validateArray($this->feedbackIssueData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->feedbackIssueData) {
-            $res['FeedbackIssueData'] = [];
-            if (null !== $this->feedbackIssueData && \is_array($this->feedbackIssueData)) {
-                $n = 0;
-                foreach ($this->feedbackIssueData as $item) {
-                    $res['FeedbackIssueData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->feedbackIssueData)) {
+                $res['FeedbackIssueData'] = [];
+                $n1 = 0;
+                foreach ($this->feedbackIssueData as $item1) {
+                    $res['FeedbackIssueData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['FeedbackIssueData'])) {
             if (!empty($map['FeedbackIssueData'])) {
                 $model->feedbackIssueData = [];
-                $n                        = 0;
-                foreach ($map['FeedbackIssueData'] as $item) {
-                    $model->feedbackIssueData[$n++] = null !== $item ? feedbackIssueData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FeedbackIssueData'] as $item1) {
+                    $model->feedbackIssueData[$n1] = feedbackIssueData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

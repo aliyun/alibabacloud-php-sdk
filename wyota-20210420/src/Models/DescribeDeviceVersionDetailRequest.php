@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDeviceVersionDetailRequest extends Model
 {
@@ -28,28 +28,32 @@ class DescribeDeviceVersionDetailRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'model'       => 'Model',
+        'model' => 'Model',
         'networkType' => 'NetworkType',
-        'region'      => 'Region',
+        'region' => 'Region',
         'versionName' => 'VersionName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
@@ -57,23 +61,26 @@ class DescribeDeviceVersionDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeviceVersionDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
         }

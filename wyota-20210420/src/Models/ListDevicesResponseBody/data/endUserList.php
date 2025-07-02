@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListDevicesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endUserList extends Model
 {
@@ -48,44 +48,52 @@ class endUserList extends Model
      */
     public $userType;
     protected $_name = [
-        'adDomain'    => 'AdDomain',
-        'bindTime'    => 'BindTime',
+        'adDomain' => 'AdDomain',
+        'bindTime' => 'BindTime',
         'directoryId' => 'DirectoryId',
-        'endUserId'   => 'EndUserId',
-        'id'          => 'Id',
-        'serialNo'    => 'SerialNo',
-        'tenantId'    => 'TenantId',
-        'userType'    => 'UserType',
+        'endUserId' => 'EndUserId',
+        'id' => 'Id',
+        'serialNo' => 'SerialNo',
+        'tenantId' => 'TenantId',
+        'userType' => 'UserType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
         }
+
         if (null !== $this->bindTime) {
             $res['BindTime'] = $this->bindTime;
         }
+
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -93,35 +101,42 @@ class endUserList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endUserList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
         }
+
         if (isset($map['BindTime'])) {
             $model->bindTime = $map['BindTime'];
         }
+
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

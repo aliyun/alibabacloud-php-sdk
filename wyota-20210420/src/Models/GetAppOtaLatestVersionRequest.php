@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAppOtaLatestVersionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $baseVersion;
@@ -26,8 +24,6 @@ class GetAppOtaLatestVersionRequest extends Model
     public $clientUid;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $osType;
@@ -38,31 +34,36 @@ class GetAppOtaLatestVersionRequest extends Model
     public $project;
     protected $_name = [
         'baseVersion' => 'BaseVersion',
-        'clientType'  => 'ClientType',
-        'clientUid'   => 'ClientUid',
-        'osType'      => 'OsType',
-        'project'     => 'Project',
+        'clientType' => 'ClientType',
+        'clientUid' => 'ClientUid',
+        'osType' => 'OsType',
+        'project' => 'Project',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseVersion) {
             $res['BaseVersion'] = $this->baseVersion;
         }
+
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
+
         if (null !== $this->clientUid) {
             $res['ClientUid'] = $this->clientUid;
         }
+
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
@@ -70,26 +71,30 @@ class GetAppOtaLatestVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppOtaLatestVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseVersion'])) {
             $model->baseVersion = $map['BaseVersion'];
         }
+
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
+
         if (isset($map['ClientUid'])) {
             $model->clientUid = $map['ClientUid'];
         }
+
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeviceConfigsRequest extends Model
 {
@@ -38,36 +38,42 @@ class GetDeviceConfigsRequest extends Model
      */
     public $userCustomId;
     protected $_name = [
-        'deviceId'     => 'DeviceId',
-        'networkType'  => 'NetworkType',
-        'region'       => 'Region',
-        'serialNo'     => 'SerialNo',
-        'urclVersion'  => 'UrclVersion',
+        'deviceId' => 'DeviceId',
+        'networkType' => 'NetworkType',
+        'region' => 'Region',
+        'serialNo' => 'SerialNo',
+        'urclVersion' => 'UrclVersion',
         'userCustomId' => 'UserCustomId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
+
         if (null !== $this->urclVersion) {
             $res['UrclVersion'] = $this->urclVersion;
         }
+
         if (null !== $this->userCustomId) {
             $res['UserCustomId'] = $this->userCustomId;
         }
@@ -75,29 +81,34 @@ class GetDeviceConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeviceConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }
+
         if (isset($map['UrclVersion'])) {
             $model->urclVersion = $map['UrclVersion'];
         }
+
         if (isset($map['UserCustomId'])) {
             $model->userCustomId = $map['UserCustomId'];
         }

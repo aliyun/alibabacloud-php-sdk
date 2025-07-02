@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeWorkZonesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeWorkZonesResponseBody\data\workZoneDTOList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,26 +19,32 @@ class data extends Model
      */
     public $workZoneDTOList;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
+        'totalCount' => 'TotalCount',
         'workZoneDTOList' => 'WorkZoneDTOList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->workZoneDTOList)) {
+            Model::validateArray($this->workZoneDTOList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->workZoneDTOList) {
-            $res['WorkZoneDTOList'] = [];
-            if (null !== $this->workZoneDTOList && \is_array($this->workZoneDTOList)) {
-                $n = 0;
-                foreach ($this->workZoneDTOList as $item) {
-                    $res['WorkZoneDTOList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workZoneDTOList)) {
+                $res['WorkZoneDTOList'] = [];
+                $n1 = 0;
+                foreach ($this->workZoneDTOList as $item1) {
+                    $res['WorkZoneDTOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['WorkZoneDTOList'])) {
             if (!empty($map['WorkZoneDTOList'])) {
                 $model->workZoneDTOList = [];
-                $n                      = 0;
-                foreach ($map['WorkZoneDTOList'] as $item) {
-                    $model->workZoneDTOList[$n++] = null !== $item ? workZoneDTOList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WorkZoneDTOList'] as $item1) {
+                    $model->workZoneDTOList[$n1] = workZoneDTOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

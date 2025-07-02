@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateDeviceBindedEndUserRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetAdEndUsers extends Model
 {
@@ -23,24 +23,27 @@ class targetAdEndUsers extends Model
      */
     public $endUserId;
     protected $_name = [
-        'adDomain'    => 'AdDomain',
+        'adDomain' => 'AdDomain',
         'directoryId' => 'DirectoryId',
-        'endUserId'   => 'EndUserId',
+        'endUserId' => 'EndUserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
         }
+
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
@@ -48,20 +51,22 @@ class targetAdEndUsers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetAdEndUsers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
         }
+
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }

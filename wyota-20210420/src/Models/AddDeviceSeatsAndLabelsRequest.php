@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddDeviceSeatsAndLabelsRequest extends Model
 {
@@ -43,40 +43,57 @@ class AddDeviceSeatsAndLabelsRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'isUnique'  => 'IsUnique',
-        'label'     => 'Label',
+        'isUnique' => 'IsUnique',
+        'label' => 'Label',
         'labelList' => 'LabelList',
-        'seatName'  => 'SeatName',
-        'serialNo'  => 'SerialNo',
-        'tenantId'  => 'TenantId',
-        'zoneId'    => 'ZoneId',
+        'seatName' => 'SeatName',
+        'serialNo' => 'SerialNo',
+        'tenantId' => 'TenantId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->labelList)) {
+            Model::validateArray($this->labelList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isUnique) {
             $res['IsUnique'] = $this->isUnique;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->labelList) {
-            $res['LabelList'] = $this->labelList;
+            if (\is_array($this->labelList)) {
+                $res['LabelList'] = [];
+                $n1 = 0;
+                foreach ($this->labelList as $item1) {
+                    $res['LabelList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->seatName) {
             $res['SeatName'] = $this->seatName;
         }
+
         if (null !== $this->serialNo) {
             $res['SerialNo'] = $this->serialNo;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -84,34 +101,45 @@ class AddDeviceSeatsAndLabelsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddDeviceSeatsAndLabelsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsUnique'])) {
             $model->isUnique = $map['IsUnique'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['LabelList'])) {
             if (!empty($map['LabelList'])) {
-                $model->labelList = $map['LabelList'];
+                $model->labelList = [];
+                $n1 = 0;
+                foreach ($map['LabelList'] as $item1) {
+                    $model->labelList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SeatName'])) {
             $model->seatName = $map['SeatName'];
         }
+
         if (isset($map['SerialNo'])) {
             $model->serialNo = $map['SerialNo'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
