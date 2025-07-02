@@ -46,6 +46,11 @@ class ListFunctionsRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $runtime;
 
     /**
@@ -60,6 +65,7 @@ class ListFunctionsRequest extends Model
         'limit' => 'limit',
         'nextToken' => 'nextToken',
         'prefix' => 'prefix',
+        'resourceGroupId' => 'resourceGroupId',
         'runtime' => 'runtime',
         'tags' => 'tags',
     ];
@@ -103,6 +109,10 @@ class ListFunctionsRequest extends Model
             $res['prefix'] = $this->prefix;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
         }
@@ -112,7 +122,8 @@ class ListFunctionsRequest extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,6 +167,10 @@ class ListFunctionsRequest extends Model
             $model->prefix = $map['prefix'];
         }
 
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
         }
@@ -165,7 +180,8 @@ class ListFunctionsRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

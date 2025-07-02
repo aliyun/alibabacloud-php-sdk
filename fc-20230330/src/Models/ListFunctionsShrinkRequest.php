@@ -46,6 +46,11 @@ class ListFunctionsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $runtime;
 
     /**
@@ -60,6 +65,7 @@ class ListFunctionsShrinkRequest extends Model
         'limit' => 'limit',
         'nextToken' => 'nextToken',
         'prefix' => 'prefix',
+        'resourceGroupId' => 'resourceGroupId',
         'runtime' => 'runtime',
         'tagsShrink' => 'tags',
     ];
@@ -98,6 +104,10 @@ class ListFunctionsShrinkRequest extends Model
 
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->runtime) {
@@ -145,6 +155,10 @@ class ListFunctionsShrinkRequest extends Model
 
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['runtime'])) {

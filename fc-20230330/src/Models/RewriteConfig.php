@@ -50,7 +50,8 @@ class RewriteConfig extends Model
                 $res['equalRules'] = [];
                 $n1 = 0;
                 foreach ($this->equalRules as $item1) {
-                    $res['equalRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['equalRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class RewriteConfig extends Model
                 $res['regexRules'] = [];
                 $n1 = 0;
                 foreach ($this->regexRules as $item1) {
-                    $res['regexRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['regexRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class RewriteConfig extends Model
                 $res['wildcardRules'] = [];
                 $n1 = 0;
                 foreach ($this->wildcardRules as $item1) {
-                    $res['wildcardRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['wildcardRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class RewriteConfig extends Model
                 $model->equalRules = [];
                 $n1 = 0;
                 foreach ($map['equalRules'] as $item1) {
-                    $model->equalRules[$n1++] = EqualRule::fromMap($item1);
+                    $model->equalRules[$n1] = EqualRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class RewriteConfig extends Model
                 $model->regexRules = [];
                 $n1 = 0;
                 foreach ($map['regexRules'] as $item1) {
-                    $model->regexRules[$n1++] = RegexRule::fromMap($item1);
+                    $model->regexRules[$n1] = RegexRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class RewriteConfig extends Model
                 $model->wildcardRules = [];
                 $n1 = 0;
                 foreach ($map['wildcardRules'] as $item1) {
-                    $model->wildcardRules[$n1++] = WildcardRule::fromMap($item1);
+                    $model->wildcardRules[$n1] = WildcardRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

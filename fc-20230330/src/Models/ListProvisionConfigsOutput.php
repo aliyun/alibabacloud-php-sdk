@@ -42,7 +42,8 @@ class ListProvisionConfigsOutput extends Model
                 $res['provisionConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->provisionConfigs as $item1) {
-                    $res['provisionConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['provisionConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ListProvisionConfigsOutput extends Model
                 $model->provisionConfigs = [];
                 $n1 = 0;
                 foreach ($map['provisionConfigs'] as $item1) {
-                    $model->provisionConfigs[$n1++] = ProvisionConfig::fromMap($item1);
+                    $model->provisionConfigs[$n1] = ProvisionConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class ListAliasesOutput extends Model
                 $res['aliases'] = [];
                 $n1 = 0;
                 foreach ($this->aliases as $item1) {
-                    $res['aliases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['aliases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListAliasesOutput extends Model
                 $model->aliases = [];
                 $n1 = 0;
                 foreach ($map['aliases'] as $item1) {
-                    $model->aliases[$n1++] = Alias::fromMap($item1);
+                    $model->aliases[$n1] = Alias::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

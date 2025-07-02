@@ -57,7 +57,8 @@ class CreateLayerVersionInput extends Model
                 $res['compatibleRuntime'] = [];
                 $n1 = 0;
                 foreach ($this->compatibleRuntime as $item1) {
-                    $res['compatibleRuntime'][$n1++] = $item1;
+                    $res['compatibleRuntime'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,7 +91,8 @@ class CreateLayerVersionInput extends Model
                 $model->compatibleRuntime = [];
                 $n1 = 0;
                 foreach ($map['compatibleRuntime'] as $item1) {
-                    $model->compatibleRuntime[$n1++] = $item1;
+                    $model->compatibleRuntime[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

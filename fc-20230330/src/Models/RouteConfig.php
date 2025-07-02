@@ -32,7 +32,8 @@ class RouteConfig extends Model
                 $res['routes'] = [];
                 $n1 = 0;
                 foreach ($this->routes as $item1) {
-                    $res['routes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['routes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class RouteConfig extends Model
                 $model->routes = [];
                 $n1 = 0;
                 foreach ($map['routes'] as $item1) {
-                    $model->routes[$n1++] = PathConfig::fromMap($item1);
+                    $model->routes[$n1] = PathConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

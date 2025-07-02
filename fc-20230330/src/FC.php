@@ -2461,6 +2461,10 @@ class FC extends OpenApiClient
             @$query['prefix'] = $request->prefix;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->runtime) {
             @$query['runtime'] = $request->runtime;
         }

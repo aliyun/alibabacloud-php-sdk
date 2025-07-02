@@ -107,7 +107,8 @@ class ProvisionConfig extends Model
                 $res['scheduledActions'] = [];
                 $n1 = 0;
                 foreach ($this->scheduledActions as $item1) {
-                    $res['scheduledActions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['scheduledActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class ProvisionConfig extends Model
                 $res['targetTrackingPolicies'] = [];
                 $n1 = 0;
                 foreach ($this->targetTrackingPolicies as $item1) {
-                    $res['targetTrackingPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['targetTrackingPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class ProvisionConfig extends Model
                 $model->scheduledActions = [];
                 $n1 = 0;
                 foreach ($map['scheduledActions'] as $item1) {
-                    $model->scheduledActions[$n1++] = ScheduledAction::fromMap($item1);
+                    $model->scheduledActions[$n1] = ScheduledAction::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class ProvisionConfig extends Model
                 $model->targetTrackingPolicies = [];
                 $n1 = 0;
                 foreach ($map['targetTrackingPolicies'] as $item1) {
-                    $model->targetTrackingPolicies[$n1++] = TargetTrackingPolicy::fromMap($item1);
+                    $model->targetTrackingPolicies[$n1] = TargetTrackingPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

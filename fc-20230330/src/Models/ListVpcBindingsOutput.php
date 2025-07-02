@@ -32,7 +32,8 @@ class ListVpcBindingsOutput extends Model
                 $res['vpcIds'] = [];
                 $n1 = 0;
                 foreach ($this->vpcIds as $item1) {
-                    $res['vpcIds'][$n1++] = $item1;
+                    $res['vpcIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ListVpcBindingsOutput extends Model
                 $model->vpcIds = [];
                 $n1 = 0;
                 foreach ($map['vpcIds'] as $item1) {
-                    $model->vpcIds[$n1++] = $item1;
+                    $model->vpcIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

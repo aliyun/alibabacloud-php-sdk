@@ -38,7 +38,8 @@ class ListInstancesOutput extends Model
                 $res['instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListInstancesOutput extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['instances'] as $item1) {
-                    $model->instances[$n1++] = InstanceInfo::fromMap($item1);
+                    $model->instances[$n1] = InstanceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

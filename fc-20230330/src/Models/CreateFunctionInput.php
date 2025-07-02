@@ -116,6 +116,11 @@ class CreateFunctionInput extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $role;
 
     /**
@@ -169,6 +174,7 @@ class CreateFunctionInput extends Model
         'memorySize' => 'memorySize',
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
+        'resourceGroupId' => 'resourceGroupId',
         'role' => 'role',
         'runtime' => 'runtime',
         'sessionAffinity' => 'sessionAffinity',
@@ -302,7 +308,8 @@ class CreateFunctionInput extends Model
                 $res['layers'] = [];
                 $n1 = 0;
                 foreach ($this->layers as $item1) {
-                    $res['layers'][$n1++] = $item1;
+                    $res['layers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -323,6 +330,10 @@ class CreateFunctionInput extends Model
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
@@ -340,7 +351,8 @@ class CreateFunctionInput extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -442,7 +454,8 @@ class CreateFunctionInput extends Model
                 $model->layers = [];
                 $n1 = 0;
                 foreach ($map['layers'] as $item1) {
-                    $model->layers[$n1++] = $item1;
+                    $model->layers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -463,6 +476,10 @@ class CreateFunctionInput extends Model
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
         }
 
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }
@@ -480,7 +497,8 @@ class CreateFunctionInput extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

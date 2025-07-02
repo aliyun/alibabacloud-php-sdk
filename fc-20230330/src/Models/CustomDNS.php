@@ -50,7 +50,8 @@ class CustomDNS extends Model
                 $res['dnsOptions'] = [];
                 $n1 = 0;
                 foreach ($this->dnsOptions as $item1) {
-                    $res['dnsOptions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dnsOptions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class CustomDNS extends Model
                 $res['nameServers'] = [];
                 $n1 = 0;
                 foreach ($this->nameServers as $item1) {
-                    $res['nameServers'][$n1++] = $item1;
+                    $res['nameServers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class CustomDNS extends Model
                 $res['searches'] = [];
                 $n1 = 0;
                 foreach ($this->searches as $item1) {
-                    $res['searches'][$n1++] = $item1;
+                    $res['searches'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class CustomDNS extends Model
                 $model->dnsOptions = [];
                 $n1 = 0;
                 foreach ($map['dnsOptions'] as $item1) {
-                    $model->dnsOptions[$n1++] = DNSOption::fromMap($item1);
+                    $model->dnsOptions[$n1] = DNSOption::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class CustomDNS extends Model
                 $model->nameServers = [];
                 $n1 = 0;
                 foreach ($map['nameServers'] as $item1) {
-                    $model->nameServers[$n1++] = $item1;
+                    $model->nameServers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class CustomDNS extends Model
                 $model->searches = [];
                 $n1 = 0;
                 foreach ($map['searches'] as $item1) {
-                    $model->searches[$n1++] = $item1;
+                    $model->searches[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

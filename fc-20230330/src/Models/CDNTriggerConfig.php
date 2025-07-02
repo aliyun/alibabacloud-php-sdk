@@ -61,7 +61,8 @@ class CDNTriggerConfig extends Model
                         $res['filter'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['filter'][$key1][$n2++] = $item2;
+                            $res['filter'][$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -99,7 +100,8 @@ class CDNTriggerConfig extends Model
                         $model->filter[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->filter[$key1][$n2++] = $item2;
+                            $model->filter[$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }

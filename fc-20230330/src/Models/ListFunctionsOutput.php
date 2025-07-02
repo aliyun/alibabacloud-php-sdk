@@ -38,7 +38,8 @@ class ListFunctionsOutput extends Model
                 $res['functions'] = [];
                 $n1 = 0;
                 foreach ($this->functions as $item1) {
-                    $res['functions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['functions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListFunctionsOutput extends Model
                 $model->functions = [];
                 $n1 = 0;
                 foreach ($map['functions'] as $item1) {
-                    $model->functions[$n1++] = Function_::fromMap($item1);
+                    $model->functions[$n1] = Function_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

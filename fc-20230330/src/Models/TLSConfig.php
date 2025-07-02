@@ -44,7 +44,8 @@ class TLSConfig extends Model
                 $res['cipherSuites'] = [];
                 $n1 = 0;
                 foreach ($this->cipherSuites as $item1) {
-                    $res['cipherSuites'][$n1++] = $item1;
+                    $res['cipherSuites'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class TLSConfig extends Model
                 $model->cipherSuites = [];
                 $n1 = 0;
                 foreach ($map['cipherSuites'] as $item1) {
-                    $model->cipherSuites[$n1++] = $item1;
+                    $model->cipherSuites[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

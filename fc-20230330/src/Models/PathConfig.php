@@ -63,7 +63,8 @@ class PathConfig extends Model
                 $res['methods'] = [];
                 $n1 = 0;
                 foreach ($this->methods as $item1) {
-                    $res['methods'][$n1++] = $item1;
+                    $res['methods'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class PathConfig extends Model
                 $model->methods = [];
                 $n1 = 0;
                 foreach ($map['methods'] as $item1) {
-                    $model->methods[$n1++] = $item1;
+                    $model->methods[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -81,7 +81,8 @@ class ListInstancesRequest extends Model
                 $res['instanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['instanceIds'][$n1++] = $item1;
+                    $res['instanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListInstancesRequest extends Model
                 $res['instanceStatus'] = [];
                 $n1 = 0;
                 foreach ($this->instanceStatus as $item1) {
-                    $res['instanceStatus'][$n1++] = $item1;
+                    $res['instanceStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class ListInstancesRequest extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['instanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +149,8 @@ class ListInstancesRequest extends Model
                 $model->instanceStatus = [];
                 $n1 = 0;
                 foreach ($map['instanceStatus'] as $item1) {
-                    $model->instanceStatus[$n1++] = $item1;
+                    $model->instanceStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

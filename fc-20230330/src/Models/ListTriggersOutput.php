@@ -42,7 +42,8 @@ class ListTriggersOutput extends Model
                 $res['triggers'] = [];
                 $n1 = 0;
                 foreach ($this->triggers as $item1) {
-                    $res['triggers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['triggers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ListTriggersOutput extends Model
                 $model->triggers = [];
                 $n1 = 0;
                 foreach ($map['triggers'] as $item1) {
-                    $model->triggers[$n1++] = Trigger::fromMap($item1);
+                    $model->triggers[$n1] = Trigger::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
