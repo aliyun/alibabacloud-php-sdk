@@ -1668,6 +1668,10 @@ class ICE extends OpenApiClient
             @$query['AdditionType'] = $request->additionType;
         }
 
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
+        }
+
         if (null !== $request->mediaIds) {
             @$query['MediaIds'] = $request->mediaIds;
         }
@@ -10169,6 +10173,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
+        }
+
         if (null !== $request->inputURL) {
             @$query['InputURL'] = $request->inputURL;
         }
@@ -10724,6 +10732,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
+        }
+
         if (null !== $request->inputURL) {
             @$query['InputURL'] = $request->inputURL;
         }
@@ -12263,12 +12275,20 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
 
         $req = new OpenApiRequest([
@@ -14296,6 +14316,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
+        }
+
         if (null !== $request->businessType) {
             @$query['BusinessType'] = $request->businessType;
         }
@@ -19389,6 +19413,10 @@ class ICE extends OpenApiClient
             @$query['Config'] = $request->configShrink;
         }
 
+        if (null !== $request->imsAIAgentFreeObCall) {
+            @$query['ImsAIAgentFreeObCall'] = $request->imsAIAgentFreeObCall;
+        }
+
         if (null !== $request->sessionId) {
             @$query['SessionId'] = $request->sessionId;
         }
@@ -21004,7 +21032,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交高光提取任务
+     * Submits a highlight extraction task.
      *
      * @param request - SubmitHighlightExtractionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21057,7 +21085,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交高光提取任务
+     * Submits a highlight extraction task.
      *
      * @param request - SubmitHighlightExtractionJobRequest
      *
@@ -22165,7 +22193,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交高燃混剪任务
+     * Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.
      *
      * @param request - SubmitScreenMediaHighlightsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22218,7 +22246,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交高燃混剪任务
+     * Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.
      *
      * @param request - SubmitScreenMediaHighlightsJobRequest
      *

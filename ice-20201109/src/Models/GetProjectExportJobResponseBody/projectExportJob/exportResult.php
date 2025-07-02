@@ -11,8 +11,14 @@ class exportResult extends Model
     /**
      * @var string
      */
+    public $projectUrl;
+
+    /**
+     * @var string
+     */
     public $timeline;
     protected $_name = [
+        'projectUrl' => 'ProjectUrl',
         'timeline' => 'Timeline',
     ];
 
@@ -24,6 +30,10 @@ class exportResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->projectUrl) {
+            $res['ProjectUrl'] = $this->projectUrl;
+        }
+
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
         }
@@ -39,6 +49,10 @@ class exportResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProjectUrl'])) {
+            $model->projectUrl = $map['ProjectUrl'];
+        }
+
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];
         }

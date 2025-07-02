@@ -24,6 +24,11 @@ class asrConfig extends Model
     public $asrMaxSilence;
 
     /**
+     * @var string
+     */
+    public $customParams;
+
+    /**
      * @var int
      */
     public $vadLevel;
@@ -31,6 +36,7 @@ class asrConfig extends Model
         'asrHotWords' => 'AsrHotWords',
         'asrLanguageId' => 'AsrLanguageId',
         'asrMaxSilence' => 'AsrMaxSilence',
+        'customParams' => 'CustomParams',
         'vadLevel' => 'VadLevel',
     ];
 
@@ -62,6 +68,10 @@ class asrConfig extends Model
 
         if (null !== $this->asrMaxSilence) {
             $res['AsrMaxSilence'] = $this->asrMaxSilence;
+        }
+
+        if (null !== $this->customParams) {
+            $res['CustomParams'] = $this->customParams;
         }
 
         if (null !== $this->vadLevel) {
@@ -96,6 +106,10 @@ class asrConfig extends Model
 
         if (isset($map['AsrMaxSilence'])) {
             $model->asrMaxSilence = $map['AsrMaxSilence'];
+        }
+
+        if (isset($map['CustomParams'])) {
+            $model->customParams = $map['CustomParams'];
         }
 
         if (isset($map['VadLevel'])) {

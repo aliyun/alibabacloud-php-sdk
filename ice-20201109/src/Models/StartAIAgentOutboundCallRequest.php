@@ -31,6 +31,11 @@ class StartAIAgentOutboundCallRequest extends Model
     /**
      * @var string
      */
+    public $imsAIAgentFreeObCall;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -42,6 +47,7 @@ class StartAIAgentOutboundCallRequest extends Model
         'calledNumber' => 'CalledNumber',
         'callerNumber' => 'CallerNumber',
         'config' => 'Config',
+        'imsAIAgentFreeObCall' => 'ImsAIAgentFreeObCall',
         'sessionId' => 'SessionId',
         'userData' => 'UserData',
     ];
@@ -71,6 +77,10 @@ class StartAIAgentOutboundCallRequest extends Model
 
         if (null !== $this->config) {
             $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+        }
+
+        if (null !== $this->imsAIAgentFreeObCall) {
+            $res['ImsAIAgentFreeObCall'] = $this->imsAIAgentFreeObCall;
         }
 
         if (null !== $this->sessionId) {
@@ -106,6 +116,10 @@ class StartAIAgentOutboundCallRequest extends Model
 
         if (isset($map['Config'])) {
             $model->config = AIAgentOutboundCallConfig::fromMap($map['Config']);
+        }
+
+        if (isset($map['ImsAIAgentFreeObCall'])) {
+            $model->imsAIAgentFreeObCall = $map['ImsAIAgentFreeObCall'];
         }
 
         if (isset($map['SessionId'])) {

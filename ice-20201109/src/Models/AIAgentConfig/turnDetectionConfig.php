@@ -9,10 +9,22 @@ use AlibabaCloud\Dara\Model;
 class turnDetectionConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var int
+     */
+    public $semanticWaitDuration;
+
+    /**
      * @var string[]
      */
     public $turnEndWords;
     protected $_name = [
+        'mode' => 'Mode',
+        'semanticWaitDuration' => 'SemanticWaitDuration',
         'turnEndWords' => 'TurnEndWords',
     ];
 
@@ -27,6 +39,14 @@ class turnDetectionConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+
+        if (null !== $this->semanticWaitDuration) {
+            $res['SemanticWaitDuration'] = $this->semanticWaitDuration;
+        }
+
         if (null !== $this->turnEndWords) {
             if (\is_array($this->turnEndWords)) {
                 $res['TurnEndWords'] = [];
@@ -49,6 +69,14 @@ class turnDetectionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['SemanticWaitDuration'])) {
+            $model->semanticWaitDuration = $map['SemanticWaitDuration'];
+        }
+
         if (isset($map['TurnEndWords'])) {
             if (!empty($map['TurnEndWords'])) {
                 $model->turnEndWords = [];

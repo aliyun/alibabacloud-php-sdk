@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\interruptConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\llmConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\ttsConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\turnDetectionConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\voiceprintConfig;
 
 class AIAgentConfig extends Model
@@ -96,6 +97,11 @@ class AIAgentConfig extends Model
     public $userOnlineTimeout;
 
     /**
+     * @var vcrConfig
+     */
+    public $vcrConfig;
+
+    /**
      * @var voiceprintConfig
      */
     public $voiceprintConfig;
@@ -131,6 +137,7 @@ class AIAgentConfig extends Model
         'turnDetectionConfig' => 'TurnDetectionConfig',
         'userOfflineTimeout' => 'UserOfflineTimeout',
         'userOnlineTimeout' => 'UserOnlineTimeout',
+        'vcrConfig' => 'VcrConfig',
         'voiceprintConfig' => 'VoiceprintConfig',
         'volume' => 'Volume',
         'wakeUpQuery' => 'WakeUpQuery',
@@ -156,6 +163,9 @@ class AIAgentConfig extends Model
         }
         if (null !== $this->turnDetectionConfig) {
             $this->turnDetectionConfig->validate();
+        }
+        if (null !== $this->vcrConfig) {
+            $this->vcrConfig->validate();
         }
         if (null !== $this->voiceprintConfig) {
             $this->voiceprintConfig->validate();
@@ -228,6 +238,10 @@ class AIAgentConfig extends Model
 
         if (null !== $this->userOnlineTimeout) {
             $res['UserOnlineTimeout'] = $this->userOnlineTimeout;
+        }
+
+        if (null !== $this->vcrConfig) {
+            $res['VcrConfig'] = null !== $this->vcrConfig ? $this->vcrConfig->toArray($noStream) : $this->vcrConfig;
         }
 
         if (null !== $this->voiceprintConfig) {
@@ -319,6 +333,10 @@ class AIAgentConfig extends Model
 
         if (isset($map['UserOnlineTimeout'])) {
             $model->userOnlineTimeout = $map['UserOnlineTimeout'];
+        }
+
+        if (isset($map['VcrConfig'])) {
+            $model->vcrConfig = vcrConfig::fromMap($map['VcrConfig']);
         }
 
         if (isset($map['VoiceprintConfig'])) {

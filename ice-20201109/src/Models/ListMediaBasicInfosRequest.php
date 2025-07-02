@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListMediaBasicInfosRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $authTimeout;
+
+    /**
      * @var string
      */
     public $businessType;
@@ -63,6 +68,7 @@ class ListMediaBasicInfosRequest extends Model
      */
     public $status;
     protected $_name = [
+        'authTimeout' => 'AuthTimeout',
         'businessType' => 'BusinessType',
         'endTime' => 'EndTime',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
@@ -84,6 +90,10 @@ class ListMediaBasicInfosRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authTimeout) {
+            $res['AuthTimeout'] = $this->authTimeout;
+        }
+
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
@@ -139,6 +149,10 @@ class ListMediaBasicInfosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthTimeout'])) {
+            $model->authTimeout = $map['AuthTimeout'];
+        }
+
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }

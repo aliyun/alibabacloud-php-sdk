@@ -14,11 +14,17 @@ class BatchGetMediaInfosRequest extends Model
     public $additionType;
 
     /**
+     * @var int
+     */
+    public $authTimeout;
+
+    /**
      * @var string
      */
     public $mediaIds;
     protected $_name = [
         'additionType' => 'AdditionType',
+        'authTimeout' => 'AuthTimeout',
         'mediaIds' => 'MediaIds',
     ];
 
@@ -32,6 +38,10 @@ class BatchGetMediaInfosRequest extends Model
         $res = [];
         if (null !== $this->additionType) {
             $res['AdditionType'] = $this->additionType;
+        }
+
+        if (null !== $this->authTimeout) {
+            $res['AuthTimeout'] = $this->authTimeout;
         }
 
         if (null !== $this->mediaIds) {
@@ -51,6 +61,10 @@ class BatchGetMediaInfosRequest extends Model
         $model = new self();
         if (isset($map['AdditionType'])) {
             $model->additionType = $map['AdditionType'];
+        }
+
+        if (isset($map['AuthTimeout'])) {
+            $model->authTimeout = $map['AuthTimeout'];
         }
 
         if (isset($map['MediaIds'])) {

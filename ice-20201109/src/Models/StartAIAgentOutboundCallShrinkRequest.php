@@ -31,6 +31,11 @@ class StartAIAgentOutboundCallShrinkRequest extends Model
     /**
      * @var string
      */
+    public $imsAIAgentFreeObCall;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -42,6 +47,7 @@ class StartAIAgentOutboundCallShrinkRequest extends Model
         'calledNumber' => 'CalledNumber',
         'callerNumber' => 'CallerNumber',
         'configShrink' => 'Config',
+        'imsAIAgentFreeObCall' => 'ImsAIAgentFreeObCall',
         'sessionId' => 'SessionId',
         'userData' => 'UserData',
     ];
@@ -68,6 +74,10 @@ class StartAIAgentOutboundCallShrinkRequest extends Model
 
         if (null !== $this->configShrink) {
             $res['Config'] = $this->configShrink;
+        }
+
+        if (null !== $this->imsAIAgentFreeObCall) {
+            $res['ImsAIAgentFreeObCall'] = $this->imsAIAgentFreeObCall;
         }
 
         if (null !== $this->sessionId) {
@@ -103,6 +113,10 @@ class StartAIAgentOutboundCallShrinkRequest extends Model
 
         if (isset($map['Config'])) {
             $model->configShrink = $map['Config'];
+        }
+
+        if (isset($map['ImsAIAgentFreeObCall'])) {
+            $model->imsAIAgentFreeObCall = $map['ImsAIAgentFreeObCall'];
         }
 
         if (isset($map['SessionId'])) {

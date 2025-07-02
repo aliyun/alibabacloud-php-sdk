@@ -29,6 +29,11 @@ class AIAgentOutboundCallConfig extends Model
     public $greeting;
 
     /**
+     * @var int
+     */
+    public $greetingDelay;
+
+    /**
      * @var interruptConfig
      */
     public $interruptConfig;
@@ -51,6 +56,7 @@ class AIAgentOutboundCallConfig extends Model
         'asrConfig' => 'AsrConfig',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
         'greeting' => 'Greeting',
+        'greetingDelay' => 'GreetingDelay',
         'interruptConfig' => 'InterruptConfig',
         'llmConfig' => 'LlmConfig',
         'ttsConfig' => 'TtsConfig',
@@ -92,6 +98,10 @@ class AIAgentOutboundCallConfig extends Model
             $res['Greeting'] = $this->greeting;
         }
 
+        if (null !== $this->greetingDelay) {
+            $res['GreetingDelay'] = $this->greetingDelay;
+        }
+
         if (null !== $this->interruptConfig) {
             $res['InterruptConfig'] = null !== $this->interruptConfig ? $this->interruptConfig->toArray($noStream) : $this->interruptConfig;
         }
@@ -129,6 +139,10 @@ class AIAgentOutboundCallConfig extends Model
 
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
+        }
+
+        if (isset($map['GreetingDelay'])) {
+            $model->greetingDelay = $map['GreetingDelay'];
         }
 
         if (isset($map['InterruptConfig'])) {

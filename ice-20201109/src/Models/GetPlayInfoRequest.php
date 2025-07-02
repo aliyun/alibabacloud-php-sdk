@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetPlayInfoRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $authTimeout;
+
+    /**
      * @var string
      */
     public $inputURL;
@@ -18,6 +23,7 @@ class GetPlayInfoRequest extends Model
      */
     public $mediaId;
     protected $_name = [
+        'authTimeout' => 'AuthTimeout',
         'inputURL' => 'InputURL',
         'mediaId' => 'MediaId',
     ];
@@ -30,6 +36,10 @@ class GetPlayInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authTimeout) {
+            $res['AuthTimeout'] = $this->authTimeout;
+        }
+
         if (null !== $this->inputURL) {
             $res['InputURL'] = $this->inputURL;
         }
@@ -49,6 +59,10 @@ class GetPlayInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthTimeout'])) {
+            $model->authTimeout = $map['AuthTimeout'];
+        }
+
         if (isset($map['InputURL'])) {
             $model->inputURL = $map['InputURL'];
         }
