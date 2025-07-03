@@ -69,7 +69,8 @@ class tasks extends Model
                 $res['ExecutorStatus'] = [];
                 $n1 = 0;
                 foreach ($this->executorStatus as $item1) {
-                    $res['ExecutorStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExecutorStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class tasks extends Model
                 $model->executorStatus = [];
                 $n1 = 0;
                 foreach ($map['ExecutorStatus'] as $item1) {
-                    $model->executorStatus[$n1++] = executorStatus::fromMap($item1);
+                    $model->executorStatus[$n1] = executorStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

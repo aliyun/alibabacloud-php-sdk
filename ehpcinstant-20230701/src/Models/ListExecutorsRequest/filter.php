@@ -68,7 +68,8 @@ class filter extends Model
                 $res['ExecutorIds'] = [];
                 $n1 = 0;
                 foreach ($this->executorIds as $item1) {
-                    $res['ExecutorIds'][$n1++] = $item1;
+                    $res['ExecutorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class filter extends Model
                 $res['IpAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddresses as $item1) {
-                    $res['IpAddresses'][$n1++] = $item1;
+                    $res['IpAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class filter extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +124,8 @@ class filter extends Model
                 $model->executorIds = [];
                 $n1 = 0;
                 foreach ($map['ExecutorIds'] as $item1) {
-                    $model->executorIds[$n1++] = $item1;
+                    $model->executorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +135,8 @@ class filter extends Model
                 $model->ipAddresses = [];
                 $n1 = 0;
                 foreach ($map['IpAddresses'] as $item1) {
-                    $model->ipAddresses[$n1++] = $item1;
+                    $model->ipAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +150,8 @@ class filter extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

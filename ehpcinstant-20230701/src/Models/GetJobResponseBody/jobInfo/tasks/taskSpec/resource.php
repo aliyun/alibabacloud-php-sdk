@@ -58,7 +58,8 @@ class resource extends Model
                 $res['Disks'] = [];
                 $n1 = 0;
                 foreach ($this->disks as $item1) {
-                    $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class resource extends Model
                 $res['InstanceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
-                    $res['InstanceTypes'][$n1++] = $item1;
+                    $res['InstanceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class resource extends Model
                 $model->disks = [];
                 $n1 = 0;
                 foreach ($map['Disks'] as $item1) {
-                    $model->disks[$n1++] = disks::fromMap($item1);
+                    $model->disks[$n1] = disks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +110,8 @@ class resource extends Model
                 $model->instanceTypes = [];
                 $n1 = 0;
                 foreach ($map['InstanceTypes'] as $item1) {
-                    $model->instanceTypes[$n1++] = $item1;
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

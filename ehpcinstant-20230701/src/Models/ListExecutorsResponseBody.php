@@ -57,7 +57,8 @@ class ListExecutorsResponseBody extends Model
                 $res['Executors'] = [];
                 $n1 = 0;
                 foreach ($this->executors as $item1) {
-                    $res['Executors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Executors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListExecutorsResponseBody extends Model
                 $model->executors = [];
                 $n1 = 0;
                 foreach ($map['Executors'] as $item1) {
-                    $model->executors[$n1++] = executors::fromMap($item1);
+                    $model->executors[$n1] = executors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

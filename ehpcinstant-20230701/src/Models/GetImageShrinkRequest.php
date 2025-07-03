@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetImageRequest extends Model
+class GetImageShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $additionalRegionIds;
+    public $additionalRegionIdsShrink;
 
     /**
      * @var string
@@ -28,7 +28,7 @@ class GetImageRequest extends Model
      */
     public $imageType;
     protected $_name = [
-        'additionalRegionIds' => 'AdditionalRegionIds',
+        'additionalRegionIdsShrink' => 'AdditionalRegionIds',
         'imageCategory' => 'ImageCategory',
         'imageId' => 'ImageId',
         'imageType' => 'ImageType',
@@ -36,24 +36,14 @@ class GetImageRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->additionalRegionIds)) {
-            Model::validateArray($this->additionalRegionIds);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->additionalRegionIds) {
-            if (\is_array($this->additionalRegionIds)) {
-                $res['AdditionalRegionIds'] = [];
-                $n1 = 0;
-                foreach ($this->additionalRegionIds as $item1) {
-                    $res['AdditionalRegionIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->additionalRegionIdsShrink) {
+            $res['AdditionalRegionIds'] = $this->additionalRegionIdsShrink;
         }
 
         if (null !== $this->imageCategory) {
@@ -80,14 +70,7 @@ class GetImageRequest extends Model
     {
         $model = new self();
         if (isset($map['AdditionalRegionIds'])) {
-            if (!empty($map['AdditionalRegionIds'])) {
-                $model->additionalRegionIds = [];
-                $n1 = 0;
-                foreach ($map['AdditionalRegionIds'] as $item1) {
-                    $model->additionalRegionIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->additionalRegionIdsShrink = $map['AdditionalRegionIds'];
         }
 
         if (isset($map['ImageCategory'])) {

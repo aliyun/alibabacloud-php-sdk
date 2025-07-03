@@ -73,7 +73,8 @@ class container extends Model
                 $res['Arg'] = [];
                 $n1 = 0;
                 foreach ($this->arg as $item1) {
-                    $res['Arg'][$n1++] = $item1;
+                    $res['Arg'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class container extends Model
                 $res['Command'] = [];
                 $n1 = 0;
                 foreach ($this->command as $item1) {
-                    $res['Command'][$n1++] = $item1;
+                    $res['Command'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class container extends Model
                 $res['EnvironmentVars'] = [];
                 $n1 = 0;
                 foreach ($this->environmentVars as $item1) {
-                    $res['EnvironmentVars'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EnvironmentVars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class container extends Model
                 $model->arg = [];
                 $n1 = 0;
                 foreach ($map['Arg'] as $item1) {
-                    $model->arg[$n1++] = $item1;
+                    $model->arg[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +140,8 @@ class container extends Model
                 $model->command = [];
                 $n1 = 0;
                 foreach ($map['Command'] as $item1) {
-                    $model->command[$n1++] = $item1;
+                    $model->command[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +151,8 @@ class container extends Model
                 $model->environmentVars = [];
                 $n1 = 0;
                 foreach ($map['EnvironmentVars'] as $item1) {
-                    $model->environmentVars[$n1++] = environmentVars::fromMap($item1);
+                    $model->environmentVars[$n1] = environmentVars::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

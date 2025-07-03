@@ -50,7 +50,8 @@ class DescribeJobMetricDataRequest extends Model
                 $res['ArrayIndex'] = [];
                 $n1 = 0;
                 foreach ($this->arrayIndex as $item1) {
-                    $res['ArrayIndex'][$n1++] = $item1;
+                    $res['ArrayIndex'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class DescribeJobMetricDataRequest extends Model
                 $model->arrayIndex = [];
                 $n1 = 0;
                 foreach ($map['ArrayIndex'] as $item1) {
-                    $model->arrayIndex[$n1++] = $item1;
+                    $model->arrayIndex[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -57,7 +57,8 @@ class taskSpec extends Model
                 $res['TaskExecutor'] = [];
                 $n1 = 0;
                 foreach ($this->taskExecutor as $item1) {
-                    $res['TaskExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskExecutor'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class taskSpec extends Model
                 $res['VolumeMount'] = [];
                 $n1 = 0;
                 foreach ($this->volumeMount as $item1) {
-                    $res['VolumeMount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VolumeMount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class taskSpec extends Model
                 $model->taskExecutor = [];
                 $n1 = 0;
                 foreach ($map['TaskExecutor'] as $item1) {
-                    $model->taskExecutor[$n1++] = taskExecutor::fromMap($item1);
+                    $model->taskExecutor[$n1] = taskExecutor::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class taskSpec extends Model
                 $model->volumeMount = [];
                 $n1 = 0;
                 foreach ($map['VolumeMount'] as $item1) {
-                    $model->volumeMount[$n1++] = volumeMount::fromMap($item1);
+                    $model->volumeMount[$n1] = volumeMount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

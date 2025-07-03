@@ -38,7 +38,8 @@ class tasks extends Model
                 $res['ExecutorIds'] = [];
                 $n1 = 0;
                 foreach ($this->executorIds as $item1) {
-                    $res['ExecutorIds'][$n1++] = $item1;
+                    $res['ExecutorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class tasks extends Model
                 $model->executorIds = [];
                 $n1 = 0;
                 foreach ($map['ExecutorIds'] as $item1) {
-                    $model->executorIds[$n1++] = $item1;
+                    $model->executorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

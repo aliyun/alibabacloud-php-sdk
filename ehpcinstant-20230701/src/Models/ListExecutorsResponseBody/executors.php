@@ -190,7 +190,8 @@ class executors extends Model
                 $res['ExternalIpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->externalIpAddress as $item1) {
-                    $res['ExternalIpAddress'][$n1++] = $item1;
+                    $res['ExternalIpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +201,8 @@ class executors extends Model
                 $res['HostName'] = [];
                 $n1 = 0;
                 foreach ($this->hostName as $item1) {
-                    $res['HostName'][$n1++] = $item1;
+                    $res['HostName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +216,8 @@ class executors extends Model
                 $res['IpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddress as $item1) {
-                    $res['IpAddress'][$n1++] = $item1;
+                    $res['IpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +255,8 @@ class executors extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,7 +313,8 @@ class executors extends Model
                 $model->externalIpAddress = [];
                 $n1 = 0;
                 foreach ($map['ExternalIpAddress'] as $item1) {
-                    $model->externalIpAddress[$n1++] = $item1;
+                    $model->externalIpAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -319,7 +324,8 @@ class executors extends Model
                 $model->hostName = [];
                 $n1 = 0;
                 foreach ($map['HostName'] as $item1) {
-                    $model->hostName[$n1++] = $item1;
+                    $model->hostName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -333,7 +339,8 @@ class executors extends Model
                 $model->ipAddress = [];
                 $n1 = 0;
                 foreach ($map['IpAddress'] as $item1) {
-                    $model->ipAddress[$n1++] = $item1;
+                    $model->ipAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -371,7 +378,8 @@ class executors extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

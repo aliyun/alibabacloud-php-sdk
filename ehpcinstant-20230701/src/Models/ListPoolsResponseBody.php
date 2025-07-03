@@ -65,7 +65,8 @@ class ListPoolsResponseBody extends Model
                 $res['PoolList'] = [];
                 $n1 = 0;
                 foreach ($this->poolList as $item1) {
-                    $res['PoolList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PoolList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListPoolsResponseBody extends Model
                 $model->poolList = [];
                 $n1 = 0;
                 foreach ($map['PoolList'] as $item1) {
-                    $model->poolList[$n1++] = poolList::fromMap($item1);
+                    $model->poolList[$n1] = poolList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class network extends Model
                 $res['Vswitch'] = [];
                 $n1 = 0;
                 foreach ($this->vswitch as $item1) {
-                    $res['Vswitch'][$n1++] = $item1;
+                    $res['Vswitch'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class network extends Model
                 $model->vswitch = [];
                 $n1 = 0;
                 foreach ($map['Vswitch'] as $item1) {
-                    $model->vswitch[$n1++] = $item1;
+                    $model->vswitch[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

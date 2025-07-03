@@ -53,7 +53,8 @@ class filter extends Model
                 $res['PoolName'] = [];
                 $n1 = 0;
                 foreach ($this->poolName as $item1) {
-                    $res['PoolName'][$n1++] = $item1;
+                    $res['PoolName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class filter extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class filter extends Model
                 $model->poolName = [];
                 $n1 = 0;
                 foreach ($map['PoolName'] as $item1) {
-                    $model->poolName[$n1++] = $item1;
+                    $model->poolName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class filter extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

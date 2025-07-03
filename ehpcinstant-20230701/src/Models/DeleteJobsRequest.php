@@ -42,7 +42,8 @@ class DeleteJobsRequest extends Model
                 $res['ExecutorIds'] = [];
                 $n1 = 0;
                 foreach ($this->executorIds as $item1) {
-                    $res['ExecutorIds'][$n1++] = $item1;
+                    $res['ExecutorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class DeleteJobsRequest extends Model
                 $res['JobSpec'] = [];
                 $n1 = 0;
                 foreach ($this->jobSpec as $item1) {
-                    $res['JobSpec'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JobSpec'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class DeleteJobsRequest extends Model
                 $model->executorIds = [];
                 $n1 = 0;
                 foreach ($map['ExecutorIds'] as $item1) {
-                    $model->executorIds[$n1++] = $item1;
+                    $model->executorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class DeleteJobsRequest extends Model
                 $model->jobSpec = [];
                 $n1 = 0;
                 foreach ($map['JobSpec'] as $item1) {
-                    $model->jobSpec[$n1++] = jobSpec::fromMap($item1);
+                    $model->jobSpec[$n1] = jobSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

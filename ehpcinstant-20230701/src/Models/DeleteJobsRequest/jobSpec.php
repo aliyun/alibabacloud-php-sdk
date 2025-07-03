@@ -43,7 +43,8 @@ class jobSpec extends Model
                 $res['TaskSpec'] = [];
                 $n1 = 0;
                 foreach ($this->taskSpec as $item1) {
-                    $res['TaskSpec'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskSpec'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class jobSpec extends Model
                 $model->taskSpec = [];
                 $n1 = 0;
                 foreach ($map['TaskSpec'] as $item1) {
-                    $model->taskSpec[$n1++] = taskSpec::fromMap($item1);
+                    $model->taskSpec[$n1] = taskSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

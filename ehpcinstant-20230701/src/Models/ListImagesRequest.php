@@ -75,7 +75,8 @@ class ListImagesRequest extends Model
                 $res['ImageIds'] = [];
                 $n1 = 0;
                 foreach ($this->imageIds as $item1) {
-                    $res['ImageIds'][$n1++] = $item1;
+                    $res['ImageIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class ListImagesRequest extends Model
                 $res['ImageNames'] = [];
                 $n1 = 0;
                 foreach ($this->imageNames as $item1) {
-                    $res['ImageNames'][$n1++] = $item1;
+                    $res['ImageNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class ListImagesRequest extends Model
                 $model->imageIds = [];
                 $n1 = 0;
                 foreach ($map['ImageIds'] as $item1) {
-                    $model->imageIds[$n1++] = $item1;
+                    $model->imageIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class ListImagesRequest extends Model
                 $model->imageNames = [];
                 $n1 = 0;
                 foreach ($map['ImageNames'] as $item1) {
-                    $model->imageNames[$n1++] = $item1;
+                    $model->imageNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

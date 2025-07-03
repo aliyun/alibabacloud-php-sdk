@@ -29,6 +29,7 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolRequest;
@@ -696,20 +697,30 @@ class EhpcInstant extends OpenApiClient
     /**
      * 查询托管侧镜像详情。
      *
-     * @param request - GetImageRequest
+     * @param tmpReq - GetImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetImageResponse
      *
-     * @param GetImageRequest $request
+     * @param GetImageRequest $tmpReq
      * @param RuntimeOptions  $runtime
      *
      * @return GetImageResponse
      */
-    public function getImageWithOptions($request, $runtime)
+    public function getImageWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetImageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->additionalRegionIds) {
+            $request->additionalRegionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->additionalRegionIds, 'AdditionalRegionIds', 'json');
+        }
+
         $query = [];
+        if (null !== $request->additionalRegionIdsShrink) {
+            @$query['AdditionalRegionIds'] = $request->additionalRegionIdsShrink;
+        }
+
         if (null !== $request->imageCategory) {
             @$query['ImageCategory'] = $request->imageCategory;
         }

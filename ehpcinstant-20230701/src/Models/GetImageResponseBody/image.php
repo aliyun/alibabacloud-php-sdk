@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\additionalRegionsInfo;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\containerImageSpec;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\documentInfo;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\VMImageSpec;
 
 class image extends Model
 {
+    /**
+     * @var additionalRegionsInfo[]
+     */
+    public $additionalRegionsInfo;
+
     /**
      * @var string
      */
@@ -66,6 +72,7 @@ class image extends Model
      */
     public $version;
     protected $_name = [
+        'additionalRegionsInfo' => 'AdditionalRegionsInfo',
         'appId' => 'AppId',
         'containerImageSpec' => 'ContainerImageSpec',
         'createTime' => 'CreateTime',
@@ -81,6 +88,9 @@ class image extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalRegionsInfo)) {
+            Model::validateArray($this->additionalRegionsInfo);
+        }
         if (null !== $this->containerImageSpec) {
             $this->containerImageSpec->validate();
         }
@@ -96,6 +106,17 @@ class image extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->additionalRegionsInfo) {
+            if (\is_array($this->additionalRegionsInfo)) {
+                $res['AdditionalRegionsInfo'] = [];
+                $n1 = 0;
+                foreach ($this->additionalRegionsInfo as $item1) {
+                    $res['AdditionalRegionsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -151,6 +172,17 @@ class image extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalRegionsInfo'])) {
+            if (!empty($map['AdditionalRegionsInfo'])) {
+                $model->additionalRegionsInfo = [];
+                $n1 = 0;
+                foreach ($map['AdditionalRegionsInfo'] as $item1) {
+                    $model->additionalRegionsInfo[$n1] = additionalRegionsInfo::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
