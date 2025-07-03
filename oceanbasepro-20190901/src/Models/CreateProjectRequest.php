@@ -206,7 +206,8 @@ class CreateProjectRequest extends Model
                 $res['LabelIds'] = [];
                 $n1 = 0;
                 foreach ($this->labelIds as $item1) {
-                    $res['LabelIds'][$n1++] = $item1;
+                    $res['LabelIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -303,7 +304,8 @@ class CreateProjectRequest extends Model
                 $model->labelIds = [];
                 $n1 = 0;
                 foreach ($map['LabelIds'] as $item1) {
-                    $model->labelIds[$n1++] = $item1;
+                    $model->labelIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

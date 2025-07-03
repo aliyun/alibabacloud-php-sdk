@@ -19,6 +19,11 @@ class ModifyTenantResourceRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $iops;
+
+    /**
      * @var int
      */
     public $logDisk;
@@ -40,6 +45,7 @@ class ModifyTenantResourceRequest extends Model
     protected $_name = [
         'cpu' => 'Cpu',
         'instanceId' => 'InstanceId',
+        'iops' => 'Iops',
         'logDisk' => 'LogDisk',
         'memory' => 'Memory',
         'readOnlyZoneList' => 'ReadOnlyZoneList',
@@ -60,6 +66,10 @@ class ModifyTenantResourceRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->iops) {
+            $res['Iops'] = $this->iops;
         }
 
         if (null !== $this->logDisk) {
@@ -95,6 +105,10 @@ class ModifyTenantResourceRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Iops'])) {
+            $model->iops = $map['Iops'];
         }
 
         if (isset($map['LogDisk'])) {

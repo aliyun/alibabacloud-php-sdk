@@ -4192,6 +4192,10 @@ class OceanBasePro extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->metricScope) {
+            @$body['MetricScope'] = $request->metricScope;
+        }
+
         if (null !== $request->replicaType) {
             @$body['ReplicaType'] = $request->replicaType;
         }
@@ -6567,6 +6571,10 @@ class OceanBasePro extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->operatorType) {
+            @$body['OperatorType'] = $request->operatorType;
         }
 
         if (null !== $request->pageNumber) {
@@ -9300,6 +9308,10 @@ class OceanBasePro extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->iops) {
+            @$body['Iops'] = $request->iops;
         }
 
         if (null !== $request->logDisk) {

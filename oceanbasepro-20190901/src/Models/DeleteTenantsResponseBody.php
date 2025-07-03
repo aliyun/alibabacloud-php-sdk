@@ -42,7 +42,8 @@ class DeleteTenantsResponseBody extends Model
                 $res['TenantIds'] = [];
                 $n1 = 0;
                 foreach ($this->tenantIds as $item1) {
-                    $res['TenantIds'][$n1++] = $item1;
+                    $res['TenantIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DeleteTenantsResponseBody extends Model
                 $model->tenantIds = [];
                 $n1 = 0;
                 foreach ($map['TenantIds'] as $item1) {
-                    $model->tenantIds[$n1++] = $item1;
+                    $model->tenantIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

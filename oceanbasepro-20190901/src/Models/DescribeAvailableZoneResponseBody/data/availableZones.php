@@ -99,7 +99,8 @@ class availableZones extends Model
                 $res['SupportSpecifications'] = [];
                 $n1 = 0;
                 foreach ($this->supportSpecifications as $item1) {
-                    $res['SupportSpecifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportSpecifications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class availableZones extends Model
                 $model->supportSpecifications = [];
                 $n1 = 0;
                 foreach ($map['SupportSpecifications'] as $item1) {
-                    $model->supportSpecifications[$n1++] = supportSpecifications::fromMap($item1);
+                    $model->supportSpecifications[$n1] = supportSpecifications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

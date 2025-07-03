@@ -49,7 +49,8 @@ class backupObjects extends Model
                 $res['DatabaseTablesList'] = [];
                 $n1 = 0;
                 foreach ($this->databaseTablesList as $item1) {
-                    $res['DatabaseTablesList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatabaseTablesList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class backupObjects extends Model
                 $model->databaseTablesList = [];
                 $n1 = 0;
                 foreach ($map['DatabaseTablesList'] as $item1) {
-                    $model->databaseTablesList[$n1++] = databaseTablesList::fromMap($item1);
+                    $model->databaseTablesList[$n1] = databaseTablesList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

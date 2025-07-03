@@ -92,7 +92,8 @@ class ListWorkerInstancesRequest extends Model
                 $res['Specs'] = [];
                 $n1 = 0;
                 foreach ($this->specs as $item1) {
-                    $res['Specs'][$n1++] = $item1;
+                    $res['Specs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class ListWorkerInstancesRequest extends Model
                 $model->specs = [];
                 $n1 = 0;
                 foreach ($map['Specs'] as $item1) {
-                    $model->specs[$n1++] = $item1;
+                    $model->specs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -71,7 +71,8 @@ class data extends Model
                 $res['AllProcessList'] = [];
                 $n1 = 0;
                 foreach ($this->allProcessList as $item1) {
-                    $res['AllProcessList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AllProcessList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class data extends Model
                 $model->allProcessList = [];
                 $n1 = 0;
                 foreach ($map['AllProcessList'] as $item1) {
-                    $model->allProcessList[$n1++] = allProcessList::fromMap($item1);
+                    $model->allProcessList[$n1] = allProcessList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

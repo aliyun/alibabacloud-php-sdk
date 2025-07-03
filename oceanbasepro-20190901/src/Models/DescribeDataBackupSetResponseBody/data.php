@@ -143,7 +143,8 @@ class data extends Model
                 $res['BackupObjects'] = [];
                 $n1 = 0;
                 foreach ($this->backupObjects as $item1) {
-                    $res['BackupObjects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackupObjects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class data extends Model
                 $res['BackupResults'] = [];
                 $n1 = 0;
                 foreach ($this->backupResults as $item1) {
-                    $res['BackupResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackupResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +240,8 @@ class data extends Model
                 $model->backupObjects = [];
                 $n1 = 0;
                 foreach ($map['BackupObjects'] as $item1) {
-                    $model->backupObjects[$n1++] = backupObjects::fromMap($item1);
+                    $model->backupObjects[$n1] = backupObjects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +251,8 @@ class data extends Model
                 $model->backupResults = [];
                 $n1 = 0;
                 foreach ($map['BackupResults'] as $item1) {
-                    $model->backupResults[$n1++] = backupResults::fromMap($item1);
+                    $model->backupResults[$n1] = backupResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

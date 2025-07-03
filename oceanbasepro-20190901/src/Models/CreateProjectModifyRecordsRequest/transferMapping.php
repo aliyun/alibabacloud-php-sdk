@@ -117,7 +117,8 @@ class transferMapping extends Model
                 $res['BlackTableRules'] = [];
                 $n1 = 0;
                 foreach ($this->blackTableRules as $item1) {
-                    $res['BlackTableRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BlackTableRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +128,8 @@ class transferMapping extends Model
                 $res['BlackViewRules'] = [];
                 $n1 = 0;
                 foreach ($this->blackViewRules as $item1) {
-                    $res['BlackViewRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BlackViewRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +139,8 @@ class transferMapping extends Model
                 $res['Databases'] = [];
                 $n1 = 0;
                 foreach ($this->databases as $item1) {
-                    $res['Databases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Databases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +150,8 @@ class transferMapping extends Model
                 $res['DatabasesBlack'] = [];
                 $n1 = 0;
                 foreach ($this->databasesBlack as $item1) {
-                    $res['DatabasesBlack'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatabasesBlack'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +165,8 @@ class transferMapping extends Model
                 $res['Schemas'] = [];
                 $n1 = 0;
                 foreach ($this->schemas as $item1) {
-                    $res['Schemas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Schemas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +176,8 @@ class transferMapping extends Model
                 $res['TableAndViewBlackList'] = [];
                 $n1 = 0;
                 foreach ($this->tableAndViewBlackList as $item1) {
-                    $res['TableAndViewBlackList'][$n1++] = $item1;
+                    $res['TableAndViewBlackList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +187,8 @@ class transferMapping extends Model
                 $res['TableAndViewWhiteList'] = [];
                 $n1 = 0;
                 foreach ($this->tableAndViewWhiteList as $item1) {
-                    $res['TableAndViewWhiteList'][$n1++] = $item1;
+                    $res['TableAndViewWhiteList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +198,8 @@ class transferMapping extends Model
                 $res['WhiteTableRules'] = [];
                 $n1 = 0;
                 foreach ($this->whiteTableRules as $item1) {
-                    $res['WhiteTableRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WhiteTableRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +209,8 @@ class transferMapping extends Model
                 $res['WhiteViewRules'] = [];
                 $n1 = 0;
                 foreach ($this->whiteViewRules as $item1) {
-                    $res['WhiteViewRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WhiteViewRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +231,8 @@ class transferMapping extends Model
                 $model->blackTableRules = [];
                 $n1 = 0;
                 foreach ($map['BlackTableRules'] as $item1) {
-                    $model->blackTableRules[$n1++] = blackTableRules::fromMap($item1);
+                    $model->blackTableRules[$n1] = blackTableRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +242,8 @@ class transferMapping extends Model
                 $model->blackViewRules = [];
                 $n1 = 0;
                 foreach ($map['BlackViewRules'] as $item1) {
-                    $model->blackViewRules[$n1++] = blackViewRules::fromMap($item1);
+                    $model->blackViewRules[$n1] = blackViewRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -242,7 +253,8 @@ class transferMapping extends Model
                 $model->databases = [];
                 $n1 = 0;
                 foreach ($map['Databases'] as $item1) {
-                    $model->databases[$n1++] = databases::fromMap($item1);
+                    $model->databases[$n1] = databases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +264,8 @@ class transferMapping extends Model
                 $model->databasesBlack = [];
                 $n1 = 0;
                 foreach ($map['DatabasesBlack'] as $item1) {
-                    $model->databasesBlack[$n1++] = databasesBlack::fromMap($item1);
+                    $model->databasesBlack[$n1] = databasesBlack::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -266,7 +279,8 @@ class transferMapping extends Model
                 $model->schemas = [];
                 $n1 = 0;
                 foreach ($map['Schemas'] as $item1) {
-                    $model->schemas[$n1++] = schemas::fromMap($item1);
+                    $model->schemas[$n1] = schemas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +290,8 @@ class transferMapping extends Model
                 $model->tableAndViewBlackList = [];
                 $n1 = 0;
                 foreach ($map['TableAndViewBlackList'] as $item1) {
-                    $model->tableAndViewBlackList[$n1++] = $item1;
+                    $model->tableAndViewBlackList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -286,7 +301,8 @@ class transferMapping extends Model
                 $model->tableAndViewWhiteList = [];
                 $n1 = 0;
                 foreach ($map['TableAndViewWhiteList'] as $item1) {
-                    $model->tableAndViewWhiteList[$n1++] = $item1;
+                    $model->tableAndViewWhiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -296,7 +312,8 @@ class transferMapping extends Model
                 $model->whiteTableRules = [];
                 $n1 = 0;
                 foreach ($map['WhiteTableRules'] as $item1) {
-                    $model->whiteTableRules[$n1++] = whiteTableRules::fromMap($item1);
+                    $model->whiteTableRules[$n1] = whiteTableRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +323,8 @@ class transferMapping extends Model
                 $model->whiteViewRules = [];
                 $n1 = 0;
                 foreach ($map['WhiteViewRules'] as $item1) {
-                    $model->whiteViewRules[$n1++] = whiteViewRules::fromMap($item1);
+                    $model->whiteViewRules[$n1] = whiteViewRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

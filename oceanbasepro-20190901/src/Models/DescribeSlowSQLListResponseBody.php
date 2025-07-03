@@ -49,7 +49,8 @@ class DescribeSlowSQLListResponseBody extends Model
                 $res['SlowSQLList'] = [];
                 $n1 = 0;
                 foreach ($this->slowSQLList as $item1) {
-                    $res['SlowSQLList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlowSQLList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeSlowSQLListResponseBody extends Model
                 $model->slowSQLList = [];
                 $n1 = 0;
                 foreach ($map['SlowSQLList'] as $item1) {
-                    $model->slowSQLList[$n1++] = slowSQLList::fromMap($item1);
+                    $model->slowSQLList[$n1] = slowSQLList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

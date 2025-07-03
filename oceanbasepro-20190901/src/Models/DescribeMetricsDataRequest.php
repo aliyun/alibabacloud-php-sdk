@@ -36,6 +36,11 @@ class DescribeMetricsDataRequest extends Model
     /**
      * @var string
      */
+    public $metricScope;
+
+    /**
+     * @var string
+     */
     public $metrics;
 
     /**
@@ -63,6 +68,7 @@ class DescribeMetricsDataRequest extends Model
         'instanceId' => 'InstanceId',
         'labels' => 'Labels',
         'limit' => 'Limit',
+        'metricScope' => 'MetricScope',
         'metrics' => 'Metrics',
         'replicaType' => 'ReplicaType',
         'sortMetricKey' => 'SortMetricKey',
@@ -96,6 +102,10 @@ class DescribeMetricsDataRequest extends Model
 
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->metricScope) {
+            $res['MetricScope'] = $this->metricScope;
         }
 
         if (null !== $this->metrics) {
@@ -147,6 +157,10 @@ class DescribeMetricsDataRequest extends Model
 
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['MetricScope'])) {
+            $model->metricScope = $map['MetricScope'];
         }
 
         if (isset($map['Metrics'])) {

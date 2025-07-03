@@ -74,7 +74,8 @@ class incrTransferConfig extends Model
                 $res['RecordTypeWhiteList'] = [];
                 $n1 = 0;
                 foreach ($this->recordTypeWhiteList as $item1) {
-                    $res['RecordTypeWhiteList'][$n1++] = $item1;
+                    $res['RecordTypeWhiteList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class incrTransferConfig extends Model
                 $model->recordTypeWhiteList = [];
                 $n1 = 0;
                 foreach ($map['RecordTypeWhiteList'] as $item1) {
-                    $model->recordTypeWhiteList[$n1++] = $item1;
+                    $model->recordTypeWhiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

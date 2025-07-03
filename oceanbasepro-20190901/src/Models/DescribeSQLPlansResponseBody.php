@@ -43,7 +43,8 @@ class DescribeSQLPlansResponseBody extends Model
                 $res['SQLPlans'] = [];
                 $n1 = 0;
                 foreach ($this->SQLPlans as $item1) {
-                    $res['SQLPlans'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SQLPlans'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeSQLPlansResponseBody extends Model
                 $model->SQLPlans = [];
                 $n1 = 0;
                 foreach ($map['SQLPlans'] as $item1) {
-                    $model->SQLPlans[$n1++] = SQLPlans::fromMap($item1);
+                    $model->SQLPlans[$n1] = SQLPlans::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

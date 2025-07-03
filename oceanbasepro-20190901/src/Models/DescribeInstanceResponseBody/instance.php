@@ -138,6 +138,11 @@ class instance extends Model
     public $instanceRole;
 
     /**
+     * @var int
+     */
+    public $iops;
+
+    /**
      * @var bool
      */
     public $isLatestObVersion;
@@ -272,6 +277,7 @@ class instance extends Model
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'instanceRole' => 'InstanceRole',
+        'iops' => 'Iops',
         'isLatestObVersion' => 'IsLatestObVersion',
         'isTrustEcs' => 'IsTrustEcs',
         'isolationOptimization' => 'IsolationOptimization',
@@ -343,7 +349,8 @@ class instance extends Model
                 $res['AvailableZones'] = [];
                 $n1 = 0;
                 foreach ($this->availableZones as $item1) {
-                    $res['AvailableZones'][$n1++] = $item1;
+                    $res['AvailableZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -426,6 +433,10 @@ class instance extends Model
 
         if (null !== $this->instanceRole) {
             $res['InstanceRole'] = $this->instanceRole;
+        }
+
+        if (null !== $this->iops) {
+            $res['Iops'] = $this->iops;
         }
 
         if (null !== $this->isLatestObVersion) {
@@ -517,7 +528,8 @@ class instance extends Model
                 $res['Zones'] = [];
                 $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['Zones'][$n1++] = $item1;
+                    $res['Zones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -554,7 +566,8 @@ class instance extends Model
                 $model->availableZones = [];
                 $n1 = 0;
                 foreach ($map['AvailableZones'] as $item1) {
-                    $model->availableZones[$n1++] = $item1;
+                    $model->availableZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -637,6 +650,10 @@ class instance extends Model
 
         if (isset($map['InstanceRole'])) {
             $model->instanceRole = $map['InstanceRole'];
+        }
+
+        if (isset($map['Iops'])) {
+            $model->iops = $map['Iops'];
         }
 
         if (isset($map['IsLatestObVersion'])) {
@@ -728,7 +745,8 @@ class instance extends Model
                 $model->zones = [];
                 $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
-                    $model->zones[$n1++] = $item1;
+                    $model->zones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

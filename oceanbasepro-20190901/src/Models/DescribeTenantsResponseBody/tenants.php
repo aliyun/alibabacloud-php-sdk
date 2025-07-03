@@ -51,6 +51,11 @@ class tenants extends Model
     /**
      * @var int
      */
+    public $iops;
+
+    /**
+     * @var int
+     */
     public $mem;
 
     /**
@@ -116,6 +121,7 @@ class tenants extends Model
         'deployType' => 'DeployType',
         'description' => 'Description',
         'enableReadOnlyReplica' => 'EnableReadOnlyReplica',
+        'iops' => 'Iops',
         'mem' => 'Mem',
         'parameterTemplate' => 'ParameterTemplate',
         'primaryZone' => 'PrimaryZone',
@@ -168,6 +174,10 @@ class tenants extends Model
 
         if (null !== $this->enableReadOnlyReplica) {
             $res['EnableReadOnlyReplica'] = $this->enableReadOnlyReplica;
+        }
+
+        if (null !== $this->iops) {
+            $res['Iops'] = $this->iops;
         }
 
         if (null !== $this->mem) {
@@ -259,6 +269,10 @@ class tenants extends Model
 
         if (isset($map['EnableReadOnlyReplica'])) {
             $model->enableReadOnlyReplica = $map['EnableReadOnlyReplica'];
+        }
+
+        if (isset($map['Iops'])) {
+            $model->iops = $map['Iops'];
         }
 
         if (isset($map['Mem'])) {

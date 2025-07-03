@@ -47,7 +47,8 @@ class data extends Model
                 $res['FailedProjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->failedProjectIds as $item1) {
-                    $res['FailedProjectIds'][$n1++] = $item1;
+                    $res['FailedProjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class data extends Model
                 $res['SucceedProjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->succeedProjectIds as $item1) {
-                    $res['SucceedProjectIds'][$n1++] = $item1;
+                    $res['SucceedProjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class data extends Model
                 $model->failedProjectIds = [];
                 $n1 = 0;
                 foreach ($map['FailedProjectIds'] as $item1) {
-                    $model->failedProjectIds[$n1++] = $item1;
+                    $model->failedProjectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class data extends Model
                 $model->succeedProjectIds = [];
                 $n1 = 0;
                 foreach ($map['SucceedProjectIds'] as $item1) {
-                    $model->succeedProjectIds[$n1++] = $item1;
+                    $model->succeedProjectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

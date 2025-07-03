@@ -52,7 +52,8 @@ class supportEngineVersions extends Model
                 $res['SupportReplicaModes'] = [];
                 $n1 = 0;
                 foreach ($this->supportReplicaModes as $item1) {
-                    $res['SupportReplicaModes'][$n1++] = $item1;
+                    $res['SupportReplicaModes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class supportEngineVersions extends Model
                 $model->supportReplicaModes = [];
                 $n1 = 0;
                 foreach ($map['SupportReplicaModes'] as $item1) {
-                    $model->supportReplicaModes[$n1++] = $item1;
+                    $model->supportReplicaModes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

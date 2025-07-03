@@ -33,7 +33,8 @@ class data extends Model
                 $res['AvailableSpecifications'] = [];
                 $n1 = 0;
                 foreach ($this->availableSpecifications as $item1) {
-                    $res['AvailableSpecifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableSpecifications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->availableSpecifications = [];
                 $n1 = 0;
                 foreach ($map['AvailableSpecifications'] as $item1) {
-                    $model->availableSpecifications[$n1++] = availableSpecifications::fromMap($item1);
+                    $model->availableSpecifications[$n1] = availableSpecifications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

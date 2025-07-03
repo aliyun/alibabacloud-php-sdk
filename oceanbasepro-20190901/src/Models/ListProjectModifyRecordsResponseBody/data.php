@@ -115,7 +115,8 @@ class data extends Model
                 $res['Databases'] = [];
                 $n1 = 0;
                 foreach ($this->databases as $item1) {
-                    $res['Databases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Databases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +158,8 @@ class data extends Model
                 $res['TableEtlList'] = [];
                 $n1 = 0;
                 foreach ($this->tableEtlList as $item1) {
-                    $res['TableEtlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableEtlList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +188,8 @@ class data extends Model
                 $model->databases = [];
                 $n1 = 0;
                 foreach ($map['Databases'] as $item1) {
-                    $model->databases[$n1++] = databases::fromMap($item1);
+                    $model->databases[$n1] = databases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +231,8 @@ class data extends Model
                 $model->tableEtlList = [];
                 $n1 = 0;
                 foreach ($map['TableEtlList'] as $item1) {
-                    $model->tableEtlList[$n1++] = tableEtlList::fromMap($item1);
+                    $model->tableEtlList[$n1] = tableEtlList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -83,7 +83,8 @@ class data extends Model
                 $res['FullImportComponents'] = [];
                 $n1 = 0;
                 foreach ($this->fullImportComponents as $item1) {
-                    $res['FullImportComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FullImportComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class data extends Model
                 $res['FullVerifyComponents'] = [];
                 $n1 = 0;
                 foreach ($this->fullVerifyComponents as $item1) {
-                    $res['FullVerifyComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FullVerifyComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class data extends Model
                 $res['IncrSyncComponents'] = [];
                 $n1 = 0;
                 foreach ($this->incrSyncComponents as $item1) {
-                    $res['IncrSyncComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IncrSyncComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class data extends Model
                 $res['ReverseIncrSyncComponents'] = [];
                 $n1 = 0;
                 foreach ($this->reverseIncrSyncComponents as $item1) {
-                    $res['ReverseIncrSyncComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReverseIncrSyncComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +127,8 @@ class data extends Model
                 $res['ReverseStoreList'] = [];
                 $n1 = 0;
                 foreach ($this->reverseStoreList as $item1) {
-                    $res['ReverseStoreList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReverseStoreList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +138,8 @@ class data extends Model
                 $res['StoreList'] = [];
                 $n1 = 0;
                 foreach ($this->storeList as $item1) {
-                    $res['StoreList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StoreList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +160,8 @@ class data extends Model
                 $model->fullImportComponents = [];
                 $n1 = 0;
                 foreach ($map['FullImportComponents'] as $item1) {
-                    $model->fullImportComponents[$n1++] = fullImportComponents::fromMap($item1);
+                    $model->fullImportComponents[$n1] = fullImportComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +171,8 @@ class data extends Model
                 $model->fullVerifyComponents = [];
                 $n1 = 0;
                 foreach ($map['FullVerifyComponents'] as $item1) {
-                    $model->fullVerifyComponents[$n1++] = fullVerifyComponents::fromMap($item1);
+                    $model->fullVerifyComponents[$n1] = fullVerifyComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +182,8 @@ class data extends Model
                 $model->incrSyncComponents = [];
                 $n1 = 0;
                 foreach ($map['IncrSyncComponents'] as $item1) {
-                    $model->incrSyncComponents[$n1++] = incrSyncComponents::fromMap($item1);
+                    $model->incrSyncComponents[$n1] = incrSyncComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +193,8 @@ class data extends Model
                 $model->reverseIncrSyncComponents = [];
                 $n1 = 0;
                 foreach ($map['ReverseIncrSyncComponents'] as $item1) {
-                    $model->reverseIncrSyncComponents[$n1++] = reverseIncrSyncComponents::fromMap($item1);
+                    $model->reverseIncrSyncComponents[$n1] = reverseIncrSyncComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +204,8 @@ class data extends Model
                 $model->reverseStoreList = [];
                 $n1 = 0;
                 foreach ($map['ReverseStoreList'] as $item1) {
-                    $model->reverseStoreList[$n1++] = reverseStoreList::fromMap($item1);
+                    $model->reverseStoreList[$n1] = reverseStoreList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +215,8 @@ class data extends Model
                 $model->storeList = [];
                 $n1 = 0;
                 foreach ($map['StoreList'] as $item1) {
-                    $model->storeList[$n1++] = storeList::fromMap($item1);
+                    $model->storeList[$n1] = storeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

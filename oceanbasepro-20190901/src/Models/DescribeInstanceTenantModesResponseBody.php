@@ -38,7 +38,8 @@ class DescribeInstanceTenantModesResponseBody extends Model
                 $res['InstanceModes'] = [];
                 $n1 = 0;
                 foreach ($this->instanceModes as $item1) {
-                    $res['InstanceModes'][$n1++] = $item1;
+                    $res['InstanceModes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeInstanceTenantModesResponseBody extends Model
                 $model->instanceModes = [];
                 $n1 = 0;
                 foreach ($map['InstanceModes'] as $item1) {
-                    $model->instanceModes[$n1++] = $item1;
+                    $model->instanceModes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

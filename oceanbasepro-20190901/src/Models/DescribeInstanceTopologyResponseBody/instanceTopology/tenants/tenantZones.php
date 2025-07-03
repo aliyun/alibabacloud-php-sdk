@@ -93,7 +93,8 @@ class tenantZones extends Model
                 $res['Units'] = [];
                 $n1 = 0;
                 foreach ($this->units as $item1) {
-                    $res['Units'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Units'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class tenantZones extends Model
                 $model->units = [];
                 $n1 = 0;
                 foreach ($map['Units'] as $item1) {
-                    $model->units[$n1++] = units::fromMap($item1);
+                    $model->units[$n1] = units::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

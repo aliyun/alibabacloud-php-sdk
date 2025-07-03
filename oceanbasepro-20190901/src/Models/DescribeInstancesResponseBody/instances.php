@@ -112,6 +112,11 @@ class instances extends Model
     public $instanceType;
 
     /**
+     * @var int
+     */
+    public $iops;
+
+    /**
      * @var string
      */
     public $maintainTime;
@@ -206,6 +211,7 @@ class instances extends Model
         'instanceName' => 'InstanceName',
         'instanceRole' => 'InstanceRole',
         'instanceType' => 'InstanceType',
+        'iops' => 'Iops',
         'maintainTime' => 'MaintainTime',
         'mem' => 'Mem',
         'migratable' => 'Migratable',
@@ -248,7 +254,8 @@ class instances extends Model
                 $res['AvailableZones'] = [];
                 $n1 = 0;
                 foreach ($this->availableZones as $item1) {
-                    $res['AvailableZones'][$n1++] = $item1;
+                    $res['AvailableZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -329,6 +336,10 @@ class instances extends Model
             $res['InstanceType'] = $this->instanceType;
         }
 
+        if (null !== $this->iops) {
+            $res['Iops'] = $this->iops;
+        }
+
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
         }
@@ -405,7 +416,8 @@ class instances extends Model
                 $model->availableZones = [];
                 $n1 = 0;
                 foreach ($map['AvailableZones'] as $item1) {
-                    $model->availableZones[$n1++] = $item1;
+                    $model->availableZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -484,6 +496,10 @@ class instances extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['Iops'])) {
+            $model->iops = $map['Iops'];
         }
 
         if (isset($map['MaintainTime'])) {

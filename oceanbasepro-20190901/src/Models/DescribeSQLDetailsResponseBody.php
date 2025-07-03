@@ -43,7 +43,8 @@ class DescribeSQLDetailsResponseBody extends Model
                 $res['SQLDetails'] = [];
                 $n1 = 0;
                 foreach ($this->SQLDetails as $item1) {
-                    $res['SQLDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SQLDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeSQLDetailsResponseBody extends Model
                 $model->SQLDetails = [];
                 $n1 = 0;
                 foreach ($map['SQLDetails'] as $item1) {
-                    $model->SQLDetails[$n1++] = SQLDetails::fromMap($item1);
+                    $model->SQLDetails[$n1] = SQLDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

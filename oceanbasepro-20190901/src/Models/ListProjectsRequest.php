@@ -107,7 +107,8 @@ class ListProjectsRequest extends Model
                 $res['LabelIds'] = [];
                 $n1 = 0;
                 foreach ($this->labelIds as $item1) {
-                    $res['LabelIds'][$n1++] = $item1;
+                    $res['LabelIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class ListProjectsRequest extends Model
                 $res['SinkEndpointTypes'] = [];
                 $n1 = 0;
                 foreach ($this->sinkEndpointTypes as $item1) {
-                    $res['SinkEndpointTypes'][$n1++] = $item1;
+                    $res['SinkEndpointTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class ListProjectsRequest extends Model
                 $res['SourceEndpointTypes'] = [];
                 $n1 = 0;
                 foreach ($this->sourceEndpointTypes as $item1) {
-                    $res['SourceEndpointTypes'][$n1++] = $item1;
+                    $res['SourceEndpointTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +164,8 @@ class ListProjectsRequest extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +194,8 @@ class ListProjectsRequest extends Model
                 $model->labelIds = [];
                 $n1 = 0;
                 foreach ($map['LabelIds'] as $item1) {
-                    $model->labelIds[$n1++] = $item1;
+                    $model->labelIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -220,7 +225,8 @@ class ListProjectsRequest extends Model
                 $model->sinkEndpointTypes = [];
                 $n1 = 0;
                 foreach ($map['SinkEndpointTypes'] as $item1) {
-                    $model->sinkEndpointTypes[$n1++] = $item1;
+                    $model->sinkEndpointTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +240,8 @@ class ListProjectsRequest extends Model
                 $model->sourceEndpointTypes = [];
                 $n1 = 0;
                 foreach ($map['SourceEndpointTypes'] as $item1) {
-                    $model->sourceEndpointTypes[$n1++] = $item1;
+                    $model->sourceEndpointTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +251,8 @@ class ListProjectsRequest extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

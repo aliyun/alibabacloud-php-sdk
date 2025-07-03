@@ -42,7 +42,8 @@ class charset extends Model
                 $res['Collations'] = [];
                 $n1 = 0;
                 foreach ($this->collations as $item1) {
-                    $res['Collations'][$n1++] = $item1;
+                    $res['Collations'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class charset extends Model
                 $model->collations = [];
                 $n1 = 0;
                 foreach ($map['Collations'] as $item1) {
-                    $model->collations[$n1++] = $item1;
+                    $model->collations[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

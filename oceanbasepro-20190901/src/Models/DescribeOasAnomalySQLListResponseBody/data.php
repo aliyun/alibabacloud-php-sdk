@@ -194,7 +194,8 @@ class data extends Model
                 $res['DiagTypes'] = [];
                 $n1 = 0;
                 foreach ($this->diagTypes as $item1) {
-                    $res['DiagTypes'][$n1++] = $item1;
+                    $res['DiagTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +229,8 @@ class data extends Model
                 $res['SqlList'] = [];
                 $n1 = 0;
                 foreach ($this->sqlList as $item1) {
-                    $res['SqlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SqlList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -305,7 +307,8 @@ class data extends Model
                 $model->diagTypes = [];
                 $n1 = 0;
                 foreach ($map['DiagTypes'] as $item1) {
-                    $model->diagTypes[$n1++] = $item1;
+                    $model->diagTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -339,7 +342,8 @@ class data extends Model
                 $model->sqlList = [];
                 $n1 = 0;
                 foreach ($map['SqlList'] as $item1) {
-                    $model->sqlList[$n1++] = sqlList::fromMap($item1);
+                    $model->sqlList[$n1] = sqlList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

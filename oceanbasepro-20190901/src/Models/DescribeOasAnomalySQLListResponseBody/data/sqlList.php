@@ -178,7 +178,8 @@ class sqlList extends Model
                 $res['DiagTypes'] = [];
                 $n1 = 0;
                 foreach ($this->diagTypes as $item1) {
-                    $res['DiagTypes'][$n1++] = $item1;
+                    $res['DiagTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -275,7 +276,8 @@ class sqlList extends Model
                 $model->diagTypes = [];
                 $n1 = 0;
                 foreach ($map['DiagTypes'] as $item1) {
-                    $model->diagTypes[$n1++] = $item1;
+                    $model->diagTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

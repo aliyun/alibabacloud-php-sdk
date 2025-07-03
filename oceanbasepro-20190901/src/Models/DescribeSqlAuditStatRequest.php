@@ -19,6 +19,11 @@ class DescribeSqlAuditStatRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $operatorType;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -40,6 +45,7 @@ class DescribeSqlAuditStatRequest extends Model
     protected $_name = [
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
+        'operatorType' => 'OperatorType',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
@@ -60,6 +66,10 @@ class DescribeSqlAuditStatRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->operatorType) {
+            $res['OperatorType'] = $this->operatorType;
         }
 
         if (null !== $this->pageNumber) {
@@ -95,6 +105,10 @@ class DescribeSqlAuditStatRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['OperatorType'])) {
+            $model->operatorType = $map['OperatorType'];
         }
 
         if (isset($map['PageNumber'])) {

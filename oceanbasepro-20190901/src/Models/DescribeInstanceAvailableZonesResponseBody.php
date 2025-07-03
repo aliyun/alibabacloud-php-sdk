@@ -43,7 +43,8 @@ class DescribeInstanceAvailableZonesResponseBody extends Model
                 $res['ZoneList'] = [];
                 $n1 = 0;
                 foreach ($this->zoneList as $item1) {
-                    $res['ZoneList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ZoneList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeInstanceAvailableZonesResponseBody extends Model
                 $model->zoneList = [];
                 $n1 = 0;
                 foreach ($map['ZoneList'] as $item1) {
-                    $model->zoneList[$n1++] = zoneList::fromMap($item1);
+                    $model->zoneList[$n1] = zoneList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

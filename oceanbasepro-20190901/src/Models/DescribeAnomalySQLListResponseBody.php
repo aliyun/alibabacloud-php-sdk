@@ -45,7 +45,8 @@ class DescribeAnomalySQLListResponseBody extends Model
                 $res['AnomalySQLList'] = [];
                 $n1 = 0;
                 foreach ($this->anomalySQLList as $item1) {
-                    $res['AnomalySQLList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AnomalySQLList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeAnomalySQLListResponseBody extends Model
                 $model->anomalySQLList = [];
                 $n1 = 0;
                 foreach ($map['AnomalySQLList'] as $item1) {
-                    $model->anomalySQLList[$n1++] = anomalySQLList::fromMap($item1);
+                    $model->anomalySQLList[$n1] = anomalySQLList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

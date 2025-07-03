@@ -49,7 +49,8 @@ class DescribeTenantEncryptionResponseBody extends Model
                 $res['TenantEncryptions'] = [];
                 $n1 = 0;
                 foreach ($this->tenantEncryptions as $item1) {
-                    $res['TenantEncryptions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantEncryptions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeTenantEncryptionResponseBody extends Model
                 $model->tenantEncryptions = [];
                 $n1 = 0;
                 foreach ($map['TenantEncryptions'] as $item1) {
-                    $model->tenantEncryptions[$n1++] = tenantEncryptions::fromMap($item1);
+                    $model->tenantEncryptions[$n1] = tenantEncryptions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

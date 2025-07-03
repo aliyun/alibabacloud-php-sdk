@@ -53,7 +53,8 @@ class sessionStatistics extends Model
                 $res['DataBaseStatistics'] = [];
                 $n1 = 0;
                 foreach ($this->dataBaseStatistics as $item1) {
-                    $res['DataBaseStatistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataBaseStatistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class sessionStatistics extends Model
                 $res['SourceStatistics'] = [];
                 $n1 = 0;
                 foreach ($this->sourceStatistics as $item1) {
-                    $res['SourceStatistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceStatistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class sessionStatistics extends Model
                 $res['UserStatistics'] = [];
                 $n1 = 0;
                 foreach ($this->userStatistics as $item1) {
-                    $res['UserStatistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserStatistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class sessionStatistics extends Model
                 $model->dataBaseStatistics = [];
                 $n1 = 0;
                 foreach ($map['DataBaseStatistics'] as $item1) {
-                    $model->dataBaseStatistics[$n1++] = dataBaseStatistics::fromMap($item1);
+                    $model->dataBaseStatistics[$n1] = dataBaseStatistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class sessionStatistics extends Model
                 $model->sourceStatistics = [];
                 $n1 = 0;
                 foreach ($map['SourceStatistics'] as $item1) {
-                    $model->sourceStatistics[$n1++] = sourceStatistics::fromMap($item1);
+                    $model->sourceStatistics[$n1] = sourceStatistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class sessionStatistics extends Model
                 $model->userStatistics = [];
                 $n1 = 0;
                 foreach ($map['UserStatistics'] as $item1) {
-                    $model->userStatistics[$n1++] = userStatistics::fromMap($item1);
+                    $model->userStatistics[$n1] = userStatistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

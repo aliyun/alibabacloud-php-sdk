@@ -53,7 +53,8 @@ class tenantUser extends Model
                 $res['UserRole'] = [];
                 $n1 = 0;
                 foreach ($this->userRole as $item1) {
-                    $res['UserRole'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserRole'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class tenantUser extends Model
                 $model->userRole = [];
                 $n1 = 0;
                 foreach ($map['UserRole'] as $item1) {
-                    $model->userRole[$n1++] = userRole::fromMap($item1);
+                    $model->userRole[$n1] = userRole::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

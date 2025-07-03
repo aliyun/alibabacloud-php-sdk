@@ -32,7 +32,8 @@ class data extends Model
                 $res['SqlText'] = [];
                 $n1 = 0;
                 foreach ($this->sqlText as $item1) {
-                    $res['SqlText'][$n1++] = $item1;
+                    $res['SqlText'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class data extends Model
                 $model->sqlText = [];
                 $n1 = 0;
                 foreach ($map['SqlText'] as $item1) {
-                    $model->sqlText[$n1++] = $item1;
+                    $model->sqlText[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

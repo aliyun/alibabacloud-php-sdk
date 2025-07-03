@@ -43,7 +43,8 @@ class DescribeTenantZonesReadResponseBody extends Model
                 $res['TenantZones'] = [];
                 $n1 = 0;
                 foreach ($this->tenantZones as $item1) {
-                    $res['TenantZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantZones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeTenantZonesReadResponseBody extends Model
                 $model->tenantZones = [];
                 $n1 = 0;
                 foreach ($map['TenantZones'] as $item1) {
-                    $model->tenantZones[$n1++] = tenantZones::fromMap($item1);
+                    $model->tenantZones[$n1] = tenantZones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

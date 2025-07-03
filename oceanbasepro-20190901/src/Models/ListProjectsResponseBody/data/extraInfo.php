@@ -176,7 +176,8 @@ class extraInfo extends Model
                 $res['ReverseSubtopics'] = [];
                 $n1 = 0;
                 foreach ($this->reverseSubtopics as $item1) {
-                    $res['ReverseSubtopics'][$n1++] = $item1;
+                    $res['ReverseSubtopics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class extraInfo extends Model
                         $res['SubConds'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['SubConds'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['SubConds'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -220,7 +222,8 @@ class extraInfo extends Model
                         $res['SubDbs'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['SubDbs'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['SubDbs'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -241,7 +244,8 @@ class extraInfo extends Model
                 $res['Subtopics'] = [];
                 $n1 = 0;
                 foreach ($this->subtopics as $item1) {
-                    $res['Subtopics'][$n1++] = $item1;
+                    $res['Subtopics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -298,7 +302,8 @@ class extraInfo extends Model
                 $model->reverseSubtopics = [];
                 $n1 = 0;
                 foreach ($map['ReverseSubtopics'] as $item1) {
-                    $model->reverseSubtopics[$n1++] = $item1;
+                    $model->reverseSubtopics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -327,7 +332,8 @@ class extraInfo extends Model
                         $model->subConds[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->subConds[$key1][$n2++] = DataExtraInfoSubCondsValue::fromMap($item2);
+                            $model->subConds[$key1][$n2] = DataExtraInfoSubCondsValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }
@@ -342,7 +348,8 @@ class extraInfo extends Model
                         $model->subDbs[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->subDbs[$key1][$n2++] = DataExtraInfoSubDbsValue::fromMap($item2);
+                            $model->subDbs[$key1][$n2] = DataExtraInfoSubDbsValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }
@@ -363,7 +370,8 @@ class extraInfo extends Model
                 $model->subtopics = [];
                 $n1 = 0;
                 foreach ($map['Subtopics'] as $item1) {
-                    $model->subtopics[$n1++] = $item1;
+                    $model->subtopics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -127,7 +127,8 @@ class instanceSummary extends Model
                 $res['RegionalInstanceSummaryList'] = [];
                 $n1 = 0;
                 foreach ($this->regionalInstanceSummaryList as $item1) {
-                    $res['RegionalInstanceSummaryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionalInstanceSummaryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +193,8 @@ class instanceSummary extends Model
                 $model->regionalInstanceSummaryList = [];
                 $n1 = 0;
                 foreach ($map['RegionalInstanceSummaryList'] as $item1) {
-                    $model->regionalInstanceSummaryList[$n1++] = regionalInstanceSummaryList::fromMap($item1);
+                    $model->regionalInstanceSummaryList[$n1] = regionalInstanceSummaryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

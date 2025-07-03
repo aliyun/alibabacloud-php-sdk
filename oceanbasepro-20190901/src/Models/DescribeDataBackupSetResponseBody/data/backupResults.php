@@ -49,7 +49,8 @@ class backupResults extends Model
                 $res['TableBackupResults'] = [];
                 $n1 = 0;
                 foreach ($this->tableBackupResults as $item1) {
-                    $res['TableBackupResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableBackupResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class backupResults extends Model
                 $model->tableBackupResults = [];
                 $n1 = 0;
                 foreach ($map['TableBackupResults'] as $item1) {
-                    $model->tableBackupResults[$n1++] = tableBackupResults::fromMap($item1);
+                    $model->tableBackupResults[$n1] = tableBackupResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

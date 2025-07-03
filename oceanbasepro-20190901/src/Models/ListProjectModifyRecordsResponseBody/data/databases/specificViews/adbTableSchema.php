@@ -53,7 +53,8 @@ class adbTableSchema extends Model
                 $res['DistributedKeys'] = [];
                 $n1 = 0;
                 foreach ($this->distributedKeys as $item1) {
-                    $res['DistributedKeys'][$n1++] = $item1;
+                    $res['DistributedKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class adbTableSchema extends Model
                 $res['PrimaryKeys'] = [];
                 $n1 = 0;
                 foreach ($this->primaryKeys as $item1) {
-                    $res['PrimaryKeys'][$n1++] = $item1;
+                    $res['PrimaryKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class adbTableSchema extends Model
                 $model->distributedKeys = [];
                 $n1 = 0;
                 foreach ($map['DistributedKeys'] as $item1) {
-                    $model->distributedKeys[$n1++] = $item1;
+                    $model->distributedKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class adbTableSchema extends Model
                 $model->primaryKeys = [];
                 $n1 = 0;
                 foreach ($map['PrimaryKeys'] as $item1) {
-                    $model->primaryKeys[$n1++] = $item1;
+                    $model->primaryKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

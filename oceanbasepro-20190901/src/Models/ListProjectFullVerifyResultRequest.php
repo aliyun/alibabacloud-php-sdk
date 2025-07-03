@@ -65,7 +65,8 @@ class ListProjectFullVerifyResultRequest extends Model
                 $res['DestSchemas'] = [];
                 $n1 = 0;
                 foreach ($this->destSchemas as $item1) {
-                    $res['DestSchemas'][$n1++] = $item1;
+                    $res['DestSchemas'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class ListProjectFullVerifyResultRequest extends Model
                 $res['SourceSchemas'] = [];
                 $n1 = 0;
                 foreach ($this->sourceSchemas as $item1) {
-                    $res['SourceSchemas'][$n1++] = $item1;
+                    $res['SourceSchemas'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class ListProjectFullVerifyResultRequest extends Model
                 $model->destSchemas = [];
                 $n1 = 0;
                 foreach ($map['DestSchemas'] as $item1) {
-                    $model->destSchemas[$n1++] = $item1;
+                    $model->destSchemas[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +137,8 @@ class ListProjectFullVerifyResultRequest extends Model
                 $model->sourceSchemas = [];
                 $n1 = 0;
                 foreach ($map['SourceSchemas'] as $item1) {
-                    $model->sourceSchemas[$n1++] = $item1;
+                    $model->sourceSchemas[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

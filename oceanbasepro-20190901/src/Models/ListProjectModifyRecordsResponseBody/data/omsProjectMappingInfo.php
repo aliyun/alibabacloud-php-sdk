@@ -63,7 +63,8 @@ class omsProjectMappingInfo extends Model
                 $res['ColumnMappings'] = [];
                 $n1 = 0;
                 foreach ($this->columnMappings as $item1) {
-                    $res['ColumnMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ColumnMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class omsProjectMappingInfo extends Model
                 $res['SchemaMappings'] = [];
                 $n1 = 0;
                 foreach ($this->schemaMappings as $item1) {
-                    $res['SchemaMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SchemaMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class omsProjectMappingInfo extends Model
                 $res['TableMappings'] = [];
                 $n1 = 0;
                 foreach ($this->tableMappings as $item1) {
-                    $res['TableMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class omsProjectMappingInfo extends Model
                 $res['ViewMappings'] = [];
                 $n1 = 0;
                 foreach ($this->viewMappings as $item1) {
-                    $res['ViewMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ViewMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +118,8 @@ class omsProjectMappingInfo extends Model
                 $model->columnMappings = [];
                 $n1 = 0;
                 foreach ($map['ColumnMappings'] as $item1) {
-                    $model->columnMappings[$n1++] = columnMappings::fromMap($item1);
+                    $model->columnMappings[$n1] = columnMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +129,8 @@ class omsProjectMappingInfo extends Model
                 $model->schemaMappings = [];
                 $n1 = 0;
                 foreach ($map['SchemaMappings'] as $item1) {
-                    $model->schemaMappings[$n1++] = schemaMappings::fromMap($item1);
+                    $model->schemaMappings[$n1] = schemaMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +140,8 @@ class omsProjectMappingInfo extends Model
                 $model->tableMappings = [];
                 $n1 = 0;
                 foreach ($map['TableMappings'] as $item1) {
-                    $model->tableMappings[$n1++] = tableMappings::fromMap($item1);
+                    $model->tableMappings[$n1] = tableMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +151,8 @@ class omsProjectMappingInfo extends Model
                 $model->viewMappings = [];
                 $n1 = 0;
                 foreach ($map['ViewMappings'] as $item1) {
-                    $model->viewMappings[$n1++] = viewMappings::fromMap($item1);
+                    $model->viewMappings[$n1] = viewMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -66,7 +66,8 @@ class logDiskSize extends Model
                 $res['MaxLogAssignedObServer'] = [];
                 $n1 = 0;
                 foreach ($this->maxLogAssignedObServer as $item1) {
-                    $res['MaxLogAssignedObServer'][$n1++] = $item1;
+                    $res['MaxLogAssignedObServer'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class logDiskSize extends Model
                 $model->maxLogAssignedObServer = [];
                 $n1 = 0;
                 foreach ($map['MaxLogAssignedObServer'] as $item1) {
-                    $model->maxLogAssignedObServer[$n1++] = $item1;
+                    $model->maxLogAssignedObServer[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

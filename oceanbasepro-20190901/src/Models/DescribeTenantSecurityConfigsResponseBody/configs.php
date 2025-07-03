@@ -75,7 +75,8 @@ class configs extends Model
                 $res['TenantSecurityConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->tenantSecurityConfigs as $item1) {
-                    $res['TenantSecurityConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantSecurityConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class configs extends Model
                 $model->tenantSecurityConfigs = [];
                 $n1 = 0;
                 foreach ($map['TenantSecurityConfigs'] as $item1) {
-                    $model->tenantSecurityConfigs[$n1++] = tenantSecurityConfigs::fromMap($item1);
+                    $model->tenantSecurityConfigs[$n1] = tenantSecurityConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

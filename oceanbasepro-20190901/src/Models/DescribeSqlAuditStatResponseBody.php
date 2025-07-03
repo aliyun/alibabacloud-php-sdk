@@ -18,9 +18,15 @@ class DescribeSqlAuditStatResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'data' => 'Data',
         'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -39,13 +45,18 @@ class DescribeSqlAuditStatResponseBody extends Model
                 $res['Data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -64,13 +75,18 @@ class DescribeSqlAuditStatResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

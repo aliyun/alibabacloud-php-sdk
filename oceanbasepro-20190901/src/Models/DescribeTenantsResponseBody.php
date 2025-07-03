@@ -49,7 +49,8 @@ class DescribeTenantsResponseBody extends Model
                 $res['Tenants'] = [];
                 $n1 = 0;
                 foreach ($this->tenants as $item1) {
-                    $res['Tenants'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tenants'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeTenantsResponseBody extends Model
                 $model->tenants = [];
                 $n1 = 0;
                 foreach ($map['Tenants'] as $item1) {
-                    $model->tenants[$n1++] = tenants::fromMap($item1);
+                    $model->tenants[$n1] = tenants::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

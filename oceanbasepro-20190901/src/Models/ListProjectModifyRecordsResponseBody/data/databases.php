@@ -93,7 +93,8 @@ class databases extends Model
                 $res['SpecificTables'] = [];
                 $n1 = 0;
                 foreach ($this->specificTables as $item1) {
-                    $res['SpecificTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpecificTables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class databases extends Model
                 $res['SpecificViews'] = [];
                 $n1 = 0;
                 foreach ($this->specificViews as $item1) {
-                    $res['SpecificViews'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpecificViews'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +115,8 @@ class databases extends Model
                 $res['Tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +126,8 @@ class databases extends Model
                 $res['Views'] = [];
                 $n1 = 0;
                 foreach ($this->views as $item1) {
-                    $res['Views'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Views'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +160,8 @@ class databases extends Model
                 $model->specificTables = [];
                 $n1 = 0;
                 foreach ($map['SpecificTables'] as $item1) {
-                    $model->specificTables[$n1++] = specificTables::fromMap($item1);
+                    $model->specificTables[$n1] = specificTables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +171,8 @@ class databases extends Model
                 $model->specificViews = [];
                 $n1 = 0;
                 foreach ($map['SpecificViews'] as $item1) {
-                    $model->specificViews[$n1++] = specificViews::fromMap($item1);
+                    $model->specificViews[$n1] = specificViews::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +182,8 @@ class databases extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = tables::fromMap($item1);
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +193,8 @@ class databases extends Model
                 $model->views = [];
                 $n1 = 0;
                 foreach ($map['Views'] as $item1) {
-                    $model->views[$n1++] = views::fromMap($item1);
+                    $model->views[$n1] = views::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

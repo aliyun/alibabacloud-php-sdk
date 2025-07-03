@@ -100,6 +100,11 @@ class tenant extends Model
     /**
      * @var int
      */
+    public $iops;
+
+    /**
+     * @var int
+     */
     public $lowerCaseTableNames;
 
     /**
@@ -224,6 +229,7 @@ class tenant extends Model
         'enableReadOnlyReplica' => 'EnableReadOnlyReplica',
         'enableReadWriteSplit' => 'EnableReadWriteSplit',
         'instanceType' => 'InstanceType',
+        'iops' => 'Iops',
         'lowerCaseTableNames' => 'LowerCaseTableNames',
         'masterIntranetAddressZone' => 'MasterIntranetAddressZone',
         'maxParallelQueryDegree' => 'MaxParallelQueryDegree',
@@ -276,7 +282,8 @@ class tenant extends Model
                 $res['AvailableZones'] = [];
                 $n1 = 0;
                 foreach ($this->availableZones as $item1) {
-                    $res['AvailableZones'][$n1++] = $item1;
+                    $res['AvailableZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -345,6 +352,10 @@ class tenant extends Model
             $res['InstanceType'] = $this->instanceType;
         }
 
+        if (null !== $this->iops) {
+            $res['Iops'] = $this->iops;
+        }
+
         if (null !== $this->lowerCaseTableNames) {
             $res['LowerCaseTableNames'] = $this->lowerCaseTableNames;
         }
@@ -398,7 +409,8 @@ class tenant extends Model
                 $res['TenantConnections'] = [];
                 $n1 = 0;
                 foreach ($this->tenantConnections as $item1) {
-                    $res['TenantConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantConnections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -428,7 +440,8 @@ class tenant extends Model
                 $res['TenantZones'] = [];
                 $n1 = 0;
                 foreach ($this->tenantZones as $item1) {
-                    $res['TenantZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantZones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -461,7 +474,8 @@ class tenant extends Model
                 $model->availableZones = [];
                 $n1 = 0;
                 foreach ($map['AvailableZones'] as $item1) {
-                    $model->availableZones[$n1++] = $item1;
+                    $model->availableZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -530,6 +544,10 @@ class tenant extends Model
             $model->instanceType = $map['InstanceType'];
         }
 
+        if (isset($map['Iops'])) {
+            $model->iops = $map['Iops'];
+        }
+
         if (isset($map['LowerCaseTableNames'])) {
             $model->lowerCaseTableNames = $map['LowerCaseTableNames'];
         }
@@ -583,7 +601,8 @@ class tenant extends Model
                 $model->tenantConnections = [];
                 $n1 = 0;
                 foreach ($map['TenantConnections'] as $item1) {
-                    $model->tenantConnections[$n1++] = tenantConnections::fromMap($item1);
+                    $model->tenantConnections[$n1] = tenantConnections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -613,7 +632,8 @@ class tenant extends Model
                 $model->tenantZones = [];
                 $n1 = 0;
                 foreach ($map['TenantZones'] as $item1) {
-                    $model->tenantZones[$n1++] = tenantZones::fromMap($item1);
+                    $model->tenantZones[$n1] = tenantZones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

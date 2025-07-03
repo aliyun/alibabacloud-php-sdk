@@ -149,7 +149,8 @@ class tenants extends Model
                 $res['BackupSets'] = [];
                 $n1 = 0;
                 foreach ($this->backupSets as $item1) {
-                    $res['BackupSets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackupSets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +216,8 @@ class tenants extends Model
                 $res['TimeIntervalList'] = [];
                 $n1 = 0;
                 foreach ($this->timeIntervalList as $item1) {
-                    $res['TimeIntervalList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimeIntervalList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +250,8 @@ class tenants extends Model
                 $model->backupSets = [];
                 $n1 = 0;
                 foreach ($map['BackupSets'] as $item1) {
-                    $model->backupSets[$n1++] = backupSets::fromMap($item1);
+                    $model->backupSets[$n1] = backupSets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +317,8 @@ class tenants extends Model
                 $model->timeIntervalList = [];
                 $n1 = 0;
                 foreach ($map['TimeIntervalList'] as $item1) {
-                    $model->timeIntervalList[$n1++] = timeIntervalList::fromMap($item1);
+                    $model->timeIntervalList[$n1] = timeIntervalList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class DescribeTopSQLListResponseBody extends Model
                 $res['TopSQLList'] = [];
                 $n1 = 0;
                 foreach ($this->topSQLList as $item1) {
-                    $res['TopSQLList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopSQLList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeTopSQLListResponseBody extends Model
                 $model->topSQLList = [];
                 $n1 = 0;
                 foreach ($map['TopSQLList'] as $item1) {
-                    $model->topSQLList[$n1++] = topSQLList::fromMap($item1);
+                    $model->topSQLList[$n1] = topSQLList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

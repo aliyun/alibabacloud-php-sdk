@@ -69,7 +69,8 @@ class migrationObjectsInfo extends Model
                 $res['Tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class migrationObjectsInfo extends Model
                 $res['TablesBlack'] = [];
                 $n1 = 0;
                 foreach ($this->tablesBlack as $item1) {
-                    $res['TablesBlack'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TablesBlack'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +91,8 @@ class migrationObjectsInfo extends Model
                 $res['Views'] = [];
                 $n1 = 0;
                 foreach ($this->views as $item1) {
-                    $res['Views'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Views'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +102,8 @@ class migrationObjectsInfo extends Model
                 $res['ViewsBlack'] = [];
                 $n1 = 0;
                 foreach ($this->viewsBlack as $item1) {
-                    $res['ViewsBlack'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ViewsBlack'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +128,8 @@ class migrationObjectsInfo extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = tables::fromMap($item1);
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class migrationObjectsInfo extends Model
                 $model->tablesBlack = [];
                 $n1 = 0;
                 foreach ($map['TablesBlack'] as $item1) {
-                    $model->tablesBlack[$n1++] = tablesBlack::fromMap($item1);
+                    $model->tablesBlack[$n1] = tablesBlack::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +150,8 @@ class migrationObjectsInfo extends Model
                 $model->views = [];
                 $n1 = 0;
                 foreach ($map['Views'] as $item1) {
-                    $model->views[$n1++] = views::fromMap($item1);
+                    $model->views[$n1] = views::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +161,8 @@ class migrationObjectsInfo extends Model
                 $model->viewsBlack = [];
                 $n1 = 0;
                 foreach ($map['ViewsBlack'] as $item1) {
-                    $model->viewsBlack[$n1++] = viewsBlack::fromMap($item1);
+                    $model->viewsBlack[$n1] = viewsBlack::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

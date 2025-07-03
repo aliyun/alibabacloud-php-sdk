@@ -163,7 +163,8 @@ class allProcessList extends Model
                 $res['ProcessSqlLists'] = [];
                 $n1 = 0;
                 foreach ($this->processSqlLists as $item1) {
-                    $res['ProcessSqlLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProcessSqlLists'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +253,8 @@ class allProcessList extends Model
                 $model->processSqlLists = [];
                 $n1 = 0;
                 foreach ($map['ProcessSqlLists'] as $item1) {
-                    $model->processSqlLists[$n1++] = processSqlLists::fromMap($item1);
+                    $model->processSqlLists[$n1] = processSqlLists::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

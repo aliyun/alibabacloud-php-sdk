@@ -82,7 +82,8 @@ class diskSize extends Model
                 $res['MaxDiskUsedObServer'] = [];
                 $n1 = 0;
                 foreach ($this->maxDiskUsedObServer as $item1) {
-                    $res['MaxDiskUsedObServer'][$n1++] = $item1;
+                    $res['MaxDiskUsedObServer'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class diskSize extends Model
                 $model->maxDiskUsedObServer = [];
                 $n1 = 0;
                 foreach ($map['MaxDiskUsedObServer'] as $item1) {
-                    $model->maxDiskUsedObServer[$n1++] = $item1;
+                    $model->maxDiskUsedObServer[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

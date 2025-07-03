@@ -63,7 +63,8 @@ class incrTransferConfig extends Model
                 $res['RecordTypeWhiteList'] = [];
                 $n1 = 0;
                 foreach ($this->recordTypeWhiteList as $item1) {
-                    $res['RecordTypeWhiteList'][$n1++] = $item1;
+                    $res['RecordTypeWhiteList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class incrTransferConfig extends Model
                 $res['SupportDDLTypes'] = [];
                 $n1 = 0;
                 foreach ($this->supportDDLTypes as $item1) {
-                    $res['SupportDDLTypes'][$n1++] = $item1;
+                    $res['SupportDDLTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +108,8 @@ class incrTransferConfig extends Model
                 $model->recordTypeWhiteList = [];
                 $n1 = 0;
                 foreach ($map['RecordTypeWhiteList'] as $item1) {
-                    $model->recordTypeWhiteList[$n1++] = $item1;
+                    $model->recordTypeWhiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class incrTransferConfig extends Model
                 $model->supportDDLTypes = [];
                 $n1 = 0;
                 foreach ($map['SupportDDLTypes'] as $item1) {
-                    $model->supportDDLTypes[$n1++] = $item1;
+                    $model->supportDDLTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

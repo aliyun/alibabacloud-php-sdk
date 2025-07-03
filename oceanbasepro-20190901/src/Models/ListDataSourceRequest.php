@@ -82,7 +82,8 @@ class ListDataSourceRequest extends Model
                 $res['Types'] = [];
                 $n1 = 0;
                 foreach ($this->types as $item1) {
-                    $res['Types'][$n1++] = $item1;
+                    $res['Types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class ListDataSourceRequest extends Model
                 $model->types = [];
                 $n1 = 0;
                 foreach ($map['Types'] as $item1) {
-                    $model->types[$n1++] = $item1;
+                    $model->types[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

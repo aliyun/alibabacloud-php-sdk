@@ -201,7 +201,8 @@ class tenantConnections extends Model
                 $res['ConnectionLogicalZones'] = [];
                 $n1 = 0;
                 foreach ($this->connectionLogicalZones as $item1) {
-                    $res['ConnectionLogicalZones'][$n1++] = $item1;
+                    $res['ConnectionLogicalZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +216,8 @@ class tenantConnections extends Model
                 $res['ConnectionZones'] = [];
                 $n1 = 0;
                 foreach ($this->connectionZones as $item1) {
-                    $res['ConnectionZones'][$n1++] = $item1;
+                    $res['ConnectionZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +338,8 @@ class tenantConnections extends Model
                 $model->connectionLogicalZones = [];
                 $n1 = 0;
                 foreach ($map['ConnectionLogicalZones'] as $item1) {
-                    $model->connectionLogicalZones[$n1++] = $item1;
+                    $model->connectionLogicalZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -350,7 +353,8 @@ class tenantConnections extends Model
                 $model->connectionZones = [];
                 $n1 = 0;
                 foreach ($map['ConnectionZones'] as $item1) {
-                    $model->connectionZones[$n1++] = $item1;
+                    $model->connectionZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

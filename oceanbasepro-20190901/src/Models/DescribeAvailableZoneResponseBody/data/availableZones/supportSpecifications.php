@@ -68,7 +68,8 @@ class supportSpecifications extends Model
                 $res['DiskTypes'] = [];
                 $n1 = 0;
                 foreach ($this->diskTypes as $item1) {
-                    $res['DiskTypes'][$n1++] = $item1;
+                    $res['DiskTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +87,8 @@ class supportSpecifications extends Model
                 $res['SupportEngineVersions'] = [];
                 $n1 = 0;
                 foreach ($this->supportEngineVersions as $item1) {
-                    $res['SupportEngineVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportEngineVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +113,8 @@ class supportSpecifications extends Model
                 $model->diskTypes = [];
                 $n1 = 0;
                 foreach ($map['DiskTypes'] as $item1) {
-                    $model->diskTypes[$n1++] = $item1;
+                    $model->diskTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +132,8 @@ class supportSpecifications extends Model
                 $model->supportEngineVersions = [];
                 $n1 = 0;
                 foreach ($map['SupportEngineVersions'] as $item1) {
-                    $model->supportEngineVersions[$n1++] = supportEngineVersions::fromMap($item1);
+                    $model->supportEngineVersions[$n1] = supportEngineVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

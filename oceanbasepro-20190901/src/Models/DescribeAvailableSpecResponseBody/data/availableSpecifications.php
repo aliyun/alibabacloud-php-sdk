@@ -77,7 +77,8 @@ class availableSpecifications extends Model
                 $res['DiskTypes'] = [];
                 $n1 = 0;
                 foreach ($this->diskTypes as $item1) {
-                    $res['DiskTypes'][$n1++] = $item1;
+                    $res['DiskTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class availableSpecifications extends Model
                 $res['NodeNum'] = [];
                 $n1 = 0;
                 foreach ($this->nodeNum as $item1) {
-                    $res['NodeNum'][$n1++] = $item1;
+                    $res['NodeNum'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +126,8 @@ class availableSpecifications extends Model
                 $model->diskTypes = [];
                 $n1 = 0;
                 foreach ($map['DiskTypes'] as $item1) {
-                    $model->diskTypes[$n1++] = $item1;
+                    $model->diskTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +145,8 @@ class availableSpecifications extends Model
                 $model->nodeNum = [];
                 $n1 = 0;
                 foreach ($map['NodeNum'] as $item1) {
-                    $model->nodeNum[$n1++] = $item1;
+                    $model->nodeNum[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

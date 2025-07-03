@@ -89,7 +89,8 @@ class tables extends Model
                 $res['FilterColumns'] = [];
                 $n1 = 0;
                 foreach ($this->filterColumns as $item1) {
-                    $res['FilterColumns'][$n1++] = $item1;
+                    $res['FilterColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class tables extends Model
                 $res['ShardColumns'] = [];
                 $n1 = 0;
                 foreach ($this->shardColumns as $item1) {
-                    $res['ShardColumns'][$n1++] = $item1;
+                    $res['ShardColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +146,8 @@ class tables extends Model
                 $model->filterColumns = [];
                 $n1 = 0;
                 foreach ($map['FilterColumns'] as $item1) {
-                    $model->filterColumns[$n1++] = $item1;
+                    $model->filterColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +173,8 @@ class tables extends Model
                 $model->shardColumns = [];
                 $n1 = 0;
                 foreach ($map['ShardColumns'] as $item1) {
-                    $model->shardColumns[$n1++] = $item1;
+                    $model->shardColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

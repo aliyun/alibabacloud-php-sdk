@@ -155,7 +155,8 @@ class databases extends Model
                 $res['Tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class databases extends Model
                 $res['Users'] = [];
                 $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +236,8 @@ class databases extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = tables::fromMap($item1);
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +255,8 @@ class databases extends Model
                 $model->users = [];
                 $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = users::fromMap($item1);
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class tenantZones extends Model
                 $res['TenantZoneReplicas'] = [];
                 $n1 = 0;
                 foreach ($this->tenantZoneReplicas as $item1) {
-                    $res['TenantZoneReplicas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantZoneReplicas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class tenantZones extends Model
                 $model->tenantZoneReplicas = [];
                 $n1 = 0;
                 foreach ($map['TenantZoneReplicas'] as $item1) {
-                    $model->tenantZoneReplicas[$n1++] = tenantZoneReplicas::fromMap($item1);
+                    $model->tenantZoneReplicas[$n1] = tenantZoneReplicas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

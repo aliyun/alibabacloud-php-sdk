@@ -127,7 +127,8 @@ class commonTransferConfig extends Model
                 $res['CustomColumns'] = [];
                 $n1 = 0;
                 foreach ($this->customColumns as $item1) {
-                    $res['CustomColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomColumns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +209,8 @@ class commonTransferConfig extends Model
                 $model->customColumns = [];
                 $n1 = 0;
                 foreach ($map['CustomColumns'] as $item1) {
-                    $model->customColumns[$n1++] = customColumns::fromMap($item1);
+                    $model->customColumns[$n1] = customColumns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

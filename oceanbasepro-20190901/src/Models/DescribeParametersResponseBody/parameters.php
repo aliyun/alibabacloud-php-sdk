@@ -89,7 +89,8 @@ class parameters extends Model
                 $res['AcceptableValue'] = [];
                 $n1 = 0;
                 foreach ($this->acceptableValue as $item1) {
-                    $res['AcceptableValue'][$n1++] = $item1;
+                    $res['AcceptableValue'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class parameters extends Model
                 $res['RejectedValue'] = [];
                 $n1 = 0;
                 foreach ($this->rejectedValue as $item1) {
-                    $res['RejectedValue'][$n1++] = $item1;
+                    $res['RejectedValue'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +154,8 @@ class parameters extends Model
                 $model->acceptableValue = [];
                 $n1 = 0;
                 foreach ($map['AcceptableValue'] as $item1) {
-                    $model->acceptableValue[$n1++] = $item1;
+                    $model->acceptableValue[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +189,8 @@ class parameters extends Model
                 $model->rejectedValue = [];
                 $n1 = 0;
                 foreach ($map['RejectedValue'] as $item1) {
-                    $model->rejectedValue[$n1++] = $item1;
+                    $model->rejectedValue[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

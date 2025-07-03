@@ -53,7 +53,8 @@ class instanceTopology extends Model
                 $res['Replicas'] = [];
                 $n1 = 0;
                 foreach ($this->replicas as $item1) {
-                    $res['Replicas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Replicas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class instanceTopology extends Model
                 $res['Tenants'] = [];
                 $n1 = 0;
                 foreach ($this->tenants as $item1) {
-                    $res['Tenants'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tenants'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class instanceTopology extends Model
                 $res['Zones'] = [];
                 $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['Zones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Zones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class instanceTopology extends Model
                 $model->replicas = [];
                 $n1 = 0;
                 foreach ($map['Replicas'] as $item1) {
-                    $model->replicas[$n1++] = replicas::fromMap($item1);
+                    $model->replicas[$n1] = replicas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class instanceTopology extends Model
                 $model->tenants = [];
                 $n1 = 0;
                 foreach ($map['Tenants'] as $item1) {
-                    $model->tenants[$n1++] = tenants::fromMap($item1);
+                    $model->tenants[$n1] = tenants::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class instanceTopology extends Model
                 $model->zones = [];
                 $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
-                    $model->zones[$n1++] = zones::fromMap($item1);
+                    $model->zones[$n1] = zones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

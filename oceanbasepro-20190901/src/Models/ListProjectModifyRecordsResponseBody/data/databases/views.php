@@ -89,7 +89,8 @@ class views extends Model
                 $res['Columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class views extends Model
                 $res['FilterColumns'] = [];
                 $n1 = 0;
                 foreach ($this->filterColumns as $item1) {
-                    $res['FilterColumns'][$n1++] = $item1;
+                    $res['FilterColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +123,8 @@ class views extends Model
                 $res['ShardColumns'] = [];
                 $n1 = 0;
                 foreach ($this->shardColumns as $item1) {
-                    $res['ShardColumns'][$n1++] = $item1;
+                    $res['ShardColumns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class views extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = columns::fromMap($item1);
+                    $model->columns[$n1] = columns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +164,8 @@ class views extends Model
                 $model->filterColumns = [];
                 $n1 = 0;
                 foreach ($map['FilterColumns'] as $item1) {
-                    $model->filterColumns[$n1++] = $item1;
+                    $model->filterColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +187,8 @@ class views extends Model
                 $model->shardColumns = [];
                 $n1 = 0;
                 foreach ($map['ShardColumns'] as $item1) {
-                    $model->shardColumns[$n1++] = $item1;
+                    $model->shardColumns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

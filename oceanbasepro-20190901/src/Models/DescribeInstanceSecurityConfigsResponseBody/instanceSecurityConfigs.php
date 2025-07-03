@@ -75,7 +75,8 @@ class instanceSecurityConfigs extends Model
                 $res['SecurityConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->securityConfigs as $item1) {
-                    $res['SecurityConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class instanceSecurityConfigs extends Model
                 $model->securityConfigs = [];
                 $n1 = 0;
                 foreach ($map['SecurityConfigs'] as $item1) {
-                    $model->securityConfigs[$n1++] = securityConfigs::fromMap($item1);
+                    $model->securityConfigs[$n1] = securityConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
