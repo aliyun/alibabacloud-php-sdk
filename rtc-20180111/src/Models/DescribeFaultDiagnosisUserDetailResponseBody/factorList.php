@@ -63,7 +63,8 @@ class factorList extends Model
                 $res['RelatedEventDatas'] = [];
                 $n1 = 0;
                 foreach ($this->relatedEventDatas as $item1) {
-                    $res['RelatedEventDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelatedEventDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class factorList extends Model
                 $res['RelatedMetricDatas'] = [];
                 $n1 = 0;
                 foreach ($this->relatedMetricDatas as $item1) {
-                    $res['RelatedMetricDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelatedMetricDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class factorList extends Model
                 $model->relatedEventDatas = [];
                 $n1 = 0;
                 foreach ($map['RelatedEventDatas'] as $item1) {
-                    $model->relatedEventDatas[$n1++] = relatedEventDatas::fromMap($item1);
+                    $model->relatedEventDatas[$n1] = relatedEventDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class factorList extends Model
                 $model->relatedMetricDatas = [];
                 $n1 = 0;
                 foreach ($map['RelatedMetricDatas'] as $item1) {
-                    $model->relatedMetricDatas[$n1++] = relatedMetricDatas::fromMap($item1);
+                    $model->relatedMetricDatas[$n1] = relatedMetricDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

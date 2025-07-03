@@ -165,7 +165,8 @@ class StartCloudRecordRequest extends Model
                 $res['Backgrounds'] = [];
                 $n1 = 0;
                 foreach ($this->backgrounds as $item1) {
-                    $res['Backgrounds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Backgrounds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +184,8 @@ class StartCloudRecordRequest extends Model
                 $res['ClockWidgets'] = [];
                 $n1 = 0;
                 foreach ($this->clockWidgets as $item1) {
-                    $res['ClockWidgets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClockWidgets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +199,8 @@ class StartCloudRecordRequest extends Model
                 $res['Images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +214,8 @@ class StartCloudRecordRequest extends Model
                 $res['Panes'] = [];
                 $n1 = 0;
                 foreach ($this->panes as $item1) {
-                    $res['Panes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Panes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +253,8 @@ class StartCloudRecordRequest extends Model
                 $res['Texts'] = [];
                 $n1 = 0;
                 foreach ($this->texts as $item1) {
-                    $res['Texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Texts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +279,8 @@ class StartCloudRecordRequest extends Model
                 $model->backgrounds = [];
                 $n1 = 0;
                 foreach ($map['Backgrounds'] as $item1) {
-                    $model->backgrounds[$n1++] = backgrounds::fromMap($item1);
+                    $model->backgrounds[$n1] = backgrounds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +298,8 @@ class StartCloudRecordRequest extends Model
                 $model->clockWidgets = [];
                 $n1 = 0;
                 foreach ($map['ClockWidgets'] as $item1) {
-                    $model->clockWidgets[$n1++] = clockWidgets::fromMap($item1);
+                    $model->clockWidgets[$n1] = clockWidgets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +313,8 @@ class StartCloudRecordRequest extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['Images'] as $item1) {
-                    $model->images[$n1++] = images::fromMap($item1);
+                    $model->images[$n1] = images::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -320,7 +328,8 @@ class StartCloudRecordRequest extends Model
                 $model->panes = [];
                 $n1 = 0;
                 foreach ($map['Panes'] as $item1) {
-                    $model->panes[$n1++] = panes::fromMap($item1);
+                    $model->panes[$n1] = panes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -358,7 +367,8 @@ class StartCloudRecordRequest extends Model
                 $model->texts = [];
                 $n1 = 0;
                 foreach ($map['Texts'] as $item1) {
-                    $model->texts[$n1++] = texts::fromMap($item1);
+                    $model->texts[$n1] = texts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

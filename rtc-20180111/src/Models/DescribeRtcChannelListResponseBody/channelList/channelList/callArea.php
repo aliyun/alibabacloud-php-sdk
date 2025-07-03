@@ -32,7 +32,8 @@ class callArea extends Model
                 $res['CallArea'] = [];
                 $n1 = 0;
                 foreach ($this->callArea as $item1) {
-                    $res['CallArea'][$n1++] = $item1;
+                    $res['CallArea'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class callArea extends Model
                 $model->callArea = [];
                 $n1 = 0;
                 foreach ($map['CallArea'] as $item1) {
-                    $model->callArea[$n1++] = $item1;
+                    $model->callArea[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
                 $res['StatList'] = [];
                 $n1 = 0;
                 foreach ($this->statList as $item1) {
-                    $res['StatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
                 $model->statList = [];
                 $n1 = 0;
                 foreach ($map['StatList'] as $item1) {
-                    $model->statList[$n1++] = statList::fromMap($item1);
+                    $model->statList[$n1] = statList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

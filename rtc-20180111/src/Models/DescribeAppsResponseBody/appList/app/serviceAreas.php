@@ -32,7 +32,8 @@ class serviceAreas extends Model
                 $res['ServiceArea'] = [];
                 $n1 = 0;
                 foreach ($this->serviceArea as $item1) {
-                    $res['ServiceArea'][$n1++] = $item1;
+                    $res['ServiceArea'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class serviceAreas extends Model
                 $model->serviceArea = [];
                 $n1 = 0;
                 foreach ($map['ServiceArea'] as $item1) {
-                    $model->serviceArea[$n1++] = $item1;
+                    $model->serviceArea[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -7,6 +7,9 @@ namespace AlibabaCloud\SDK\Rtc\V20180111;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppAgentTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppAgentTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppAgentTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppLayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppLayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppLayoutShrinkRequest;
@@ -25,6 +28,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppAgentTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppAgentTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppLayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppLayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppLayoutShrinkRequest;
@@ -48,6 +53,10 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAllCallbackResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentFunctionStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentFunctionStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppCallbackSecretKeyRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppCallbackSecretKeyResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppCallStatusRequest;
@@ -168,8 +177,15 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DisableAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DisableAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\GetAgentRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\GetAgentResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentFunctionStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentFunctionStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppCallbackStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppCallbackStatusResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLayoutRequest;
@@ -195,10 +211,15 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCloudNotePhrasesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCloudNotePhrasesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\NotifyAgentRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\NotifyAgentResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackShrinkRequest;
@@ -215,6 +236,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopAgentRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopAgentResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackShrinkRequest;
@@ -230,6 +253,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest;
@@ -406,6 +432,109 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建应用智能体模版.
+     *
+     * @param tmpReq - CreateAppAgentTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppAgentTemplateResponse
+     *
+     * @param CreateAppAgentTemplateRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateAppAgentTemplateResponse
+     */
+    public function createAppAgentTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAppAgentTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->asrConfig) {
+            $request->asrConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->asrConfig, 'AsrConfig', 'json');
+        }
+
+        if (null !== $tmpReq->llmConfig) {
+            $request->llmConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->llmConfig, 'LlmConfig', 'json');
+        }
+
+        if (null !== $tmpReq->ttsConfig) {
+            $request->ttsConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ttsConfig, 'TtsConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->asrConfigShrink) {
+            @$query['AsrConfig'] = $request->asrConfigShrink;
+        }
+
+        if (null !== $request->chatMode) {
+            @$query['ChatMode'] = $request->chatMode;
+        }
+
+        if (null !== $request->greeting) {
+            @$query['Greeting'] = $request->greeting;
+        }
+
+        if (null !== $request->interruptMode) {
+            @$query['InterruptMode'] = $request->interruptMode;
+        }
+
+        if (null !== $request->llmConfigShrink) {
+            @$query['LlmConfig'] = $request->llmConfigShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ttsConfigShrink) {
+            @$query['TtsConfig'] = $request->ttsConfigShrink;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppAgentTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppAgentTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用智能体模版.
+     *
+     * @param request - CreateAppAgentTemplateRequest
+     *
+     * @returns CreateAppAgentTemplateResponse
+     *
+     * @param CreateAppAgentTemplateRequest $request
+     *
+     * @return CreateAppAgentTemplateResponse
+     */
+    public function createAppAgentTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppAgentTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -917,6 +1046,67 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMPULayoutWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除应用智能体模版.
+     *
+     * @param request - DeleteAppAgentTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppAgentTemplateResponse
+     *
+     * @param DeleteAppAgentTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteAppAgentTemplateResponse
+     */
+    public function deleteAppAgentTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppAgentTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppAgentTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用智能体模版.
+     *
+     * @param request - DeleteAppAgentTemplateRequest
+     *
+     * @returns DeleteAppAgentTemplateResponse
+     *
+     * @param DeleteAppAgentTemplateRequest $request
+     *
+     * @return DeleteAppAgentTemplateResponse
+     */
+    public function deleteAppAgentTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppAgentTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1542,6 +1732,136 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAllCallbackWithOptions($runtime);
+    }
+
+    /**
+     * 查询应用智能体开关.
+     *
+     * @param request - DescribeAppAgentFunctionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppAgentFunctionStatusResponse
+     *
+     * @param DescribeAppAgentFunctionStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAppAgentFunctionStatusResponse
+     */
+    public function describeAppAgentFunctionStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAppAgentFunctionStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAppAgentFunctionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用智能体开关.
+     *
+     * @param request - DescribeAppAgentFunctionStatusRequest
+     *
+     * @returns DescribeAppAgentFunctionStatusResponse
+     *
+     * @param DescribeAppAgentFunctionStatusRequest $request
+     *
+     * @return DescribeAppAgentFunctionStatusResponse
+     */
+    public function describeAppAgentFunctionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppAgentFunctionStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用智能体模版列表.
+     *
+     * @param request - DescribeAppAgentTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppAgentTemplatesResponse
+     *
+     * @param DescribeAppAgentTemplatesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAppAgentTemplatesResponse
+     */
+    public function describeAppAgentTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAppAgentTemplates',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAppAgentTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用智能体模版列表.
+     *
+     * @param request - DescribeAppAgentTemplatesRequest
+     *
+     * @returns DescribeAppAgentTemplatesResponse
+     *
+     * @param DescribeAppAgentTemplatesRequest $request
+     *
+     * @return DescribeAppAgentTemplatesResponse
+     */
+    public function describeAppAgentTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppAgentTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -5422,6 +5742,71 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * GetAgent。
+     *
+     * @param request - GetAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgent',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetAgent。
+     *
+     * @param request - GetAgentRequest
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - GetMPUTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5545,6 +5930,170 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改应用智能体开关.
+     *
+     * @param request - ModifyAppAgentFunctionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppAgentFunctionStatusResponse
+     *
+     * @param ModifyAppAgentFunctionStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyAppAgentFunctionStatusResponse
+     */
+    public function modifyAppAgentFunctionStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppAgentFunctionStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppAgentFunctionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用智能体开关.
+     *
+     * @param request - ModifyAppAgentFunctionStatusRequest
+     *
+     * @returns ModifyAppAgentFunctionStatusResponse
+     *
+     * @param ModifyAppAgentFunctionStatusRequest $request
+     *
+     * @return ModifyAppAgentFunctionStatusResponse
+     */
+    public function modifyAppAgentFunctionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppAgentFunctionStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新应用智能体模版.
+     *
+     * @param tmpReq - ModifyAppAgentTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppAgentTemplateResponse
+     *
+     * @param ModifyAppAgentTemplateRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAppAgentTemplateResponse
+     */
+    public function modifyAppAgentTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyAppAgentTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->asrConfig) {
+            $request->asrConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->asrConfig, 'AsrConfig', 'json');
+        }
+
+        if (null !== $tmpReq->llmConfig) {
+            $request->llmConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->llmConfig, 'LlmConfig', 'json');
+        }
+
+        if (null !== $tmpReq->ttsConfig) {
+            $request->ttsConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ttsConfig, 'TtsConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->asrConfigShrink) {
+            @$query['AsrConfig'] = $request->asrConfigShrink;
+        }
+
+        if (null !== $request->chatMode) {
+            @$query['ChatMode'] = $request->chatMode;
+        }
+
+        if (null !== $request->greeting) {
+            @$query['Greeting'] = $request->greeting;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->interruptMode) {
+            @$query['InterruptMode'] = $request->interruptMode;
+        }
+
+        if (null !== $request->llmConfigShrink) {
+            @$query['LlmConfig'] = $request->llmConfigShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ttsConfigShrink) {
+            @$query['TtsConfig'] = $request->ttsConfigShrink;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppAgentTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppAgentTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用智能体模版.
+     *
+     * @param request - ModifyAppAgentTemplateRequest
+     *
+     * @returns ModifyAppAgentTemplateResponse
+     *
+     * @param ModifyAppAgentTemplateRequest $request
+     *
+     * @return ModifyAppAgentTemplateResponse
+     */
+    public function modifyAppAgentTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppAgentTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -6147,6 +6696,87 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * NotifyAgent.
+     *
+     * @param request - NotifyAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns NotifyAgentResponse
+     *
+     * @param NotifyAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return NotifyAgentResponse
+     */
+    public function notifyAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->customAttribute) {
+            @$query['CustomAttribute'] = $request->customAttribute;
+        }
+
+        if (null !== $request->interruptable) {
+            @$query['Interruptable'] = $request->interruptable;
+        }
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'NotifyAgent',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return NotifyAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * NotifyAgent.
+     *
+     * @param request - NotifyAgentRequest
+     *
+     * @returns NotifyAgentResponse
+     *
+     * @param NotifyAgentRequest $request
+     *
+     * @return NotifyAgentResponse
+     */
+    public function notifyAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->notifyAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - RemoveTerminalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6274,6 +6904,93 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启动AI Agent.
+     *
+     * @param tmpReq - StartAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAgentResponse
+     *
+     * @param StartAgentRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return StartAgentResponse
+     */
+    public function startAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StartAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rtcConfig) {
+            $request->rtcConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rtcConfig, 'RtcConfig', 'json');
+        }
+
+        if (null !== $tmpReq->voiceChatConfig) {
+            $request->voiceChatConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->voiceChatConfig, 'VoiceChatConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->rtcConfigShrink) {
+            @$query['RtcConfig'] = $request->rtcConfigShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->voiceChatConfigShrink) {
+            @$query['VoiceChatConfig'] = $request->voiceChatConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartAgent',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动AI Agent.
+     *
+     * @param request - StartAgentRequest
+     *
+     * @returns StartAgentResponse
+     *
+     * @param StartAgentRequest $request
+     *
+     * @return StartAgentResponse
+     */
+    public function startAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -7052,6 +7769,71 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * 停止AI Agent.
+     *
+     * @param request - StopAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAgentResponse
+     *
+     * @param StopAgentRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StopAgentResponse
+     */
+    public function stopAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopAgent',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止AI Agent.
+     *
+     * @param request - StopAgentRequest
+     *
+     * @returns StopAgentResponse
+     *
+     * @param StopAgentRequest $request
+     *
+     * @return StopAgentResponse
+     */
+    public function stopAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * 关闭某个事件回调.
      *
      * @param tmpReq - StopCategoryCallbackRequest
@@ -7498,6 +8280,81 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopStreamingOutWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新AI Agent.
+     *
+     * @param tmpReq - UpdateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->voiceChatConfig) {
+            $request->voiceChatConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->voiceChatConfig, 'VoiceChatConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->voiceChatConfigShrink) {
+            @$query['VoiceChatConfig'] = $request->voiceChatConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgent',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新AI Agent.
+     *
+     * @param request - UpdateAgentRequest
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $request
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAgentWithOptions($request, $runtime);
     }
 
     /**

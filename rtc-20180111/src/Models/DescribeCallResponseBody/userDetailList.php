@@ -167,7 +167,8 @@ class userDetailList extends Model
                 $res['NetworkList'] = [];
                 $n1 = 0;
                 foreach ($this->networkList as $item1) {
-                    $res['NetworkList'][$n1++] = $item1;
+                    $res['NetworkList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +182,8 @@ class userDetailList extends Model
                 $res['OnlinePeriods'] = [];
                 $n1 = 0;
                 foreach ($this->onlinePeriods as $item1) {
-                    $res['OnlinePeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OnlinePeriods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +197,8 @@ class userDetailList extends Model
                 $res['OsList'] = [];
                 $n1 = 0;
                 foreach ($this->osList as $item1) {
-                    $res['OsList'][$n1++] = $item1;
+                    $res['OsList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +208,8 @@ class userDetailList extends Model
                 $res['Roles'] = [];
                 $n1 = 0;
                 foreach ($this->roles as $item1) {
-                    $res['Roles'][$n1++] = $item1;
+                    $res['Roles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +223,8 @@ class userDetailList extends Model
                 $res['SdkVersionList'] = [];
                 $n1 = 0;
                 foreach ($this->sdkVersionList as $item1) {
-                    $res['SdkVersionList'][$n1++] = $item1;
+                    $res['SdkVersionList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -272,7 +277,8 @@ class userDetailList extends Model
                 $model->networkList = [];
                 $n1 = 0;
                 foreach ($map['NetworkList'] as $item1) {
-                    $model->networkList[$n1++] = $item1;
+                    $model->networkList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -286,7 +292,8 @@ class userDetailList extends Model
                 $model->onlinePeriods = [];
                 $n1 = 0;
                 foreach ($map['OnlinePeriods'] as $item1) {
-                    $model->onlinePeriods[$n1++] = onlinePeriods::fromMap($item1);
+                    $model->onlinePeriods[$n1] = onlinePeriods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -300,7 +307,8 @@ class userDetailList extends Model
                 $model->osList = [];
                 $n1 = 0;
                 foreach ($map['OsList'] as $item1) {
-                    $model->osList[$n1++] = $item1;
+                    $model->osList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -310,7 +318,8 @@ class userDetailList extends Model
                 $model->roles = [];
                 $n1 = 0;
                 foreach ($map['Roles'] as $item1) {
-                    $model->roles[$n1++] = $item1;
+                    $model->roles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -324,7 +333,8 @@ class userDetailList extends Model
                 $model->sdkVersionList = [];
                 $n1 = 0;
                 foreach ($map['SdkVersionList'] as $item1) {
-                    $model->sdkVersionList[$n1++] = $item1;
+                    $model->sdkVersionList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

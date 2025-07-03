@@ -87,7 +87,8 @@ class rules extends Model
                 $res['ChannelIdPrefixes'] = [];
                 $n1 = 0;
                 foreach ($this->channelIdPrefixes as $item1) {
-                    $res['ChannelIdPrefixes'][$n1++] = $item1;
+                    $res['ChannelIdPrefixes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class rules extends Model
                 $res['ChannelIds'] = [];
                 $n1 = 0;
                 foreach ($this->channelIds as $item1) {
-                    $res['ChannelIds'][$n1++] = $item1;
+                    $res['ChannelIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +148,8 @@ class rules extends Model
                 $model->channelIdPrefixes = [];
                 $n1 = 0;
                 foreach ($map['ChannelIdPrefixes'] as $item1) {
-                    $model->channelIdPrefixes[$n1++] = $item1;
+                    $model->channelIdPrefixes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +159,8 @@ class rules extends Model
                 $model->channelIds = [];
                 $n1 = 0;
                 foreach ($map['ChannelIds'] as $item1) {
-                    $model->channelIds[$n1++] = $item1;
+                    $model->channelIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

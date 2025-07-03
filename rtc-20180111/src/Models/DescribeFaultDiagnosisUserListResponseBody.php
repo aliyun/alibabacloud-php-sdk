@@ -73,7 +73,8 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
                 $res['UserList'] = [];
                 $n1 = 0;
                 foreach ($this->userList as $item1) {
-                    $res['UserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
                 $model->userList = [];
                 $n1 = 0;
                 foreach ($map['UserList'] as $item1) {
-                    $model->userList[$n1++] = userList::fromMap($item1);
+                    $model->userList[$n1] = userList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

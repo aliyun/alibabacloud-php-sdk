@@ -39,7 +39,8 @@ class DescribeQualityOverallDataResponseBody extends Model
                 $res['QualityOverallData'] = [];
                 $n1 = 0;
                 foreach ($this->qualityOverallData as $item1) {
-                    $res['QualityOverallData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QualityOverallData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeQualityOverallDataResponseBody extends Model
                 $model->qualityOverallData = [];
                 $n1 = 0;
                 foreach ($map['QualityOverallData'] as $item1) {
-                    $model->qualityOverallData[$n1++] = qualityOverallData::fromMap($item1);
+                    $model->qualityOverallData[$n1] = qualityOverallData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

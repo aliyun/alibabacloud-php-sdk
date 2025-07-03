@@ -33,7 +33,8 @@ class userCntDataPerInterval extends Model
                 $res['UserCntModule'] = [];
                 $n1 = 0;
                 foreach ($this->userCntModule as $item1) {
-                    $res['UserCntModule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserCntModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class userCntDataPerInterval extends Model
                 $model->userCntModule = [];
                 $n1 = 0;
                 foreach ($map['UserCntModule'] as $item1) {
-                    $model->userCntModule[$n1++] = userCntModule::fromMap($item1);
+                    $model->userCntModule[$n1] = userCntModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

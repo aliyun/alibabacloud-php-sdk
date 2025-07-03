@@ -33,7 +33,8 @@ class durationDataPerInterval extends Model
                 $res['DurationModule'] = [];
                 $n1 = 0;
                 foreach ($this->durationModule as $item1) {
-                    $res['DurationModule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DurationModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class durationDataPerInterval extends Model
                 $model->durationModule = [];
                 $n1 = 0;
                 foreach ($map['DurationModule'] as $item1) {
-                    $model->durationModule[$n1++] = durationModule::fromMap($item1);
+                    $model->durationModule[$n1] = durationModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

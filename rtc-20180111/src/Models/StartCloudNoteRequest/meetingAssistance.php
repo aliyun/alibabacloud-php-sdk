@@ -42,7 +42,8 @@ class meetingAssistance extends Model
                 $res['MeetingAssistanceType'] = [];
                 $n1 = 0;
                 foreach ($this->meetingAssistanceType as $item1) {
-                    $res['MeetingAssistanceType'][$n1++] = $item1;
+                    $res['MeetingAssistanceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class meetingAssistance extends Model
                 $model->meetingAssistanceType = [];
                 $n1 = 0;
                 foreach ($map['MeetingAssistanceType'] as $item1) {
-                    $model->meetingAssistanceType[$n1++] = $item1;
+                    $model->meetingAssistanceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

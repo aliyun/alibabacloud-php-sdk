@@ -162,7 +162,8 @@ class StartCloudNoteRequest extends Model
                 $res['LanguageHints'] = [];
                 $n1 = 0;
                 foreach ($this->languageHints as $item1) {
-                    $res['LanguageHints'][$n1++] = $item1;
+                    $res['LanguageHints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +236,8 @@ class StartCloudNoteRequest extends Model
                 $model->languageHints = [];
                 $n1 = 0;
                 foreach ($map['LanguageHints'] as $item1) {
-                    $model->languageHints[$n1++] = $item1;
+                    $model->languageHints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

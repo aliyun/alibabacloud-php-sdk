@@ -39,7 +39,8 @@ class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends Model
                 $res['QualityOsSdkVersionStatDataList'] = [];
                 $n1 = 0;
                 foreach ($this->qualityOsSdkVersionStatDataList as $item1) {
-                    $res['QualityOsSdkVersionStatDataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QualityOsSdkVersionStatDataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends Model
                 $model->qualityOsSdkVersionStatDataList = [];
                 $n1 = 0;
                 foreach ($map['QualityOsSdkVersionStatDataList'] as $item1) {
-                    $model->qualityOsSdkVersionStatDataList[$n1++] = qualityOsSdkVersionStatDataList::fromMap($item1);
+                    $model->qualityOsSdkVersionStatDataList[$n1] = qualityOsSdkVersionStatDataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class DescribeChannelTopPubUserListResponseBody extends Model
                 $res['TopPubUserDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->topPubUserDetailList as $item1) {
-                    $res['TopPubUserDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopPubUserDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeChannelTopPubUserListResponseBody extends Model
                 $model->topPubUserDetailList = [];
                 $n1 = 0;
                 foreach ($map['TopPubUserDetailList'] as $item1) {
-                    $model->topPubUserDetailList[$n1++] = topPubUserDetailList::fromMap($item1);
+                    $model->topPubUserDetailList[$n1] = topPubUserDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class customPrompt extends Model
                 $res['CustomPromptContents'] = [];
                 $n1 = 0;
                 foreach ($this->customPromptContents as $item1) {
-                    $res['CustomPromptContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomPromptContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class customPrompt extends Model
                 $model->customPromptContents = [];
                 $n1 = 0;
                 foreach ($map['CustomPromptContents'] as $item1) {
-                    $model->customPromptContents[$n1++] = customPromptContents::fromMap($item1);
+                    $model->customPromptContents[$n1] = customPromptContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -65,7 +65,8 @@ class DescribeUserInfoInChannelResponseBody extends Model
                 $res['Property'] = [];
                 $n1 = 0;
                 foreach ($this->property as $item1) {
-                    $res['Property'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Property'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class DescribeUserInfoInChannelResponseBody extends Model
                 $model->property = [];
                 $n1 = 0;
                 foreach ($map['Property'] as $item1) {
-                    $model->property[$n1++] = property::fromMap($item1);
+                    $model->property[$n1] = property::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

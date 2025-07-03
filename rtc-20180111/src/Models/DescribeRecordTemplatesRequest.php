@@ -72,7 +72,8 @@ class DescribeRecordTemplatesRequest extends Model
                 $res['TemplateIds'] = [];
                 $n1 = 0;
                 foreach ($this->templateIds as $item1) {
-                    $res['TemplateIds'][$n1++] = $item1;
+                    $res['TemplateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class DescribeRecordTemplatesRequest extends Model
                 $model->templateIds = [];
                 $n1 = 0;
                 foreach ($map['TemplateIds'] as $item1) {
-                    $model->templateIds[$n1++] = $item1;
+                    $model->templateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

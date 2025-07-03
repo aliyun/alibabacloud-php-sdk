@@ -63,7 +63,8 @@ class DescribeChannelOverallDataResponseBody extends Model
                 $res['MetricDatas'] = [];
                 $n1 = 0;
                 foreach ($this->metricDatas as $item1) {
-                    $res['MetricDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MetricDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class DescribeChannelOverallDataResponseBody extends Model
                 $model->metricDatas = [];
                 $n1 = 0;
                 foreach ($map['MetricDatas'] as $item1) {
-                    $model->metricDatas[$n1++] = metricDatas::fromMap($item1);
+                    $model->metricDatas[$n1] = metricDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

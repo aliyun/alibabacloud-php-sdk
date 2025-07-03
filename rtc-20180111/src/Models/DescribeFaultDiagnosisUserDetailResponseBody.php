@@ -82,7 +82,8 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
                 $res['FactorList'] = [];
                 $n1 = 0;
                 foreach ($this->factorList as $item1) {
-                    $res['FactorList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FactorList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
                 $res['NetworkOperators'] = [];
                 $n1 = 0;
                 foreach ($this->networkOperators as $item1) {
-                    $res['NetworkOperators'][$n1++] = $item1;
+                    $res['NetworkOperators'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +131,8 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
                 $model->factorList = [];
                 $n1 = 0;
                 foreach ($map['FactorList'] as $item1) {
-                    $model->factorList[$n1++] = factorList::fromMap($item1);
+                    $model->factorList[$n1] = factorList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +146,8 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
                 $model->networkOperators = [];
                 $n1 = 0;
                 foreach ($map['NetworkOperators'] as $item1) {
-                    $model->networkOperators[$n1++] = $item1;
+                    $model->networkOperators[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

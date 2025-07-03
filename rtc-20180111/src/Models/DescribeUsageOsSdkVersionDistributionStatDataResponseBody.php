@@ -43,7 +43,8 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
                 $res['UsageOsSdkVersionStatList'] = [];
                 $n1 = 0;
                 foreach ($this->usageOsSdkVersionStatList as $item1) {
-                    $res['UsageOsSdkVersionStatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UsageOsSdkVersionStatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
                 $model->usageOsSdkVersionStatList = [];
                 $n1 = 0;
                 foreach ($map['UsageOsSdkVersionStatList'] as $item1) {
-                    $model->usageOsSdkVersionStatList[$n1++] = usageOsSdkVersionStatList::fromMap($item1);
+                    $model->usageOsSdkVersionStatList[$n1] = usageOsSdkVersionStatList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

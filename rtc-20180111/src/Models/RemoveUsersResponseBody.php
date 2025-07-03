@@ -43,7 +43,8 @@ class RemoveUsersResponseBody extends Model
                 $res['Users'] = [];
                 $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class RemoveUsersResponseBody extends Model
                 $model->users = [];
                 $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = users::fromMap($item1);
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

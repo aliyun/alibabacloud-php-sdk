@@ -59,7 +59,8 @@ class DescribePubUserListBySubUserResponseBody extends Model
                 $res['PubUserDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->pubUserDetailList as $item1) {
-                    $res['PubUserDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PubUserDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class DescribePubUserListBySubUserResponseBody extends Model
                 $model->pubUserDetailList = [];
                 $n1 = 0;
                 foreach ($map['PubUserDetailList'] as $item1) {
-                    $model->pubUserDetailList[$n1++] = pubUserDetailList::fromMap($item1);
+                    $model->pubUserDetailList[$n1] = pubUserDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

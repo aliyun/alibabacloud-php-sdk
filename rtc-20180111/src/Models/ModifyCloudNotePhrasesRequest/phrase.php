@@ -63,7 +63,8 @@ class phrase extends Model
                 $res['WordWeights'] = [];
                 $n1 = 0;
                 foreach ($this->wordWeights as $item1) {
-                    $res['WordWeights'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WordWeights'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class phrase extends Model
                 $model->wordWeights = [];
                 $n1 = 0;
                 foreach ($map['WordWeights'] as $item1) {
-                    $model->wordWeights[$n1++] = wordWeights::fromMap($item1);
+                    $model->wordWeights[$n1] = wordWeights::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class DescribeUsageOverallDataResponseBody extends Model
                 $res['UsageOverallData'] = [];
                 $n1 = 0;
                 foreach ($this->usageOverallData as $item1) {
-                    $res['UsageOverallData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UsageOverallData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeUsageOverallDataResponseBody extends Model
                 $model->usageOverallData = [];
                 $n1 = 0;
                 foreach ($map['UsageOverallData'] as $item1) {
-                    $model->usageOverallData[$n1++] = usageOverallData::fromMap($item1);
+                    $model->usageOverallData[$n1] = usageOverallData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

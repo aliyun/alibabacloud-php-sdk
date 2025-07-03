@@ -51,7 +51,8 @@ class DescribeAppLayoutsResponseBody extends Model
                 $res['Layouts'] = [];
                 $n1 = 0;
                 foreach ($this->layouts as $item1) {
-                    $res['Layouts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Layouts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeAppLayoutsResponseBody extends Model
                 $model->layouts = [];
                 $n1 = 0;
                 foreach ($map['Layouts'] as $item1) {
-                    $model->layouts[$n1++] = layouts::fromMap($item1);
+                    $model->layouts[$n1] = layouts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

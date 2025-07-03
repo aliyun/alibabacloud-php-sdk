@@ -39,7 +39,8 @@ class DescribeAllCallbackResponseBody extends Model
                 $res['Callbacks'] = [];
                 $n1 = 0;
                 foreach ($this->callbacks as $item1) {
-                    $res['Callbacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Callbacks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeAllCallbackResponseBody extends Model
                 $model->callbacks = [];
                 $n1 = 0;
                 foreach ($map['Callbacks'] as $item1) {
-                    $model->callbacks[$n1++] = callbacks::fromMap($item1);
+                    $model->callbacks[$n1] = callbacks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -163,7 +163,8 @@ class AddRecordTemplateRequest extends Model
                 $res['Backgrounds'] = [];
                 $n1 = 0;
                 foreach ($this->backgrounds as $item1) {
-                    $res['Backgrounds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Backgrounds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class AddRecordTemplateRequest extends Model
                 $res['ClockWidgets'] = [];
                 $n1 = 0;
                 foreach ($this->clockWidgets as $item1) {
-                    $res['ClockWidgets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClockWidgets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +197,8 @@ class AddRecordTemplateRequest extends Model
                 $res['Formats'] = [];
                 $n1 = 0;
                 foreach ($this->formats as $item1) {
-                    $res['Formats'][$n1++] = $item1;
+                    $res['Formats'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +212,8 @@ class AddRecordTemplateRequest extends Model
                 $res['LayoutIds'] = [];
                 $n1 = 0;
                 foreach ($this->layoutIds as $item1) {
-                    $res['LayoutIds'][$n1++] = $item1;
+                    $res['LayoutIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -251,7 +255,8 @@ class AddRecordTemplateRequest extends Model
                 $res['Watermarks'] = [];
                 $n1 = 0;
                 foreach ($this->watermarks as $item1) {
-                    $res['Watermarks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Watermarks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +285,8 @@ class AddRecordTemplateRequest extends Model
                 $model->backgrounds = [];
                 $n1 = 0;
                 foreach ($map['Backgrounds'] as $item1) {
-                    $model->backgrounds[$n1++] = backgrounds::fromMap($item1);
+                    $model->backgrounds[$n1] = backgrounds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -290,7 +296,8 @@ class AddRecordTemplateRequest extends Model
                 $model->clockWidgets = [];
                 $n1 = 0;
                 foreach ($map['ClockWidgets'] as $item1) {
-                    $model->clockWidgets[$n1++] = clockWidgets::fromMap($item1);
+                    $model->clockWidgets[$n1] = clockWidgets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +319,8 @@ class AddRecordTemplateRequest extends Model
                 $model->formats = [];
                 $n1 = 0;
                 foreach ($map['Formats'] as $item1) {
-                    $model->formats[$n1++] = $item1;
+                    $model->formats[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -326,7 +334,8 @@ class AddRecordTemplateRequest extends Model
                 $model->layoutIds = [];
                 $n1 = 0;
                 foreach ($map['LayoutIds'] as $item1) {
-                    $model->layoutIds[$n1++] = $item1;
+                    $model->layoutIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -368,7 +377,8 @@ class AddRecordTemplateRequest extends Model
                 $model->watermarks = [];
                 $n1 = 0;
                 foreach ($map['Watermarks'] as $item1) {
-                    $model->watermarks[$n1++] = watermarks::fromMap($item1);
+                    $model->watermarks[$n1] = watermarks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

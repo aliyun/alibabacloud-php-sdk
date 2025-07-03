@@ -89,7 +89,8 @@ class recordTemplate extends Model
                 $res['Formats'] = [];
                 $n1 = 0;
                 foreach ($this->formats as $item1) {
-                    $res['Formats'][$n1++] = $item1;
+                    $res['Formats'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class recordTemplate extends Model
                 $res['LayoutIds'] = [];
                 $n1 = 0;
                 foreach ($this->layoutIds as $item1) {
-                    $res['LayoutIds'][$n1++] = $item1;
+                    $res['LayoutIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +146,8 @@ class recordTemplate extends Model
                 $model->formats = [];
                 $n1 = 0;
                 foreach ($map['Formats'] as $item1) {
-                    $model->formats[$n1++] = $item1;
+                    $model->formats[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +157,8 @@ class recordTemplate extends Model
                 $model->layoutIds = [];
                 $n1 = 0;
                 foreach ($map['LayoutIds'] as $item1) {
-                    $model->layoutIds[$n1++] = $item1;
+                    $model->layoutIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

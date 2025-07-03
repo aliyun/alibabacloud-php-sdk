@@ -100,7 +100,8 @@ class DescribeChannelUsersResponseBody extends Model
                 $res['InteractiveUserList'] = [];
                 $n1 = 0;
                 foreach ($this->interactiveUserList as $item1) {
-                    $res['InteractiveUserList'][$n1++] = $item1;
+                    $res['InteractiveUserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class DescribeChannelUsersResponseBody extends Model
                 $res['LiveUserList'] = [];
                 $n1 = 0;
                 foreach ($this->liveUserList as $item1) {
-                    $res['LiveUserList'][$n1++] = $item1;
+                    $res['LiveUserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +142,8 @@ class DescribeChannelUsersResponseBody extends Model
                 $res['UserList'] = [];
                 $n1 = 0;
                 foreach ($this->userList as $item1) {
-                    $res['UserList'][$n1++] = $item1;
+                    $res['UserList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +172,8 @@ class DescribeChannelUsersResponseBody extends Model
                 $model->interactiveUserList = [];
                 $n1 = 0;
                 foreach ($map['InteractiveUserList'] as $item1) {
-                    $model->interactiveUserList[$n1++] = $item1;
+                    $model->interactiveUserList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +191,8 @@ class DescribeChannelUsersResponseBody extends Model
                 $model->liveUserList = [];
                 $n1 = 0;
                 foreach ($map['LiveUserList'] as $item1) {
-                    $model->liveUserList[$n1++] = $item1;
+                    $model->liveUserList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +214,8 @@ class DescribeChannelUsersResponseBody extends Model
                 $model->userList = [];
                 $n1 = 0;
                 foreach ($map['UserList'] as $item1) {
-                    $model->userList[$n1++] = $item1;
+                    $model->userList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

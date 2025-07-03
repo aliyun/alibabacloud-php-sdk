@@ -39,7 +39,8 @@ class nodes extends Model
                 $res['EventDataItems'] = [];
                 $n1 = 0;
                 foreach ($this->eventDataItems as $item1) {
-                    $res['EventDataItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EventDataItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class nodes extends Model
                 $model->eventDataItems = [];
                 $n1 = 0;
                 foreach ($map['EventDataItems'] as $item1) {
-                    $model->eventDataItems[$n1++] = eventDataItems::fromMap($item1);
+                    $model->eventDataItems[$n1] = eventDataItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

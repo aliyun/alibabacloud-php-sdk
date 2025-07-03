@@ -62,7 +62,8 @@ class RemoveTerminalsRequest extends Model
                 $res['TerminalIds'] = [];
                 $n1 = 0;
                 foreach ($this->terminalIds as $item1) {
-                    $res['TerminalIds'][$n1++] = $item1;
+                    $res['TerminalIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class RemoveTerminalsRequest extends Model
                 $model->terminalIds = [];
                 $n1 = 0;
                 foreach ($map['TerminalIds'] as $item1) {
-                    $model->terminalIds[$n1++] = $item1;
+                    $model->terminalIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

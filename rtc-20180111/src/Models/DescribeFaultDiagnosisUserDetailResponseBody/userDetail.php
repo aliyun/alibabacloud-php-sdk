@@ -111,7 +111,8 @@ class userDetail extends Model
                 $res['OnlinePeriods'] = [];
                 $n1 = 0;
                 foreach ($this->onlinePeriods as $item1) {
-                    $res['OnlinePeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OnlinePeriods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +169,8 @@ class userDetail extends Model
                 $model->onlinePeriods = [];
                 $n1 = 0;
                 foreach ($map['OnlinePeriods'] as $item1) {
-                    $model->onlinePeriods[$n1++] = onlinePeriods::fromMap($item1);
+                    $model->onlinePeriods[$n1] = onlinePeriods::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

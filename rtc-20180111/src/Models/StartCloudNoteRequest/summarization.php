@@ -42,7 +42,8 @@ class summarization extends Model
                 $res['Type'] = [];
                 $n1 = 0;
                 foreach ($this->type as $item1) {
-                    $res['Type'][$n1++] = $item1;
+                    $res['Type'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class summarization extends Model
                 $model->type = [];
                 $n1 = 0;
                 foreach ($map['Type'] as $item1) {
-                    $model->type[$n1++] = $item1;
+                    $model->type[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

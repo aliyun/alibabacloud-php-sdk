@@ -64,7 +64,8 @@ class DescribeChannelsResponseBody extends Model
                 $res['Records'] = [];
                 $n1 = 0;
                 foreach ($this->records as $item1) {
-                    $res['Records'][$n1++] = $item1;
+                    $res['Records'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class DescribeChannelsResponseBody extends Model
                 $model->records = [];
                 $n1 = 0;
                 foreach ($map['Records'] as $item1) {
-                    $model->records[$n1++] = $item1;
+                    $model->records[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

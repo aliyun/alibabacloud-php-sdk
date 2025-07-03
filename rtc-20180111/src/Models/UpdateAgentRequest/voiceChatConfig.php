@@ -1,0 +1,62 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentRequest;
+
+use AlibabaCloud\Dara\Model;
+
+class voiceChatConfig extends Model
+{
+    /**
+     * @var int
+     */
+    public $chatMode;
+
+    /**
+     * @var int
+     */
+    public $interruptMode;
+    protected $_name = [
+        'chatMode' => 'ChatMode',
+        'interruptMode' => 'InterruptMode',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->chatMode) {
+            $res['ChatMode'] = $this->chatMode;
+        }
+
+        if (null !== $this->interruptMode) {
+            $res['InterruptMode'] = $this->interruptMode;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ChatMode'])) {
+            $model->chatMode = $map['ChatMode'];
+        }
+
+        if (isset($map['InterruptMode'])) {
+            $model->interruptMode = $map['InterruptMode'];
+        }
+
+        return $model;
+    }
+}

@@ -39,7 +39,8 @@ class DescribeChannelAreaDistributionStatDataResponseBody extends Model
                 $res['AreaStatList'] = [];
                 $n1 = 0;
                 foreach ($this->areaStatList as $item1) {
-                    $res['AreaStatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AreaStatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeChannelAreaDistributionStatDataResponseBody extends Model
                 $model->areaStatList = [];
                 $n1 = 0;
                 foreach ($map['AreaStatList'] as $item1) {
-                    $model->areaStatList[$n1++] = areaStatList::fromMap($item1);
+                    $model->areaStatList[$n1] = areaStatList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

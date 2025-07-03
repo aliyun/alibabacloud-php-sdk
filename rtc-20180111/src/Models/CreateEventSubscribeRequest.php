@@ -99,7 +99,8 @@ class CreateEventSubscribeRequest extends Model
                 $res['Events'] = [];
                 $n1 = 0;
                 foreach ($this->events as $item1) {
-                    $res['Events'][$n1++] = $item1;
+                    $res['Events'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class CreateEventSubscribeRequest extends Model
                 $res['Users'] = [];
                 $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = $item1;
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +160,8 @@ class CreateEventSubscribeRequest extends Model
                 $model->events = [];
                 $n1 = 0;
                 foreach ($map['Events'] as $item1) {
-                    $model->events[$n1++] = $item1;
+                    $model->events[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class CreateEventSubscribeRequest extends Model
                 $model->users = [];
                 $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = $item1;
+                    $model->users[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

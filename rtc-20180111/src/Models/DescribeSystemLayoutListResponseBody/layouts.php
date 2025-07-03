@@ -33,7 +33,8 @@ class layouts extends Model
                 $res['Layout'] = [];
                 $n1 = 0;
                 foreach ($this->layout as $item1) {
-                    $res['Layout'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Layout'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class layouts extends Model
                 $model->layout = [];
                 $n1 = 0;
                 foreach ($map['Layout'] as $item1) {
-                    $model->layout[$n1++] = layout::fromMap($item1);
+                    $model->layout[$n1] = layout::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

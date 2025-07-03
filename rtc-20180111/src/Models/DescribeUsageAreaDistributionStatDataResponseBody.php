@@ -43,7 +43,8 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
                 $res['UsageAreaStatList'] = [];
                 $n1 = 0;
                 foreach ($this->usageAreaStatList as $item1) {
-                    $res['UsageAreaStatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UsageAreaStatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
                 $model->usageAreaStatList = [];
                 $n1 = 0;
                 foreach ($map['UsageAreaStatList'] as $item1) {
-                    $model->usageAreaStatList[$n1++] = usageAreaStatList::fromMap($item1);
+                    $model->usageAreaStatList[$n1] = usageAreaStatList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

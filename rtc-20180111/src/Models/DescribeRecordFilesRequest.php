@@ -102,7 +102,8 @@ class DescribeRecordFilesRequest extends Model
                 $res['TaskIds'] = [];
                 $n1 = 0;
                 foreach ($this->taskIds as $item1) {
-                    $res['TaskIds'][$n1++] = $item1;
+                    $res['TaskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class DescribeRecordFilesRequest extends Model
                 $model->taskIds = [];
                 $n1 = 0;
                 foreach ($map['TaskIds'] as $item1) {
-                    $model->taskIds[$n1++] = $item1;
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

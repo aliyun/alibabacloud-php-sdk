@@ -57,7 +57,8 @@ class DescribeCallResponseBody extends Model
                 $res['UserDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->userDetailList as $item1) {
-                    $res['UserDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +87,8 @@ class DescribeCallResponseBody extends Model
                 $model->userDetailList = [];
                 $n1 = 0;
                 foreach ($map['UserDetailList'] as $item1) {
-                    $model->userDetailList[$n1++] = userDetailList::fromMap($item1);
+                    $model->userDetailList[$n1] = userDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

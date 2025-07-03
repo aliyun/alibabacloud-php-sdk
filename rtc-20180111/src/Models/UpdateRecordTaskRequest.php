@@ -165,7 +165,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['LayoutIds'] = [];
                 $n1 = 0;
                 foreach ($this->layoutIds as $item1) {
-                    $res['LayoutIds'][$n1++] = $item1;
+                    $res['LayoutIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +184,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['SubSpecAudioUsers'] = [];
                 $n1 = 0;
                 foreach ($this->subSpecAudioUsers as $item1) {
-                    $res['SubSpecAudioUsers'][$n1++] = $item1;
+                    $res['SubSpecAudioUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +195,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['SubSpecCameraUsers'] = [];
                 $n1 = 0;
                 foreach ($this->subSpecCameraUsers as $item1) {
-                    $res['SubSpecCameraUsers'][$n1++] = $item1;
+                    $res['SubSpecCameraUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +206,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['SubSpecShareScreenUsers'] = [];
                 $n1 = 0;
                 foreach ($this->subSpecShareScreenUsers as $item1) {
-                    $res['SubSpecShareScreenUsers'][$n1++] = $item1;
+                    $res['SubSpecShareScreenUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +217,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['SubSpecUsers'] = [];
                 $n1 = 0;
                 foreach ($this->subSpecUsers as $item1) {
-                    $res['SubSpecUsers'][$n1++] = $item1;
+                    $res['SubSpecUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +240,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['UnsubSpecAudioUsers'] = [];
                 $n1 = 0;
                 foreach ($this->unsubSpecAudioUsers as $item1) {
-                    $res['UnsubSpecAudioUsers'][$n1++] = $item1;
+                    $res['UnsubSpecAudioUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +251,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['UnsubSpecCameraUsers'] = [];
                 $n1 = 0;
                 foreach ($this->unsubSpecCameraUsers as $item1) {
-                    $res['UnsubSpecCameraUsers'][$n1++] = $item1;
+                    $res['UnsubSpecCameraUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +262,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['UnsubSpecShareScreenUsers'] = [];
                 $n1 = 0;
                 foreach ($this->unsubSpecShareScreenUsers as $item1) {
-                    $res['UnsubSpecShareScreenUsers'][$n1++] = $item1;
+                    $res['UnsubSpecShareScreenUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +273,8 @@ class UpdateRecordTaskRequest extends Model
                 $res['UserPanes'] = [];
                 $n1 = 0;
                 foreach ($this->userPanes as $item1) {
-                    $res['UserPanes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserPanes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -298,7 +307,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->layoutIds = [];
                 $n1 = 0;
                 foreach ($map['LayoutIds'] as $item1) {
-                    $model->layoutIds[$n1++] = $item1;
+                    $model->layoutIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -316,7 +326,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->subSpecAudioUsers = [];
                 $n1 = 0;
                 foreach ($map['SubSpecAudioUsers'] as $item1) {
-                    $model->subSpecAudioUsers[$n1++] = $item1;
+                    $model->subSpecAudioUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -326,7 +337,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->subSpecCameraUsers = [];
                 $n1 = 0;
                 foreach ($map['SubSpecCameraUsers'] as $item1) {
-                    $model->subSpecCameraUsers[$n1++] = $item1;
+                    $model->subSpecCameraUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +348,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->subSpecShareScreenUsers = [];
                 $n1 = 0;
                 foreach ($map['SubSpecShareScreenUsers'] as $item1) {
-                    $model->subSpecShareScreenUsers[$n1++] = $item1;
+                    $model->subSpecShareScreenUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -346,7 +359,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->subSpecUsers = [];
                 $n1 = 0;
                 foreach ($map['SubSpecUsers'] as $item1) {
-                    $model->subSpecUsers[$n1++] = $item1;
+                    $model->subSpecUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -368,7 +382,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->unsubSpecAudioUsers = [];
                 $n1 = 0;
                 foreach ($map['UnsubSpecAudioUsers'] as $item1) {
-                    $model->unsubSpecAudioUsers[$n1++] = $item1;
+                    $model->unsubSpecAudioUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +393,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->unsubSpecCameraUsers = [];
                 $n1 = 0;
                 foreach ($map['UnsubSpecCameraUsers'] as $item1) {
-                    $model->unsubSpecCameraUsers[$n1++] = $item1;
+                    $model->unsubSpecCameraUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -388,7 +404,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->unsubSpecShareScreenUsers = [];
                 $n1 = 0;
                 foreach ($map['UnsubSpecShareScreenUsers'] as $item1) {
-                    $model->unsubSpecShareScreenUsers[$n1++] = $item1;
+                    $model->unsubSpecShareScreenUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -398,7 +415,8 @@ class UpdateRecordTaskRequest extends Model
                 $model->userPanes = [];
                 $n1 = 0;
                 foreach ($map['UserPanes'] as $item1) {
-                    $model->userPanes[$n1++] = userPanes::fromMap($item1);
+                    $model->userPanes[$n1] = userPanes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

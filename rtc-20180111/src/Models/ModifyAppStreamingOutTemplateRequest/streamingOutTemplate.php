@@ -50,7 +50,8 @@ class streamingOutTemplate extends Model
                 $res['LayoutIds'] = [];
                 $n1 = 0;
                 foreach ($this->layoutIds as $item1) {
-                    $res['LayoutIds'][$n1++] = $item1;
+                    $res['LayoutIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class streamingOutTemplate extends Model
                 $model->layoutIds = [];
                 $n1 = 0;
                 foreach ($map['LayoutIds'] as $item1) {
-                    $model->layoutIds[$n1++] = $item1;
+                    $model->layoutIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

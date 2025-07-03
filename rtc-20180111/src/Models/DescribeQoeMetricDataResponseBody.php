@@ -49,7 +49,8 @@ class DescribeQoeMetricDataResponseBody extends Model
                 $res['AudioData'] = [];
                 $n1 = 0;
                 foreach ($this->audioData as $item1) {
-                    $res['AudioData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeQoeMetricDataResponseBody extends Model
                 $res['VideoData'] = [];
                 $n1 = 0;
                 foreach ($this->videoData as $item1) {
-                    $res['VideoData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class DescribeQoeMetricDataResponseBody extends Model
                 $model->audioData = [];
                 $n1 = 0;
                 foreach ($map['AudioData'] as $item1) {
-                    $model->audioData[$n1++] = audioData::fromMap($item1);
+                    $model->audioData[$n1] = audioData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class DescribeQoeMetricDataResponseBody extends Model
                 $model->videoData = [];
                 $n1 = 0;
                 foreach ($map['VideoData'] as $item1) {
-                    $model->videoData[$n1++] = videoData::fromMap($item1);
+                    $model->videoData[$n1] = videoData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

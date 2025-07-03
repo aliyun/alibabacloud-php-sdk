@@ -33,7 +33,8 @@ class terminals extends Model
                 $res['Terminal'] = [];
                 $n1 = 0;
                 foreach ($this->terminal as $item1) {
-                    $res['Terminal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Terminal'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class terminals extends Model
                 $model->terminal = [];
                 $n1 = 0;
                 foreach ($map['Terminal'] as $item1) {
-                    $model->terminal[$n1++] = terminal::fromMap($item1);
+                    $model->terminal[$n1] = terminal::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -52,7 +52,8 @@ class callback extends Model
                 $res['SubEvent'] = [];
                 $n1 = 0;
                 foreach ($this->subEvent as $item1) {
-                    $res['SubEvent'][$n1++] = $item1;
+                    $res['SubEvent'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class callback extends Model
                 $model->subEvent = [];
                 $n1 = 0;
                 foreach ($map['SubEvent'] as $item1) {
-                    $model->subEvent[$n1++] = $item1;
+                    $model->subEvent[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

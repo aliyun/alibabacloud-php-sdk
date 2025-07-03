@@ -49,7 +49,8 @@ class DescribeEndPointMetricDataResponseBody extends Model
                 $res['PubMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->pubMetrics as $item1) {
-                    $res['PubMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PubMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeEndPointMetricDataResponseBody extends Model
                 $res['SubMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->subMetrics as $item1) {
-                    $res['SubMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class DescribeEndPointMetricDataResponseBody extends Model
                 $model->pubMetrics = [];
                 $n1 = 0;
                 foreach ($map['PubMetrics'] as $item1) {
-                    $model->pubMetrics[$n1++] = pubMetrics::fromMap($item1);
+                    $model->pubMetrics[$n1] = pubMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class DescribeEndPointMetricDataResponseBody extends Model
                 $model->subMetrics = [];
                 $n1 = 0;
                 foreach ($map['SubMetrics'] as $item1) {
-                    $model->subMetrics[$n1++] = subMetrics::fromMap($item1);
+                    $model->subMetrics[$n1] = subMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class DescribeRecordFilesResponseBody extends Model
                 $res['RecordFiles'] = [];
                 $n1 = 0;
                 foreach ($this->recordFiles as $item1) {
-                    $res['RecordFiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecordFiles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeRecordFilesResponseBody extends Model
                 $model->recordFiles = [];
                 $n1 = 0;
                 foreach ($map['RecordFiles'] as $item1) {
-                    $model->recordFiles[$n1++] = recordFiles::fromMap($item1);
+                    $model->recordFiles[$n1] = recordFiles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
