@@ -32,7 +32,8 @@ class data extends Model
                 $res['KeyIds'] = [];
                 $n1 = 0;
                 foreach ($this->keyIds as $item1) {
-                    $res['KeyIds'][$n1++] = $item1;
+                    $res['KeyIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class data extends Model
                 $model->keyIds = [];
                 $n1 = 0;
                 foreach ($map['KeyIds'] as $item1) {
-                    $model->keyIds[$n1++] = $item1;
+                    $model->keyIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

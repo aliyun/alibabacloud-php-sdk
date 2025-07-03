@@ -57,7 +57,8 @@ class DescribeBinaryLogListResponseBody extends Model
                 $res['LogList'] = [];
                 $n1 = 0;
                 foreach ($this->logList as $item1) {
-                    $res['LogList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeBinaryLogListResponseBody extends Model
                 $model->logList = [];
                 $n1 = 0;
                 foreach ($map['LogList'] as $item1) {
-                    $model->logList[$n1++] = logList::fromMap($item1);
+                    $model->logList[$n1] = logList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

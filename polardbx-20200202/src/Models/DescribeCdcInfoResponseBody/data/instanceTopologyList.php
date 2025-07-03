@@ -89,7 +89,8 @@ class instanceTopologyList extends Model
                 $res['PhysicalNodes'] = [];
                 $n1 = 0;
                 foreach ($this->physicalNodes as $item1) {
-                    $res['PhysicalNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PhysicalNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class instanceTopologyList extends Model
                 $model->physicalNodes = [];
                 $n1 = 0;
                 foreach ($map['PhysicalNodes'] as $item1) {
-                    $model->physicalNodes[$n1++] = physicalNodes::fromMap($item1);
+                    $model->physicalNodes[$n1] = physicalNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

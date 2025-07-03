@@ -207,7 +207,8 @@ class items extends Model
                 $res['AzoneRoleList'] = [];
                 $n1 = 0;
                 foreach ($this->azoneRoleList as $item1) {
-                    $res['AzoneRoleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AzoneRoleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +222,8 @@ class items extends Model
                 $res['ConnectionIp'] = [];
                 $n1 = 0;
                 foreach ($this->connectionIp as $item1) {
-                    $res['ConnectionIp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConnectionIp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -342,7 +344,8 @@ class items extends Model
                 $model->azoneRoleList = [];
                 $n1 = 0;
                 foreach ($map['AzoneRoleList'] as $item1) {
-                    $model->azoneRoleList[$n1++] = azoneRoleList::fromMap($item1);
+                    $model->azoneRoleList[$n1] = azoneRoleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -356,7 +359,8 @@ class items extends Model
                 $model->connectionIp = [];
                 $n1 = 0;
                 foreach ($map['ConnectionIp'] as $item1) {
-                    $model->connectionIp[$n1++] = connectionIp::fromMap($item1);
+                    $model->connectionIp[$n1] = connectionIp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

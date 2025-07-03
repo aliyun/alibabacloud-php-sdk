@@ -51,7 +51,8 @@ class data extends Model
                 $res['GdnInstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->gdnInstanceList as $item1) {
-                    $res['GdnInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GdnInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->gdnInstanceList = [];
                 $n1 = 0;
                 foreach ($map['GdnInstanceList'] as $item1) {
-                    $model->gdnInstanceList[$n1++] = gdnInstanceList::fromMap($item1);
+                    $model->gdnInstanceList[$n1] = gdnInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

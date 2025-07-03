@@ -61,7 +61,8 @@ class data extends Model
                 $res['ConfigParameters'] = [];
                 $n1 = 0;
                 foreach ($this->configParameters as $item1) {
-                    $res['ConfigParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class data extends Model
                 $res['RunningParameters'] = [];
                 $n1 = 0;
                 foreach ($this->runningParameters as $item1) {
-                    $res['RunningParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RunningParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class data extends Model
                 $model->configParameters = [];
                 $n1 = 0;
                 foreach ($map['ConfigParameters'] as $item1) {
-                    $model->configParameters[$n1++] = configParameters::fromMap($item1);
+                    $model->configParameters[$n1] = configParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class data extends Model
                 $model->runningParameters = [];
                 $n1 = 0;
                 foreach ($map['RunningParameters'] as $item1) {
-                    $model->runningParameters[$n1++] = runningParameters::fromMap($item1);
+                    $model->runningParameters[$n1] = runningParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

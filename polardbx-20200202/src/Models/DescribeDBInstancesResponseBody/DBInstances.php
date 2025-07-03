@@ -186,6 +186,11 @@ class DBInstances extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @var int
      */
     public $storageUsed;
@@ -270,6 +275,7 @@ class DBInstances extends Model
         'secondaryZone' => 'SecondaryZone',
         'series' => 'Series',
         'status' => 'Status',
+        'storageType' => 'StorageType',
         'storageUsed' => 'StorageUsed',
         'supportBinlogX' => 'SupportBinlogX',
         'tagSet' => 'TagSet',
@@ -323,7 +329,8 @@ class DBInstances extends Model
                 $res['ColumnarReadDBInstances'] = [];
                 $n1 = 0;
                 foreach ($this->columnarReadDBInstances as $item1) {
-                    $res['ColumnarReadDBInstances'][$n1++] = $item1;
+                    $res['ColumnarReadDBInstances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -413,7 +420,8 @@ class DBInstances extends Model
                 $res['Nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -435,7 +443,8 @@ class DBInstances extends Model
                 $res['ReadDBInstances'] = [];
                 $n1 = 0;
                 foreach ($this->readDBInstances as $item1) {
-                    $res['ReadDBInstances'][$n1++] = $item1;
+                    $res['ReadDBInstances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -460,6 +469,10 @@ class DBInstances extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
+
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
         }
@@ -473,7 +486,8 @@ class DBInstances extends Model
                 $res['TagSet'] = [];
                 $n1 = 0;
                 foreach ($this->tagSet as $item1) {
-                    $res['TagSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -538,7 +552,8 @@ class DBInstances extends Model
                 $model->columnarReadDBInstances = [];
                 $n1 = 0;
                 foreach ($map['ColumnarReadDBInstances'] as $item1) {
-                    $model->columnarReadDBInstances[$n1++] = $item1;
+                    $model->columnarReadDBInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -628,7 +643,8 @@ class DBInstances extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = nodes::fromMap($item1);
+                    $model->nodes[$n1] = nodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -650,7 +666,8 @@ class DBInstances extends Model
                 $model->readDBInstances = [];
                 $n1 = 0;
                 foreach ($map['ReadDBInstances'] as $item1) {
-                    $model->readDBInstances[$n1++] = $item1;
+                    $model->readDBInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -675,6 +692,10 @@ class DBInstances extends Model
             $model->status = $map['Status'];
         }
 
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
+        }
+
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];
         }
@@ -688,7 +709,8 @@ class DBInstances extends Model
                 $model->tagSet = [];
                 $n1 = 0;
                 foreach ($map['TagSet'] as $item1) {
-                    $model->tagSet[$n1++] = tagSet::fromMap($item1);
+                    $model->tagSet[$n1] = tagSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

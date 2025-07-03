@@ -38,7 +38,8 @@ class data extends Model
                 $res['CharacterSet'] = [];
                 $n1 = 0;
                 foreach ($this->characterSet as $item1) {
-                    $res['CharacterSet'][$n1++] = $item1;
+                    $res['CharacterSet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class data extends Model
                 $model->characterSet = [];
                 $n1 = 0;
                 foreach ($map['CharacterSet'] as $item1) {
-                    $model->characterSet[$n1++] = $item1;
+                    $model->characterSet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

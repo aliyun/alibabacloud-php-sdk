@@ -292,11 +292,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AlignStoragePrimaryAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AlignStoragePrimaryAzoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return AlignStoragePrimaryAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -354,11 +351,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateColdDataVolumeResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -440,11 +434,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,11 +485,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -566,11 +554,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -632,11 +617,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckCloudResourceAuthorizedResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -720,11 +702,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -784,11 +763,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBackupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -880,11 +856,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1052,11 +1025,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1126,11 +1096,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSuperAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSuperAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSuperAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1198,11 +1165,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1262,11 +1226,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1322,11 +1283,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1390,11 +1348,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1448,11 +1403,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationMaintainConfResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1504,11 +1456,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTaskCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1560,11 +1509,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1644,11 +1590,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeArchiveTableListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeArchiveTableListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeArchiveTableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1706,11 +1649,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1776,11 +1716,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1830,11 +1767,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupSetListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupSetListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupSetListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1910,11 +1844,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBinaryLogListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBinaryLogListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBinaryLogListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1972,11 +1903,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCdcInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCdcInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCdcInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2034,11 +1962,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCharacterSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCharacterSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCharacterSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2088,11 +2013,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeColdDataBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeColdDataBasicInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeColdDataBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2114,6 +2036,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 获取实例详情.
+     *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2154,14 +2078,13 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取实例详情.
+     *
      * @param request - DescribeDBInstanceAttributeRequest
      *
      * @returns DescribeDBInstanceAttributeResponse
@@ -2178,6 +2101,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询实例配置信息.
+     *
      * @param request - DescribeDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2218,14 +2143,13 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询实例配置信息.
+     *
      * @param request - DescribeDBInstanceConfigRequest
      *
      * @returns DescribeDBInstanceConfigResponse
@@ -2242,6 +2166,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询实例的HA信息.
+     *
      * @param request - DescribeDBInstanceHARequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2278,14 +2204,13 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceHAResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询实例的HA信息.
+     *
      * @param request - DescribeDBInstanceHARequest
      *
      * @returns DescribeDBInstanceHAResponse
@@ -2338,11 +2263,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2398,11 +2320,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceTDEResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2422,6 +2341,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询实例拓扑.
+     *
      * @param request - DescribeDBInstanceTopologyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2470,14 +2391,13 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceTopologyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询实例拓扑.
+     *
      * @param request - DescribeDBInstanceTopologyRequest
      *
      * @returns DescribeDBInstanceTopologyResponse
@@ -2532,11 +2452,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceViaEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceViaEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceViaEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2558,6 +2475,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 获取PolarDB-X实例列表.
+     *
      * @param request - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2622,14 +2541,13 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取PolarDB-X实例列表.
+     *
      * @param request - DescribeDBInstancesRequest
      *
      * @returns DescribeDBInstancesResponse
@@ -2708,11 +2626,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBNodePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBNodePerformanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBNodePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2774,11 +2689,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDbListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDbListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDbListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2838,11 +2750,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDistributeTableListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDistributeTableListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDistributeTableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2892,11 +2801,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2972,11 +2878,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGdnInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGdnInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGdnInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3040,11 +2943,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOpenBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOpenBackupSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOpenBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3110,11 +3010,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3174,11 +3071,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3221,11 +3115,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3293,11 +3184,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeScaleOutMigrateTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScaleOutMigrateTaskListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScaleOutMigrateTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3353,11 +3241,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3443,11 +3328,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3511,11 +3393,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3605,11 +3484,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3665,11 +3541,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserEncryptionKeyListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3733,11 +3606,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableRightsSeparationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3819,11 +3689,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableRightsSeparationResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3895,11 +3762,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3965,11 +3829,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4045,11 +3906,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountPrivilegeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4099,11 +3957,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyActiveOperationMaintainConfResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4171,11 +4026,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4269,11 +4121,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceClassResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4339,11 +4188,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4415,11 +4261,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceConnectionStringResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4481,11 +4324,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4549,11 +4389,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDatabaseDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4625,11 +4462,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyParameterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4697,11 +4531,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4759,11 +4590,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseColdDataVolumeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4825,11 +4653,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4901,11 +4726,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4961,11 +4783,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5037,11 +4856,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchDBInstanceHAResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5107,11 +4923,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchGdnMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchGdnMemberRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchGdnMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5179,11 +4992,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5255,11 +5065,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5389,11 +5196,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5457,11 +5261,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDBInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5529,11 +5330,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDBInstanceTDEResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5619,11 +5417,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdatePolarDBXInstanceNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePolarDBXInstanceNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePolarDBXInstanceNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5689,11 +5484,8 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

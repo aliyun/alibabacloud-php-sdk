@@ -305,7 +305,8 @@ class DBInstance extends Model
                 $res['ConnAddrs'] = [];
                 $n1 = 0;
                 foreach ($this->connAddrs as $item1) {
-                    $res['ConnAddrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConnAddrs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -335,7 +336,8 @@ class DBInstance extends Model
                 $res['DBNodes'] = [];
                 $n1 = 0;
                 foreach ($this->DBNodes as $item1) {
-                    $res['DBNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -385,7 +387,8 @@ class DBInstance extends Model
                 $res['LTSVersions'] = [];
                 $n1 = 0;
                 foreach ($this->LTSVersions as $item1) {
-                    $res['LTSVersions'][$n1++] = $item1;
+                    $res['LTSVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -427,7 +430,8 @@ class DBInstance extends Model
                 $res['ReadDBInstances'] = [];
                 $n1 = 0;
                 foreach ($this->readDBInstances as $item1) {
-                    $res['ReadDBInstances'][$n1++] = $item1;
+                    $res['ReadDBInstances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -465,7 +469,8 @@ class DBInstance extends Model
                 $res['TagSet'] = [];
                 $n1 = 0;
                 foreach ($this->tagSet as $item1) {
-                    $res['TagSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -514,7 +519,8 @@ class DBInstance extends Model
                 $model->connAddrs = [];
                 $n1 = 0;
                 foreach ($map['ConnAddrs'] as $item1) {
-                    $model->connAddrs[$n1++] = connAddrs::fromMap($item1);
+                    $model->connAddrs[$n1] = connAddrs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -544,7 +550,8 @@ class DBInstance extends Model
                 $model->DBNodes = [];
                 $n1 = 0;
                 foreach ($map['DBNodes'] as $item1) {
-                    $model->DBNodes[$n1++] = DBNodes::fromMap($item1);
+                    $model->DBNodes[$n1] = DBNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -594,7 +601,8 @@ class DBInstance extends Model
                 $model->LTSVersions = [];
                 $n1 = 0;
                 foreach ($map['LTSVersions'] as $item1) {
-                    $model->LTSVersions[$n1++] = $item1;
+                    $model->LTSVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -636,7 +644,8 @@ class DBInstance extends Model
                 $model->readDBInstances = [];
                 $n1 = 0;
                 foreach ($map['ReadDBInstances'] as $item1) {
-                    $model->readDBInstances[$n1++] = $item1;
+                    $model->readDBInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -674,7 +683,8 @@ class DBInstance extends Model
                 $model->tagSet = [];
                 $n1 = 0;
                 foreach ($map['TagSet'] as $item1) {
-                    $model->tagSet[$n1++] = tagSet::fromMap($item1);
+                    $model->tagSet[$n1] = tagSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

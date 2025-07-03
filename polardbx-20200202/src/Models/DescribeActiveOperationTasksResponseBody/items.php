@@ -276,7 +276,8 @@ class items extends Model
                 $res['SubInsNames'] = [];
                 $n1 = 0;
                 foreach ($this->subInsNames as $item1) {
-                    $res['SubInsNames'][$n1++] = $item1;
+                    $res['SubInsNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -401,7 +402,8 @@ class items extends Model
                 $model->subInsNames = [];
                 $n1 = 0;
                 foreach ($map['SubInsNames'] as $item1) {
-                    $model->subInsNames[$n1++] = $item1;
+                    $model->subInsNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -95,7 +95,8 @@ class data extends Model
                 $res['InstanceTopologyList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTopologyList as $item1) {
-                    $res['InstanceTopologyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceTopologyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +145,8 @@ class data extends Model
                 $model->instanceTopologyList = [];
                 $n1 = 0;
                 foreach ($map['InstanceTopologyList'] as $item1) {
-                    $model->instanceTopologyList[$n1++] = instanceTopologyList::fromMap($item1);
+                    $model->instanceTopologyList[$n1] = instanceTopologyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

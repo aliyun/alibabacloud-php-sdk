@@ -99,7 +99,8 @@ class data extends Model
                 $res['OSSList'] = [];
                 $n1 = 0;
                 foreach ($this->OSSList as $item1) {
-                    $res['OSSList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OSSList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class data extends Model
                 $model->OSSList = [];
                 $n1 = 0;
                 foreach ($map['OSSList'] as $item1) {
-                    $model->OSSList[$n1++] = OSSList::fromMap($item1);
+                    $model->OSSList[$n1] = OSSList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

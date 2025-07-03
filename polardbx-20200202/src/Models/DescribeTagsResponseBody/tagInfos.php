@@ -44,7 +44,8 @@ class tagInfos extends Model
                 $res['DBInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceIds as $item1) {
-                    $res['DBInstanceIds'][$n1++] = $item1;
+                    $res['DBInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class tagInfos extends Model
                 $model->DBInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceIds'] as $item1) {
-                    $model->DBInstanceIds[$n1++] = $item1;
+                    $model->DBInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
