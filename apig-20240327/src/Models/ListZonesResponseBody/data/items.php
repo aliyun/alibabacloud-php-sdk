@@ -11,8 +11,14 @@ class items extends Model
     /**
      * @var string
      */
+    public $supportQat;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
+        'supportQat' => 'supportQat',
         'zoneId' => 'zoneId',
     ];
 
@@ -24,6 +30,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->supportQat) {
+            $res['supportQat'] = $this->supportQat;
+        }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -39,6 +49,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['supportQat'])) {
+            $model->supportQat = $map['supportQat'];
+        }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }
