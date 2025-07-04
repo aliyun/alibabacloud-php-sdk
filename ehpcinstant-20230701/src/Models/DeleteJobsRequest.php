@@ -15,11 +15,17 @@ class DeleteJobsRequest extends Model
     public $executorIds;
 
     /**
+     * @var string
+     */
+    public $jobScheduler;
+
+    /**
      * @var jobSpec[]
      */
     public $jobSpec;
     protected $_name = [
         'executorIds' => 'ExecutorIds',
+        'jobScheduler' => 'JobScheduler',
         'jobSpec' => 'JobSpec',
     ];
 
@@ -46,6 +52,10 @@ class DeleteJobsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->jobScheduler) {
+            $res['JobScheduler'] = $this->jobScheduler;
         }
 
         if (null !== $this->jobSpec) {
@@ -79,6 +89,10 @@ class DeleteJobsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['JobScheduler'])) {
+            $model->jobScheduler = $map['JobScheduler'];
         }
 
         if (isset($map['JobSpec'])) {

@@ -16,9 +16,15 @@ class DeleteJobsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $jobScheduler;
+
+    /**
+     * @var string
+     */
     public $jobSpecShrink;
     protected $_name = [
         'executorIdsShrink' => 'ExecutorIds',
+        'jobScheduler' => 'JobScheduler',
         'jobSpecShrink' => 'JobSpec',
     ];
 
@@ -32,6 +38,10 @@ class DeleteJobsShrinkRequest extends Model
         $res = [];
         if (null !== $this->executorIdsShrink) {
             $res['ExecutorIds'] = $this->executorIdsShrink;
+        }
+
+        if (null !== $this->jobScheduler) {
+            $res['JobScheduler'] = $this->jobScheduler;
         }
 
         if (null !== $this->jobSpecShrink) {
@@ -51,6 +61,10 @@ class DeleteJobsShrinkRequest extends Model
         $model = new self();
         if (isset($map['ExecutorIds'])) {
             $model->executorIdsShrink = $map['ExecutorIds'];
+        }
+
+        if (isset($map['JobScheduler'])) {
+            $model->jobScheduler = $map['JobScheduler'];
         }
 
         if (isset($map['JobSpec'])) {

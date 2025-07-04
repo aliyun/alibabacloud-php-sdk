@@ -378,6 +378,10 @@ class EhpcInstant extends OpenApiClient
             @$query['ExecutorIds'] = $request->executorIdsShrink;
         }
 
+        if (null !== $request->jobScheduler) {
+            @$query['JobScheduler'] = $request->jobScheduler;
+        }
+
         if (null !== $request->jobSpecShrink) {
             @$query['JobSpec'] = $request->jobSpecShrink;
         }
