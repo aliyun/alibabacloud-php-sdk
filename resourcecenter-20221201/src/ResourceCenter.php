@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountDeliveryChan
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceCenterServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceConfigurationRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceConfigurationResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceCountsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceCountsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCenterServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationResponse;
@@ -186,7 +188,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 创建投递渠道.
+     * Creates a single-account delivery channel.
+     *
+     * @remarks
+     * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
+     * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
      *
      * @param request - CreateDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -241,7 +249,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 创建投递渠道.
+     * Creates a single-account delivery channel.
+     *
+     * @remarks
+     * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
+     * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
      *
      * @param request - CreateDeliveryChannelRequest
      *
@@ -320,7 +334,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 创建多账号投递渠道.
+     * Creates a multi-account delivery channel.
+     *
+     * @remarks
+     * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+     * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
      *
      * @param request - CreateMultiAccountDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -375,7 +395,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 创建多账号投递渠道.
+     * Creates a multi-account delivery channel.
+     *
+     * @remarks
+     * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+     * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
      *
      * @param request - CreateMultiAccountDeliveryChannelRequest
      *
@@ -458,7 +484,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 删除投递渠道.
+     * Deletes a single-account delivery channel.
      *
      * @param request - DeleteDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -497,7 +523,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 删除投递渠道.
+     * Deletes a single-account delivery channel.
      *
      * @param request - DeleteDeliveryChannelRequest
      *
@@ -572,7 +598,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 删除多账号投递渠道.
+     * Deletes a multi-account delivery channel.
      *
      * @param request - DeleteMultiAccountDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -611,7 +637,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 删除多账号投递渠道.
+     * Deletes a multi-account delivery channel.
      *
      * @param request - DeleteMultiAccountDeliveryChannelRequest
      *
@@ -1050,7 +1076,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询投递渠道.
+     * Queries the information about a single-account delivery channel.
      *
      * @param request - GetDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +1115,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询投递渠道.
+     * Queries the information about a single-account delivery channel.
      *
      * @param request - GetDeliveryChannelRequest
      *
@@ -1107,7 +1133,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询投递渠道统计信息.
+     * Queries the statistics on a single-account delivery channel.
      *
      * @param request - GetDeliveryChannelStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1146,7 +1172,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询投递渠道统计信息.
+     * Queries the statistics on a single-account delivery channel.
      *
      * @param request - GetDeliveryChannelStatisticsRequest
      *
@@ -1221,7 +1247,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询多账号投递渠道.
+     * Queries the information about a multi-account delivery channel.
      *
      * @param request - GetMultiAccountDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1260,7 +1286,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询多账号投递渠道.
+     * Queries the information about a multi-account delivery channel.
      *
      * @param request - GetMultiAccountDeliveryChannelRequest
      *
@@ -1278,7 +1304,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询多账号投递渠道统计信息.
+     * Queries the statistics on a multi-account delivery channel.
      *
      * @param request - GetMultiAccountDeliveryChannelStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1317,7 +1343,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 查询多账号投递渠道统计信息.
+     * Queries the statistics on a multi-account delivery channel.
      *
      * @param request - GetMultiAccountDeliveryChannelStatisticsRequest
      *
@@ -1445,6 +1471,71 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMultiAccountResourceConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取多账号资源数量.
+     *
+     * @param request - GetMultiAccountResourceCountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMultiAccountResourceCountsResponse
+     *
+     * @param GetMultiAccountResourceCountsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetMultiAccountResourceCountsResponse
+     */
+    public function getMultiAccountResourceCountsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->groupByKey) {
+            @$query['GroupByKey'] = $request->groupByKey;
+        }
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMultiAccountResourceCounts',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMultiAccountResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取多账号资源数量.
+     *
+     * @param request - GetMultiAccountResourceCountsRequest
+     *
+     * @returns GetMultiAccountResourceCountsResponse
+     *
+     * @param GetMultiAccountResourceCountsRequest $request
+     *
+     * @return GetMultiAccountResourceCountsResponse
+     */
+    public function getMultiAccountResourceCounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMultiAccountResourceCountsWithOptions($request, $runtime);
     }
 
     /**
@@ -1675,7 +1766,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 列出投递渠道.
+     * Queries a list of single-account delivery channels.
      *
      * @param request - ListDeliveryChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1718,7 +1809,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 列出投递渠道.
+     * Queries a list of single-account delivery channels.
      *
      * @param request - ListDeliveryChannelsRequest
      *
@@ -1841,7 +1932,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 列出多账号投递渠道.
+     * Queries a list of multi-account delivery channels.
      *
      * @param request - ListMultiAccountDeliveryChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1884,7 +1975,7 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 列出多账号投递渠道.
+     * Queries a list of multi-account delivery channels.
      *
      * @param request - ListMultiAccountDeliveryChannelsRequest
      *
@@ -2747,7 +2838,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 更新投递渠道.
+     * Updates a single-account delivery channel.
+     *
+     * @remarks
+     * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+     * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
      *
      * @param request - UpdateDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2806,7 +2903,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 更新投递渠道.
+     * Updates a single-account delivery channel.
+     *
+     * @remarks
+     * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+     * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
      *
      * @param request - UpdateDeliveryChannelRequest
      *
@@ -2885,7 +2988,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 更新多账号投递渠道.
+     * Updates a multi-account delivery channel.
+     *
+     * @remarks
+     * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+     * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
      *
      * @param request - UpdateMultiAccountDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2944,7 +3053,13 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * 更新多账号投递渠道.
+     * Updates a multi-account delivery channel.
+     *
+     * @remarks
+     * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+     * Scheduled resource snapshots support the following delivery scenarios:
+     * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+     * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
      *
      * @param request - UpdateMultiAccountDeliveryChannelRequest
      *
