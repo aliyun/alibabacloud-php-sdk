@@ -5477,8 +5477,20 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->autoPay) {
+            @$body['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
         if (null !== $request->bizType) {
             @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
         }
 
         $bodyFlat = [];
@@ -5498,8 +5510,20 @@ class Ecd extends OpenApiClient
             @$body['ImageId'] = $request->imageId;
         }
 
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$body['PeriodUnit'] = $request->periodUnit;
+        }
+
         if (null !== $request->policyGroupId) {
             @$body['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->postPaidAfterUsedUp) {
+            @$body['PostPaidAfterUsedUp'] = $request->postPaidAfterUsedUp;
         }
 
         if (null !== $request->productType) {
@@ -5536,6 +5560,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->timerGroupId) {
             @$body['TimerGroupId'] = $request->timerGroupId;
+        }
+
+        if (null !== $request->userDuration) {
+            @$body['UserDuration'] = $request->userDuration;
         }
 
         $body = Dara::merge([
@@ -17609,12 +17637,19 @@ class Ecd extends OpenApiClient
     public function modifyTemplateWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->siteConfigList) {
-            @$query['SiteConfigList'] = $request->siteConfigList;
+        $body = [];
+        if (null !== $request->autoPay) {
+            @$body['AutoPay'] = $request->autoPay;
         }
 
-        $body = [];
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
         if (null !== $request->defaultLanguage) {
             @$body['DefaultLanguage'] = $request->defaultLanguage;
         }
@@ -17627,8 +17662,20 @@ class Ecd extends OpenApiClient
             @$body['ImageId'] = $request->imageId;
         }
 
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$body['PeriodUnit'] = $request->periodUnit;
+        }
+
         if (null !== $request->policyGroupId) {
             @$body['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->postPaidAfterUsedUp) {
+            @$body['PostPaidAfterUsedUp'] = $request->postPaidAfterUsedUp;
         }
 
         $bodyFlat = [];
@@ -17642,6 +17689,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->resourceTagList) {
             @$bodyFlat['ResourceTagList'] = $request->resourceTagList;
+        }
+
+        if (null !== $request->siteConfigList) {
+            @$bodyFlat['SiteConfigList'] = $request->siteConfigList;
         }
 
         if (null !== $request->systemDiskPerformanceLevel) {
@@ -17664,10 +17715,13 @@ class Ecd extends OpenApiClient
             @$body['TimerGroupId'] = $request->timerGroupId;
         }
 
+        if (null !== $request->userDuration) {
+            @$body['UserDuration'] = $request->userDuration;
+        }
+
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -19115,6 +19169,10 @@ class Ecd extends OpenApiClient
         $query = [];
         if (null !== $request->commandContent) {
             @$query['CommandContent'] = $request->commandContent;
+        }
+
+        if (null !== $request->commandRole) {
+            @$query['CommandRole'] = $request->commandRole;
         }
 
         if (null !== $request->contentEncoding) {

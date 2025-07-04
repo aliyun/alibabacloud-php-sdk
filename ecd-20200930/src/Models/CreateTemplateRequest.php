@@ -13,9 +13,24 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest\siteConfigList;
 class CreateTemplateRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @var string
      */
     public $bizType;
+
+    /**
+     * @var string
+     */
+    public $chargeType;
 
     /**
      * @var dataDiskList[]
@@ -38,9 +53,24 @@ class CreateTemplateRequest extends Model
     public $imageId;
 
     /**
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
      * @var string
      */
     public $policyGroupId;
+
+    /**
+     * @var bool
+     */
+    public $postPaidAfterUsedUp;
 
     /**
      * @var string
@@ -86,13 +116,24 @@ class CreateTemplateRequest extends Model
      * @var string
      */
     public $timerGroupId;
+
+    /**
+     * @var int
+     */
+    public $userDuration;
     protected $_name = [
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
         'bizType' => 'BizType',
+        'chargeType' => 'ChargeType',
         'dataDiskList' => 'DataDiskList',
         'defaultLanguage' => 'DefaultLanguage',
         'description' => 'Description',
         'imageId' => 'ImageId',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
+        'postPaidAfterUsedUp' => 'PostPaidAfterUsedUp',
         'productType' => 'ProductType',
         'regionConfigList' => 'RegionConfigList',
         'resourceGroupId' => 'ResourceGroupId',
@@ -102,6 +143,7 @@ class CreateTemplateRequest extends Model
         'systemDiskSize' => 'SystemDiskSize',
         'templateName' => 'TemplateName',
         'timerGroupId' => 'TimerGroupId',
+        'userDuration' => 'UserDuration',
     ];
 
     public function validate()
@@ -124,8 +166,20 @@ class CreateTemplateRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
 
         if (null !== $this->dataDiskList) {
@@ -151,8 +205,20 @@ class CreateTemplateRequest extends Model
             $res['ImageId'] = $this->imageId;
         }
 
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
+
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+
+        if (null !== $this->postPaidAfterUsedUp) {
+            $res['PostPaidAfterUsedUp'] = $this->postPaidAfterUsedUp;
         }
 
         if (null !== $this->productType) {
@@ -212,6 +278,10 @@ class CreateTemplateRequest extends Model
             $res['TimerGroupId'] = $this->timerGroupId;
         }
 
+        if (null !== $this->userDuration) {
+            $res['UserDuration'] = $this->userDuration;
+        }
+
         return $res;
     }
 
@@ -223,8 +293,20 @@ class CreateTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
 
         if (isset($map['DataDiskList'])) {
@@ -250,8 +332,20 @@ class CreateTemplateRequest extends Model
             $model->imageId = $map['ImageId'];
         }
 
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
+        }
+
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+
+        if (isset($map['PostPaidAfterUsedUp'])) {
+            $model->postPaidAfterUsedUp = $map['PostPaidAfterUsedUp'];
         }
 
         if (isset($map['ProductType'])) {
@@ -309,6 +403,10 @@ class CreateTemplateRequest extends Model
 
         if (isset($map['TimerGroupId'])) {
             $model->timerGroupId = $map['TimerGroupId'];
+        }
+
+        if (isset($map['UserDuration'])) {
+            $model->userDuration = $map['UserDuration'];
         }
 
         return $model;

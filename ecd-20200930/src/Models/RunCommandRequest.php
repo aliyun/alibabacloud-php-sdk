@@ -16,6 +16,11 @@ class RunCommandRequest extends Model
     /**
      * @var string
      */
+    public $commandRole;
+
+    /**
+     * @var string
+     */
     public $contentEncoding;
 
     /**
@@ -44,6 +49,7 @@ class RunCommandRequest extends Model
     public $type;
     protected $_name = [
         'commandContent' => 'CommandContent',
+        'commandRole' => 'CommandRole',
         'contentEncoding' => 'ContentEncoding',
         'desktopId' => 'DesktopId',
         'endUserId' => 'EndUserId',
@@ -65,6 +71,10 @@ class RunCommandRequest extends Model
         $res = [];
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
+        }
+
+        if (null !== $this->commandRole) {
+            $res['CommandRole'] = $this->commandRole;
         }
 
         if (null !== $this->contentEncoding) {
@@ -111,6 +121,10 @@ class RunCommandRequest extends Model
         $model = new self();
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
+        }
+
+        if (isset($map['CommandRole'])) {
+            $model->commandRole = $map['CommandRole'];
         }
 
         if (isset($map['ContentEncoding'])) {
