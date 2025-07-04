@@ -4,7 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\BankMetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\BankMetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrRequest;
@@ -43,13 +51,7 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -64,6 +66,51 @@ class Cloudauthintl extends OpenApiClient
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudauth-intl', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -91,9 +138,106 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * 地址核验.
+     *
+     * @param Request - AddressVerifyIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddressVerifyIntlResponse
+     *
+     * @param AddressVerifyIntlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddressVerifyIntlResponse
+     */
+    public function addressVerifyIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
+        }
+
+        if (null !== $request->defaultCity) {
+            @$query['DefaultCity'] = $request->defaultCity;
+        }
+
+        if (null !== $request->defaultCountry) {
+            @$query['DefaultCountry'] = $request->defaultCountry;
+        }
+
+        if (null !== $request->defaultDistrict) {
+            @$query['DefaultDistrict'] = $request->defaultDistrict;
+        }
+
+        if (null !== $request->defaultProvince) {
+            @$query['DefaultProvince'] = $request->defaultProvince;
+        }
+
+        if (null !== $request->latitude) {
+            @$query['Latitude'] = $request->latitude;
+        }
+
+        if (null !== $request->longitude) {
+            @$query['Longitude'] = $request->longitude;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
+        }
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddressVerifyIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddressVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 地址核验.
+     *
+     * @param Request - AddressVerifyIntlRequest
+     *
+     * @returns AddressVerifyIntlResponse
+     *
+     * @param AddressVerifyIntlRequest $request
+     *
+     * @return AddressVerifyIntlResponse
+     */
+    public function addressVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addressVerifyIntlWithOptions($request, $runtime);
+    }
+
+    /**
      * 银行卡核验.
      *
-     * @param request - BankMetaVerifyIntlRequest
+     * @param Request - BankMetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns BankMetaVerifyIntlResponse
@@ -164,7 +308,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 银行卡核验.
      *
-     * @param request - BankMetaVerifyIntlRequest
+     * @param Request - BankMetaVerifyIntlRequest
      *
      * @returns BankMetaVerifyIntlResponse
      *
@@ -185,7 +329,7 @@ class Cloudauthintl extends OpenApiClient
      *
      * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
      *
-     * @param request - CardOcrRequest
+     * @param Request - CardOcrRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CardOcrResponse
@@ -261,7 +405,7 @@ class Cloudauthintl extends OpenApiClient
      *
      * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
      *
-     * @param request - CardOcrRequest
+     * @param Request - CardOcrRequest
      *
      * @returns CardOcrResponse
      *
@@ -279,7 +423,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 结果查询.
      *
-     * @param request - CheckResultRequest
+     * @param Request - CheckResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckResultResponse
@@ -334,7 +478,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 结果查询.
      *
-     * @param request - CheckResultRequest
+     * @param Request - CheckResultRequest
      *
      * @returns CheckResultResponse
      *
@@ -352,7 +496,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 认证日志查询接口.
      *
-     * @param request - CheckVerifyLogRequest
+     * @param Request - CheckVerifyLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckVerifyLogResponse
@@ -395,7 +539,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 认证日志查询接口.
      *
-     * @param request - CheckVerifyLogRequest
+     * @param Request - CheckVerifyLogRequest
      *
      * @returns CheckVerifyLogResponse
      *
@@ -413,7 +557,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 凭证核验.
      *
-     * @param request - CredentialVerifyIntlRequest
+     * @param Request - CredentialVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CredentialVerifyIntlResponse
@@ -470,7 +614,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 凭证核验.
      *
-     * @param request - CredentialVerifyIntlRequest
+     * @param Request - CredentialVerifyIntlRequest
      *
      * @returns CredentialVerifyIntlResponse
      *
@@ -494,12 +638,20 @@ class Cloudauthintl extends OpenApiClient
     public function credentialVerifyIntlAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -516,51 +668,54 @@ class Cloudauthintl extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'Cloudauth-intl',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $credentialVerifyIntlReq = new CredentialVerifyIntlRequest([]);
         Utils::convert($request, $credentialVerifyIntlReq);
         if (null !== $request->imageFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->imageFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $credentialVerifyIntlReq->imageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $credentialVerifyIntlReq->imageFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->credentialVerifyIntlWithOptions($credentialVerifyIntlReq, $runtime);
@@ -569,7 +724,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 人脸凭证核验.
      *
-     * @param request - DeepfakeDetectIntlRequest
+     * @param Request - DeepfakeDetectIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeepfakeDetectIntlResponse
@@ -630,7 +785,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 人脸凭证核验.
      *
-     * @param request - DeepfakeDetectIntlRequest
+     * @param Request - DeepfakeDetectIntlRequest
      *
      * @returns DeepfakeDetectIntlResponse
      *
@@ -648,7 +803,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 删除用户认证记录结果.
      *
-     * @param request - DeleteVerifyResultRequest
+     * @param Request - DeleteVerifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteVerifyResultResponse
@@ -695,7 +850,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 删除用户认证记录结果.
      *
-     * @param request - DeleteVerifyResultRequest
+     * @param Request - DeleteVerifyResultRequest
      *
      * @returns DeleteVerifyResultResponse
      *
@@ -713,7 +868,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 卡证ocr纯服务端.
      *
-     * @param request - DocOcrRequest
+     * @param Request - DocOcrRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DocOcrResponse
@@ -794,7 +949,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 卡证ocr纯服务端.
      *
-     * @param request - DocOcrRequest
+     * @param Request - DocOcrRequest
      *
      * @returns DocOcrResponse
      *
@@ -812,7 +967,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 全球证件ocr识别接口.
      *
-     * @param request - DocOcrMaxRequest
+     * @param Request - DocOcrMaxRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DocOcrMaxResponse
@@ -895,7 +1050,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 全球证件ocr识别接口.
      *
-     * @param request - DocOcrMaxRequest
+     * @param Request - DocOcrMaxRequest
      *
      * @returns DocOcrMaxResponse
      *
@@ -913,7 +1068,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * ekyc纯服务端接口.
      *
-     * @param request - EkycVerifyRequest
+     * @param Request - EkycVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EkycVerifyResponse
@@ -1002,7 +1157,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * ekyc纯服务端接口.
      *
-     * @param request - EkycVerifyRequest
+     * @param Request - EkycVerifyRequest
      *
      * @returns EkycVerifyResponse
      *
@@ -1020,7 +1175,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 人脸比对.
      *
-     * @param request - FaceCompareRequest
+     * @param Request - FaceCompareRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns FaceCompareResponse
@@ -1077,7 +1232,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 人脸比对.
      *
-     * @param request - FaceCompareRequest
+     * @param Request - FaceCompareRequest
      *
      * @returns FaceCompareResponse
      *
@@ -1095,7 +1250,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 国际人脸保镖纯服务端接口.
      *
-     * @param request - FaceGuardRiskRequest
+     * @param Request - FaceGuardRiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns FaceGuardRiskResponse
@@ -1146,7 +1301,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 国际人脸保镖纯服务端接口.
      *
-     * @param request - FaceGuardRiskRequest
+     * @param Request - FaceGuardRiskRequest
      *
      * @returns FaceGuardRiskResponse
      *
@@ -1164,7 +1319,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 静默活体API 纯服务端.
      *
-     * @param request - FaceLivenessRequest
+     * @param Request - FaceLivenessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns FaceLivenessResponse
@@ -1233,7 +1388,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 静默活体API 纯服务端.
      *
-     * @param request - FaceLivenessRequest
+     * @param Request - FaceLivenessRequest
      *
      * @returns FaceLivenessResponse
      *
@@ -1251,7 +1406,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 防伪回调接口.
      *
-     * @param request - FraudResultCallBackRequest
+     * @param Request - FraudResultCallBackRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns FraudResultCallBackResponse
@@ -1302,7 +1457,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 防伪回调接口.
      *
-     * @param request - FraudResultCallBackRequest
+     * @param Request - FraudResultCallBackRequest
      *
      * @returns FraudResultCallBackResponse
      *
@@ -1320,7 +1475,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 身份二要素有效期核验.
      *
-     * @param request - Id2MetaPeriodVerifyIntlRequest
+     * @param Request - Id2MetaPeriodVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Id2MetaPeriodVerifyIntlResponse
@@ -1391,7 +1546,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 身份二要素有效期核验.
      *
-     * @param request - Id2MetaPeriodVerifyIntlRequest
+     * @param Request - Id2MetaPeriodVerifyIntlRequest
      *
      * @returns Id2MetaPeriodVerifyIntlResponse
      *
@@ -1409,7 +1564,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 身份二要素国际版接口.
      *
-     * @param request - Id2MetaVerifyIntlRequest
+     * @param Request - Id2MetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Id2MetaVerifyIntlResponse
@@ -1460,7 +1615,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 身份二要素国际版接口.
      *
-     * @param request - Id2MetaVerifyIntlRequest
+     * @param Request - Id2MetaVerifyIntlRequest
      *
      * @returns Id2MetaVerifyIntlResponse
      *
@@ -1673,7 +1828,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 认证初始化.
      *
-     * @param request - InitializeRequest
+     * @param Request - InitializeRequest
      *
      * @returns InitializeResponse
      *
@@ -1691,7 +1846,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 手机号三要素国际版接口.
      *
-     * @param request - Mobile3MetaVerifyIntlRequest
+     * @param Request - Mobile3MetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Mobile3MetaVerifyIntlResponse
@@ -1746,7 +1901,7 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 手机号三要素国际版接口.
      *
-     * @param request - Mobile3MetaVerifyIntlRequest
+     * @param Request - Mobile3MetaVerifyIntlRequest
      *
      * @returns Mobile3MetaVerifyIntlResponse
      *
