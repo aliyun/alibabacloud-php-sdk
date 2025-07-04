@@ -993,7 +993,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问策略.
+     * Create Private Access Policy.
+     *
+     * @remarks
+     * By default, up to 500 private access policies can be created.
      *
      * @param request - CreatePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1099,7 +1102,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问策略.
+     * Create Private Access Policy.
+     *
+     * @remarks
+     * By default, up to 500 private access policies can be created.
      *
      * @param request - CreatePrivateAccessPolicyRequest
      *
@@ -4944,7 +4950,47 @@ class Csas extends OpenApiClient
     public function listPrivateAccessApplicationsWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->accessModes) {
+            @$query['AccessModes'] = $request->accessModes;
+        }
+
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
+        }
+
+        if (null !== $request->applicationIds) {
+            @$query['ApplicationIds'] = $request->applicationIds;
+        }
+
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tagId) {
+            @$query['TagId'] = $request->tagId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4953,7 +4999,7 @@ class Csas extends OpenApiClient
             'version' => '2023-01-20',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
