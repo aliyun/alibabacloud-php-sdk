@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobExecutionsResponseBody;
+namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogEventResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobExecutionsResponseBody\data\records;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogEventResponseBody\data\records;
 
 class data extends Model
 {

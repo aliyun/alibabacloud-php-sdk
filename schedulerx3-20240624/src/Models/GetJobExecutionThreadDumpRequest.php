@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OperateDisableJobsRequest extends Model
+class GetJobExecutionThreadDumpRequest extends Model
 {
     /**
      * @var string
@@ -19,20 +19,23 @@ class OperateDisableJobsRequest extends Model
     public $clusterId;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $jobIds;
+    public $executorAddr;
+
+    /**
+     * @var string
+     */
+    public $jobExecutionId;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'jobIds' => 'JobIds',
+        'executorAddr' => 'ExecutorAddr',
+        'jobExecutionId' => 'JobExecutionId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->jobIds)) {
-            Model::validateArray($this->jobIds);
-        }
         parent::validate();
     }
 
@@ -47,15 +50,12 @@ class OperateDisableJobsRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->jobIds) {
-            if (\is_array($this->jobIds)) {
-                $res['JobIds'] = [];
-                $n1 = 0;
-                foreach ($this->jobIds as $item1) {
-                    $res['JobIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->executorAddr) {
+            $res['ExecutorAddr'] = $this->executorAddr;
+        }
+
+        if (null !== $this->jobExecutionId) {
+            $res['JobExecutionId'] = $this->jobExecutionId;
         }
 
         return $res;
@@ -77,15 +77,12 @@ class OperateDisableJobsRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['JobIds'])) {
-            if (!empty($map['JobIds'])) {
-                $model->jobIds = [];
-                $n1 = 0;
-                foreach ($map['JobIds'] as $item1) {
-                    $model->jobIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (isset($map['ExecutorAddr'])) {
+            $model->executorAddr = $map['ExecutorAddr'];
+        }
+
+        if (isset($map['JobExecutionId'])) {
+            $model->jobExecutionId = $map['JobExecutionId'];
         }
 
         return $model;

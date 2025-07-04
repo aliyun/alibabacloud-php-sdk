@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterRequest\tag;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterRequest\vSwitches;
 
 class CreateClusterRequest extends Model
@@ -25,6 +26,11 @@ class CreateClusterRequest extends Model
     public $engineType;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var vSwitches[]
      */
     public $vSwitches;
@@ -37,12 +43,16 @@ class CreateClusterRequest extends Model
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
         'engineType' => 'EngineType',
+        'tag' => 'Tag',
         'vSwitches' => 'VSwitches',
         'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         if (\is_array($this->vSwitches)) {
             Model::validateArray($this->vSwitches);
         }
@@ -64,12 +74,24 @@ class CreateClusterRequest extends Model
             $res['EngineType'] = $this->engineType;
         }
 
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->vSwitches) {
             if (\is_array($this->vSwitches)) {
                 $res['VSwitches'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
-                    $res['VSwitches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VSwitches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,12 +123,24 @@ class CreateClusterRequest extends Model
             $model->engineType = $map['EngineType'];
         }
 
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = [];
                 $n1 = 0;
                 foreach ($map['VSwitches'] as $item1) {
-                    $model->vSwitches[$n1++] = vSwitches::fromMap($item1);
+                    $model->vSwitches[$n1] = vSwitches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -215,7 +215,8 @@ class UpdateJobRequest extends Model
                 $res['NoticeContacts'] = [];
                 $n1 = 0;
                 foreach ($this->noticeContacts as $item1) {
-                    $res['NoticeContacts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NoticeContacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -320,7 +321,8 @@ class UpdateJobRequest extends Model
                 $model->noticeContacts = [];
                 $n1 = 0;
                 foreach ($map['NoticeContacts'] as $item1) {
-                    $model->noticeContacts[$n1++] = noticeContacts::fromMap($item1);
+                    $model->noticeContacts[$n1] = noticeContacts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

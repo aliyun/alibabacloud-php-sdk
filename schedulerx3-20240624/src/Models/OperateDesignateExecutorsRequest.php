@@ -62,7 +62,8 @@ class OperateDesignateExecutorsRequest extends Model
                 $res['AddressList'] = [];
                 $n1 = 0;
                 foreach ($this->addressList as $item1) {
-                    $res['AddressList'][$n1++] = $item1;
+                    $res['AddressList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class OperateDesignateExecutorsRequest extends Model
                 $model->addressList = [];
                 $n1 = 0;
                 foreach ($map['AddressList'] as $item1) {
-                    $model->addressList[$n1++] = $item1;
+                    $model->addressList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -87,7 +87,8 @@ class data extends Model
                 $res['ShardingProgress'] = [];
                 $n1 = 0;
                 foreach ($this->shardingProgress as $item1) {
-                    $res['ShardingProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ShardingProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class data extends Model
                 $res['TaskProgress'] = [];
                 $n1 = 0;
                 foreach ($this->taskProgress as $item1) {
-                    $res['TaskProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +113,8 @@ class data extends Model
                 $res['WorkerProgress'] = [];
                 $n1 = 0;
                 foreach ($this->workerProgress as $item1) {
-                    $res['WorkerProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WorkerProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class data extends Model
                 $model->shardingProgress = [];
                 $n1 = 0;
                 foreach ($map['ShardingProgress'] as $item1) {
-                    $model->shardingProgress[$n1++] = shardingProgress::fromMap($item1);
+                    $model->shardingProgress[$n1] = shardingProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +154,8 @@ class data extends Model
                 $model->taskProgress = [];
                 $n1 = 0;
                 foreach ($map['TaskProgress'] as $item1) {
-                    $model->taskProgress[$n1++] = taskProgress::fromMap($item1);
+                    $model->taskProgress[$n1] = taskProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +169,8 @@ class data extends Model
                 $model->workerProgress = [];
                 $n1 = 0;
                 foreach ($map['WorkerProgress'] as $item1) {
-                    $model->workerProgress[$n1++] = workerProgress::fromMap($item1);
+                    $model->workerProgress[$n1] = workerProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

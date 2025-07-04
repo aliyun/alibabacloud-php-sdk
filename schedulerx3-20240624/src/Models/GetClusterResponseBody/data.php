@@ -90,6 +90,11 @@ class data extends Model
     public $status;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @var vSwitches[]
      */
     public $vSwitches;
@@ -130,6 +135,7 @@ class data extends Model
         'productType' => 'ProductType',
         'spm' => 'Spm',
         'status' => 'Status',
+        'tags' => 'Tags',
         'vSwitches' => 'VSwitches',
         'versionLifecycle' => 'VersionLifecycle',
         'vpcId' => 'VpcId',
@@ -139,6 +145,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         if (\is_array($this->vSwitches)) {
             Model::validateArray($this->vSwitches);
         }
@@ -215,12 +224,22 @@ class data extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->vSwitches) {
             if (\is_array($this->vSwitches)) {
                 $res['VSwitches'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
-                    $res['VSwitches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VSwitches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -242,7 +261,8 @@ class data extends Model
                 $res['Zones'] = [];
                 $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['Zones'][$n1++] = $item1;
+                    $res['Zones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -322,12 +342,22 @@ class data extends Model
             $model->status = $map['Status'];
         }
 
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = [];
                 $n1 = 0;
                 foreach ($map['VSwitches'] as $item1) {
-                    $model->vSwitches[$n1++] = vSwitches::fromMap($item1);
+                    $model->vSwitches[$n1] = vSwitches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -349,7 +379,8 @@ class data extends Model
                 $model->zones = [];
                 $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
-                    $model->zones[$n1++] = $item1;
+                    $model->zones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterShrinkRequest\tag;
 
 class CreateClusterShrinkRequest extends Model
 {
@@ -24,6 +25,11 @@ class CreateClusterShrinkRequest extends Model
     public $engineType;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vSwitchesShrink;
@@ -36,12 +42,16 @@ class CreateClusterShrinkRequest extends Model
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
         'engineType' => 'EngineType',
+        'tag' => 'Tag',
         'vSwitchesShrink' => 'VSwitches',
         'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -58,6 +68,17 @@ class CreateClusterShrinkRequest extends Model
 
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vSwitchesShrink) {
@@ -89,6 +110,17 @@ class CreateClusterShrinkRequest extends Model
 
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VSwitches'])) {

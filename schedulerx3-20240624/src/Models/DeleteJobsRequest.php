@@ -52,7 +52,8 @@ class DeleteJobsRequest extends Model
                 $res['JobIds'] = [];
                 $n1 = 0;
                 foreach ($this->jobIds as $item1) {
-                    $res['JobIds'][$n1++] = $item1;
+                    $res['JobIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DeleteJobsRequest extends Model
                 $model->jobIds = [];
                 $n1 = 0;
                 foreach ($map['JobIds'] as $item1) {
-                    $model->jobIds[$n1++] = $item1;
+                    $model->jobIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

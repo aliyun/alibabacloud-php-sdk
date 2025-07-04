@@ -31,6 +31,10 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressRequest
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionThreadDumpRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionThreadDumpResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogEventRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogEventResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ImportCalendarRequest;
@@ -225,6 +229,11 @@ class SchedulerX3 extends OpenApiClient
             $request->vSwitchesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitches, 'VSwitches', 'json');
         }
 
+        $query = [];
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         $body = [];
         if (null !== $request->clusterName) {
             @$body['ClusterName'] = $request->clusterName;
@@ -247,6 +256,7 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -930,6 +940,59 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 查询任务的线程堆栈.
+     *
+     * @param request - GetJobExecutionThreadDumpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobExecutionThreadDumpResponse
+     *
+     * @param GetJobExecutionThreadDumpRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetJobExecutionThreadDumpResponse
+     */
+    public function getJobExecutionThreadDumpWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetJobExecutionThreadDump',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetJobExecutionThreadDumpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询任务的线程堆栈.
+     *
+     * @param request - GetJobExecutionThreadDumpRequest
+     *
+     * @returns GetJobExecutionThreadDumpResponse
+     *
+     * @param GetJobExecutionThreadDumpRequest $request
+     *
+     * @return GetJobExecutionThreadDumpResponse
+     */
+    public function getJobExecutionThreadDump($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobExecutionThreadDumpWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询日志.
      *
      * @param request - GetLogRequest
@@ -980,6 +1043,59 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询事件.
+     *
+     * @param request - GetLogEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogEventResponse
+     *
+     * @param GetLogEventRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetLogEventResponse
+     */
+    public function getLogEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLogEvent',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLogEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询事件.
+     *
+     * @param request - GetLogEventRequest
+     *
+     * @returns GetLogEventResponse
+     *
+     * @param GetLogEventRequest $request
+     *
+     * @return GetLogEventResponse
+     */
+    public function getLogEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLogEventWithOptions($request, $runtime);
     }
 
     /**
@@ -1227,6 +1343,8 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 获取应用列表.
+     *
      * @param request - ListAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1260,6 +1378,8 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 获取应用列表.
+     *
      * @param request - ListAppsRequest
      *
      * @returns ListAppsResponse

@@ -62,7 +62,8 @@ class OperateStopJobExecutionRequest extends Model
                 $res['TaskList'] = [];
                 $n1 = 0;
                 foreach ($this->taskList as $item1) {
-                    $res['TaskList'][$n1++] = $item1;
+                    $res['TaskList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class OperateStopJobExecutionRequest extends Model
                 $model->taskList = [];
                 $n1 = 0;
                 foreach ($map['TaskList'] as $item1) {
-                    $model->taskList[$n1++] = $item1;
+                    $model->taskList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
