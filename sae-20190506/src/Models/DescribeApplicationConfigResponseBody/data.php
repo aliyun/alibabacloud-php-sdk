@@ -136,6 +136,11 @@ class data extends Model
     public $enableNewArms;
 
     /**
+     * @var bool
+     */
+    public $enablePrometheus;
+
+    /**
      * @var string
      */
     public $envs;
@@ -164,6 +169,11 @@ class data extends Model
      * @var initContainersConfig[]
      */
     public $initContainersConfig;
+
+    /**
+     * @var bool
+     */
+    public $isStateful;
 
     /**
      * @var string
@@ -469,12 +479,14 @@ class data extends Model
         'enableGreyTagRoute' => 'EnableGreyTagRoute',
         'enableIdle' => 'EnableIdle',
         'enableNewArms' => 'EnableNewArms',
+        'enablePrometheus' => 'EnablePrometheus',
         'envs' => 'Envs',
         'gpuCount' => 'GpuCount',
         'gpuType' => 'GpuType',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfig' => 'InitContainersConfig',
+        'isStateful' => 'IsStateful',
         'jarStartArgs' => 'JarStartArgs',
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
@@ -668,6 +680,10 @@ class data extends Model
             $res['EnableNewArms'] = $this->enableNewArms;
         }
 
+        if (null !== $this->enablePrometheus) {
+            $res['EnablePrometheus'] = $this->enablePrometheus;
+        }
+
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
         }
@@ -697,6 +713,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->isStateful) {
+            $res['IsStateful'] = $this->isStateful;
         }
 
         if (null !== $this->jarStartArgs) {
@@ -1077,6 +1097,10 @@ class data extends Model
             $model->enableNewArms = $map['EnableNewArms'];
         }
 
+        if (isset($map['EnablePrometheus'])) {
+            $model->enablePrometheus = $map['EnablePrometheus'];
+        }
+
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
         }
@@ -1106,6 +1130,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['IsStateful'])) {
+            $model->isStateful = $map['IsStateful'];
         }
 
         if (isset($map['JarStartArgs'])) {

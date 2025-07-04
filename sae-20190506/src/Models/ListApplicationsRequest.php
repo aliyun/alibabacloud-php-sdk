@@ -36,6 +36,11 @@ class ListApplicationsRequest extends Model
     /**
      * @var string
      */
+    public $isStateful;
+
+    /**
+     * @var string
+     */
     public $namespaceId;
 
     /**
@@ -63,6 +68,7 @@ class ListApplicationsRequest extends Model
         'currentPage' => 'CurrentPage',
         'fieldType' => 'FieldType',
         'fieldValue' => 'FieldValue',
+        'isStateful' => 'IsStateful',
         'namespaceId' => 'NamespaceId',
         'orderBy' => 'OrderBy',
         'pageSize' => 'PageSize',
@@ -96,6 +102,10 @@ class ListApplicationsRequest extends Model
 
         if (null !== $this->fieldValue) {
             $res['FieldValue'] = $this->fieldValue;
+        }
+
+        if (null !== $this->isStateful) {
+            $res['IsStateful'] = $this->isStateful;
         }
 
         if (null !== $this->namespaceId) {
@@ -147,6 +157,10 @@ class ListApplicationsRequest extends Model
 
         if (isset($map['FieldValue'])) {
             $model->fieldValue = $map['FieldValue'];
+        }
+
+        if (isset($map['IsStateful'])) {
+            $model->isStateful = $map['IsStateful'];
         }
 
         if (isset($map['NamespaceId'])) {

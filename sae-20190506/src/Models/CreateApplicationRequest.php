@@ -116,6 +116,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var bool
      */
+    public $enablePrometheus;
+
+    /**
+     * @var bool
+     */
     public $enableSidecarResourceIsolated;
 
     /**
@@ -142,6 +147,11 @@ class CreateApplicationRequest extends Model
      * @var InitContainerConfig[]
      */
     public $initContainersConfig;
+
+    /**
+     * @var bool
+     */
+    public $isStateful;
 
     /**
      * @var string
@@ -409,12 +419,14 @@ class CreateApplicationRequest extends Model
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableEbpf' => 'EnableEbpf',
         'enableNewArms' => 'EnableNewArms',
+        'enablePrometheus' => 'EnablePrometheus',
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
         'envs' => 'Envs',
         'gpuConfig' => 'GpuConfig',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfig' => 'InitContainersConfig',
+        'isStateful' => 'IsStateful',
         'jarStartArgs' => 'JarStartArgs',
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
@@ -564,6 +576,10 @@ class CreateApplicationRequest extends Model
             $res['EnableNewArms'] = $this->enableNewArms;
         }
 
+        if (null !== $this->enablePrometheus) {
+            $res['EnablePrometheus'] = $this->enablePrometheus;
+        }
+
         if (null !== $this->enableSidecarResourceIsolated) {
             $res['EnableSidecarResourceIsolated'] = $this->enableSidecarResourceIsolated;
         }
@@ -593,6 +609,10 @@ class CreateApplicationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->isStateful) {
+            $res['IsStateful'] = $this->isStateful;
         }
 
         if (null !== $this->jarStartArgs) {
@@ -893,6 +913,10 @@ class CreateApplicationRequest extends Model
             $model->enableNewArms = $map['EnableNewArms'];
         }
 
+        if (isset($map['EnablePrometheus'])) {
+            $model->enablePrometheus = $map['EnablePrometheus'];
+        }
+
         if (isset($map['EnableSidecarResourceIsolated'])) {
             $model->enableSidecarResourceIsolated = $map['EnableSidecarResourceIsolated'];
         }
@@ -922,6 +946,10 @@ class CreateApplicationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['IsStateful'])) {
+            $model->isStateful = $map['IsStateful'];
         }
 
         if (isset($map['JarStartArgs'])) {

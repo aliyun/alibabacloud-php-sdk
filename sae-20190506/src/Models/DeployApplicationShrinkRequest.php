@@ -111,6 +111,11 @@ class DeployApplicationShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $enablePrometheus;
+
+    /**
+     * @var bool
+     */
     public $enableSidecarResourceIsolated;
 
     /**
@@ -398,6 +403,7 @@ class DeployApplicationShrinkRequest extends Model
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableGreyTagRoute' => 'EnableGreyTagRoute',
         'enableNewArms' => 'EnableNewArms',
+        'enablePrometheus' => 'EnablePrometheus',
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
         'envs' => 'Envs',
         'gpuConfig' => 'GpuConfig',
@@ -540,6 +546,10 @@ class DeployApplicationShrinkRequest extends Model
 
         if (null !== $this->enableNewArms) {
             $res['EnableNewArms'] = $this->enableNewArms;
+        }
+
+        if (null !== $this->enablePrometheus) {
+            $res['EnablePrometheus'] = $this->enablePrometheus;
         }
 
         if (null !== $this->enableSidecarResourceIsolated) {
@@ -847,6 +857,10 @@ class DeployApplicationShrinkRequest extends Model
 
         if (isset($map['EnableNewArms'])) {
             $model->enableNewArms = $map['EnableNewArms'];
+        }
+
+        if (isset($map['EnablePrometheus'])) {
+            $model->enablePrometheus = $map['EnablePrometheus'];
         }
 
         if (isset($map['EnableSidecarResourceIsolated'])) {

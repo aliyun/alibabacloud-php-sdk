@@ -116,6 +116,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $enablePrometheus;
+
+    /**
+     * @var bool
+     */
     public $enableSidecarResourceIsolated;
 
     /**
@@ -142,6 +147,11 @@ class CreateApplicationShrinkRequest extends Model
      * @var string
      */
     public $initContainersConfigShrink;
+
+    /**
+     * @var bool
+     */
+    public $isStateful;
 
     /**
      * @var string
@@ -409,12 +419,14 @@ class CreateApplicationShrinkRequest extends Model
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableEbpf' => 'EnableEbpf',
         'enableNewArms' => 'EnableNewArms',
+        'enablePrometheus' => 'EnablePrometheus',
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
         'envs' => 'Envs',
         'gpuConfig' => 'GpuConfig',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfigShrink' => 'InitContainersConfig',
+        'isStateful' => 'IsStateful',
         'jarStartArgs' => 'JarStartArgs',
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
@@ -558,6 +570,10 @@ class CreateApplicationShrinkRequest extends Model
             $res['EnableNewArms'] = $this->enableNewArms;
         }
 
+        if (null !== $this->enablePrometheus) {
+            $res['EnablePrometheus'] = $this->enablePrometheus;
+        }
+
         if (null !== $this->enableSidecarResourceIsolated) {
             $res['EnableSidecarResourceIsolated'] = $this->enableSidecarResourceIsolated;
         }
@@ -580,6 +596,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->initContainersConfigShrink) {
             $res['InitContainersConfig'] = $this->initContainersConfigShrink;
+        }
+
+        if (null !== $this->isStateful) {
+            $res['IsStateful'] = $this->isStateful;
         }
 
         if (null !== $this->jarStartArgs) {
@@ -873,6 +893,10 @@ class CreateApplicationShrinkRequest extends Model
             $model->enableNewArms = $map['EnableNewArms'];
         }
 
+        if (isset($map['EnablePrometheus'])) {
+            $model->enablePrometheus = $map['EnablePrometheus'];
+        }
+
         if (isset($map['EnableSidecarResourceIsolated'])) {
             $model->enableSidecarResourceIsolated = $map['EnableSidecarResourceIsolated'];
         }
@@ -895,6 +919,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['InitContainersConfig'])) {
             $model->initContainersConfigShrink = $map['InitContainersConfig'];
+        }
+
+        if (isset($map['IsStateful'])) {
+            $model->isStateful = $map['IsStateful'];
         }
 
         if (isset($map['JarStartArgs'])) {

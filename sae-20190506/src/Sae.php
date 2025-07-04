@@ -461,7 +461,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * cn-shanghai.
+     * Starts multiple applications at a time.
      *
      * @param request - BatchStartApplicationsRequest
      * @param headers - map
@@ -511,7 +511,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * cn-shanghai.
+     * Starts multiple applications at a time.
      *
      * @param request - BatchStartApplicationsRequest
      *
@@ -530,7 +530,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Stops multiple applications at a time.
+     * Stop applications in batches.
      *
      * @param request - BatchStopApplicationsRequest
      * @param headers - map
@@ -580,7 +580,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Stops multiple applications at a time.
+     * Stop applications in batches.
      *
      * @param request - BatchStopApplicationsRequest
      *
@@ -822,6 +822,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Creates an application.
+     *
      * @param tmpReq - CreateApplicationRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -916,6 +918,10 @@ class Sae extends OpenApiClient
             @$query['EnableNewArms'] = $request->enableNewArms;
         }
 
+        if (null !== $request->enablePrometheus) {
+            @$query['EnablePrometheus'] = $request->enablePrometheus;
+        }
+
         if (null !== $request->envs) {
             @$query['Envs'] = $request->envs;
         }
@@ -930,6 +936,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->imageUrl) {
             @$query['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->isStateful) {
+            @$query['IsStateful'] = $request->isStateful;
         }
 
         if (null !== $request->jarStartArgs) {
@@ -1174,6 +1184,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Creates an application.
+     *
      * @param request - CreateApplicationRequest
      *
      * @returns CreateApplicationResponse
@@ -2153,7 +2165,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Null.
+     * Creates a Secret in a namespace.
      *
      * @param tmpReq - CreateSecretRequest
      * @param headers - map
@@ -2213,7 +2225,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Null.
+     * Creates a Secret in a namespace.
      *
      * @param request - CreateSecretRequest
      *
@@ -3368,6 +3380,10 @@ class Sae extends OpenApiClient
             @$query['EnableNewArms'] = $request->enableNewArms;
         }
 
+        if (null !== $request->enablePrometheus) {
+            @$query['EnablePrometheus'] = $request->enablePrometheus;
+        }
+
         if (null !== $request->envs) {
             @$query['Envs'] = $request->envs;
         }
@@ -3787,6 +3803,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries the instance groups of an application.
+     *
      * @param request - DescribeApplicationGroupsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3835,6 +3853,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries the instance groups of an application.
+     *
      * @param request - DescribeApplicationGroupsRequest
      *
      * @returns DescribeApplicationGroupsResponse
@@ -3917,7 +3937,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries application instances.
+     * Queries a list of application instances.
      *
      * @param request - DescribeApplicationInstancesRequest
      * @param headers - map
@@ -3983,7 +4003,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries application instances.
+     * Queries a list of application instances.
      *
      * @param request - DescribeApplicationInstancesRequest
      *
@@ -5191,6 +5211,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Query the information about resources in a namespace.
+     *
      * @param request - DescribeNamespaceResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5235,6 +5257,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Query the information about resources in a namespace.
+     *
      * @param request - DescribeNamespaceResourcesRequest
      *
      * @returns DescribeNamespaceResourcesResponse
@@ -7358,6 +7382,10 @@ class Sae extends OpenApiClient
             @$query['FieldValue'] = $request->fieldValue;
         }
 
+        if (null !== $request->isStateful) {
+            @$query['IsStateful'] = $request->isStateful;
+        }
+
         if (null !== $request->namespaceId) {
             @$query['NamespaceId'] = $request->namespaceId;
         }
@@ -8751,7 +8779,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Activates the Serverless App Engine (SAE) service for free.
+     * Activates Serverless App Engine (SAE) for free.
      *
      * @remarks
      * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
@@ -8787,7 +8815,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Activates the Serverless App Engine (SAE) service for free.
+     * Activates Serverless App Engine (SAE) for free.
      *
      * @remarks
      * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
@@ -8936,7 +8964,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Reduces capacity by instance IDs.
+     * Scales in an application based on instance IDs.
      *
      * @param request - ReduceApplicationCapacityByInstanceIdsRequest
      * @param headers - map
@@ -8982,7 +9010,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Reduces capacity by instance IDs.
+     * Scales in an application based on instance IDs.
      *
      * @param request - ReduceApplicationCapacityByInstanceIdsRequest
      *
@@ -9001,7 +9029,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Scales an application.
+     * Rescale an application.
      *
      * @param request - RescaleApplicationRequest
      * @param headers - map
@@ -9059,7 +9087,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Scales an application.
+     * Rescale an application.
      *
      * @param request - RescaleApplicationRequest
      *
@@ -9516,7 +9544,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*.
+     * Stops an application.
      *
      * @param request - StopApplicationRequest
      * @param headers - map
@@ -9558,7 +9586,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*.
+     * Stops an application.
      *
      * @param request - StopApplicationRequest
      *
@@ -9646,7 +9674,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Suspends a job.
+     * Suspends one or more jobs.
      *
      * @param request - SuspendJobRequest
      * @param headers - map
@@ -9692,7 +9720,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Suspends a job.
+     * Suspends one or more jobs.
      *
      * @param request - SuspendJobRequest
      *
@@ -9711,7 +9739,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * cn-beijing.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -9765,7 +9793,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * cn-beijing.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -9926,6 +9954,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Removes tags from resources.
+     *
      * @param request - UntagResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9982,6 +10012,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Removes tags from resources.
+     *
      * @param request - UntagResourcesRequest
      *
      * @returns UntagResourcesResponse
