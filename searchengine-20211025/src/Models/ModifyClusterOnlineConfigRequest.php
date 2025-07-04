@@ -41,7 +41,8 @@ class ModifyClusterOnlineConfigRequest extends Model
                 $res['clusters'] = [];
                 $n1 = 0;
                 foreach ($this->clusters as $item1) {
-                    $res['clusters'][$n1++] = $item1;
+                    $res['clusters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class ModifyClusterOnlineConfigRequest extends Model
                 $model->clusters = [];
                 $n1 = 0;
                 foreach ($map['clusters'] as $item1) {
-                    $model->clusters[$n1++] = $item1;
+                    $model->clusters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

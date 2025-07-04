@@ -52,6 +52,11 @@ class CreateTableRequest extends Model
     public $rawSchema;
 
     /**
+     * @var string
+     */
+    public $scene;
+
+    /**
      * @var vectorIndex[]
      */
     public $vectorIndex;
@@ -69,6 +74,7 @@ class CreateTableRequest extends Model
         'partitionCount' => 'partitionCount',
         'primaryKey' => 'primaryKey',
         'rawSchema' => 'rawSchema',
+        'scene' => 'scene',
         'vectorIndex' => 'vectorIndex',
         'dryRun' => 'dryRun',
     ];
@@ -98,7 +104,8 @@ class CreateTableRequest extends Model
                 $res['dataProcessConfig'] = [];
                 $n1 = 0;
                 foreach ($this->dataProcessConfig as $item1) {
-                    $res['dataProcessConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataProcessConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,12 +143,17 @@ class CreateTableRequest extends Model
             $res['rawSchema'] = $this->rawSchema;
         }
 
+        if (null !== $this->scene) {
+            $res['scene'] = $this->scene;
+        }
+
         if (null !== $this->vectorIndex) {
             if (\is_array($this->vectorIndex)) {
                 $res['vectorIndex'] = [];
                 $n1 = 0;
                 foreach ($this->vectorIndex as $item1) {
-                    $res['vectorIndex'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['vectorIndex'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +178,8 @@ class CreateTableRequest extends Model
                 $model->dataProcessConfig = [];
                 $n1 = 0;
                 foreach ($map['dataProcessConfig'] as $item1) {
-                    $model->dataProcessConfig[$n1++] = dataProcessConfig::fromMap($item1);
+                    $model->dataProcessConfig[$n1] = dataProcessConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -204,12 +217,17 @@ class CreateTableRequest extends Model
             $model->rawSchema = $map['rawSchema'];
         }
 
+        if (isset($map['scene'])) {
+            $model->scene = $map['scene'];
+        }
+
         if (isset($map['vectorIndex'])) {
             if (!empty($map['vectorIndex'])) {
                 $model->vectorIndex = [];
                 $n1 = 0;
                 foreach ($map['vectorIndex'] as $item1) {
-                    $model->vectorIndex[$n1++] = vectorIndex::fromMap($item1);
+                    $model->vectorIndex[$n1] = vectorIndex::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

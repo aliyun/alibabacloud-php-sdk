@@ -53,7 +53,8 @@ class dataNodes extends Model
                 $res['configStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->configStatusList as $item1) {
-                    $res['configStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['configStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class dataNodes extends Model
                 $res['dataStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->dataStatusList as $item1) {
-                    $res['dataStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +90,8 @@ class dataNodes extends Model
                 $model->configStatusList = [];
                 $n1 = 0;
                 foreach ($map['configStatusList'] as $item1) {
-                    $model->configStatusList[$n1++] = configStatusList::fromMap($item1);
+                    $model->configStatusList[$n1] = configStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class dataNodes extends Model
                 $model->dataStatusList = [];
                 $n1 = 0;
                 foreach ($map['dataStatusList'] as $item1) {
-                    $model->dataStatusList[$n1++] = dataStatusList::fromMap($item1);
+                    $model->dataStatusList[$n1] = dataStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

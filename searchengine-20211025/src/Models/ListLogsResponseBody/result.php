@@ -38,7 +38,8 @@ class result extends Model
                 $res['result'] = [];
                 $n1 = 0;
                 foreach ($this->result as $item1) {
-                    $res['result'][$n1++] = $item1;
+                    $res['result'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class result extends Model
                 $model->result = [];
                 $n1 = 0;
                 foreach ($map['result'] as $item1) {
-                    $model->result[$n1++] = $item1;
+                    $model->result[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

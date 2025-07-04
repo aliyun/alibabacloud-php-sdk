@@ -62,7 +62,8 @@ class indexVersions extends Model
                 $res['versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['versions'][$n1++] = $item1;
+                    $res['versions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class indexVersions extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['versions'] as $item1) {
-                    $model->versions[$n1++] = $item1;
+                    $model->versions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

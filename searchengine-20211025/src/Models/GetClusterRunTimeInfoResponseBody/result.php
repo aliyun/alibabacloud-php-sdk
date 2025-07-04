@@ -53,7 +53,8 @@ class result extends Model
                 $res['dataNodes'] = [];
                 $n1 = 0;
                 foreach ($this->dataNodes as $item1) {
-                    $res['dataNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class result extends Model
                 $model->dataNodes = [];
                 $n1 = 0;
                 foreach ($map['dataNodes'] as $item1) {
-                    $model->dataNodes[$n1++] = dataNodes::fromMap($item1);
+                    $model->dataNodes[$n1] = dataNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

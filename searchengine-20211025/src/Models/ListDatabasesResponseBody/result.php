@@ -33,7 +33,8 @@ class result extends Model
                 $res['databases'] = [];
                 $n1 = 0;
                 foreach ($this->databases as $item1) {
-                    $res['databases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['databases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class result extends Model
                 $model->databases = [];
                 $n1 = 0;
                 foreach ($map['databases'] as $item1) {
-                    $model->databases[$n1++] = databases::fromMap($item1);
+                    $model->databases[$n1] = databases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

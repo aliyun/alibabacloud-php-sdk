@@ -43,7 +43,8 @@ class result extends Model
                 $res['indexVersions'] = [];
                 $n1 = 0;
                 foreach ($this->indexVersions as $item1) {
-                    $res['indexVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['indexVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class result extends Model
                 $model->indexVersions = [];
                 $n1 = 0;
                 foreach ($map['indexVersions'] as $item1) {
-                    $model->indexVersions[$n1++] = indexVersions::fromMap($item1);
+                    $model->indexVersions[$n1] = indexVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

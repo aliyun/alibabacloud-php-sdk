@@ -1381,6 +1381,10 @@ class Searchengine extends OpenApiClient
             @$body['rawSchema'] = $request->rawSchema;
         }
 
+        if (null !== $request->scene) {
+            @$body['scene'] = $request->scene;
+        }
+
         if (null !== $request->vectorIndex) {
             @$body['vectorIndex'] = $request->vectorIndex;
         }

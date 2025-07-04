@@ -121,7 +121,8 @@ class result extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class result extends Model
                 $res['taskNodes'] = [];
                 $n1 = 0;
                 foreach ($this->taskNodes as $item1) {
-                    $res['taskNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['taskNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +190,8 @@ class result extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +201,8 @@ class result extends Model
                 $model->taskNodes = [];
                 $n1 = 0;
                 foreach ($map['taskNodes'] as $item1) {
-                    $model->taskNodes[$n1++] = taskNodes::fromMap($item1);
+                    $model->taskNodes[$n1] = taskNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

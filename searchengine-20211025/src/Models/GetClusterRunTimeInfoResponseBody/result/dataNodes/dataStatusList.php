@@ -140,7 +140,8 @@ class dataStatusList extends Model
                 $res['deployFailedWorker'] = [];
                 $n1 = 0;
                 foreach ($this->deployFailedWorker as $item1) {
-                    $res['deployFailedWorker'][$n1++] = $item1;
+                    $res['deployFailedWorker'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +191,8 @@ class dataStatusList extends Model
                 $res['lackDiskWorker'] = [];
                 $n1 = 0;
                 foreach ($this->lackDiskWorker as $item1) {
-                    $res['lackDiskWorker'][$n1++] = $item1;
+                    $res['lackDiskWorker'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +202,8 @@ class dataStatusList extends Model
                 $res['lackMemWorker'] = [];
                 $n1 = 0;
                 foreach ($this->lackMemWorker as $item1) {
-                    $res['lackMemWorker'][$n1++] = $item1;
+                    $res['lackMemWorker'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +236,8 @@ class dataStatusList extends Model
                 $model->deployFailedWorker = [];
                 $n1 = 0;
                 foreach ($map['deployFailedWorker'] as $item1) {
-                    $model->deployFailedWorker[$n1++] = $item1;
+                    $model->deployFailedWorker[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -283,7 +287,8 @@ class dataStatusList extends Model
                 $model->lackDiskWorker = [];
                 $n1 = 0;
                 foreach ($map['lackDiskWorker'] as $item1) {
-                    $model->lackDiskWorker[$n1++] = $item1;
+                    $model->lackDiskWorker[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -293,7 +298,8 @@ class dataStatusList extends Model
                 $model->lackMemWorker = [];
                 $n1 = 0;
                 foreach ($map['lackMemWorker'] as $item1) {
-                    $model->lackMemWorker[$n1++] = $item1;
+                    $model->lackMemWorker[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

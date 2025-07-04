@@ -86,7 +86,8 @@ class ModifyTableRequest extends Model
                 $res['dataProcessConfig'] = [];
                 $n1 = 0;
                 foreach ($this->dataProcessConfig as $item1) {
-                    $res['dataProcessConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataProcessConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class ModifyTableRequest extends Model
                 $res['vectorIndex'] = [];
                 $n1 = 0;
                 foreach ($this->vectorIndex as $item1) {
-                    $res['vectorIndex'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['vectorIndex'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +148,8 @@ class ModifyTableRequest extends Model
                 $model->dataProcessConfig = [];
                 $n1 = 0;
                 foreach ($map['dataProcessConfig'] as $item1) {
-                    $model->dataProcessConfig[$n1++] = dataProcessConfig::fromMap($item1);
+                    $model->dataProcessConfig[$n1] = dataProcessConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +184,8 @@ class ModifyTableRequest extends Model
                 $model->vectorIndex = [];
                 $n1 = 0;
                 foreach ($map['vectorIndex'] as $item1) {
-                    $model->vectorIndex[$n1++] = vectorIndex::fromMap($item1);
+                    $model->vectorIndex[$n1] = vectorIndex::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

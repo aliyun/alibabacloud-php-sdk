@@ -81,7 +81,8 @@ class graph extends Model
                 $res['indexMetas'] = [];
                 $n1 = 0;
                 foreach ($this->indexMetas as $item1) {
-                    $res['indexMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['indexMetas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class graph extends Model
                 $res['onlineMaster'] = [];
                 $n1 = 0;
                 foreach ($this->onlineMaster as $item1) {
-                    $res['onlineMaster'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['onlineMaster'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class graph extends Model
                         $res['tableIndexRelation'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['tableIndexRelation'][$key1][$n2++] = $item2;
+                            $res['tableIndexRelation'][$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -116,7 +119,8 @@ class graph extends Model
                 $res['tableMetas'] = [];
                 $n1 = 0;
                 foreach ($this->tableMetas as $item1) {
-                    $res['tableMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tableMetas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +133,8 @@ class graph extends Model
                         $res['zoneIndexRelation'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['zoneIndexRelation'][$key1][$n2++] = $item2;
+                            $res['zoneIndexRelation'][$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -141,7 +146,8 @@ class graph extends Model
                 $res['zoneMetas'] = [];
                 $n1 = 0;
                 foreach ($this->zoneMetas as $item1) {
-                    $res['zoneMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['zoneMetas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +168,8 @@ class graph extends Model
                 $model->indexMetas = [];
                 $n1 = 0;
                 foreach ($map['indexMetas'] as $item1) {
-                    $model->indexMetas[$n1++] = indexMetas::fromMap($item1);
+                    $model->indexMetas[$n1] = indexMetas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +179,8 @@ class graph extends Model
                 $model->onlineMaster = [];
                 $n1 = 0;
                 foreach ($map['onlineMaster'] as $item1) {
-                    $model->onlineMaster[$n1++] = onlineMaster::fromMap($item1);
+                    $model->onlineMaster[$n1] = onlineMaster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +193,8 @@ class graph extends Model
                         $model->tableIndexRelation[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->tableIndexRelation[$key1][$n2++] = $item2;
+                            $model->tableIndexRelation[$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -197,7 +206,8 @@ class graph extends Model
                 $model->tableMetas = [];
                 $n1 = 0;
                 foreach ($map['tableMetas'] as $item1) {
-                    $model->tableMetas[$n1++] = tableMetas::fromMap($item1);
+                    $model->tableMetas[$n1] = tableMetas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +220,8 @@ class graph extends Model
                         $model->zoneIndexRelation[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->zoneIndexRelation[$key1][$n2++] = $item2;
+                            $model->zoneIndexRelation[$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -222,7 +233,8 @@ class graph extends Model
                 $model->zoneMetas = [];
                 $n1 = 0;
                 foreach ($map['zoneMetas'] as $item1) {
-                    $model->zoneMetas[$n1++] = zoneMetas::fromMap($item1);
+                    $model->zoneMetas[$n1] = zoneMetas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

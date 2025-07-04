@@ -177,7 +177,8 @@ class result extends Model
                 $res['versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -254,7 +255,8 @@ class result extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['versions'] as $item1) {
-                    $model->versions[$n1++] = versions::fromMap($item1);
+                    $model->versions[$n1] = versions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

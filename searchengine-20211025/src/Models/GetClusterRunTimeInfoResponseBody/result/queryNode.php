@@ -43,7 +43,8 @@ class queryNode extends Model
                 $res['configStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->configStatusList as $item1) {
-                    $res['configStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['configStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class queryNode extends Model
                 $model->configStatusList = [];
                 $n1 = 0;
                 foreach ($map['configStatusList'] as $item1) {
-                    $model->configStatusList[$n1++] = configStatusList::fromMap($item1);
+                    $model->configStatusList[$n1] = configStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

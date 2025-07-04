@@ -63,7 +63,8 @@ class ModifyIndexPartitionRequest extends Model
                 $res['indexInfos'] = [];
                 $n1 = 0;
                 foreach ($this->indexInfos as $item1) {
-                    $res['indexInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['indexInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class ModifyIndexPartitionRequest extends Model
                 $model->indexInfos = [];
                 $n1 = 0;
                 foreach ($map['indexInfos'] as $item1) {
-                    $model->indexInfos[$n1++] = indexInfos::fromMap($item1);
+                    $model->indexInfos[$n1] = indexInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -76,7 +76,8 @@ class databases extends Model
                         $res['functions'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['functions'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['functions'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -88,7 +89,8 @@ class databases extends Model
                 $res['sqlInstances'] = [];
                 $n1 = 0;
                 foreach ($this->sqlInstances as $item1) {
-                    $res['sqlInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sqlInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class databases extends Model
                 $res['tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class databases extends Model
                 $res['templates'] = [];
                 $n1 = 0;
                 foreach ($this->templates as $item1) {
-                    $res['templates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['templates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +140,8 @@ class databases extends Model
                         $model->functions[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->functions[$key1][$n2++] = ResultDatabasesFunctionsValue::fromMap($item2);
+                            $model->functions[$key1][$n2] = ResultDatabasesFunctionsValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }
@@ -148,7 +153,8 @@ class databases extends Model
                 $model->sqlInstances = [];
                 $n1 = 0;
                 foreach ($map['sqlInstances'] as $item1) {
-                    $model->sqlInstances[$n1++] = sqlInstances::fromMap($item1);
+                    $model->sqlInstances[$n1] = sqlInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +164,8 @@ class databases extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['tables'] as $item1) {
-                    $model->tables[$n1++] = tables::fromMap($item1);
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +175,8 @@ class databases extends Model
                 $model->templates = [];
                 $n1 = 0;
                 foreach ($map['templates'] as $item1) {
-                    $model->templates[$n1++] = templates::fromMap($item1);
+                    $model->templates[$n1] = templates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

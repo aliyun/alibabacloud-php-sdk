@@ -74,7 +74,8 @@ class tables extends Model
                 $res['children'] = [];
                 $n1 = 0;
                 foreach ($this->children as $item1) {
-                    $res['children'][$n1++] = $item1;
+                    $res['children'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class tables extends Model
                 $model->children = [];
                 $n1 = 0;
                 foreach ($map['children'] as $item1) {
-                    $model->children[$n1++] = $item1;
+                    $model->children[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

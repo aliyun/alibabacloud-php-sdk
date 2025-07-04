@@ -53,6 +53,11 @@ class dataSourceInfo extends Model
     /**
      * @var string
      */
+    public $scene;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'autoBuildIndex' => 'autoBuildIndex',
@@ -63,6 +68,7 @@ class dataSourceInfo extends Model
         'processParallelNum' => 'processParallelNum',
         'processPartitionCount' => 'processPartitionCount',
         'saroConfig' => 'saroConfig',
+        'scene' => 'scene',
         'type' => 'type',
     ];
 
@@ -112,6 +118,10 @@ class dataSourceInfo extends Model
             $res['saroConfig'] = null !== $this->saroConfig ? $this->saroConfig->toArray($noStream) : $this->saroConfig;
         }
 
+        if (null !== $this->scene) {
+            $res['scene'] = $this->scene;
+        }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -157,6 +167,10 @@ class dataSourceInfo extends Model
 
         if (isset($map['saroConfig'])) {
             $model->saroConfig = saroConfig::fromMap($map['saroConfig']);
+        }
+
+        if (isset($map['scene'])) {
+            $model->scene = $map['scene'];
         }
 
         if (isset($map['type'])) {

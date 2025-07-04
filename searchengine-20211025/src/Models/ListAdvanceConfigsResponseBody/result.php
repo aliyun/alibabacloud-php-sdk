@@ -101,7 +101,8 @@ class result extends Model
                 $res['files'] = [];
                 $n1 = 0;
                 foreach ($this->files as $item1) {
-                    $res['files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['files'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class result extends Model
                 $model->files = [];
                 $n1 = 0;
                 foreach ($map['files'] as $item1) {
-                    $model->files[$n1++] = files::fromMap($item1);
+                    $model->files[$n1] = files::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
