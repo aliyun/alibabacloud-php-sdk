@@ -12163,6 +12163,10 @@ class Cdn extends OpenApiClient
             @$query['Area'] = $request->area;
         }
 
+        if (null !== $request->consistencyHash) {
+            @$query['ConsistencyHash'] = $request->consistencyHash;
+        }
+
         if (null !== $request->l2Preload) {
             @$query['L2Preload'] = $request->l2Preload;
         }
@@ -12654,10 +12658,6 @@ class Cdn extends OpenApiClient
 
         if (null !== $request->domainName) {
             @$query['DomainName'] = $request->domainName;
-        }
-
-        if (null !== $request->env) {
-            @$query['Env'] = $request->env;
         }
 
         if (null !== $request->ownerId) {

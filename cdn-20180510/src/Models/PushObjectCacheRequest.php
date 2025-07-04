@@ -16,6 +16,11 @@ class PushObjectCacheRequest extends Model
     /**
      * @var bool
      */
+    public $consistencyHash;
+
+    /**
+     * @var bool
+     */
     public $l2Preload;
 
     /**
@@ -44,6 +49,7 @@ class PushObjectCacheRequest extends Model
     public $withHeader;
     protected $_name = [
         'area' => 'Area',
+        'consistencyHash' => 'ConsistencyHash',
         'l2Preload' => 'L2Preload',
         'objectPath' => 'ObjectPath',
         'ownerId' => 'OwnerId',
@@ -62,6 +68,10 @@ class PushObjectCacheRequest extends Model
         $res = [];
         if (null !== $this->area) {
             $res['Area'] = $this->area;
+        }
+
+        if (null !== $this->consistencyHash) {
+            $res['ConsistencyHash'] = $this->consistencyHash;
         }
 
         if (null !== $this->l2Preload) {
@@ -101,6 +111,10 @@ class PushObjectCacheRequest extends Model
         $model = new self();
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
+        }
+
+        if (isset($map['ConsistencyHash'])) {
+            $model->consistencyHash = $map['ConsistencyHash'];
         }
 
         if (isset($map['L2Preload'])) {
