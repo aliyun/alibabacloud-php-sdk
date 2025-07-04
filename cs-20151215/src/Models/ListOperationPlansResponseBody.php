@@ -33,7 +33,8 @@ class ListOperationPlansResponseBody extends Model
                 $res['plans'] = [];
                 $n1 = 0;
                 foreach ($this->plans as $item1) {
-                    $res['plans'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['plans'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ListOperationPlansResponseBody extends Model
                 $model->plans = [];
                 $n1 = 0;
                 foreach ($map['plans'] as $item1) {
-                    $model->plans[$n1++] = plans::fromMap($item1);
+                    $model->plans[$n1] = plans::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

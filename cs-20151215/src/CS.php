@@ -1251,6 +1251,10 @@ class CS extends OpenApiClient
             @$body['endpoint_public_access'] = $request->endpointPublicAccess;
         }
 
+        if (null !== $request->extraSans) {
+            @$body['extra_sans'] = $request->extraSans;
+        }
+
         if (null !== $request->formatDisk) {
             @$body['format_disk'] = $request->formatDisk;
         }
@@ -1425,6 +1429,10 @@ class CS extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$body['resource_group_id'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->rrsaConfig) {
+            @$body['rrsa_config'] = $request->rrsaConfig;
         }
 
         if (null !== $request->runtime) {

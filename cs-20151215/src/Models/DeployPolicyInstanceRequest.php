@@ -51,7 +51,8 @@ class DeployPolicyInstanceRequest extends Model
                 $res['namespaces'] = [];
                 $n1 = 0;
                 foreach ($this->namespaces as $item1) {
-                    $res['namespaces'][$n1++] = $item1;
+                    $res['namespaces'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class DeployPolicyInstanceRequest extends Model
                 $model->namespaces = [];
                 $n1 = 0;
                 foreach ($map['namespaces'] as $item1) {
-                    $model->namespaces[$n1++] = $item1;
+                    $model->namespaces[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

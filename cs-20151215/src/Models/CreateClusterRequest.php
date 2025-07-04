@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\auditLogConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\controlPlaneConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\operationPolicy;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\rrsaConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\workerDataDisks;
 
 class CreateClusterRequest extends Model
@@ -137,6 +138,11 @@ class CreateClusterRequest extends Model
      * @var bool
      */
     public $endpointPublicAccess;
+
+    /**
+     * @var string[]
+     */
+    public $extraSans;
 
     /**
      * @var bool
@@ -359,6 +365,11 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var rrsaConfig
+     */
+    public $rrsaConfig;
+
+    /**
      * @var Runtime
      */
     public $runtime;
@@ -538,6 +549,7 @@ class CreateClusterRequest extends Model
         'enableRrsa' => 'enable_rrsa',
         'encryptionProviderKey' => 'encryption_provider_key',
         'endpointPublicAccess' => 'endpoint_public_access',
+        'extraSans' => 'extra_sans',
         'formatDisk' => 'format_disk',
         'imageId' => 'image_id',
         'imageType' => 'image_type',
@@ -582,6 +594,7 @@ class CreateClusterRequest extends Model
         'rdsInstances' => 'rds_instances',
         'regionId' => 'region_id',
         'resourceGroupId' => 'resource_group_id',
+        'rrsaConfig' => 'rrsa_config',
         'runtime' => 'runtime',
         'securityGroupId' => 'security_group_id',
         'securityHardeningOs' => 'security_hardening_os',
@@ -635,6 +648,9 @@ class CreateClusterRequest extends Model
         if (\is_array($this->controlplaneLogComponents)) {
             Model::validateArray($this->controlplaneLogComponents);
         }
+        if (\is_array($this->extraSans)) {
+            Model::validateArray($this->extraSans);
+        }
         if (\is_array($this->instances)) {
             Model::validateArray($this->instances);
         }
@@ -658,6 +674,9 @@ class CreateClusterRequest extends Model
         }
         if (\is_array($this->rdsInstances)) {
             Model::validateArray($this->rdsInstances);
+        }
+        if (null !== $this->rrsaConfig) {
+            $this->rrsaConfig->validate();
         }
         if (null !== $this->runtime) {
             $this->runtime->validate();
@@ -697,7 +716,8 @@ class CreateClusterRequest extends Model
                 $res['access_control_list'] = [];
                 $n1 = 0;
                 foreach ($this->accessControlList as $item1) {
-                    $res['access_control_list'][$n1++] = $item1;
+                    $res['access_control_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -707,7 +727,8 @@ class CreateClusterRequest extends Model
                 $res['addons'] = [];
                 $n1 = 0;
                 foreach ($this->addons as $item1) {
-                    $res['addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['addons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -769,7 +790,8 @@ class CreateClusterRequest extends Model
                 $res['controlplane_log_components'] = [];
                 $n1 = 0;
                 foreach ($this->controlplaneLogComponents as $item1) {
-                    $res['controlplane_log_components'][$n1++] = $item1;
+                    $res['controlplane_log_components'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -810,6 +832,17 @@ class CreateClusterRequest extends Model
             $res['endpoint_public_access'] = $this->endpointPublicAccess;
         }
 
+        if (null !== $this->extraSans) {
+            if (\is_array($this->extraSans)) {
+                $res['extra_sans'] = [];
+                $n1 = 0;
+                foreach ($this->extraSans as $item1) {
+                    $res['extra_sans'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->formatDisk) {
             $res['format_disk'] = $this->formatDisk;
         }
@@ -827,7 +860,8 @@ class CreateClusterRequest extends Model
                 $res['instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['instances'][$n1++] = $item1;
+                    $res['instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -893,7 +927,8 @@ class CreateClusterRequest extends Model
                 $res['master_instance_types'] = [];
                 $n1 = 0;
                 foreach ($this->masterInstanceTypes as $item1) {
-                    $res['master_instance_types'][$n1++] = $item1;
+                    $res['master_instance_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -927,7 +962,8 @@ class CreateClusterRequest extends Model
                 $res['master_vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->masterVswitchIds as $item1) {
-                    $res['master_vswitch_ids'][$n1++] = $item1;
+                    $res['master_vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -957,7 +993,8 @@ class CreateClusterRequest extends Model
                 $res['nodepools'] = [];
                 $n1 = 0;
                 foreach ($this->nodepools as $item1) {
-                    $res['nodepools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['nodepools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -991,7 +1028,8 @@ class CreateClusterRequest extends Model
                 $res['pod_vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->podVswitchIds as $item1) {
-                    $res['pod_vswitch_ids'][$n1++] = $item1;
+                    $res['pod_vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1009,7 +1047,8 @@ class CreateClusterRequest extends Model
                 $res['rds_instances'] = [];
                 $n1 = 0;
                 foreach ($this->rdsInstances as $item1) {
-                    $res['rds_instances'][$n1++] = $item1;
+                    $res['rds_instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1020,6 +1059,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resource_group_id'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->rrsaConfig) {
+            $res['rrsa_config'] = null !== $this->rrsaConfig ? $this->rrsaConfig->toArray($noStream) : $this->rrsaConfig;
         }
 
         if (null !== $this->runtime) {
@@ -1047,7 +1090,8 @@ class CreateClusterRequest extends Model
                 $res['service_discovery_types'] = [];
                 $n1 = 0;
                 foreach ($this->serviceDiscoveryTypes as $item1) {
-                    $res['service_discovery_types'][$n1++] = $item1;
+                    $res['service_discovery_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1069,7 +1113,8 @@ class CreateClusterRequest extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1079,7 +1124,8 @@ class CreateClusterRequest extends Model
                 $res['taints'] = [];
                 $n1 = 0;
                 foreach ($this->taints as $item1) {
-                    $res['taints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['taints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1109,7 +1155,8 @@ class CreateClusterRequest extends Model
                 $res['vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->vswitchIds as $item1) {
-                    $res['vswitch_ids'][$n1++] = $item1;
+                    $res['vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1127,7 +1174,8 @@ class CreateClusterRequest extends Model
                 $res['worker_data_disks'] = [];
                 $n1 = 0;
                 foreach ($this->workerDataDisks as $item1) {
-                    $res['worker_data_disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['worker_data_disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1141,7 +1189,8 @@ class CreateClusterRequest extends Model
                 $res['worker_instance_types'] = [];
                 $n1 = 0;
                 foreach ($this->workerInstanceTypes as $item1) {
-                    $res['worker_instance_types'][$n1++] = $item1;
+                    $res['worker_instance_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1175,7 +1224,8 @@ class CreateClusterRequest extends Model
                 $res['worker_vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->workerVswitchIds as $item1) {
-                    $res['worker_vswitch_ids'][$n1++] = $item1;
+                    $res['worker_vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1189,7 +1239,8 @@ class CreateClusterRequest extends Model
                 $res['zone_ids'] = [];
                 $n1 = 0;
                 foreach ($this->zoneIds as $item1) {
-                    $res['zone_ids'][$n1++] = $item1;
+                    $res['zone_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1210,7 +1261,8 @@ class CreateClusterRequest extends Model
                 $model->accessControlList = [];
                 $n1 = 0;
                 foreach ($map['access_control_list'] as $item1) {
-                    $model->accessControlList[$n1++] = $item1;
+                    $model->accessControlList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1220,7 +1272,8 @@ class CreateClusterRequest extends Model
                 $model->addons = [];
                 $n1 = 0;
                 foreach ($map['addons'] as $item1) {
-                    $model->addons[$n1++] = Addon::fromMap($item1);
+                    $model->addons[$n1] = Addon::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1282,7 +1335,8 @@ class CreateClusterRequest extends Model
                 $model->controlplaneLogComponents = [];
                 $n1 = 0;
                 foreach ($map['controlplane_log_components'] as $item1) {
-                    $model->controlplaneLogComponents[$n1++] = $item1;
+                    $model->controlplaneLogComponents[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1323,6 +1377,17 @@ class CreateClusterRequest extends Model
             $model->endpointPublicAccess = $map['endpoint_public_access'];
         }
 
+        if (isset($map['extra_sans'])) {
+            if (!empty($map['extra_sans'])) {
+                $model->extraSans = [];
+                $n1 = 0;
+                foreach ($map['extra_sans'] as $item1) {
+                    $model->extraSans[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['format_disk'])) {
             $model->formatDisk = $map['format_disk'];
         }
@@ -1340,7 +1405,8 @@ class CreateClusterRequest extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['instances'] as $item1) {
-                    $model->instances[$n1++] = $item1;
+                    $model->instances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1406,7 +1472,8 @@ class CreateClusterRequest extends Model
                 $model->masterInstanceTypes = [];
                 $n1 = 0;
                 foreach ($map['master_instance_types'] as $item1) {
-                    $model->masterInstanceTypes[$n1++] = $item1;
+                    $model->masterInstanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1440,7 +1507,8 @@ class CreateClusterRequest extends Model
                 $model->masterVswitchIds = [];
                 $n1 = 0;
                 foreach ($map['master_vswitch_ids'] as $item1) {
-                    $model->masterVswitchIds[$n1++] = $item1;
+                    $model->masterVswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1470,7 +1538,8 @@ class CreateClusterRequest extends Model
                 $model->nodepools = [];
                 $n1 = 0;
                 foreach ($map['nodepools'] as $item1) {
-                    $model->nodepools[$n1++] = Nodepool::fromMap($item1);
+                    $model->nodepools[$n1] = Nodepool::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1504,7 +1573,8 @@ class CreateClusterRequest extends Model
                 $model->podVswitchIds = [];
                 $n1 = 0;
                 foreach ($map['pod_vswitch_ids'] as $item1) {
-                    $model->podVswitchIds[$n1++] = $item1;
+                    $model->podVswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1522,7 +1592,8 @@ class CreateClusterRequest extends Model
                 $model->rdsInstances = [];
                 $n1 = 0;
                 foreach ($map['rds_instances'] as $item1) {
-                    $model->rdsInstances[$n1++] = $item1;
+                    $model->rdsInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1533,6 +1604,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['resource_group_id'])) {
             $model->resourceGroupId = $map['resource_group_id'];
+        }
+
+        if (isset($map['rrsa_config'])) {
+            $model->rrsaConfig = rrsaConfig::fromMap($map['rrsa_config']);
         }
 
         if (isset($map['runtime'])) {
@@ -1560,7 +1635,8 @@ class CreateClusterRequest extends Model
                 $model->serviceDiscoveryTypes = [];
                 $n1 = 0;
                 foreach ($map['service_discovery_types'] as $item1) {
-                    $model->serviceDiscoveryTypes[$n1++] = $item1;
+                    $model->serviceDiscoveryTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1582,7 +1658,8 @@ class CreateClusterRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1592,7 +1669,8 @@ class CreateClusterRequest extends Model
                 $model->taints = [];
                 $n1 = 0;
                 foreach ($map['taints'] as $item1) {
-                    $model->taints[$n1++] = Taint::fromMap($item1);
+                    $model->taints[$n1] = Taint::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1622,7 +1700,8 @@ class CreateClusterRequest extends Model
                 $model->vswitchIds = [];
                 $n1 = 0;
                 foreach ($map['vswitch_ids'] as $item1) {
-                    $model->vswitchIds[$n1++] = $item1;
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1640,7 +1719,8 @@ class CreateClusterRequest extends Model
                 $model->workerDataDisks = [];
                 $n1 = 0;
                 foreach ($map['worker_data_disks'] as $item1) {
-                    $model->workerDataDisks[$n1++] = workerDataDisks::fromMap($item1);
+                    $model->workerDataDisks[$n1] = workerDataDisks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1654,7 +1734,8 @@ class CreateClusterRequest extends Model
                 $model->workerInstanceTypes = [];
                 $n1 = 0;
                 foreach ($map['worker_instance_types'] as $item1) {
-                    $model->workerInstanceTypes[$n1++] = $item1;
+                    $model->workerInstanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1688,7 +1769,8 @@ class CreateClusterRequest extends Model
                 $model->workerVswitchIds = [];
                 $n1 = 0;
                 foreach ($map['worker_vswitch_ids'] as $item1) {
-                    $model->workerVswitchIds[$n1++] = $item1;
+                    $model->workerVswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1702,7 +1784,8 @@ class CreateClusterRequest extends Model
                 $model->zoneIds = [];
                 $n1 = 0;
                 foreach ($map['zone_ids'] as $item1) {
-                    $model->zoneIds[$n1++] = $item1;
+                    $model->zoneIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

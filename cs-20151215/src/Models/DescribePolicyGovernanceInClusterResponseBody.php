@@ -67,7 +67,8 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
                 $res['on_state'] = [];
                 $n1 = 0;
                 foreach ($this->onState as $item1) {
-                    $res['on_state'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['on_state'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
                 $model->onState = [];
                 $n1 = 0;
                 foreach ($map['on_state'] as $item1) {
-                    $model->onState[$n1++] = onState::fromMap($item1);
+                    $model->onState[$n1] = onState::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

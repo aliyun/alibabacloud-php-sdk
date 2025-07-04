@@ -179,7 +179,8 @@ class ScaleClusterRequest extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +190,8 @@ class ScaleClusterRequest extends Model
                 $res['taints'] = [];
                 $n1 = 0;
                 foreach ($this->taints as $item1) {
-                    $res['taints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['taints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +201,8 @@ class ScaleClusterRequest extends Model
                 $res['vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->vswitchIds as $item1) {
-                    $res['vswitch_ids'][$n1++] = $item1;
+                    $res['vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +224,8 @@ class ScaleClusterRequest extends Model
                 $res['worker_data_disks'] = [];
                 $n1 = 0;
                 foreach ($this->workerDataDisks as $item1) {
-                    $res['worker_data_disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['worker_data_disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +239,8 @@ class ScaleClusterRequest extends Model
                 $res['worker_instance_types'] = [];
                 $n1 = 0;
                 foreach ($this->workerInstanceTypes as $item1) {
-                    $res['worker_instance_types'][$n1++] = $item1;
+                    $res['worker_instance_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -296,7 +301,8 @@ class ScaleClusterRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +312,8 @@ class ScaleClusterRequest extends Model
                 $model->taints = [];
                 $n1 = 0;
                 foreach ($map['taints'] as $item1) {
-                    $model->taints[$n1++] = taints::fromMap($item1);
+                    $model->taints[$n1] = taints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -316,7 +323,8 @@ class ScaleClusterRequest extends Model
                 $model->vswitchIds = [];
                 $n1 = 0;
                 foreach ($map['vswitch_ids'] as $item1) {
-                    $model->vswitchIds[$n1++] = $item1;
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +346,8 @@ class ScaleClusterRequest extends Model
                 $model->workerDataDisks = [];
                 $n1 = 0;
                 foreach ($map['worker_data_disks'] as $item1) {
-                    $model->workerDataDisks[$n1++] = workerDataDisks::fromMap($item1);
+                    $model->workerDataDisks[$n1] = workerDataDisks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -352,7 +361,8 @@ class ScaleClusterRequest extends Model
                 $model->workerInstanceTypes = [];
                 $n1 = 0;
                 foreach ($map['worker_instance_types'] as $item1) {
-                    $model->workerInstanceTypes[$n1++] = $item1;
+                    $model->workerInstanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

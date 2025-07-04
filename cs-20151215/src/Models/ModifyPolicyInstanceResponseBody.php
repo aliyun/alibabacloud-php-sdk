@@ -32,7 +32,8 @@ class ModifyPolicyInstanceResponseBody extends Model
                 $res['instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['instances'][$n1++] = $item1;
+                    $res['instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ModifyPolicyInstanceResponseBody extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['instances'] as $item1) {
-                    $model->instances[$n1++] = $item1;
+                    $model->instances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

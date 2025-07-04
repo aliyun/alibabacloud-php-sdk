@@ -149,7 +149,8 @@ class CreateAutoscalingConfigRequest extends Model
                         $res['priorities'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['priorities'][$key1][$n2++] = $item2;
+                            $res['priorities'][$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -235,7 +236,8 @@ class CreateAutoscalingConfigRequest extends Model
                         $model->priorities[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->priorities[$key1][$n2++] = $item2;
+                            $model->priorities[$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }

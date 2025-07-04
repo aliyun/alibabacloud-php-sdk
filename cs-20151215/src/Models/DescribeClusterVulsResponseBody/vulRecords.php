@@ -74,7 +74,8 @@ class vulRecords extends Model
                 $res['cve_list'] = [];
                 $n1 = 0;
                 foreach ($this->cveList as $item1) {
-                    $res['cve_list'][$n1++] = $item1;
+                    $res['cve_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class vulRecords extends Model
                 $model->cveList = [];
                 $n1 = 0;
                 foreach ($map['cve_list'] as $item1) {
-                    $model->cveList[$n1++] = $item1;
+                    $model->cveList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

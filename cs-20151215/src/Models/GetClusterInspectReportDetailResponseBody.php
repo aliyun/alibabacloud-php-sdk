@@ -79,7 +79,8 @@ class GetClusterInspectReportDetailResponseBody extends Model
                 $res['checkItemResults'] = [];
                 $n1 = 0;
                 foreach ($this->checkItemResults as $item1) {
-                    $res['checkItemResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['checkItemResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +129,8 @@ class GetClusterInspectReportDetailResponseBody extends Model
                 $model->checkItemResults = [];
                 $n1 = 0;
                 foreach ($map['checkItemResults'] as $item1) {
-                    $model->checkItemResults[$n1++] = checkItemResults::fromMap($item1);
+                    $model->checkItemResults[$n1] = checkItemResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

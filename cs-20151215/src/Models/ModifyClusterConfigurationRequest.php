@@ -33,7 +33,8 @@ class ModifyClusterConfigurationRequest extends Model
                 $res['customize_config'] = [];
                 $n1 = 0;
                 foreach ($this->customizeConfig as $item1) {
-                    $res['customize_config'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['customize_config'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ModifyClusterConfigurationRequest extends Model
                 $model->customizeConfig = [];
                 $n1 = 0;
                 foreach ($map['customize_config'] as $item1) {
-                    $model->customizeConfig[$n1++] = customizeConfig::fromMap($item1);
+                    $model->customizeConfig[$n1] = customizeConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

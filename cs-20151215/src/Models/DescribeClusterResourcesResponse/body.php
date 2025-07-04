@@ -138,7 +138,8 @@ class body extends Model
                 $res['dependencies'] = [];
                 $n1 = 0;
                 foreach ($this->dependencies as $item1) {
-                    $res['dependencies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dependencies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +209,8 @@ class body extends Model
                 $model->dependencies = [];
                 $n1 = 0;
                 foreach ($map['dependencies'] as $item1) {
-                    $model->dependencies[$n1++] = dependencies::fromMap($item1);
+                    $model->dependencies[$n1] = dependencies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

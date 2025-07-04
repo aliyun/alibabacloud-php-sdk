@@ -42,7 +42,8 @@ class apiServerCustomCertSans extends Model
                 $res['subject_alternative_names'] = [];
                 $n1 = 0;
                 foreach ($this->subjectAlternativeNames as $item1) {
-                    $res['subject_alternative_names'][$n1++] = $item1;
+                    $res['subject_alternative_names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class apiServerCustomCertSans extends Model
                 $model->subjectAlternativeNames = [];
                 $n1 = 0;
                 foreach ($map['subject_alternative_names'] as $item1) {
-                    $model->subjectAlternativeNames[$n1++] = $item1;
+                    $model->subjectAlternativeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class DescribePolicyInstancesStatusResponseBody extends Model
                 $res['policy_instances'] = [];
                 $n1 = 0;
                 foreach ($this->policyInstances as $item1) {
-                    $res['policy_instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['policy_instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DescribePolicyInstancesStatusResponseBody extends Model
                 $model->policyInstances = [];
                 $n1 = 0;
                 foreach ($map['policy_instances'] as $item1) {
-                    $model->policyInstances[$n1++] = policyInstances::fromMap($item1);
+                    $model->policyInstances[$n1] = policyInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

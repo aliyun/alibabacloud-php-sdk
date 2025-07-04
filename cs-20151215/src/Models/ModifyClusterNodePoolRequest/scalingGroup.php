@@ -310,7 +310,8 @@ class scalingGroup extends Model
                 $res['data_disks'] = [];
                 $n1 = 0;
                 foreach ($this->dataDisks as $item1) {
-                    $res['data_disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['data_disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -340,7 +341,8 @@ class scalingGroup extends Model
                 $res['instance_patterns'] = [];
                 $n1 = 0;
                 foreach ($this->instancePatterns as $item1) {
-                    $res['instance_patterns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['instance_patterns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -350,7 +352,8 @@ class scalingGroup extends Model
                 $res['instance_types'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
-                    $res['instance_types'][$n1++] = $item1;
+                    $res['instance_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -404,7 +407,8 @@ class scalingGroup extends Model
                 $res['rds_instances'] = [];
                 $n1 = 0;
                 foreach ($this->rdsInstances as $item1) {
-                    $res['rds_instances'][$n1++] = $item1;
+                    $res['rds_instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -418,7 +422,8 @@ class scalingGroup extends Model
                 $res['security_group_ids'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
-                    $res['security_group_ids'][$n1++] = $item1;
+                    $res['security_group_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -436,7 +441,8 @@ class scalingGroup extends Model
                 $res['spot_price_limit'] = [];
                 $n1 = 0;
                 foreach ($this->spotPriceLimit as $item1) {
-                    $res['spot_price_limit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['spot_price_limit'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -454,7 +460,8 @@ class scalingGroup extends Model
                 $res['system_disk_categories'] = [];
                 $n1 = 0;
                 foreach ($this->systemDiskCategories as $item1) {
-                    $res['system_disk_categories'][$n1++] = $item1;
+                    $res['system_disk_categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -492,7 +499,8 @@ class scalingGroup extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -502,7 +510,8 @@ class scalingGroup extends Model
                 $res['vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->vswitchIds as $item1) {
-                    $res['vswitch_ids'][$n1++] = $item1;
+                    $res['vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -535,7 +544,8 @@ class scalingGroup extends Model
                 $model->dataDisks = [];
                 $n1 = 0;
                 foreach ($map['data_disks'] as $item1) {
-                    $model->dataDisks[$n1++] = DataDisk::fromMap($item1);
+                    $model->dataDisks[$n1] = DataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -565,7 +575,8 @@ class scalingGroup extends Model
                 $model->instancePatterns = [];
                 $n1 = 0;
                 foreach ($map['instance_patterns'] as $item1) {
-                    $model->instancePatterns[$n1++] = InstancePatterns::fromMap($item1);
+                    $model->instancePatterns[$n1] = InstancePatterns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -575,7 +586,8 @@ class scalingGroup extends Model
                 $model->instanceTypes = [];
                 $n1 = 0;
                 foreach ($map['instance_types'] as $item1) {
-                    $model->instanceTypes[$n1++] = $item1;
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -629,7 +641,8 @@ class scalingGroup extends Model
                 $model->rdsInstances = [];
                 $n1 = 0;
                 foreach ($map['rds_instances'] as $item1) {
-                    $model->rdsInstances[$n1++] = $item1;
+                    $model->rdsInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -643,7 +656,8 @@ class scalingGroup extends Model
                 $model->securityGroupIds = [];
                 $n1 = 0;
                 foreach ($map['security_group_ids'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -661,7 +675,8 @@ class scalingGroup extends Model
                 $model->spotPriceLimit = [];
                 $n1 = 0;
                 foreach ($map['spot_price_limit'] as $item1) {
-                    $model->spotPriceLimit[$n1++] = spotPriceLimit::fromMap($item1);
+                    $model->spotPriceLimit[$n1] = spotPriceLimit::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -679,7 +694,8 @@ class scalingGroup extends Model
                 $model->systemDiskCategories = [];
                 $n1 = 0;
                 foreach ($map['system_disk_categories'] as $item1) {
-                    $model->systemDiskCategories[$n1++] = $item1;
+                    $model->systemDiskCategories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -717,7 +733,8 @@ class scalingGroup extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -727,7 +744,8 @@ class scalingGroup extends Model
                 $model->vswitchIds = [];
                 $n1 = 0;
                 foreach ($map['vswitch_ids'] as $item1) {
-                    $model->vswitchIds[$n1++] = $item1;
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

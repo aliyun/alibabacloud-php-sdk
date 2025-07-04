@@ -80,7 +80,8 @@ class UpgradeClusterNodepoolRequest extends Model
                 $res['node_names'] = [];
                 $n1 = 0;
                 foreach ($this->nodeNames as $item1) {
-                    $res['node_names'][$n1++] = $item1;
+                    $res['node_names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class UpgradeClusterNodepoolRequest extends Model
                 $model->nodeNames = [];
                 $n1 = 0;
                 foreach ($map['node_names'] as $item1) {
-                    $model->nodeNames[$n1++] = $item1;
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -92,7 +92,8 @@ class DescribeClusterAttachScriptsRequest extends Model
                 $res['rds_instances'] = [];
                 $n1 = 0;
                 foreach ($this->rdsInstances as $item1) {
-                    $res['rds_instances'][$n1++] = $item1;
+                    $res['rds_instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class DescribeClusterAttachScriptsRequest extends Model
                 $model->rdsInstances = [];
                 $n1 = 0;
                 foreach ($map['rds_instances'] as $item1) {
-                    $model->rdsInstances[$n1++] = $item1;
+                    $model->rdsInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

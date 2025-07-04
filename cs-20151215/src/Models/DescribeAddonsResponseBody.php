@@ -42,7 +42,8 @@ class DescribeAddonsResponseBody extends Model
                 $res['ComponentGroups'] = [];
                 $n1 = 0;
                 foreach ($this->componentGroups as $item1) {
-                    $res['ComponentGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComponentGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class DescribeAddonsResponseBody extends Model
                 $model->componentGroups = [];
                 $n1 = 0;
                 foreach ($map['ComponentGroups'] as $item1) {
-                    $model->componentGroups[$n1++] = componentGroups::fromMap($item1);
+                    $model->componentGroups[$n1] = componentGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

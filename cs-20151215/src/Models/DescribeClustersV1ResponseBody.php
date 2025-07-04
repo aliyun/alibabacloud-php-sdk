@@ -43,7 +43,8 @@ class DescribeClustersV1ResponseBody extends Model
                 $res['clusters'] = [];
                 $n1 = 0;
                 foreach ($this->clusters as $item1) {
-                    $res['clusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['clusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeClustersV1ResponseBody extends Model
                 $model->clusters = [];
                 $n1 = 0;
                 foreach ($map['clusters'] as $item1) {
-                    $model->clusters[$n1++] = clusters::fromMap($item1);
+                    $model->clusters[$n1] = clusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

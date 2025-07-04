@@ -41,7 +41,8 @@ class ContainerdConfig extends Model
                 $res['insecureRegistries'] = [];
                 $n1 = 0;
                 foreach ($this->insecureRegistries as $item1) {
-                    $res['insecureRegistries'][$n1++] = $item1;
+                    $res['insecureRegistries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class ContainerdConfig extends Model
                 $res['registryMirrors'] = [];
                 $n1 = 0;
                 foreach ($this->registryMirrors as $item1) {
-                    $res['registryMirrors'][$n1++] = $item1;
+                    $res['registryMirrors'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class ContainerdConfig extends Model
                 $model->insecureRegistries = [];
                 $n1 = 0;
                 foreach ($map['insecureRegistries'] as $item1) {
-                    $model->insecureRegistries[$n1++] = $item1;
+                    $model->insecureRegistries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class ContainerdConfig extends Model
                 $model->registryMirrors = [];
                 $n1 = 0;
                 foreach ($map['registryMirrors'] as $item1) {
-                    $model->registryMirrors[$n1++] = $item1;
+                    $model->registryMirrors[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

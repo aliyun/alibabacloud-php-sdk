@@ -38,7 +38,8 @@ class CleanUserPermissionsRequest extends Model
                 $res['ClusterIds'] = [];
                 $n1 = 0;
                 foreach ($this->clusterIds as $item1) {
-                    $res['ClusterIds'][$n1++] = $item1;
+                    $res['ClusterIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class CleanUserPermissionsRequest extends Model
                 $model->clusterIds = [];
                 $n1 = 0;
                 foreach ($map['ClusterIds'] as $item1) {
-                    $model->clusterIds[$n1++] = $item1;
+                    $model->clusterIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

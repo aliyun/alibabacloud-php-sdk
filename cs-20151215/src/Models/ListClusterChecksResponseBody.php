@@ -33,7 +33,8 @@ class ListClusterChecksResponseBody extends Model
                 $res['checks'] = [];
                 $n1 = 0;
                 foreach ($this->checks as $item1) {
-                    $res['checks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['checks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ListClusterChecksResponseBody extends Model
                 $model->checks = [];
                 $n1 = 0;
                 foreach ($map['checks'] as $item1) {
-                    $model->checks[$n1++] = checks::fromMap($item1);
+                    $model->checks[$n1] = checks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

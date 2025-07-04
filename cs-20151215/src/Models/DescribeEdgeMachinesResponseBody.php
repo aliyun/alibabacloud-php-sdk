@@ -43,7 +43,8 @@ class DescribeEdgeMachinesResponseBody extends Model
                 $res['edge_machines'] = [];
                 $n1 = 0;
                 foreach ($this->edgeMachines as $item1) {
-                    $res['edge_machines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['edge_machines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeEdgeMachinesResponseBody extends Model
                 $model->edgeMachines = [];
                 $n1 = 0;
                 foreach ($map['edge_machines'] as $item1) {
-                    $model->edgeMachines[$n1++] = edgeMachines::fromMap($item1);
+                    $model->edgeMachines[$n1] = edgeMachines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

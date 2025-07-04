@@ -125,7 +125,8 @@ class AttachInstancesRequest extends Model
                 $res['instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['instances'][$n1++] = $item1;
+                    $res['instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class AttachInstancesRequest extends Model
                 $res['rds_instances'] = [];
                 $n1 = 0;
                 foreach ($this->rdsInstances as $item1) {
-                    $res['rds_instances'][$n1++] = $item1;
+                    $res['rds_instances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +171,8 @@ class AttachInstancesRequest extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +209,8 @@ class AttachInstancesRequest extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['instances'] as $item1) {
-                    $model->instances[$n1++] = $item1;
+                    $model->instances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -236,7 +240,8 @@ class AttachInstancesRequest extends Model
                 $model->rdsInstances = [];
                 $n1 = 0;
                 foreach ($map['rds_instances'] as $item1) {
-                    $model->rdsInstances[$n1++] = $item1;
+                    $model->rdsInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -250,7 +255,8 @@ class AttachInstancesRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

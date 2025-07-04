@@ -39,7 +39,8 @@ class DescribeNodePoolVulsResponseBody extends Model
                 $res['vul_records'] = [];
                 $n1 = 0;
                 foreach ($this->vulRecords as $item1) {
-                    $res['vul_records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['vul_records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeNodePoolVulsResponseBody extends Model
                 $model->vulRecords = [];
                 $n1 = 0;
                 foreach ($map['vul_records'] as $item1) {
-                    $model->vulRecords[$n1++] = vulRecords::fromMap($item1);
+                    $model->vulRecords[$n1] = vulRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

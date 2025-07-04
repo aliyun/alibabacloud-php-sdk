@@ -54,7 +54,8 @@ class CheckControlPlaneLogEnableResponseBody extends Model
                 $res['components'] = [];
                 $n1 = 0;
                 foreach ($this->components as $item1) {
-                    $res['components'][$n1++] = $item1;
+                    $res['components'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class CheckControlPlaneLogEnableResponseBody extends Model
                 $model->components = [];
                 $n1 = 0;
                 foreach ($map['components'] as $item1) {
-                    $model->components[$n1++] = $item1;
+                    $model->components[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

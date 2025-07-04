@@ -87,7 +87,8 @@ class kubernetesConfig extends Model
                 $res['labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class kubernetesConfig extends Model
                 $res['taints'] = [];
                 $n1 = 0;
                 foreach ($this->taints as $item1) {
-                    $res['taints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['taints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +144,8 @@ class kubernetesConfig extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['labels'] as $item1) {
-                    $model->labels[$n1++] = Tag::fromMap($item1);
+                    $model->labels[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +167,8 @@ class kubernetesConfig extends Model
                 $model->taints = [];
                 $n1 = 0;
                 foreach ($map['taints'] as $item1) {
-                    $model->taints[$n1++] = Taint::fromMap($item1);
+                    $model->taints[$n1] = Taint::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

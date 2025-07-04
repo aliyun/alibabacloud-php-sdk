@@ -51,7 +51,8 @@ class GetClusterDiagnosisCheckItemsResponseBody extends Model
                 $res['check_items'] = [];
                 $n1 = 0;
                 foreach ($this->checkItems as $item1) {
-                    $res['check_items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['check_items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class GetClusterDiagnosisCheckItemsResponseBody extends Model
                 $model->checkItems = [];
                 $n1 = 0;
                 foreach ($map['check_items'] as $item1) {
-                    $model->checkItems[$n1++] = checkItems::fromMap($item1);
+                    $model->checkItems[$n1] = checkItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

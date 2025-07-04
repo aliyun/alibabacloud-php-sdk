@@ -47,7 +47,8 @@ class ListUserKubeConfigStatesResponseBody extends Model
                 $res['states'] = [];
                 $n1 = 0;
                 foreach ($this->states as $item1) {
-                    $res['states'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['states'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class ListUserKubeConfigStatesResponseBody extends Model
                 $model->states = [];
                 $n1 = 0;
                 foreach ($map['states'] as $item1) {
-                    $model->states[$n1++] = states::fromMap($item1);
+                    $model->states[$n1] = states::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

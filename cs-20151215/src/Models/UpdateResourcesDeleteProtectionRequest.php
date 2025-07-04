@@ -62,7 +62,8 @@ class UpdateResourcesDeleteProtectionRequest extends Model
                 $res['resources'] = [];
                 $n1 = 0;
                 foreach ($this->resources as $item1) {
-                    $res['resources'][$n1++] = $item1;
+                    $res['resources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class UpdateResourcesDeleteProtectionRequest extends Model
                 $model->resources = [];
                 $n1 = 0;
                 foreach ($map['resources'] as $item1) {
-                    $model->resources[$n1++] = $item1;
+                    $model->resources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

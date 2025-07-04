@@ -241,7 +241,8 @@ class KubeletConfig extends Model
                 $res['allowedUnsafeSysctls'] = [];
                 $n1 = 0;
                 foreach ($this->allowedUnsafeSysctls as $item1) {
-                    $res['allowedUnsafeSysctls'][$n1++] = $item1;
+                    $res['allowedUnsafeSysctls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -251,7 +252,8 @@ class KubeletConfig extends Model
                 $res['clusterDNS'] = [];
                 $n1 = 0;
                 foreach ($this->clusterDNS as $item1) {
-                    $res['clusterDNS'][$n1++] = $item1;
+                    $res['clusterDNS'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -382,7 +384,8 @@ class KubeletConfig extends Model
                 $res['reservedMemory'] = [];
                 $n1 = 0;
                 foreach ($this->reservedMemory as $item1) {
-                    $res['reservedMemory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['reservedMemory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -424,7 +427,8 @@ class KubeletConfig extends Model
                 $model->allowedUnsafeSysctls = [];
                 $n1 = 0;
                 foreach ($map['allowedUnsafeSysctls'] as $item1) {
-                    $model->allowedUnsafeSysctls[$n1++] = $item1;
+                    $model->allowedUnsafeSysctls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -434,7 +438,8 @@ class KubeletConfig extends Model
                 $model->clusterDNS = [];
                 $n1 = 0;
                 foreach ($map['clusterDNS'] as $item1) {
-                    $model->clusterDNS[$n1++] = $item1;
+                    $model->clusterDNS[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -565,7 +570,8 @@ class KubeletConfig extends Model
                 $model->reservedMemory = [];
                 $n1 = 0;
                 foreach ($map['reservedMemory'] as $item1) {
-                    $model->reservedMemory[$n1++] = reservedMemory::fromMap($item1);
+                    $model->reservedMemory[$n1] = reservedMemory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

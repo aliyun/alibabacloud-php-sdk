@@ -103,7 +103,8 @@ class body extends Model
                 $res['images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class body extends Model
                 $res['runtimes'] = [];
                 $n1 = 0;
                 foreach ($this->runtimes as $item1) {
-                    $res['runtimes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['runtimes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +150,8 @@ class body extends Model
                 $res['upgradable_versions'] = [];
                 $n1 = 0;
                 foreach ($this->upgradableVersions as $item1) {
-                    $res['upgradable_versions'][$n1++] = $item1;
+                    $res['upgradable_versions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class body extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['images'] as $item1) {
-                    $model->images[$n1++] = images::fromMap($item1);
+                    $model->images[$n1] = images::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +201,8 @@ class body extends Model
                 $model->runtimes = [];
                 $n1 = 0;
                 foreach ($map['runtimes'] as $item1) {
-                    $model->runtimes[$n1++] = Runtime::fromMap($item1);
+                    $model->runtimes[$n1] = Runtime::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -223,7 +228,8 @@ class body extends Model
                 $model->upgradableVersions = [];
                 $n1 = 0;
                 foreach ($map['upgradable_versions'] as $item1) {
-                    $model->upgradableVersions[$n1++] = $item1;
+                    $model->upgradableVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

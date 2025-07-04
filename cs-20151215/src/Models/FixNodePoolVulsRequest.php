@@ -61,7 +61,8 @@ class FixNodePoolVulsRequest extends Model
                 $res['nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['nodes'][$n1++] = $item1;
+                    $res['nodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,7 +76,8 @@ class FixNodePoolVulsRequest extends Model
                 $res['vuls'] = [];
                 $n1 = 0;
                 foreach ($this->vuls as $item1) {
-                    $res['vuls'][$n1++] = $item1;
+                    $res['vuls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class FixNodePoolVulsRequest extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['nodes'] as $item1) {
-                    $model->nodes[$n1++] = $item1;
+                    $model->nodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +117,8 @@ class FixNodePoolVulsRequest extends Model
                 $model->vuls = [];
                 $n1 = 0;
                 foreach ($map['vuls'] as $item1) {
-                    $model->vuls[$n1++] = $item1;
+                    $model->vuls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

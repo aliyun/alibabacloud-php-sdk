@@ -33,7 +33,8 @@ class DescribeClusterNodePoolsResponseBody extends Model
                 $res['nodepools'] = [];
                 $n1 = 0;
                 foreach ($this->nodepools as $item1) {
-                    $res['nodepools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['nodepools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DescribeClusterNodePoolsResponseBody extends Model
                 $model->nodepools = [];
                 $n1 = 0;
                 foreach ($map['nodepools'] as $item1) {
-                    $model->nodepools[$n1++] = nodepools::fromMap($item1);
+                    $model->nodepools[$n1] = nodepools::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

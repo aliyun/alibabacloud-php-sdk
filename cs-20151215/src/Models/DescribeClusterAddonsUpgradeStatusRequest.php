@@ -32,7 +32,8 @@ class DescribeClusterAddonsUpgradeStatusRequest extends Model
                 $res['componentIds'] = [];
                 $n1 = 0;
                 foreach ($this->componentIds as $item1) {
-                    $res['componentIds'][$n1++] = $item1;
+                    $res['componentIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DescribeClusterAddonsUpgradeStatusRequest extends Model
                 $model->componentIds = [];
                 $n1 = 0;
                 foreach ($map['componentIds'] as $item1) {
-                    $model->componentIds[$n1++] = $item1;
+                    $model->componentIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

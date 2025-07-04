@@ -156,7 +156,8 @@ class ModifyClusterRequest extends Model
                 $res['access_control_list'] = [];
                 $n1 = 0;
                 foreach ($this->accessControlList as $item1) {
-                    $res['access_control_list'][$n1++] = $item1;
+                    $res['access_control_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +231,8 @@ class ModifyClusterRequest extends Model
                 $res['vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->vswitchIds as $item1) {
-                    $res['vswitch_ids'][$n1++] = $item1;
+                    $res['vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -251,7 +253,8 @@ class ModifyClusterRequest extends Model
                 $model->accessControlList = [];
                 $n1 = 0;
                 foreach ($map['access_control_list'] as $item1) {
-                    $model->accessControlList[$n1++] = $item1;
+                    $model->accessControlList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -325,7 +328,8 @@ class ModifyClusterRequest extends Model
                 $model->vswitchIds = [];
                 $n1 = 0;
                 foreach ($map['vswitch_ids'] as $item1) {
-                    $model->vswitchIds[$n1++] = $item1;
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

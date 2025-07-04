@@ -32,7 +32,8 @@ class DeleteAlertContactRequest extends Model
                 $res['contact_ids'] = [];
                 $n1 = 0;
                 foreach ($this->contactIds as $item1) {
-                    $res['contact_ids'][$n1++] = $item1;
+                    $res['contact_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DeleteAlertContactRequest extends Model
                 $model->contactIds = [];
                 $n1 = 0;
                 foreach ($map['contact_ids'] as $item1) {
-                    $model->contactIds[$n1++] = $item1;
+                    $model->contactIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class ListClusterInspectReportsResponseBody extends Model
                 $res['reports'] = [];
                 $n1 = 0;
                 foreach ($this->reports as $item1) {
-                    $res['reports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['reports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListClusterInspectReportsResponseBody extends Model
                 $model->reports = [];
                 $n1 = 0;
                 foreach ($map['reports'] as $item1) {
-                    $model->reports[$n1++] = reports::fromMap($item1);
+                    $model->reports[$n1] = reports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

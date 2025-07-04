@@ -44,7 +44,8 @@ class UpdateClusterInspectConfigRequest extends Model
                 $res['disabledCheckItems'] = [];
                 $n1 = 0;
                 foreach ($this->disabledCheckItems as $item1) {
-                    $res['disabledCheckItems'][$n1++] = $item1;
+                    $res['disabledCheckItems'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class UpdateClusterInspectConfigRequest extends Model
                 $model->disabledCheckItems = [];
                 $n1 = 0;
                 foreach ($map['disabledCheckItems'] as $item1) {
-                    $model->disabledCheckItems[$n1++] = $item1;
+                    $model->disabledCheckItems[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

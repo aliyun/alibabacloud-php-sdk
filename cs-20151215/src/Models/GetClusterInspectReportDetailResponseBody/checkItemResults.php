@@ -112,7 +112,8 @@ class checkItemResults extends Model
                 $res['targets'] = [];
                 $n1 = 0;
                 foreach ($this->targets as $item1) {
-                    $res['targets'][$n1++] = $item1;
+                    $res['targets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +166,8 @@ class checkItemResults extends Model
                 $model->targets = [];
                 $n1 = 0;
                 foreach ($map['targets'] as $item1) {
-                    $model->targets[$n1++] = $item1;
+                    $model->targets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

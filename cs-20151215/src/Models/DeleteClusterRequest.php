@@ -54,7 +54,8 @@ class DeleteClusterRequest extends Model
                 $res['delete_options'] = [];
                 $n1 = 0;
                 foreach ($this->deleteOptions as $item1) {
-                    $res['delete_options'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['delete_options'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class DeleteClusterRequest extends Model
                 $res['retain_resources'] = [];
                 $n1 = 0;
                 foreach ($this->retainResources as $item1) {
-                    $res['retain_resources'][$n1++] = $item1;
+                    $res['retain_resources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class DeleteClusterRequest extends Model
                 $model->deleteOptions = [];
                 $n1 = 0;
                 foreach ($map['delete_options'] as $item1) {
-                    $model->deleteOptions[$n1++] = deleteOptions::fromMap($item1);
+                    $model->deleteOptions[$n1] = deleteOptions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class DeleteClusterRequest extends Model
                 $model->retainResources = [];
                 $n1 = 0;
                 foreach ($map['retain_resources'] as $item1) {
-                    $model->retainResources[$n1++] = $item1;
+                    $model->retainResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

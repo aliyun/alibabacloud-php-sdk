@@ -77,7 +77,8 @@ class addons extends Model
                 $res['architecture'] = [];
                 $n1 = 0;
                 foreach ($this->architecture as $item1) {
-                    $res['architecture'][$n1++] = $item1;
+                    $res['architecture'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class addons extends Model
                 $res['supported_actions'] = [];
                 $n1 = 0;
                 foreach ($this->supportedActions as $item1) {
-                    $res['supported_actions'][$n1++] = $item1;
+                    $res['supported_actions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class addons extends Model
                 $model->architecture = [];
                 $n1 = 0;
                 foreach ($map['architecture'] as $item1) {
-                    $model->architecture[$n1++] = $item1;
+                    $model->architecture[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class addons extends Model
                 $model->supportedActions = [];
                 $n1 = 0;
                 foreach ($map['supported_actions'] as $item1) {
-                    $model->supportedActions[$n1++] = $item1;
+                    $model->supportedActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

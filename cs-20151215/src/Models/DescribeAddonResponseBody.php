@@ -87,7 +87,8 @@ class DescribeAddonResponseBody extends Model
                 $res['architecture'] = [];
                 $n1 = 0;
                 foreach ($this->architecture as $item1) {
-                    $res['architecture'][$n1++] = $item1;
+                    $res['architecture'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class DescribeAddonResponseBody extends Model
                 $res['newer_versions'] = [];
                 $n1 = 0;
                 foreach ($this->newerVersions as $item1) {
-                    $res['newer_versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['newer_versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +129,8 @@ class DescribeAddonResponseBody extends Model
                 $res['supported_actions'] = [];
                 $n1 = 0;
                 foreach ($this->supportedActions as $item1) {
-                    $res['supported_actions'][$n1++] = $item1;
+                    $res['supported_actions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class DescribeAddonResponseBody extends Model
                 $model->architecture = [];
                 $n1 = 0;
                 foreach ($map['architecture'] as $item1) {
-                    $model->architecture[$n1++] = $item1;
+                    $model->architecture[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +186,8 @@ class DescribeAddonResponseBody extends Model
                 $model->newerVersions = [];
                 $n1 = 0;
                 foreach ($map['newer_versions'] as $item1) {
-                    $model->newerVersions[$n1++] = newerVersions::fromMap($item1);
+                    $model->newerVersions[$n1] = newerVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +197,8 @@ class DescribeAddonResponseBody extends Model
                 $model->supportedActions = [];
                 $n1 = 0;
                 foreach ($map['supported_actions'] as $item1) {
-                    $model->supportedActions[$n1++] = $item1;
+                    $model->supportedActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

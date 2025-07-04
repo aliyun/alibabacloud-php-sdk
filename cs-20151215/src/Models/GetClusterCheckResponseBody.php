@@ -76,11 +76,12 @@ class GetClusterCheckResponseBody extends Model
                         $n2 = 0;
                         foreach ($value1 as $item2) {
                             if (\is_array($item2)) {
-                                $res['check_items'][$key1][$n2++] = [];
+                                $res['check_items'][$key1][$n2] = [];
                                 foreach ($item2 as $key3 => $value3) {
-                                    $res['check_items'][$key1][$n2++][$key3] = $value3;
+                                    $res['check_items'][$key1][$n2][$key3] = $value3;
                                 }
                             }
+                            ++$n2;
                         }
                     }
                 }
@@ -131,11 +132,12 @@ class GetClusterCheckResponseBody extends Model
                         $n2 = 0;
                         foreach ($value1 as $item2) {
                             if (!empty($item2)) {
-                                $model->checkItems[$key1][$n2++] = [];
+                                $model->checkItems[$key1][$n2] = [];
                                 foreach ($item2 as $key3 => $value3) {
-                                    $model->checkItems[$key1][$n2++][$key3] = $value3;
+                                    $model->checkItems[$key1][$n2][$key3] = $value3;
                                 }
                             }
+                            ++$n2;
                         }
                     }
                 }

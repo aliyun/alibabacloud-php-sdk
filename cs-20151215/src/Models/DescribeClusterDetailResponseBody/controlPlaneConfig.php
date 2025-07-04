@@ -196,7 +196,8 @@ class controlPlaneConfig extends Model
                 $res['instance_types'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
-                    $res['instance_types'][$n1++] = $item1;
+                    $res['instance_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -305,7 +306,8 @@ class controlPlaneConfig extends Model
                 $model->instanceTypes = [];
                 $n1 = 0;
                 foreach ($map['instance_types'] as $item1) {
-                    $model->instanceTypes[$n1++] = $item1;
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -140,7 +140,8 @@ class DescribeTaskInfoResponseBody extends Model
                 $res['events'] = [];
                 $n1 = 0;
                 foreach ($this->events as $item1) {
-                    $res['events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['events'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +160,8 @@ class DescribeTaskInfoResponseBody extends Model
                 $res['stages'] = [];
                 $n1 = 0;
                 foreach ($this->stages as $item1) {
-                    $res['stages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['stages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +183,8 @@ class DescribeTaskInfoResponseBody extends Model
                 $res['task_result'] = [];
                 $n1 = 0;
                 foreach ($this->taskResult as $item1) {
-                    $res['task_result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['task_result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +229,8 @@ class DescribeTaskInfoResponseBody extends Model
                 $model->events = [];
                 $n1 = 0;
                 foreach ($map['events'] as $item1) {
-                    $model->events[$n1++] = events::fromMap($item1);
+                    $model->events[$n1] = events::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +249,8 @@ class DescribeTaskInfoResponseBody extends Model
                 $model->stages = [];
                 $n1 = 0;
                 foreach ($map['stages'] as $item1) {
-                    $model->stages[$n1++] = stages::fromMap($item1);
+                    $model->stages[$n1] = stages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +272,8 @@ class DescribeTaskInfoResponseBody extends Model
                 $model->taskResult = [];
                 $n1 = 0;
                 foreach ($map['task_result'] as $item1) {
-                    $model->taskResult[$n1++] = taskResult::fromMap($item1);
+                    $model->taskResult[$n1] = taskResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

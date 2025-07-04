@@ -38,7 +38,8 @@ class operations extends Model
                 $res['args'] = [];
                 $n1 = 0;
                 foreach ($this->args as $item1) {
-                    $res['args'][$n1++] = $item1;
+                    $res['args'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class operations extends Model
                 $model->args = [];
                 $n1 = 0;
                 foreach ($map['args'] as $item1) {
-                    $model->args[$n1++] = $item1;
+                    $model->args[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

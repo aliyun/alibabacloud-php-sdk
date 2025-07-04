@@ -152,7 +152,8 @@ class InstancePatterns extends Model
                 $res['architectures'] = [];
                 $n1 = 0;
                 foreach ($this->architectures as $item1) {
-                    $res['architectures'][$n1++] = $item1;
+                    $res['architectures'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +175,8 @@ class InstancePatterns extends Model
                 $res['cpu_architectures'] = [];
                 $n1 = 0;
                 foreach ($this->cpuArchitectures as $item1) {
-                    $res['cpu_architectures'][$n1++] = $item1;
+                    $res['cpu_architectures'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +186,8 @@ class InstancePatterns extends Model
                 $res['excluded_instance_types'] = [];
                 $n1 = 0;
                 foreach ($this->excludedInstanceTypes as $item1) {
-                    $res['excluded_instance_types'][$n1++] = $item1;
+                    $res['excluded_instance_types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +197,8 @@ class InstancePatterns extends Model
                 $res['instance_categories'] = [];
                 $n1 = 0;
                 foreach ($this->instanceCategories as $item1) {
-                    $res['instance_categories'][$n1++] = $item1;
+                    $res['instance_categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +212,8 @@ class InstancePatterns extends Model
                 $res['instance_type_families'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypeFamilies as $item1) {
-                    $res['instance_type_families'][$n1++] = $item1;
+                    $res['instance_type_families'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -269,7 +274,8 @@ class InstancePatterns extends Model
                 $model->architectures = [];
                 $n1 = 0;
                 foreach ($map['architectures'] as $item1) {
-                    $model->architectures[$n1++] = $item1;
+                    $model->architectures[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +297,8 @@ class InstancePatterns extends Model
                 $model->cpuArchitectures = [];
                 $n1 = 0;
                 foreach ($map['cpu_architectures'] as $item1) {
-                    $model->cpuArchitectures[$n1++] = $item1;
+                    $model->cpuArchitectures[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -301,7 +308,8 @@ class InstancePatterns extends Model
                 $model->excludedInstanceTypes = [];
                 $n1 = 0;
                 foreach ($map['excluded_instance_types'] as $item1) {
-                    $model->excludedInstanceTypes[$n1++] = $item1;
+                    $model->excludedInstanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -311,7 +319,8 @@ class InstancePatterns extends Model
                 $model->instanceCategories = [];
                 $n1 = 0;
                 foreach ($map['instance_categories'] as $item1) {
-                    $model->instanceCategories[$n1++] = $item1;
+                    $model->instanceCategories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -325,7 +334,8 @@ class InstancePatterns extends Model
                 $model->instanceTypeFamilies = [];
                 $n1 = 0;
                 foreach ($map['instance_type_families'] as $item1) {
-                    $model->instanceTypeFamilies[$n1++] = $item1;
+                    $model->instanceTypeFamilies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

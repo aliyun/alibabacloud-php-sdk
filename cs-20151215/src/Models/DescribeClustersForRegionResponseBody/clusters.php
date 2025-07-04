@@ -260,7 +260,8 @@ class clusters extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -282,7 +283,8 @@ class clusters extends Model
                 $res['vswitch_ids'] = [];
                 $n1 = 0;
                 foreach ($this->vswitchIds as $item1) {
-                    $res['vswitch_ids'][$n1++] = $item1;
+                    $res['vswitch_ids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +385,8 @@ class clusters extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -405,7 +408,8 @@ class clusters extends Model
                 $model->vswitchIds = [];
                 $n1 = 0;
                 foreach ($map['vswitch_ids'] as $item1) {
-                    $model->vswitchIds[$n1++] = $item1;
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
