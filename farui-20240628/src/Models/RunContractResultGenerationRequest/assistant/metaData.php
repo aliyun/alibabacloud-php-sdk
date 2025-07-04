@@ -77,7 +77,8 @@ class metaData extends Model
                 $res['rules'] = [];
                 $n1 = 0;
                 foreach ($this->rules as $item1) {
-                    $res['rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class metaData extends Model
                 $model->rules = [];
                 $n1 = 0;
                 foreach ($map['rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                    $model->rules[$n1] = rules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

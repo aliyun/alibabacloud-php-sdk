@@ -4,8 +4,14 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileAdvanceRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileResponse;
@@ -24,13 +30,7 @@ use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextShrinkRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryResponse;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryShrinkRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -45,6 +45,51 @@ class FaRui extends OpenApiClient
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('farui', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -74,7 +119,7 @@ class FaRui extends OpenApiClient
     /**
      * 上传合同文件.
      *
-     * @param request - CreateTextFileRequest
+     * @param Request - CreateTextFileRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -129,7 +174,7 @@ class FaRui extends OpenApiClient
     /**
      * 上传合同文件.
      *
-     * @param request - CreateTextFileRequest
+     * @param Request - CreateTextFileRequest
      *
      * @returns CreateTextFileResponse
      *
@@ -157,12 +202,20 @@ class FaRui extends OpenApiClient
     public function createTextFileAdvance($WorkspaceId, $request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -179,51 +232,54 @@ class FaRui extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'FaRui',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'FaRui',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $createTextFileReq = new CreateTextFileRequest([]);
         Utils::convert($request, $createTextFileReq);
         if (null !== $request->textFileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->textFileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $createTextFileReq->textFileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $createTextFileReq->textFileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->createTextFileWithOptions($WorkspaceId, $createTextFileReq, $headers, $runtime);
@@ -289,7 +345,7 @@ class FaRui extends OpenApiClient
     /**
      * 生成合同审查结果.
      *
-     * @param request - RunContractResultGenerationRequest
+     * @param Request - RunContractResultGenerationRequest
      *
      * @returns RunContractResultGenerationResponse
      *
@@ -366,7 +422,7 @@ class FaRui extends OpenApiClient
     /**
      * 生成合同审查规则.
      *
-     * @param request - RunContractRuleGenerationRequest
+     * @param Request - RunContractRuleGenerationRequest
      *
      * @returns RunContractRuleGenerationResponse
      *
@@ -408,6 +464,10 @@ class FaRui extends OpenApiClient
             $request->assistantShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assistant, 'assistant', 'json');
         }
 
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
+        }
+
         if (null !== $tmpReq->thread) {
             $request->threadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thread, 'thread', 'json');
         }
@@ -419,6 +479,10 @@ class FaRui extends OpenApiClient
 
         if (null !== $request->assistantShrink) {
             @$body['assistant'] = $request->assistantShrink;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$body['extra'] = $request->extraShrink;
         }
 
         if (null !== $request->stream) {
@@ -451,7 +515,7 @@ class FaRui extends OpenApiClient
     /**
      * 法律咨询.
      *
-     * @param request - RunLegalAdviceConsultationRequest
+     * @param Request - RunLegalAdviceConsultationRequest
      *
      * @returns RunLegalAdviceConsultationResponse
      *
@@ -564,7 +628,7 @@ class FaRui extends OpenApiClient
     /**
      * 案例检索.
      *
-     * @param request - RunSearchCaseFullTextRequest
+     * @param Request - RunSearchCaseFullTextRequest
      *
      * @returns RunSearchCaseFullTextResponse
      *
@@ -665,7 +729,7 @@ class FaRui extends OpenApiClient
     /**
      * 法规搜索.
      *
-     * @param request - RunSearchLawQueryRequest
+     * @param Request - RunSearchLawQueryRequest
      *
      * @returns RunSearchLawQueryResponse
      *

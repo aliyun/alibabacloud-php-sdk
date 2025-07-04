@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\FaRui\V20240628\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationRequest\assistant;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationRequest\extra;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationRequest\thread;
 
 class RunLegalAdviceConsultationRequest extends Model
@@ -21,6 +22,11 @@ class RunLegalAdviceConsultationRequest extends Model
     public $assistant;
 
     /**
+     * @var extra
+     */
+    public $extra;
+
+    /**
      * @var bool
      */
     public $stream;
@@ -32,6 +38,7 @@ class RunLegalAdviceConsultationRequest extends Model
     protected $_name = [
         'appId' => 'appId',
         'assistant' => 'assistant',
+        'extra' => 'extra',
         'stream' => 'stream',
         'thread' => 'thread',
     ];
@@ -40,6 +47,9 @@ class RunLegalAdviceConsultationRequest extends Model
     {
         if (null !== $this->assistant) {
             $this->assistant->validate();
+        }
+        if (null !== $this->extra) {
+            $this->extra->validate();
         }
         if (null !== $this->thread) {
             $this->thread->validate();
@@ -56,6 +66,10 @@ class RunLegalAdviceConsultationRequest extends Model
 
         if (null !== $this->assistant) {
             $res['assistant'] = null !== $this->assistant ? $this->assistant->toArray($noStream) : $this->assistant;
+        }
+
+        if (null !== $this->extra) {
+            $res['extra'] = null !== $this->extra ? $this->extra->toArray($noStream) : $this->extra;
         }
 
         if (null !== $this->stream) {
@@ -83,6 +97,10 @@ class RunLegalAdviceConsultationRequest extends Model
 
         if (isset($map['assistant'])) {
             $model->assistant = assistant::fromMap($map['assistant']);
+        }
+
+        if (isset($map['extra'])) {
+            $model->extra = extra::fromMap($map['extra']);
         }
 
         if (isset($map['stream'])) {

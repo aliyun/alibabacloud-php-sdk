@@ -52,6 +52,16 @@ class RunLegalAdviceConsultationResponseBody extends Model
     /**
      * @var string
      */
+    public $contents;
+
+    /**
+     * @var string
+     */
+    public $extra;
+
+    /**
+     * @var string
+     */
     public $httpStatusCode;
     protected $_name = [
         'code' => 'Code',
@@ -62,6 +72,8 @@ class RunLegalAdviceConsultationResponseBody extends Model
         'status' => 'Status',
         'success' => 'Success',
         'usage' => 'Usage',
+        'contents' => 'contents',
+        'extra' => 'extra',
         'httpStatusCode' => 'httpStatusCode',
     ];
 
@@ -106,6 +118,14 @@ class RunLegalAdviceConsultationResponseBody extends Model
 
         if (null !== $this->usage) {
             $res['Usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
+        }
+
+        if (null !== $this->contents) {
+            $res['contents'] = $this->contents;
+        }
+
+        if (null !== $this->extra) {
+            $res['extra'] = $this->extra;
         }
 
         if (null !== $this->httpStatusCode) {
@@ -153,6 +173,14 @@ class RunLegalAdviceConsultationResponseBody extends Model
 
         if (isset($map['Usage'])) {
             $model->usage = usage::fromMap($map['Usage']);
+        }
+
+        if (isset($map['contents'])) {
+            $model->contents = $map['contents'];
+        }
+
+        if (isset($map['extra'])) {
+            $model->extra = $map['extra'];
         }
 
         if (isset($map['httpStatusCode'])) {

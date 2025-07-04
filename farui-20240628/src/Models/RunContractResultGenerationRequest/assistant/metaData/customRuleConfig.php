@@ -33,7 +33,8 @@ class customRuleConfig extends Model
                 $res['customRules'] = [];
                 $n1 = 0;
                 foreach ($this->customRules as $item1) {
-                    $res['customRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['customRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class customRuleConfig extends Model
                 $model->customRules = [];
                 $n1 = 0;
                 foreach ($map['customRules'] as $item1) {
-                    $model->customRules[$n1++] = customRules::fromMap($item1);
+                    $model->customRules[$n1] = customRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

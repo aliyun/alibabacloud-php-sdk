@@ -33,7 +33,8 @@ class thread extends Model
                 $res['messages'] = [];
                 $n1 = 0;
                 foreach ($this->messages as $item1) {
-                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class thread extends Model
                 $model->messages = [];
                 $n1 = 0;
                 foreach ($map['messages'] as $item1) {
-                    $model->messages[$n1++] = messages::fromMap($item1);
+                    $model->messages[$n1] = messages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

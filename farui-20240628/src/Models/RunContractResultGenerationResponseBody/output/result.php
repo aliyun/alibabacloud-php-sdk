@@ -93,7 +93,8 @@ class result extends Model
                 $res['subRisks'] = [];
                 $n1 = 0;
                 foreach ($this->subRisks as $item1) {
-                    $res['subRisks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subRisks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class result extends Model
                 $model->subRisks = [];
                 $n1 = 0;
                 foreach ($map['subRisks'] as $item1) {
-                    $model->subRisks[$n1++] = subRisks::fromMap($item1);
+                    $model->subRisks[$n1] = subRisks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

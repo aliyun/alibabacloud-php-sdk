@@ -304,7 +304,8 @@ class caseDomain extends Model
                 $res['disputeFocusTag'] = [];
                 $n1 = 0;
                 foreach ($this->disputeFocusTag as $item1) {
-                    $res['disputeFocusTag'][$n1++] = $item1;
+                    $res['disputeFocusTag'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -461,7 +462,8 @@ class caseDomain extends Model
                 $model->disputeFocusTag = [];
                 $n1 = 0;
                 foreach ($map['disputeFocusTag'] as $item1) {
-                    $model->disputeFocusTag[$n1++] = $item1;
+                    $model->disputeFocusTag[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

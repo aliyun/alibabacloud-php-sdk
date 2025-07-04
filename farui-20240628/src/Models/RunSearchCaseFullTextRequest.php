@@ -105,7 +105,8 @@ class RunSearchCaseFullTextRequest extends Model
                 $res['queryKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->queryKeywords as $item1) {
-                    $res['queryKeywords'][$n1++] = $item1;
+                    $res['queryKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +160,8 @@ class RunSearchCaseFullTextRequest extends Model
                 $model->queryKeywords = [];
                 $n1 = 0;
                 foreach ($map['queryKeywords'] as $item1) {
-                    $model->queryKeywords[$n1++] = $item1;
+                    $model->queryKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

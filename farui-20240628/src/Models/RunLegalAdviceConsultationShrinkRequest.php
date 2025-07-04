@@ -19,6 +19,11 @@ class RunLegalAdviceConsultationShrinkRequest extends Model
     public $assistantShrink;
 
     /**
+     * @var string
+     */
+    public $extraShrink;
+
+    /**
      * @var bool
      */
     public $stream;
@@ -30,6 +35,7 @@ class RunLegalAdviceConsultationShrinkRequest extends Model
     protected $_name = [
         'appId' => 'appId',
         'assistantShrink' => 'assistant',
+        'extraShrink' => 'extra',
         'stream' => 'stream',
         'threadShrink' => 'thread',
     ];
@@ -48,6 +54,10 @@ class RunLegalAdviceConsultationShrinkRequest extends Model
 
         if (null !== $this->assistantShrink) {
             $res['assistant'] = $this->assistantShrink;
+        }
+
+        if (null !== $this->extraShrink) {
+            $res['extra'] = $this->extraShrink;
         }
 
         if (null !== $this->stream) {
@@ -75,6 +85,10 @@ class RunLegalAdviceConsultationShrinkRequest extends Model
 
         if (isset($map['assistant'])) {
             $model->assistantShrink = $map['assistant'];
+        }
+
+        if (isset($map['extra'])) {
+            $model->extraShrink = $map['extra'];
         }
 
         if (isset($map['stream'])) {

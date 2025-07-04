@@ -80,7 +80,8 @@ class data extends Model
                 $res['lawResult'] = [];
                 $n1 = 0;
                 foreach ($this->lawResult as $item1) {
-                    $res['lawResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['lawResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class data extends Model
                 $res['queryKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->queryKeywords as $item1) {
-                    $res['queryKeywords'][$n1++] = $item1;
+                    $res['queryKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +133,8 @@ class data extends Model
                 $model->lawResult = [];
                 $n1 = 0;
                 foreach ($map['lawResult'] as $item1) {
-                    $model->lawResult[$n1++] = lawResult::fromMap($item1);
+                    $model->lawResult[$n1] = lawResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +152,8 @@ class data extends Model
                 $model->queryKeywords = [];
                 $n1 = 0;
                 foreach ($map['queryKeywords'] as $item1) {
-                    $model->queryKeywords[$n1++] = $item1;
+                    $model->queryKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
