@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleShrinkRequest;
@@ -19,6 +23,10 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementReque
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCuHoursRequest;
@@ -27,6 +35,10 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetDoctorApplicationReq
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetDoctorApplicationResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementRequest;
@@ -44,6 +56,10 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicat
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsShrinkRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiTokenResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
@@ -55,16 +71,24 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesResp
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RefreshLivyComputeTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RefreshLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartLivyComputeRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartProcessInstanceRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartProcessInstanceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopLivyComputeRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateLivyComputeRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleShrinkRequest;
@@ -241,6 +265,210 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->cancelJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建Livy compute.
+     *
+     * @param request - CreateLivyComputeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLivyComputeResponse
+     *
+     * @param string                   $workspaceBizId
+     * @param CreateLivyComputeRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateLivyComputeResponse
+     */
+    public function createLivyComputeWithOptions($workspaceBizId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->authType) {
+            @$body['authType'] = $request->authType;
+        }
+
+        if (null !== $request->autoStartConfiguration) {
+            @$body['autoStartConfiguration'] = $request->autoStartConfiguration;
+        }
+
+        if (null !== $request->autoStopConfiguration) {
+            @$body['autoStopConfiguration'] = $request->autoStopConfiguration;
+        }
+
+        if (null !== $request->cpuLimit) {
+            @$body['cpuLimit'] = $request->cpuLimit;
+        }
+
+        if (null !== $request->displayReleaseVersion) {
+            @$body['displayReleaseVersion'] = $request->displayReleaseVersion;
+        }
+
+        if (null !== $request->enablePublic) {
+            @$body['enablePublic'] = $request->enablePublic;
+        }
+
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->fusion) {
+            @$body['fusion'] = $request->fusion;
+        }
+
+        if (null !== $request->livyServerConf) {
+            @$body['livyServerConf'] = $request->livyServerConf;
+        }
+
+        if (null !== $request->livyVersion) {
+            @$body['livyVersion'] = $request->livyVersion;
+        }
+
+        if (null !== $request->memoryLimit) {
+            @$body['memoryLimit'] = $request->memoryLimit;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->networkName) {
+            @$body['networkName'] = $request->networkName;
+        }
+
+        if (null !== $request->queueName) {
+            @$body['queueName'] = $request->queueName;
+        }
+
+        if (null !== $request->releaseVersion) {
+            @$body['releaseVersion'] = $request->releaseVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLivyCompute',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLivyComputeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Livy compute.
+     *
+     * @param request - CreateLivyComputeRequest
+     *
+     * @returns CreateLivyComputeResponse
+     *
+     * @param string                   $workspaceBizId
+     * @param CreateLivyComputeRequest $request
+     *
+     * @return CreateLivyComputeResponse
+     */
+    public function createLivyCompute($workspaceBizId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createLivyComputeWithOptions($workspaceBizId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建Livy Compute的token.
+     *
+     * @param request - CreateLivyComputeTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLivyComputeTokenResponse
+     *
+     * @param string                        $workspaceBizId
+     * @param string                        $livyComputeId
+     * @param CreateLivyComputeTokenRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateLivyComputeTokenResponse
+     */
+    public function createLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->autoExpireConfiguration) {
+            @$body['autoExpireConfiguration'] = $request->autoExpireConfiguration;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->token) {
+            @$body['token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLivyComputeToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/token',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLivyComputeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Livy Compute的token.
+     *
+     * @param request - CreateLivyComputeTokenRequest
+     *
+     * @returns CreateLivyComputeTokenResponse
+     *
+     * @param string                        $workspaceBizId
+     * @param string                        $livyComputeId
+     * @param CreateLivyComputeTokenRequest $request
+     *
+     * @return CreateLivyComputeTokenResponse
+     */
+    public function createLivyComputeToken($workspaceBizId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
     }
 
     /**
@@ -714,6 +942,138 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 删除livy compute.
+     *
+     * @param request - DeleteLivyComputeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLivyComputeResponse
+     *
+     * @param string                   $workspaceBizId
+     * @param string                   $livyComputeId
+     * @param DeleteLivyComputeRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteLivyComputeResponse
+     */
+    public function deleteLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLivyCompute',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLivyComputeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除livy compute.
+     *
+     * @param request - DeleteLivyComputeRequest
+     *
+     * @returns DeleteLivyComputeResponse
+     *
+     * @param string                   $workspaceBizId
+     * @param string                   $livyComputeId
+     * @param DeleteLivyComputeRequest $request
+     *
+     * @return DeleteLivyComputeResponse
+     */
+    public function deleteLivyCompute($workspaceBizId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除Livy Compute的token.
+     *
+     * @param request - DeleteLivyComputeTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLivyComputeTokenResponse
+     *
+     * @param string                        $workspaceBizId
+     * @param string                        $livyComputeId
+     * @param string                        $tokenId
+     * @param DeleteLivyComputeTokenRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteLivyComputeTokenResponse
+     */
+    public function deleteLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLivyComputeToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/token/' . Url::percentEncode($tokenId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLivyComputeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Livy Compute的token.
+     *
+     * @param request - DeleteLivyComputeTokenRequest
+     *
+     * @returns DeleteLivyComputeTokenResponse
+     *
+     * @param string                        $workspaceBizId
+     * @param string                        $livyComputeId
+     * @param string                        $tokenId
+     * @param DeleteLivyComputeTokenRequest $request
+     *
+     * @return DeleteLivyComputeTokenResponse
+     */
+    public function deleteLivyComputeToken($workspaceBizId, $livyComputeId, $tokenId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime);
+    }
+
+    /**
      * Modifies the queue of a workspace.
      *
      * @param request - EditWorkspaceQueueRequest
@@ -997,6 +1357,138 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取livy compute.
+     *
+     * @param request - GetLivyComputeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLivyComputeResponse
+     *
+     * @param string                $workspaceBizId
+     * @param string                $livyComputeId
+     * @param GetLivyComputeRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetLivyComputeResponse
+     */
+    public function getLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLivyCompute',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLivyComputeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取livy compute.
+     *
+     * @param request - GetLivyComputeRequest
+     *
+     * @returns GetLivyComputeResponse
+     *
+     * @param string                $workspaceBizId
+     * @param string                $livyComputeId
+     * @param GetLivyComputeRequest $request
+     *
+     * @return GetLivyComputeResponse
+     */
+    public function getLivyCompute($workspaceBizId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取livy compute token.
+     *
+     * @param request - GetLivyComputeTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLivyComputeTokenResponse
+     *
+     * @param string                     $workspaceBizId
+     * @param string                     $livyComputeId
+     * @param string                     $tokenId
+     * @param GetLivyComputeTokenRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetLivyComputeTokenResponse
+     */
+    public function getLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLivyComputeToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/token/' . Url::percentEncode($tokenId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLivyComputeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取livy compute token.
+     *
+     * @param request - GetLivyComputeTokenRequest
+     *
+     * @returns GetLivyComputeTokenResponse
+     *
+     * @param string                     $workspaceBizId
+     * @param string                     $livyComputeId
+     * @param string                     $tokenId
+     * @param GetLivyComputeTokenRequest $request
+     *
+     * @return GetLivyComputeTokenResponse
+     */
+    public function getLivyComputeToken($workspaceBizId, $livyComputeId, $tokenId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime);
     }
 
     /**
@@ -1628,6 +2120,138 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 列出livy compute.
+     *
+     * @param request - ListLivyComputeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLivyComputeResponse
+     *
+     * @param string                 $workspaceBizId
+     * @param ListLivyComputeRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListLivyComputeResponse
+     */
+    public function listLivyComputeWithOptions($workspaceBizId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentId) {
+            @$query['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLivyCompute',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLivyComputeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出livy compute.
+     *
+     * @param request - ListLivyComputeRequest
+     *
+     * @returns ListLivyComputeResponse
+     *
+     * @param string                 $workspaceBizId
+     * @param ListLivyComputeRequest $request
+     *
+     * @return ListLivyComputeResponse
+     */
+    public function listLivyCompute($workspaceBizId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLivyComputeWithOptions($workspaceBizId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出livy compute token.
+     *
+     * @param request - ListLivyComputeTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLivyComputeTokenResponse
+     *
+     * @param string                      $workspaceBizId
+     * @param string                      $livyComputeId
+     * @param ListLivyComputeTokenRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListLivyComputeTokenResponse
+     */
+    public function listLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLivyComputeToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/token',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLivyComputeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出livy compute token.
+     *
+     * @param request - ListLivyComputeTokenRequest
+     *
+     * @returns ListLivyComputeTokenResponse
+     *
+     * @param string                      $workspaceBizId
+     * @param string                      $livyComputeId
+     * @param ListLivyComputeTokenRequest $request
+     *
+     * @return ListLivyComputeTokenResponse
+     */
+    public function listLivyComputeToken($workspaceBizId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
+    }
+
+    /**
      * Get Log Content.
      *
      * @param request - ListLogContentsRequest
@@ -2021,6 +2645,87 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 更新Livy Compute的token.
+     *
+     * @param request - RefreshLivyComputeTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshLivyComputeTokenResponse
+     *
+     * @param string                         $workspaceBizId
+     * @param string                         $livyComputeId
+     * @param string                         $tokenId
+     * @param RefreshLivyComputeTokenRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RefreshLivyComputeTokenResponse
+     */
+    public function refreshLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->autoExpireConfiguration) {
+            @$body['autoExpireConfiguration'] = $request->autoExpireConfiguration;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->token) {
+            @$body['token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshLivyComputeToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/token/' . Url::percentEncode($tokenId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshLivyComputeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Livy Compute的token.
+     *
+     * @param request - RefreshLivyComputeTokenRequest
+     *
+     * @returns RefreshLivyComputeTokenResponse
+     *
+     * @param string                         $workspaceBizId
+     * @param string                         $livyComputeId
+     * @param string                         $tokenId
+     * @param RefreshLivyComputeTokenRequest $request
+     *
+     * @return RefreshLivyComputeTokenResponse
+     */
+    public function refreshLivyComputeToken($workspaceBizId, $livyComputeId, $tokenId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->refreshLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime);
+    }
+
+    /**
      * Starts a Spark job.
      *
      * @param request - StartJobRunRequest
@@ -2131,6 +2836,71 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->startJobRunWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 启动livy compute.
+     *
+     * @param request - StartLivyComputeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartLivyComputeResponse
+     *
+     * @param string                  $workspaceBizId
+     * @param string                  $livyComputeId
+     * @param StartLivyComputeRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartLivyComputeResponse
+     */
+    public function startLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartLivyCompute',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/start',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StartLivyComputeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动livy compute.
+     *
+     * @param request - StartLivyComputeRequest
+     *
+     * @returns StartLivyComputeResponse
+     *
+     * @param string                  $workspaceBizId
+     * @param string                  $livyComputeId
+     * @param StartLivyComputeRequest $request
+     *
+     * @return StartLivyComputeResponse
+     */
+    public function startLivyCompute($workspaceBizId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
     }
 
     /**
@@ -2310,6 +3080,71 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 停止livy compute.
+     *
+     * @param request - StopLivyComputeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopLivyComputeResponse
+     *
+     * @param string                 $workspaceBizId
+     * @param string                 $livyComputeId
+     * @param StopLivyComputeRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StopLivyComputeResponse
+     */
+    public function stopLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopLivyCompute',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopLivyComputeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止livy compute.
+     *
+     * @param request - StopLivyComputeRequest
+     *
+     * @returns StopLivyComputeResponse
+     *
+     * @param string                 $workspaceBizId
+     * @param string                 $livyComputeId
+     * @param StopLivyComputeRequest $request
+     *
+     * @return StopLivyComputeResponse
+     */
+    public function stopLivyCompute($workspaceBizId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
+    }
+
+    /**
      * Stops a session.
      *
      * @param request - StopSessionClusterRequest
@@ -2445,6 +3280,133 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->terminateSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新livy compute.
+     *
+     * @param request - UpdateLivyComputeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLivyComputeResponse
+     *
+     * @param string                   $workspaceBizId
+     * @param string                   $livyComputeId
+     * @param UpdateLivyComputeRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateLivyComputeResponse
+     */
+    public function updateLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->authType) {
+            @$body['authType'] = $request->authType;
+        }
+
+        if (null !== $request->autoStartConfiguration) {
+            @$body['autoStartConfiguration'] = $request->autoStartConfiguration;
+        }
+
+        if (null !== $request->autoStopConfiguration) {
+            @$body['autoStopConfiguration'] = $request->autoStopConfiguration;
+        }
+
+        if (null !== $request->cpuLimit) {
+            @$body['cpuLimit'] = $request->cpuLimit;
+        }
+
+        if (null !== $request->displayReleaseVersion) {
+            @$body['displayReleaseVersion'] = $request->displayReleaseVersion;
+        }
+
+        if (null !== $request->enablePublic) {
+            @$body['enablePublic'] = $request->enablePublic;
+        }
+
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->fusion) {
+            @$body['fusion'] = $request->fusion;
+        }
+
+        if (null !== $request->livyServerConf) {
+            @$body['livyServerConf'] = $request->livyServerConf;
+        }
+
+        if (null !== $request->livyVersion) {
+            @$body['livyVersion'] = $request->livyVersion;
+        }
+
+        if (null !== $request->memoryLimit) {
+            @$body['memoryLimit'] = $request->memoryLimit;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->networkName) {
+            @$body['networkName'] = $request->networkName;
+        }
+
+        if (null !== $request->queueName) {
+            @$body['queueName'] = $request->queueName;
+        }
+
+        if (null !== $request->releaseVersion) {
+            @$body['releaseVersion'] = $request->releaseVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLivyCompute',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLivyComputeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新livy compute.
+     *
+     * @param request - UpdateLivyComputeRequest
+     *
+     * @returns UpdateLivyComputeResponse
+     *
+     * @param string                   $workspaceBizId
+     * @param string                   $livyComputeId
+     * @param UpdateLivyComputeRequest $request
+     *
+     * @return UpdateLivyComputeResponse
+     */
+    public function updateLivyCompute($workspaceBizId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
     }
 
     /**
