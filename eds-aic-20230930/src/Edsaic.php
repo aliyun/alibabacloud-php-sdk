@@ -968,6 +968,10 @@ class Edsaic extends OpenApiClient
             @$query['PhoneCount'] = $request->phoneCount;
         }
 
+        if (null !== $request->phoneDataVolume) {
+            @$query['PhoneDataVolume'] = $request->phoneDataVolume;
+        }
+
         if (null !== $request->resolutionHeight) {
             @$query['ResolutionHeight'] = $request->resolutionHeight;
         }

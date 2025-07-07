@@ -78,6 +78,11 @@ class CreateCloudPhoneNodeRequest extends Model
     /**
      * @var int
      */
+    public $phoneDataVolume;
+
+    /**
+     * @var int
+     */
     public $resolutionHeight;
 
     /**
@@ -123,6 +128,7 @@ class CreateCloudPhoneNodeRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'phoneCount' => 'PhoneCount',
+        'phoneDataVolume' => 'PhoneDataVolume',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionWidth' => 'ResolutionWidth',
         'serverShareDataVolume' => 'ServerShareDataVolume',
@@ -196,6 +202,10 @@ class CreateCloudPhoneNodeRequest extends Model
 
         if (null !== $this->phoneCount) {
             $res['PhoneCount'] = $this->phoneCount;
+        }
+
+        if (null !== $this->phoneDataVolume) {
+            $res['PhoneDataVolume'] = $this->phoneDataVolume;
         }
 
         if (null !== $this->resolutionHeight) {
@@ -294,6 +304,10 @@ class CreateCloudPhoneNodeRequest extends Model
 
         if (isset($map['PhoneCount'])) {
             $model->phoneCount = $map['PhoneCount'];
+        }
+
+        if (isset($map['PhoneDataVolume'])) {
+            $model->phoneDataVolume = $map['PhoneDataVolume'];
         }
 
         if (isset($map['ResolutionHeight'])) {
