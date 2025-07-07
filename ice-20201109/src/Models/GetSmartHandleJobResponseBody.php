@@ -13,6 +13,16 @@ class GetSmartHandleJobResponseBody extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $jobId;
 
     /**
@@ -45,6 +55,8 @@ class GetSmartHandleJobResponseBody extends Model
      */
     public $userData;
     protected $_name = [
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'jobId' => 'JobId',
         'jobResult' => 'JobResult',
         'output' => 'Output',
@@ -68,6 +80,14 @@ class GetSmartHandleJobResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -107,6 +127,14 @@ class GetSmartHandleJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
