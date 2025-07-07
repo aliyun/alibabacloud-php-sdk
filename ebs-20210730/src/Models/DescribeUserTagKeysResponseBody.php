@@ -62,7 +62,8 @@ class DescribeUserTagKeysResponseBody extends Model
                 $res['TagKeys'] = [];
                 $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
-                    $res['TagKeys'][$n1++] = $item1;
+                    $res['TagKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class DescribeUserTagKeysResponseBody extends Model
                 $model->tagKeys = [];
                 $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
-                    $model->tagKeys[$n1++] = $item1;
+                    $model->tagKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

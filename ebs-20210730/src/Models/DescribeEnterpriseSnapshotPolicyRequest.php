@@ -97,7 +97,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
                 $res['DiskIds'] = [];
                 $n1 = 0;
                 foreach ($this->diskIds as $item1) {
-                    $res['DiskIds'][$n1++] = $item1;
+                    $res['DiskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
                 $res['PolicyIds'] = [];
                 $n1 = 0;
                 foreach ($this->policyIds as $item1) {
-                    $res['PolicyIds'][$n1++] = $item1;
+                    $res['PolicyIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +143,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
                 $model->diskIds = [];
                 $n1 = 0;
                 foreach ($map['DiskIds'] as $item1) {
-                    $model->diskIds[$n1++] = $item1;
+                    $model->diskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +196,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
                 $model->policyIds = [];
                 $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
-                    $model->policyIds[$n1++] = $item1;
+                    $model->policyIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +215,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

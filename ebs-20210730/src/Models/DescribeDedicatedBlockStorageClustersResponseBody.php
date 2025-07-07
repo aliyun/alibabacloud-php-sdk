@@ -63,7 +63,8 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
                 $res['DedicatedBlockStorageClusters'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedBlockStorageClusters as $item1) {
-                    $res['DedicatedBlockStorageClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DedicatedBlockStorageClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
                 $model->dedicatedBlockStorageClusters = [];
                 $n1 = 0;
                 foreach ($map['DedicatedBlockStorageClusters'] as $item1) {
-                    $model->dedicatedBlockStorageClusters[$n1++] = dedicatedBlockStorageClusters::fromMap($item1);
+                    $model->dedicatedBlockStorageClusters[$n1] = dedicatedBlockStorageClusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

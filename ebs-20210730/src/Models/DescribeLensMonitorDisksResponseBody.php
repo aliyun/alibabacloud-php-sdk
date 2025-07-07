@@ -51,7 +51,8 @@ class DescribeLensMonitorDisksResponseBody extends Model
                 $res['DiskInfos'] = [];
                 $n1 = 0;
                 foreach ($this->diskInfos as $item1) {
-                    $res['DiskInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiskInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeLensMonitorDisksResponseBody extends Model
                 $model->diskInfos = [];
                 $n1 = 0;
                 foreach ($map['DiskInfos'] as $item1) {
-                    $model->diskInfos[$n1++] = diskInfos::fromMap($item1);
+                    $model->diskInfos[$n1] = diskInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

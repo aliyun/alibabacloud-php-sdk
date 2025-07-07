@@ -158,7 +158,8 @@ class policies extends Model
                 $res['DiskIds'] = [];
                 $n1 = 0;
                 foreach ($this->diskIds as $item1) {
-                    $res['DiskIds'][$n1++] = $item1;
+                    $res['DiskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +205,8 @@ class policies extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +247,8 @@ class policies extends Model
                 $model->diskIds = [];
                 $n1 = 0;
                 foreach ($map['DiskIds'] as $item1) {
-                    $model->diskIds[$n1++] = $item1;
+                    $model->diskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +294,8 @@ class policies extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

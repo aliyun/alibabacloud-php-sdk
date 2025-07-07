@@ -174,7 +174,8 @@ class replicaGroups extends Model
                 $res['PairIds'] = [];
                 $n1 = 0;
                 foreach ($this->pairIds as $item1) {
-                    $res['PairIds'][$n1++] = $item1;
+                    $res['PairIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +233,8 @@ class replicaGroups extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -277,7 +279,8 @@ class replicaGroups extends Model
                 $model->pairIds = [];
                 $n1 = 0;
                 foreach ($map['PairIds'] as $item1) {
-                    $model->pairIds[$n1++] = $item1;
+                    $model->pairIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -335,7 +338,8 @@ class replicaGroups extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

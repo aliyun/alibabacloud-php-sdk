@@ -63,7 +63,8 @@ class ListReportsResponseBody extends Model
                 $res['HistoryReports'] = [];
                 $n1 = 0;
                 foreach ($this->historyReports as $item1) {
-                    $res['HistoryReports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HistoryReports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListReportsResponseBody extends Model
                 $model->historyReports = [];
                 $n1 = 0;
                 foreach ($map['HistoryReports'] as $item1) {
-                    $model->historyReports[$n1++] = historyReports::fromMap($item1);
+                    $model->historyReports[$n1] = historyReports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

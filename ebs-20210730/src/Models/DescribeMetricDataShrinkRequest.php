@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeMetricDataRequest extends Model
+class DescribeMetricDataShrinkRequest extends Model
 {
     /**
      * @var string
@@ -29,9 +29,9 @@ class DescribeMetricDataRequest extends Model
     public $endTime;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $groupByLabels;
+    public $groupByLabelsShrink;
 
     /**
      * @var string
@@ -57,7 +57,7 @@ class DescribeMetricDataRequest extends Model
         'aggreOverLineOps' => 'AggreOverLineOps',
         'dimensions' => 'Dimensions',
         'endTime' => 'EndTime',
-        'groupByLabels' => 'GroupByLabels',
+        'groupByLabelsShrink' => 'GroupByLabels',
         'metricName' => 'MetricName',
         'period' => 'Period',
         'regionId' => 'RegionId',
@@ -66,9 +66,6 @@ class DescribeMetricDataRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->groupByLabels)) {
-            Model::validateArray($this->groupByLabels);
-        }
         parent::validate();
     }
 
@@ -91,15 +88,8 @@ class DescribeMetricDataRequest extends Model
             $res['EndTime'] = $this->endTime;
         }
 
-        if (null !== $this->groupByLabels) {
-            if (\is_array($this->groupByLabels)) {
-                $res['GroupByLabels'] = [];
-                $n1 = 0;
-                foreach ($this->groupByLabels as $item1) {
-                    $res['GroupByLabels'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->groupByLabelsShrink) {
+            $res['GroupByLabels'] = $this->groupByLabelsShrink;
         }
 
         if (null !== $this->metricName) {
@@ -146,14 +136,7 @@ class DescribeMetricDataRequest extends Model
         }
 
         if (isset($map['GroupByLabels'])) {
-            if (!empty($map['GroupByLabels'])) {
-                $model->groupByLabels = [];
-                $n1 = 0;
-                foreach ($map['GroupByLabels'] as $item1) {
-                    $model->groupByLabels[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->groupByLabelsShrink = $map['GroupByLabels'];
         }
 
         if (isset($map['MetricName'])) {

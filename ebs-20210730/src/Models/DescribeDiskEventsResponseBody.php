@@ -51,7 +51,8 @@ class DescribeDiskEventsResponseBody extends Model
                 $res['DiskEvents'] = [];
                 $n1 = 0;
                 foreach ($this->diskEvents as $item1) {
-                    $res['DiskEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiskEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeDiskEventsResponseBody extends Model
                 $model->diskEvents = [];
                 $n1 = 0;
                 foreach ($map['DiskEvents'] as $item1) {
-                    $model->diskEvents[$n1++] = diskEvents::fromMap($item1);
+                    $model->diskEvents[$n1] = diskEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

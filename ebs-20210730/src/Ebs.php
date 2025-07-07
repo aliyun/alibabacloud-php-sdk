@@ -57,6 +57,7 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensMonitorDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensServiceStatusResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataShrinkRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribePairDrillsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribePairDrillsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsRequest;
@@ -2385,21 +2386,27 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
+     * Query single metric monitoring information.
      *
-     * @param request - DescribeMetricDataRequest
+     * @param tmpReq - DescribeMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeMetricDataResponse
      *
-     * @param DescribeMetricDataRequest $request
+     * @param DescribeMetricDataRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return DescribeMetricDataResponse
      */
-    public function describeMetricDataWithOptions($request, $runtime)
+    public function describeMetricDataWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribeMetricDataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->groupByLabels) {
+            $request->groupByLabelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupByLabels, 'GroupByLabels', 'simple');
+        }
+
         $query = [];
         if (null !== $request->aggreOps) {
             @$query['AggreOps'] = $request->aggreOps;
@@ -2415,6 +2422,10 @@ class Ebs extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->groupByLabelsShrink) {
+            @$query['GroupByLabels'] = $request->groupByLabelsShrink;
         }
 
         if (null !== $request->metricName) {
@@ -2452,7 +2463,7 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
+     * Query single metric monitoring information.
      *
      * @param request - DescribeMetricDataRequest
      *
@@ -3192,10 +3203,6 @@ class Ebs extends OpenApiClient
         }
 
         $body = [];
-        if (null !== $request->appName) {
-            @$body['AppName'] = $request->appName;
-        }
-
         if (null !== $request->regionId) {
             @$body['RegionId'] = $request->regionId;
         }

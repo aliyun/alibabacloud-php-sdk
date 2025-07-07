@@ -51,7 +51,8 @@ class DescribeDiskMonitorDataListResponseBody extends Model
                 $res['MonitorData'] = [];
                 $n1 = 0;
                 foreach ($this->monitorData as $item1) {
-                    $res['MonitorData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MonitorData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeDiskMonitorDataListResponseBody extends Model
                 $model->monitorData = [];
                 $n1 = 0;
                 foreach ($map['MonitorData'] as $item1) {
-                    $model->monitorData[$n1++] = monitorData::fromMap($item1);
+                    $model->monitorData[$n1] = monitorData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

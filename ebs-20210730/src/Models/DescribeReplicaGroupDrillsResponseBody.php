@@ -63,7 +63,8 @@ class DescribeReplicaGroupDrillsResponseBody extends Model
                 $res['Drills'] = [];
                 $n1 = 0;
                 foreach ($this->drills as $item1) {
-                    $res['Drills'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Drills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeReplicaGroupDrillsResponseBody extends Model
                 $model->drills = [];
                 $n1 = 0;
                 foreach ($map['Drills'] as $item1) {
-                    $model->drills[$n1++] = drills::fromMap($item1);
+                    $model->drills[$n1] = drills::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

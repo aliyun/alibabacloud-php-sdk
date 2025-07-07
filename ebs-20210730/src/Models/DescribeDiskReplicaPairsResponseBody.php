@@ -75,7 +75,8 @@ class DescribeDiskReplicaPairsResponseBody extends Model
                 $res['ReplicaPairs'] = [];
                 $n1 = 0;
                 foreach ($this->replicaPairs as $item1) {
-                    $res['ReplicaPairs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReplicaPairs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class DescribeDiskReplicaPairsResponseBody extends Model
                 $model->replicaPairs = [];
                 $n1 = 0;
                 foreach ($map['ReplicaPairs'] as $item1) {
-                    $model->replicaPairs[$n1++] = replicaPairs::fromMap($item1);
+                    $model->replicaPairs[$n1] = replicaPairs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

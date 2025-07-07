@@ -54,7 +54,8 @@ class DescribeMetricDataResponseBody extends Model
                 $res['DataList'] = [];
                 $n1 = 0;
                 foreach ($this->dataList as $item1) {
-                    $res['DataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class DescribeMetricDataResponseBody extends Model
                 $res['Warnings'] = [];
                 $n1 = 0;
                 foreach ($this->warnings as $item1) {
-                    $res['Warnings'][$n1++] = $item1;
+                    $res['Warnings'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class DescribeMetricDataResponseBody extends Model
                 $model->dataList = [];
                 $n1 = 0;
                 foreach ($map['DataList'] as $item1) {
-                    $model->dataList[$n1++] = dataList::fromMap($item1);
+                    $model->dataList[$n1] = dataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class DescribeMetricDataResponseBody extends Model
                 $model->warnings = [];
                 $n1 = 0;
                 foreach ($map['Warnings'] as $item1) {
-                    $model->warnings[$n1++] = $item1;
+                    $model->warnings[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

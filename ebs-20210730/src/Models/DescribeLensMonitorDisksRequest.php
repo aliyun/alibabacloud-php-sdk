@@ -79,7 +79,8 @@ class DescribeLensMonitorDisksRequest extends Model
                 $res['DiskIds'] = [];
                 $n1 = 0;
                 foreach ($this->diskIds as $item1) {
-                    $res['DiskIds'][$n1++] = $item1;
+                    $res['DiskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class DescribeLensMonitorDisksRequest extends Model
                 $res['LensTags'] = [];
                 $n1 = 0;
                 foreach ($this->lensTags as $item1) {
-                    $res['LensTags'][$n1++] = $item1;
+                    $res['LensTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class DescribeLensMonitorDisksRequest extends Model
                 $model->diskIds = [];
                 $n1 = 0;
                 foreach ($map['DiskIds'] as $item1) {
-                    $model->diskIds[$n1++] = $item1;
+                    $model->diskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class DescribeLensMonitorDisksRequest extends Model
                 $model->lensTags = [];
                 $n1 = 0;
                 foreach ($map['LensTags'] as $item1) {
-                    $model->lensTags[$n1++] = $item1;
+                    $model->lensTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -14,11 +14,6 @@ class ListReportsRequest extends Model
     public $appId;
 
     /**
-     * @var string
-     */
-    public $appName;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -44,7 +39,6 @@ class ListReportsRequest extends Model
     public $regionId;
     protected $_name = [
         'appId' => 'AppId',
-        'appName' => 'AppName',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
@@ -62,10 +56,6 @@ class ListReportsRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
-        }
-
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
         }
 
         if (null !== $this->maxResults) {
@@ -101,10 +91,6 @@ class ListReportsRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
-        }
-
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
         }
 
         if (isset($map['MaxResults'])) {

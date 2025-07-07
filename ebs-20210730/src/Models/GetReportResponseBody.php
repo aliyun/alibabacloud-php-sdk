@@ -39,7 +39,8 @@ class GetReportResponseBody extends Model
                 $res['Datas'] = [];
                 $n1 = 0;
                 foreach ($this->datas as $item1) {
-                    $res['Datas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Datas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetReportResponseBody extends Model
                 $model->datas = [];
                 $n1 = 0;
                 foreach ($map['Datas'] as $item1) {
-                    $model->datas[$n1++] = datas::fromMap($item1);
+                    $model->datas[$n1] = datas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

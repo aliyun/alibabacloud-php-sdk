@@ -75,7 +75,8 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
                 $res['ReplicaGroups'] = [];
                 $n1 = 0;
                 foreach ($this->replicaGroups as $item1) {
-                    $res['ReplicaGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReplicaGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
                 $model->replicaGroups = [];
                 $n1 = 0;
                 foreach ($map['ReplicaGroups'] as $item1) {
-                    $model->replicaGroups[$n1++] = replicaGroups::fromMap($item1);
+                    $model->replicaGroups[$n1] = replicaGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

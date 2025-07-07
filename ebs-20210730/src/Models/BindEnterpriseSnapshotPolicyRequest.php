@@ -54,7 +54,8 @@ class BindEnterpriseSnapshotPolicyRequest extends Model
                 $res['DiskTargets'] = [];
                 $n1 = 0;
                 foreach ($this->diskTargets as $item1) {
-                    $res['DiskTargets'][$n1++] = $item1;
+                    $res['DiskTargets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class BindEnterpriseSnapshotPolicyRequest extends Model
                 $model->diskTargets = [];
                 $n1 = 0;
                 foreach ($map['DiskTargets'] as $item1) {
-                    $model->diskTargets[$n1++] = $item1;
+                    $model->diskTargets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

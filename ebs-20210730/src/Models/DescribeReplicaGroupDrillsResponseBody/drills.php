@@ -77,7 +77,8 @@ class drills extends Model
                 $res['PairsInfo'] = [];
                 $n1 = 0;
                 foreach ($this->pairsInfo as $item1) {
-                    $res['PairsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PairsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class drills extends Model
                 $model->pairsInfo = [];
                 $n1 = 0;
                 foreach ($map['PairsInfo'] as $item1) {
-                    $model->pairsInfo[$n1++] = pairsInfo::fromMap($item1);
+                    $model->pairsInfo[$n1] = pairsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
