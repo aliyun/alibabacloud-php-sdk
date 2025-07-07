@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponseBody\sessions\resourceGroups;
 
 class sessions extends Model
 {
@@ -74,6 +75,11 @@ class sessions extends Model
     public $protocolType;
 
     /**
+     * @var resourceGroups[]
+     */
+    public $resourceGroups;
+
+    /**
      * @var string
      */
     public $sessionEndTime;
@@ -116,6 +122,7 @@ class sessions extends Model
         'osSessionStatus' => 'OsSessionStatus',
         'osType' => 'OsType',
         'protocolType' => 'ProtocolType',
+        'resourceGroups' => 'ResourceGroups',
         'sessionEndTime' => 'SessionEndTime',
         'sessionIdleTime' => 'SessionIdleTime',
         'sessionStartTime' => 'SessionStartTime',
@@ -126,6 +133,9 @@ class sessions extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceGroups)) {
+            Model::validateArray($this->resourceGroups);
+        }
         parent::validate();
     }
 
@@ -182,6 +192,17 @@ class sessions extends Model
 
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+
+        if (null !== $this->resourceGroups) {
+            if (\is_array($this->resourceGroups)) {
+                $res['ResourceGroups'] = [];
+                $n1 = 0;
+                foreach ($this->resourceGroups as $item1) {
+                    $res['ResourceGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->sessionEndTime) {
@@ -269,6 +290,17 @@ class sessions extends Model
 
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+
+        if (isset($map['ResourceGroups'])) {
+            if (!empty($map['ResourceGroups'])) {
+                $model->resourceGroups = [];
+                $n1 = 0;
+                foreach ($map['ResourceGroups'] as $item1) {
+                    $model->resourceGroups[$n1] = resourceGroups::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SessionEndTime'])) {

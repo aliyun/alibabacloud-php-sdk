@@ -4453,6 +4453,10 @@ class Ecd extends OpenApiClient
             @$query['PromotionId'] = $request->promotionId;
         }
 
+        if (null !== $request->qosRuleId) {
+            @$query['QosRuleId'] = $request->qosRuleId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -8526,6 +8530,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->sessionStatus) {
             @$query['SessionStatus'] = $request->sessionStatus;
         }
@@ -10248,6 +10256,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
 
         $req = new OpenApiRequest([

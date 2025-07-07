@@ -61,6 +61,11 @@ class DescribeDesktopSessionsRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $sessionStatus;
 
     /**
@@ -83,6 +88,7 @@ class DescribeDesktopSessionsRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'sessionStatus' => 'SessionStatus',
         'startTime' => 'StartTime',
         'subPayType' => 'SubPayType',
@@ -144,6 +150,10 @@ class DescribeDesktopSessionsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->sessionStatus) {
@@ -214,6 +224,10 @@ class DescribeDesktopSessionsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SessionStatus'])) {
