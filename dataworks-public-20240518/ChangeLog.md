@@ -1,3 +1,6 @@
+2025-07-07 Version: 6.2.4
+- Generated php 2024-05-18 for dataworks-public.
+
 2025-07-01 Version: 6.2.3
 - Update API GetWorkflowInstance: add response parameters Body.WorkflowInstance.WorkflowParameters.
 - Update API ListWorkflowInstances: add response parameters Body.PagingInfo.WorkflowInstances.$.WorkflowParameters.
