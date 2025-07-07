@@ -30,6 +30,11 @@ class replicaGroups extends Model
     public $destinationZoneId;
 
     /**
+     * @var bool
+     */
+    public $enableRtc;
+
+    /**
      * @var string
      */
     public $groupName;
@@ -113,6 +118,7 @@ class replicaGroups extends Model
         'description' => 'Description',
         'destinationRegionId' => 'DestinationRegionId',
         'destinationZoneId' => 'DestinationZoneId',
+        'enableRtc' => 'EnableRtc',
         'groupName' => 'GroupName',
         'lastRecoverPoint' => 'LastRecoverPoint',
         'pairIds' => 'PairIds',
@@ -159,6 +165,10 @@ class replicaGroups extends Model
 
         if (null !== $this->destinationZoneId) {
             $res['DestinationZoneId'] = $this->destinationZoneId;
+        }
+
+        if (null !== $this->enableRtc) {
+            $res['EnableRtc'] = $this->enableRtc;
         }
 
         if (null !== $this->groupName) {
@@ -264,6 +274,10 @@ class replicaGroups extends Model
 
         if (isset($map['DestinationZoneId'])) {
             $model->destinationZoneId = $map['DestinationZoneId'];
+        }
+
+        if (isset($map['EnableRtc'])) {
+            $model->enableRtc = $map['EnableRtc'];
         }
 
         if (isset($map['GroupName'])) {

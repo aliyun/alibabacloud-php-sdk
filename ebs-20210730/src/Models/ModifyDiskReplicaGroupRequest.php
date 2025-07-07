@@ -24,6 +24,11 @@ class ModifyDiskReplicaGroupRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableRtc;
+
+    /**
      * @var string
      */
     public $groupName;
@@ -46,6 +51,7 @@ class ModifyDiskReplicaGroupRequest extends Model
         'bandwidth' => 'Bandwidth',
         'clientToken' => 'ClientToken',
         'description' => 'Description',
+        'enableRtc' => 'EnableRtc',
         'groupName' => 'GroupName',
         'RPO' => 'RPO',
         'regionId' => 'RegionId',
@@ -70,6 +76,10 @@ class ModifyDiskReplicaGroupRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableRtc) {
+            $res['EnableRtc'] = $this->enableRtc;
         }
 
         if (null !== $this->groupName) {
@@ -109,6 +119,10 @@ class ModifyDiskReplicaGroupRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableRtc'])) {
+            $model->enableRtc = $map['EnableRtc'];
         }
 
         if (isset($map['GroupName'])) {

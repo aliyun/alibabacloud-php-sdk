@@ -774,6 +774,10 @@ class Ebs extends OpenApiClient
             @$query['DestinationZoneId'] = $request->destinationZoneId;
         }
 
+        if (null !== $request->enableRtc) {
+            @$query['EnableRtc'] = $request->enableRtc;
+        }
+
         if (null !== $request->groupName) {
             @$query['GroupName'] = $request->groupName;
         }
@@ -898,6 +902,10 @@ class Ebs extends OpenApiClient
 
         if (null !== $request->diskId) {
             @$query['DiskId'] = $request->diskId;
+        }
+
+        if (null !== $request->enableRtc) {
+            @$query['EnableRtc'] = $request->enableRtc;
         }
 
         if (null !== $request->pairName) {
@@ -3446,6 +3454,10 @@ class Ebs extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->enableRtc) {
+            @$query['EnableRtc'] = $request->enableRtc;
+        }
+
         if (null !== $request->groupName) {
             @$query['GroupName'] = $request->groupName;
         }
@@ -3535,6 +3547,10 @@ class Ebs extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableRtc) {
+            @$query['EnableRtc'] = $request->enableRtc;
         }
 
         if (null !== $request->pairName) {

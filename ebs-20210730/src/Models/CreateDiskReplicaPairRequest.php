@@ -50,6 +50,11 @@ class CreateDiskReplicaPairRequest extends Model
     public $diskId;
 
     /**
+     * @var bool
+     */
+    public $enableRtc;
+
+    /**
      * @var string
      */
     public $pairName;
@@ -97,6 +102,7 @@ class CreateDiskReplicaPairRequest extends Model
         'destinationRegionId' => 'DestinationRegionId',
         'destinationZoneId' => 'DestinationZoneId',
         'diskId' => 'DiskId',
+        'enableRtc' => 'EnableRtc',
         'pairName' => 'PairName',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
@@ -148,6 +154,10 @@ class CreateDiskReplicaPairRequest extends Model
 
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
+        }
+
+        if (null !== $this->enableRtc) {
+            $res['EnableRtc'] = $this->enableRtc;
         }
 
         if (null !== $this->pairName) {
@@ -230,6 +240,10 @@ class CreateDiskReplicaPairRequest extends Model
 
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
+        }
+
+        if (isset($map['EnableRtc'])) {
+            $model->enableRtc = $map['EnableRtc'];
         }
 
         if (isset($map['PairName'])) {

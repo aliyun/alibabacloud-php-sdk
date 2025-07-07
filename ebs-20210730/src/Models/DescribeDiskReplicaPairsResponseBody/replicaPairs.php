@@ -45,6 +45,11 @@ class replicaPairs extends Model
     public $destinationZoneId;
 
     /**
+     * @var bool
+     */
+    public $enableRtc;
+
+    /**
      * @var int
      */
     public $expiredTime;
@@ -146,6 +151,7 @@ class replicaPairs extends Model
         'destinationDiskId' => 'DestinationDiskId',
         'destinationRegion' => 'DestinationRegion',
         'destinationZoneId' => 'DestinationZoneId',
+        'enableRtc' => 'EnableRtc',
         'expiredTime' => 'ExpiredTime',
         'lastRecoverPoint' => 'LastRecoverPoint',
         'pairName' => 'PairName',
@@ -204,6 +210,10 @@ class replicaPairs extends Model
 
         if (null !== $this->destinationZoneId) {
             $res['DestinationZoneId'] = $this->destinationZoneId;
+        }
+
+        if (null !== $this->enableRtc) {
+            $res['EnableRtc'] = $this->enableRtc;
         }
 
         if (null !== $this->expiredTime) {
@@ -326,6 +336,10 @@ class replicaPairs extends Model
 
         if (isset($map['DestinationZoneId'])) {
             $model->destinationZoneId = $map['DestinationZoneId'];
+        }
+
+        if (isset($map['EnableRtc'])) {
+            $model->enableRtc = $map['EnableRtc'];
         }
 
         if (isset($map['ExpiredTime'])) {
