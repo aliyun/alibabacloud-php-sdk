@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\capacity\availableInstanceTypes;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\capacity\socketCapacities;
 
 class capacity extends Model
 {
+    /**
+     * @var availableInstanceTypes
+     */
+    public $availableInstanceTypes;
+
     /**
      * @var int
      */
@@ -59,6 +65,7 @@ class capacity extends Model
      */
     public $totalVgpus;
     protected $_name = [
+        'availableInstanceTypes' => 'AvailableInstanceTypes',
         'availableLocalStorage' => 'AvailableLocalStorage',
         'availableMemory' => 'AvailableMemory',
         'availableVcpus' => 'AvailableVcpus',
@@ -73,6 +80,9 @@ class capacity extends Model
 
     public function validate()
     {
+        if (null !== $this->availableInstanceTypes) {
+            $this->availableInstanceTypes->validate();
+        }
         if (null !== $this->socketCapacities) {
             $this->socketCapacities->validate();
         }
@@ -82,6 +92,10 @@ class capacity extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->availableInstanceTypes) {
+            $res['AvailableInstanceTypes'] = null !== $this->availableInstanceTypes ? $this->availableInstanceTypes->toArray($noStream) : $this->availableInstanceTypes;
+        }
+
         if (null !== $this->availableLocalStorage) {
             $res['AvailableLocalStorage'] = $this->availableLocalStorage;
         }
@@ -133,6 +147,10 @@ class capacity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableInstanceTypes'])) {
+            $model->availableInstanceTypes = availableInstanceTypes::fromMap($map['AvailableInstanceTypes']);
+        }
+
         if (isset($map['AvailableLocalStorage'])) {
             $model->availableLocalStorage = $map['AvailableLocalStorage'];
         }

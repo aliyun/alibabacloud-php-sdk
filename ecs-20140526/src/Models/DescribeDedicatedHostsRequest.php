@@ -65,6 +65,11 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageSize;
 
     /**
+     * @var bool
+     */
+    public $queryInventory;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -115,6 +120,7 @@ class DescribeDedicatedHostsRequest extends Model
         'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'queryInventory' => 'QueryInventory',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -178,6 +184,10 @@ class DescribeDedicatedHostsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->queryInventory) {
+            $res['QueryInventory'] = $this->queryInventory;
         }
 
         if (null !== $this->regionId) {
@@ -272,6 +282,10 @@ class DescribeDedicatedHostsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['QueryInventory'])) {
+            $model->queryInventory = $map['QueryInventory'];
         }
 
         if (isset($map['RegionId'])) {

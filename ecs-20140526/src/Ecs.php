@@ -14612,6 +14612,10 @@ class Ecs extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->queryInventory) {
+            @$query['QueryInventory'] = $request->queryInventory;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -22229,7 +22233,9 @@ class Ecs extends OpenApiClient
 
     // Deprecated
     /**
-     * @deprecated OpenAPI DescribeRouteTables is deprecated
+     * 查询路由表信息列表.
+     *
+     * @deprecated openAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead
      *
      * @param request - DescribeRouteTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22313,7 +22319,9 @@ class Ecs extends OpenApiClient
 
     // Deprecated
     /**
-     * @deprecated OpenAPI DescribeRouteTables is deprecated
+     * 查询路由表信息列表.
+     *
+     * @deprecated openAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead
      *
      * @param request - DescribeRouteTablesRequest
      *
@@ -24816,7 +24824,9 @@ class Ecs extends OpenApiClient
 
     // Deprecated
     /**
-     * @deprecated OpenAPI DescribeVRouters is deprecated
+     * 查询路由器列表.
+     *
+     * @deprecated openAPI DescribeVRouters is deprecated, please use Vpc::2016-04-28::DescribeVRouters instead
      *
      * @param request - DescribeVRoutersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24884,7 +24894,9 @@ class Ecs extends OpenApiClient
 
     // Deprecated
     /**
-     * @deprecated OpenAPI DescribeVRouters is deprecated
+     * 查询路由器列表.
+     *
+     * @deprecated openAPI DescribeVRouters is deprecated, please use Vpc::2016-04-28::DescribeVRouters instead
      *
      * @param request - DescribeVRoutersRequest
      *
