@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListOnlineEvalTaskResultsRequest extends Model
+class ListEvalResultsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class ListOnlineEvalTaskResultsRequest extends Model
     public $evaluationId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $mostRecentResultsOnly;
+    public $keyword;
 
     /**
      * @var int
@@ -29,22 +29,19 @@ class ListOnlineEvalTaskResultsRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $traceIds;
+    public $recordIdsShrink;
     protected $_name = [
         'evaluationId' => 'EvaluationId',
-        'mostRecentResultsOnly' => 'MostRecentResultsOnly',
+        'keyword' => 'Keyword',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
-        'traceIds' => 'TraceIds',
+        'recordIdsShrink' => 'RecordIds',
     ];
 
     public function validate()
     {
-        if (\is_array($this->traceIds)) {
-            Model::validateArray($this->traceIds);
-        }
         parent::validate();
     }
 
@@ -55,8 +52,8 @@ class ListOnlineEvalTaskResultsRequest extends Model
             $res['EvaluationId'] = $this->evaluationId;
         }
 
-        if (null !== $this->mostRecentResultsOnly) {
-            $res['MostRecentResultsOnly'] = $this->mostRecentResultsOnly;
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
 
         if (null !== $this->pageNumber) {
@@ -67,15 +64,8 @@ class ListOnlineEvalTaskResultsRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->traceIds) {
-            if (\is_array($this->traceIds)) {
-                $res['TraceIds'] = [];
-                $n1 = 0;
-                foreach ($this->traceIds as $item1) {
-                    $res['TraceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->recordIdsShrink) {
+            $res['RecordIds'] = $this->recordIdsShrink;
         }
 
         return $res;
@@ -93,8 +83,8 @@ class ListOnlineEvalTaskResultsRequest extends Model
             $model->evaluationId = $map['EvaluationId'];
         }
 
-        if (isset($map['MostRecentResultsOnly'])) {
-            $model->mostRecentResultsOnly = $map['MostRecentResultsOnly'];
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -105,15 +95,8 @@ class ListOnlineEvalTaskResultsRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['TraceIds'])) {
-            if (!empty($map['TraceIds'])) {
-                $model->traceIds = [];
-                $n1 = 0;
-                foreach ($map['TraceIds'] as $item1) {
-                    $model->traceIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (isset($map['RecordIds'])) {
+            $model->recordIdsShrink = $map['RecordIds'];
         }
 
         return $model;

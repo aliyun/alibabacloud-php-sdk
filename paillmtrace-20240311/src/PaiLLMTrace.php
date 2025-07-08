@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\GetEvaluationTemplatesResponse
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\GetOnlineEvalTaskResponse;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\GetServiceIdentityRoleResponse;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\GetXtraceTokenResponse;
+use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\ListEvalResultsRequest;
+use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\ListEvalResultsResponse;
+use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\ListEvalResultsShrinkRequest;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\ListOnlineEvalTaskResultsRequest;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\ListOnlineEvalTaskResultsResponse;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\ListOnlineEvalTaskResultsShrinkRequest;
@@ -68,7 +71,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 创建一个在线评估任务
+     * Creates a trace evaluation task. The system will sample some data from the user\\"s trace data based on the task\\"s configuration. Then, an LLM is used to evaluate the performance of these traces, and the evaluation results are recorded.
      *
      * @param tmpReq - CreateOnlineEvalTaskRequest
      * @param headers - map
@@ -116,7 +119,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 创建一个在线评估任务
+     * Creates a trace evaluation task. The system will sample some data from the user\\"s trace data based on the task\\"s configuration. Then, an LLM is used to evaluate the performance of these traces, and the evaluation results are recorded.
      *
      * @param request - CreateOnlineEvalTaskRequest
      *
@@ -183,7 +186,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 删除一个在线评估任务
+     * Delete an online evaluation task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -217,7 +220,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 删除一个在线评估任务
+     * Delete an online evaluation task.
      *
      * @returns DeleteOnlineEvalTaskResponse
      *
@@ -234,7 +237,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 基于traceId创建和执行评估任务
+     * Evaluates a specified piece of trace data.
      *
      * @param request - EvaluateTraceRequest
      * @param headers - map
@@ -297,7 +300,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 基于traceId创建和执行评估任务
+     * Evaluates a specified piece of trace data.
      *
      * @param request - EvaluateTraceRequest
      *
@@ -317,7 +320,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 获取用于评估的prompt templates内容.
+     * Get the content of prompt templates used for evaluation.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -350,7 +353,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 获取用于评估的prompt templates内容.
+     * Get the content of prompt templates used for evaluation.
      *
      * @returns GetEvaluationTemplatesResponse
      *
@@ -365,7 +368,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 获取一个在线评估任务的详情.
+     * Get the details of an online evaluation task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -399,7 +402,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 获取一个在线评估任务的详情.
+     * Get the details of an online evaluation task.
      *
      * @returns GetOnlineEvalTaskResponse
      *
@@ -512,7 +515,90 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 查看符合条件的在线评估任务的结果.
+     * Obtains the list of results for trace evaluation. This API is used together with EvaluateTrace. EvaluateTrace starts the evaluation. ListEvalResults obtains the results.
+     *
+     * @param tmpReq - ListEvalResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvalResultsResponse
+     *
+     * @param ListEvalResultsRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListEvalResultsResponse
+     */
+    public function listEvalResultsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListEvalResultsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->recordIds) {
+            $request->recordIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordIds, 'RecordIds', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->evaluationId) {
+            @$query['EvaluationId'] = $request->evaluationId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->recordIdsShrink) {
+            @$query['RecordIds'] = $request->recordIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEvalResults',
+            'version' => '2024-03-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/PAILLMTrace/eval/results',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEvalResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Obtains the list of results for trace evaluation. This API is used together with EvaluateTrace. EvaluateTrace starts the evaluation. ListEvalResults obtains the results.
+     *
+     * @param request - ListEvalResultsRequest
+     *
+     * @returns ListEvalResultsResponse
+     *
+     * @param ListEvalResultsRequest $request
+     *
+     * @return ListEvalResultsResponse
+     */
+    public function listEvalResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEvalResultsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * List the results of online evaluation tasks that meet the criteria.
      *
      * @param tmpReq - ListOnlineEvalTaskResultsRequest
      * @param headers - map
@@ -576,7 +662,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 查看符合条件的在线评估任务的结果.
+     * List the results of online evaluation tasks that meet the criteria.
      *
      * @param request - ListOnlineEvalTaskResultsRequest
      *
@@ -595,7 +681,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 查看符合条件的在线评估任务
+     * View online evaluation tasks that meet the criteria.
      *
      * @param request - ListOnlineEvalTasksRequest
      * @param headers - map
@@ -653,7 +739,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 查看符合条件的在线评估任务
+     * View online evaluation tasks that meet the criteria.
      *
      * @param request - ListOnlineEvalTasksRequest
      *
@@ -672,7 +758,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 从trace日志中list出符合条件的trace数据。
+     * Obtains a list of trace data based on specified criteria.
      *
      * @param tmpReq - ListTracesDatasRequest
      * @param headers - map
@@ -724,8 +810,16 @@ class PaiLLMTrace extends OpenApiClient
             @$query['LlmAppName'] = $request->llmAppName;
         }
 
+        if (null !== $request->maxDuration) {
+            @$query['MaxDuration'] = $request->maxDuration;
+        }
+
         if (null !== $request->maxTime) {
             @$query['MaxTime'] = $request->maxTime;
+        }
+
+        if (null !== $request->minDuration) {
+            @$query['MinDuration'] = $request->minDuration;
         }
 
         if (null !== $request->minTime) {
@@ -764,6 +858,10 @@ class PaiLLMTrace extends OpenApiClient
             @$query['SpanIds'] = $request->spanIdsShrink;
         }
 
+        if (null !== $request->spanName) {
+            @$query['SpanName'] = $request->spanName;
+        }
+
         if (null !== $request->traceIdsShrink) {
             @$query['TraceIds'] = $request->traceIdsShrink;
         }
@@ -792,7 +890,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 从trace日志中list出符合条件的trace数据。
+     * Obtains a list of trace data based on specified criteria.
      *
      * @param request - ListTracesDatasRequest
      *
@@ -811,7 +909,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 停止一个在线评估任务的执行.
+     * Stop the execution of an online evaluation task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -845,7 +943,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 停止一个在线评估任务的执行.
+     * Stop the execution of an online evaluation task.
      *
      * @returns StopOnlineEvalTaskResponse
      *
@@ -862,7 +960,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 更改一个在线评估任务的配置.
+     * Changes the configuration of a trace evaluation task.
      *
      * @param request - UpdateOnlineEvalTaskRequest
      * @param headers - map
@@ -941,7 +1039,7 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * 更改一个在线评估任务的配置.
+     * Changes the configuration of a trace evaluation task.
      *
      * @param request - UpdateOnlineEvalTaskRequest
      *

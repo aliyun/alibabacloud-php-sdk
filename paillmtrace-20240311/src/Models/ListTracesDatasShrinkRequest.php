@@ -34,9 +34,19 @@ class ListTracesDatasShrinkRequest extends Model
     public $llmAppName;
 
     /**
+     * @var float
+     */
+    public $maxDuration;
+
+    /**
      * @var string
      */
     public $maxTime;
+
+    /**
+     * @var float
+     */
+    public $minDuration;
 
     /**
      * @var string
@@ -86,6 +96,11 @@ class ListTracesDatasShrinkRequest extends Model
     /**
      * @var string
      */
+    public $spanName;
+
+    /**
+     * @var string
+     */
     public $traceIdsShrink;
 
     /**
@@ -98,7 +113,9 @@ class ListTracesDatasShrinkRequest extends Model
         'hasEvents' => 'HasEvents',
         'hasStatusMessage' => 'HasStatusMessage',
         'llmAppName' => 'LlmAppName',
+        'maxDuration' => 'MaxDuration',
         'maxTime' => 'MaxTime',
+        'minDuration' => 'MinDuration',
         'minTime' => 'MinTime',
         'opentelemetryCompatible' => 'OpentelemetryCompatible',
         'ownerId' => 'OwnerId',
@@ -108,6 +125,7 @@ class ListTracesDatasShrinkRequest extends Model
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
         'spanIdsShrink' => 'SpanIds',
+        'spanName' => 'SpanName',
         'traceIdsShrink' => 'TraceIds',
         'traceReduceMethod' => 'TraceReduceMethod',
     ];
@@ -140,8 +158,16 @@ class ListTracesDatasShrinkRequest extends Model
             $res['LlmAppName'] = $this->llmAppName;
         }
 
+        if (null !== $this->maxDuration) {
+            $res['MaxDuration'] = $this->maxDuration;
+        }
+
         if (null !== $this->maxTime) {
             $res['MaxTime'] = $this->maxTime;
+        }
+
+        if (null !== $this->minDuration) {
+            $res['MinDuration'] = $this->minDuration;
         }
 
         if (null !== $this->minTime) {
@@ -178,6 +204,10 @@ class ListTracesDatasShrinkRequest extends Model
 
         if (null !== $this->spanIdsShrink) {
             $res['SpanIds'] = $this->spanIdsShrink;
+        }
+
+        if (null !== $this->spanName) {
+            $res['SpanName'] = $this->spanName;
         }
 
         if (null !== $this->traceIdsShrink) {
@@ -219,8 +249,16 @@ class ListTracesDatasShrinkRequest extends Model
             $model->llmAppName = $map['LlmAppName'];
         }
 
+        if (isset($map['MaxDuration'])) {
+            $model->maxDuration = $map['MaxDuration'];
+        }
+
         if (isset($map['MaxTime'])) {
             $model->maxTime = $map['MaxTime'];
+        }
+
+        if (isset($map['MinDuration'])) {
+            $model->minDuration = $map['MinDuration'];
         }
 
         if (isset($map['MinTime'])) {
@@ -257,6 +295,10 @@ class ListTracesDatasShrinkRequest extends Model
 
         if (isset($map['SpanIds'])) {
             $model->spanIdsShrink = $map['SpanIds'];
+        }
+
+        if (isset($map['SpanName'])) {
+            $model->spanName = $map['SpanName'];
         }
 
         if (isset($map['TraceIds'])) {

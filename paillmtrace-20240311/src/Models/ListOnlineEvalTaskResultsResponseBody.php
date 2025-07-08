@@ -60,7 +60,8 @@ class ListOnlineEvalTaskResultsResponseBody extends Model
                 $res['EvaluationResults'] = [];
                 $n1 = 0;
                 foreach ($this->evaluationResults as $item1) {
-                    $res['EvaluationResults'][$n1++] = $item1;
+                    $res['EvaluationResults'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class ListOnlineEvalTaskResultsResponseBody extends Model
                 $model->evaluationResults = [];
                 $n1 = 0;
                 foreach ($map['EvaluationResults'] as $item1) {
-                    $model->evaluationResults[$n1++] = $item1;
+                    $model->evaluationResults[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

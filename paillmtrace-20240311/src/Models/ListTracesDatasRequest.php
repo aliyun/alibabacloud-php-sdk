@@ -35,9 +35,19 @@ class ListTracesDatasRequest extends Model
     public $llmAppName;
 
     /**
+     * @var float
+     */
+    public $maxDuration;
+
+    /**
      * @var string
      */
     public $maxTime;
+
+    /**
+     * @var float
+     */
+    public $minDuration;
 
     /**
      * @var string
@@ -85,6 +95,11 @@ class ListTracesDatasRequest extends Model
     public $spanIds;
 
     /**
+     * @var string
+     */
+    public $spanName;
+
+    /**
      * @var string[]
      */
     public $traceIds;
@@ -99,7 +114,9 @@ class ListTracesDatasRequest extends Model
         'hasEvents' => 'HasEvents',
         'hasStatusMessage' => 'HasStatusMessage',
         'llmAppName' => 'LlmAppName',
+        'maxDuration' => 'MaxDuration',
         'maxTime' => 'MaxTime',
+        'minDuration' => 'MinDuration',
         'minTime' => 'MinTime',
         'opentelemetryCompatible' => 'OpentelemetryCompatible',
         'ownerId' => 'OwnerId',
@@ -109,6 +126,7 @@ class ListTracesDatasRequest extends Model
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
         'spanIds' => 'SpanIds',
+        'spanName' => 'SpanName',
         'traceIds' => 'TraceIds',
         'traceReduceMethod' => 'TraceReduceMethod',
     ];
@@ -139,7 +157,8 @@ class ListTracesDatasRequest extends Model
                 $res['Filters'] = [];
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,8 +175,16 @@ class ListTracesDatasRequest extends Model
             $res['LlmAppName'] = $this->llmAppName;
         }
 
+        if (null !== $this->maxDuration) {
+            $res['MaxDuration'] = $this->maxDuration;
+        }
+
         if (null !== $this->maxTime) {
             $res['MaxTime'] = $this->maxTime;
+        }
+
+        if (null !== $this->minDuration) {
+            $res['MinDuration'] = $this->minDuration;
         }
 
         if (null !== $this->minTime) {
@@ -197,9 +224,14 @@ class ListTracesDatasRequest extends Model
                 $res['SpanIds'] = [];
                 $n1 = 0;
                 foreach ($this->spanIds as $item1) {
-                    $res['SpanIds'][$n1++] = $item1;
+                    $res['SpanIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->spanName) {
+            $res['SpanName'] = $this->spanName;
         }
 
         if (null !== $this->traceIds) {
@@ -207,7 +239,8 @@ class ListTracesDatasRequest extends Model
                 $res['TraceIds'] = [];
                 $n1 = 0;
                 foreach ($this->traceIds as $item1) {
-                    $res['TraceIds'][$n1++] = $item1;
+                    $res['TraceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -236,7 +269,8 @@ class ListTracesDatasRequest extends Model
                 $model->filters = [];
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -253,8 +287,16 @@ class ListTracesDatasRequest extends Model
             $model->llmAppName = $map['LlmAppName'];
         }
 
+        if (isset($map['MaxDuration'])) {
+            $model->maxDuration = $map['MaxDuration'];
+        }
+
         if (isset($map['MaxTime'])) {
             $model->maxTime = $map['MaxTime'];
+        }
+
+        if (isset($map['MinDuration'])) {
+            $model->minDuration = $map['MinDuration'];
         }
 
         if (isset($map['MinTime'])) {
@@ -294,9 +336,14 @@ class ListTracesDatasRequest extends Model
                 $model->spanIds = [];
                 $n1 = 0;
                 foreach ($map['SpanIds'] as $item1) {
-                    $model->spanIds[$n1++] = $item1;
+                    $model->spanIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SpanName'])) {
+            $model->spanName = $map['SpanName'];
         }
 
         if (isset($map['TraceIds'])) {
@@ -304,7 +351,8 @@ class ListTracesDatasRequest extends Model
                 $model->traceIds = [];
                 $n1 = 0;
                 foreach ($map['TraceIds'] as $item1) {
-                    $model->traceIds[$n1++] = $item1;
+                    $model->traceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

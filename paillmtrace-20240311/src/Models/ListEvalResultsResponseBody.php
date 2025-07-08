@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetEvaluationTemplatesResponseBody extends Model
+class ListEvalResultsResponseBody extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class GetEvaluationTemplatesResponseBody extends Model
     public $code;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
-    public $evaluationTemplates;
+    public $evaluationResults;
 
     /**
      * @var string
@@ -27,17 +27,23 @@ class GetEvaluationTemplatesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'code' => 'Code',
-        'evaluationTemplates' => 'EvaluationTemplates',
+        'evaluationResults' => 'EvaluationResults',
         'message' => 'Message',
         'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
-        if (\is_array($this->evaluationTemplates)) {
-            Model::validateArray($this->evaluationTemplates);
+        if (\is_array($this->evaluationResults)) {
+            Model::validateArray($this->evaluationResults);
         }
         parent::validate();
     }
@@ -49,12 +55,12 @@ class GetEvaluationTemplatesResponseBody extends Model
             $res['Code'] = $this->code;
         }
 
-        if (null !== $this->evaluationTemplates) {
-            if (\is_array($this->evaluationTemplates)) {
-                $res['EvaluationTemplates'] = [];
+        if (null !== $this->evaluationResults) {
+            if (\is_array($this->evaluationResults)) {
+                $res['EvaluationResults'] = [];
                 $n1 = 0;
-                foreach ($this->evaluationTemplates as $item1) {
-                    $res['EvaluationTemplates'][$n1] = $item1;
+                foreach ($this->evaluationResults as $item1) {
+                    $res['EvaluationResults'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -66,6 +72,10 @@ class GetEvaluationTemplatesResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -83,12 +93,12 @@ class GetEvaluationTemplatesResponseBody extends Model
             $model->code = $map['Code'];
         }
 
-        if (isset($map['EvaluationTemplates'])) {
-            if (!empty($map['EvaluationTemplates'])) {
-                $model->evaluationTemplates = [];
+        if (isset($map['EvaluationResults'])) {
+            if (!empty($map['EvaluationResults'])) {
+                $model->evaluationResults = [];
                 $n1 = 0;
-                foreach ($map['EvaluationTemplates'] as $item1) {
-                    $model->evaluationTemplates[$n1] = $item1;
+                foreach ($map['EvaluationResults'] as $item1) {
+                    $model->evaluationResults[$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -100,6 +110,10 @@ class GetEvaluationTemplatesResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

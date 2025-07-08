@@ -72,7 +72,8 @@ class ListTracesDatasResponseBody extends Model
                 $res['Traces'] = [];
                 $n1 = 0;
                 foreach ($this->traces as $item1) {
-                    $res['Traces'][$n1++] = $item1;
+                    $res['Traces'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class ListTracesDatasResponseBody extends Model
                 $model->traces = [];
                 $n1 = 0;
                 foreach ($map['Traces'] as $item1) {
-                    $model->traces[$n1++] = $item1;
+                    $model->traces[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
