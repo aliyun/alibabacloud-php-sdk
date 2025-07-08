@@ -8,6 +8,9 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointShrinkRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscToMountPointsRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscToMountPointsResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscToMountPointsShrinkRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\BindVscMountPointAliasRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\BindVscMountPointAliasResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\CreateAccessGroupRequest;
@@ -42,6 +45,9 @@ use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteUserGroupsMappingResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteUserGroupsMappingShrinkRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteVscMountPointRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteVscMountPointResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeMountPointsVscAttachInfoRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeMountPointsVscAttachInfoResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeMountPointsVscAttachInfoShrinkRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsRequest;
@@ -223,6 +229,77 @@ class DFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachVscMountPointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量挂载VSC挂载点.
+     *
+     * @param tmpReq - AttachVscToMountPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachVscToMountPointsResponse
+     *
+     * @param AttachVscToMountPointsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AttachVscToMountPointsResponse
+     */
+    public function attachVscToMountPointsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AttachVscToMountPointsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attachInfos) {
+            $request->attachInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attachInfos, 'AttachInfos', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->attachInfosShrink) {
+            @$query['AttachInfos'] = $request->attachInfosShrink;
+        }
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
+        }
+
+        if (null !== $request->useAssumeRoleChkServerPerm) {
+            @$query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachVscToMountPoints',
+            'version' => '2018-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachVscToMountPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量挂载VSC挂载点.
+     *
+     * @param request - AttachVscToMountPointsRequest
+     *
+     * @returns AttachVscToMountPointsResponse
+     *
+     * @param AttachVscToMountPointsRequest $request
+     *
+     * @return AttachVscToMountPointsResponse
+     */
+    public function attachVscToMountPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachVscToMountPointsWithOptions($request, $runtime);
     }
 
     /**
@@ -1254,6 +1331,85 @@ class DFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVscMountPointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量挂载VSC挂载点.
+     *
+     * @param tmpReq - DescribeMountPointsVscAttachInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMountPointsVscAttachInfoResponse
+     *
+     * @param DescribeMountPointsVscAttachInfoRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeMountPointsVscAttachInfoResponse
+     */
+    public function describeMountPointsVscAttachInfoWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeMountPointsVscAttachInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryInfos) {
+            $request->queryInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryInfos, 'QueryInfos', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->queryInfosShrink) {
+            @$query['QueryInfos'] = $request->queryInfosShrink;
+        }
+
+        if (null !== $request->useAssumeRoleChkServerPerm) {
+            @$query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMountPointsVscAttachInfo',
+            'version' => '2018-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMountPointsVscAttachInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量挂载VSC挂载点.
+     *
+     * @param request - DescribeMountPointsVscAttachInfoRequest
+     *
+     * @returns DescribeMountPointsVscAttachInfoResponse
+     *
+     * @param DescribeMountPointsVscAttachInfoRequest $request
+     *
+     * @return DescribeMountPointsVscAttachInfoResponse
+     */
+    public function describeMountPointsVscAttachInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMountPointsVscAttachInfoWithOptions($request, $runtime);
     }
 
     /**

@@ -39,7 +39,8 @@ class ListQosPoliciesResponseBody extends Model
                 $res['QosPolicies'] = [];
                 $n1 = 0;
                 foreach ($this->qosPolicies as $item1) {
-                    $res['QosPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QosPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListQosPoliciesResponseBody extends Model
                 $model->qosPolicies = [];
                 $n1 = 0;
                 foreach ($map['QosPolicies'] as $item1) {
-                    $model->qosPolicies[$n1++] = qosPolicies::fromMap($item1);
+                    $model->qosPolicies[$n1] = qosPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

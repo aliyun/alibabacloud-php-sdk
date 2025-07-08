@@ -63,7 +63,8 @@ class ListUserGroupsMappingsResponseBody extends Model
                 $res['UserGroupsMappings'] = [];
                 $n1 = 0;
                 foreach ($this->userGroupsMappings as $item1) {
-                    $res['UserGroupsMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserGroupsMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class ListUserGroupsMappingsResponseBody extends Model
                 $model->userGroupsMappings = [];
                 $n1 = 0;
                 foreach ($map['UserGroupsMappings'] as $item1) {
-                    $model->userGroupsMappings[$n1++] = userGroupsMappings::fromMap($item1);
+                    $model->userGroupsMappings[$n1] = userGroupsMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

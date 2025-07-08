@@ -54,7 +54,8 @@ class CreateUserGroupsMappingRequest extends Model
                 $res['GroupNames'] = [];
                 $n1 = 0;
                 foreach ($this->groupNames as $item1) {
-                    $res['GroupNames'][$n1++] = $item1;
+                    $res['GroupNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class CreateUserGroupsMappingRequest extends Model
                 $model->groupNames = [];
                 $n1 = 0;
                 foreach ($map['GroupNames'] as $item1) {
-                    $model->groupNames[$n1++] = $item1;
+                    $model->groupNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

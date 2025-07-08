@@ -5,14 +5,19 @@
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\DFS\V20180620\Models\ListAccessRulesResponseBody\accessRules;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeMountPointsVscAttachInfoResponseBody\attachInfos;
 
-class ListAccessRulesResponseBody extends Model
+class DescribeMountPointsVscAttachInfoResponseBody extends Model
 {
     /**
-     * @var accessRules[]
+     * @var attachInfos[]
      */
-    public $accessRules;
+    public $attachInfos;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
 
     /**
      * @var string
@@ -25,11 +30,12 @@ class ListAccessRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
     public $totalCount;
     protected $_name = [
-        'accessRules' => 'AccessRules',
+        'attachInfos' => 'AttachInfos',
+        'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
@@ -37,8 +43,8 @@ class ListAccessRulesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->accessRules)) {
-            Model::validateArray($this->accessRules);
+        if (\is_array($this->attachInfos)) {
+            Model::validateArray($this->attachInfos);
         }
         parent::validate();
     }
@@ -46,15 +52,19 @@ class ListAccessRulesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accessRules) {
-            if (\is_array($this->accessRules)) {
-                $res['AccessRules'] = [];
+        if (null !== $this->attachInfos) {
+            if (\is_array($this->attachInfos)) {
+                $res['AttachInfos'] = [];
                 $n1 = 0;
-                foreach ($this->accessRules as $item1) {
-                    $res['AccessRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->attachInfos as $item1) {
+                    $res['AttachInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
 
         if (null !== $this->nextToken) {
@@ -80,15 +90,19 @@ class ListAccessRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessRules'])) {
-            if (!empty($map['AccessRules'])) {
-                $model->accessRules = [];
+        if (isset($map['AttachInfos'])) {
+            if (!empty($map['AttachInfos'])) {
+                $model->attachInfos = [];
                 $n1 = 0;
-                foreach ($map['AccessRules'] as $item1) {
-                    $model->accessRules[$n1] = accessRules::fromMap($item1);
+                foreach ($map['AttachInfos'] as $item1) {
+                    $model->attachInfos[$n1] = attachInfos::fromMap($item1);
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
 
         if (isset($map['NextToken'])) {

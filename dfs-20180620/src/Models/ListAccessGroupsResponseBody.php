@@ -51,7 +51,8 @@ class ListAccessGroupsResponseBody extends Model
                 $res['AccessGroups'] = [];
                 $n1 = 0;
                 foreach ($this->accessGroups as $item1) {
-                    $res['AccessGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListAccessGroupsResponseBody extends Model
                 $model->accessGroups = [];
                 $n1 = 0;
                 foreach ($map['AccessGroups'] as $item1) {
-                    $model->accessGroups[$n1++] = accessGroups::fromMap($item1);
+                    $model->accessGroups[$n1] = accessGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -83,7 +83,8 @@ class DetachVscMountPointRequest extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class DetachVscMountPointRequest extends Model
                 $res['VscIds'] = [];
                 $n1 = 0;
                 foreach ($this->vscIds as $item1) {
-                    $res['VscIds'][$n1++] = $item1;
+                    $res['VscIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +136,8 @@ class DetachVscMountPointRequest extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class DetachVscMountPointRequest extends Model
                 $model->vscIds = [];
                 $n1 = 0;
                 foreach ($map['VscIds'] as $item1) {
-                    $model->vscIds[$n1++] = $item1;
+                    $model->vscIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

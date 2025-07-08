@@ -95,7 +95,8 @@ class CreateQosPolicyRequest extends Model
                 $res['FlowIds'] = [];
                 $n1 = 0;
                 foreach ($this->flowIds as $item1) {
-                    $res['FlowIds'][$n1++] = $item1;
+                    $res['FlowIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class CreateQosPolicyRequest extends Model
                 $res['ZoneIds'] = [];
                 $n1 = 0;
                 foreach ($this->zoneIds as $item1) {
-                    $res['ZoneIds'][$n1++] = $item1;
+                    $res['ZoneIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +156,8 @@ class CreateQosPolicyRequest extends Model
                 $model->flowIds = [];
                 $n1 = 0;
                 foreach ($map['FlowIds'] as $item1) {
-                    $model->flowIds[$n1++] = $item1;
+                    $model->flowIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class CreateQosPolicyRequest extends Model
                 $model->zoneIds = [];
                 $n1 = 0;
                 foreach ($map['ZoneIds'] as $item1) {
-                    $model->zoneIds[$n1++] = $item1;
+                    $model->zoneIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

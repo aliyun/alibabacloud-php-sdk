@@ -1,3 +1,8 @@
+2025-07-08 Version: 1.1.0
+- Support API AttachVscToMountPoints.
+- Support API DescribeMountPointsVscAttachInfo.
+
+
 2025-05-22 Version: 1.0.4
 - Update API AttachVscMountPoint: add request parameters VscName.
 - Update API DescribeVscMountPoints: add response parameters Body.MountPoints.$.Instances.$.Vscs.$.VscName.

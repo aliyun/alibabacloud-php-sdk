@@ -39,7 +39,8 @@ class ListFederationsResponseBody extends Model
                 $res['Federations'] = [];
                 $n1 = 0;
                 foreach ($this->federations as $item1) {
-                    $res['Federations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Federations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListFederationsResponseBody extends Model
                 $model->federations = [];
                 $n1 = 0;
                 foreach ($map['Federations'] as $item1) {
-                    $model->federations[$n1++] = federations::fromMap($item1);
+                    $model->federations[$n1] = federations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
