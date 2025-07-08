@@ -1,3 +1,6 @@
+2025-07-08 Version: 1.1.1
+- Generated php 2018-06-20 for DFS.
+
 2025-07-08 Version: 1.1.0
 - Support API AttachVscToMountPoints.
 - Support API DescribeMountPointsVscAttachInfo.
