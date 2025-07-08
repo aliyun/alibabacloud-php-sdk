@@ -67,6 +67,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
@@ -2562,6 +2564,87 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKeyPairsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定监控项的最新监控数据.
+     *
+     * @param request - DescribeMetricLastRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricLastResponse
+     *
+     * @param DescribeMetricLastRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricLastResponse
+     */
+    public function describeMetricLastWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->length) {
+            @$body['Length'] = $request->length;
+        }
+
+        if (null !== $request->metricNames) {
+            @$body['MetricNames'] = $request->metricNames;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetricLast',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定监控项的最新监控数据.
+     *
+     * @param request - DescribeMetricLastRequest
+     *
+     * @returns DescribeMetricLastResponse
+     *
+     * @param DescribeMetricLastRequest $request
+     *
+     * @return DescribeMetricLastResponse
+     */
+    public function describeMetricLast($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetricLastWithOptions($request, $runtime);
     }
 
     /**
