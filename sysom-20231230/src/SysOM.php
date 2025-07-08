@@ -94,6 +94,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPodsOfInstanceResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIAnalysisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIAnalysisResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIDiffAnalysisRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIDiffAnalysisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentRequest;
@@ -3347,6 +3349,10 @@ class SysOM extends OpenApiClient
             @$body['analysisTool'] = $request->analysisTool;
         }
 
+        if (null !== $request->analysisParams) {
+            @$body['analysis_params'] = $request->analysisParams;
+        }
+
         if (null !== $request->channel) {
             @$body['channel'] = $request->channel;
         }
@@ -3355,8 +3361,28 @@ class SysOM extends OpenApiClient
             @$body['comms'] = $request->comms;
         }
 
+        if (null !== $request->createdBy) {
+            @$body['created_by'] = $request->createdBy;
+        }
+
         if (null !== $request->instance) {
             @$body['instance'] = $request->instance;
+        }
+
+        if (null !== $request->instanceType) {
+            @$body['instance_type'] = $request->instanceType;
+        }
+
+        if (null !== $request->iterationFunc) {
+            @$body['iteration_func'] = $request->iterationFunc;
+        }
+
+        if (null !== $request->iterationMod) {
+            @$body['iteration_mod'] = $request->iterationMod;
+        }
+
+        if (null !== $request->iterationRange) {
+            @$body['iteration_range'] = $request->iterationRange;
         }
 
         if (null !== $request->pids) {
@@ -3369,6 +3395,10 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->timeout) {
             @$body['timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->uid) {
+            @$body['uid'] = $request->uid;
         }
 
         $req = new OpenApiRequest([
@@ -3407,6 +3437,71 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->startAIAnalysisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查看AI Infra差分分析结果.
+     *
+     * @param request - StartAIDiffAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAIDiffAnalysisResponse
+     *
+     * @param StartAIDiffAnalysisRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartAIDiffAnalysisResponse
+     */
+    public function startAIDiffAnalysisWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->task1) {
+            @$body['task1'] = $request->task1;
+        }
+
+        if (null !== $request->task2) {
+            @$body['task2'] = $request->task2;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartAIDiffAnalysis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/appObserv/aiAnalysis/diffAnalysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StartAIDiffAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看AI Infra差分分析结果.
+     *
+     * @param request - StartAIDiffAnalysisRequest
+     *
+     * @returns StartAIDiffAnalysisResponse
+     *
+     * @param StartAIDiffAnalysisRequest $request
+     *
+     * @return StartAIDiffAnalysisResponse
+     */
+    public function startAIDiffAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startAIDiffAnalysisWithOptions($request, $headers, $runtime);
     }
 
     /**
