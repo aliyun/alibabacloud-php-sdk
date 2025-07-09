@@ -16,6 +16,11 @@ class SearchIndexJobRerunRequest extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $searchLibName;
 
     /**
@@ -24,6 +29,7 @@ class SearchIndexJobRerunRequest extends Model
     public $task;
     protected $_name = [
         'mediaIds' => 'MediaIds',
+        'namespace' => 'Namespace',
         'searchLibName' => 'SearchLibName',
         'task' => 'Task',
     ];
@@ -38,6 +44,10 @@ class SearchIndexJobRerunRequest extends Model
         $res = [];
         if (null !== $this->mediaIds) {
             $res['MediaIds'] = $this->mediaIds;
+        }
+
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         if (null !== $this->searchLibName) {
@@ -61,6 +71,10 @@ class SearchIndexJobRerunRequest extends Model
         $model = new self();
         if (isset($map['MediaIds'])) {
             $model->mediaIds = $map['MediaIds'];
+        }
+
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         if (isset($map['SearchLibName'])) {

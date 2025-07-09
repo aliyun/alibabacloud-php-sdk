@@ -5982,6 +5982,10 @@ class ICE extends OpenApiClient
             @$query['MsgBody'] = $request->msgBody;
         }
 
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
         if (null !== $request->searchLibName) {
             @$query['SearchLibName'] = $request->searchLibName;
         }
@@ -12052,6 +12056,10 @@ class ICE extends OpenApiClient
             @$query['MsgBody'] = $request->msgBody;
         }
 
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
         if (null !== $request->searchLibName) {
             @$query['SearchLibName'] = $request->searchLibName;
         }
@@ -17853,6 +17861,10 @@ class ICE extends OpenApiClient
         $query = [];
         if (null !== $request->mediaIds) {
             @$query['MediaIds'] = $request->mediaIds;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
 
         if (null !== $request->searchLibName) {
@@ -25406,6 +25418,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->msgBody) {
             @$query['MsgBody'] = $request->msgBody;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
 
         if (null !== $request->searchLibName) {

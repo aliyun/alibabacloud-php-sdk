@@ -21,10 +21,16 @@ class DeleteMediaFromSearchLibRequest extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $searchLibName;
     protected $_name = [
         'mediaId' => 'MediaId',
         'msgBody' => 'MsgBody',
+        'namespace' => 'Namespace',
         'searchLibName' => 'SearchLibName',
     ];
 
@@ -42,6 +48,10 @@ class DeleteMediaFromSearchLibRequest extends Model
 
         if (null !== $this->msgBody) {
             $res['MsgBody'] = $this->msgBody;
+        }
+
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         if (null !== $this->searchLibName) {
@@ -65,6 +75,10 @@ class DeleteMediaFromSearchLibRequest extends Model
 
         if (isset($map['MsgBody'])) {
             $model->msgBody = $map['MsgBody'];
+        }
+
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         if (isset($map['SearchLibName'])) {
