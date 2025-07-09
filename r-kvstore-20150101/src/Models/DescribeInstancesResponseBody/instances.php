@@ -33,7 +33,8 @@ class instances extends Model
                 $res['KVStoreInstance'] = [];
                 $n1 = 0;
                 foreach ($this->KVStoreInstance as $item1) {
-                    $res['KVStoreInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KVStoreInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instances extends Model
                 $model->KVStoreInstance = [];
                 $n1 = 0;
                 foreach ($map['KVStoreInstance'] as $item1) {
-                    $model->KVStoreInstance[$n1++] = KVStoreInstance::fromMap($item1);
+                    $model->KVStoreInstance[$n1] = KVStoreInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

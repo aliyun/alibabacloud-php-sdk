@@ -105,7 +105,8 @@ class parameterGroup extends Model
                 $res['ParamGroupsDetails'] = [];
                 $n1 = 0;
                 foreach ($this->paramGroupsDetails as $item1) {
-                    $res['ParamGroupsDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParamGroupsDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class parameterGroup extends Model
                 $model->paramGroupsDetails = [];
                 $n1 = 0;
                 foreach ($map['ParamGroupsDetails'] as $item1) {
-                    $model->paramGroupsDetails[$n1++] = paramGroupsDetails::fromMap($item1);
+                    $model->paramGroupsDetails[$n1] = paramGroupsDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

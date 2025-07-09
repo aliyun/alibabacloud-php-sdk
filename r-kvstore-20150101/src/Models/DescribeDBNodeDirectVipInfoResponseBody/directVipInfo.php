@@ -33,7 +33,8 @@ class directVipInfo extends Model
                 $res['VipInfo'] = [];
                 $n1 = 0;
                 foreach ($this->vipInfo as $item1) {
-                    $res['VipInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VipInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class directVipInfo extends Model
                 $model->vipInfo = [];
                 $n1 = 0;
                 foreach ($map['VipInfo'] as $item1) {
-                    $model->vipInfo[$n1++] = vipInfo::fromMap($item1);
+                    $model->vipInfo[$n1] = vipInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

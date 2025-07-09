@@ -67,6 +67,11 @@ class DescribeHistoryMonitorValuesRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
@@ -80,6 +85,7 @@ class DescribeHistoryMonitorValuesRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
         'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class DescribeHistoryMonitorValuesRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class DescribeHistoryMonitorValuesRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

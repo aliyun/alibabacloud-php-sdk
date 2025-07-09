@@ -33,7 +33,8 @@ class supportedShardNumbers extends Model
                 $res['SupportedShardNumber'] = [];
                 $n1 = 0;
                 foreach ($this->supportedShardNumber as $item1) {
-                    $res['SupportedShardNumber'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedShardNumber'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportedShardNumbers extends Model
                 $model->supportedShardNumber = [];
                 $n1 = 0;
                 foreach ($map['SupportedShardNumber'] as $item1) {
-                    $model->supportedShardNumber[$n1++] = supportedShardNumber::fromMap($item1);
+                    $model->supportedShardNumber[$n1] = supportedShardNumber::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

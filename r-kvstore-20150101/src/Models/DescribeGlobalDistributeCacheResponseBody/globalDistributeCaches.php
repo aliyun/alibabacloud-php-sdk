@@ -53,7 +53,8 @@ class globalDistributeCaches extends Model
                 $res['SubInstances'] = [];
                 $n1 = 0;
                 foreach ($this->subInstances as $item1) {
-                    $res['SubInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class globalDistributeCaches extends Model
                 $model->subInstances = [];
                 $n1 = 0;
                 foreach ($map['SubInstances'] as $item1) {
-                    $model->subInstances[$n1++] = subInstances::fromMap($item1);
+                    $model->subInstances[$n1] = subInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

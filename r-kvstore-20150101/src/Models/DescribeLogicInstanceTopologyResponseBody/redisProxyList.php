@@ -33,7 +33,8 @@ class redisProxyList extends Model
                 $res['NodeInfo'] = [];
                 $n1 = 0;
                 foreach ($this->nodeInfo as $item1) {
-                    $res['NodeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class redisProxyList extends Model
                 $model->nodeInfo = [];
                 $n1 = 0;
                 foreach ($map['NodeInfo'] as $item1) {
-                    $model->nodeInfo[$n1++] = nodeInfo::fromMap($item1);
+                    $model->nodeInfo[$n1] = nodeInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

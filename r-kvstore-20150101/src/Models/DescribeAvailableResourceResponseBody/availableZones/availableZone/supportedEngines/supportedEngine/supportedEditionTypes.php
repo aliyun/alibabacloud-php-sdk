@@ -33,7 +33,8 @@ class supportedEditionTypes extends Model
                 $res['SupportedEditionType'] = [];
                 $n1 = 0;
                 foreach ($this->supportedEditionType as $item1) {
-                    $res['SupportedEditionType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedEditionType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportedEditionTypes extends Model
                 $model->supportedEditionType = [];
                 $n1 = 0;
                 foreach ($map['SupportedEditionType'] as $item1) {
-                    $model->supportedEditionType[$n1++] = supportedEditionType::fromMap($item1);
+                    $model->supportedEditionType[$n1] = supportedEditionType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class promDetailList extends Model
                 $res['PromDetail'] = [];
                 $n1 = 0;
                 foreach ($this->promDetail as $item1) {
-                    $res['PromDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PromDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class promDetailList extends Model
                 $model->promDetail = [];
                 $n1 = 0;
                 foreach ($map['PromDetail'] as $item1) {
-                    $model->promDetail[$n1++] = promDetail::fromMap($item1);
+                    $model->promDetail[$n1] = promDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

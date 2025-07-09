@@ -75,7 +75,8 @@ class DescribeClusterBackupListResponseBody extends Model
                 $res['ClusterBackups'] = [];
                 $n1 = 0;
                 foreach ($this->clusterBackups as $item1) {
-                    $res['ClusterBackups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterBackups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class DescribeClusterBackupListResponseBody extends Model
                 $model->clusterBackups = [];
                 $n1 = 0;
                 foreach ($map['ClusterBackups'] as $item1) {
-                    $model->clusterBackups[$n1++] = clusterBackups::fromMap($item1);
+                    $model->clusterBackups[$n1] = clusterBackups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

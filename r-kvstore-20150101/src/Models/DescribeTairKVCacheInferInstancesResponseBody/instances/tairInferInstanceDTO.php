@@ -20,6 +20,11 @@ class tairInferInstanceDTO extends Model
     public $chargeType;
 
     /**
+     * @var int
+     */
+    public $computeUnitNum;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -62,7 +67,12 @@ class tairInferInstanceDTO extends Model
     /**
      * @var string
      */
-    public $moduleName;
+    public $model;
+
+    /**
+     * @var int
+     */
+    public $modelServiceNum;
 
     /**
      * @var string
@@ -80,11 +90,6 @@ class tairInferInstanceDTO extends Model
     public $regionId;
 
     /**
-     * @var int
-     */
-    public $reserveGpuNum;
-
-    /**
      * @var string
      */
     public $resourceGroupId;
@@ -95,9 +100,9 @@ class tairInferInstanceDTO extends Model
     public $tags;
 
     /**
-     * @var int
+     * @var string
      */
-    public $usedGpuNum;
+    public $VNodeName;
 
     /**
      * @var string
@@ -116,6 +121,7 @@ class tairInferInstanceDTO extends Model
     protected $_name = [
         'capacity' => 'Capacity',
         'chargeType' => 'ChargeType',
+        'computeUnitNum' => 'ComputeUnitNum',
         'createTime' => 'CreateTime',
         'destroyTime' => 'DestroyTime',
         'endTime' => 'EndTime',
@@ -124,14 +130,14 @@ class tairInferInstanceDTO extends Model
         'instanceName' => 'InstanceName',
         'instanceStatus' => 'InstanceStatus',
         'instanceType' => 'InstanceType',
-        'moduleName' => 'ModuleName',
+        'model' => 'Model',
+        'modelServiceNum' => 'ModelServiceNum',
         'networkType' => 'NetworkType',
         'privateIp' => 'PrivateIp',
         'regionId' => 'RegionId',
-        'reserveGpuNum' => 'ReserveGpuNum',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
-        'usedGpuNum' => 'UsedGpuNum',
+        'VNodeName' => 'VNodeName',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
@@ -154,6 +160,10 @@ class tairInferInstanceDTO extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->computeUnitNum) {
+            $res['ComputeUnitNum'] = $this->computeUnitNum;
         }
 
         if (null !== $this->createTime) {
@@ -188,8 +198,12 @@ class tairInferInstanceDTO extends Model
             $res['InstanceType'] = $this->instanceType;
         }
 
-        if (null !== $this->moduleName) {
-            $res['ModuleName'] = $this->moduleName;
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->modelServiceNum) {
+            $res['ModelServiceNum'] = $this->modelServiceNum;
         }
 
         if (null !== $this->networkType) {
@@ -204,10 +218,6 @@ class tairInferInstanceDTO extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->reserveGpuNum) {
-            $res['ReserveGpuNum'] = $this->reserveGpuNum;
-        }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -216,8 +226,8 @@ class tairInferInstanceDTO extends Model
             $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
-        if (null !== $this->usedGpuNum) {
-            $res['UsedGpuNum'] = $this->usedGpuNum;
+        if (null !== $this->VNodeName) {
+            $res['VNodeName'] = $this->VNodeName;
         }
 
         if (null !== $this->vSwitchId) {
@@ -249,6 +259,10 @@ class tairInferInstanceDTO extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ComputeUnitNum'])) {
+            $model->computeUnitNum = $map['ComputeUnitNum'];
         }
 
         if (isset($map['CreateTime'])) {
@@ -283,8 +297,12 @@ class tairInferInstanceDTO extends Model
             $model->instanceType = $map['InstanceType'];
         }
 
-        if (isset($map['ModuleName'])) {
-            $model->moduleName = $map['ModuleName'];
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+
+        if (isset($map['ModelServiceNum'])) {
+            $model->modelServiceNum = $map['ModelServiceNum'];
         }
 
         if (isset($map['NetworkType'])) {
@@ -299,10 +317,6 @@ class tairInferInstanceDTO extends Model
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['ReserveGpuNum'])) {
-            $model->reserveGpuNum = $map['ReserveGpuNum'];
-        }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -311,8 +325,8 @@ class tairInferInstanceDTO extends Model
             $model->tags = tags::fromMap($map['Tags']);
         }
 
-        if (isset($map['UsedGpuNum'])) {
-            $model->usedGpuNum = $map['UsedGpuNum'];
+        if (isset($map['VNodeName'])) {
+            $model->VNodeName = $map['VNodeName'];
         }
 
         if (isset($map['VSwitchId'])) {

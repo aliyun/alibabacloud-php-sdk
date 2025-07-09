@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeTasksResponse extends Model
+class ModifyBackupExpireTimeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeTasksResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeTasksResponseBody
+     * @var ModifyBackupExpireTimeResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DescribeTasksResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DescribeTasksResponseBody::fromMap($map['body']);
+            $model->body = ModifyBackupExpireTimeResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -45,7 +45,8 @@ class DescribeInstancesOverviewResponseBody extends Model
                 $res['Instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeInstancesOverviewResponseBody extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
-                    $model->instances[$n1++] = instances::fromMap($item1);
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

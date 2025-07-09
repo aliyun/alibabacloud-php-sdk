@@ -57,7 +57,8 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
                 $res['GlobalDistributeCaches'] = [];
                 $n1 = 0;
                 foreach ($this->globalDistributeCaches as $item1) {
-                    $res['GlobalDistributeCaches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GlobalDistributeCaches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
                 $model->globalDistributeCaches = [];
                 $n1 = 0;
                 foreach ($map['GlobalDistributeCaches'] as $item1) {
-                    $model->globalDistributeCaches[$n1++] = globalDistributeCaches::fromMap($item1);
+                    $model->globalDistributeCaches[$n1] = globalDistributeCaches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

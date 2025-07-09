@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateBackupRequest extends Model
+class DeleteBackupRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $backupRetentionPeriod;
+    public $backupId;
 
     /**
      * @var string
@@ -37,19 +37,13 @@ class CreateBackupRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
-        'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'backupId' => 'BackupId',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -60,8 +54,8 @@ class CreateBackupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->backupRetentionPeriod) {
-            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
         }
 
         if (null !== $this->instanceId) {
@@ -84,10 +78,6 @@ class CreateBackupRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-
         return $res;
     }
 
@@ -99,8 +89,8 @@ class CreateBackupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupRetentionPeriod'])) {
-            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
         }
 
         if (isset($map['InstanceId'])) {
@@ -121,10 +111,6 @@ class CreateBackupRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

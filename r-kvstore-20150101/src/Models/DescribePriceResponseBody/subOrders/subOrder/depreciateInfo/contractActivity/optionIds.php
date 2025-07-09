@@ -32,7 +32,8 @@ class optionIds extends Model
                 $res['OptionId'] = [];
                 $n1 = 0;
                 foreach ($this->optionId as $item1) {
-                    $res['OptionId'][$n1++] = $item1;
+                    $res['OptionId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class optionIds extends Model
                 $model->optionId = [];
                 $n1 = 0;
                 foreach ($map['OptionId'] as $item1) {
-                    $model->optionId[$n1++] = $item1;
+                    $model->optionId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

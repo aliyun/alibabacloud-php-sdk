@@ -33,7 +33,8 @@ class availableResources extends Model
                 $res['AvailableResource'] = [];
                 $n1 = 0;
                 foreach ($this->availableResource as $item1) {
-                    $res['AvailableResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class availableResources extends Model
                 $model->availableResource = [];
                 $n1 = 0;
                 foreach ($map['AvailableResource'] as $item1) {
-                    $model->availableResource[$n1++] = availableResource::fromMap($item1);
+                    $model->availableResource[$n1] = availableResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

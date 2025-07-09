@@ -33,7 +33,8 @@ class supportedArchitectureTypes extends Model
                 $res['SupportedArchitectureType'] = [];
                 $n1 = 0;
                 foreach ($this->supportedArchitectureType as $item1) {
-                    $res['SupportedArchitectureType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedArchitectureType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportedArchitectureTypes extends Model
                 $model->supportedArchitectureType = [];
                 $n1 = 0;
                 foreach ($map['SupportedArchitectureType'] as $item1) {
-                    $model->supportedArchitectureType[$n1++] = supportedArchitectureType::fromMap($item1);
+                    $model->supportedArchitectureType[$n1] = supportedArchitectureType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

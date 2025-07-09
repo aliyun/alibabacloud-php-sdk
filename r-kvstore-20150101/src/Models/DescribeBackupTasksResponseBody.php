@@ -59,7 +59,8 @@ class DescribeBackupTasksResponseBody extends Model
                 $res['BackupJobs'] = [];
                 $n1 = 0;
                 foreach ($this->backupJobs as $item1) {
-                    $res['BackupJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackupJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class DescribeBackupTasksResponseBody extends Model
                 $model->backupJobs = [];
                 $n1 = 0;
                 foreach ($map['BackupJobs'] as $item1) {
-                    $model->backupJobs[$n1++] = backupJobs::fromMap($item1);
+                    $model->backupJobs[$n1] = backupJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

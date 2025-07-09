@@ -223,7 +223,8 @@ class instances extends Model
                 $res['InstanceNodeList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceNodeList as $item1) {
-                    $res['InstanceNodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceNodeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +337,8 @@ class instances extends Model
                 $model->instanceNodeList = [];
                 $n1 = 0;
                 foreach ($map['InstanceNodeList'] as $item1) {
-                    $model->instanceNodeList[$n1++] = instanceNodeList::fromMap($item1);
+                    $model->instanceNodeList[$n1] = instanceNodeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class DescribeParameterGroupsResponseBody extends Model
                 $res['ParameterGroups'] = [];
                 $n1 = 0;
                 foreach ($this->parameterGroups as $item1) {
-                    $res['ParameterGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParameterGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeParameterGroupsResponseBody extends Model
                 $model->parameterGroups = [];
                 $n1 = 0;
                 foreach ($map['ParameterGroups'] as $item1) {
-                    $model->parameterGroups[$n1++] = parameterGroups::fromMap($item1);
+                    $model->parameterGroups[$n1] = parameterGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

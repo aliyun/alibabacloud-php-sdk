@@ -33,7 +33,8 @@ class instances extends Model
                 $res['TairInferInstanceDTO'] = [];
                 $n1 = 0;
                 foreach ($this->tairInferInstanceDTO as $item1) {
-                    $res['TairInferInstanceDTO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TairInferInstanceDTO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instances extends Model
                 $model->tairInferInstanceDTO = [];
                 $n1 = 0;
                 foreach ($map['TairInferInstanceDTO'] as $item1) {
-                    $model->tairInferInstanceDTO[$n1++] = tairInferInstanceDTO::fromMap($item1);
+                    $model->tairInferInstanceDTO[$n1] = tairInferInstanceDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

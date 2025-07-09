@@ -72,11 +72,12 @@ class DescribeCacheAnalysisReportResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->bigKeys as $item1) {
                     if (\is_array($item1)) {
-                        $res['BigKeys'][$n1++] = [];
+                        $res['BigKeys'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['BigKeys'][$n1++][$key2] = $value2;
+                            $res['BigKeys'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -87,11 +88,12 @@ class DescribeCacheAnalysisReportResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->hotKeys as $item1) {
                     if (\is_array($item1)) {
-                        $res['HotKeys'][$n1++] = [];
+                        $res['HotKeys'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['HotKeys'][$n1++][$key2] = $value2;
+                            $res['HotKeys'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -133,11 +135,12 @@ class DescribeCacheAnalysisReportResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['BigKeys'] as $item1) {
                     if (!empty($item1)) {
-                        $model->bigKeys[$n1++] = [];
+                        $model->bigKeys[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->bigKeys[$n1++][$key2] = $value2;
+                            $model->bigKeys[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -148,11 +151,12 @@ class DescribeCacheAnalysisReportResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['HotKeys'] as $item1) {
                     if (!empty($item1)) {
-                        $model->hotKeys[$n1++] = [];
+                        $model->hotKeys[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->hotKeys[$n1++][$key2] = $value2;
+                            $model->hotKeys[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

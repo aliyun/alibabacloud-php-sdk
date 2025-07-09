@@ -33,7 +33,8 @@ class supportedNodeTypes extends Model
                 $res['SupportedNodeType'] = [];
                 $n1 = 0;
                 foreach ($this->supportedNodeType as $item1) {
-                    $res['SupportedNodeType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedNodeType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportedNodeTypes extends Model
                 $model->supportedNodeType = [];
                 $n1 = 0;
                 foreach ($map['SupportedNodeType'] as $item1) {
-                    $model->supportedNodeType[$n1++] = supportedNodeType::fromMap($item1);
+                    $model->supportedNodeType[$n1] = supportedNodeType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

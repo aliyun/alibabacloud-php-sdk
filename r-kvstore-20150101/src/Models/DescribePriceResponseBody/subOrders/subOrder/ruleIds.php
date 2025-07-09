@@ -32,7 +32,8 @@ class ruleIds extends Model
                 $res['RuleId'] = [];
                 $n1 = 0;
                 foreach ($this->ruleId as $item1) {
-                    $res['RuleId'][$n1++] = $item1;
+                    $res['RuleId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ruleIds extends Model
                 $model->ruleId = [];
                 $n1 = 0;
                 foreach ($map['RuleId'] as $item1) {
-                    $model->ruleId[$n1++] = $item1;
+                    $model->ruleId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

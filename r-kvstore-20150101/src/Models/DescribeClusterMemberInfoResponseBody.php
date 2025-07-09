@@ -39,7 +39,8 @@ class DescribeClusterMemberInfoResponseBody extends Model
                 $res['ClusterChildren'] = [];
                 $n1 = 0;
                 foreach ($this->clusterChildren as $item1) {
-                    $res['ClusterChildren'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterChildren'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeClusterMemberInfoResponseBody extends Model
                 $model->clusterChildren = [];
                 $n1 = 0;
                 foreach ($map['ClusterChildren'] as $item1) {
-                    $model->clusterChildren[$n1++] = clusterChildren::fromMap($item1);
+                    $model->clusterChildren[$n1] = clusterChildren::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

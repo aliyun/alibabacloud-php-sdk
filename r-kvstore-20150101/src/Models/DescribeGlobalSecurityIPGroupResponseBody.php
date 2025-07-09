@@ -39,7 +39,8 @@ class DescribeGlobalSecurityIPGroupResponseBody extends Model
                 $res['GlobalSecurityIPGroup'] = [];
                 $n1 = 0;
                 foreach ($this->globalSecurityIPGroup as $item1) {
-                    $res['GlobalSecurityIPGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GlobalSecurityIPGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeGlobalSecurityIPGroupResponseBody extends Model
                 $model->globalSecurityIPGroup = [];
                 $n1 = 0;
                 foreach ($map['GlobalSecurityIPGroup'] as $item1) {
-                    $model->globalSecurityIPGroup[$n1++] = globalSecurityIPGroup::fromMap($item1);
+                    $model->globalSecurityIPGroup[$n1] = globalSecurityIPGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

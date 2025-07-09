@@ -33,7 +33,8 @@ class zones extends Model
                 $res['KVStoreZone'] = [];
                 $n1 = 0;
                 foreach ($this->KVStoreZone as $item1) {
-                    $res['KVStoreZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KVStoreZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class zones extends Model
                 $model->KVStoreZone = [];
                 $n1 = 0;
                 foreach ($map['KVStoreZone'] as $item1) {
-                    $model->KVStoreZone[$n1++] = KVStoreZone::fromMap($item1);
+                    $model->KVStoreZone[$n1] = KVStoreZone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

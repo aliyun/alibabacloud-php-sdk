@@ -33,7 +33,8 @@ class supportedSeriesTypes extends Model
                 $res['SupportedSeriesType'] = [];
                 $n1 = 0;
                 foreach ($this->supportedSeriesType as $item1) {
-                    $res['SupportedSeriesType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedSeriesType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportedSeriesTypes extends Model
                 $model->supportedSeriesType = [];
                 $n1 = 0;
                 foreach ($map['SupportedSeriesType'] as $item1) {
-                    $model->supportedSeriesType[$n1++] = supportedSeriesType::fromMap($item1);
+                    $model->supportedSeriesType[$n1] = supportedSeriesType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -6,12 +6,17 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeTasksRequest extends Model
+class ModifyBackupExpireTimeRequest extends Model
 {
     /**
      * @var string
      */
-    public $endTime;
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $expectExpireTime;
 
     /**
      * @var string
@@ -29,16 +34,6 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -47,33 +42,14 @@ class DescribeTasksRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $status;
     protected $_name = [
-        'endTime' => 'EndTime',
+        'backupId' => 'BackupId',
+        'expectExpireTime' => 'ExpectExpireTime',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
-        'pageNumber' => 'PageNumber',
-        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'securityToken' => 'SecurityToken',
-        'startTime' => 'StartTime',
-        'status' => 'Status',
     ];
 
     public function validate()
@@ -84,8 +60,12 @@ class DescribeTasksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+
+        if (null !== $this->expectExpireTime) {
+            $res['ExpectExpireTime'] = $this->expectExpireTime;
         }
 
         if (null !== $this->instanceId) {
@@ -100,32 +80,12 @@ class DescribeTasksRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -139,8 +99,12 @@ class DescribeTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+
+        if (isset($map['ExpectExpireTime'])) {
+            $model->expectExpireTime = $map['ExpectExpireTime'];
         }
 
         if (isset($map['InstanceId'])) {
@@ -155,32 +119,12 @@ class DescribeTasksRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
 
         return $model;

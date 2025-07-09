@@ -33,7 +33,8 @@ class dailyTasks extends Model
                 $res['DailyTask'] = [];
                 $n1 = 0;
                 foreach ($this->dailyTask as $item1) {
-                    $res['DailyTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DailyTask'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dailyTasks extends Model
                 $model->dailyTask = [];
                 $n1 = 0;
                 foreach ($map['DailyTask'] as $item1) {
-                    $model->dailyTask[$n1++] = dailyTask::fromMap($item1);
+                    $model->dailyTask[$n1] = dailyTask::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class supportedEngines extends Model
                 $res['SupportedEngine'] = [];
                 $n1 = 0;
                 foreach ($this->supportedEngine as $item1) {
-                    $res['SupportedEngine'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedEngine'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportedEngines extends Model
                 $model->supportedEngine = [];
                 $n1 = 0;
                 foreach ($map['SupportedEngine'] as $item1) {
-                    $model->supportedEngine[$n1++] = supportedEngine::fromMap($item1);
+                    $model->supportedEngine[$n1] = supportedEngine::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

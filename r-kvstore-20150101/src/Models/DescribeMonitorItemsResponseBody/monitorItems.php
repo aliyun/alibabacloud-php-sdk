@@ -33,7 +33,8 @@ class monitorItems extends Model
                 $res['KVStoreMonitorItem'] = [];
                 $n1 = 0;
                 foreach ($this->KVStoreMonitorItem as $item1) {
-                    $res['KVStoreMonitorItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KVStoreMonitorItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class monitorItems extends Model
                 $model->KVStoreMonitorItem = [];
                 $n1 = 0;
                 foreach ($map['KVStoreMonitorItem'] as $item1) {
-                    $model->KVStoreMonitorItem[$n1++] = KVStoreMonitorItem::fromMap($item1);
+                    $model->KVStoreMonitorItem[$n1] = KVStoreMonitorItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

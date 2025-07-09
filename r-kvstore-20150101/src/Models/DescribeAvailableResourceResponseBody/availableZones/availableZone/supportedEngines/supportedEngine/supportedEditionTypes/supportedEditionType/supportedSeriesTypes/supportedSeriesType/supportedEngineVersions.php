@@ -33,7 +33,8 @@ class supportedEngineVersions extends Model
                 $res['SupportedEngineVersion'] = [];
                 $n1 = 0;
                 foreach ($this->supportedEngineVersion as $item1) {
-                    $res['SupportedEngineVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedEngineVersion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportedEngineVersions extends Model
                 $model->supportedEngineVersion = [];
                 $n1 = 0;
                 foreach ($map['SupportedEngineVersion'] as $item1) {
-                    $model->supportedEngineVersion[$n1++] = supportedEngineVersion::fromMap($item1);
+                    $model->supportedEngineVersion[$n1] = supportedEngineVersion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

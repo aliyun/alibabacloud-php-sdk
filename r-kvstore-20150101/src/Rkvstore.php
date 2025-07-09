@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteBackupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceRequest;
@@ -151,8 +153,6 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstanceA
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstancesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstancesResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTasksRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthRequest;
@@ -185,6 +185,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTasksRequest
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupExpireTimeRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupExpireTimeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceAutoUpgradeRequest;
@@ -305,8 +307,6 @@ class Rkvstore extends OpenApiClient
             'cn-guangzhou' => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou-finance' => 'r-kvstore.aliyuncs.com',
             'cn-shanghai-finance-1' => 'r-kvstore.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'r-kvstore.aliyuncs.com',
-            'cn-north-2-gov-1' => 'r-kvstore.aliyuncs.com',
             'ap-northeast-2-pop' => 'r-kvstore.aliyuncs.com',
             'cn-beijing-finance-1' => 'r-kvstore.aliyuncs.com',
             'cn-beijing-finance-pop' => 'r-kvstore.aliyuncs.com',
@@ -368,7 +368,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+     * Adds one or more data shards to a Tair cluster instance.
      *
      * @remarks
      * This operation is available only for cluster instances that use cloud disks.
@@ -453,15 +453,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddShardingNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddShardingNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddShardingNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+     * Adds one or more data shards to a Tair cluster instance.
      *
      * @remarks
      * This operation is available only for cluster instances that use cloud disks.
@@ -552,11 +549,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateDirectConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateDirectConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateDirectConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -651,11 +645,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -740,11 +731,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -834,11 +822,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckCloudResourceAuthorizedResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -948,11 +933,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -999,6 +981,10 @@ class Rkvstore extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -1037,11 +1023,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBackupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1123,11 +1106,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCacheAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCacheAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCacheAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1220,11 +1200,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateGlobalDistributeCacheResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGlobalDistributeCacheResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGlobalDistributeCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1318,11 +1295,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1571,11 +1545,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1694,11 +1665,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1804,11 +1772,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateParameterGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1968,11 +1933,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTCInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2215,11 +2177,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTairInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTairInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTairInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2314,11 +2273,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2341,6 +2297,83 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指定备份集.
+     *
+     * @param request - DeleteBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBackupResponse
+     *
+     * @param DeleteBackupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteBackupResponse
+     */
+    public function deleteBackupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBackup',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定备份集.
+     *
+     * @param request - DeleteBackupRequest
+     *
+     * @returns DeleteBackupResponse
+     *
+     * @param DeleteBackupRequest $request
+     *
+     * @return DeleteBackupResponse
+     */
+    public function deleteBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupWithOptions($request, $runtime);
     }
 
     /**
@@ -2413,11 +2446,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2507,11 +2537,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2594,11 +2621,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteParameterGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2696,11 +2720,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteShardingNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteShardingNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteShardingNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2789,11 +2810,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2891,11 +2909,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3014,11 +3029,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3101,11 +3113,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAuditLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3223,11 +3232,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAuditRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAuditRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAuditRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3346,11 +3352,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailableResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3426,11 +3429,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3514,11 +3514,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3540,7 +3537,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup files of the ApsaraDB for Redis instance.
+     * Queries the backup files of the Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3622,15 +3619,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the backup files of the ApsaraDB for Redis instance.
+     * Queries the backup files of the Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -3728,11 +3722,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCacheAnalysisReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCacheAnalysisReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCacheAnalysisReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3836,11 +3827,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCacheAnalysisReportListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCacheAnalysisReportListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCacheAnalysisReportListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3901,11 +3889,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClusterBackupListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClusterBackupListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClusterBackupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3995,11 +3980,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClusterMemberInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClusterMemberInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClusterMemberInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4078,11 +4060,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceNetInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4157,11 +4136,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBNodeDirectVipInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBNodeDirectVipInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBNodeDirectVipInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4283,11 +4259,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDedicatedClusterInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDedicatedClusterInstanceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDedicatedClusterInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4374,11 +4347,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEncryptionKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEncryptionKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEncryptionKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4462,11 +4432,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEncryptionKeyListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4550,11 +4517,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEngineVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4650,11 +4614,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGlobalDistributeCacheResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGlobalDistributeCacheResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGlobalDistributeCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4710,11 +4671,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4766,11 +4724,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4792,10 +4747,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the performance monitoring data of an ApsaraDB for Redis instance.
+     * Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
-     * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+     * You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
      *
      * @param request - DescribeHistoryMonitorValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4859,6 +4814,10 @@ class Rkvstore extends OpenApiClient
             @$query['StartTime'] = $request->startTime;
         }
 
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4873,18 +4832,15 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHistoryMonitorValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHistoryMonitorValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHistoryMonitorValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the performance monitoring data of an ApsaraDB for Redis instance.
+     * Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
-     * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+     * You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
      *
      * @param request - DescribeHistoryMonitorValuesRequest
      *
@@ -4992,11 +4948,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHistoryTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5072,11 +5025,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5164,11 +5114,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5248,11 +5195,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5339,11 +5283,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5430,11 +5371,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceTDEStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceTDEStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceTDEStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5594,11 +5532,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5738,11 +5673,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstancesOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstancesOverviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstancesOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5829,11 +5761,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIntranetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIntranetAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIntranetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5915,11 +5844,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLogicInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLogicInstanceTopologyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLogicInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5944,11 +5870,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of an ApsaraDB for Redis instance.
+     * Queries the metrics of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
-     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
-     * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
+     * >  To improve user experience, Tair has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation of Tair (Redis OSS-compatible) is phased out](https://help.aliyun.com/document_detail/189893.html).
+     * After you call this operation to retrieve a list of metrics for a specified instance, you can call the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) operation to query the monitoring history of the instance.
      *
      * @param request - DescribeMonitorItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5998,19 +5924,16 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMonitorItemsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMonitorItemsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMonitorItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the metrics of an ApsaraDB for Redis instance.
+     * Queries the metrics of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
-     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
-     * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
+     * >  To improve user experience, Tair has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation of Tair (Redis OSS-compatible) is phased out](https://help.aliyun.com/document_detail/189893.html).
+     * After you call this operation to retrieve a list of metrics for a specified instance, you can call the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) operation to query the monitoring history of the instance.
      *
      * @param request - DescribeMonitorItemsRequest
      *
@@ -6086,11 +6009,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6174,11 +6094,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterGroupSupportParamResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterGroupSupportParamResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterGroupSupportParamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6230,11 +6147,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterGroupTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterGroupTemplateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterGroupTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6314,11 +6228,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6410,11 +6321,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterModificationHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterModificationHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterModificationHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6509,11 +6417,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6604,11 +6509,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6634,7 +6536,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+     * Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6752,15 +6654,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+     * Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribePriceRequest
      *
@@ -6832,11 +6731,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6924,11 +6820,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRoleZoneInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRoleZoneInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRoleZoneInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7052,11 +6945,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRunningLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRunningLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRunningLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7082,7 +6972,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     * Queries the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeSecurityGroupConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7136,15 +7026,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityGroupConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     * Queries the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeSecurityGroupConfigurationRequest
      *
@@ -7162,7 +7049,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists of an ApsaraDB for Redis instance.
+     * Queries the IP address whitelists of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeSecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7216,15 +7103,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the IP address whitelists of an ApsaraDB for Redis instance.
+     * Queries the IP address whitelists of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeSecurityIpsRequest
      *
@@ -7339,11 +7223,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7398,11 +7279,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTairKVCacheCustomInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTairKVCacheCustomInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTairKVCacheCustomInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7454,11 +7332,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7510,11 +7385,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTairKVCacheCustomInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTairKVCacheCustomInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTairKVCacheCustomInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7566,11 +7438,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTairKVCacheInferInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTairKVCacheInferInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTairKVCacheInferInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7622,11 +7491,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTairKVCacheInferInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTairKVCacheInferInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTairKVCacheInferInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7645,112 +7511,6 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTairKVCacheInferInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries all tasks that are performed on a Tair (Redis OSS-compatible) instance within a specified period of time.
-     *
-     * @remarks
-     * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the Tair (Redis OSS-compatible) console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-     *
-     * @param request - DescribeTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTasksResponse
-     *
-     * @param DescribeTasksRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeTasksResponse
-     */
-    public function describeTasksWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
-        }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
-        }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
-        }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
-        }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
-        }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeTasks',
-            'version' => '2015-01-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return DescribeTasksResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Queries all tasks that are performed on a Tair (Redis OSS-compatible) instance within a specified period of time.
-     *
-     * @remarks
-     * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the Tair (Redis OSS-compatible) console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-     *
-     * @param request - DescribeTasksRequest
-     *
-     * @returns DescribeTasksResponse
-     *
-     * @param DescribeTasksRequest $request
-     *
-     * @return DescribeTasksResponse
-     */
-    public function describeTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -7812,11 +7572,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7932,11 +7689,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableAdditionalBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableAdditionalBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableAdditionalBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8024,11 +7778,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FlushExpireKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FlushExpireKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return FlushExpireKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8108,11 +7859,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FlushInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FlushInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return FlushInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8192,11 +7940,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FlushInstanceForDBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FlushInstanceForDBResponse::fromMap($this->execute($params, $req, $runtime));
+        return FlushInstanceForDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8293,11 +8038,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantAccountPrivilegeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8324,10 +8066,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Assigns a service-linked role to ApsaraDB for Redis.
+     * Assigns a service-linked role to Tair (Redis OSS-compatible).
      *
      * @remarks
-     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+     * The log management feature of Tair (Redis OSS-compatible) requires the resources of [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature, you can call this operation to assign the AliyunServiceRoleForKvstore service-linked role to Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
      *
      * @param request - InitializeKvstorePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8381,18 +8123,15 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InitializeKvstorePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InitializeKvstorePermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return InitializeKvstorePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Assigns a service-linked role to ApsaraDB for Redis.
+     * Assigns a service-linked role to Tair (Redis OSS-compatible).
      *
      * @remarks
-     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+     * The log management feature of Tair (Redis OSS-compatible) requires the resources of [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature, you can call this operation to assign the AliyunServiceRoleForKvstore service-linked role to Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
      *
      * @param request - InitializeKvstorePermissionRequest
      *
@@ -8479,11 +8218,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8566,11 +8302,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return LockDBInstanceWriteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LockDBInstanceWriteResponse::fromMap($this->execute($params, $req, $runtime));
+        return LockDBInstanceWriteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8650,11 +8383,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MasterNodeShutDownFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MasterNodeShutDownFailOverResponse::fromMap($this->execute($params, $req, $runtime));
+        return MasterNodeShutDownFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8768,11 +8498,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MigrateToOtherZoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8869,11 +8596,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8968,11 +8692,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9055,11 +8776,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyActiveOperationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9146,11 +8864,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9240,11 +8955,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAuditLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9272,7 +8984,88 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+     * 修改备份集过期时间.
+     *
+     * @param request - ModifyBackupExpireTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupExpireTimeResponse
+     *
+     * @param ModifyBackupExpireTimeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyBackupExpireTimeResponse
+     */
+    public function modifyBackupExpireTimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->expectExpireTime) {
+            @$query['ExpectExpireTime'] = $request->expectExpireTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBackupExpireTime',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBackupExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改备份集过期时间.
+     *
+     * @param request - ModifyBackupExpireTimeRequest
+     *
+     * @returns ModifyBackupExpireTimeResponse
+     *
+     * @param ModifyBackupExpireTimeRequest $request
+     *
+     * @return ModifyBackupExpireTimeResponse
+     */
+    public function modifyBackupExpireTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackupExpireTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the automatic backup policy of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9342,15 +9135,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+     * Modifies the automatic backup policy of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - ModifyBackupPolicyRequest
      *
@@ -9426,11 +9216,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceAutoUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceAutoUpgradeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceAutoUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9525,11 +9312,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceConnectionStringResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9624,11 +9408,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9716,11 +9497,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9808,11 +9586,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9903,11 +9678,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9932,7 +9704,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+     * Enables or disables auto-renewal for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * > Auto-renewal is triggered seven days before the expiration date of the instance.
@@ -10001,15 +9773,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+     * Enables or disables auto-renewal for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * > Auto-renewal is triggered seven days before the expiration date of the instance.
@@ -10092,11 +9861,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10122,7 +9888,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the parameter settings of an ApsaraDB for Redis instance.
+     * Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - ModifyInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10204,15 +9970,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the parameter settings of an ApsaraDB for Redis instance.
+     * Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - ModifyInstanceConfigRequest
      *
@@ -10295,11 +10058,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceMaintainTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10389,11 +10149,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceMajorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceMajorVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceMajorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10486,11 +10243,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceMinorVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10584,11 +10338,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceNetExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceNetExpireTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceNetExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10680,11 +10431,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceParameterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceParameterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10768,11 +10516,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10935,11 +10680,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11037,11 +10779,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceTDEResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11066,11 +10805,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+     * Enables or disables password-free access for a Tair (Redis OSS-compatible) instance. This way, you can connect to a database in a convenient and secure manner.
      *
      * @remarks
-     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
-     * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the Tair instance without a password. You can also use the username and password to connect to the Tair instance.
+     * > The Tair instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
      *
      * @param request - ModifyInstanceVpcAuthModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11128,19 +10867,16 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceVpcAuthModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceVpcAuthModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceVpcAuthModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+     * Enables or disables password-free access for a Tair (Redis OSS-compatible) instance. This way, you can connect to a database in a convenient and secure manner.
      *
      * @remarks
-     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
-     * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the Tair instance without a password. You can also use the username and password to connect to the Tair instance.
+     * > The Tair instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
      *
      * @param request - ModifyInstanceVpcAuthModeRequest
      *
@@ -11224,11 +10960,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIntranetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIntranetAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIntranetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11328,11 +11061,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyParameterGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11420,11 +11150,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11450,10 +11177,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     * Resets the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
-     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+     * > After you call this operation, the security groups that are added to the whitelists of the Tair instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the Tair console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
      *
      * @param request - ModifySecurityGroupConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11511,18 +11238,15 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityGroupConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     * Resets the security groups that are added to the whitelists of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
-     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+     * > After you call this operation, the security groups that are added to the whitelists of the Tair instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the Tair console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
      *
      * @param request - ModifySecurityGroupConfigurationRequest
      *
@@ -11613,11 +11337,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11704,11 +11425,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTairKVCacheCustomInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTairKVCacheCustomInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTairKVCacheCustomInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11792,11 +11510,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTaskInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11875,11 +11590,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseDirectConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseDirectConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseDirectConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11965,11 +11677,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12051,11 +11760,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveSubInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveSubInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveSubInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12153,11 +11859,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenewAdditionalBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenewAdditionalBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewAdditionalBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12275,11 +11978,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12373,11 +12073,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12464,11 +12161,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetTairKVCacheCustomInstancePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetTairKVCacheCustomInstancePasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetTairKVCacheCustomInstancePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12556,11 +12250,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResizeTairKVCacheCustomInstanceDiskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResizeTairKVCacheCustomInstanceDiskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResizeTairKVCacheCustomInstanceDiskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12644,11 +12335,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12724,11 +12412,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartTairKVCacheCustomInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12750,7 +12435,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+     * Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
@@ -12828,15 +12513,12 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestoreInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+     * Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
@@ -12912,11 +12594,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartTairKVCacheCustomInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12992,11 +12671,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopTairKVCacheCustomInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13091,11 +12767,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchInstanceHAResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13184,11 +12857,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchInstanceProxyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchInstanceProxyResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchInstanceProxyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13258,11 +12928,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchInstanceZoneFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchInstanceZoneFailOverResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchInstanceZoneFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13358,11 +13025,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13450,11 +13114,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SyncDtsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncDtsStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncDtsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13547,11 +13208,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13661,11 +13319,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransformInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransformInstanceChargeTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransformInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13766,11 +13421,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransformToPrePaidResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransformToPrePaidResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransformToPrePaidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13850,11 +13502,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnlockDBInstanceWriteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnlockDBInstanceWriteResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnlockDBInstanceWriteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13947,11 +13596,8 @@ class Rkvstore extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

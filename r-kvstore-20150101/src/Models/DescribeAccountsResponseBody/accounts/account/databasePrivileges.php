@@ -33,7 +33,8 @@ class databasePrivileges extends Model
                 $res['DatabasePrivilege'] = [];
                 $n1 = 0;
                 foreach ($this->databasePrivilege as $item1) {
-                    $res['DatabasePrivilege'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatabasePrivilege'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class databasePrivileges extends Model
                 $model->databasePrivilege = [];
                 $n1 = 0;
                 foreach ($map['DatabasePrivilege'] as $item1) {
-                    $model->databasePrivilege[$n1++] = databasePrivilege::fromMap($item1);
+                    $model->databasePrivilege[$n1] = databasePrivilege::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

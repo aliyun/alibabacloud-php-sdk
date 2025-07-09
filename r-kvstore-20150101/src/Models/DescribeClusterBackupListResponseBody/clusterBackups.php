@@ -45,6 +45,11 @@ class clusterBackups extends Model
     public $clusterBackupStatus;
 
     /**
+     * @var string
+     */
+    public $expectExpireTime;
+
+    /**
      * @var int
      */
     public $isAvail;
@@ -66,6 +71,7 @@ class clusterBackups extends Model
         'clusterBackupSize' => 'ClusterBackupSize',
         'clusterBackupStartTime' => 'ClusterBackupStartTime',
         'clusterBackupStatus' => 'ClusterBackupStatus',
+        'expectExpireTime' => 'ExpectExpireTime',
         'isAvail' => 'IsAvail',
         'progress' => 'Progress',
         'shardClassMemory' => 'ShardClassMemory',
@@ -87,7 +93,8 @@ class clusterBackups extends Model
                 $res['Backups'] = [];
                 $n1 = 0;
                 foreach ($this->backups as $item1) {
-                    $res['Backups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Backups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,6 +121,10 @@ class clusterBackups extends Model
 
         if (null !== $this->clusterBackupStatus) {
             $res['ClusterBackupStatus'] = $this->clusterBackupStatus;
+        }
+
+        if (null !== $this->expectExpireTime) {
+            $res['ExpectExpireTime'] = $this->expectExpireTime;
         }
 
         if (null !== $this->isAvail) {
@@ -144,7 +155,8 @@ class clusterBackups extends Model
                 $model->backups = [];
                 $n1 = 0;
                 foreach ($map['Backups'] as $item1) {
-                    $model->backups[$n1++] = backups::fromMap($item1);
+                    $model->backups[$n1] = backups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -171,6 +183,10 @@ class clusterBackups extends Model
 
         if (isset($map['ClusterBackupStatus'])) {
             $model->clusterBackupStatus = $map['ClusterBackupStatus'];
+        }
+
+        if (isset($map['ExpectExpireTime'])) {
+            $model->expectExpireTime = $map['ExpectExpireTime'];
         }
 
         if (isset($map['IsAvail'])) {

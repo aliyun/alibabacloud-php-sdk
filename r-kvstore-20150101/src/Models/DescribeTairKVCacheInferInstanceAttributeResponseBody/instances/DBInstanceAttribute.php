@@ -20,6 +20,11 @@ class DBInstanceAttribute extends Model
     public $chargeType;
 
     /**
+     * @var int
+     */
+    public $computeUnitNum;
+
+    /**
      * @var string
      */
     public $connectionString;
@@ -72,6 +77,16 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $model;
+
+    /**
+     * @var int
+     */
+    public $modelServiceNum;
+
+    /**
+     * @var string
+     */
     public $networkType;
 
     /**
@@ -85,19 +100,9 @@ class DBInstanceAttribute extends Model
     public $regionId;
 
     /**
-     * @var int
-     */
-    public $reserveGpuNum;
-
-    /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $securityGroupId;
 
     /**
      * @var int
@@ -131,6 +136,7 @@ class DBInstanceAttribute extends Model
     protected $_name = [
         'architectureType' => 'ArchitectureType',
         'chargeType' => 'ChargeType',
+        'computeUnitNum' => 'ComputeUnitNum',
         'connectionString' => 'ConnectionString',
         'createTime' => 'CreateTime',
         'endTime' => 'EndTime',
@@ -141,12 +147,12 @@ class DBInstanceAttribute extends Model
         'instanceType' => 'InstanceType',
         'isDelete' => 'IsDelete',
         'isOrderCompleted' => 'IsOrderCompleted',
+        'model' => 'Model',
+        'modelServiceNum' => 'ModelServiceNum',
         'networkType' => 'NetworkType',
         'privateIp' => 'PrivateIp',
         'regionId' => 'RegionId',
-        'reserveGpuNum' => 'ReserveGpuNum',
         'resourceGroupId' => 'ResourceGroupId',
-        'securityGroupId' => 'SecurityGroupId',
         'storage' => 'Storage',
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
@@ -172,6 +178,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->computeUnitNum) {
+            $res['ComputeUnitNum'] = $this->computeUnitNum;
         }
 
         if (null !== $this->connectionString) {
@@ -214,6 +224,14 @@ class DBInstanceAttribute extends Model
             $res['IsOrderCompleted'] = $this->isOrderCompleted;
         }
 
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->modelServiceNum) {
+            $res['ModelServiceNum'] = $this->modelServiceNum;
+        }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
@@ -226,16 +244,8 @@ class DBInstanceAttribute extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->reserveGpuNum) {
-            $res['ReserveGpuNum'] = $this->reserveGpuNum;
-        }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         if (null !== $this->storage) {
@@ -281,6 +291,10 @@ class DBInstanceAttribute extends Model
             $model->chargeType = $map['ChargeType'];
         }
 
+        if (isset($map['ComputeUnitNum'])) {
+            $model->computeUnitNum = $map['ComputeUnitNum'];
+        }
+
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
@@ -321,6 +335,14 @@ class DBInstanceAttribute extends Model
             $model->isOrderCompleted = $map['IsOrderCompleted'];
         }
 
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+
+        if (isset($map['ModelServiceNum'])) {
+            $model->modelServiceNum = $map['ModelServiceNum'];
+        }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
@@ -333,16 +355,8 @@ class DBInstanceAttribute extends Model
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['ReserveGpuNum'])) {
-            $model->reserveGpuNum = $map['ReserveGpuNum'];
-        }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         if (isset($map['Storage'])) {

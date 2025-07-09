@@ -33,7 +33,8 @@ class netInfoItems extends Model
                 $res['InstanceNetInfo'] = [];
                 $n1 = 0;
                 foreach ($this->instanceNetInfo as $item1) {
-                    $res['InstanceNetInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceNetInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class netInfoItems extends Model
                 $model->instanceNetInfo = [];
                 $n1 = 0;
                 foreach ($map['InstanceNetInfo'] as $item1) {
-                    $model->instanceNetInfo[$n1++] = instanceNetInfo::fromMap($item1);
+                    $model->instanceNetInfo[$n1] = instanceNetInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

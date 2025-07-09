@@ -33,7 +33,8 @@ class regionIds extends Model
                 $res['KVStoreRegion'] = [];
                 $n1 = 0;
                 foreach ($this->KVStoreRegion as $item1) {
-                    $res['KVStoreRegion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KVStoreRegion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class regionIds extends Model
                 $model->KVStoreRegion = [];
                 $n1 = 0;
                 foreach ($map['KVStoreRegion'] as $item1) {
-                    $model->KVStoreRegion[$n1++] = KVStoreRegion::fromMap($item1);
+                    $model->KVStoreRegion[$n1] = KVStoreRegion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

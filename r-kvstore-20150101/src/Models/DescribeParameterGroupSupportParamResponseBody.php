@@ -43,7 +43,8 @@ class DescribeParameterGroupSupportParamResponseBody extends Model
                 $res['ResourceList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceList as $item1) {
-                    $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeParameterGroupSupportParamResponseBody extends Model
                 $model->resourceList = [];
                 $n1 = 0;
                 foreach ($map['ResourceList'] as $item1) {
-                    $model->resourceList[$n1++] = resourceList::fromMap($item1);
+                    $model->resourceList[$n1] = resourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

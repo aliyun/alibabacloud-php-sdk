@@ -76,6 +76,11 @@ class backup extends Model
     /**
      * @var string
      */
+    public $expectExpireTime;
+
+    /**
+     * @var string
+     */
     public $nodeInstanceId;
 
     /**
@@ -96,6 +101,7 @@ class backup extends Model
         'backupStatus' => 'BackupStatus',
         'backupType' => 'BackupType',
         'engineVersion' => 'EngineVersion',
+        'expectExpireTime' => 'ExpectExpireTime',
         'nodeInstanceId' => 'NodeInstanceId',
         'recoverConfigMode' => 'RecoverConfigMode',
     ];
@@ -158,6 +164,10 @@ class backup extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->expectExpireTime) {
+            $res['ExpectExpireTime'] = $this->expectExpireTime;
         }
 
         if (null !== $this->nodeInstanceId) {
@@ -229,6 +239,10 @@ class backup extends Model
 
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+
+        if (isset($map['ExpectExpireTime'])) {
+            $model->expectExpireTime = $map['ExpectExpireTime'];
         }
 
         if (isset($map['NodeInstanceId'])) {

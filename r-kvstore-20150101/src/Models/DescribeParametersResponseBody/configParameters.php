@@ -33,7 +33,8 @@ class configParameters extends Model
                 $res['Parameter'] = [];
                 $n1 = 0;
                 foreach ($this->parameter as $item1) {
-                    $res['Parameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class configParameters extends Model
                 $model->parameter = [];
                 $n1 = 0;
                 foreach ($map['Parameter'] as $item1) {
-                    $model->parameter[$n1++] = parameter::fromMap($item1);
+                    $model->parameter[$n1] = parameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
