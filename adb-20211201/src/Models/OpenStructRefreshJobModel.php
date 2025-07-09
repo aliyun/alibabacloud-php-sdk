@@ -41,6 +41,11 @@ class OpenStructRefreshJobModel extends Model
     /**
      * @var string
      */
+    public $scheduledStartTime;
+
+    /**
+     * @var string
+     */
     public $schemaName;
 
     /**
@@ -59,6 +64,7 @@ class OpenStructRefreshJobModel extends Model
         'refreshInterval' => 'RefreshInterval',
         'refreshModel' => 'RefreshModel',
         'resourceGroup' => 'ResourceGroup',
+        'scheduledStartTime' => 'ScheduledStartTime',
         'schemaName' => 'SchemaName',
         'startTime' => 'StartTime',
         'status' => 'Status',
@@ -94,6 +100,10 @@ class OpenStructRefreshJobModel extends Model
 
         if (null !== $this->resourceGroup) {
             $res['ResourceGroup'] = $this->resourceGroup;
+        }
+
+        if (null !== $this->scheduledStartTime) {
+            $res['ScheduledStartTime'] = $this->scheduledStartTime;
         }
 
         if (null !== $this->schemaName) {
@@ -141,6 +151,10 @@ class OpenStructRefreshJobModel extends Model
 
         if (isset($map['ResourceGroup'])) {
             $model->resourceGroup = $map['ResourceGroup'];
+        }
+
+        if (isset($map['ScheduledStartTime'])) {
+            $model->scheduledStartTime = $map['ScheduledStartTime'];
         }
 
         if (isset($map['SchemaName'])) {

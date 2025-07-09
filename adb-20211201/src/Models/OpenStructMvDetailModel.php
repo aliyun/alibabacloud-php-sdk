@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\OpenStructMvDetailModel\baseTableInfos;
 
 class OpenStructMvDetailModel extends Model
 {
+    /**
+     * @var baseTableInfos[]
+     */
+    public $baseTableInfos;
+
     /**
      * @var string[][]
      */
@@ -68,6 +74,7 @@ class OpenStructMvDetailModel extends Model
      */
     public $updatedAt;
     protected $_name = [
+        'baseTableInfos' => 'BaseTableInfos',
         'baseTableNames' => 'BaseTableNames',
         'explicitHit' => 'ExplicitHit',
         'firstRefreshTime' => 'FirstRefreshTime',
@@ -84,6 +91,9 @@ class OpenStructMvDetailModel extends Model
 
     public function validate()
     {
+        if (\is_array($this->baseTableInfos)) {
+            Model::validateArray($this->baseTableInfos);
+        }
         if (\is_array($this->baseTableNames)) {
             Model::validateArray($this->baseTableNames);
         }
@@ -93,6 +103,17 @@ class OpenStructMvDetailModel extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->baseTableInfos) {
+            if (\is_array($this->baseTableInfos)) {
+                $res['BaseTableInfos'] = [];
+                $n1 = 0;
+                foreach ($this->baseTableInfos as $item1) {
+                    $res['BaseTableInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->baseTableNames) {
             if (\is_array($this->baseTableNames)) {
                 $res['BaseTableNames'] = [];
@@ -166,6 +187,17 @@ class OpenStructMvDetailModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseTableInfos'])) {
+            if (!empty($map['BaseTableInfos'])) {
+                $model->baseTableInfos = [];
+                $n1 = 0;
+                foreach ($map['BaseTableInfos'] as $item1) {
+                    $model->baseTableInfos[$n1] = baseTableInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['BaseTableNames'])) {
             if (!empty($map['BaseTableNames'])) {
                 $model->baseTableNames = [];

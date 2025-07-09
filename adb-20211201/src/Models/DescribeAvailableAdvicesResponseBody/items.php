@@ -29,6 +29,11 @@ class items extends Model
     public $benefit;
 
     /**
+     * @var string
+     */
+    public $indexFields;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -67,6 +72,7 @@ class items extends Model
         'adviceId' => 'AdviceId',
         'adviceType' => 'AdviceType',
         'benefit' => 'Benefit',
+        'indexFields' => 'IndexFields',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'reason' => 'Reason',
@@ -98,6 +104,10 @@ class items extends Model
 
         if (null !== $this->benefit) {
             $res['Benefit'] = $this->benefit;
+        }
+
+        if (null !== $this->indexFields) {
+            $res['IndexFields'] = $this->indexFields;
         }
 
         if (null !== $this->pageNumber) {
@@ -153,6 +163,10 @@ class items extends Model
 
         if (isset($map['Benefit'])) {
             $model->benefit = $map['Benefit'];
+        }
+
+        if (isset($map['IndexFields'])) {
+            $model->indexFields = $map['IndexFields'];
         }
 
         if (isset($map['PageNumber'])) {
