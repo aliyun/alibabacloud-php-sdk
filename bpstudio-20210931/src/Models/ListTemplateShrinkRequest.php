@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateRequest\tag;
 
-class ListTemplateRequest extends Model
+class ListTemplateShrinkRequest extends Model
 {
     /**
      * @var string
@@ -35,9 +34,9 @@ class ListTemplateRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
 
     /**
      * @var int
@@ -54,16 +53,13 @@ class ListTemplateRequest extends Model
         'nextToken' => 'NextToken',
         'orderType' => 'OrderType',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag' => 'Tag',
+        'tagShrink' => 'Tag',
         'tagList' => 'TagList',
         'type' => 'Type',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
         parent::validate();
     }
 
@@ -90,15 +86,8 @@ class ListTemplateRequest extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
-        if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         if (null !== $this->tagList) {
@@ -141,14 +130,7 @@ class ListTemplateRequest extends Model
         }
 
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1] = tag::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         if (isset($map['TagList'])) {

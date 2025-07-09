@@ -53,6 +53,7 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateShrinkRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ModifyApplicationSpecRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ModifyApplicationSpecResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ModifyApplicationSpecShrinkRequest;
@@ -1625,19 +1626,25 @@ class BPStudio extends OpenApiClient
     /**
      * Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
      *
-     * @param request - ListTemplateRequest
+     * @param tmpReq - ListTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTemplateResponse
      *
-     * @param ListTemplateRequest $request
+     * @param ListTemplateRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
      * @return ListTemplateResponse
      */
-    public function listTemplateWithOptions($request, $runtime)
+    public function listTemplateWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $body = [];
         if (null !== $request->keyword) {
             @$body['Keyword'] = $request->keyword;
@@ -1657,6 +1664,10 @@ class BPStudio extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$body['Tag'] = $request->tagShrink;
         }
 
         if (null !== $request->tagList) {
