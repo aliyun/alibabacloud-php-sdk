@@ -189,7 +189,7 @@ class sqlList extends Model
     public $executions;
 
     /**
-     * @var float
+     * @var int
      */
     public $failCount;
 
@@ -259,7 +259,7 @@ class sqlList extends Model
     public $missPlanPercentage;
 
     /**
-     * @var float
+     * @var int
      */
     public $missPlans;
 
@@ -269,7 +269,7 @@ class sqlList extends Model
     public $remotePlanPercentage;
 
     /**
-     * @var float
+     * @var int
      */
     public $remotePlans;
 
@@ -309,7 +309,7 @@ class sqlList extends Model
     public $retCode6002Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retryCount;
 

@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
-     * @var int
+     * @var float
      */
     public $avgAffectedRows;
 
@@ -19,17 +19,17 @@ class data extends Model
     public $avgApplicationWaitTime;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgBlockCacheHit;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgBlockIndexCacheHit;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgBloomFilterCacheHit;
 
@@ -54,7 +54,7 @@ class data extends Model
     public $avgDecodeTime;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgDiskReads;
 
@@ -84,12 +84,12 @@ class data extends Model
     public $avgGetPlanTime;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgLogicalReads;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgMemstoreReadRows;
 
@@ -114,17 +114,17 @@ class data extends Model
     public $avgQueueTime;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgReturnRows;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgRowCacheHit;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgRpcCount;
 
@@ -134,7 +134,7 @@ class data extends Model
     public $avgScheduleTime;
 
     /**
-     * @var int
+     * @var float
      */
     public $avgSsstoreReadRows;
 
@@ -259,37 +259,37 @@ class data extends Model
     public $remotePlans;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode4012Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode4013Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5001Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5024Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5167Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5217Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode6002Count;
 

@@ -185,12 +185,12 @@ class data extends Model
     public $execPs;
 
     /**
-     * @var float
+     * @var int
      */
     public $executions;
 
     /**
-     * @var float
+     * @var int
      */
     public $failCount;
 
@@ -260,7 +260,7 @@ class data extends Model
     public $missPlanPercentage;
 
     /**
-     * @var float
+     * @var int
      */
     public $missPlans;
 
@@ -270,7 +270,7 @@ class data extends Model
     public $remotePlanPercentage;
 
     /**
-     * @var float
+     * @var int
      */
     public $remotePlans;
 
@@ -285,32 +285,32 @@ class data extends Model
     public $retCode4013Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5001Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5024Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5167Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode5217Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode6002Count;
 
     /**
-     * @var float
+     * @var int
      */
     public $retryCount;
 

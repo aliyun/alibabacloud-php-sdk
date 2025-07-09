@@ -29,7 +29,7 @@ class DescribeSampleSqlRawTextsRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var int
      */
     public $limit;
 

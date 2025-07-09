@@ -70,7 +70,7 @@ class data extends Model
     public $executions;
 
     /**
-     * @var float
+     * @var string
      */
     public $lastExecutedTime;
 

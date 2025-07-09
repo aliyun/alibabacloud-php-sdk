@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
-     * @var float
+     * @var int
      */
     public $affectedRows;
 
@@ -39,7 +39,7 @@ class data extends Model
     public $clientIp;
 
     /**
-     * @var string
+     * @var int
      */
     public $clientPort;
 
@@ -89,7 +89,7 @@ class data extends Model
     public $executorRpc;
 
     /**
-     * @var float
+     * @var int
      */
     public $expectedWorkerCount;
 
@@ -114,7 +114,7 @@ class data extends Model
     public $inner;
 
     /**
-     * @var float
+     * @var int
      */
     public $memstoreReadRows;
 
@@ -129,17 +129,17 @@ class data extends Model
     public $netWaitTime;
 
     /**
-     * @var float
+     * @var int
      */
     public $obDbId;
 
     /**
-     * @var float
+     * @var int
      */
     public $obServerId;
 
     /**
-     * @var float
+     * @var int
      */
     public $obUserId;
 
@@ -149,12 +149,12 @@ class data extends Model
     public $paramsValue;
 
     /**
-     * @var float
+     * @var int
      */
     public $partitionCount;
 
     /**
-     * @var float
+     * @var int
      */
     public $planId;
 
@@ -169,7 +169,7 @@ class data extends Model
     public $queueTime;
 
     /**
-     * @var string
+     * @var int
      */
     public $requestId;
 
@@ -179,17 +179,17 @@ class data extends Model
     public $requestTime;
 
     /**
-     * @var float
+     * @var int
      */
     public $retCode;
 
     /**
-     * @var float
+     * @var int
      */
     public $retryCount;
 
     /**
-     * @var float
+     * @var int
      */
     public $returnRows;
 
@@ -199,7 +199,7 @@ class data extends Model
     public $rowCacheHit;
 
     /**
-     * @var float
+     * @var int
      */
     public $rpcCount;
 
@@ -224,7 +224,7 @@ class data extends Model
     public $sqlType;
 
     /**
-     * @var float
+     * @var int
      */
     public $ssstoreReadRows;
 
@@ -249,7 +249,7 @@ class data extends Model
     public $transHash;
 
     /**
-     * @var float
+     * @var int
      */
     public $usedWorkerCount;
 
@@ -264,7 +264,7 @@ class data extends Model
     public $userName;
 
     /**
-     * @var float
+     * @var int
      */
     public $waitCount;
 

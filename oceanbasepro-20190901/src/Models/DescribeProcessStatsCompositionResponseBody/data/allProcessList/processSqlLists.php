@@ -30,7 +30,7 @@ class processSqlLists extends Model
     public $database;
 
     /**
-     * @var string
+     * @var bool
      */
     public $dynamicSql;
 
