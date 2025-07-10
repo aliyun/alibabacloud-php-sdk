@@ -24,6 +24,11 @@ class ListCloudAppsRequest extends Model
     public $appVersion;
 
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -32,12 +37,25 @@ class ListCloudAppsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $pkgType;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'appId' => 'AppId',
         'appName' => 'AppName',
         'appVersion' => 'AppVersion',
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'pkgType' => 'PkgType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -60,12 +78,24 @@ class ListCloudAppsRequest extends Model
             $res['AppVersion'] = $this->appVersion;
         }
 
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->pkgType) {
+            $res['PkgType'] = $this->pkgType;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -91,12 +121,24 @@ class ListCloudAppsRequest extends Model
             $model->appVersion = $map['AppVersion'];
         }
 
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['PkgType'])) {
+            $model->pkgType = $map['PkgType'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

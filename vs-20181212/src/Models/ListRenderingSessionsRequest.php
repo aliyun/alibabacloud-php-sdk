@@ -19,6 +19,11 @@ class ListRenderingSessionsRequest extends Model
     public $clientId;
 
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -46,15 +51,22 @@ class ListRenderingSessionsRequest extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $state;
     protected $_name = [
         'appId' => 'AppId',
         'clientId' => 'ClientId',
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'renderingInstanceId' => 'RenderingInstanceId',
         'sessionId' => 'SessionId',
+        'startTime' => 'StartTime',
         'state' => 'State',
     ];
 
@@ -72,6 +84,10 @@ class ListRenderingSessionsRequest extends Model
 
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
+        }
+
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
 
         if (null !== $this->pageNumber) {
@@ -92,6 +108,10 @@ class ListRenderingSessionsRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->state) {
@@ -117,6 +137,10 @@ class ListRenderingSessionsRequest extends Model
             $model->clientId = $map['ClientId'];
         }
 
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -135,6 +159,10 @@ class ListRenderingSessionsRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['State'])) {

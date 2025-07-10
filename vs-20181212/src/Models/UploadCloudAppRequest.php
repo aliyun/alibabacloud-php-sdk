@@ -32,12 +32,24 @@ class UploadCloudAppRequest extends Model
      * @var string
      */
     public $md5;
+
+    /**
+     * @var string
+     */
+    public $pkgFormat;
+
+    /**
+     * @var string
+     */
+    public $pkgType;
     protected $_name = [
         'appName' => 'AppName',
         'appVersion' => 'AppVersion',
         'description' => 'Description',
         'downloadUrl' => 'DownloadUrl',
         'md5' => 'Md5',
+        'pkgFormat' => 'PkgFormat',
+        'pkgType' => 'PkgType',
     ];
 
     public function validate()
@@ -66,6 +78,14 @@ class UploadCloudAppRequest extends Model
 
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
+        }
+
+        if (null !== $this->pkgFormat) {
+            $res['PkgFormat'] = $this->pkgFormat;
+        }
+
+        if (null !== $this->pkgType) {
+            $res['PkgType'] = $this->pkgType;
         }
 
         return $res;
@@ -97,6 +117,14 @@ class UploadCloudAppRequest extends Model
 
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
+        }
+
+        if (isset($map['PkgFormat'])) {
+            $model->pkgFormat = $map['PkgFormat'];
+        }
+
+        if (isset($map['PkgType'])) {
+            $model->pkgType = $map['PkgType'];
         }
 
         return $model;

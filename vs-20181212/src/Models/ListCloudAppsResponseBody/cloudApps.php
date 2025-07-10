@@ -31,6 +31,16 @@ class cloudApps extends Model
     /**
      * @var string
      */
+    public $pkgFormat;
+
+    /**
+     * @var string
+     */
+    public $pkgType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -52,6 +62,8 @@ class cloudApps extends Model
         'appName' => 'AppName',
         'appVersion' => 'AppVersion',
         'description' => 'Description',
+        'pkgFormat' => 'PkgFormat',
+        'pkgType' => 'PkgType',
         'status' => 'Status',
         'statusDescription' => 'StatusDescription',
         'updateTime' => 'UpdateTime',
@@ -80,6 +92,14 @@ class cloudApps extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->pkgFormat) {
+            $res['PkgFormat'] = $this->pkgFormat;
+        }
+
+        if (null !== $this->pkgType) {
+            $res['PkgType'] = $this->pkgType;
         }
 
         if (null !== $this->status) {
@@ -123,6 +143,14 @@ class cloudApps extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['PkgFormat'])) {
+            $model->pkgFormat = $map['PkgFormat'];
+        }
+
+        if (isset($map['PkgType'])) {
+            $model->pkgType = $map['PkgType'];
         }
 
         if (isset($map['Status'])) {

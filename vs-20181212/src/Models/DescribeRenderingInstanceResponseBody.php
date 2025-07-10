@@ -41,6 +41,11 @@ class DescribeRenderingInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $internalIp;
+
+    /**
+     * @var string
+     */
     public $isp;
 
     /**
@@ -83,6 +88,7 @@ class DescribeRenderingInstanceResponseBody extends Model
         'creationTime' => 'CreationTime',
         'egressIp' => 'EgressIp',
         'hostname' => 'Hostname',
+        'internalIp' => 'InternalIp',
         'isp' => 'Isp',
         'portMappings' => 'PortMappings',
         'renderingInstanceId' => 'RenderingInstanceId',
@@ -141,6 +147,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
+        }
+
+        if (null !== $this->internalIp) {
+            $res['InternalIp'] = $this->internalIp;
         }
 
         if (null !== $this->isp) {
@@ -218,6 +228,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
+        }
+
+        if (isset($map['InternalIp'])) {
+            $model->internalIp = $map['InternalIp'];
         }
 
         if (isset($map['Isp'])) {

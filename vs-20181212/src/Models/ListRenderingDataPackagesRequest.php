@@ -19,6 +19,11 @@ class ListRenderingDataPackagesRequest extends Model
     public $dataPackageId;
 
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -36,13 +41,20 @@ class ListRenderingDataPackagesRequest extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'category' => 'Category',
         'dataPackageId' => 'DataPackageId',
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'size' => 'Size',
+        'startTime' => 'StartTime',
         'status' => 'Status',
     ];
 
@@ -62,6 +74,10 @@ class ListRenderingDataPackagesRequest extends Model
             $res['DataPackageId'] = $this->dataPackageId;
         }
 
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -72,6 +88,10 @@ class ListRenderingDataPackagesRequest extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->status) {
@@ -97,6 +117,10 @@ class ListRenderingDataPackagesRequest extends Model
             $model->dataPackageId = $map['DataPackageId'];
         }
 
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -107,6 +131,10 @@ class ListRenderingDataPackagesRequest extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['Status'])) {

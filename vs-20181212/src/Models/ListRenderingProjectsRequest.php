@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListRenderingProjectsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +32,18 @@ class ListRenderingProjectsRequest extends Model
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -42,6 +54,10 @@ class ListRenderingProjectsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -58,6 +74,10 @@ class ListRenderingProjectsRequest extends Model
             $res['ProjectName'] = $this->projectName;
         }
 
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+
         return $res;
     }
 
@@ -69,6 +89,10 @@ class ListRenderingProjectsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -83,6 +107,10 @@ class ListRenderingProjectsRequest extends Model
 
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

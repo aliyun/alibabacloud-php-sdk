@@ -239,6 +239,7 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsRequest;
@@ -354,6 +355,7 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UninstallCloudAppRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UninstallCloudAppResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UninstallCloudAppShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateCloudAppInfoRequest;
@@ -8088,26 +8090,48 @@ class Vs extends OpenApiClient
     /**
      * 安装云应用.
      *
-     * @param request - InstallCloudAppRequest
+     * @param tmpReq - InstallCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns InstallCloudAppResponse
      *
-     * @param InstallCloudAppRequest $request
+     * @param InstallCloudAppRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return InstallCloudAppResponse
      */
-    public function installCloudAppWithOptions($request, $runtime)
+    public function installCloudAppWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new InstallCloudAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renderingInstanceIds) {
+            $request->renderingInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renderingInstanceIds, 'RenderingInstanceIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->appId) {
             @$query['AppId'] = $request->appId;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->renderingInstanceId) {
             @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        if (null !== $request->renderingInstanceIdsShrink) {
+            @$query['RenderingInstanceIds'] = $request->renderingInstanceIdsShrink;
         }
 
         $req = new OpenApiRequest([
@@ -8436,6 +8460,10 @@ class Vs extends OpenApiClient
             @$query['DataPackageId'] = $request->dataPackageId;
         }
 
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -8446,6 +8474,10 @@ class Vs extends OpenApiClient
 
         if (null !== $request->size) {
             @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         if (null !== $request->status) {
@@ -8505,6 +8537,10 @@ class Vs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->gatewayInstanceId) {
             @$query['GatewayInstanceId'] = $request->gatewayInstanceId;
         }
@@ -8519,6 +8555,10 @@ class Vs extends OpenApiClient
 
         if (null !== $request->renderingInstanceId) {
             @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         $req = new OpenApiRequest([
@@ -8631,6 +8671,10 @@ class Vs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -8645,6 +8689,10 @@ class Vs extends OpenApiClient
 
         if (null !== $request->renderingInstanceId) {
             @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         if (null !== $request->state) {
@@ -8713,6 +8761,10 @@ class Vs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -8727,6 +8779,10 @@ class Vs extends OpenApiClient
 
         if (null !== $request->projectName) {
             @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         $req = new OpenApiRequest([
@@ -8800,6 +8856,10 @@ class Vs extends OpenApiClient
             @$query['ClientId'] = $request->clientId;
         }
 
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -8818,6 +8878,10 @@ class Vs extends OpenApiClient
 
         if (null !== $request->sessionId) {
             @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         if (null !== $request->state) {
@@ -11964,26 +12028,48 @@ class Vs extends OpenApiClient
     /**
      * 卸载云应用.
      *
-     * @param request - UninstallCloudAppRequest
+     * @param tmpReq - UninstallCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UninstallCloudAppResponse
      *
-     * @param UninstallCloudAppRequest $request
+     * @param UninstallCloudAppRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return UninstallCloudAppResponse
      */
-    public function uninstallCloudAppWithOptions($request, $runtime)
+    public function uninstallCloudAppWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UninstallCloudAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renderingInstanceIds) {
+            $request->renderingInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renderingInstanceIds, 'RenderingInstanceIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->appId) {
             @$query['AppId'] = $request->appId;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->renderingInstanceId) {
             @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        if (null !== $request->renderingInstanceIdsShrink) {
+            @$query['RenderingInstanceIds'] = $request->renderingInstanceIdsShrink;
         }
 
         $req = new OpenApiRequest([
@@ -12528,6 +12614,14 @@ class Vs extends OpenApiClient
 
         if (null !== $request->md5) {
             @$query['Md5'] = $request->md5;
+        }
+
+        if (null !== $request->pkgFormat) {
+            @$query['PkgFormat'] = $request->pkgFormat;
+        }
+
+        if (null !== $request->pkgType) {
+            @$query['PkgType'] = $request->pkgType;
         }
 
         $req = new OpenApiRequest([

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListRenderingProjectInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -31,12 +36,19 @@ class ListRenderingProjectInstancesRequest extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $state;
     protected $_name = [
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'renderingInstanceId' => 'RenderingInstanceId',
+        'startTime' => 'StartTime',
         'state' => 'State',
     ];
 
@@ -48,6 +60,10 @@ class ListRenderingProjectInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -62,6 +78,10 @@ class ListRenderingProjectInstancesRequest extends Model
 
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->state) {
@@ -79,6 +99,10 @@ class ListRenderingProjectInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -93,6 +117,10 @@ class ListRenderingProjectInstancesRequest extends Model
 
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['State'])) {

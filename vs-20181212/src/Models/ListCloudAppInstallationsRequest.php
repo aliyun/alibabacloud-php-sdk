@@ -24,6 +24,11 @@ class ListCloudAppInstallationsRequest extends Model
     public $appVersion;
 
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -36,14 +41,27 @@ class ListCloudAppInstallationsRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $renderingInstanceId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'appId' => 'AppId',
         'appName' => 'AppName',
         'appVersion' => 'AppVersion',
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'renderingInstanceId' => 'RenderingInstanceId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -66,6 +84,10 @@ class ListCloudAppInstallationsRequest extends Model
             $res['AppVersion'] = $this->appVersion;
         }
 
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -74,8 +96,16 @@ class ListCloudAppInstallationsRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -101,6 +131,10 @@ class ListCloudAppInstallationsRequest extends Model
             $model->appVersion = $map['AppVersion'];
         }
 
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -109,8 +143,16 @@ class ListCloudAppInstallationsRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

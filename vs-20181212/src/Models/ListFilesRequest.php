@@ -11,6 +11,11 @@ class ListFilesRequest extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $fileId;
 
     /**
@@ -27,11 +32,18 @@ class ListFilesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
+        'endTime' => 'EndTime',
         'fileId' => 'FileId',
         'fileName' => 'FileName',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -42,6 +54,10 @@ class ListFilesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
@@ -58,6 +74,10 @@ class ListFilesRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+
         return $res;
     }
 
@@ -69,6 +89,10 @@ class ListFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
@@ -83,6 +107,10 @@ class ListFilesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

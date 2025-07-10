@@ -6,22 +6,12 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListFilePushStatusesRequest extends Model
+class InstallCloudAppShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $fileId;
-
-    /**
-     * @var string
-     */
-    public $fileName;
+    public $appId;
 
     /**
      * @var int
@@ -36,20 +26,24 @@ class ListFilePushStatusesRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $renderingInstanceId;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $renderingInstanceIdsShrink;
     protected $_name = [
-        'endTime' => 'EndTime',
-        'fileId' => 'FileId',
-        'fileName' => 'FileName',
+        'appId' => 'AppId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'startTime' => 'StartTime',
+        'renderingInstanceIdsShrink' => 'RenderingInstanceIds',
     ];
 
     public function validate()
@@ -60,16 +54,8 @@ class ListFilePushStatusesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-
-        if (null !== $this->fileId) {
-            $res['FileId'] = $this->fileId;
-        }
-
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
 
         if (null !== $this->pageNumber) {
@@ -80,12 +66,16 @@ class ListFilePushStatusesRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
 
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->renderingInstanceIdsShrink) {
+            $res['RenderingInstanceIds'] = $this->renderingInstanceIdsShrink;
         }
 
         return $res;
@@ -99,16 +89,8 @@ class ListFilePushStatusesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-
-        if (isset($map['FileId'])) {
-            $model->fileId = $map['FileId'];
-        }
-
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -119,12 +101,16 @@ class ListFilePushStatusesRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
 
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['RenderingInstanceIds'])) {
+            $model->renderingInstanceIdsShrink = $map['RenderingInstanceIds'];
         }
 
         return $model;
