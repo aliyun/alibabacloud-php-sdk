@@ -26,6 +26,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $indexFields;
+
+    /**
+     * @var string
+     */
     public $jobStatus;
 
     /**
@@ -76,6 +81,7 @@ class items extends Model
         'adviceId' => 'AdviceId',
         'benefit' => 'Benefit',
         'buildSQL' => 'BuildSQL',
+        'indexFields' => 'IndexFields',
         'jobStatus' => 'JobStatus',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -106,6 +112,10 @@ class items extends Model
 
         if (null !== $this->buildSQL) {
             $res['BuildSQL'] = $this->buildSQL;
+        }
+
+        if (null !== $this->indexFields) {
+            $res['IndexFields'] = $this->indexFields;
         }
 
         if (null !== $this->jobStatus) {
@@ -169,6 +179,10 @@ class items extends Model
 
         if (isset($map['BuildSQL'])) {
             $model->buildSQL = $map['BuildSQL'];
+        }
+
+        if (isset($map['IndexFields'])) {
+            $model->indexFields = $map['IndexFields'];
         }
 
         if (isset($map['JobStatus'])) {

@@ -484,6 +484,14 @@ class Adb extends OpenApiClient
             @$query['AdviceId'] = $request->adviceId;
         }
 
+        if (null !== $request->applyType) {
+            @$query['ApplyType'] = $request->applyType;
+        }
+
+        if (null !== $request->buildImmediately) {
+            @$query['BuildImmediately'] = $request->buildImmediately;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -630,6 +638,14 @@ class Adb extends OpenApiClient
 
         if (null !== $request->adviceIdList) {
             @$query['AdviceIdList'] = $request->adviceIdList;
+        }
+
+        if (null !== $request->applyType) {
+            @$query['ApplyType'] = $request->applyType;
+        }
+
+        if (null !== $request->buildImmediately) {
+            @$query['BuildImmediately'] = $request->buildImmediately;
         }
 
         if (null !== $request->DBClusterId) {

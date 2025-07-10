@@ -21,6 +21,16 @@ class ApplyAdviceByIdRequest extends Model
     /**
      * @var string
      */
+    public $applyType;
+
+    /**
+     * @var bool
+     */
+    public $buildImmediately;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -30,6 +40,8 @@ class ApplyAdviceByIdRequest extends Model
     protected $_name = [
         'adviceDate' => 'AdviceDate',
         'adviceId' => 'AdviceId',
+        'applyType' => 'ApplyType',
+        'buildImmediately' => 'BuildImmediately',
         'DBClusterId' => 'DBClusterId',
         'regionId' => 'RegionId',
     ];
@@ -48,6 +60,14 @@ class ApplyAdviceByIdRequest extends Model
 
         if (null !== $this->adviceId) {
             $res['AdviceId'] = $this->adviceId;
+        }
+
+        if (null !== $this->applyType) {
+            $res['ApplyType'] = $this->applyType;
+        }
+
+        if (null !== $this->buildImmediately) {
+            $res['BuildImmediately'] = $this->buildImmediately;
         }
 
         if (null !== $this->DBClusterId) {
@@ -75,6 +95,14 @@ class ApplyAdviceByIdRequest extends Model
 
         if (isset($map['AdviceId'])) {
             $model->adviceId = $map['AdviceId'];
+        }
+
+        if (isset($map['ApplyType'])) {
+            $model->applyType = $map['ApplyType'];
+        }
+
+        if (isset($map['BuildImmediately'])) {
+            $model->buildImmediately = $map['BuildImmediately'];
         }
 
         if (isset($map['DBClusterId'])) {
