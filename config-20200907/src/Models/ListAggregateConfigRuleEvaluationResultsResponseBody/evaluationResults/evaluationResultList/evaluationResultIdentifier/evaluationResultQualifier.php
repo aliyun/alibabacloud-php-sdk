@@ -41,6 +41,11 @@ class evaluationResultQualifier extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
@@ -64,6 +69,7 @@ class evaluationResultQualifier extends Model
         'configRuleName' => 'ConfigRuleName',
         'ignoreDate' => 'IgnoreDate',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -100,6 +106,10 @@ class evaluationResultQualifier extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceId) {
@@ -151,6 +161,10 @@ class evaluationResultQualifier extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceId'])) {
