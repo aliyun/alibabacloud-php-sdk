@@ -4,7 +4,13 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeAdvanceRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeResponse;
@@ -14,6 +20,8 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunn
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunningPlanResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatStreamRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatStreamResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\CreateChatSessionRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\CreateChatSessionResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesRequest;
@@ -104,13 +112,7 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyze
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitVLExtractionTaskAdvanceRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitVLExtractionTaskRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitVLExtractionTaskResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -125,6 +127,51 @@ class EnergyExpertExternal extends OpenApiClient
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('energyexpertexternal', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -157,7 +204,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Users obtain real-time VL results by uploading a document URL.
      *
-     * @param request - AnalyzeVlRealtimeRequest
+     * @param Request - AnalyzeVlRealtimeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -210,7 +257,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Users obtain real-time VL results by uploading a document URL.
      *
-     * @param request - AnalyzeVlRealtimeRequest
+     * @param Request - AnalyzeVlRealtimeRequest
      *
      * @returns AnalyzeVlRealtimeResponse
      *
@@ -236,12 +283,20 @@ class EnergyExpertExternal extends OpenApiClient
     public function analyzeVlRealtimeAdvance($request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -258,51 +313,54 @@ class EnergyExpertExternal extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'energyExpertExternal',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'energyExpertExternal',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $analyzeVlRealtimeReq = new AnalyzeVlRealtimeRequest([]);
         Utils::convert($request, $analyzeVlRealtimeReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $analyzeVlRealtimeReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $analyzeVlRealtimeReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->analyzeVlRealtimeWithOptions($analyzeVlRealtimeReq, $headers, $runtime);
@@ -311,7 +369,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 策略执行状态反馈.
      *
-     * @param request - BatchSaveInstructionStatusRequest
+     * @param Request - BatchSaveInstructionStatusRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -361,7 +419,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 策略执行状态反馈.
      *
-     * @param request - BatchSaveInstructionStatusRequest
+     * @param Request - BatchSaveInstructionStatusRequest
      *
      * @returns BatchSaveInstructionStatusResponse
      *
@@ -380,7 +438,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 批量设置空调站点运行计划.
      *
-     * @param request - BatchUpdateSystemRunningPlanRequest
+     * @param Request - BatchUpdateSystemRunningPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -474,7 +532,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 批量设置空调站点运行计划.
      *
-     * @param request - BatchUpdateSystemRunningPlanRequest
+     * @param Request - BatchUpdateSystemRunningPlanRequest
      *
      * @returns BatchUpdateSystemRunningPlanResponse
      *
@@ -498,7 +556,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - The sessionId information is obtained through GetChatSessionList.
      * - You can also create a new session via the CreateChatSession interface.
      *
-     * @param request - ChatRequest
+     * @param Request - ChatRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -549,7 +607,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - The sessionId information is obtained through GetChatSessionList.
      * - You can also create a new session via the CreateChatSession interface.
      *
-     * @param request - ChatRequest
+     * @param Request - ChatRequest
      *
      * @returns ChatResponse
      *
@@ -566,9 +624,84 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
+     * Knowledge Base Q&A.
+     *
+     * @remarks
+     * - The interface provides Q&A services within the scope of the selected directory in the session.
+     * - The sessionId information is obtained through GetChatSessionList.
+     * - You can also create a new session via the CreateChatSession interface.
+     *
+     * @param Request - ChatStreamRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatStreamResponse
+     *
+     * @param ChatStreamRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ChatStreamResponse
+     */
+    public function chatStreamWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->question) {
+            @$body['question'] = $request->question;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatStream',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/aidoc/document/chat/stream',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Knowledge Base Q&A.
+     *
+     * @remarks
+     * - The interface provides Q&A services within the scope of the selected directory in the session.
+     * - The sessionId information is obtained through GetChatSessionList.
+     * - You can also create a new session via the CreateChatSession interface.
+     *
+     * @param Request - ChatStreamRequest
+     *
+     * @returns ChatStreamResponse
+     *
+     * @param ChatStreamRequest $request
+     *
+     * @return ChatStreamResponse
+     */
+    public function chatStream($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->chatStreamWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Create Q&A Window.
      *
-     * @param request - CreateChatSessionRequest
+     * @param Request - CreateChatSessionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -618,7 +751,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Create Q&A Window.
      *
-     * @param request - CreateChatSessionRequest
+     * @param Request - CreateChatSessionRequest
      *
      * @returns CreateChatSessionResponse
      *
@@ -637,7 +770,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 编辑禁用设备.
      *
-     * @param request - EditProhibitedDevicesRequest
+     * @param Request - EditProhibitedDevicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -687,7 +820,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 编辑禁用设备.
      *
-     * @param request - EditProhibitedDevicesRequest
+     * @param Request - EditProhibitedDevicesRequest
      *
      * @returns EditProhibitedDevicesResponse
      *
@@ -706,7 +839,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 编辑不利区设备.
      *
-     * @param request - EditUnfavorableAreaDevicesRequest
+     * @param Request - EditUnfavorableAreaDevicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -756,7 +889,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 编辑不利区设备.
      *
-     * @param request - EditUnfavorableAreaDevicesRequest
+     * @param Request - EditUnfavorableAreaDevicesRequest
      *
      * @returns EditUnfavorableAreaDevicesResponse
      *
@@ -778,7 +911,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
      *
-     * @param request - GenerateResultRequest
+     * @param Request - GenerateResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -831,7 +964,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
      *
-     * @param request - GenerateResultRequest
+     * @param Request - GenerateResultRequest
      *
      * @returns GenerateResultResponse
      *
@@ -850,7 +983,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain electrical constitute analysis data.
      *
-     * @param request - GetAreaElecConstituteRequest
+     * @param Request - GetAreaElecConstituteRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -896,7 +1029,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain electrical constitute analysis data.
      *
-     * @param request - GetAreaElecConstituteRequest
+     * @param Request - GetAreaElecConstituteRequest
      *
      * @returns GetAreaElecConstituteResponse
      *
@@ -915,7 +1048,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Get trends in carbon emissions.
      *
-     * @param request - GetCarbonEmissionTrendRequest
+     * @param Request - GetCarbonEmissionTrendRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -973,7 +1106,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Get trends in carbon emissions.
      *
-     * @param request - GetCarbonEmissionTrendRequest
+     * @param Request - GetCarbonEmissionTrendRequest
      *
      * @returns GetCarbonEmissionTrendResponse
      *
@@ -1045,7 +1178,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - The sessionId information is obtained through GetChatSessionList.
      * - A new session can also be created using the CreateChatSession interface.
      *
-     * @param request - GetChatListRequest
+     * @param Request - GetChatListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1100,7 +1233,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - The sessionId information is obtained through GetChatSessionList.
      * - A new session can also be created using the CreateChatSession interface.
      *
-     * @param request - GetChatListRequest
+     * @param Request - GetChatListRequest
      *
      * @returns GetChatListResponse
      *
@@ -1119,7 +1252,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Get Q&A Session List.
      *
-     * @param request - GetChatSessionListRequest
+     * @param Request - GetChatSessionListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1173,7 +1306,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Get Q&A Session List.
      *
-     * @param request - GetChatSessionListRequest
+     * @param Request - GetChatSessionListRequest
      *
      * @returns GetChatSessionListResponse
      *
@@ -1195,7 +1328,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * - obtain data item detail list under the current enterprise.
      *
-     * @param request - GetDataItemListRequest
+     * @param Request - GetDataItemListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1240,7 +1373,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * - obtain data item detail list under the current enterprise.
      *
-     * @param request - GetDataItemListRequest
+     * @param Request - GetDataItemListRequest
      *
      * @returns GetDataItemListResponse
      *
@@ -1262,7 +1395,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
      *
-     * @param request - GetDataQualityAnalysisRequest
+     * @param Request - GetDataQualityAnalysisRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1319,7 +1452,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
      *
-     * @param request - GetDataQualityAnalysisRequest
+     * @param Request - GetDataQualityAnalysisRequest
      *
      * @returns GetDataQualityAnalysisResponse
      *
@@ -1345,7 +1478,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *
-     * @param request - GetDeviceInfoRequest
+     * @param Request - GetDeviceInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1402,7 +1535,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *
-     * @param request - GetDeviceInfoRequest
+     * @param Request - GetDeviceInfoRequest
      *
      * @returns GetDeviceInfoResponse
      *
@@ -1428,7 +1561,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *
-     * @param request - GetDeviceListRequest
+     * @param Request - GetDeviceListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1477,7 +1610,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *
-     * @param request - GetDeviceListRequest
+     * @param Request - GetDeviceListRequest
      *
      * @returns GetDeviceListResponse
      *
@@ -1498,7 +1631,7 @@ class EnergyExpertExternal extends OpenApiClient
      * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocExtractionTaskAdvance or SubmitDocExtractionTask.
      * The query results can reflect one of three statuses: processing, successfully completed, or failed.
      *
-     * @param request - GetDocExtractionResultRequest
+     * @param Request - GetDocExtractionResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1542,7 +1675,7 @@ class EnergyExpertExternal extends OpenApiClient
      * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocExtractionTaskAdvance or SubmitDocExtractionTask.
      * The query results can reflect one of three statuses: processing, successfully completed, or failed.
      *
-     * @param request - GetDocExtractionResultRequest
+     * @param Request - GetDocExtractionResultRequest
      *
      * @returns GetDocExtractionResultResponse
      *
@@ -1563,7 +1696,7 @@ class EnergyExpertExternal extends OpenApiClient
      * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocParsingTaskAdvance or SubmitDocParsingTask.
      * The query results can be one of three statuses: processing, successful, or failed.
      *
-     * @param request - GetDocParsingResultRequest
+     * @param Request - GetDocParsingResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1611,7 +1744,7 @@ class EnergyExpertExternal extends OpenApiClient
      * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocParsingTaskAdvance or SubmitDocParsingTask.
      * The query results can be one of three statuses: processing, successful, or failed.
      *
-     * @param request - GetDocParsingResultRequest
+     * @param Request - GetDocParsingResultRequest
      *
      * @returns GetDocParsingResultResponse
      *
@@ -1630,7 +1763,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
      *
-     * @param request - GetDocumentAnalyzeResultRequest
+     * @param Request - GetDocumentAnalyzeResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1672,7 +1805,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
      *
-     * @param request - GetDocumentAnalyzeResultRequest
+     * @param Request - GetDocumentAnalyzeResultRequest
      *
      * @returns GetDocumentAnalyzeResultResponse
      *
@@ -1691,7 +1824,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain power composition analysis data.
      *
-     * @param request - GetElecConstituteRequest
+     * @param Request - GetElecConstituteRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1737,7 +1870,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain power composition analysis data.
      *
-     * @param request - GetElecConstituteRequest
+     * @param Request - GetElecConstituteRequest
      *
      * @returns GetElecConstituteResponse
      *
@@ -1756,7 +1889,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain power trend analysis data.
      *
-     * @param request - GetElecTrendRequest
+     * @param Request - GetElecTrendRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1802,7 +1935,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain power trend analysis data.
      *
-     * @param request - GetElecTrendRequest
+     * @param Request - GetElecTrendRequest
      *
      * @returns GetElecTrendResponse
      *
@@ -1821,7 +1954,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Obtain the emission source composition.
      *
-     * @param request - GetEmissionSourceConstituteRequest
+     * @param Request - GetEmissionSourceConstituteRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1875,7 +2008,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Obtain the emission source composition.
      *
-     * @param request - GetEmissionSourceConstituteRequest
+     * @param Request - GetEmissionSourceConstituteRequest
      *
      * @returns GetEmissionSourceConstituteResponse
      *
@@ -1894,7 +2027,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Get a summary of carbon emissions.
      *
-     * @param request - GetEmissionSummaryRequest
+     * @param Request - GetEmissionSummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1948,7 +2081,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * Get a summary of carbon emissions.
      *
-     * @param request - GetEmissionSummaryRequest
+     * @param Request - GetEmissionSummaryRequest
      *
      * @returns GetEmissionSummaryResponse
      *
@@ -1970,7 +2103,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
      *
-     * @param request - GetEpdInventoryConstituteRequest
+     * @param Request - GetEpdInventoryConstituteRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2023,7 +2156,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
      *
-     * @param request - GetEpdInventoryConstituteRequest
+     * @param Request - GetEpdInventoryConstituteRequest
      *
      * @returns GetEpdInventoryConstituteResponse
      *
@@ -2045,7 +2178,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
      *
-     * @param request - GetEpdSummaryRequest
+     * @param Request - GetEpdSummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2098,7 +2231,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
      *
-     * @param request - GetEpdSummaryRequest
+     * @param Request - GetEpdSummaryRequest
      *
      * @returns GetEpdSummaryResponse
      *
@@ -2120,7 +2253,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
      *
-     * @param request - GetFootprintListRequest
+     * @param Request - GetFootprintListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2177,7 +2310,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
      *
-     * @param request - GetFootprintListRequest
+     * @param Request - GetFootprintListRequest
      *
      * @returns GetFootprintListResponse
      *
@@ -2196,7 +2329,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain gas composition analysis.
      *
-     * @param request - GetGasConstituteRequest
+     * @param Request - GetGasConstituteRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2250,7 +2383,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain gas composition analysis.
      *
-     * @param request - GetGasConstituteRequest
+     * @param Request - GetGasConstituteRequest
      *
      * @returns GetGasConstituteResponse
      *
@@ -2272,7 +2405,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
      *
-     * @param request - GetGwpBenchmarkListRequest
+     * @param Request - GetGwpBenchmarkListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2325,7 +2458,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
      *
-     * @param request - GetGwpBenchmarkListRequest
+     * @param Request - GetGwpBenchmarkListRequest
      *
      * @returns GetGwpBenchmarkListResponse
      *
@@ -2347,7 +2480,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
      *
-     * @param request - GetGwpBenchmarkSummaryRequest
+     * @param Request - GetGwpBenchmarkSummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2400,7 +2533,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
      *
-     * @param request - GetGwpBenchmarkSummaryRequest
+     * @param Request - GetGwpBenchmarkSummaryRequest
      *
      * @returns GetGwpBenchmarkSummaryResponse
      *
@@ -2422,7 +2555,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
      *
-     * @param request - GetGwpInventoryConstituteRequest
+     * @param Request - GetGwpInventoryConstituteRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2475,7 +2608,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
      *
-     * @param request - GetGwpInventoryConstituteRequest
+     * @param Request - GetGwpInventoryConstituteRequest
      *
      * @returns GetGwpInventoryConstituteResponse
      *
@@ -2497,7 +2630,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
      *
-     * @param request - GetGwpInventorySummaryRequest
+     * @param Request - GetGwpInventorySummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2550,7 +2683,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
      *
-     * @param request - GetGwpInventorySummaryRequest
+     * @param Request - GetGwpInventorySummaryRequest
      *
      * @returns GetGwpInventorySummaryResponse
      *
@@ -2572,7 +2705,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
      *
-     * @param request - GetInventoryListRequest
+     * @param Request - GetInventoryListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2637,7 +2770,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
      *
-     * @param request - GetInventoryListRequest
+     * @param Request - GetInventoryListRequest
      *
      * @returns GetInventoryListResponse
      *
@@ -2716,7 +2849,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain carbon inventory organization analysis data.
      *
-     * @param request - GetOrgConstituteRequest
+     * @param Request - GetOrgConstituteRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2770,7 +2903,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to obtain carbon inventory organization analysis data.
      *
-     * @param request - GetOrgConstituteRequest
+     * @param Request - GetOrgConstituteRequest
      *
      * @returns GetOrgConstituteResponse
      *
@@ -2792,7 +2925,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
      *
-     * @param request - GetPcrInfoRequest
+     * @param Request - GetPcrInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2845,7 +2978,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
      *
-     * @param request - GetPcrInfoRequest
+     * @param Request - GetPcrInfoRequest
      *
      * @returns GetPcrInfoResponse
      *
@@ -2867,7 +3000,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
      *
-     * @param request - GetReductionProposalRequest
+     * @param Request - GetReductionProposalRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2924,7 +3057,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
      *
-     * @param request - GetReductionProposalRequest
+     * @param Request - GetReductionProposalRequest
      *
      * @returns GetReductionProposalResponse
      *
@@ -2945,7 +3078,7 @@ class EnergyExpertExternal extends OpenApiClient
      * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitVLExtractionTask or SubmitVLExtractionTaskAdvance.
      * The query results can be in one of three statuses: processing, successfully completed, or failed.
      *
-     * @param request - GetVLExtractionResultRequest
+     * @param Request - GetVLExtractionResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2989,7 +3122,7 @@ class EnergyExpertExternal extends OpenApiClient
      * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitVLExtractionTask or SubmitVLExtractionTaskAdvance.
      * The query results can be in one of three statuses: processing, successfully completed, or failed.
      *
-     * @param request - GetVLExtractionResultRequest
+     * @param Request - GetVLExtractionResultRequest
      *
      * @returns GetVLExtractionResultResponse
      *
@@ -3011,7 +3144,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
      *
-     * @param request - IsCompletedRequest
+     * @param Request - IsCompletedRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3064,7 +3197,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
      *
-     * @param request - IsCompletedRequest
+     * @param Request - IsCompletedRequest
      *
      * @returns IsCompletedResponse
      *
@@ -3083,7 +3216,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to push device measuring point data, such as power meter voltage and other data.
      *
-     * @param request - PushDeviceDataRequest
+     * @param Request - PushDeviceDataRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3129,7 +3262,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * This interface is used to push device measuring point data, such as power meter voltage and other data.
      *
-     * @param request - PushDeviceDataRequest
+     * @param Request - PushDeviceDataRequest
      *
      * @returns PushDeviceDataResponse
      *
@@ -3153,7 +3286,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - Data items can link data to services such as carbon footprints and carbon inventories.
      * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
      *
-     * @param request - PushItemDataRequest
+     * @param Request - PushItemDataRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3208,7 +3341,7 @@ class EnergyExpertExternal extends OpenApiClient
      * - Data items can link data to services such as carbon footprints and carbon inventories.
      * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
      *
-     * @param request - PushItemDataRequest
+     * @param Request - PushItemDataRequest
      *
      * @returns PushItemDataResponse
      *
@@ -3230,7 +3363,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
      *
-     * @param request - RecalculateCarbonEmissionRequest
+     * @param Request - RecalculateCarbonEmissionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3279,7 +3412,7 @@ class EnergyExpertExternal extends OpenApiClient
      * @remarks
      * - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
      *
-     * @param request - RecalculateCarbonEmissionRequest
+     * @param Request - RecalculateCarbonEmissionRequest
      *
      * @returns RecalculateCarbonEmissionResponse
      *
@@ -3298,7 +3431,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * [Important] This api is no longer maintained, please use the Chat api.
      *
-     * @param request - SendDocumentAskQuestionRequest
+     * @param Request - SendDocumentAskQuestionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3348,7 +3481,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * [Important] This api is no longer maintained, please use the Chat api.
      *
-     * @param request - SendDocumentAskQuestionRequest
+     * @param Request - SendDocumentAskQuestionRequest
      *
      * @returns SendDocumentAskQuestionResponse
      *
@@ -3367,7 +3500,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 设置运行计划.
      *
-     * @param request - SetRunningPlanRequest
+     * @param Request - SetRunningPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3469,7 +3602,7 @@ class EnergyExpertExternal extends OpenApiClient
     /**
      * 设置运行计划.
      *
-     * @param request - SetRunningPlanRequest
+     * @param Request - SetRunningPlanRequest
      *
      * @returns SetRunningPlanResponse
      *
@@ -3491,7 +3624,7 @@ class EnergyExpertExternal extends OpenApiClient
      * URL Upload: SubmitDocExtractionTask
      * Local File Upload: SubmitDocExtractionTask.
      *
-     * @param request - SubmitDocExtractionTaskRequest
+     * @param Request - SubmitDocExtractionTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3552,7 +3685,7 @@ class EnergyExpertExternal extends OpenApiClient
      * URL Upload: SubmitDocExtractionTask
      * Local File Upload: SubmitDocExtractionTask.
      *
-     * @param request - SubmitDocExtractionTaskRequest
+     * @param Request - SubmitDocExtractionTaskRequest
      *
      * @returns SubmitDocExtractionTaskResponse
      *
@@ -3578,12 +3711,20 @@ class EnergyExpertExternal extends OpenApiClient
     public function submitDocExtractionTaskAdvance($request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -3600,51 +3741,54 @@ class EnergyExpertExternal extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'energyExpertExternal',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'energyExpertExternal',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $submitDocExtractionTaskReq = new SubmitDocExtractionTaskRequest([]);
         Utils::convert($request, $submitDocExtractionTaskReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $submitDocExtractionTaskReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $submitDocExtractionTaskReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->submitDocExtractionTaskWithOptions($submitDocExtractionTaskReq, $headers, $runtime);
@@ -3656,7 +3800,7 @@ class EnergyExpertExternal extends OpenApiClient
      * URL Upload: SubmitDocParsingTask
      * Local File Upload: SubmitDocParsingTaskAdvance.
      *
-     * @param request - SubmitDocParsingTaskRequest
+     * @param Request - SubmitDocParsingTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3713,7 +3857,7 @@ class EnergyExpertExternal extends OpenApiClient
      * URL Upload: SubmitDocParsingTask
      * Local File Upload: SubmitDocParsingTaskAdvance.
      *
-     * @param request - SubmitDocParsingTaskRequest
+     * @param Request - SubmitDocParsingTaskRequest
      *
      * @returns SubmitDocParsingTaskResponse
      *
@@ -3739,12 +3883,20 @@ class EnergyExpertExternal extends OpenApiClient
     public function submitDocParsingTaskAdvance($request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -3761,51 +3913,54 @@ class EnergyExpertExternal extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'energyExpertExternal',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'energyExpertExternal',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $submitDocParsingTaskReq = new SubmitDocParsingTaskRequest([]);
         Utils::convert($request, $submitDocParsingTaskReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $submitDocParsingTaskReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $submitDocParsingTaskReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->submitDocParsingTaskWithOptions($submitDocParsingTaskReq, $headers, $runtime);
@@ -3816,7 +3971,7 @@ class EnergyExpertExternal extends OpenApiClient
      * Document parsing using SubmitDocParsingTask.
      * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
      *
-     * @param request - SubmitDocumentAnalyzeJobRequest
+     * @param Request - SubmitDocumentAnalyzeJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3876,7 +4031,7 @@ class EnergyExpertExternal extends OpenApiClient
      * Document parsing using SubmitDocParsingTask.
      * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
      *
-     * @param request - SubmitDocumentAnalyzeJobRequest
+     * @param Request - SubmitDocumentAnalyzeJobRequest
      *
      * @returns SubmitDocumentAnalyzeJobResponse
      *
@@ -3902,12 +4057,20 @@ class EnergyExpertExternal extends OpenApiClient
     public function submitDocumentAnalyzeJobAdvance($request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -3924,51 +4087,54 @@ class EnergyExpertExternal extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'energyExpertExternal',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'energyExpertExternal',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $submitDocumentAnalyzeJobReq = new SubmitDocumentAnalyzeJobRequest([]);
         Utils::convert($request, $submitDocumentAnalyzeJobReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $submitDocumentAnalyzeJobReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $submitDocumentAnalyzeJobReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->submitDocumentAnalyzeJobWithOptions($submitDocumentAnalyzeJobReq, $headers, $runtime);
@@ -3980,7 +4146,7 @@ class EnergyExpertExternal extends OpenApiClient
      * URL Upload: SubmitVLExtractionTask.
      * Local File Upload: SubmitVLExtractionTaskAdvance.
      *
-     * @param request - SubmitVLExtractionTaskRequest
+     * @param Request - SubmitVLExtractionTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4037,7 +4203,7 @@ class EnergyExpertExternal extends OpenApiClient
      * URL Upload: SubmitVLExtractionTask.
      * Local File Upload: SubmitVLExtractionTaskAdvance.
      *
-     * @param request - SubmitVLExtractionTaskRequest
+     * @param Request - SubmitVLExtractionTaskRequest
      *
      * @returns SubmitVLExtractionTaskResponse
      *
@@ -4063,12 +4229,20 @@ class EnergyExpertExternal extends OpenApiClient
     public function submitVLExtractionTaskAdvance($request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -4085,51 +4259,54 @@ class EnergyExpertExternal extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'energyExpertExternal',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'energyExpertExternal',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $submitVLExtractionTaskReq = new SubmitVLExtractionTaskRequest([]);
         Utils::convert($request, $submitVLExtractionTaskReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $submitVLExtractionTaskReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $submitVLExtractionTaskReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->submitVLExtractionTaskWithOptions($submitVLExtractionTaskReq, $headers, $runtime);
