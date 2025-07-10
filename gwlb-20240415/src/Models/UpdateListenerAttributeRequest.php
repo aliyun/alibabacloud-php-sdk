@@ -32,12 +32,18 @@ class UpdateListenerAttributeRequest extends Model
      * @var string
      */
     public $serverGroupId;
+
+    /**
+     * @var int
+     */
+    public $tcpIdleTimeout;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'listenerDescription' => 'ListenerDescription',
         'listenerId' => 'ListenerId',
         'serverGroupId' => 'ServerGroupId',
+        'tcpIdleTimeout' => 'TcpIdleTimeout',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class UpdateListenerAttributeRequest extends Model
 
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
+        }
+
+        if (null !== $this->tcpIdleTimeout) {
+            $res['TcpIdleTimeout'] = $this->tcpIdleTimeout;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class UpdateListenerAttributeRequest extends Model
 
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
+        }
+
+        if (isset($map['TcpIdleTimeout'])) {
+            $model->tcpIdleTimeout = $map['TcpIdleTimeout'];
         }
 
         return $model;

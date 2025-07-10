@@ -69,7 +69,8 @@ class ListServerGroupsResponseBody extends Model
                 $res['ServerGroups'] = [];
                 $n1 = 0;
                 foreach ($this->serverGroups as $item1) {
-                    $res['ServerGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServerGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListServerGroupsResponseBody extends Model
                 $model->serverGroups = [];
                 $n1 = 0;
                 foreach ($map['ServerGroups'] as $item1) {
-                    $model->serverGroups[$n1++] = serverGroups::fromMap($item1);
+                    $model->serverGroups[$n1] = serverGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

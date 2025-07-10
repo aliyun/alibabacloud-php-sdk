@@ -43,7 +43,8 @@ class listenerHealthStatus extends Model
                 $res['ServerGroupInfos'] = [];
                 $n1 = 0;
                 foreach ($this->serverGroupInfos as $item1) {
-                    $res['ServerGroupInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServerGroupInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class listenerHealthStatus extends Model
                 $model->serverGroupInfos = [];
                 $n1 = 0;
                 foreach ($map['ServerGroupInfos'] as $item1) {
-                    $model->serverGroupInfos[$n1++] = serverGroupInfos::fromMap($item1);
+                    $model->serverGroupInfos[$n1] = serverGroupInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

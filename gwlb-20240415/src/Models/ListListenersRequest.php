@@ -69,7 +69,8 @@ class ListListenersRequest extends Model
                 $res['ListenerIds'] = [];
                 $n1 = 0;
                 foreach ($this->listenerIds as $item1) {
-                    $res['ListenerIds'][$n1++] = $item1;
+                    $res['ListenerIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class ListListenersRequest extends Model
                 $res['LoadBalancerIds'] = [];
                 $n1 = 0;
                 foreach ($this->loadBalancerIds as $item1) {
-                    $res['LoadBalancerIds'][$n1++] = $item1;
+                    $res['LoadBalancerIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +103,8 @@ class ListListenersRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class ListListenersRequest extends Model
                 $model->listenerIds = [];
                 $n1 = 0;
                 foreach ($map['ListenerIds'] as $item1) {
-                    $model->listenerIds[$n1++] = $item1;
+                    $model->listenerIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +136,8 @@ class ListListenersRequest extends Model
                 $model->loadBalancerIds = [];
                 $n1 = 0;
                 foreach ($map['LoadBalancerIds'] as $item1) {
-                    $model->loadBalancerIds[$n1++] = $item1;
+                    $model->loadBalancerIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +159,8 @@ class ListListenersRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,6 +38,11 @@ class listeners extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var int
+     */
+    public $tcpIdleTimeout;
     protected $_name = [
         'listenerDescription' => 'ListenerDescription',
         'listenerId' => 'ListenerId',
@@ -45,6 +50,7 @@ class listeners extends Model
         'loadBalancerId' => 'LoadBalancerId',
         'serverGroupId' => 'ServerGroupId',
         'tags' => 'Tags',
+        'tcpIdleTimeout' => 'TcpIdleTimeout',
     ];
 
     public function validate()
@@ -83,9 +89,14 @@ class listeners extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->tcpIdleTimeout) {
+            $res['TcpIdleTimeout'] = $this->tcpIdleTimeout;
         }
 
         return $res;
@@ -124,9 +135,14 @@ class listeners extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TcpIdleTimeout'])) {
+            $model->tcpIdleTimeout = $map['TcpIdleTimeout'];
         }
 
         return $model;
