@@ -4,7 +4,13 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleRequest;
@@ -68,6 +74,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountRequest;
@@ -110,6 +118,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingJobResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsRequest;
@@ -260,6 +270,12 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetStatementResultRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetStatementResultResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectApiKeysRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectApiKeysResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectDashboardAccountRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectDashboardAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
@@ -302,6 +318,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
@@ -356,6 +374,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectSecurityIpsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectSecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseDataRedistributeRequest;
@@ -380,6 +400,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetSupabaseProjectPasswordRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetSupabaseProjectPasswordResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeRequest;
@@ -429,13 +451,7 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataAsyncResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataShrinkRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -465,6 +481,51 @@ class Gpdb extends OpenApiClient
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('gpdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -499,7 +560,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - AllocateInstancePublicConnectionRequest
+     * @param Request - AllocateInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AllocateInstancePublicConnectionResponse
@@ -567,7 +628,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - AllocateInstancePublicConnectionRequest
+     * @param Request - AllocateInstancePublicConnectionRequest
      *
      * @returns AllocateInstancePublicConnectionResponse
      *
@@ -642,7 +703,7 @@ class Gpdb extends OpenApiClient
     /**
      * Binds a resource group to a database role.
      *
-     * @param request - BindDBResourceGroupWithRoleRequest
+     * @param Request - BindDBResourceGroupWithRoleRequest
      *
      * @returns BindDBResourceGroupWithRoleResponse
      *
@@ -660,7 +721,7 @@ class Gpdb extends OpenApiClient
     /**
      * 取消创建索引任务
      *
-     * @param request - CancelCreateIndexJobRequest
+     * @param Request - CancelCreateIndexJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CancelCreateIndexJobResponse
@@ -727,7 +788,7 @@ class Gpdb extends OpenApiClient
     /**
      * 取消创建索引任务
      *
-     * @param request - CancelCreateIndexJobRequest
+     * @param Request - CancelCreateIndexJobRequest
      *
      * @returns CancelCreateIndexJobResponse
      *
@@ -749,7 +810,7 @@ class Gpdb extends OpenApiClient
      * This operation is related to the UploadDocumentAsync operation. You can call this operation to cancel a document upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the document upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation. You can also call the document upload operation to overwrite the data by using the same FileName parameter.
      *
-     * @param request - CancelUploadDocumentJobRequest
+     * @param Request - CancelUploadDocumentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CancelUploadDocumentJobResponse
@@ -818,7 +879,7 @@ class Gpdb extends OpenApiClient
      * This operation is related to the UploadDocumentAsync operation. You can call this operation to cancel a document upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the document upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation. You can also call the document upload operation to overwrite the data by using the same FileName parameter.
      *
-     * @param request - CancelUploadDocumentJobRequest
+     * @param Request - CancelUploadDocumentJobRequest
      *
      * @returns CancelUploadDocumentJobResponse
      *
@@ -840,7 +901,7 @@ class Gpdb extends OpenApiClient
      * This operation is related to the `UpsertCollectionDataAsync` operation. You can call this operation to cancel an upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation.
      *
-     * @param request - CancelUpsertCollectionDataJobRequest
+     * @param Request - CancelUpsertCollectionDataJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CancelUpsertCollectionDataJobResponse
@@ -913,7 +974,7 @@ class Gpdb extends OpenApiClient
      * This operation is related to the `UpsertCollectionDataAsync` operation. You can call this operation to cancel an upload job.
      * >  If the canceling operation is complete, failed, or is canceled, you cannot call the operation again. The canceling operation only interrupts the upload job. To remove the uploaded data, you must manually remove it or call the DeleteCollectionData operation.
      *
-     * @param request - CancelUpsertCollectionDataJobRequest
+     * @param Request - CancelUpsertCollectionDataJobRequest
      *
      * @returns CancelUpsertCollectionDataJobResponse
      *
@@ -931,7 +992,7 @@ class Gpdb extends OpenApiClient
     /**
      * Checks the configurations of a Hadoop data source.
      *
-     * @param request - CheckHadoopDataSourceRequest
+     * @param Request - CheckHadoopDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckHadoopDataSourceResponse
@@ -982,7 +1043,7 @@ class Gpdb extends OpenApiClient
     /**
      * Checks the configurations of a Hadoop data source.
      *
-     * @param request - CheckHadoopDataSourceRequest
+     * @param Request - CheckHadoopDataSourceRequest
      *
      * @returns CheckHadoopDataSourceResponse
      *
@@ -1000,7 +1061,7 @@ class Gpdb extends OpenApiClient
     /**
      * Check Hadoop Cluster Network Connectivity.
      *
-     * @param request - CheckHadoopNetConnectionRequest
+     * @param Request - CheckHadoopNetConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckHadoopNetConnectionResponse
@@ -1051,7 +1112,7 @@ class Gpdb extends OpenApiClient
     /**
      * Check Hadoop Cluster Network Connectivity.
      *
-     * @param request - CheckHadoopNetConnectionRequest
+     * @param Request - CheckHadoopNetConnectionRequest
      *
      * @returns CheckHadoopNetConnectionResponse
      *
@@ -1069,7 +1130,7 @@ class Gpdb extends OpenApiClient
     /**
      * Check the network connectivity of the JDBC connection string.
      *
-     * @param request - CheckJDBCSourceNetConnectionRequest
+     * @param Request - CheckJDBCSourceNetConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckJDBCSourceNetConnectionResponse
@@ -1120,7 +1181,7 @@ class Gpdb extends OpenApiClient
     /**
      * Check the network connectivity of the JDBC connection string.
      *
-     * @param request - CheckJDBCSourceNetConnectionRequest
+     * @param Request - CheckJDBCSourceNetConnectionRequest
      *
      * @returns CheckJDBCSourceNetConnectionResponse
      *
@@ -1138,7 +1199,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries whether a service-linked role is created.
      *
-     * @param request - CheckServiceLinkedRoleRequest
+     * @param Request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckServiceLinkedRoleResponse
@@ -1177,7 +1238,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries whether a service-linked role is created.
      *
-     * @param request - CheckServiceLinkedRoleRequest
+     * @param Request - CheckServiceLinkedRoleRequest
      *
      * @returns CheckServiceLinkedRoleResponse
      *
@@ -1195,7 +1256,7 @@ class Gpdb extends OpenApiClient
     /**
      * 恢复数据至指定实例.
      *
-     * @param request - CloneDBInstanceRequest
+     * @param Request - CloneDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CloneDBInstanceResponse
@@ -1242,7 +1303,7 @@ class Gpdb extends OpenApiClient
     /**
      * 恢复数据至指定实例.
      *
-     * @param request - CloneDBInstanceRequest
+     * @param Request - CloneDBInstanceRequest
      *
      * @returns CloneDBInstanceResponse
      *
@@ -1266,7 +1327,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - CreateAccountRequest
+     * @param Request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateAccountResponse
@@ -1335,7 +1396,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - CreateAccountRequest
+     * @param Request - CreateAccountRequest
      *
      * @returns CreateAccountResponse
      *
@@ -1353,7 +1414,7 @@ class Gpdb extends OpenApiClient
     /**
      * 创建备份.
      *
-     * @param request - CreateBackupRequest
+     * @param Request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateBackupResponse
@@ -1392,7 +1453,7 @@ class Gpdb extends OpenApiClient
     /**
      * 创建备份.
      *
-     * @param request - CreateBackupRequest
+     * @param Request - CreateBackupRequest
      *
      * @returns CreateBackupResponse
      *
@@ -1531,7 +1592,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a vector collection.
      *
-     * @param request - CreateCollectionRequest
+     * @param Request - CreateCollectionRequest
      *
      * @returns CreateCollectionResponse
      *
@@ -1552,7 +1613,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
      *
-     * @param request - CreateDBInstanceRequest
+     * @param Request - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDBInstanceResponse
@@ -1774,7 +1835,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
      *
-     * @param request - CreateDBInstanceRequest
+     * @param Request - CreateDBInstanceRequest
      *
      * @returns CreateDBInstanceResponse
      *
@@ -1797,7 +1858,7 @@ class Gpdb extends OpenApiClient
      * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *
-     * @param request - CreateDBInstancePlanRequest
+     * @param Request - CreateDBInstancePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDBInstancePlanResponse
@@ -1873,7 +1934,7 @@ class Gpdb extends OpenApiClient
      * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *
-     * @param request - CreateDBInstancePlanRequest
+     * @param Request - CreateDBInstancePlanRequest
      *
      * @returns CreateDBInstancePlanResponse
      *
@@ -1891,7 +1952,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a resource group.
      *
-     * @param request - CreateDBResourceGroupRequest
+     * @param Request - CreateDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDBResourceGroupResponse
@@ -1942,7 +2003,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a resource group.
      *
-     * @param request - CreateDBResourceGroupRequest
+     * @param Request - CreateDBResourceGroupRequest
      *
      * @returns CreateDBResourceGroupResponse
      *
@@ -1960,7 +2021,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a document collection.
      *
-     * @param request - CreateDocumentCollectionRequest
+     * @param Request - CreateDocumentCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDocumentCollectionResponse
@@ -2067,7 +2128,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a document collection.
      *
-     * @param request - CreateDocumentCollectionRequest
+     * @param Request - CreateDocumentCollectionRequest
      *
      * @returns CreateDocumentCollectionResponse
      *
@@ -2085,7 +2146,7 @@ class Gpdb extends OpenApiClient
     /**
      * Install extensions.
      *
-     * @param request - CreateExtensionsRequest
+     * @param Request - CreateExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateExtensionsResponse
@@ -2136,7 +2197,7 @@ class Gpdb extends OpenApiClient
     /**
      * Install extensions.
      *
-     * @param request - CreateExtensionsRequest
+     * @param Request - CreateExtensionsRequest
      *
      * @returns CreateExtensionsResponse
      *
@@ -2154,7 +2215,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Service.
      *
-     * @param request - CreateExternalDataServiceRequest
+     * @param Request - CreateExternalDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateExternalDataServiceResponse
@@ -2209,7 +2270,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Service.
      *
-     * @param request - CreateExternalDataServiceRequest
+     * @param Request - CreateExternalDataServiceRequest
      *
      * @returns CreateExternalDataServiceResponse
      *
@@ -2227,7 +2288,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create Hadoop data source configuration.
      *
-     * @param request - CreateHadoopDataSourceRequest
+     * @param Request - CreateHadoopDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateHadoopDataSourceResponse
@@ -2314,7 +2375,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create Hadoop data source configuration.
      *
-     * @param request - CreateHadoopDataSourceRequest
+     * @param Request - CreateHadoopDataSourceRequest
      *
      * @returns CreateHadoopDataSourceResponse
      *
@@ -2332,7 +2393,7 @@ class Gpdb extends OpenApiClient
     /**
      * 创建索引.
      *
-     * @param request - CreateIndexRequest
+     * @param Request - CreateIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateIndexResponse
@@ -2407,7 +2468,7 @@ class Gpdb extends OpenApiClient
     /**
      * 创建索引.
      *
-     * @param request - CreateIndexRequest
+     * @param Request - CreateIndexRequest
      *
      * @returns CreateIndexResponse
      *
@@ -2425,7 +2486,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a JDBC data source.
      *
-     * @param request - CreateJDBCDataSourceRequest
+     * @param Request - CreateJDBCDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateJDBCDataSourceResponse
@@ -2492,7 +2553,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a JDBC data source.
      *
-     * @param request - CreateJDBCDataSourceRequest
+     * @param Request - CreateJDBCDataSourceRequest
      *
      * @returns CreateJDBCDataSourceResponse
      *
@@ -2510,7 +2571,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a vector namespace.
      *
-     * @param request - CreateNamespaceRequest
+     * @param Request - CreateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateNamespaceResponse
@@ -2577,7 +2638,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a vector namespace.
      *
-     * @param request - CreateNamespaceRequest
+     * @param Request - CreateNamespaceRequest
      *
      * @returns CreateNamespaceResponse
      *
@@ -2595,7 +2656,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create Homogeneous Data Source.
      *
-     * @param request - CreateRemoteADBDataSourceRequest
+     * @param Request - CreateRemoteADBDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateRemoteADBDataSourceResponse
@@ -2670,7 +2731,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create Homogeneous Data Source.
      *
-     * @param request - CreateRemoteADBDataSourceRequest
+     * @param Request - CreateRemoteADBDataSourceRequest
      *
      * @returns CreateRemoteADBDataSourceResponse
      *
@@ -2693,7 +2754,7 @@ class Gpdb extends OpenApiClient
      * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
      * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
      *
-     * @param request - CreateSampleDataRequest
+     * @param Request - CreateSampleDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateSampleDataResponse
@@ -2741,7 +2802,7 @@ class Gpdb extends OpenApiClient
      * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
      * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
      *
-     * @param request - CreateSampleDataRequest
+     * @param Request - CreateSampleDataRequest
      *
      * @returns CreateSampleDataResponse
      *
@@ -2759,7 +2820,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
      *
-     * @param request - CreateSecretRequest
+     * @param Request - CreateSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateSecretResponse
@@ -2830,7 +2891,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
      *
-     * @param request - CreateSecretRequest
+     * @param Request - CreateSecretRequest
      *
      * @returns CreateSecretResponse
      *
@@ -2848,7 +2909,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a service-linked role.
      *
-     * @param request - CreateServiceLinkedRoleRequest
+     * @param Request - CreateServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateServiceLinkedRoleResponse
@@ -2891,7 +2952,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a service-linked role.
      *
-     * @param request - CreateServiceLinkedRoleRequest
+     * @param Request - CreateServiceLinkedRoleRequest
      *
      * @returns CreateServiceLinkedRoleResponse
      *
@@ -2909,7 +2970,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - CreateStreamingDataServiceRequest
+     * @param Request - CreateStreamingDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateStreamingDataServiceResponse
@@ -2964,7 +3025,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - CreateStreamingDataServiceRequest
+     * @param Request - CreateStreamingDataServiceRequest
      *
      * @returns CreateStreamingDataServiceResponse
      *
@@ -2982,7 +3043,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - CreateStreamingDataSourceRequest
+     * @param Request - CreateStreamingDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateStreamingDataSourceResponse
@@ -3045,7 +3106,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - CreateStreamingDataSourceRequest
+     * @param Request - CreateStreamingDataSourceRequest
      *
      * @returns CreateStreamingDataSourceResponse
      *
@@ -3204,7 +3265,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - CreateStreamingJobRequest
+     * @param Request - CreateStreamingJobRequest
      *
      * @returns CreateStreamingJobResponse
      *
@@ -3220,9 +3281,106 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 创建supabase project.
+     *
+     * @param Request - CreateSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSupabaseProjectResponse
+     *
+     * @param CreateSupabaseProjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateSupabaseProjectResponse
+     */
+    public function createSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->diskPerformanceLevel) {
+            @$query['DiskPerformanceLevel'] = $request->diskPerformanceLevel;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->projectSpec) {
+            @$query['ProjectSpec'] = $request->projectSpec;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        if (null !== $request->storageSize) {
+            @$query['StorageSize'] = $request->storageSize;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建supabase project.
+     *
+     * @param Request - CreateSupabaseProjectRequest
+     *
+     * @returns CreateSupabaseProjectResponse
+     *
+     * @param CreateSupabaseProjectRequest $request
+     *
+     * @return CreateSupabaseProjectResponse
+     */
+    public function createSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Create Vector Index.
      *
-     * @param request - CreateVectorIndexRequest
+     * @param Request - CreateVectorIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateVectorIndexResponse
@@ -3313,7 +3471,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create Vector Index.
      *
-     * @param request - CreateVectorIndexRequest
+     * @param Request - CreateVectorIndexRequest
      *
      * @returns CreateVectorIndexResponse
      *
@@ -3331,7 +3489,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除数据库账号.
      *
-     * @param request - DeleteAccountRequest
+     * @param Request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAccountResponse
@@ -3374,7 +3532,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除数据库账号.
      *
-     * @param request - DeleteAccountRequest
+     * @param Request - DeleteAccountRequest
      *
      * @returns DeleteAccountResponse
      *
@@ -3392,7 +3550,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除备份.
      *
-     * @param request - DeleteBackupRequest
+     * @param Request - DeleteBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteBackupResponse
@@ -3435,7 +3593,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除备份.
      *
-     * @param request - DeleteBackupRequest
+     * @param Request - DeleteBackupRequest
      *
      * @returns DeleteBackupResponse
      *
@@ -3453,7 +3611,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a vector collection.
      *
-     * @param request - DeleteCollectionRequest
+     * @param Request - DeleteCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCollectionResponse
@@ -3516,7 +3674,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a vector collection.
      *
-     * @param request - DeleteCollectionRequest
+     * @param Request - DeleteCollectionRequest
      *
      * @returns DeleteCollectionResponse
      *
@@ -3534,7 +3692,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes vector data.
      *
-     * @param request - DeleteCollectionDataRequest
+     * @param Request - DeleteCollectionDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCollectionDataResponse
@@ -3605,7 +3763,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes vector data.
      *
-     * @param request - DeleteCollectionDataRequest
+     * @param Request - DeleteCollectionDataRequest
      *
      * @returns DeleteCollectionDataResponse
      *
@@ -3629,7 +3787,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DeleteDBInstanceRequest
+     * @param Request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDBInstanceResponse
@@ -3686,7 +3844,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DeleteDBInstanceRequest
+     * @param Request - DeleteDBInstanceRequest
      *
      * @returns DeleteDBInstanceResponse
      *
@@ -3709,7 +3867,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DeleteDBInstancePlanRequest
+     * @param Request - DeleteDBInstancePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDBInstancePlanResponse
@@ -3761,7 +3919,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DeleteDBInstancePlanRequest
+     * @param Request - DeleteDBInstancePlanRequest
      *
      * @returns DeleteDBInstancePlanResponse
      *
@@ -3779,7 +3937,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a resource group.
      *
-     * @param request - DeleteDBResourceGroupRequest
+     * @param Request - DeleteDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDBResourceGroupResponse
@@ -3826,7 +3984,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a resource group.
      *
-     * @param request - DeleteDBResourceGroupRequest
+     * @param Request - DeleteDBResourceGroupRequest
      *
      * @returns DeleteDBResourceGroupResponse
      *
@@ -3844,7 +4002,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete Document.
      *
-     * @param request - DeleteDocumentRequest
+     * @param Request - DeleteDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDocumentResponse
@@ -3907,7 +4065,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete Document.
      *
-     * @param request - DeleteDocumentRequest
+     * @param Request - DeleteDocumentRequest
      *
      * @returns DeleteDocumentResponse
      *
@@ -3925,7 +4083,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete Knowledge Base.
      *
-     * @param request - DeleteDocumentCollectionRequest
+     * @param Request - DeleteDocumentCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDocumentCollectionResponse
@@ -3984,7 +4142,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete Knowledge Base.
      *
-     * @param request - DeleteDocumentCollectionRequest
+     * @param Request - DeleteDocumentCollectionRequest
      *
      * @returns DeleteDocumentCollectionResponse
      *
@@ -4002,7 +4160,7 @@ class Gpdb extends OpenApiClient
     /**
      * Uninstall an extension.
      *
-     * @param request - DeleteExtensionRequest
+     * @param Request - DeleteExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteExtensionResponse
@@ -4053,7 +4211,7 @@ class Gpdb extends OpenApiClient
     /**
      * Uninstall an extension.
      *
-     * @param request - DeleteExtensionRequest
+     * @param Request - DeleteExtensionRequest
      *
      * @returns DeleteExtensionResponse
      *
@@ -4071,7 +4229,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete External Data Service.
      *
-     * @param request - DeleteExternalDataServiceRequest
+     * @param Request - DeleteExternalDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteExternalDataServiceResponse
@@ -4118,7 +4276,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete External Data Service.
      *
-     * @param request - DeleteExternalDataServiceRequest
+     * @param Request - DeleteExternalDataServiceRequest
      *
      * @returns DeleteExternalDataServiceResponse
      *
@@ -4136,7 +4294,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除hadoop数据源.
      *
-     * @param request - DeleteHadoopDataSourceRequest
+     * @param Request - DeleteHadoopDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteHadoopDataSourceResponse
@@ -4183,7 +4341,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除hadoop数据源.
      *
-     * @param request - DeleteHadoopDataSourceRequest
+     * @param Request - DeleteHadoopDataSourceRequest
      *
      * @returns DeleteHadoopDataSourceResponse
      *
@@ -4201,7 +4359,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除索引.
      *
-     * @param request - DeleteIndexRequest
+     * @param Request - DeleteIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteIndexResponse
@@ -4268,7 +4426,7 @@ class Gpdb extends OpenApiClient
     /**
      * 删除索引.
      *
-     * @param request - DeleteIndexRequest
+     * @param Request - DeleteIndexRequest
      *
      * @returns DeleteIndexResponse
      *
@@ -4286,7 +4444,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete JDBC data source.
      *
-     * @param request - DeleteJDBCDataSourceRequest
+     * @param Request - DeleteJDBCDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteJDBCDataSourceResponse
@@ -4333,7 +4491,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete JDBC data source.
      *
-     * @param request - DeleteJDBCDataSourceRequest
+     * @param Request - DeleteJDBCDataSourceRequest
      *
      * @returns DeleteJDBCDataSourceResponse
      *
@@ -4351,7 +4509,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a namespace.
      *
-     * @param request - DeleteNamespaceRequest
+     * @param Request - DeleteNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteNamespaceResponse
@@ -4414,7 +4572,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a namespace.
      *
-     * @param request - DeleteNamespaceRequest
+     * @param Request - DeleteNamespaceRequest
      *
      * @returns DeleteNamespaceResponse
      *
@@ -4432,7 +4590,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a remote AnalyticDB data source.
      *
-     * @param request - DeleteRemoteADBDataSourceRequest
+     * @param Request - DeleteRemoteADBDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRemoteADBDataSourceResponse
@@ -4479,7 +4637,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a remote AnalyticDB data source.
      *
-     * @param request - DeleteRemoteADBDataSourceRequest
+     * @param Request - DeleteRemoteADBDataSourceRequest
      *
      * @returns DeleteRemoteADBDataSourceResponse
      *
@@ -4497,7 +4655,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DeleteSecretRequest
+     * @param Request - DeleteSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteSecretResponse
@@ -4556,7 +4714,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DeleteSecretRequest
+     * @param Request - DeleteSecretRequest
      *
      * @returns DeleteSecretResponse
      *
@@ -4574,7 +4732,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a real-time data service.
      *
-     * @param request - DeleteStreamingDataServiceRequest
+     * @param Request - DeleteStreamingDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteStreamingDataServiceResponse
@@ -4621,7 +4779,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a real-time data service.
      *
-     * @param request - DeleteStreamingDataServiceRequest
+     * @param Request - DeleteStreamingDataServiceRequest
      *
      * @returns DeleteStreamingDataServiceResponse
      *
@@ -4639,7 +4797,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a real-time data source.
      *
-     * @param request - DeleteStreamingDataSourceRequest
+     * @param Request - DeleteStreamingDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteStreamingDataSourceResponse
@@ -4686,7 +4844,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a real-time data source.
      *
-     * @param request - DeleteStreamingDataSourceRequest
+     * @param Request - DeleteStreamingDataSourceRequest
      *
      * @returns DeleteStreamingDataSourceResponse
      *
@@ -4704,7 +4862,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a real-time data service job.
      *
-     * @param request - DeleteStreamingJobRequest
+     * @param Request - DeleteStreamingJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteStreamingJobResponse
@@ -4751,7 +4909,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a real-time data service job.
      *
-     * @param request - DeleteStreamingJobRequest
+     * @param Request - DeleteStreamingJobRequest
      *
      * @returns DeleteStreamingJobResponse
      *
@@ -4767,9 +4925,70 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 删除Supabase实例.
+     *
+     * @param Request - DeleteSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSupabaseProjectResponse
+     *
+     * @param DeleteSupabaseProjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteSupabaseProjectResponse
+     */
+    public function deleteSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Supabase实例.
+     *
+     * @param Request - DeleteSupabaseProjectRequest
+     *
+     * @returns DeleteSupabaseProjectResponse
+     *
+     * @param DeleteSupabaseProjectRequest $request
+     *
+     * @return DeleteSupabaseProjectResponse
+     */
+    public function deleteSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a vector index.
      *
-     * @param request - DeleteVectorIndexRequest
+     * @param Request - DeleteVectorIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteVectorIndexResponse
@@ -4836,7 +5055,7 @@ class Gpdb extends OpenApiClient
     /**
      * Deletes a vector index.
      *
-     * @param request - DeleteVectorIndexRequest
+     * @param Request - DeleteVectorIndexRequest
      *
      * @returns DeleteVectorIndexResponse
      *
@@ -4859,7 +5078,7 @@ class Gpdb extends OpenApiClient
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeAccountsRequest
+     * @param Request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAccountsResponse
@@ -4911,7 +5130,7 @@ class Gpdb extends OpenApiClient
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeAccountsRequest
+     * @param Request - DescribeAccountsRequest
      *
      * @returns DescribeAccountsResponse
      *
@@ -4929,7 +5148,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries active SQL records.
      *
-     * @param request - DescribeActiveSQLRecordsRequest
+     * @param Request - DescribeActiveSQLRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeActiveSQLRecordsResponse
@@ -5000,7 +5219,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries active SQL records.
      *
-     * @param request - DescribeActiveSQLRecordsRequest
+     * @param Request - DescribeActiveSQLRecordsRequest
      *
      * @returns DescribeActiveSQLRecordsResponse
      *
@@ -5021,7 +5240,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
      *
-     * @param request - DescribeAvailableResourcesRequest
+     * @param Request - DescribeAvailableResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAvailableResourcesResponse
@@ -5071,7 +5290,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
      *
-     * @param request - DescribeAvailableResourcesRequest
+     * @param Request - DescribeAvailableResourcesRequest
      *
      * @returns DescribeAvailableResourcesResponse
      *
@@ -5089,7 +5308,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取备份任务详情.
      *
-     * @param request - DescribeBackupJobRequest
+     * @param Request - DescribeBackupJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeBackupJobResponse
@@ -5132,7 +5351,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取备份任务详情.
      *
-     * @param request - DescribeBackupJobRequest
+     * @param Request - DescribeBackupJobRequest
      *
      * @returns DescribeBackupJobResponse
      *
@@ -5155,7 +5374,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeBackupPolicyRequest
+     * @param Request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeBackupPolicyResponse
@@ -5199,7 +5418,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeBackupPolicyRequest
+     * @param Request - DescribeBackupPolicyRequest
      *
      * @returns DescribeBackupPolicyResponse
      *
@@ -5217,7 +5436,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about a vector collection.
      *
-     * @param request - DescribeCollectionRequest
+     * @param Request - DescribeCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCollectionResponse
@@ -5280,7 +5499,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about a vector collection.
      *
-     * @param request - DescribeCollectionRequest
+     * @param Request - DescribeCollectionRequest
      *
      * @returns DescribeCollectionResponse
      *
@@ -5298,7 +5517,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取创建索引任务
      *
-     * @param request - DescribeCreateIndexJobRequest
+     * @param Request - DescribeCreateIndexJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCreateIndexJobResponse
@@ -5365,7 +5584,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取创建索引任务
      *
-     * @param request - DescribeCreateIndexJobRequest
+     * @param Request - DescribeCreateIndexJobRequest
      *
      * @returns DescribeCreateIndexJobResponse
      *
@@ -5389,7 +5608,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBClusterNodeRequest
+     * @param Request - DescribeDBClusterNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBClusterNodeResponse
@@ -5438,7 +5657,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBClusterNodeRequest
+     * @param Request - DescribeDBClusterNodeRequest
      *
      * @returns DescribeDBClusterNodeResponse
      *
@@ -5459,7 +5678,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can query monitoring information only within the last 30 days.
      *
-     * @param request - DescribeDBClusterPerformanceRequest
+     * @param Request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBClusterPerformanceResponse
@@ -5525,7 +5744,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can query monitoring information only within the last 30 days.
      *
-     * @param request - DescribeDBClusterPerformanceRequest
+     * @param Request - DescribeDBClusterPerformanceRequest
      *
      * @returns DescribeDBClusterPerformanceResponse
      *
@@ -5550,7 +5769,7 @@ class Gpdb extends OpenApiClient
      * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
      * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
-     * @param request - DescribeDBInstanceAttributeRequest
+     * @param Request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceAttributeResponse
@@ -5604,7 +5823,7 @@ class Gpdb extends OpenApiClient
      * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
      * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
-     * @param request - DescribeDBInstanceAttributeRequest
+     * @param Request - DescribeDBInstanceAttributeRequest
      *
      * @returns DescribeDBInstanceAttributeResponse
      *
@@ -5627,7 +5846,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceDataBloatRequest
+     * @param Request - DescribeDBInstanceDataBloatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceDataBloatResponse
@@ -5687,7 +5906,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceDataBloatRequest
+     * @param Request - DescribeDBInstanceDataBloatRequest
      *
      * @returns DescribeDBInstanceDataBloatResponse
      *
@@ -5710,7 +5929,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceDataSkewRequest
+     * @param Request - DescribeDBInstanceDataSkewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceDataSkewResponse
@@ -5770,7 +5989,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceDataSkewRequest
+     * @param Request - DescribeDBInstanceDataSkewRequest
      *
      * @returns DescribeDBInstanceDataSkewResponse
      *
@@ -5791,7 +6010,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBInstanceDiagnosisSummaryRequest
+     * @param Request - DescribeDBInstanceDiagnosisSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceDiagnosisSummaryResponse
@@ -5853,7 +6072,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBInstanceDiagnosisSummaryRequest
+     * @param Request - DescribeDBInstanceDiagnosisSummaryRequest
      *
      * @returns DescribeDBInstanceDiagnosisSummaryResponse
      *
@@ -5876,7 +6095,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceErrorLogRequest
+     * @param Request - DescribeDBInstanceErrorLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceErrorLogResponse
@@ -5956,7 +6175,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceErrorLogRequest
+     * @param Request - DescribeDBInstanceErrorLogRequest
      *
      * @returns DescribeDBInstanceErrorLogResponse
      *
@@ -5979,7 +6198,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceIPArrayListRequest
+     * @param Request - DescribeDBInstanceIPArrayListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceIPArrayListResponse
@@ -6031,7 +6250,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstanceIPArrayListRequest
+     * @param Request - DescribeDBInstanceIPArrayListRequest
      *
      * @returns DescribeDBInstanceIPArrayListResponse
      *
@@ -6053,7 +6272,7 @@ class Gpdb extends OpenApiClient
      * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      *
-     * @param request - DescribeDBInstanceIndexUsageRequest
+     * @param Request - DescribeDBInstanceIndexUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceIndexUsageResponse
@@ -6112,7 +6331,7 @@ class Gpdb extends OpenApiClient
      * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      *
-     * @param request - DescribeDBInstanceIndexUsageRequest
+     * @param Request - DescribeDBInstanceIndexUsageRequest
      *
      * @returns DescribeDBInstanceIndexUsageResponse
      *
@@ -6130,7 +6349,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the connection information of an instance.
      *
-     * @param request - DescribeDBInstanceNetInfoRequest
+     * @param Request - DescribeDBInstanceNetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceNetInfoResponse
@@ -6173,7 +6392,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the connection information of an instance.
      *
-     * @param request - DescribeDBInstanceNetInfoRequest
+     * @param Request - DescribeDBInstanceNetInfoRequest
      *
      * @returns DescribeDBInstanceNetInfoResponse
      *
@@ -6191,7 +6410,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
      *
-     * @param request - DescribeDBInstancePerformanceRequest
+     * @param Request - DescribeDBInstancePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstancePerformanceResponse
@@ -6246,7 +6465,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
      *
-     * @param request - DescribeDBInstancePerformanceRequest
+     * @param Request - DescribeDBInstancePerformanceRequest
      *
      * @returns DescribeDBInstancePerformanceResponse
      *
@@ -6269,7 +6488,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstancePlansRequest
+     * @param Request - DescribeDBInstancePlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstancePlansResponse
@@ -6337,7 +6556,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstancePlansRequest
+     * @param Request - DescribeDBInstancePlansRequest
      *
      * @returns DescribeDBInstancePlansResponse
      *
@@ -6355,7 +6574,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the SSL information about an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBInstanceSSLRequest
+     * @param Request - DescribeDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceSSLResponse
@@ -6394,7 +6613,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the SSL information about an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBInstanceSSLRequest
+     * @param Request - DescribeDBInstanceSSLRequest
      *
      * @returns DescribeDBInstanceSSLResponse
      *
@@ -6412,7 +6631,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBInstanceSupportMaxPerformanceRequest
+     * @param Request - DescribeDBInstanceSupportMaxPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBInstanceSupportMaxPerformanceResponse
@@ -6455,7 +6674,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBInstanceSupportMaxPerformanceRequest
+     * @param Request - DescribeDBInstanceSupportMaxPerformanceRequest
      *
      * @returns DescribeDBInstanceSupportMaxPerformanceResponse
      *
@@ -6594,7 +6813,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDBInstancesRequest
+     * @param Request - DescribeDBInstancesRequest
      *
      * @returns DescribeDBInstancesResponse
      *
@@ -6612,7 +6831,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about resource groups.
      *
-     * @param request - DescribeDBResourceGroupRequest
+     * @param Request - DescribeDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBResourceGroupResponse
@@ -6659,7 +6878,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about resource groups.
      *
-     * @param request - DescribeDBResourceGroupRequest
+     * @param Request - DescribeDBResourceGroupRequest
      *
      * @returns DescribeDBResourceGroupResponse
      *
@@ -6677,7 +6896,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBResourceManagementModeRequest
+     * @param Request - DescribeDBResourceManagementModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBResourceManagementModeResponse
@@ -6720,7 +6939,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeDBResourceManagementModeRequest
+     * @param Request - DescribeDBResourceManagementModeRequest
      *
      * @returns DescribeDBResourceManagementModeResponse
      *
@@ -6738,7 +6957,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
      *
-     * @param request - DescribeDBVersionInfosRequest
+     * @param Request - DescribeDBVersionInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDBVersionInfosResponse
@@ -6793,7 +7012,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
      *
-     * @param request - DescribeDBVersionInfosRequest
+     * @param Request - DescribeDBVersionInfosRequest
      *
      * @returns DescribeDBVersionInfosResponse
      *
@@ -6814,7 +7033,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
      *
-     * @param request - DescribeDataBackupsRequest
+     * @param Request - DescribeDataBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDataBackupsResponse
@@ -6888,7 +7107,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
      *
-     * @param request - DescribeDataBackupsRequest
+     * @param Request - DescribeDataBackupsRequest
      *
      * @returns DescribeDataBackupsResponse
      *
@@ -6906,7 +7125,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      *
-     * @param request - DescribeDataReDistributeInfoRequest
+     * @param Request - DescribeDataReDistributeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDataReDistributeInfoResponse
@@ -6949,7 +7168,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      *
-     * @param request - DescribeDataReDistributeInfoRequest
+     * @param Request - DescribeDataReDistributeInfoRequest
      *
      * @returns DescribeDataReDistributeInfoResponse
      *
@@ -6970,7 +7189,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * Data sharing is supported only for instances in Serverless mode.
      *
-     * @param request - DescribeDataShareInstancesRequest
+     * @param Request - DescribeDataShareInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDataShareInstancesResponse
@@ -7032,7 +7251,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * Data sharing is supported only for instances in Serverless mode.
      *
-     * @param request - DescribeDataShareInstancesRequest
+     * @param Request - DescribeDataShareInstancesRequest
      *
      * @returns DescribeDataShareInstancesResponse
      *
@@ -7055,7 +7274,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDataSharePerformanceRequest
+     * @param Request - DescribeDataSharePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDataSharePerformanceResponse
@@ -7115,7 +7334,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDataSharePerformanceRequest
+     * @param Request - DescribeDataSharePerformanceRequest
      *
      * @returns DescribeDataSharePerformanceResponse
      *
@@ -7138,7 +7357,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDiagnosisDimensionsRequest
+     * @param Request - DescribeDiagnosisDimensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDiagnosisDimensionsResponse
@@ -7182,7 +7401,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDiagnosisDimensionsRequest
+     * @param Request - DescribeDiagnosisDimensionsRequest
      *
      * @returns DescribeDiagnosisDimensionsResponse
      *
@@ -7205,7 +7424,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDiagnosisMonitorPerformanceRequest
+     * @param Request - DescribeDiagnosisMonitorPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDiagnosisMonitorPerformanceResponse
@@ -7269,7 +7488,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDiagnosisMonitorPerformanceRequest
+     * @param Request - DescribeDiagnosisMonitorPerformanceRequest
      *
      * @returns DescribeDiagnosisMonitorPerformanceResponse
      *
@@ -7292,7 +7511,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDiagnosisRecordsRequest
+     * @param Request - DescribeDiagnosisRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDiagnosisRecordsResponse
@@ -7372,7 +7591,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeDiagnosisRecordsRequest
+     * @param Request - DescribeDiagnosisRecordsRequest
      *
      * @returns DescribeDiagnosisRecordsResponse
      *
@@ -7394,7 +7613,7 @@ class Gpdb extends OpenApiClient
      * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      *
-     * @param request - DescribeDiagnosisSQLInfoRequest
+     * @param Request - DescribeDiagnosisSQLInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDiagnosisSQLInfoResponse
@@ -7445,7 +7664,7 @@ class Gpdb extends OpenApiClient
      * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      *
-     * @param request - DescribeDiagnosisSQLInfoRequest
+     * @param Request - DescribeDiagnosisSQLInfoRequest
      *
      * @returns DescribeDiagnosisSQLInfoResponse
      *
@@ -7463,7 +7682,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get Document Details.
      *
-     * @param request - DescribeDocumentRequest
+     * @param Request - DescribeDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDocumentResponse
@@ -7526,7 +7745,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get Document Details.
      *
-     * @param request - DescribeDocumentRequest
+     * @param Request - DescribeDocumentRequest
      *
      * @returns DescribeDocumentResponse
      *
@@ -7548,7 +7767,7 @@ class Gpdb extends OpenApiClient
      * You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      *
-     * @param request - DescribeDownloadRecordsRequest
+     * @param Request - DescribeDownloadRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDownloadRecordsResponse
@@ -7595,7 +7814,7 @@ class Gpdb extends OpenApiClient
      * You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
      * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
      *
-     * @param request - DescribeDownloadRecordsRequest
+     * @param Request - DescribeDownloadRecordsRequest
      *
      * @returns DescribeDownloadRecordsResponse
      *
@@ -7613,7 +7832,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get download records.
      *
-     * @param request - DescribeDownloadSQLLogsRequest
+     * @param Request - DescribeDownloadSQLLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDownloadSQLLogsResponse
@@ -7652,7 +7871,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get download records.
      *
-     * @param request - DescribeDownloadSQLLogsRequest
+     * @param Request - DescribeDownloadSQLLogsRequest
      *
      * @returns DescribeDownloadSQLLogsResponse
      *
@@ -7670,7 +7889,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about an external data service.
      *
-     * @param request - DescribeExternalDataServiceRequest
+     * @param Request - DescribeExternalDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeExternalDataServiceResponse
@@ -7717,7 +7936,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about an external data service.
      *
-     * @param request - DescribeExternalDataServiceRequest
+     * @param Request - DescribeExternalDataServiceRequest
      *
      * @returns DescribeExternalDataServiceResponse
      *
@@ -7735,7 +7954,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
      *
-     * @param request - DescribeHadoopClustersInSameNetRequest
+     * @param Request - DescribeHadoopClustersInSameNetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeHadoopClustersInSameNetResponse
@@ -7778,7 +7997,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
      *
-     * @param request - DescribeHadoopClustersInSameNetRequest
+     * @param Request - DescribeHadoopClustersInSameNetRequest
      *
      * @returns DescribeHadoopClustersInSameNetResponse
      *
@@ -7796,7 +8015,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the configuration information about a Hadoop cluster.
      *
-     * @param request - DescribeHadoopConfigsRequest
+     * @param Request - DescribeHadoopConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeHadoopConfigsResponse
@@ -7847,7 +8066,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the configuration information about a Hadoop cluster.
      *
-     * @param request - DescribeHadoopConfigsRequest
+     * @param Request - DescribeHadoopConfigsRequest
      *
      * @returns DescribeHadoopConfigsResponse
      *
@@ -7865,7 +8084,7 @@ class Gpdb extends OpenApiClient
     /**
      * Obtains the configurations of a Hadoop data source.
      *
-     * @param request - DescribeHadoopDataSourceRequest
+     * @param Request - DescribeHadoopDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeHadoopDataSourceResponse
@@ -7912,7 +8131,7 @@ class Gpdb extends OpenApiClient
     /**
      * Obtains the configurations of a Hadoop data source.
      *
-     * @param request - DescribeHadoopDataSourceRequest
+     * @param Request - DescribeHadoopDataSourceRequest
      *
      * @returns DescribeHadoopDataSourceResponse
      *
@@ -7935,7 +8154,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeHealthStatusRequest
+     * @param Request - DescribeHealthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeHealthStatusResponse
@@ -7983,7 +8202,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeHealthStatusRequest
+     * @param Request - DescribeHealthStatusRequest
      *
      * @returns DescribeHealthStatusResponse
      *
@@ -8001,7 +8220,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about real-time materialized views of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeIMVInfosRequest
+     * @param Request - DescribeIMVInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeIMVInfosResponse
@@ -8048,7 +8267,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about real-time materialized views of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeIMVInfosRequest
+     * @param Request - DescribeIMVInfosRequest
      *
      * @returns DescribeIMVInfosResponse
      *
@@ -8066,7 +8285,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取索引详情.
      *
-     * @param request - DescribeIndexRequest
+     * @param Request - DescribeIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeIndexResponse
@@ -8133,7 +8352,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取索引详情.
      *
-     * @param request - DescribeIndexRequest
+     * @param Request - DescribeIndexRequest
      *
      * @returns DescribeIndexResponse
      *
@@ -8151,7 +8370,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the configurations of a Java Database Connectivity (JDBC) data source.
      *
-     * @param request - DescribeJDBCDataSourceRequest
+     * @param Request - DescribeJDBCDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeJDBCDataSourceResponse
@@ -8194,7 +8413,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the configurations of a Java Database Connectivity (JDBC) data source.
      *
-     * @param request - DescribeJDBCDataSourceRequest
+     * @param Request - DescribeJDBCDataSourceRequest
      *
      * @returns DescribeJDBCDataSourceResponse
      *
@@ -8212,7 +8431,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of log backups.
      *
-     * @param request - DescribeLogBackupsRequest
+     * @param Request - DescribeLogBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeLogBackupsResponse
@@ -8267,7 +8486,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of log backups.
      *
-     * @param request - DescribeLogBackupsRequest
+     * @param Request - DescribeLogBackupsRequest
      *
      * @returns DescribeLogBackupsResponse
      *
@@ -8285,7 +8504,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeModifyParameterLogRequest
+     * @param Request - DescribeModifyParameterLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeModifyParameterLogResponse
@@ -8332,7 +8551,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeModifyParameterLogRequest
+     * @param Request - DescribeModifyParameterLogRequest
      *
      * @returns DescribeModifyParameterLogResponse
      *
@@ -8350,7 +8569,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about a namespace.
      *
-     * @param request - DescribeNamespaceRequest
+     * @param Request - DescribeNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeNamespaceResponse
@@ -8413,7 +8632,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about a namespace.
      *
-     * @param request - DescribeNamespaceRequest
+     * @param Request - DescribeNamespaceRequest
      *
      * @returns DescribeNamespaceResponse
      *
@@ -8436,7 +8655,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeParametersRequest
+     * @param Request - DescribeParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeParametersResponse
@@ -8480,7 +8699,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeParametersRequest
+     * @param Request - DescribeParametersRequest
      *
      * @returns DescribeParametersResponse
      *
@@ -8503,7 +8722,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeRdsVSwitchsRequest
+     * @param Request - DescribeRdsVSwitchsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRdsVSwitchsResponse
@@ -8579,7 +8798,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeRdsVSwitchsRequest
+     * @param Request - DescribeRdsVSwitchsRequest
      *
      * @returns DescribeRdsVSwitchsResponse
      *
@@ -8602,7 +8821,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeRdsVpcsRequest
+     * @param Request - DescribeRdsVpcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRdsVpcsResponse
@@ -8674,7 +8893,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeRdsVpcsRequest
+     * @param Request - DescribeRdsVpcsRequest
      *
      * @returns DescribeRdsVpcsResponse
      *
@@ -8697,7 +8916,7 @@ class Gpdb extends OpenApiClient
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeRegionsRequest
+     * @param Request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRegionsResponse
@@ -8741,7 +8960,7 @@ class Gpdb extends OpenApiClient
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeRegionsRequest
+     * @param Request - DescribeRegionsRequest
      *
      * @returns DescribeRegionsResponse
      *
@@ -8759,7 +8978,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of roles.
      *
-     * @param request - DescribeRolesRequest
+     * @param Request - DescribeRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRolesResponse
@@ -8802,7 +9021,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of roles.
      *
-     * @param request - DescribeRolesRequest
+     * @param Request - DescribeRolesRequest
      *
      * @returns DescribeRolesResponse
      *
@@ -8823,7 +9042,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * This operation is not available for instances in reserved storage mode.
      *
-     * @param request - DescribeSQLLogCountRequest
+     * @param Request - DescribeSQLLogCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSQLLogCountResponse
@@ -8913,7 +9132,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * This operation is not available for instances in reserved storage mode.
      *
-     * @param request - DescribeSQLLogCountRequest
+     * @param Request - DescribeSQLLogCountRequest
      *
      * @returns DescribeSQLLogCountResponse
      *
@@ -8934,7 +9153,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
      *
-     * @param request - DescribeSQLLogsRequest
+     * @param Request - DescribeSQLLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSQLLogsResponse
@@ -9032,7 +9251,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
      *
-     * @param request - DescribeSQLLogsRequest
+     * @param Request - DescribeSQLLogsRequest
      *
      * @returns DescribeSQLLogsResponse
      *
@@ -9055,7 +9274,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeSQLLogsV2Request
+     * @param Request - DescribeSQLLogsV2Request
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSQLLogsV2Response
@@ -9163,7 +9382,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeSQLLogsV2Request
+     * @param Request - DescribeSQLLogsV2Request
      *
      * @returns DescribeSQLLogsV2Response
      *
@@ -9184,7 +9403,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeSampleDataRequest
+     * @param Request - DescribeSampleDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSampleDataResponse
@@ -9230,7 +9449,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeSampleDataRequest
+     * @param Request - DescribeSampleDataRequest
      *
      * @returns DescribeSampleDataResponse
      *
@@ -9248,7 +9467,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a real-time data service.
      *
-     * @param request - DescribeStreamingDataServiceRequest
+     * @param Request - DescribeStreamingDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeStreamingDataServiceResponse
@@ -9295,7 +9514,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a real-time data service.
      *
-     * @param request - DescribeStreamingDataServiceRequest
+     * @param Request - DescribeStreamingDataServiceRequest
      *
      * @returns DescribeStreamingDataServiceResponse
      *
@@ -9313,7 +9532,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get external data source configuration information.
      *
-     * @param request - DescribeStreamingDataSourceRequest
+     * @param Request - DescribeStreamingDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeStreamingDataSourceResponse
@@ -9360,7 +9579,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get external data source configuration information.
      *
-     * @param request - DescribeStreamingDataSourceRequest
+     * @param Request - DescribeStreamingDataSourceRequest
      *
      * @returns DescribeStreamingDataSourceResponse
      *
@@ -9378,7 +9597,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete External Data Source Configuration.
      *
-     * @param request - DescribeStreamingJobRequest
+     * @param Request - DescribeStreamingJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeStreamingJobResponse
@@ -9425,7 +9644,7 @@ class Gpdb extends OpenApiClient
     /**
      * Delete External Data Source Configuration.
      *
-     * @param request - DescribeStreamingJobRequest
+     * @param Request - DescribeStreamingJobRequest
      *
      * @returns DescribeStreamingJobResponse
      *
@@ -9443,7 +9662,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeSupportFeaturesRequest
+     * @param Request - DescribeSupportFeaturesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSupportFeaturesResponse
@@ -9486,7 +9705,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DescribeSupportFeaturesRequest
+     * @param Request - DescribeSupportFeaturesRequest
      *
      * @returns DescribeSupportFeaturesResponse
      *
@@ -9504,7 +9723,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about a table.
      *
-     * @param request - DescribeTableRequest
+     * @param Request - DescribeTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeTableResponse
@@ -9571,7 +9790,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about a table.
      *
-     * @param request - DescribeTableRequest
+     * @param Request - DescribeTableRequest
      *
      * @returns DescribeTableResponse
      *
@@ -9589,7 +9808,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of tags for AnalyticDB for PostgreSQL instances.
      *
-     * @param request - DescribeTagsRequest
+     * @param Request - DescribeTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeTagsResponse
@@ -9652,7 +9871,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of tags for AnalyticDB for PostgreSQL instances.
      *
-     * @param request - DescribeTagsRequest
+     * @param Request - DescribeTagsRequest
      *
      * @returns DescribeTagsResponse
      *
@@ -9670,7 +9889,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of Key Management Service (KMS) keys.
      *
-     * @param request - DescribeUserEncryptionKeyListRequest
+     * @param Request - DescribeUserEncryptionKeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeUserEncryptionKeyListResponse
@@ -9717,7 +9936,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of Key Management Service (KMS) keys.
      *
-     * @param request - DescribeUserEncryptionKeyListRequest
+     * @param Request - DescribeUserEncryptionKeyListRequest
      *
      * @returns DescribeUserEncryptionKeyListResponse
      *
@@ -9740,7 +9959,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeWaitingSQLInfoRequest
+     * @param Request - DescribeWaitingSQLInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeWaitingSQLInfoResponse
@@ -9792,7 +10011,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeWaitingSQLInfoRequest
+     * @param Request - DescribeWaitingSQLInfoRequest
      *
      * @returns DescribeWaitingSQLInfoResponse
      *
@@ -9815,7 +10034,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeWaitingSQLRecordsRequest
+     * @param Request - DescribeWaitingSQLRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeWaitingSQLRecordsResponse
@@ -9895,7 +10114,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DescribeWaitingSQLRecordsRequest
+     * @param Request - DescribeWaitingSQLRecordsRequest
      *
      * @returns DescribeWaitingSQLRecordsResponse
      *
@@ -9918,7 +10137,7 @@ class Gpdb extends OpenApiClient
      * *   You can call this operation to disable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management method is switched, your AnalyticDB for PostgreSQL instance restarts and becomes unavailable for approximately 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
      *
-     * @param request - DisableDBResourceGroupRequest
+     * @param Request - DisableDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DisableDBResourceGroupResponse
@@ -9966,7 +10185,7 @@ class Gpdb extends OpenApiClient
      * *   You can call this operation to disable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management method is switched, your AnalyticDB for PostgreSQL instance restarts and becomes unavailable for approximately 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
      *
-     * @param request - DisableDBResourceGroupRequest
+     * @param Request - DisableDBResourceGroupRequest
      *
      * @returns DisableDBResourceGroupResponse
      *
@@ -9990,7 +10209,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DownloadDiagnosisRecordsRequest
+     * @param Request - DownloadDiagnosisRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DownloadDiagnosisRecordsResponse
@@ -10063,7 +10282,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - DownloadDiagnosisRecordsRequest
+     * @param Request - DownloadDiagnosisRecordsRequest
      *
      * @returns DownloadDiagnosisRecordsResponse
      *
@@ -10081,7 +10300,7 @@ class Gpdb extends OpenApiClient
     /**
      * Download the slow query logs of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DownloadSQLLogsRecordsRequest
+     * @param Request - DownloadSQLLogsRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DownloadSQLLogsRecordsResponse
@@ -10180,7 +10399,7 @@ class Gpdb extends OpenApiClient
     /**
      * Download the slow query logs of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - DownloadSQLLogsRecordsRequest
+     * @param Request - DownloadSQLLogsRecordsRequest
      *
      * @returns DownloadSQLLogsRecordsResponse
      *
@@ -10203,7 +10422,7 @@ class Gpdb extends OpenApiClient
      * *   You can call this operation to enable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management mode is changed, your AnalyticDB for PostgreSQL instance is restarted and remains unavailable within 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
      *
-     * @param request - EnableDBResourceGroupRequest
+     * @param Request - EnableDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EnableDBResourceGroupResponse
@@ -10251,7 +10470,7 @@ class Gpdb extends OpenApiClient
      * *   You can call this operation to enable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
      * *   **Note: When the resource management mode is changed, your AnalyticDB for PostgreSQL instance is restarted and remains unavailable within 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
      *
-     * @param request - EnableDBResourceGroupRequest
+     * @param Request - EnableDBResourceGroupRequest
      *
      * @returns EnableDBResourceGroupResponse
      *
@@ -10368,7 +10587,7 @@ class Gpdb extends OpenApiClient
     /**
      * Executes SQL statements.
      *
-     * @param request - ExecuteStatementRequest
+     * @param Request - ExecuteStatementRequest
      *
      * @returns ExecuteStatementResponse
      *
@@ -10386,7 +10605,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取特定的账号信息.
      *
-     * @param request - GetAccountRequest
+     * @param Request - GetAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAccountResponse
@@ -10429,7 +10648,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取特定的账号信息.
      *
-     * @param request - GetAccountRequest
+     * @param Request - GetAccountRequest
      *
      * @returns GetAccountResponse
      *
@@ -10447,7 +10666,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about an access credential.
      *
-     * @param request - GetSecretValueRequest
+     * @param Request - GetSecretValueRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSecretValueResponse
@@ -10506,7 +10725,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries the information about an access credential.
      *
-     * @param request - GetSecretValueRequest
+     * @param Request - GetSecretValueRequest
      *
      * @returns GetSecretValueResponse
      *
@@ -10524,7 +10743,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get Asynchronous SQL Execution Result.
      *
-     * @param request - GetStatementResultRequest
+     * @param Request - GetStatementResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetStatementResultResponse
@@ -10583,7 +10802,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get Asynchronous SQL Execution Result.
      *
-     * @param request - GetStatementResultRequest
+     * @param Request - GetStatementResultRequest
      *
      * @returns GetStatementResultResponse
      *
@@ -10599,6 +10818,189 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 查询Supabase实例详情.
+     *
+     * @param Request - GetSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupabaseProjectResponse
+     *
+     * @param GetSupabaseProjectRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSupabaseProjectResponse
+     */
+    public function getSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase实例详情.
+     *
+     * @param Request - GetSupabaseProjectRequest
+     *
+     * @returns GetSupabaseProjectResponse
+     *
+     * @param GetSupabaseProjectRequest $request
+     *
+     * @return GetSupabaseProjectResponse
+     */
+    public function getSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Supabase实例 API Keys.
+     *
+     * @param Request - GetSupabaseProjectApiKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupabaseProjectApiKeysResponse
+     *
+     * @param GetSupabaseProjectApiKeysRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetSupabaseProjectApiKeysResponse
+     */
+    public function getSupabaseProjectApiKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSupabaseProjectApiKeys',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSupabaseProjectApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase实例 API Keys.
+     *
+     * @param Request - GetSupabaseProjectApiKeysRequest
+     *
+     * @returns GetSupabaseProjectApiKeysResponse
+     *
+     * @param GetSupabaseProjectApiKeysRequest $request
+     *
+     * @return GetSupabaseProjectApiKeysResponse
+     */
+    public function getSupabaseProjectApiKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupabaseProjectApiKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Supabase项目dashboard账号信息.
+     *
+     * @param Request - GetSupabaseProjectDashboardAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupabaseProjectDashboardAccountResponse
+     *
+     * @param GetSupabaseProjectDashboardAccountRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetSupabaseProjectDashboardAccountResponse
+     */
+    public function getSupabaseProjectDashboardAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSupabaseProjectDashboardAccount',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSupabaseProjectDashboardAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase项目dashboard账号信息.
+     *
+     * @param Request - GetSupabaseProjectDashboardAccountRequest
+     *
+     * @returns GetSupabaseProjectDashboardAccountResponse
+     *
+     * @param GetSupabaseProjectDashboardAccountRequest $request
+     *
+     * @return GetSupabaseProjectDashboardAccountResponse
+     */
+    public function getSupabaseProjectDashboardAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupabaseProjectDashboardAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the progress and result of an asynchronous document upload job based on the job ID.
      *
      * @remarks
@@ -10606,7 +11008,7 @@ class Gpdb extends OpenApiClient
      * >  Suggestions:
      * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
      *
-     * @param request - GetUploadDocumentJobRequest
+     * @param Request - GetUploadDocumentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUploadDocumentJobResponse
@@ -10676,7 +11078,7 @@ class Gpdb extends OpenApiClient
      * >  Suggestions:
      * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
      *
-     * @param request - GetUploadDocumentJobRequest
+     * @param Request - GetUploadDocumentJobRequest
      *
      * @returns GetUploadDocumentJobResponse
      *
@@ -10698,7 +11100,7 @@ class Gpdb extends OpenApiClient
      * This operation is related to the `UpsertCollectionDataAsync` operation. You can call the `UpsertCollectionDataAsync` operation to create an upload job and obtain a job ID, and then call the GetUpsertCollectionDataJob operation to query the execution information of the job.
      * >  We recommend that you evaluate the amount of time required for the upload job based on 1,000 data entries every second, and then query the job progress every 5 seconds. The timeout period can be set to 30 minutes after the evaluated amount of time.
      *
-     * @param request - GetUpsertCollectionDataJobRequest
+     * @param Request - GetUpsertCollectionDataJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUpsertCollectionDataJobResponse
@@ -10771,7 +11173,7 @@ class Gpdb extends OpenApiClient
      * This operation is related to the `UpsertCollectionDataAsync` operation. You can call the `UpsertCollectionDataAsync` operation to create an upload job and obtain a job ID, and then call the GetUpsertCollectionDataJob operation to query the execution information of the job.
      * >  We recommend that you evaluate the amount of time required for the upload job based on 1,000 data entries every second, and then query the job progress every 5 seconds. The timeout period can be set to 30 minutes after the evaluated amount of time.
      *
-     * @param request - GetUpsertCollectionDataJobRequest
+     * @param Request - GetUpsertCollectionDataJobRequest
      *
      * @returns GetUpsertCollectionDataJobResponse
      *
@@ -10789,7 +11191,7 @@ class Gpdb extends OpenApiClient
     /**
      * Grants vector collection permissions to a namespace.
      *
-     * @param request - GrantCollectionRequest
+     * @param Request - GrantCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GrantCollectionResponse
@@ -10860,7 +11262,7 @@ class Gpdb extends OpenApiClient
     /**
      * Grants vector collection permissions to a namespace.
      *
-     * @param request - GrantCollectionRequest
+     * @param Request - GrantCollectionRequest
      *
      * @returns GrantCollectionResponse
      *
@@ -10878,7 +11280,7 @@ class Gpdb extends OpenApiClient
     /**
      * Processes active queries.
      *
-     * @param request - HandleActiveSQLRecordRequest
+     * @param Request - HandleActiveSQLRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns HandleActiveSQLRecordResponse
@@ -10925,7 +11327,7 @@ class Gpdb extends OpenApiClient
     /**
      * Processes active queries.
      *
-     * @param request - HandleActiveSQLRecordRequest
+     * @param Request - HandleActiveSQLRecordRequest
      *
      * @returns HandleActiveSQLRecordResponse
      *
@@ -10943,7 +11345,7 @@ class Gpdb extends OpenApiClient
     /**
      * Initializes vector databases.
      *
-     * @param request - InitVectorDatabaseRequest
+     * @param Request - InitVectorDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns InitVectorDatabaseResponse
@@ -11002,7 +11404,7 @@ class Gpdb extends OpenApiClient
     /**
      * Initializes vector databases.
      *
-     * @param request - InitVectorDatabaseRequest
+     * @param Request - InitVectorDatabaseRequest
      *
      * @returns InitVectorDatabaseResponse
      *
@@ -11020,7 +11422,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取备份任务列表.
      *
-     * @param request - ListBackupJobsRequest
+     * @param Request - ListBackupJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListBackupJobsResponse
@@ -11063,7 +11465,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取备份任务列表.
      *
-     * @param request - ListBackupJobsRequest
+     * @param Request - ListBackupJobsRequest
      *
      * @returns ListBackupJobsResponse
      *
@@ -11081,7 +11483,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of vector collections.
      *
-     * @param request - ListCollectionsRequest
+     * @param Request - ListCollectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCollectionsResponse
@@ -11140,7 +11542,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of vector collections.
      *
-     * @param request - ListCollectionsRequest
+     * @param Request - ListCollectionsRequest
      *
      * @returns ListCollectionsResponse
      *
@@ -11158,7 +11560,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of databases.
      *
-     * @param request - ListDatabasesRequest
+     * @param Request - ListDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDatabasesResponse
@@ -11221,7 +11623,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of databases.
      *
-     * @param request - ListDatabasesRequest
+     * @param Request - ListDatabasesRequest
      *
      * @returns ListDatabasesResponse
      *
@@ -11239,7 +11641,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of document collections.
      *
-     * @param request - ListDocumentCollectionsRequest
+     * @param Request - ListDocumentCollectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDocumentCollectionsResponse
@@ -11294,7 +11696,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of document collections.
      *
-     * @param request - ListDocumentCollectionsRequest
+     * @param Request - ListDocumentCollectionsRequest
      *
      * @returns ListDocumentCollectionsResponse
      *
@@ -11312,7 +11714,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of documents in a collection.
      *
-     * @param request - ListDocumentsRequest
+     * @param Request - ListDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDocumentsResponse
@@ -11379,7 +11781,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of documents in a collection.
      *
-     * @param request - ListDocumentsRequest
+     * @param Request - ListDocumentsRequest
      *
      * @returns ListDocumentsResponse
      *
@@ -11397,7 +11799,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of external data services.
      *
-     * @param request - ListExternalDataServicesRequest
+     * @param Request - ListExternalDataServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListExternalDataServicesResponse
@@ -11448,7 +11850,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of external data services.
      *
-     * @param request - ListExternalDataServicesRequest
+     * @param Request - ListExternalDataServicesRequest
      *
      * @returns ListExternalDataServicesResponse
      *
@@ -11466,7 +11868,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取实例外表配置列表.
      *
-     * @param request - ListExternalDataSourcesRequest
+     * @param Request - ListExternalDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListExternalDataSourcesResponse
@@ -11517,7 +11919,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取实例外表配置列表.
      *
-     * @param request - ListExternalDataSourcesRequest
+     * @param Request - ListExternalDataSourcesRequest
      *
      * @returns ListExternalDataSourcesResponse
      *
@@ -11535,7 +11937,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取索引列表.
      *
-     * @param request - ListIndicesRequest
+     * @param Request - ListIndicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListIndicesResponse
@@ -11598,7 +12000,7 @@ class Gpdb extends OpenApiClient
     /**
      * 获取索引列表.
      *
-     * @param request - ListIndicesRequest
+     * @param Request - ListIndicesRequest
      *
      * @returns ListIndicesResponse
      *
@@ -11616,7 +12018,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of extensions.
      *
-     * @param request - ListInstanceExtensionsRequest
+     * @param Request - ListInstanceExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInstanceExtensionsResponse
@@ -11675,7 +12077,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of extensions.
      *
-     * @param request - ListInstanceExtensionsRequest
+     * @param Request - ListInstanceExtensionsRequest
      *
      * @returns ListInstanceExtensionsResponse
      *
@@ -11693,7 +12095,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of namespaces.
      *
-     * @param request - ListNamespacesRequest
+     * @param Request - ListNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNamespacesResponse
@@ -11752,7 +12154,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of namespaces.
      *
-     * @param request - ListNamespacesRequest
+     * @param Request - ListNamespacesRequest
      *
      * @returns ListNamespacesResponse
      *
@@ -11770,7 +12172,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get Homogeneous Data Source.
      *
-     * @param request - ListRemoteADBDataSourcesRequest
+     * @param Request - ListRemoteADBDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRemoteADBDataSourcesResponse
@@ -11817,7 +12219,7 @@ class Gpdb extends OpenApiClient
     /**
      * Get Homogeneous Data Source.
      *
-     * @param request - ListRemoteADBDataSourcesRequest
+     * @param Request - ListRemoteADBDataSourcesRequest
      *
      * @returns ListRemoteADBDataSourcesResponse
      *
@@ -11835,7 +12237,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of schemas.
      *
-     * @param request - ListSchemasRequest
+     * @param Request - ListSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSchemasResponse
@@ -11902,7 +12304,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of schemas.
      *
-     * @param request - ListSchemasRequest
+     * @param Request - ListSchemasRequest
      *
      * @returns ListSchemasResponse
      *
@@ -11920,7 +12322,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of access credentials.
      *
-     * @param request - ListSecretsRequest
+     * @param Request - ListSecretsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSecretsResponse
@@ -11971,7 +12373,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of access credentials.
      *
-     * @param request - ListSecretsRequest
+     * @param Request - ListSecretsRequest
      *
      * @returns ListSecretsResponse
      *
@@ -11989,7 +12391,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - ListStreamingDataServicesRequest
+     * @param Request - ListStreamingDataServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListStreamingDataServicesResponse
@@ -12040,7 +12442,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - ListStreamingDataServicesRequest
+     * @param Request - ListStreamingDataServicesRequest
      *
      * @returns ListStreamingDataServicesResponse
      *
@@ -12058,7 +12460,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries real-time service data sources.
      *
-     * @param request - ListStreamingDataSourcesRequest
+     * @param Request - ListStreamingDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListStreamingDataSourcesResponse
@@ -12109,7 +12511,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries real-time service data sources.
      *
-     * @param request - ListStreamingDataSourcesRequest
+     * @param Request - ListStreamingDataSourcesRequest
      *
      * @returns ListStreamingDataSourcesResponse
      *
@@ -12127,7 +12529,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries real-time data synchronization jobs.
      *
-     * @param request - ListStreamingJobsRequest
+     * @param Request - ListStreamingJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListStreamingJobsResponse
@@ -12178,7 +12580,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries real-time data synchronization jobs.
      *
-     * @param request - ListStreamingJobsRequest
+     * @param Request - ListStreamingJobsRequest
      *
      * @returns ListStreamingJobsResponse
      *
@@ -12194,9 +12596,74 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 查询Supabase实例列表.
+     *
+     * @param Request - ListSupabaseProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSupabaseProjectsResponse
+     *
+     * @param ListSupabaseProjectsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSupabaseProjectsResponse
+     */
+    public function listSupabaseProjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSupabaseProjects',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSupabaseProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase实例列表.
+     *
+     * @param Request - ListSupabaseProjectsRequest
+     *
+     * @returns ListSupabaseProjectsResponse
+     *
+     * @param ListSupabaseProjectsRequest $request
+     *
+     * @return ListSupabaseProjectsResponse
+     */
+    public function listSupabaseProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSupabaseProjectsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of tables in a database.
      *
-     * @param request - ListTablesRequest
+     * @param Request - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTablesResponse
@@ -12267,7 +12734,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of tables in a database.
      *
-     * @param request - ListTablesRequest
+     * @param Request - ListTablesRequest
      *
      * @returns ListTablesResponse
      *
@@ -12285,7 +12752,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
      *
-     * @param request - ListTagResourcesRequest
+     * @param Request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTagResourcesResponse
@@ -12356,7 +12823,7 @@ class Gpdb extends OpenApiClient
     /**
      * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
      *
-     * @param request - ListTagResourcesRequest
+     * @param Request - ListTagResourcesRequest
      *
      * @returns ListTagResourcesResponse
      *
@@ -12374,7 +12841,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyAccountDescriptionRequest
+     * @param Request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyAccountDescriptionResponse
@@ -12425,7 +12892,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyAccountDescriptionRequest
+     * @param Request - ModifyAccountDescriptionRequest
      *
      * @returns ModifyAccountDescriptionResponse
      *
@@ -12443,7 +12910,7 @@ class Gpdb extends OpenApiClient
     /**
      * Configures the backup policy of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyBackupPolicyRequest
+     * @param Request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyBackupPolicyResponse
@@ -12502,7 +12969,7 @@ class Gpdb extends OpenApiClient
     /**
      * Configures the backup policy of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyBackupPolicyRequest
+     * @param Request - ModifyBackupPolicyRequest
      *
      * @returns ModifyBackupPolicyResponse
      *
@@ -12520,7 +12987,7 @@ class Gpdb extends OpenApiClient
     /**
      * 更新Collection.
      *
-     * @param request - ModifyCollectionRequest
+     * @param Request - ModifyCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyCollectionResponse
@@ -12587,7 +13054,7 @@ class Gpdb extends OpenApiClient
     /**
      * 更新Collection.
      *
-     * @param request - ModifyCollectionRequest
+     * @param Request - ModifyCollectionRequest
      *
      * @returns ModifyCollectionResponse
      *
@@ -12605,7 +13072,7 @@ class Gpdb extends OpenApiClient
     /**
      * Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
      *
-     * @param request - ModifyDBInstanceConfigRequest
+     * @param Request - ModifyDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceConfigResponse
@@ -12660,7 +13127,7 @@ class Gpdb extends OpenApiClient
     /**
      * Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
      *
-     * @param request - ModifyDBInstanceConfigRequest
+     * @param Request - ModifyDBInstanceConfigRequest
      *
      * @returns ModifyDBInstanceConfigResponse
      *
@@ -12678,7 +13145,7 @@ class Gpdb extends OpenApiClient
     /**
      * Changes the endpoint of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyDBInstanceConnectionStringRequest
+     * @param Request - ModifyDBInstanceConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceConnectionStringResponse
@@ -12733,7 +13200,7 @@ class Gpdb extends OpenApiClient
     /**
      * Changes the endpoint of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyDBInstanceConnectionStringRequest
+     * @param Request - ModifyDBInstanceConnectionStringRequest
      *
      * @returns ModifyDBInstanceConnectionStringResponse
      *
@@ -12751,7 +13218,7 @@ class Gpdb extends OpenApiClient
     /**
      * 修改实例部署模式.
      *
-     * @param request - ModifyDBInstanceDeploymentModeRequest
+     * @param Request - ModifyDBInstanceDeploymentModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceDeploymentModeResponse
@@ -12802,7 +13269,7 @@ class Gpdb extends OpenApiClient
     /**
      * 修改实例部署模式.
      *
-     * @param request - ModifyDBInstanceDeploymentModeRequest
+     * @param Request - ModifyDBInstanceDeploymentModeRequest
      *
      * @returns ModifyDBInstanceDeploymentModeResponse
      *
@@ -12825,7 +13292,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyDBInstanceDescriptionRequest
+     * @param Request - ModifyDBInstanceDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceDescriptionResponse
@@ -12877,7 +13344,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyDBInstanceDescriptionRequest
+     * @param Request - ModifyDBInstanceDescriptionRequest
      *
      * @returns ModifyDBInstanceDescriptionResponse
      *
@@ -12900,7 +13367,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyDBInstanceMaintainTimeRequest
+     * @param Request - ModifyDBInstanceMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceMaintainTimeResponse
@@ -12956,7 +13423,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyDBInstanceMaintainTimeRequest
+     * @param Request - ModifyDBInstanceMaintainTimeRequest
      *
      * @returns ModifyDBInstanceMaintainTimeResponse
      *
@@ -12980,7 +13447,7 @@ class Gpdb extends OpenApiClient
      * ## QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyDBInstanceNetworkTypeRequest
+     * @param Request - ModifyDBInstanceNetworkTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceNetworkTypeResponse
@@ -13041,7 +13508,7 @@ class Gpdb extends OpenApiClient
      * ## QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyDBInstanceNetworkTypeRequest
+     * @param Request - ModifyDBInstanceNetworkTypeRequest
      *
      * @returns ModifyDBInstanceNetworkTypeResponse
      *
@@ -13059,7 +13526,7 @@ class Gpdb extends OpenApiClient
     /**
      * 包年包月/按量付费转换改造.
      *
-     * @param request - ModifyDBInstancePayTypeRequest
+     * @param Request - ModifyDBInstancePayTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstancePayTypeResponse
@@ -13110,7 +13577,7 @@ class Gpdb extends OpenApiClient
     /**
      * 包年包月/按量付费转换改造.
      *
-     * @param request - ModifyDBInstancePayTypeRequest
+     * @param Request - ModifyDBInstancePayTypeRequest
      *
      * @returns ModifyDBInstancePayTypeResponse
      *
@@ -13131,7 +13598,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
      *
-     * @param request - ModifyDBInstanceResourceGroupRequest
+     * @param Request - ModifyDBInstanceResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceResourceGroupResponse
@@ -13197,7 +13664,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
      *
-     * @param request - ModifyDBInstanceResourceGroupRequest
+     * @param Request - ModifyDBInstanceResourceGroupRequest
      *
      * @returns ModifyDBInstanceResourceGroupResponse
      *
@@ -13215,7 +13682,7 @@ class Gpdb extends OpenApiClient
     /**
      * Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyDBInstanceSSLRequest
+     * @param Request - ModifyDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceSSLResponse
@@ -13262,7 +13729,7 @@ class Gpdb extends OpenApiClient
     /**
      * Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyDBInstanceSSLRequest
+     * @param Request - ModifyDBInstanceSSLRequest
      *
      * @returns ModifyDBInstanceSSLResponse
      *
@@ -13333,7 +13800,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the configurations of a resource group.
      *
-     * @param request - ModifyDBResourceGroupRequest
+     * @param Request - ModifyDBResourceGroupRequest
      *
      * @returns ModifyDBResourceGroupResponse
      *
@@ -13351,7 +13818,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modify External Data Service.
      *
-     * @param request - ModifyExternalDataServiceRequest
+     * @param Request - ModifyExternalDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyExternalDataServiceResponse
@@ -13406,7 +13873,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modify External Data Service.
      *
-     * @param request - ModifyExternalDataServiceRequest
+     * @param Request - ModifyExternalDataServiceRequest
      *
      * @returns ModifyExternalDataServiceResponse
      *
@@ -13424,7 +13891,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the configurations of a Hadoop data source.
      *
-     * @param request - ModifyHadoopDataSourceRequest
+     * @param Request - ModifyHadoopDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyHadoopDataSourceResponse
@@ -13511,7 +13978,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the configurations of a Hadoop data source.
      *
-     * @param request - ModifyHadoopDataSourceRequest
+     * @param Request - ModifyHadoopDataSourceRequest
      *
      * @returns ModifyHadoopDataSourceResponse
      *
@@ -13529,7 +13996,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the configurations of a Java Database Connectivity (JDBC) data source.
      *
-     * @param request - ModifyJDBCDataSourceRequest
+     * @param Request - ModifyJDBCDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyJDBCDataSourceResponse
@@ -13596,7 +14063,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the configurations of a Java Database Connectivity (JDBC) data source.
      *
-     * @param request - ModifyJDBCDataSourceRequest
+     * @param Request - ModifyJDBCDataSourceRequest
      *
      * @returns ModifyJDBCDataSourceResponse
      *
@@ -13618,7 +14085,7 @@ class Gpdb extends OpenApiClient
      * This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *
-     * @param request - ModifyMasterSpecRequest
+     * @param Request - ModifyMasterSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyMasterSpecResponse
@@ -13677,7 +14144,7 @@ class Gpdb extends OpenApiClient
      * This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *
-     * @param request - ModifyMasterSpecRequest
+     * @param Request - ModifyMasterSpecRequest
      *
      * @returns ModifyMasterSpecResponse
      *
@@ -13700,7 +14167,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyParametersRequest
+     * @param Request - ModifyParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyParametersResponse
@@ -13752,7 +14219,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifyParametersRequest
+     * @param Request - ModifyParametersRequest
      *
      * @returns ModifyParametersResponse
      *
@@ -13770,7 +14237,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modify Homogeneous Data Source.
      *
-     * @param request - ModifyRemoteADBDataSourceRequest
+     * @param Request - ModifyRemoteADBDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyRemoteADBDataSourceResponse
@@ -13829,7 +14296,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modify Homogeneous Data Source.
      *
-     * @param request - ModifyRemoteADBDataSourceRequest
+     * @param Request - ModifyRemoteADBDataSourceRequest
      *
      * @returns ModifyRemoteADBDataSourceResponse
      *
@@ -13851,7 +14318,7 @@ class Gpdb extends OpenApiClient
      *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
      * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
      *
-     * @param request - ModifySQLCollectorPolicyRequest
+     * @param Request - ModifySQLCollectorPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifySQLCollectorPolicyResponse
@@ -13898,7 +14365,7 @@ class Gpdb extends OpenApiClient
      *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
      * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
      *
-     * @param request - ModifySQLCollectorPolicyRequest
+     * @param Request - ModifySQLCollectorPolicyRequest
      *
      * @returns ModifySQLCollectorPolicyResponse
      *
@@ -13921,7 +14388,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifySecurityIpsRequest
+     * @param Request - ModifySecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifySecurityIpsResponse
@@ -13985,7 +14452,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ModifySecurityIpsRequest
+     * @param Request - ModifySecurityIpsRequest
      *
      * @returns ModifySecurityIpsResponse
      *
@@ -14003,7 +14470,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies a real-time data service.
      *
-     * @param request - ModifyStreamingDataServiceRequest
+     * @param Request - ModifyStreamingDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyStreamingDataServiceResponse
@@ -14058,7 +14525,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies a real-time data service.
      *
-     * @param request - ModifyStreamingDataServiceRequest
+     * @param Request - ModifyStreamingDataServiceRequest
      *
      * @returns ModifyStreamingDataServiceResponse
      *
@@ -14076,7 +14543,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies a real-time service data source.
      *
-     * @param request - ModifyStreamingDataSourceRequest
+     * @param Request - ModifyStreamingDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyStreamingDataSourceResponse
@@ -14131,7 +14598,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies a real-time service data source.
      *
-     * @param request - ModifyStreamingDataSourceRequest
+     * @param Request - ModifyStreamingDataSourceRequest
      *
      * @returns ModifyStreamingDataSourceResponse
      *
@@ -14282,7 +14749,7 @@ class Gpdb extends OpenApiClient
     /**
      * Create External Data Source Configuration.
      *
-     * @param request - ModifyStreamingJobRequest
+     * @param Request - ModifyStreamingJobRequest
      *
      * @returns ModifyStreamingJobResponse
      *
@@ -14298,9 +14765,74 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 修改supabase项目白名单.
+     *
+     * @param Request - ModifySupabaseProjectSecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySupabaseProjectSecurityIpsResponse
+     *
+     * @param ModifySupabaseProjectSecurityIpsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifySupabaseProjectSecurityIpsResponse
+     */
+    public function modifySupabaseProjectSecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySupabaseProjectSecurityIps',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySupabaseProjectSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改supabase项目白名单.
+     *
+     * @param Request - ModifySupabaseProjectSecurityIpsRequest
+     *
+     * @returns ModifySupabaseProjectSecurityIpsResponse
+     *
+     * @param ModifySupabaseProjectSecurityIpsRequest $request
+     *
+     * @return ModifySupabaseProjectSecurityIpsResponse
+     */
+    public function modifySupabaseProjectSecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupabaseProjectSecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyVectorConfigurationRequest
+     * @param Request - ModifyVectorConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyVectorConfigurationResponse
@@ -14347,7 +14879,7 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ModifyVectorConfigurationRequest
+     * @param Request - ModifyVectorConfigurationRequest
      *
      * @returns ModifyVectorConfigurationResponse
      *
@@ -14365,7 +14897,7 @@ class Gpdb extends OpenApiClient
     /**
      * Pauses data redistribution.
      *
-     * @param request - PauseDataRedistributeRequest
+     * @param Request - PauseDataRedistributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PauseDataRedistributeResponse
@@ -14408,7 +14940,7 @@ class Gpdb extends OpenApiClient
     /**
      * Pauses data redistribution.
      *
-     * @param request - PauseDataRedistributeRequest
+     * @param Request - PauseDataRedistributeRequest
      *
      * @returns PauseDataRedistributeResponse
      *
@@ -14433,7 +14965,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - PauseInstanceRequest
+     * @param Request - PauseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PauseInstanceResponse
@@ -14483,7 +15015,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - PauseInstanceRequest
+     * @param Request - PauseInstanceRequest
      *
      * @returns PauseInstanceResponse
      *
@@ -14636,7 +15168,7 @@ class Gpdb extends OpenApiClient
     /**
      * Query Vector Data.
      *
-     * @param request - QueryCollectionDataRequest
+     * @param Request - QueryCollectionDataRequest
      *
      * @returns QueryCollectionDataResponse
      *
@@ -14785,7 +15317,7 @@ class Gpdb extends OpenApiClient
     /**
      * Query.
      *
-     * @param request - QueryContentRequest
+     * @param Request - QueryContentRequest
      *
      * @returns QueryContentResponse
      *
@@ -14809,12 +15341,20 @@ class Gpdb extends OpenApiClient
     public function queryContentAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -14831,51 +15371,54 @@ class Gpdb extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'gpdb',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'gpdb',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $queryContentReq = new QueryContentRequest([]);
         Utils::convert($request, $queryContentReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $queryContentReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $queryContentReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->queryContentWithOptions($queryContentReq, $runtime);
@@ -14884,7 +15427,7 @@ class Gpdb extends OpenApiClient
     /**
      * Rebalances an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - RebalanceDBInstanceRequest
+     * @param Request - RebalanceDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RebalanceDBInstanceResponse
@@ -14927,7 +15470,7 @@ class Gpdb extends OpenApiClient
     /**
      * Rebalances an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - RebalanceDBInstanceRequest
+     * @param Request - RebalanceDBInstanceRequest
      *
      * @returns RebalanceDBInstanceResponse
      *
@@ -14945,7 +15488,7 @@ class Gpdb extends OpenApiClient
     /**
      * Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ReleaseInstancePublicConnectionRequest
+     * @param Request - ReleaseInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ReleaseInstancePublicConnectionResponse
@@ -14992,7 +15535,7 @@ class Gpdb extends OpenApiClient
     /**
      * Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ReleaseInstancePublicConnectionRequest
+     * @param Request - ReleaseInstancePublicConnectionRequest
      *
      * @returns ReleaseInstancePublicConnectionResponse
      *
@@ -15089,7 +15632,7 @@ class Gpdb extends OpenApiClient
     /**
      * Score and re-order documents using a model.
      *
-     * @param request - RerankRequest
+     * @param Request - RerankRequest
      *
      * @returns RerankResponse
      *
@@ -15107,7 +15650,7 @@ class Gpdb extends OpenApiClient
     /**
      * Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ResetAccountPasswordRequest
+     * @param Request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ResetAccountPasswordResponse
@@ -15154,7 +15697,7 @@ class Gpdb extends OpenApiClient
     /**
      * Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - ResetAccountPasswordRequest
+     * @param Request - ResetAccountPasswordRequest
      *
      * @returns ResetAccountPasswordResponse
      *
@@ -15172,7 +15715,7 @@ class Gpdb extends OpenApiClient
     /**
      * Resets the IMV statistics.
      *
-     * @param request - ResetIMVMonitorDataRequest
+     * @param Request - ResetIMVMonitorDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ResetIMVMonitorDataResponse
@@ -15215,7 +15758,7 @@ class Gpdb extends OpenApiClient
     /**
      * Resets the IMV statistics.
      *
-     * @param request - ResetIMVMonitorDataRequest
+     * @param Request - ResetIMVMonitorDataRequest
      *
      * @returns ResetIMVMonitorDataResponse
      *
@@ -15231,6 +15774,71 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 重置supabase数据库密码
+     *
+     * @param Request - ResetSupabaseProjectPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetSupabaseProjectPasswordResponse
+     *
+     * @param ResetSupabaseProjectPasswordRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ResetSupabaseProjectPasswordResponse
+     */
+    public function resetSupabaseProjectPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetSupabaseProjectPassword',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetSupabaseProjectPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置supabase数据库密码
+     *
+     * @param Request - ResetSupabaseProjectPasswordRequest
+     *
+     * @returns ResetSupabaseProjectPasswordResponse
+     *
+     * @param ResetSupabaseProjectPasswordRequest $request
+     *
+     * @return ResetSupabaseProjectPasswordResponse
+     */
+    public function resetSupabaseProjectPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetSupabaseProjectPasswordWithOptions($request, $runtime);
+    }
+
+    /**
      * Restarts an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
@@ -15238,7 +15846,7 @@ class Gpdb extends OpenApiClient
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - RestartDBInstanceRequest
+     * @param Request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RestartDBInstanceResponse
@@ -15286,7 +15894,7 @@ class Gpdb extends OpenApiClient
      * ## Limit
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - RestartDBInstanceRequest
+     * @param Request - RestartDBInstanceRequest
      *
      * @returns RestartDBInstanceResponse
      *
@@ -15304,7 +15912,7 @@ class Gpdb extends OpenApiClient
     /**
      * Resumes data redistribution.
      *
-     * @param request - ResumeDataRedistributeRequest
+     * @param Request - ResumeDataRedistributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ResumeDataRedistributeResponse
@@ -15347,7 +15955,7 @@ class Gpdb extends OpenApiClient
     /**
      * Resumes data redistribution.
      *
-     * @param request - ResumeDataRedistributeRequest
+     * @param Request - ResumeDataRedistributeRequest
      *
      * @returns ResumeDataRedistributeResponse
      *
@@ -15372,7 +15980,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ResumeInstanceRequest
+     * @param Request - ResumeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ResumeInstanceResponse
@@ -15422,7 +16030,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - ResumeInstanceRequest
+     * @param Request - ResumeInstanceRequest
      *
      * @returns ResumeInstanceResponse
      *
@@ -15445,7 +16053,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - SetDBInstancePlanStatusRequest
+     * @param Request - SetDBInstancePlanStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SetDBInstancePlanStatusResponse
@@ -15501,7 +16109,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - SetDBInstancePlanStatusRequest
+     * @param Request - SetDBInstancePlanStatusRequest
      *
      * @returns SetDBInstancePlanStatusResponse
      *
@@ -15586,7 +16194,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
      *
-     * @param request - SetDataShareInstanceRequest
+     * @param Request - SetDataShareInstanceRequest
      *
      * @returns SetDataShareInstanceResponse
      *
@@ -15607,7 +16215,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
      *
-     * @param request - SwitchDBInstanceNetTypeRequest
+     * @param Request - SwitchDBInstanceNetTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SwitchDBInstanceNetTypeResponse
@@ -15657,7 +16265,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
      *
-     * @param request - SwitchDBInstanceNetTypeRequest
+     * @param Request - SwitchDBInstanceNetTypeRequest
      *
      * @returns SwitchDBInstanceNetTypeResponse
      *
@@ -15675,7 +16283,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates and adds tags to AnalyticDB for PostgreSQL instances.
      *
-     * @param request - TagResourcesRequest
+     * @param Request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TagResourcesResponse
@@ -15742,7 +16350,7 @@ class Gpdb extends OpenApiClient
     /**
      * Creates and adds tags to AnalyticDB for PostgreSQL instances.
      *
-     * @param request - TagResourcesRequest
+     * @param Request - TagResourcesRequest
      *
      * @returns TagResourcesResponse
      *
@@ -15827,7 +16435,7 @@ class Gpdb extends OpenApiClient
     /**
      * 通过模型对文本文档进行向量化.
      *
-     * @param request - TextEmbeddingRequest
+     * @param Request - TextEmbeddingRequest
      *
      * @returns TextEmbeddingResponse
      *
@@ -15902,7 +16510,7 @@ class Gpdb extends OpenApiClient
     /**
      * Unbinds database roles from a resource group.
      *
-     * @param request - UnbindDBResourceGroupWithRoleRequest
+     * @param Request - UnbindDBResourceGroupWithRoleRequest
      *
      * @returns UnbindDBResourceGroupWithRoleResponse
      *
@@ -15925,7 +16533,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - UnloadSampleDataRequest
+     * @param Request - UnloadSampleDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UnloadSampleDataResponse
@@ -15973,7 +16581,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - UnloadSampleDataRequest
+     * @param Request - UnloadSampleDataRequest
      *
      * @returns UnloadSampleDataResponse
      *
@@ -15991,7 +16599,7 @@ class Gpdb extends OpenApiClient
     /**
      * Remove resource tags.
      *
-     * @param request - UntagResourcesRequest
+     * @param Request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UntagResourcesResponse
@@ -16062,7 +16670,7 @@ class Gpdb extends OpenApiClient
     /**
      * Remove resource tags.
      *
-     * @param request - UntagResourcesRequest
+     * @param Request - UntagResourcesRequest
      *
      * @returns UntagResourcesResponse
      *
@@ -16165,7 +16773,7 @@ class Gpdb extends OpenApiClient
     /**
      * Update Metadata of Collection Data.
      *
-     * @param request - UpdateCollectionDataMetadataRequest
+     * @param Request - UpdateCollectionDataMetadataRequest
      *
      * @returns UpdateCollectionDataMetadataResponse
      *
@@ -16188,7 +16796,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - UpdateDBInstancePlanRequest
+     * @param Request - UpdateDBInstancePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDBInstancePlanResponse
@@ -16260,7 +16868,7 @@ class Gpdb extends OpenApiClient
      * ## Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - UpdateDBInstancePlanRequest
+     * @param Request - UpdateDBInstancePlanRequest
      *
      * @returns UpdateDBInstancePlanResponse
      *
@@ -16282,7 +16890,7 @@ class Gpdb extends OpenApiClient
      * This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *
-     * @param request - UpgradeDBInstanceRequest
+     * @param Request - UpgradeDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpgradeDBInstanceResponse
@@ -16385,7 +16993,7 @@ class Gpdb extends OpenApiClient
      * This operation is not available for instances in reserved storage mode.
      * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *
-     * @param request - UpgradeDBInstanceRequest
+     * @param Request - UpgradeDBInstanceRequest
      *
      * @returns UpgradeDBInstanceResponse
      *
@@ -16403,7 +17011,7 @@ class Gpdb extends OpenApiClient
     /**
      * Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - UpgradeDBVersionRequest
+     * @param Request - UpgradeDBVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpgradeDBVersionResponse
@@ -16466,7 +17074,7 @@ class Gpdb extends OpenApiClient
     /**
      * Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
      *
-     * @param request - UpgradeDBVersionRequest
+     * @param Request - UpgradeDBVersionRequest
      *
      * @returns UpgradeDBVersionResponse
      *
@@ -16484,7 +17092,7 @@ class Gpdb extends OpenApiClient
     /**
      * Updates extensions.
      *
-     * @param request - UpgradeExtensionsRequest
+     * @param Request - UpgradeExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpgradeExtensionsResponse
@@ -16535,7 +17143,7 @@ class Gpdb extends OpenApiClient
     /**
      * Updates extensions.
      *
-     * @param request - UpgradeExtensionsRequest
+     * @param Request - UpgradeExtensionsRequest
      *
      * @returns UpgradeExtensionsResponse
      *
@@ -16684,7 +17292,7 @@ class Gpdb extends OpenApiClient
      * *   A text document can be split into up to 100,000 chunks.
      * *   If a document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query up to 10,000 images.
      *
-     * @param request - UploadDocumentAsyncRequest
+     * @param Request - UploadDocumentAsyncRequest
      *
      * @returns UploadDocumentAsyncResponse
      *
@@ -16708,12 +17316,20 @@ class Gpdb extends OpenApiClient
     public function uploadDocumentAsyncAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -16730,51 +17346,54 @@ class Gpdb extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'gpdb',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'gpdb',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $uploadDocumentAsyncReq = new UploadDocumentAsyncRequest([]);
         Utils::convert($request, $uploadDocumentAsyncReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $uploadDocumentAsyncReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $uploadDocumentAsyncReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->uploadDocumentAsyncWithOptions($uploadDocumentAsyncReq, $runtime);
@@ -16872,7 +17491,7 @@ class Gpdb extends OpenApiClient
      * @remarks
      * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
      *
-     * @param request - UpsertChunksRequest
+     * @param Request - UpsertChunksRequest
      *
      * @returns UpsertChunksResponse
      *
@@ -16965,7 +17584,7 @@ class Gpdb extends OpenApiClient
     /**
      * Uploads vector data to a vector collection.
      *
-     * @param request - UpsertCollectionDataRequest
+     * @param Request - UpsertCollectionDataRequest
      *
      * @returns UpsertCollectionDataResponse
      *
@@ -16990,7 +17609,7 @@ class Gpdb extends OpenApiClient
      * *   You can call the CancelUpsertCollectionDataJob operation to cancel an upload job.
      * > You can upload data for the same collection only in a serial manner.
      *
-     * @param request - UpsertCollectionDataAsyncRequest
+     * @param Request - UpsertCollectionDataAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpsertCollectionDataAsyncResponse
@@ -17066,7 +17685,7 @@ class Gpdb extends OpenApiClient
      * *   You can call the CancelUpsertCollectionDataJob operation to cancel an upload job.
      * > You can upload data for the same collection only in a serial manner.
      *
-     * @param request - UpsertCollectionDataAsyncRequest
+     * @param Request - UpsertCollectionDataAsyncRequest
      *
      * @returns UpsertCollectionDataAsyncResponse
      *
@@ -17090,12 +17709,20 @@ class Gpdb extends OpenApiClient
     public function upsertCollectionDataAsyncAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -17112,51 +17739,54 @@ class Gpdb extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'gpdb',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'gpdb',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $upsertCollectionDataAsyncReq = new UpsertCollectionDataAsyncRequest([]);
         Utils::convert($request, $upsertCollectionDataAsyncReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $upsertCollectionDataAsyncReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $upsertCollectionDataAsyncReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->upsertCollectionDataAsyncWithOptions($upsertCollectionDataAsyncReq, $runtime);
