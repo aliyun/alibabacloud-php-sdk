@@ -72,6 +72,7 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUs
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindRequest;
@@ -2520,19 +2521,25 @@ class Appstreamcenter extends OpenApiClient
      * @remarks
      * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
      *
-     * @param request - RenewAppInstanceGroupRequest
+     * @param tmpReq - RenewAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RenewAppInstanceGroupResponse
      *
-     * @param RenewAppInstanceGroupRequest $request
+     * @param RenewAppInstanceGroupRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return RenewAppInstanceGroupResponse
      */
-    public function renewAppInstanceGroupWithOptions($request, $runtime)
+    public function renewAppInstanceGroupWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new RenewAppInstanceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renewNodes) {
+            $request->renewNodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renewNodes, 'RenewNodes', 'json');
+        }
+
         $query = [];
         if (null !== $request->appInstanceGroupId) {
             @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
@@ -2556,6 +2563,18 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->promotionId) {
             @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->renewAmount) {
+            @$query['RenewAmount'] = $request->renewAmount;
+        }
+
+        if (null !== $request->renewMode) {
+            @$query['RenewMode'] = $request->renewMode;
+        }
+
+        if (null !== $request->renewNodesShrink) {
+            @$query['RenewNodes'] = $request->renewNodesShrink;
         }
 
         $req = new OpenApiRequest([

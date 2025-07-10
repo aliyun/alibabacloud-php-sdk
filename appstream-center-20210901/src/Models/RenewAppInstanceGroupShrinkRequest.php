@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RenewAppInstanceGroupRequest extends Model
+class RenewAppInstanceGroupShrinkRequest extends Model
 {
     /**
      * @var string
@@ -49,9 +49,9 @@ class RenewAppInstanceGroupRequest extends Model
     public $renewMode;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $renewNodes;
+    public $renewNodesShrink;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'autoPay' => 'AutoPay',
@@ -61,14 +61,11 @@ class RenewAppInstanceGroupRequest extends Model
         'promotionId' => 'PromotionId',
         'renewAmount' => 'RenewAmount',
         'renewMode' => 'RenewMode',
-        'renewNodes' => 'RenewNodes',
+        'renewNodesShrink' => 'RenewNodes',
     ];
 
     public function validate()
     {
-        if (\is_array($this->renewNodes)) {
-            Model::validateArray($this->renewNodes);
-        }
         parent::validate();
     }
 
@@ -107,15 +104,8 @@ class RenewAppInstanceGroupRequest extends Model
             $res['RenewMode'] = $this->renewMode;
         }
 
-        if (null !== $this->renewNodes) {
-            if (\is_array($this->renewNodes)) {
-                $res['RenewNodes'] = [];
-                $n1 = 0;
-                foreach ($this->renewNodes as $item1) {
-                    $res['RenewNodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->renewNodesShrink) {
+            $res['RenewNodes'] = $this->renewNodesShrink;
         }
 
         return $res;
@@ -162,14 +152,7 @@ class RenewAppInstanceGroupRequest extends Model
         }
 
         if (isset($map['RenewNodes'])) {
-            if (!empty($map['RenewNodes'])) {
-                $model->renewNodes = [];
-                $n1 = 0;
-                foreach ($map['RenewNodes'] as $item1) {
-                    $model->renewNodes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->renewNodesShrink = $map['RenewNodes'];
         }
 
         return $model;
