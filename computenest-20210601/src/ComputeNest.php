@@ -501,6 +501,10 @@ class ComputeNest extends OpenApiClient
             @$query['ServiceId'] = $request->serviceId;
         }
 
+        if (null !== $request->serviceInstanceId) {
+            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+
         if (null !== $request->serviceVersion) {
             @$query['ServiceVersion'] = $request->serviceVersion;
         }

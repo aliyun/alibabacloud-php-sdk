@@ -43,7 +43,8 @@ class GetServiceInstanceSubscriptionEstimateCostResponseBody extends Model
                 $res['ResourcePrices'] = [];
                 $n1 = 0;
                 foreach ($this->resourcePrices as $item1) {
-                    $res['ResourcePrices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourcePrices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class GetServiceInstanceSubscriptionEstimateCostResponseBody extends Model
                 $model->resourcePrices = [];
                 $n1 = 0;
                 foreach ($map['ResourcePrices'] as $item1) {
-                    $model->resourcePrices[$n1++] = resourcePrices::fromMap($item1);
+                    $model->resourcePrices[$n1] = resourcePrices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

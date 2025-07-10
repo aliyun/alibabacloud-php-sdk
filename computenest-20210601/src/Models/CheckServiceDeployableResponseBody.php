@@ -39,7 +39,8 @@ class CheckServiceDeployableResponseBody extends Model
                 $res['CheckResults'] = [];
                 $n1 = 0;
                 foreach ($this->checkResults as $item1) {
-                    $res['CheckResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CheckResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class CheckServiceDeployableResponseBody extends Model
                 $model->checkResults = [];
                 $n1 = 0;
                 foreach ($map['CheckResults'] as $item1) {
-                    $model->checkResults[$n1++] = checkResults::fromMap($item1);
+                    $model->checkResults[$n1] = checkResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

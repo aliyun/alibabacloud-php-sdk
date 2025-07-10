@@ -57,7 +57,8 @@ class privateVpcConnections extends Model
                 $res['ConnectionConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->connectionConfigs as $item1) {
-                    $res['ConnectionConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConnectionConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class privateVpcConnections extends Model
                 $model->connectionConfigs = [];
                 $n1 = 0;
                 foreach ($map['ConnectionConfigs'] as $item1) {
-                    $model->connectionConfigs[$n1++] = connectionConfigs::fromMap($item1);
+                    $model->connectionConfigs[$n1] = connectionConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

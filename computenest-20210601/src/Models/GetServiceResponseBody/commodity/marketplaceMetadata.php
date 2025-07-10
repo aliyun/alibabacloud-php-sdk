@@ -33,7 +33,8 @@ class marketplaceMetadata extends Model
                 $res['SpecificationMappings'] = [];
                 $n1 = 0;
                 foreach ($this->specificationMappings as $item1) {
-                    $res['SpecificationMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpecificationMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class marketplaceMetadata extends Model
                 $model->specificationMappings = [];
                 $n1 = 0;
                 foreach ($map['SpecificationMappings'] as $item1) {
-                    $model->specificationMappings[$n1++] = specificationMappings::fromMap($item1);
+                    $model->specificationMappings[$n1] = specificationMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

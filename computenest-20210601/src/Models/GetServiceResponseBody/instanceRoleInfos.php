@@ -54,7 +54,8 @@ class instanceRoleInfos extends Model
                 $res['Principals'] = [];
                 $n1 = 0;
                 foreach ($this->principals as $item1) {
-                    $res['Principals'][$n1++] = $item1;
+                    $res['Principals'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class instanceRoleInfos extends Model
                 $model->principals = [];
                 $n1 = 0;
                 foreach ($map['Principals'] as $item1) {
-                    $model->principals[$n1++] = $item1;
+                    $model->principals[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

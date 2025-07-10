@@ -33,7 +33,8 @@ class cssMetadata extends Model
                 $res['ComponentsMappings'] = [];
                 $n1 = 0;
                 foreach ($this->componentsMappings as $item1) {
-                    $res['ComponentsMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComponentsMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cssMetadata extends Model
                 $model->componentsMappings = [];
                 $n1 = 0;
                 foreach ($map['ComponentsMappings'] as $item1) {
-                    $model->componentsMappings[$n1++] = componentsMappings::fromMap($item1);
+                    $model->componentsMappings[$n1] = componentsMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

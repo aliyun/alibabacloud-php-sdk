@@ -115,7 +115,8 @@ class commodity extends Model
                         $res['OrderTime'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['OrderTime'][$key1][$n2++] = $item2;
+                            $res['OrderTime'][$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -131,7 +132,8 @@ class commodity extends Model
                 $res['Specifications'] = [];
                 $n1 = 0;
                 foreach ($this->specifications as $item1) {
-                    $res['Specifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Specifications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +181,8 @@ class commodity extends Model
                         $model->orderTime[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->orderTime[$key1][$n2++] = $item2;
+                            $model->orderTime[$key1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -195,7 +198,8 @@ class commodity extends Model
                 $model->specifications = [];
                 $n1 = 0;
                 foreach ($map['Specifications'] as $item1) {
-                    $model->specifications[$n1++] = specifications::fromMap($item1);
+                    $model->specifications[$n1] = specifications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

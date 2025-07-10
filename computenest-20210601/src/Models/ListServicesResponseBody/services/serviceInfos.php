@@ -73,7 +73,8 @@ class serviceInfos extends Model
                 $res['Softwares'] = [];
                 $n1 = 0;
                 foreach ($this->softwares as $item1) {
-                    $res['Softwares'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Softwares'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class serviceInfos extends Model
                 $model->softwares = [];
                 $n1 = 0;
                 foreach ($map['Softwares'] as $item1) {
-                    $model->softwares[$n1++] = softwares::fromMap($item1);
+                    $model->softwares[$n1] = softwares::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -79,6 +79,11 @@ class CreateServiceInstanceRequest extends Model
     /**
      * @var string
      */
+    public $serviceInstanceId;
+
+    /**
+     * @var string
+     */
     public $serviceVersion;
 
     /**
@@ -119,6 +124,7 @@ class CreateServiceInstanceRequest extends Model
         'resourceAutoPay' => 'ResourceAutoPay',
         'resourceGroupId' => 'ResourceGroupId',
         'serviceId' => 'ServiceId',
+        'serviceInstanceId' => 'ServiceInstanceId',
         'serviceVersion' => 'ServiceVersion',
         'specificationCode' => 'SpecificationCode',
         'specificationName' => 'SpecificationName',
@@ -204,6 +210,10 @@ class CreateServiceInstanceRequest extends Model
             $res['ServiceId'] = $this->serviceId;
         }
 
+        if (null !== $this->serviceInstanceId) {
+            $res['ServiceInstanceId'] = $this->serviceInstanceId;
+        }
+
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
@@ -221,7 +231,8 @@ class CreateServiceInstanceRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -302,6 +313,10 @@ class CreateServiceInstanceRequest extends Model
             $model->serviceId = $map['ServiceId'];
         }
 
+        if (isset($map['ServiceInstanceId'])) {
+            $model->serviceInstanceId = $map['ServiceInstanceId'];
+        }
+
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
         }
@@ -319,7 +334,8 @@ class CreateServiceInstanceRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

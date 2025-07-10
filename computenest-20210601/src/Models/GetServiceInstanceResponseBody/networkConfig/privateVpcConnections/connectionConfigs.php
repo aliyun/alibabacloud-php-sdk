@@ -94,7 +94,8 @@ class connectionConfigs extends Model
                 $res['EndpointIps'] = [];
                 $n1 = 0;
                 foreach ($this->endpointIps as $item1) {
-                    $res['EndpointIps'][$n1++] = $item1;
+                    $res['EndpointIps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class connectionConfigs extends Model
                 $res['SecurityGroups'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroups as $item1) {
-                    $res['SecurityGroups'][$n1++] = $item1;
+                    $res['SecurityGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class connectionConfigs extends Model
                 $res['VSwitches'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
-                    $res['VSwitches'][$n1++] = $item1;
+                    $res['VSwitches'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +162,8 @@ class connectionConfigs extends Model
                 $model->endpointIps = [];
                 $n1 = 0;
                 foreach ($map['EndpointIps'] as $item1) {
-                    $model->endpointIps[$n1++] = $item1;
+                    $model->endpointIps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +185,8 @@ class connectionConfigs extends Model
                 $model->securityGroups = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroups'] as $item1) {
-                    $model->securityGroups[$n1++] = $item1;
+                    $model->securityGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +196,8 @@ class connectionConfigs extends Model
                 $model->vSwitches = [];
                 $n1 = 0;
                 foreach ($map['VSwitches'] as $item1) {
-                    $model->vSwitches[$n1++] = $item1;
+                    $model->vSwitches[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

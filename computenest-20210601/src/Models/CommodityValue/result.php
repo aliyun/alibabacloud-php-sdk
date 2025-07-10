@@ -71,7 +71,8 @@ class result extends Model
                 $res['Coupons'] = [];
                 $n1 = 0;
                 foreach ($this->coupons as $item1) {
-                    $res['Coupons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Coupons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class result extends Model
                 $model->coupons = [];
                 $n1 = 0;
                 foreach ($map['Coupons'] as $item1) {
-                    $model->coupons[$n1++] = coupons::fromMap($item1);
+                    $model->coupons[$n1] = coupons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -121,6 +121,11 @@ class serviceInstances extends Model
     public $statusDetail;
 
     /**
+     * @var bool
+     */
+    public $supportTrialToPrivate;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -157,6 +162,7 @@ class serviceInstances extends Model
         'source' => 'Source',
         'status' => 'Status',
         'statusDetail' => 'StatusDetail',
+        'supportTrialToPrivate' => 'SupportTrialToPrivate',
         'tags' => 'Tags',
         'templateName' => 'TemplateName',
         'updateTime' => 'UpdateTime',
@@ -264,12 +270,17 @@ class serviceInstances extends Model
             $res['StatusDetail'] = $this->statusDetail;
         }
 
+        if (null !== $this->supportTrialToPrivate) {
+            $res['SupportTrialToPrivate'] = $this->supportTrialToPrivate;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -381,12 +392,17 @@ class serviceInstances extends Model
             $model->statusDetail = $map['StatusDetail'];
         }
 
+        if (isset($map['SupportTrialToPrivate'])) {
+            $model->supportTrialToPrivate = $map['SupportTrialToPrivate'];
+        }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

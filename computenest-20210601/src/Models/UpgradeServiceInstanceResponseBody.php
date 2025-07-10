@@ -42,7 +42,8 @@ class UpgradeServiceInstanceResponseBody extends Model
                 $res['UpgradeRequiredParameters'] = [];
                 $n1 = 0;
                 foreach ($this->upgradeRequiredParameters as $item1) {
-                    $res['UpgradeRequiredParameters'][$n1++] = $item1;
+                    $res['UpgradeRequiredParameters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class UpgradeServiceInstanceResponseBody extends Model
                 $model->upgradeRequiredParameters = [];
                 $n1 = 0;
                 foreach ($map['UpgradeRequiredParameters'] as $item1) {
-                    $model->upgradeRequiredParameters[$n1++] = $item1;
+                    $model->upgradeRequiredParameters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

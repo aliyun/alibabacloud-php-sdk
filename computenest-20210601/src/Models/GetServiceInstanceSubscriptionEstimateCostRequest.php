@@ -89,7 +89,8 @@ class GetServiceInstanceSubscriptionEstimateCostRequest extends Model
                 $res['ResourcePeriod'] = [];
                 $n1 = 0;
                 foreach ($this->resourcePeriod as $item1) {
-                    $res['ResourcePeriod'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourcePeriod'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class GetServiceInstanceSubscriptionEstimateCostRequest extends Model
                 $model->resourcePeriod = [];
                 $n1 = 0;
                 foreach ($map['ResourcePeriod'] as $item1) {
-                    $model->resourcePeriod[$n1++] = resourcePeriod::fromMap($item1);
+                    $model->resourcePeriod[$n1] = resourcePeriod::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

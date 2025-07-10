@@ -59,7 +59,8 @@ class networkConfig extends Model
                 $res['PrivateVpcConnections'] = [];
                 $n1 = 0;
                 foreach ($this->privateVpcConnections as $item1) {
-                    $res['PrivateVpcConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrivateVpcConnections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class networkConfig extends Model
                 $res['ReversePrivateVpcConnections'] = [];
                 $n1 = 0;
                 foreach ($this->reversePrivateVpcConnections as $item1) {
-                    $res['ReversePrivateVpcConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReversePrivateVpcConnections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class networkConfig extends Model
                 $model->privateVpcConnections = [];
                 $n1 = 0;
                 foreach ($map['PrivateVpcConnections'] as $item1) {
-                    $model->privateVpcConnections[$n1++] = privateVpcConnections::fromMap($item1);
+                    $model->privateVpcConnections[$n1] = privateVpcConnections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class networkConfig extends Model
                 $model->reversePrivateVpcConnections = [];
                 $n1 = 0;
                 foreach ($map['ReversePrivateVpcConnections'] as $item1) {
-                    $model->reversePrivateVpcConnections[$n1++] = reversePrivateVpcConnections::fromMap($item1);
+                    $model->reversePrivateVpcConnections[$n1] = reversePrivateVpcConnections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

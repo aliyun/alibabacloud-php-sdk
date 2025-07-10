@@ -50,7 +50,8 @@ class dryRunResult extends Model
                 $res['ParametersAllowedToBeModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersAllowedToBeModified as $item1) {
-                    $res['ParametersAllowedToBeModified'][$n1++] = $item1;
+                    $res['ParametersAllowedToBeModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class dryRunResult extends Model
                 $res['ParametersConditionallyAllowedToBeModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersConditionallyAllowedToBeModified as $item1) {
-                    $res['ParametersConditionallyAllowedToBeModified'][$n1++] = $item1;
+                    $res['ParametersConditionallyAllowedToBeModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class dryRunResult extends Model
                 $res['ParametersNotAllowedToBeModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersNotAllowedToBeModified as $item1) {
-                    $res['ParametersNotAllowedToBeModified'][$n1++] = $item1;
+                    $res['ParametersNotAllowedToBeModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class dryRunResult extends Model
                 $model->parametersAllowedToBeModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersAllowedToBeModified'] as $item1) {
-                    $model->parametersAllowedToBeModified[$n1++] = $item1;
+                    $model->parametersAllowedToBeModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class dryRunResult extends Model
                 $model->parametersConditionallyAllowedToBeModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersConditionallyAllowedToBeModified'] as $item1) {
-                    $model->parametersConditionallyAllowedToBeModified[$n1++] = $item1;
+                    $model->parametersConditionallyAllowedToBeModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class dryRunResult extends Model
                 $model->parametersNotAllowedToBeModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersNotAllowedToBeModified'] as $item1) {
-                    $model->parametersNotAllowedToBeModified[$n1++] = $item1;
+                    $model->parametersNotAllowedToBeModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

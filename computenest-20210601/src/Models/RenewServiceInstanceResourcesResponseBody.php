@@ -49,7 +49,8 @@ class RenewServiceInstanceResourcesResponseBody extends Model
                 $res['FailureDetails'] = [];
                 $n1 = 0;
                 foreach ($this->failureDetails as $item1) {
-                    $res['FailureDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailureDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class RenewServiceInstanceResourcesResponseBody extends Model
                 $model->failureDetails = [];
                 $n1 = 0;
                 foreach ($map['FailureDetails'] as $item1) {
-                    $model->failureDetails[$n1++] = failureDetails::fromMap($item1);
+                    $model->failureDetails[$n1] = failureDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

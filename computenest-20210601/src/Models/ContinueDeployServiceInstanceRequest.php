@@ -70,7 +70,8 @@ class ContinueDeployServiceInstanceRequest extends Model
                 $res['Option'] = [];
                 $n1 = 0;
                 foreach ($this->option as $item1) {
-                    $res['Option'][$n1++] = $item1;
+                    $res['Option'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class ContinueDeployServiceInstanceRequest extends Model
                 $model->option = [];
                 $n1 = 0;
                 foreach ($map['Option'] as $item1) {
-                    $model->option[$n1++] = $item1;
+                    $model->option[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -162,6 +162,11 @@ class GetServiceInstanceResponseBody extends Model
     public $supplierUid;
 
     /**
+     * @var bool
+     */
+    public $supportTrialToPrivate;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -211,6 +216,7 @@ class GetServiceInstanceResponseBody extends Model
         'status' => 'Status',
         'statusDetail' => 'StatusDetail',
         'supplierUid' => 'SupplierUid',
+        'supportTrialToPrivate' => 'SupportTrialToPrivate',
         'tags' => 'Tags',
         'templateName' => 'TemplateName',
         'updateTime' => 'UpdateTime',
@@ -354,12 +360,17 @@ class GetServiceInstanceResponseBody extends Model
             $res['SupplierUid'] = $this->supplierUid;
         }
 
+        if (null !== $this->supportTrialToPrivate) {
+            $res['SupportTrialToPrivate'] = $this->supportTrialToPrivate;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -507,12 +518,17 @@ class GetServiceInstanceResponseBody extends Model
             $model->supplierUid = $map['SupplierUid'];
         }
 
+        if (isset($map['SupportTrialToPrivate'])) {
+            $model->supportTrialToPrivate = $map['SupportTrialToPrivate'];
+        }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

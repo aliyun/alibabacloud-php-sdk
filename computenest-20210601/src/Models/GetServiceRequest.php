@@ -82,7 +82,8 @@ class GetServiceRequest extends Model
                 $res['ShowDetails'] = [];
                 $n1 = 0;
                 foreach ($this->showDetails as $item1) {
-                    $res['ShowDetails'][$n1++] = $item1;
+                    $res['ShowDetails'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class GetServiceRequest extends Model
                 $model->showDetails = [];
                 $n1 = 0;
                 foreach ($map['ShowDetails'] as $item1) {
-                    $model->showDetails[$n1++] = $item1;
+                    $model->showDetails[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

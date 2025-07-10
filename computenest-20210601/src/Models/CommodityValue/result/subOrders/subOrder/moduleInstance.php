@@ -133,7 +133,8 @@ class moduleInstance extends Model
                 $res['ModuleAttrs'] = [];
                 $n1 = 0;
                 foreach ($this->moduleAttrs as $item1) {
-                    $res['ModuleAttrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModuleAttrs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +195,8 @@ class moduleInstance extends Model
                 $model->moduleAttrs = [];
                 $n1 = 0;
                 foreach ($map['ModuleAttrs'] as $item1) {
-                    $model->moduleAttrs[$n1++] = moduleAttrs::fromMap($item1);
+                    $model->moduleAttrs[$n1] = moduleAttrs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
