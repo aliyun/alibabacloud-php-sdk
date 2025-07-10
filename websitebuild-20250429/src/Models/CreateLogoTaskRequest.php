@@ -11,6 +11,11 @@ class CreateLogoTaskRequest extends Model
     /**
      * @var string
      */
+    public $logoVersion;
+
+    /**
+     * @var string
+     */
     public $negativePrompt;
 
     /**
@@ -22,16 +27,11 @@ class CreateLogoTaskRequest extends Model
      * @var string
      */
     public $prompt;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
+        'logoVersion' => 'LogoVersion',
         'negativePrompt' => 'NegativePrompt',
         'parameters' => 'Parameters',
         'prompt' => 'Prompt',
-        'version' => 'Version',
     ];
 
     public function validate()
@@ -42,6 +42,10 @@ class CreateLogoTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->logoVersion) {
+            $res['LogoVersion'] = $this->logoVersion;
+        }
+
         if (null !== $this->negativePrompt) {
             $res['NegativePrompt'] = $this->negativePrompt;
         }
@@ -52,10 +56,6 @@ class CreateLogoTaskRequest extends Model
 
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
-        }
-
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -69,6 +69,10 @@ class CreateLogoTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LogoVersion'])) {
+            $model->logoVersion = $map['LogoVersion'];
+        }
+
         if (isset($map['NegativePrompt'])) {
             $model->negativePrompt = $map['NegativePrompt'];
         }
@@ -79,10 +83,6 @@ class CreateLogoTaskRequest extends Model
 
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
-        }
-
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

@@ -69,6 +69,10 @@ class WebsiteBuild extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->logoVersion) {
+            @$query['LogoVersion'] = $request->logoVersion;
+        }
+
         if (null !== $request->negativePrompt) {
             @$query['NegativePrompt'] = $request->negativePrompt;
         }
@@ -79,10 +83,6 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->prompt) {
             @$query['Prompt'] = $request->prompt;
-        }
-
-        if (null !== $request->version) {
-            @$query['Version'] = $request->version;
         }
 
         $req = new OpenApiRequest([
