@@ -60,7 +60,8 @@ class SetAppsAuthToApiProductRequest extends Model
                 $res['AppIds'] = [];
                 $n1 = 0;
                 foreach ($this->appIds as $item1) {
-                    $res['AppIds'][$n1++] = $item1;
+                    $res['AppIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class SetAppsAuthToApiProductRequest extends Model
                 $model->appIds = [];
                 $n1 = 0;
                 foreach ($map['AppIds'] as $item1) {
-                    $model->appIds[$n1++] = $item1;
+                    $model->appIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

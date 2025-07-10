@@ -33,7 +33,8 @@ class apiSummarys extends Model
                 $res['ApiPluginSummary'] = [];
                 $n1 = 0;
                 foreach ($this->apiPluginSummary as $item1) {
-                    $res['ApiPluginSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiPluginSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiSummarys extends Model
                 $model->apiPluginSummary = [];
                 $n1 = 0;
                 foreach ($map['ApiPluginSummary'] as $item1) {
-                    $model->apiPluginSummary[$n1++] = apiPluginSummary::fromMap($item1);
+                    $model->apiPluginSummary[$n1] = apiPluginSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

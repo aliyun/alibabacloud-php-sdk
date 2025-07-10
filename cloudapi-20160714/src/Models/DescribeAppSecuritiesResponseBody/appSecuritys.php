@@ -33,7 +33,8 @@ class appSecuritys extends Model
                 $res['AppSecurity'] = [];
                 $n1 = 0;
                 foreach ($this->appSecurity as $item1) {
-                    $res['AppSecurity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppSecurity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class appSecuritys extends Model
                 $model->appSecurity = [];
                 $n1 = 0;
                 foreach ($map['AppSecurity'] as $item1) {
-                    $model->appSecurity[$n1++] = appSecurity::fromMap($item1);
+                    $model->appSecurity[$n1] = appSecurity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

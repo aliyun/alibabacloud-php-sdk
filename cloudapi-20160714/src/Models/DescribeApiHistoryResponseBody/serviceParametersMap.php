@@ -33,7 +33,8 @@ class serviceParametersMap extends Model
                 $res['ServiceParameterMap'] = [];
                 $n1 = 0;
                 foreach ($this->serviceParameterMap as $item1) {
-                    $res['ServiceParameterMap'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServiceParameterMap'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class serviceParametersMap extends Model
                 $model->serviceParameterMap = [];
                 $n1 = 0;
                 foreach ($map['ServiceParameterMap'] as $item1) {
-                    $model->serviceParameterMap[$n1++] = serviceParameterMap::fromMap($item1);
+                    $model->serviceParameterMap[$n1] = serviceParameterMap::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

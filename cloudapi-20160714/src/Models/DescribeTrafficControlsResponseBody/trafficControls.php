@@ -33,7 +33,8 @@ class trafficControls extends Model
                 $res['TrafficControl'] = [];
                 $n1 = 0;
                 foreach ($this->trafficControl as $item1) {
-                    $res['TrafficControl'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficControl'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class trafficControls extends Model
                 $model->trafficControl = [];
                 $n1 = 0;
                 foreach ($map['TrafficControl'] as $item1) {
-                    $model->trafficControl[$n1++] = trafficControl::fromMap($item1);
+                    $model->trafficControl[$n1] = trafficControl::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

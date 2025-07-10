@@ -33,7 +33,8 @@ class apiUpdateVpcInfoResults extends Model
                 $res['ApiUpdateVpcInfoResult'] = [];
                 $n1 = 0;
                 foreach ($this->apiUpdateVpcInfoResult as $item1) {
-                    $res['ApiUpdateVpcInfoResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiUpdateVpcInfoResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiUpdateVpcInfoResults extends Model
                 $model->apiUpdateVpcInfoResult = [];
                 $n1 = 0;
                 foreach ($map['ApiUpdateVpcInfoResult'] as $item1) {
-                    $model->apiUpdateVpcInfoResult[$n1++] = apiUpdateVpcInfoResult::fromMap($item1);
+                    $model->apiUpdateVpcInfoResult[$n1] = apiUpdateVpcInfoResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

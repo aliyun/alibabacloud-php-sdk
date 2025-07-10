@@ -33,7 +33,8 @@ class requestParameters extends Model
                 $res['RequestParameter'] = [];
                 $n1 = 0;
                 foreach ($this->requestParameter as $item1) {
-                    $res['RequestParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RequestParameter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class requestParameters extends Model
                 $model->requestParameter = [];
                 $n1 = 0;
                 foreach ($map['RequestParameter'] as $item1) {
-                    $model->requestParameter[$n1++] = requestParameter::fromMap($item1);
+                    $model->requestParameter[$n1] = requestParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

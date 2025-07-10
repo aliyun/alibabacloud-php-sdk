@@ -33,7 +33,8 @@ class errorCodeSamples extends Model
                 $res['ErrorCodeSample'] = [];
                 $n1 = 0;
                 foreach ($this->errorCodeSample as $item1) {
-                    $res['ErrorCodeSample'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ErrorCodeSample'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class errorCodeSamples extends Model
                 $model->errorCodeSample = [];
                 $n1 = 0;
                 foreach ($map['ErrorCodeSample'] as $item1) {
-                    $model->errorCodeSample[$n1++] = errorCodeSample::fromMap($item1);
+                    $model->errorCodeSample[$n1] = errorCodeSample::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

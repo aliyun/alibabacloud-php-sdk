@@ -48,7 +48,8 @@ class DissociateInstanceWithPrivateDNSRequest extends Model
                 $res['IntranetDomains'] = [];
                 $n1 = 0;
                 foreach ($this->intranetDomains as $item1) {
-                    $res['IntranetDomains'][$n1++] = $item1;
+                    $res['IntranetDomains'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class DissociateInstanceWithPrivateDNSRequest extends Model
                 $model->intranetDomains = [];
                 $n1 = 0;
                 foreach ($map['IntranetDomains'] as $item1) {
-                    $model->intranetDomains[$n1++] = $item1;
+                    $model->intranetDomains[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

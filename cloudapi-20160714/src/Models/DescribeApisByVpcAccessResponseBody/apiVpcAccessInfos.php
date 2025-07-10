@@ -33,7 +33,8 @@ class apiVpcAccessInfos extends Model
                 $res['ApiVpcAccessInfo'] = [];
                 $n1 = 0;
                 foreach ($this->apiVpcAccessInfo as $item1) {
-                    $res['ApiVpcAccessInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiVpcAccessInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiVpcAccessInfos extends Model
                 $model->apiVpcAccessInfo = [];
                 $n1 = 0;
                 foreach ($map['ApiVpcAccessInfo'] as $item1) {
-                    $model->apiVpcAccessInfo[$n1++] = apiVpcAccessInfo::fromMap($item1);
+                    $model->apiVpcAccessInfo[$n1] = apiVpcAccessInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

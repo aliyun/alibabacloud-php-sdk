@@ -33,7 +33,8 @@ class resultDescriptions extends Model
                 $res['ResultDescription'] = [];
                 $n1 = 0;
                 foreach ($this->resultDescription as $item1) {
-                    $res['ResultDescription'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResultDescription'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class resultDescriptions extends Model
                 $model->resultDescription = [];
                 $n1 = 0;
                 foreach ($map['ResultDescription'] as $item1) {
-                    $model->resultDescription[$n1++] = resultDescription::fromMap($item1);
+                    $model->resultDescription[$n1] = resultDescription::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

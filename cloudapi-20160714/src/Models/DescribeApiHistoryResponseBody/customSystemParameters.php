@@ -33,7 +33,8 @@ class customSystemParameters extends Model
                 $res['CustomSystemParameter'] = [];
                 $n1 = 0;
                 foreach ($this->customSystemParameter as $item1) {
-                    $res['CustomSystemParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomSystemParameter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class customSystemParameters extends Model
                 $model->customSystemParameter = [];
                 $n1 = 0;
                 foreach ($map['CustomSystemParameter'] as $item1) {
-                    $model->customSystemParameter[$n1++] = customSystemParameter::fromMap($item1);
+                    $model->customSystemParameter[$n1] = customSystemParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

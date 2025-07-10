@@ -33,7 +33,8 @@ class success extends Model
                 $res['ApiDryRunSwaggerSuccess'] = [];
                 $n1 = 0;
                 foreach ($this->apiDryRunSwaggerSuccess as $item1) {
-                    $res['ApiDryRunSwaggerSuccess'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiDryRunSwaggerSuccess'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class success extends Model
                 $model->apiDryRunSwaggerSuccess = [];
                 $n1 = 0;
                 foreach ($map['ApiDryRunSwaggerSuccess'] as $item1) {
-                    $model->apiDryRunSwaggerSuccess[$n1++] = apiDryRunSwaggerSuccess::fromMap($item1);
+                    $model->apiDryRunSwaggerSuccess[$n1] = apiDryRunSwaggerSuccess::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

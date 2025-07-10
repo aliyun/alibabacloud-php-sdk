@@ -33,7 +33,8 @@ class authorizedApis extends Model
                 $res['AuthorizedApi'] = [];
                 $n1 = 0;
                 foreach ($this->authorizedApi as $item1) {
-                    $res['AuthorizedApi'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizedApi'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class authorizedApis extends Model
                 $model->authorizedApi = [];
                 $n1 = 0;
                 foreach ($map['AuthorizedApi'] as $item1) {
-                    $model->authorizedApi[$n1++] = authorizedApi::fromMap($item1);
+                    $model->authorizedApi[$n1] = authorizedApi::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

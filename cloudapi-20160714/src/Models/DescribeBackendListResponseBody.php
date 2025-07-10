@@ -57,7 +57,8 @@ class DescribeBackendListResponseBody extends Model
                 $res['BackendInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->backendInfoList as $item1) {
-                    $res['BackendInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackendInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeBackendListResponseBody extends Model
                 $model->backendInfoList = [];
                 $n1 = 0;
                 foreach ($map['BackendInfoList'] as $item1) {
-                    $model->backendInfoList[$n1++] = backendInfoList::fromMap($item1);
+                    $model->backendInfoList[$n1] = backendInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

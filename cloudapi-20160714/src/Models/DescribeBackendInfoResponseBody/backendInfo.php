@@ -73,7 +73,8 @@ class backendInfo extends Model
                 $res['BackendModels'] = [];
                 $n1 = 0;
                 foreach ($this->backendModels as $item1) {
-                    $res['BackendModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackendModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class backendInfo extends Model
                 $model->backendModels = [];
                 $n1 = 0;
                 foreach ($map['BackendModels'] as $item1) {
-                    $model->backendModels[$n1++] = backendModels::fromMap($item1);
+                    $model->backendModels[$n1] = backendModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

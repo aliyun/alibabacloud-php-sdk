@@ -33,7 +33,8 @@ class instanceSpecAttributes extends Model
                 $res['SpecAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->specAttribute as $item1) {
-                    $res['SpecAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpecAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceSpecAttributes extends Model
                 $model->specAttribute = [];
                 $n1 = 0;
                 foreach ($map['SpecAttribute'] as $item1) {
-                    $model->specAttribute[$n1++] = specAttribute::fromMap($item1);
+                    $model->specAttribute[$n1] = specAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

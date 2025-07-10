@@ -33,7 +33,8 @@ class successModels extends Model
                 $res['SuccessModel'] = [];
                 $n1 = 0;
                 foreach ($this->successModel as $item1) {
-                    $res['SuccessModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SuccessModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class successModels extends Model
                 $model->successModel = [];
                 $n1 = 0;
                 foreach ($map['SuccessModel'] as $item1) {
-                    $model->successModel[$n1++] = successModel::fromMap($item1);
+                    $model->successModel[$n1] = successModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

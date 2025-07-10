@@ -33,7 +33,8 @@ class mockHeaders extends Model
                 $res['MockHeader'] = [];
                 $n1 = 0;
                 foreach ($this->mockHeader as $item1) {
-                    $res['MockHeader'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MockHeader'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mockHeaders extends Model
                 $model->mockHeader = [];
                 $n1 = 0;
                 foreach ($map['MockHeader'] as $item1) {
-                    $model->mockHeader[$n1++] = mockHeader::fromMap($item1);
+                    $model->mockHeader[$n1] = mockHeader::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

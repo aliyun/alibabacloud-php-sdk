@@ -33,7 +33,8 @@ class apiAbolishResults extends Model
                 $res['ApiAbolishResult'] = [];
                 $n1 = 0;
                 foreach ($this->apiAbolishResult as $item1) {
-                    $res['ApiAbolishResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiAbolishResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiAbolishResults extends Model
                 $model->apiAbolishResult = [];
                 $n1 = 0;
                 foreach ($map['ApiAbolishResult'] as $item1) {
-                    $model->apiAbolishResult[$n1++] = apiAbolishResult::fromMap($item1);
+                    $model->apiAbolishResult[$n1] = apiAbolishResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

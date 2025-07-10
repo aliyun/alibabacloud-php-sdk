@@ -33,7 +33,8 @@ class constantParameters extends Model
                 $res['ConstantParameter'] = [];
                 $n1 = 0;
                 foreach ($this->constantParameter as $item1) {
-                    $res['ConstantParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConstantParameter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class constantParameters extends Model
                 $model->constantParameter = [];
                 $n1 = 0;
                 foreach ($map['ConstantParameter'] as $item1) {
-                    $model->constantParameter[$n1++] = constantParameter::fromMap($item1);
+                    $model->constantParameter[$n1] = constantParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

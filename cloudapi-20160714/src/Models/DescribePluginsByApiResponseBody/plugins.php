@@ -33,7 +33,8 @@ class plugins extends Model
                 $res['PluginAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->pluginAttribute as $item1) {
-                    $res['PluginAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PluginAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class plugins extends Model
                 $model->pluginAttribute = [];
                 $n1 = 0;
                 foreach ($map['PluginAttribute'] as $item1) {
-                    $model->pluginAttribute[$n1++] = pluginAttribute::fromMap($item1);
+                    $model->pluginAttribute[$n1] = pluginAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

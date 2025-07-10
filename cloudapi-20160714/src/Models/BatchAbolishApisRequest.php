@@ -39,7 +39,8 @@ class BatchAbolishApisRequest extends Model
                 $res['Api'] = [];
                 $n1 = 0;
                 foreach ($this->api as $item1) {
-                    $res['Api'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Api'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class BatchAbolishApisRequest extends Model
                 $model->api = [];
                 $n1 = 0;
                 foreach ($map['Api'] as $item1) {
-                    $model->api[$n1++] = api::fromMap($item1);
+                    $model->api[$n1] = api::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

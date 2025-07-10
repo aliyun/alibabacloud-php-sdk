@@ -33,7 +33,8 @@ class apps extends Model
                 $res['AppItem'] = [];
                 $n1 = 0;
                 foreach ($this->appItem as $item1) {
-                    $res['AppItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apps extends Model
                 $model->appItem = [];
                 $n1 = 0;
                 foreach ($map['AppItem'] as $item1) {
-                    $model->appItem[$n1++] = appItem::fromMap($item1);
+                    $model->appItem[$n1] = appItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

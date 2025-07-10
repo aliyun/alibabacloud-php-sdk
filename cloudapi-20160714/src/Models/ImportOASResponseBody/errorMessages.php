@@ -32,7 +32,8 @@ class errorMessages extends Model
                 $res['ErrorMessage'] = [];
                 $n1 = 0;
                 foreach ($this->errorMessage as $item1) {
-                    $res['ErrorMessage'][$n1++] = $item1;
+                    $res['ErrorMessage'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class errorMessages extends Model
                 $model->errorMessage = [];
                 $n1 = 0;
                 foreach ($map['ErrorMessage'] as $item1) {
-                    $model->errorMessage[$n1++] = $item1;
+                    $model->errorMessage[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

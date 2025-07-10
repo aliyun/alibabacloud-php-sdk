@@ -44,7 +44,8 @@ class RemoveApiProductsAuthoritiesRequest extends Model
                 $res['ApiProductIds'] = [];
                 $n1 = 0;
                 foreach ($this->apiProductIds as $item1) {
-                    $res['ApiProductIds'][$n1++] = $item1;
+                    $res['ApiProductIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class RemoveApiProductsAuthoritiesRequest extends Model
                 $model->apiProductIds = [];
                 $n1 = 0;
                 foreach ($map['ApiProductIds'] as $item1) {
-                    $model->apiProductIds[$n1++] = $item1;
+                    $model->apiProductIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

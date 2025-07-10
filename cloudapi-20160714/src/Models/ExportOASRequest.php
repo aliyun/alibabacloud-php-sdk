@@ -74,7 +74,8 @@ class ExportOASRequest extends Model
                 $res['ApiIdList'] = [];
                 $n1 = 0;
                 foreach ($this->apiIdList as $item1) {
-                    $res['ApiIdList'][$n1++] = $item1;
+                    $res['ApiIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class ExportOASRequest extends Model
                 $model->apiIdList = [];
                 $n1 = 0;
                 foreach ($map['ApiIdList'] as $item1) {
-                    $model->apiIdList[$n1++] = $item1;
+                    $model->apiIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

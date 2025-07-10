@@ -32,7 +32,8 @@ class warningMessages extends Model
                 $res['WarningMessage'] = [];
                 $n1 = 0;
                 foreach ($this->warningMessage as $item1) {
-                    $res['WarningMessage'][$n1++] = $item1;
+                    $res['WarningMessage'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class warningMessages extends Model
                 $model->warningMessage = [];
                 $n1 = 0;
                 foreach ($map['WarningMessage'] as $item1) {
-                    $model->warningMessage[$n1++] = $item1;
+                    $model->warningMessage[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

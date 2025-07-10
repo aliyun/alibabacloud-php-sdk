@@ -33,7 +33,8 @@ class signatureInfos extends Model
                 $res['SignatureInfo'] = [];
                 $n1 = 0;
                 foreach ($this->signatureInfo as $item1) {
-                    $res['SignatureInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SignatureInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class signatureInfos extends Model
                 $model->signatureInfo = [];
                 $n1 = 0;
                 foreach ($map['SignatureInfo'] as $item1) {
-                    $model->signatureInfo[$n1++] = signatureInfo::fromMap($item1);
+                    $model->signatureInfo[$n1] = signatureInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

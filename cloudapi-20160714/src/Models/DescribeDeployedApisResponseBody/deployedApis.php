@@ -33,7 +33,8 @@ class deployedApis extends Model
                 $res['DeployedApiItem'] = [];
                 $n1 = 0;
                 foreach ($this->deployedApiItem as $item1) {
-                    $res['DeployedApiItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeployedApiItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class deployedApis extends Model
                 $model->deployedApiItem = [];
                 $n1 = 0;
                 foreach ($map['DeployedApiItem'] as $item1) {
-                    $model->deployedApiItem[$n1++] = deployedApiItem::fromMap($item1);
+                    $model->deployedApiItem[$n1] = deployedApiItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

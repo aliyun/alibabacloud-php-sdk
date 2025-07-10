@@ -33,7 +33,8 @@ class modelSuccess extends Model
                 $res['ApiImportModelSuccess'] = [];
                 $n1 = 0;
                 foreach ($this->apiImportModelSuccess as $item1) {
-                    $res['ApiImportModelSuccess'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiImportModelSuccess'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class modelSuccess extends Model
                 $model->apiImportModelSuccess = [];
                 $n1 = 0;
                 foreach ($map['ApiImportModelSuccess'] as $item1) {
-                    $model->apiImportModelSuccess[$n1++] = apiImportModelSuccess::fromMap($item1);
+                    $model->apiImportModelSuccess[$n1] = apiImportModelSuccess::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

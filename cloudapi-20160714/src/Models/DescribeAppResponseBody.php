@@ -29,6 +29,11 @@ class DescribeAppResponseBody extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disabled;
+
+    /**
      * @var string
      */
     public $extend;
@@ -47,6 +52,7 @@ class DescribeAppResponseBody extends Model
         'appName' => 'AppName',
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
+        'disabled' => 'Disabled',
         'extend' => 'Extend',
         'modifiedTime' => 'ModifiedTime',
         'requestId' => 'RequestId',
@@ -74,6 +80,10 @@ class DescribeAppResponseBody extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->disabled) {
+            $res['Disabled'] = $this->disabled;
         }
 
         if (null !== $this->extend) {
@@ -113,6 +123,10 @@ class DescribeAppResponseBody extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Disabled'])) {
+            $model->disabled = $map['Disabled'];
         }
 
         if (isset($map['Extend'])) {

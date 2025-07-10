@@ -33,7 +33,8 @@ class apiGroupAttributes extends Model
                 $res['ApiGroupAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->apiGroupAttribute as $item1) {
-                    $res['ApiGroupAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiGroupAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiGroupAttributes extends Model
                 $model->apiGroupAttribute = [];
                 $n1 = 0;
                 foreach ($map['ApiGroupAttribute'] as $item1) {
-                    $model->apiGroupAttribute[$n1++] = apiGroupAttribute::fromMap($item1);
+                    $model->apiGroupAttribute[$n1] = apiGroupAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

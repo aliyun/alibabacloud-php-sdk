@@ -57,7 +57,8 @@ class DescribeDatasetItemListResponseBody extends Model
                 $res['DatasetItemInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->datasetItemInfoList as $item1) {
-                    $res['DatasetItemInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatasetItemInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeDatasetItemListResponseBody extends Model
                 $model->datasetItemInfoList = [];
                 $n1 = 0;
                 foreach ($map['DatasetItemInfoList'] as $item1) {
-                    $model->datasetItemInfoList[$n1++] = datasetItemInfoList::fromMap($item1);
+                    $model->datasetItemInfoList[$n1] = datasetItemInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

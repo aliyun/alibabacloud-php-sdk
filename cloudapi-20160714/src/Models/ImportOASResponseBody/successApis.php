@@ -33,7 +33,8 @@ class successApis extends Model
                 $res['SuccessApi'] = [];
                 $n1 = 0;
                 foreach ($this->successApi as $item1) {
-                    $res['SuccessApi'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SuccessApi'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class successApis extends Model
                 $model->successApi = [];
                 $n1 = 0;
                 foreach ($map['SuccessApi'] as $item1) {
-                    $model->successApi[$n1++] = successApi::fromMap($item1);
+                    $model->successApi[$n1] = successApi::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

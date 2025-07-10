@@ -33,7 +33,8 @@ class instances extends Model
                 $res['InstanceAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->instanceAttribute as $item1) {
-                    $res['InstanceAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instances extends Model
                 $model->instanceAttribute = [];
                 $n1 = 0;
                 foreach ($map['InstanceAttribute'] as $item1) {
-                    $model->instanceAttribute[$n1++] = instanceAttribute::fromMap($item1);
+                    $model->instanceAttribute[$n1] = instanceAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

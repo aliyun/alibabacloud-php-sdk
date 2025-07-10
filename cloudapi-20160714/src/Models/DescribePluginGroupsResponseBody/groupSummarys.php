@@ -33,7 +33,8 @@ class groupSummarys extends Model
                 $res['GroupPluginSummary'] = [];
                 $n1 = 0;
                 foreach ($this->groupPluginSummary as $item1) {
-                    $res['GroupPluginSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupPluginSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class groupSummarys extends Model
                 $model->groupPluginSummary = [];
                 $n1 = 0;
                 foreach ($map['GroupPluginSummary'] as $item1) {
-                    $model->groupPluginSummary[$n1++] = groupPluginSummary::fromMap($item1);
+                    $model->groupPluginSummary[$n1] = groupPluginSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

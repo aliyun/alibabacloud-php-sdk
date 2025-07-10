@@ -33,7 +33,8 @@ class trafficPerSecond extends Model
                 $res['MonitorItem'] = [];
                 $n1 = 0;
                 foreach ($this->monitorItem as $item1) {
-                    $res['MonitorItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MonitorItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class trafficPerSecond extends Model
                 $model->monitorItem = [];
                 $n1 = 0;
                 foreach ($map['MonitorItem'] as $item1) {
-                    $model->monitorItem[$n1++] = monitorItem::fromMap($item1);
+                    $model->monitorItem[$n1] = monitorItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

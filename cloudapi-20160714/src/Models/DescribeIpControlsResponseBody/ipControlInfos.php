@@ -33,7 +33,8 @@ class ipControlInfos extends Model
                 $res['IpControlInfo'] = [];
                 $n1 = 0;
                 foreach ($this->ipControlInfo as $item1) {
-                    $res['IpControlInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpControlInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipControlInfos extends Model
                 $model->ipControlInfo = [];
                 $n1 = 0;
                 foreach ($map['IpControlInfo'] as $item1) {
-                    $model->ipControlInfo[$n1++] = ipControlInfo::fromMap($item1);
+                    $model->ipControlInfo[$n1] = ipControlInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

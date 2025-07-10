@@ -33,7 +33,8 @@ class ipControlPolicyItems extends Model
                 $res['IpControlPolicyItem'] = [];
                 $n1 = 0;
                 foreach ($this->ipControlPolicyItem as $item1) {
-                    $res['IpControlPolicyItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpControlPolicyItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipControlPolicyItems extends Model
                 $model->ipControlPolicyItem = [];
                 $n1 = 0;
                 foreach ($map['IpControlPolicyItem'] as $item1) {
-                    $model->ipControlPolicyItem[$n1++] = ipControlPolicyItem::fromMap($item1);
+                    $model->ipControlPolicyItem[$n1] = ipControlPolicyItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class apiTrafficControls extends Model
                 $res['ApiTrafficControlItem'] = [];
                 $n1 = 0;
                 foreach ($this->apiTrafficControlItem as $item1) {
-                    $res['ApiTrafficControlItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiTrafficControlItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiTrafficControls extends Model
                 $model->apiTrafficControlItem = [];
                 $n1 = 0;
                 foreach ($map['ApiTrafficControlItem'] as $item1) {
-                    $model->apiTrafficControlItem[$n1++] = apiTrafficControlItem::fromMap($item1);
+                    $model->apiTrafficControlItem[$n1] = apiTrafficControlItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

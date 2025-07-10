@@ -33,7 +33,8 @@ class vpcAccessAttributes extends Model
                 $res['VpcAccessAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->vpcAccessAttribute as $item1) {
-                    $res['VpcAccessAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpcAccessAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class vpcAccessAttributes extends Model
                 $model->vpcAccessAttribute = [];
                 $n1 = 0;
                 foreach ($map['VpcAccessAttribute'] as $item1) {
-                    $model->vpcAccessAttribute[$n1++] = vpcAccessAttribute::fromMap($item1);
+                    $model->vpcAccessAttribute[$n1] = vpcAccessAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

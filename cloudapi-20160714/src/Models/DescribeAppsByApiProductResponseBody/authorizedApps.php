@@ -33,7 +33,8 @@ class authorizedApps extends Model
                 $res['AuthorizedApp'] = [];
                 $n1 = 0;
                 foreach ($this->authorizedApp as $item1) {
-                    $res['AuthorizedApp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizedApp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class authorizedApps extends Model
                 $model->authorizedApp = [];
                 $n1 = 0;
                 foreach ($map['AuthorizedApp'] as $item1) {
-                    $model->authorizedApp[$n1++] = authorizedApp::fromMap($item1);
+                    $model->authorizedApp[$n1] = authorizedApp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

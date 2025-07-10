@@ -25,6 +25,11 @@ class ModifyAppRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disabled;
+
+    /**
      * @var string
      */
     public $extend;
@@ -42,6 +47,7 @@ class ModifyAppRequest extends Model
         'appId' => 'AppId',
         'appName' => 'AppName',
         'description' => 'Description',
+        'disabled' => 'Disabled',
         'extend' => 'Extend',
         'securityToken' => 'SecurityToken',
         'tag' => 'Tag',
@@ -70,6 +76,10 @@ class ModifyAppRequest extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->disabled) {
+            $res['Disabled'] = $this->disabled;
+        }
+
         if (null !== $this->extend) {
             $res['Extend'] = $this->extend;
         }
@@ -83,7 +93,8 @@ class ModifyAppRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,6 +122,10 @@ class ModifyAppRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['Disabled'])) {
+            $model->disabled = $map['Disabled'];
+        }
+
         if (isset($map['Extend'])) {
             $model->extend = $map['Extend'];
         }
@@ -124,7 +139,8 @@ class ModifyAppRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

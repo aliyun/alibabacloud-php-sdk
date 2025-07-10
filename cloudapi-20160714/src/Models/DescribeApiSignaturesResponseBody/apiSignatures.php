@@ -33,7 +33,8 @@ class apiSignatures extends Model
                 $res['ApiSignatureItem'] = [];
                 $n1 = 0;
                 foreach ($this->apiSignatureItem as $item1) {
-                    $res['ApiSignatureItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiSignatureItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiSignatures extends Model
                 $model->apiSignatureItem = [];
                 $n1 = 0;
                 foreach ($map['ApiSignatureItem'] as $item1) {
-                    $model->apiSignatureItem[$n1++] = apiSignatureItem::fromMap($item1);
+                    $model->apiSignatureItem[$n1] = apiSignatureItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

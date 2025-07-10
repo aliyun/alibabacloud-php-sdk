@@ -33,7 +33,8 @@ class purchasedApis extends Model
                 $res['PurchasedApi'] = [];
                 $n1 = 0;
                 foreach ($this->purchasedApi as $item1) {
-                    $res['PurchasedApi'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PurchasedApi'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class purchasedApis extends Model
                 $model->purchasedApi = [];
                 $n1 = 0;
                 foreach ($map['PurchasedApi'] as $item1) {
-                    $model->purchasedApi[$n1++] = purchasedApi::fromMap($item1);
+                    $model->purchasedApi[$n1] = purchasedApi::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

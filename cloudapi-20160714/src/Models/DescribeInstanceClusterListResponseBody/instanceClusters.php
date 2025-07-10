@@ -33,7 +33,8 @@ class instanceClusters extends Model
                 $res['InstanceCluster'] = [];
                 $n1 = 0;
                 foreach ($this->instanceCluster as $item1) {
-                    $res['InstanceCluster'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceCluster'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceClusters extends Model
                 $model->instanceCluster = [];
                 $n1 = 0;
                 foreach ($map['InstanceCluster'] as $item1) {
-                    $model->instanceCluster[$n1++] = instanceCluster::fromMap($item1);
+                    $model->instanceCluster[$n1] = instanceCluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

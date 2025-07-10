@@ -33,7 +33,8 @@ class failed extends Model
                 $res['ApiImportSwaggerFailed'] = [];
                 $n1 = 0;
                 foreach ($this->apiImportSwaggerFailed as $item1) {
-                    $res['ApiImportSwaggerFailed'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiImportSwaggerFailed'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class failed extends Model
                 $model->apiImportSwaggerFailed = [];
                 $n1 = 0;
                 foreach ($map['ApiImportSwaggerFailed'] as $item1) {
-                    $model->apiImportSwaggerFailed[$n1++] = apiImportSwaggerFailed::fromMap($item1);
+                    $model->apiImportSwaggerFailed[$n1] = apiImportSwaggerFailed::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

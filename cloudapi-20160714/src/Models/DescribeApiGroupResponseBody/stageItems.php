@@ -33,7 +33,8 @@ class stageItems extends Model
                 $res['StageInfo'] = [];
                 $n1 = 0;
                 foreach ($this->stageInfo as $item1) {
-                    $res['StageInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StageInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class stageItems extends Model
                 $model->stageInfo = [];
                 $n1 = 0;
                 foreach ($map['StageInfo'] as $item1) {
-                    $model->stageInfo[$n1++] = stageInfo::fromMap($item1);
+                    $model->stageInfo[$n1] = stageInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

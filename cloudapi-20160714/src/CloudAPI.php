@@ -13186,6 +13186,10 @@ class CloudAPI extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->disabled) {
+            @$query['Disabled'] = $request->disabled;
+        }
+
         if (null !== $request->extend) {
             @$query['Extend'] = $request->extend;
         }

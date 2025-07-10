@@ -33,7 +33,8 @@ class specialPolicies extends Model
                 $res['SpecialPolicy'] = [];
                 $n1 = 0;
                 foreach ($this->specialPolicy as $item1) {
-                    $res['SpecialPolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpecialPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class specialPolicies extends Model
                 $model->specialPolicy = [];
                 $n1 = 0;
                 foreach ($map['SpecialPolicy'] as $item1) {
-                    $model->specialPolicy[$n1++] = specialPolicy::fromMap($item1);
+                    $model->specialPolicy[$n1] = specialPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

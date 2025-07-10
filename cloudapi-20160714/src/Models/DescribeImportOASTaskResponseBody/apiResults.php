@@ -33,7 +33,8 @@ class apiResults extends Model
                 $res['ApiResult'] = [];
                 $n1 = 0;
                 foreach ($this->apiResult as $item1) {
-                    $res['ApiResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiResults extends Model
                 $model->apiResult = [];
                 $n1 = 0;
                 foreach ($map['ApiResult'] as $item1) {
-                    $model->apiResult[$n1++] = apiResult::fromMap($item1);
+                    $model->apiResult[$n1] = apiResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

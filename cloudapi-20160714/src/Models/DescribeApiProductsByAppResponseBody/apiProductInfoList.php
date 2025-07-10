@@ -33,7 +33,8 @@ class apiProductInfoList extends Model
                 $res['ApiProductInfo'] = [];
                 $n1 = 0;
                 foreach ($this->apiProductInfo as $item1) {
-                    $res['ApiProductInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiProductInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiProductInfoList extends Model
                 $model->apiProductInfo = [];
                 $n1 = 0;
                 foreach ($map['ApiProductInfo'] as $item1) {
-                    $model->apiProductInfo[$n1++] = apiProductInfo::fromMap($item1);
+                    $model->apiProductInfo[$n1] = apiProductInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class apiIpControls extends Model
                 $res['ApiIpControlItem'] = [];
                 $n1 = 0;
                 foreach ($this->apiIpControlItem as $item1) {
-                    $res['ApiIpControlItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiIpControlItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiIpControls extends Model
                 $model->apiIpControlItem = [];
                 $n1 = 0;
                 foreach ($map['ApiIpControlItem'] as $item1) {
-                    $model->apiIpControlItem[$n1++] = apiIpControlItem::fromMap($item1);
+                    $model->apiIpControlItem[$n1] = apiIpControlItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

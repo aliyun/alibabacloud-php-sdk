@@ -33,7 +33,8 @@ class pluginSchemas extends Model
                 $res['PluginSchema'] = [];
                 $n1 = 0;
                 foreach ($this->pluginSchema as $item1) {
-                    $res['PluginSchema'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PluginSchema'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class pluginSchemas extends Model
                 $model->pluginSchema = [];
                 $n1 = 0;
                 foreach ($map['PluginSchema'] as $item1) {
-                    $model->pluginSchema[$n1++] = pluginSchema::fromMap($item1);
+                    $model->pluginSchema[$n1] = pluginSchema::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

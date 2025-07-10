@@ -33,7 +33,8 @@ class apiUpdateBackendResults extends Model
                 $res['ApiUpdateBackendResult'] = [];
                 $n1 = 0;
                 foreach ($this->apiUpdateBackendResult as $item1) {
-                    $res['ApiUpdateBackendResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiUpdateBackendResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiUpdateBackendResults extends Model
                 $model->apiUpdateBackendResult = [];
                 $n1 = 0;
                 foreach ($map['ApiUpdateBackendResult'] as $item1) {
-                    $model->apiUpdateBackendResult[$n1++] = apiUpdateBackendResult::fromMap($item1);
+                    $model->apiUpdateBackendResult[$n1] = apiUpdateBackendResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

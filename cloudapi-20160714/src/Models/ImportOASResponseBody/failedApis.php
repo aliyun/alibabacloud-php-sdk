@@ -33,7 +33,8 @@ class failedApis extends Model
                 $res['FailedApi'] = [];
                 $n1 = 0;
                 foreach ($this->failedApi as $item1) {
-                    $res['FailedApi'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedApi'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class failedApis extends Model
                 $model->failedApi = [];
                 $n1 = 0;
                 foreach ($map['FailedApi'] as $item1) {
-                    $model->failedApi[$n1++] = failedApi::fromMap($item1);
+                    $model->failedApi[$n1] = failedApi::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

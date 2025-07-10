@@ -33,7 +33,8 @@ class zones extends Model
                 $res['Zone'] = [];
                 $n1 = 0;
                 foreach ($this->zone as $item1) {
-                    $res['Zone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Zone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class zones extends Model
                 $model->zone = [];
                 $n1 = 0;
                 foreach ($map['Zone'] as $item1) {
-                    $model->zone[$n1++] = zone::fromMap($item1);
+                    $model->zone[$n1] = zone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

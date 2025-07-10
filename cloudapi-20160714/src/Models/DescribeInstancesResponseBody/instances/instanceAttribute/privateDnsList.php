@@ -32,7 +32,8 @@ class privateDnsList extends Model
                 $res['PrivateDns'] = [];
                 $n1 = 0;
                 foreach ($this->privateDns as $item1) {
-                    $res['PrivateDns'][$n1++] = $item1;
+                    $res['PrivateDns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class privateDnsList extends Model
                 $model->privateDns = [];
                 $n1 = 0;
                 foreach ($map['PrivateDns'] as $item1) {
-                    $model->privateDns[$n1++] = $item1;
+                    $model->privateDns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

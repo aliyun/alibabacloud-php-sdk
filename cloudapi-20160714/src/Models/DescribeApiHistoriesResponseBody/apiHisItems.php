@@ -33,7 +33,8 @@ class apiHisItems extends Model
                 $res['ApiHisItem'] = [];
                 $n1 = 0;
                 foreach ($this->apiHisItem as $item1) {
-                    $res['ApiHisItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiHisItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class apiHisItems extends Model
                 $model->apiHisItem = [];
                 $n1 = 0;
                 foreach ($map['ApiHisItem'] as $item1) {
-                    $model->apiHisItem[$n1++] = apiHisItem::fromMap($item1);
+                    $model->apiHisItem[$n1] = apiHisItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

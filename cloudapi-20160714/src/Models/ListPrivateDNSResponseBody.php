@@ -65,7 +65,8 @@ class ListPrivateDNSResponseBody extends Model
                 $res['PrivateDNSList'] = [];
                 $n1 = 0;
                 foreach ($this->privateDNSList as $item1) {
-                    $res['PrivateDNSList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrivateDNSList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class ListPrivateDNSResponseBody extends Model
                 $model->privateDNSList = [];
                 $n1 = 0;
                 foreach ($map['PrivateDNSList'] as $item1) {
-                    $model->privateDNSList[$n1++] = privateDNSList::fromMap($item1);
+                    $model->privateDNSList[$n1] = privateDNSList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class specials extends Model
                 $res['Special'] = [];
                 $n1 = 0;
                 foreach ($this->special as $item1) {
-                    $res['Special'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Special'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class specials extends Model
                 $model->special = [];
                 $n1 = 0;
                 foreach ($map['Special'] as $item1) {
-                    $model->special[$n1++] = special::fromMap($item1);
+                    $model->special[$n1] = special::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
