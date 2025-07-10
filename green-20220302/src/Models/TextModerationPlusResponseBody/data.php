@@ -35,6 +35,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $detectedLanguage;
+
+    /**
+     * @var string
+     */
     public $manualTaskId;
 
     /**
@@ -61,17 +66,24 @@ class data extends Model
      * @var sensitiveResult[]
      */
     public $sensitiveResult;
+
+    /**
+     * @var string
+     */
+    public $translatedContent;
     protected $_name = [
         'advice' => 'Advice',
         'attackLevel' => 'AttackLevel',
         'attackResult' => 'AttackResult',
         'dataId' => 'DataId',
+        'detectedLanguage' => 'DetectedLanguage',
         'manualTaskId' => 'ManualTaskId',
         'result' => 'Result',
         'riskLevel' => 'RiskLevel',
         'score' => 'Score',
         'sensitiveLevel' => 'SensitiveLevel',
         'sensitiveResult' => 'SensitiveResult',
+        'translatedContent' => 'TranslatedContent',
     ];
 
     public function validate()
@@ -124,6 +136,10 @@ class data extends Model
             $res['DataId'] = $this->dataId;
         }
 
+        if (null !== $this->detectedLanguage) {
+            $res['DetectedLanguage'] = $this->detectedLanguage;
+        }
+
         if (null !== $this->manualTaskId) {
             $res['ManualTaskId'] = $this->manualTaskId;
         }
@@ -160,6 +176,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->translatedContent) {
+            $res['TranslatedContent'] = $this->translatedContent;
         }
 
         return $res;
@@ -203,6 +223,10 @@ class data extends Model
             $model->dataId = $map['DataId'];
         }
 
+        if (isset($map['DetectedLanguage'])) {
+            $model->detectedLanguage = $map['DetectedLanguage'];
+        }
+
         if (isset($map['ManualTaskId'])) {
             $model->manualTaskId = $map['ManualTaskId'];
         }
@@ -239,6 +263,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TranslatedContent'])) {
+            $model->translatedContent = $map['TranslatedContent'];
         }
 
         return $model;
