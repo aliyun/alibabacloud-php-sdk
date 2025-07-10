@@ -1,3 +1,10 @@
+2025-07-10 Version: 2.34.0
+- Support API CreateAlidingAssistant.
+- Support API DeleteAlidingAssistant.
+- Support API GetAlidingAssistantInfo.
+- Support API UpdateAlidingAssistant.
+
+
 2025-07-09 Version: 2.33.1
 - Generated php 2023-04-26 for aliding.
 

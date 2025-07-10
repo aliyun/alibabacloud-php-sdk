@@ -143,6 +143,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateAlidingAssistantHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateAlidingAssistantRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateAlidingAssistantResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateAlidingAssistantShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateAlidingAssistantShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanResponse;
@@ -260,6 +265,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteAlidingAssistantHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteAlidingAssistantRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteAlidingAssistantResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteAlidingAssistantShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteAlidingAssistantShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsResponse;
@@ -386,6 +396,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAlidingAssistantInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAlidingAssistantInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAlidingAssistantInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAlidingAssistantInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAlidingAssistantInfoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsResponse;
@@ -1108,6 +1123,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateAlidingAssistantHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateAlidingAssistantRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateAlidingAssistantResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateAlidingAssistantShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateAlidingAssistantShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionResponse;
@@ -3952,6 +3972,132 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param tmpReq - CreateAlidingAssistantRequest
+     * @param tmpHeader - CreateAlidingAssistantHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlidingAssistantResponse
+     *
+     * @param CreateAlidingAssistantRequest $tmpReq
+     * @param CreateAlidingAssistantHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateAlidingAssistantResponse
+     */
+    public function createAlidingAssistantWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAlidingAssistantShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new CreateAlidingAssistantShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
+        }
+
+        if (null !== $tmpReq->recommendPrompts) {
+            $request->recommendPromptsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recommendPrompts, 'RecommendPrompts', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appCode) {
+            @$body['AppCode'] = $request->appCode;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->extShrink) {
+            @$body['Ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->icon) {
+            @$body['Icon'] = $request->icon;
+        }
+
+        if (null !== $request->instructions) {
+            @$body['Instructions'] = $request->instructions;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->recommendPromptsShrink) {
+            @$body['RecommendPrompts'] = $request->recommendPromptsShrink;
+        }
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
+        }
+
+        if (null !== $request->sourceIdentityId) {
+            @$body['SourceIdentityId'] = $request->sourceIdentityId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->welcomeContent) {
+            @$body['WelcomeContent'] = $request->welcomeContent;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAlidingAssistant',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/aiagent/createAlidingAssistant',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAlidingAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateAlidingAssistantRequest
+     *
+     * @returns CreateAlidingAssistantResponse
+     *
+     * @param CreateAlidingAssistantRequest $request
+     *
+     * @return CreateAlidingAssistantResponse
+     */
+    public function createAlidingAssistant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateAlidingAssistantHeaders([]);
+
+        return $this->createAlidingAssistantWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 发布钉钉投放活动.
      *
      * @param tmpReq - CreateDeliveryPlanRequest
@@ -6744,6 +6890,88 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param tmpReq - DeleteAlidingAssistantRequest
+     * @param tmpHeader - DeleteAlidingAssistantHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlidingAssistantResponse
+     *
+     * @param DeleteAlidingAssistantRequest $tmpReq
+     * @param DeleteAlidingAssistantHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteAlidingAssistantResponse
+     */
+    public function deleteAlidingAssistantWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAlidingAssistantShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DeleteAlidingAssistantShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['AssistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAlidingAssistant',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/aiagent/deleteAlidingAssistant',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAlidingAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteAlidingAssistantRequest
+     *
+     * @returns DeleteAlidingAssistantResponse
+     *
+     * @param DeleteAlidingAssistantRequest $request
+     *
+     * @return DeleteAlidingAssistantResponse
+     */
+    public function deleteAlidingAssistant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteAlidingAssistantHeaders([]);
+
+        return $this->deleteAlidingAssistantWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 删除指定列.
      *
      * @param tmpReq - DeleteColumnsRequest
@@ -9229,6 +9457,92 @@ class Aliding extends OpenApiClient
         $headers = new GetActivityListHeaders([]);
 
         return $this->getActivityListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取阿里钉ai助理信息.
+     *
+     * @param tmpReq - GetAlidingAssistantInfoRequest
+     * @param tmpHeader - GetAlidingAssistantInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlidingAssistantInfoResponse
+     *
+     * @param GetAlidingAssistantInfoRequest $tmpReq
+     * @param GetAlidingAssistantInfoHeaders $tmpHeader
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAlidingAssistantInfoResponse
+     */
+    public function getAlidingAssistantInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetAlidingAssistantInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetAlidingAssistantInfoShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['AssistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAlidingAssistantInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/aiagent/getAlidingAssistantInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAlidingAssistantInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取阿里钉ai助理信息.
+     *
+     * @param request - GetAlidingAssistantInfoRequest
+     *
+     * @returns GetAlidingAssistantInfoResponse
+     *
+     * @param GetAlidingAssistantInfoRequest $request
+     *
+     * @return GetAlidingAssistantInfoResponse
+     */
+    public function getAlidingAssistantInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetAlidingAssistantInfoHeaders([]);
+
+        return $this->getAlidingAssistantInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -23923,6 +24237,136 @@ class Aliding extends OpenApiClient
         $headers = new UnsubscribeEventHeaders([]);
 
         return $this->unsubscribeEventWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param tmpReq - UpdateAlidingAssistantRequest
+     * @param tmpHeader - UpdateAlidingAssistantHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlidingAssistantResponse
+     *
+     * @param UpdateAlidingAssistantRequest $tmpReq
+     * @param UpdateAlidingAssistantHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateAlidingAssistantResponse
+     */
+    public function updateAlidingAssistantWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAlidingAssistantShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new UpdateAlidingAssistantShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
+        }
+
+        if (null !== $tmpReq->feature) {
+            $request->featureShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->feature, 'Feature', 'json');
+        }
+
+        if (null !== $tmpReq->recommendPrompts) {
+            $request->recommendPromptsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recommendPrompts, 'RecommendPrompts', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['AssistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->extShrink) {
+            @$body['Ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->fallbackContent) {
+            @$body['FallbackContent'] = $request->fallbackContent;
+        }
+
+        if (null !== $request->featureShrink) {
+            @$body['Feature'] = $request->featureShrink;
+        }
+
+        if (null !== $request->icon) {
+            @$body['Icon'] = $request->icon;
+        }
+
+        if (null !== $request->instructions) {
+            @$body['Instructions'] = $request->instructions;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->recommendPromptsShrink) {
+            @$body['RecommendPrompts'] = $request->recommendPromptsShrink;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->welcomeContent) {
+            @$body['WelcomeContent'] = $request->welcomeContent;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlidingAssistant',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/aiagent/updateAlidingAssistant',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlidingAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateAlidingAssistantRequest
+     *
+     * @returns UpdateAlidingAssistantResponse
+     *
+     * @param UpdateAlidingAssistantRequest $request
+     *
+     * @return UpdateAlidingAssistantResponse
+     */
+    public function updateAlidingAssistant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateAlidingAssistantHeaders([]);
+
+        return $this->updateAlidingAssistantWithOptions($request, $headers, $runtime);
     }
 
     /**
