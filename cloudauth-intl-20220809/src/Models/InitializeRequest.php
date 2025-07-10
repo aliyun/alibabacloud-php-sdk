@@ -49,6 +49,16 @@ class InitializeRequest extends Model
     public $dateOfExpiry;
 
     /**
+     * @var string
+     */
+    public $docName;
+
+    /**
+     * @var string
+     */
+    public $docNo;
+
+    /**
      * @var string[]
      */
     public $docPageConfig;
@@ -206,6 +216,8 @@ class InitializeRequest extends Model
         'crop' => 'Crop',
         'dateOfBirth' => 'DateOfBirth',
         'dateOfExpiry' => 'DateOfExpiry',
+        'docName' => 'DocName',
+        'docNo' => 'DocNo',
         'docPageConfig' => 'DocPageConfig',
         'docScanMode' => 'DocScanMode',
         'docType' => 'DocType',
@@ -279,6 +291,14 @@ class InitializeRequest extends Model
 
         if (null !== $this->dateOfExpiry) {
             $res['DateOfExpiry'] = $this->dateOfExpiry;
+        }
+
+        if (null !== $this->docName) {
+            $res['DocName'] = $this->docName;
+        }
+
+        if (null !== $this->docNo) {
+            $res['DocNo'] = $this->docNo;
         }
 
         if (null !== $this->docPageConfig) {
@@ -449,6 +469,14 @@ class InitializeRequest extends Model
 
         if (isset($map['DateOfExpiry'])) {
             $model->dateOfExpiry = $map['DateOfExpiry'];
+        }
+
+        if (isset($map['DocName'])) {
+            $model->docName = $map['DocName'];
+        }
+
+        if (isset($map['DocNo'])) {
+            $model->docNo = $map['DocNo'];
         }
 
         if (isset($map['DocPageConfig'])) {

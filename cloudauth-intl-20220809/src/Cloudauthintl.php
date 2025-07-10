@@ -1685,6 +1685,14 @@ class Cloudauthintl extends OpenApiClient
             @$query['DateOfExpiry'] = $request->dateOfExpiry;
         }
 
+        if (null !== $request->docName) {
+            @$query['DocName'] = $request->docName;
+        }
+
+        if (null !== $request->docNo) {
+            @$query['DocNo'] = $request->docNo;
+        }
+
         if (null !== $request->docPageConfigShrink) {
             @$query['DocPageConfig'] = $request->docPageConfigShrink;
         }
