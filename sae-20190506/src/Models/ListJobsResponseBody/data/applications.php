@@ -47,6 +47,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $imageUrl;
+
+    /**
+     * @var string
+     */
     public $lastChangeorderState;
 
     /**
@@ -106,6 +111,7 @@ class applications extends Model
         'completionTime' => 'CompletionTime',
         'cpu' => 'Cpu',
         'failed' => 'Failed',
+        'imageUrl' => 'ImageUrl',
         'lastChangeorderState' => 'LastChangeorderState',
         'lastJobState' => 'LastJobState',
         'lastStartTime' => 'LastStartTime',
@@ -156,6 +162,10 @@ class applications extends Model
 
         if (null !== $this->failed) {
             $res['Failed'] = $this->failed;
+        }
+
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
 
         if (null !== $this->lastChangeorderState) {
@@ -246,6 +256,10 @@ class applications extends Model
 
         if (isset($map['Failed'])) {
             $model->failed = $map['Failed'];
+        }
+
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
 
         if (isset($map['LastChangeorderState'])) {
