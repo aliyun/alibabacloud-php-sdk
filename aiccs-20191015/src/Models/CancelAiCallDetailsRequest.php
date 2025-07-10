@@ -75,7 +75,8 @@ class CancelAiCallDetailsRequest extends Model
                 $res['DetailIdList'] = [];
                 $n1 = 0;
                 foreach ($this->detailIdList as $item1) {
-                    $res['DetailIdList'][$n1++] = $item1;
+                    $res['DetailIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class CancelAiCallDetailsRequest extends Model
                 $res['PhoneNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->phoneNumbers as $item1) {
-                    $res['PhoneNumbers'][$n1++] = $item1;
+                    $res['PhoneNumbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class CancelAiCallDetailsRequest extends Model
                 $model->detailIdList = [];
                 $n1 = 0;
                 foreach ($map['DetailIdList'] as $item1) {
-                    $model->detailIdList[$n1++] = $item1;
+                    $model->detailIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class CancelAiCallDetailsRequest extends Model
                 $model->phoneNumbers = [];
                 $n1 = 0;
                 foreach ($map['PhoneNumbers'] as $item1) {
-                    $model->phoneNumbers[$n1++] = $item1;
+                    $model->phoneNumbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

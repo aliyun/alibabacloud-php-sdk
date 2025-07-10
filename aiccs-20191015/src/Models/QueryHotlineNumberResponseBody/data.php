@@ -55,7 +55,8 @@ class data extends Model
                 $res['HotlineNumList'] = [];
                 $n1 = 0;
                 foreach ($this->hotlineNumList as $item1) {
-                    $res['HotlineNumList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HotlineNumList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class data extends Model
                 $model->hotlineNumList = [];
                 $n1 = 0;
                 foreach ($map['HotlineNumList'] as $item1) {
-                    $model->hotlineNumList[$n1++] = hotlineNumList::fromMap($item1);
+                    $model->hotlineNumList[$n1] = hotlineNumList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

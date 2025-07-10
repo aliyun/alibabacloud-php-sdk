@@ -173,7 +173,8 @@ class QueryTouchListRequest extends Model
                 $res['ChannelId'] = [];
                 $n1 = 0;
                 foreach ($this->channelId as $item1) {
-                    $res['ChannelId'][$n1++] = $item1;
+                    $res['ChannelId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +184,8 @@ class QueryTouchListRequest extends Model
                 $res['ChannelType'] = [];
                 $n1 = 0;
                 foreach ($this->channelType as $item1) {
-                    $res['ChannelType'][$n1++] = $item1;
+                    $res['ChannelType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +207,8 @@ class QueryTouchListRequest extends Model
                 $res['EvaluationLevel'] = [];
                 $n1 = 0;
                 foreach ($this->evaluationLevel as $item1) {
-                    $res['EvaluationLevel'][$n1++] = $item1;
+                    $res['EvaluationLevel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +218,8 @@ class QueryTouchListRequest extends Model
                 $res['EvaluationScore'] = [];
                 $n1 = 0;
                 foreach ($this->evaluationScore as $item1) {
-                    $res['EvaluationScore'][$n1++] = $item1;
+                    $res['EvaluationScore'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +229,8 @@ class QueryTouchListRequest extends Model
                 $res['EvaluationStatus'] = [];
                 $n1 = 0;
                 foreach ($this->evaluationStatus as $item1) {
-                    $res['EvaluationStatus'][$n1++] = $item1;
+                    $res['EvaluationStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -247,7 +252,8 @@ class QueryTouchListRequest extends Model
                 $res['MemberId'] = [];
                 $n1 = 0;
                 foreach ($this->memberId as $item1) {
-                    $res['MemberId'][$n1++] = $item1;
+                    $res['MemberId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,7 +263,8 @@ class QueryTouchListRequest extends Model
                 $res['MemberName'] = [];
                 $n1 = 0;
                 foreach ($this->memberName as $item1) {
-                    $res['MemberName'][$n1++] = $item1;
+                    $res['MemberName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -271,7 +278,8 @@ class QueryTouchListRequest extends Model
                 $res['QueueId'] = [];
                 $n1 = 0;
                 foreach ($this->queueId as $item1) {
-                    $res['QueueId'][$n1++] = $item1;
+                    $res['QueueId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,7 +289,8 @@ class QueryTouchListRequest extends Model
                 $res['ServicerId'] = [];
                 $n1 = 0;
                 foreach ($this->servicerId as $item1) {
-                    $res['ServicerId'][$n1++] = $item1;
+                    $res['ServicerId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +300,8 @@ class QueryTouchListRequest extends Model
                 $res['ServicerName'] = [];
                 $n1 = 0;
                 foreach ($this->servicerName as $item1) {
-                    $res['ServicerName'][$n1++] = $item1;
+                    $res['ServicerName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -301,7 +311,8 @@ class QueryTouchListRequest extends Model
                 $res['TouchId'] = [];
                 $n1 = 0;
                 foreach ($this->touchId as $item1) {
-                    $res['TouchId'][$n1++] = $item1;
+                    $res['TouchId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -311,7 +322,8 @@ class QueryTouchListRequest extends Model
                 $res['TouchType'] = [];
                 $n1 = 0;
                 foreach ($this->touchType as $item1) {
-                    $res['TouchType'][$n1++] = $item1;
+                    $res['TouchType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -332,7 +344,8 @@ class QueryTouchListRequest extends Model
                 $model->channelId = [];
                 $n1 = 0;
                 foreach ($map['ChannelId'] as $item1) {
-                    $model->channelId[$n1++] = $item1;
+                    $model->channelId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -342,7 +355,8 @@ class QueryTouchListRequest extends Model
                 $model->channelType = [];
                 $n1 = 0;
                 foreach ($map['ChannelType'] as $item1) {
-                    $model->channelType[$n1++] = $item1;
+                    $model->channelType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -364,7 +378,8 @@ class QueryTouchListRequest extends Model
                 $model->evaluationLevel = [];
                 $n1 = 0;
                 foreach ($map['EvaluationLevel'] as $item1) {
-                    $model->evaluationLevel[$n1++] = $item1;
+                    $model->evaluationLevel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -374,7 +389,8 @@ class QueryTouchListRequest extends Model
                 $model->evaluationScore = [];
                 $n1 = 0;
                 foreach ($map['EvaluationScore'] as $item1) {
-                    $model->evaluationScore[$n1++] = $item1;
+                    $model->evaluationScore[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -384,7 +400,8 @@ class QueryTouchListRequest extends Model
                 $model->evaluationStatus = [];
                 $n1 = 0;
                 foreach ($map['EvaluationStatus'] as $item1) {
-                    $model->evaluationStatus[$n1++] = $item1;
+                    $model->evaluationStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -406,7 +423,8 @@ class QueryTouchListRequest extends Model
                 $model->memberId = [];
                 $n1 = 0;
                 foreach ($map['MemberId'] as $item1) {
-                    $model->memberId[$n1++] = $item1;
+                    $model->memberId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -416,7 +434,8 @@ class QueryTouchListRequest extends Model
                 $model->memberName = [];
                 $n1 = 0;
                 foreach ($map['MemberName'] as $item1) {
-                    $model->memberName[$n1++] = $item1;
+                    $model->memberName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -430,7 +449,8 @@ class QueryTouchListRequest extends Model
                 $model->queueId = [];
                 $n1 = 0;
                 foreach ($map['QueueId'] as $item1) {
-                    $model->queueId[$n1++] = $item1;
+                    $model->queueId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -440,7 +460,8 @@ class QueryTouchListRequest extends Model
                 $model->servicerId = [];
                 $n1 = 0;
                 foreach ($map['ServicerId'] as $item1) {
-                    $model->servicerId[$n1++] = $item1;
+                    $model->servicerId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -450,7 +471,8 @@ class QueryTouchListRequest extends Model
                 $model->servicerName = [];
                 $n1 = 0;
                 foreach ($map['ServicerName'] as $item1) {
-                    $model->servicerName[$n1++] = $item1;
+                    $model->servicerName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -460,7 +482,8 @@ class QueryTouchListRequest extends Model
                 $model->touchId = [];
                 $n1 = 0;
                 foreach ($map['TouchId'] as $item1) {
-                    $model->touchId[$n1++] = $item1;
+                    $model->touchId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -470,7 +493,8 @@ class QueryTouchListRequest extends Model
                 $model->touchType = [];
                 $n1 = 0;
                 foreach ($map['TouchType'] as $item1) {
-                    $model->touchType[$n1++] = $item1;
+                    $model->touchType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

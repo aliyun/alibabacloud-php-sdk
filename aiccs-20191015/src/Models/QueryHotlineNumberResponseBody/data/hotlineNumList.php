@@ -97,7 +97,8 @@ class hotlineNumList extends Model
                 $res['CalloutRangeList'] = [];
                 $n1 = 0;
                 foreach ($this->calloutRangeList as $item1) {
-                    $res['CalloutRangeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CalloutRangeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class hotlineNumList extends Model
                 $model->calloutRangeList = [];
                 $n1 = 0;
                 foreach ($map['CalloutRangeList'] as $item1) {
-                    $model->calloutRangeList[$n1++] = calloutRangeList::fromMap($item1);
+                    $model->calloutRangeList[$n1] = calloutRangeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

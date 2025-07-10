@@ -213,7 +213,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['AcidList'] = [];
                 $n1 = 0;
                 foreach ($this->acidList as $item1) {
-                    $res['AcidList'][$n1++] = $item1;
+                    $res['AcidList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +228,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['CallResultList'] = [];
                 $n1 = 0;
                 foreach ($this->callResultList as $item1) {
-                    $res['CallResultList'][$n1++] = $item1;
+                    $res['CallResultList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -241,7 +243,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['CallTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->callTypeList as $item1) {
-                    $res['CallTypeList'][$n1++] = $item1;
+                    $res['CallTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +258,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['CalledNumberList'] = [];
                 $n1 = 0;
                 foreach ($this->calledNumberList as $item1) {
-                    $res['CalledNumberList'][$n1++] = $item1;
+                    $res['CalledNumberList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -269,7 +273,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['CallingNumberList'] = [];
                 $n1 = 0;
                 foreach ($this->callingNumberList as $item1) {
-                    $res['CallingNumberList'][$n1++] = $item1;
+                    $res['CallingNumberList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -283,7 +288,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['GroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->groupIdList as $item1) {
-                    $res['GroupIdList'][$n1++] = $item1;
+                    $res['GroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,7 +315,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['MemberIdList'] = [];
                 $n1 = 0;
                 foreach ($this->memberIdList as $item1) {
-                    $res['MemberIdList'][$n1++] = $item1;
+                    $res['MemberIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -351,7 +358,8 @@ class HotlineSessionQueryRequest extends Model
                 $res['ServicerIdList'] = [];
                 $n1 = 0;
                 foreach ($this->servicerIdList as $item1) {
-                    $res['ServicerIdList'][$n1++] = $item1;
+                    $res['ServicerIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -380,7 +388,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->acidList = [];
                 $n1 = 0;
                 foreach ($map['AcidList'] as $item1) {
-                    $model->acidList[$n1++] = $item1;
+                    $model->acidList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -394,7 +403,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->callResultList = [];
                 $n1 = 0;
                 foreach ($map['CallResultList'] as $item1) {
-                    $model->callResultList[$n1++] = $item1;
+                    $model->callResultList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -408,7 +418,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->callTypeList = [];
                 $n1 = 0;
                 foreach ($map['CallTypeList'] as $item1) {
-                    $model->callTypeList[$n1++] = $item1;
+                    $model->callTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -422,7 +433,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->calledNumberList = [];
                 $n1 = 0;
                 foreach ($map['CalledNumberList'] as $item1) {
-                    $model->calledNumberList[$n1++] = $item1;
+                    $model->calledNumberList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -436,7 +448,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->callingNumberList = [];
                 $n1 = 0;
                 foreach ($map['CallingNumberList'] as $item1) {
-                    $model->callingNumberList[$n1++] = $item1;
+                    $model->callingNumberList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -450,7 +463,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->groupIdList = [];
                 $n1 = 0;
                 foreach ($map['GroupIdList'] as $item1) {
-                    $model->groupIdList[$n1++] = $item1;
+                    $model->groupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -476,7 +490,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->memberIdList = [];
                 $n1 = 0;
                 foreach ($map['MemberIdList'] as $item1) {
-                    $model->memberIdList[$n1++] = $item1;
+                    $model->memberIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -518,7 +533,8 @@ class HotlineSessionQueryRequest extends Model
                 $model->servicerIdList = [];
                 $n1 = 0;
                 foreach ($map['ServicerIdList'] as $item1) {
-                    $model->servicerIdList[$n1++] = $item1;
+                    $model->servicerIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

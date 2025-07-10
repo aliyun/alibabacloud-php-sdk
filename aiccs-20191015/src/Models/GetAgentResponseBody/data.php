@@ -75,7 +75,8 @@ class data extends Model
                 $res['GroupList'] = [];
                 $n1 = 0;
                 foreach ($this->groupList as $item1) {
-                    $res['GroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class data extends Model
                 $model->groupList = [];
                 $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
-                    $model->groupList[$n1++] = groupList::fromMap($item1);
+                    $model->groupList[$n1] = groupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -74,7 +74,8 @@ class BatchCreateQualityProjectsRequest extends Model
                 $res['AnalysisIds'] = [];
                 $n1 = 0;
                 foreach ($this->analysisIds as $item1) {
-                    $res['AnalysisIds'][$n1++] = $item1;
+                    $res['AnalysisIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class BatchCreateQualityProjectsRequest extends Model
                 $res['ChannelTouchType'] = [];
                 $n1 = 0;
                 foreach ($this->channelTouchType as $item1) {
-                    $res['ChannelTouchType'][$n1++] = $item1;
+                    $res['ChannelTouchType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class BatchCreateQualityProjectsRequest extends Model
                 $res['InstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->instanceList as $item1) {
-                    $res['InstanceList'][$n1++] = $item1;
+                    $res['InstanceList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +134,8 @@ class BatchCreateQualityProjectsRequest extends Model
                 $model->analysisIds = [];
                 $n1 = 0;
                 foreach ($map['AnalysisIds'] as $item1) {
-                    $model->analysisIds[$n1++] = $item1;
+                    $model->analysisIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +145,8 @@ class BatchCreateQualityProjectsRequest extends Model
                 $model->channelTouchType = [];
                 $n1 = 0;
                 foreach ($map['ChannelTouchType'] as $item1) {
-                    $model->channelTouchType[$n1++] = $item1;
+                    $model->channelTouchType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +160,8 @@ class BatchCreateQualityProjectsRequest extends Model
                 $model->instanceList = [];
                 $n1 = 0;
                 foreach ($map['InstanceList'] as $item1) {
-                    $model->instanceList[$n1++] = $item1;
+                    $model->instanceList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

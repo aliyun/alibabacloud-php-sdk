@@ -62,7 +62,8 @@ class data extends Model
                 $res['KeyWords'] = [];
                 $n1 = 0;
                 foreach ($this->keyWords as $item1) {
-                    $res['KeyWords'][$n1++] = $item1;
+                    $res['KeyWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class data extends Model
                 $model->keyWords = [];
                 $n1 = 0;
                 foreach ($map['KeyWords'] as $item1) {
-                    $model->keyWords[$n1++] = $item1;
+                    $model->keyWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

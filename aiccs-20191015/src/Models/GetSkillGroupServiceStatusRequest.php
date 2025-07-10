@@ -116,7 +116,8 @@ class GetSkillGroupServiceStatusRequest extends Model
                 $res['AgentIds'] = [];
                 $n1 = 0;
                 foreach ($this->agentIds as $item1) {
-                    $res['AgentIds'][$n1++] = $item1;
+                    $res['AgentIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class GetSkillGroupServiceStatusRequest extends Model
                 $res['DepIds'] = [];
                 $n1 = 0;
                 foreach ($this->depIds as $item1) {
-                    $res['DepIds'][$n1++] = $item1;
+                    $res['DepIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +166,8 @@ class GetSkillGroupServiceStatusRequest extends Model
                 $res['GroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->groupIds as $item1) {
-                    $res['GroupIds'][$n1++] = $item1;
+                    $res['GroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +204,8 @@ class GetSkillGroupServiceStatusRequest extends Model
                 $model->agentIds = [];
                 $n1 = 0;
                 foreach ($map['AgentIds'] as $item1) {
-                    $model->agentIds[$n1++] = $item1;
+                    $model->agentIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +219,8 @@ class GetSkillGroupServiceStatusRequest extends Model
                 $model->depIds = [];
                 $n1 = 0;
                 foreach ($map['DepIds'] as $item1) {
-                    $model->depIds[$n1++] = $item1;
+                    $model->depIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +254,8 @@ class GetSkillGroupServiceStatusRequest extends Model
                 $model->groupIds = [];
                 $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
-                    $model->groupIds[$n1++] = $item1;
+                    $model->groupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

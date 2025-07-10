@@ -133,7 +133,8 @@ class ResetHotlineNumberRequest extends Model
                 $res['OutboundRangeList'] = [];
                 $n1 = 0;
                 foreach ($this->outboundRangeList as $item1) {
-                    $res['OutboundRangeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutboundRangeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +195,8 @@ class ResetHotlineNumberRequest extends Model
                 $model->outboundRangeList = [];
                 $n1 = 0;
                 foreach ($map['OutboundRangeList'] as $item1) {
-                    $model->outboundRangeList[$n1++] = outboundRangeList::fromMap($item1);
+                    $model->outboundRangeList[$n1] = outboundRangeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

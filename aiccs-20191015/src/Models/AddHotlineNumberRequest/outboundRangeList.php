@@ -42,7 +42,8 @@ class outboundRangeList extends Model
                 $res['GroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->groupIdList as $item1) {
-                    $res['GroupIdList'][$n1++] = $item1;
+                    $res['GroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class outboundRangeList extends Model
                 $model->groupIdList = [];
                 $n1 = 0;
                 foreach ($map['GroupIdList'] as $item1) {
-                    $model->groupIdList[$n1++] = $item1;
+                    $model->groupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

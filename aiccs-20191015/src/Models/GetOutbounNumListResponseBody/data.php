@@ -43,7 +43,8 @@ class data extends Model
                 $res['Num'] = [];
                 $n1 = 0;
                 foreach ($this->num as $item1) {
-                    $res['Num'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Num'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class data extends Model
                 $res['NumGroup'] = [];
                 $n1 = 0;
                 foreach ($this->numGroup as $item1) {
-                    $res['NumGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NumGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class data extends Model
                 $model->num = [];
                 $n1 = 0;
                 foreach ($map['Num'] as $item1) {
-                    $model->num[$n1++] = num::fromMap($item1);
+                    $model->num[$n1] = num::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class data extends Model
                 $model->numGroup = [];
                 $n1 = 0;
                 foreach ($map['NumGroup'] as $item1) {
-                    $model->numGroup[$n1++] = numGroup::fromMap($item1);
+                    $model->numGroup[$n1] = numGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

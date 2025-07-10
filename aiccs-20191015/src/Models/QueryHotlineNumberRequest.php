@@ -70,7 +70,8 @@ class QueryHotlineNumberRequest extends Model
                 $res['GroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->groupIds as $item1) {
-                    $res['GroupIds'][$n1++] = $item1;
+                    $res['GroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class QueryHotlineNumberRequest extends Model
                 $model->groupIds = [];
                 $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
-                    $model->groupIds[$n1++] = $item1;
+                    $model->groupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

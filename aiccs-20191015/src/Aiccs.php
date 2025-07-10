@@ -1515,6 +1515,10 @@ class Aiccs extends OpenApiClient
             @$query['StartType'] = $request->startType;
         }
 
+        if (null !== $request->taskCps) {
+            @$query['TaskCps'] = $request->taskCps;
+        }
+
         if (null !== $request->taskName) {
             @$query['TaskName'] = $request->taskName;
         }
@@ -8376,6 +8380,10 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->callerNumber) {
             @$query['CallerNumber'] = $request->callerNumber;
+        }
+
+        if (null !== $request->customerLineCode) {
+            @$query['CustomerLineCode'] = $request->customerLineCode;
         }
 
         if (null !== $request->extension) {

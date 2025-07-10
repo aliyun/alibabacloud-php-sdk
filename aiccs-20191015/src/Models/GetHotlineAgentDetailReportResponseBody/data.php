@@ -60,7 +60,8 @@ class data extends Model
                 $res['Columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,11 +80,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->rows as $item1) {
                     if (\is_array($item1)) {
-                        $res['Rows'][$n1++] = [];
+                        $res['Rows'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Rows'][$n1++][$key2] = $value2;
+                            $res['Rows'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +110,8 @@ class data extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = columns::fromMap($item1);
+                    $model->columns[$n1] = columns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -127,11 +130,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['Rows'] as $item1) {
                     if (!empty($item1)) {
-                        $model->rows[$n1++] = [];
+                        $model->rows[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->rows[$n1++][$key2] = $value2;
+                            $model->rows[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

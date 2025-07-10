@@ -101,7 +101,8 @@ class CreateThirdSsoAgentRequest extends Model
                 $res['RoleIds'] = [];
                 $n1 = 0;
                 foreach ($this->roleIds as $item1) {
-                    $res['RoleIds'][$n1++] = $item1;
+                    $res['RoleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class CreateThirdSsoAgentRequest extends Model
                 $res['SkillGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->skillGroupIds as $item1) {
-                    $res['SkillGroupIds'][$n1++] = $item1;
+                    $res['SkillGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class CreateThirdSsoAgentRequest extends Model
                 $model->roleIds = [];
                 $n1 = 0;
                 foreach ($map['RoleIds'] as $item1) {
-                    $model->roleIds[$n1++] = $item1;
+                    $model->roleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class CreateThirdSsoAgentRequest extends Model
                 $model->skillGroupIds = [];
                 $n1 = 0;
                 foreach ($map['SkillGroupIds'] as $item1) {
-                    $model->skillGroupIds[$n1++] = $item1;
+                    $model->skillGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

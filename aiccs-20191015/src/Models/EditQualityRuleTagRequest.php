@@ -39,7 +39,8 @@ class EditQualityRuleTagRequest extends Model
                 $res['AnalysisTypes'] = [];
                 $n1 = 0;
                 foreach ($this->analysisTypes as $item1) {
-                    $res['AnalysisTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AnalysisTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class EditQualityRuleTagRequest extends Model
                 $model->analysisTypes = [];
                 $n1 = 0;
                 foreach ($map['AnalysisTypes'] as $item1) {
-                    $model->analysisTypes[$n1++] = analysisTypes::fromMap($item1);
+                    $model->analysisTypes[$n1] = analysisTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

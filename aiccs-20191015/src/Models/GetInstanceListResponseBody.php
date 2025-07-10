@@ -85,7 +85,8 @@ class GetInstanceListResponseBody extends Model
                 $res['CommodityInstances'] = [];
                 $n1 = 0;
                 foreach ($this->commodityInstances as $item1) {
-                    $res['CommodityInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CommodityInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class GetInstanceListResponseBody extends Model
                 $model->commodityInstances = [];
                 $n1 = 0;
                 foreach ($map['CommodityInstances'] as $item1) {
-                    $model->commodityInstances[$n1++] = commodityInstances::fromMap($item1);
+                    $model->commodityInstances[$n1] = commodityInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

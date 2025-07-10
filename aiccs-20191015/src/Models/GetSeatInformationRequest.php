@@ -76,7 +76,8 @@ class GetSeatInformationRequest extends Model
                 $res['depIds'] = [];
                 $n1 = 0;
                 foreach ($this->depIds as $item1) {
-                    $res['depIds'][$n1++] = $item1;
+                    $res['depIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class GetSeatInformationRequest extends Model
                 $model->depIds = [];
                 $n1 = 0;
                 foreach ($map['depIds'] as $item1) {
-                    $model->depIds[$n1++] = $item1;
+                    $model->depIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -53,7 +53,8 @@ class data extends Model
                 $res['GroupDTOS'] = [];
                 $n1 = 0;
                 foreach ($this->groupDTOS as $item1) {
-                    $res['GroupDTOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupDTOS'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class data extends Model
                 $model->groupDTOS = [];
                 $n1 = 0;
                 foreach ($map['GroupDTOS'] as $item1) {
-                    $model->groupDTOS[$n1++] = groupDTOS::fromMap($item1);
+                    $model->groupDTOS[$n1] = groupDTOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

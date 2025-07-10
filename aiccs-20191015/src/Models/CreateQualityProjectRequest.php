@@ -104,7 +104,8 @@ class CreateQualityProjectRequest extends Model
                 $res['AnalysisIds'] = [];
                 $n1 = 0;
                 foreach ($this->analysisIds as $item1) {
-                    $res['AnalysisIds'][$n1++] = $item1;
+                    $res['AnalysisIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class CreateQualityProjectRequest extends Model
                 $res['ChannelTouchType'] = [];
                 $n1 = 0;
                 foreach ($this->channelTouchType as $item1) {
-                    $res['ChannelTouchType'][$n1++] = $item1;
+                    $res['ChannelTouchType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +130,8 @@ class CreateQualityProjectRequest extends Model
                 $res['DepList'] = [];
                 $n1 = 0;
                 foreach ($this->depList as $item1) {
-                    $res['DepList'][$n1++] = $item1;
+                    $res['DepList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +141,8 @@ class CreateQualityProjectRequest extends Model
                 $res['GroupList'] = [];
                 $n1 = 0;
                 foreach ($this->groupList as $item1) {
-                    $res['GroupList'][$n1++] = $item1;
+                    $res['GroupList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +164,8 @@ class CreateQualityProjectRequest extends Model
                 $res['ServicerList'] = [];
                 $n1 = 0;
                 foreach ($this->servicerList as $item1) {
-                    $res['ServicerList'][$n1++] = $item1;
+                    $res['ServicerList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +194,8 @@ class CreateQualityProjectRequest extends Model
                 $model->analysisIds = [];
                 $n1 = 0;
                 foreach ($map['AnalysisIds'] as $item1) {
-                    $model->analysisIds[$n1++] = $item1;
+                    $model->analysisIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +205,8 @@ class CreateQualityProjectRequest extends Model
                 $model->channelTouchType = [];
                 $n1 = 0;
                 foreach ($map['ChannelTouchType'] as $item1) {
-                    $model->channelTouchType[$n1++] = $item1;
+                    $model->channelTouchType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -213,7 +220,8 @@ class CreateQualityProjectRequest extends Model
                 $model->depList = [];
                 $n1 = 0;
                 foreach ($map['DepList'] as $item1) {
-                    $model->depList[$n1++] = $item1;
+                    $model->depList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -223,7 +231,8 @@ class CreateQualityProjectRequest extends Model
                 $model->groupList = [];
                 $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
-                    $model->groupList[$n1++] = $item1;
+                    $model->groupList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +254,8 @@ class CreateQualityProjectRequest extends Model
                 $model->servicerList = [];
                 $n1 = 0;
                 foreach ($map['ServicerList'] as $item1) {
-                    $model->servicerList[$n1++] = $item1;
+                    $model->servicerList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

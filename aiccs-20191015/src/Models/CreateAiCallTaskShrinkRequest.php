@@ -64,6 +64,11 @@ class CreateAiCallTaskShrinkRequest extends Model
     public $startType;
 
     /**
+     * @var int
+     */
+    public $taskCps;
+
+    /**
      * @var string
      */
     public $taskName;
@@ -89,6 +94,7 @@ class CreateAiCallTaskShrinkRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'startType' => 'StartType',
+        'taskCps' => 'TaskCps',
         'taskName' => 'TaskName',
         'taskStartTime' => 'TaskStartTime',
         'virtualNumber' => 'VirtualNumber',
@@ -144,6 +150,10 @@ class CreateAiCallTaskShrinkRequest extends Model
 
         if (null !== $this->startType) {
             $res['StartType'] = $this->startType;
+        }
+
+        if (null !== $this->taskCps) {
+            $res['TaskCps'] = $this->taskCps;
         }
 
         if (null !== $this->taskName) {
@@ -211,6 +221,10 @@ class CreateAiCallTaskShrinkRequest extends Model
 
         if (isset($map['StartType'])) {
             $model->startType = $map['StartType'];
+        }
+
+        if (isset($map['TaskCps'])) {
+            $model->taskCps = $map['TaskCps'];
         }
 
         if (isset($map['TaskName'])) {

@@ -64,6 +64,11 @@ class CreateAiCallTaskRequest extends Model
     public $startType;
 
     /**
+     * @var int
+     */
+    public $taskCps;
+
+    /**
      * @var string
      */
     public $taskName;
@@ -89,6 +94,7 @@ class CreateAiCallTaskRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'startType' => 'StartType',
+        'taskCps' => 'TaskCps',
         'taskName' => 'TaskName',
         'taskStartTime' => 'TaskStartTime',
         'virtualNumber' => 'VirtualNumber',
@@ -120,7 +126,8 @@ class CreateAiCallTaskRequest extends Model
                 $res['CallDay'] = [];
                 $n1 = 0;
                 foreach ($this->callDay as $item1) {
-                    $res['CallDay'][$n1++] = $item1;
+                    $res['CallDay'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +141,8 @@ class CreateAiCallTaskRequest extends Model
                 $res['CallRetryReason'] = [];
                 $n1 = 0;
                 foreach ($this->callRetryReason as $item1) {
-                    $res['CallRetryReason'][$n1++] = $item1;
+                    $res['CallRetryReason'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +156,8 @@ class CreateAiCallTaskRequest extends Model
                 $res['CallTime'] = [];
                 $n1 = 0;
                 foreach ($this->callTime as $item1) {
-                    $res['CallTime'][$n1++] = $item1;
+                    $res['CallTime'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,6 +180,10 @@ class CreateAiCallTaskRequest extends Model
 
         if (null !== $this->startType) {
             $res['StartType'] = $this->startType;
+        }
+
+        if (null !== $this->taskCps) {
+            $res['TaskCps'] = $this->taskCps;
         }
 
         if (null !== $this->taskName) {
@@ -205,7 +218,8 @@ class CreateAiCallTaskRequest extends Model
                 $model->callDay = [];
                 $n1 = 0;
                 foreach ($map['CallDay'] as $item1) {
-                    $model->callDay[$n1++] = $item1;
+                    $model->callDay[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +233,8 @@ class CreateAiCallTaskRequest extends Model
                 $model->callRetryReason = [];
                 $n1 = 0;
                 foreach ($map['CallRetryReason'] as $item1) {
-                    $model->callRetryReason[$n1++] = $item1;
+                    $model->callRetryReason[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +248,8 @@ class CreateAiCallTaskRequest extends Model
                 $model->callTime = [];
                 $n1 = 0;
                 foreach ($map['CallTime'] as $item1) {
-                    $model->callTime[$n1++] = $item1;
+                    $model->callTime[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -256,6 +272,10 @@ class CreateAiCallTaskRequest extends Model
 
         if (isset($map['StartType'])) {
             $model->startType = $map['StartType'];
+        }
+
+        if (isset($map['TaskCps'])) {
+            $model->taskCps = $map['TaskCps'];
         }
 
         if (isset($map['TaskName'])) {

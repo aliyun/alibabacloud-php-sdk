@@ -131,7 +131,8 @@ class data extends Model
                 $res['CallDays'] = [];
                 $n1 = 0;
                 foreach ($this->callDays as $item1) {
-                    $res['CallDays'][$n1++] = $item1;
+                    $res['CallDays'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class data extends Model
                 $res['CallTimes'] = [];
                 $n1 = 0;
                 foreach ($this->callTimes as $item1) {
-                    $res['CallTimes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CallTimes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,7 +177,8 @@ class data extends Model
                 $res['RetryReasons'] = [];
                 $n1 = 0;
                 foreach ($this->retryReasons as $item1) {
-                    $res['RetryReasons'][$n1++] = $item1;
+                    $res['RetryReasons'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -220,7 +223,8 @@ class data extends Model
                 $model->callDays = [];
                 $n1 = 0;
                 foreach ($map['CallDays'] as $item1) {
-                    $model->callDays[$n1++] = $item1;
+                    $model->callDays[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +234,8 @@ class data extends Model
                 $model->callTimes = [];
                 $n1 = 0;
                 foreach ($map['CallTimes'] as $item1) {
-                    $model->callTimes[$n1++] = callTimes::fromMap($item1);
+                    $model->callTimes[$n1] = callTimes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -264,7 +269,8 @@ class data extends Model
                 $model->retryReasons = [];
                 $n1 = 0;
                 foreach ($map['RetryReasons'] as $item1) {
-                    $model->retryReasons[$n1++] = $item1;
+                    $model->retryReasons[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

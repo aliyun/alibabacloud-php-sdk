@@ -81,7 +81,8 @@ class UpdateAgentRequest extends Model
                 $res['SkillGroupId'] = [];
                 $n1 = 0;
                 foreach ($this->skillGroupId as $item1) {
-                    $res['SkillGroupId'][$n1++] = $item1;
+                    $res['SkillGroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class UpdateAgentRequest extends Model
                 $res['SkillGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->skillGroupIdList as $item1) {
-                    $res['SkillGroupIdList'][$n1++] = $item1;
+                    $res['SkillGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +130,8 @@ class UpdateAgentRequest extends Model
                 $model->skillGroupId = [];
                 $n1 = 0;
                 foreach ($map['SkillGroupId'] as $item1) {
-                    $model->skillGroupId[$n1++] = $item1;
+                    $model->skillGroupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +141,8 @@ class UpdateAgentRequest extends Model
                 $model->skillGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['SkillGroupIdList'] as $item1) {
-                    $model->skillGroupIdList[$n1++] = $item1;
+                    $model->skillGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

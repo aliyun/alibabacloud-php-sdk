@@ -96,7 +96,8 @@ class GetQualityResultRequest extends Model
                 $res['GroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->groupIds as $item1) {
-                    $res['GroupIds'][$n1++] = $item1;
+                    $res['GroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class GetQualityResultRequest extends Model
                 $res['ProjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->projectIds as $item1) {
-                    $res['ProjectIds'][$n1++] = $item1;
+                    $res['ProjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class GetQualityResultRequest extends Model
                 $res['QualityRuleIds'] = [];
                 $n1 = 0;
                 foreach ($this->qualityRuleIds as $item1) {
-                    $res['QualityRuleIds'][$n1++] = $item1;
+                    $res['QualityRuleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +168,8 @@ class GetQualityResultRequest extends Model
                 $model->groupIds = [];
                 $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
-                    $model->groupIds[$n1++] = $item1;
+                    $model->groupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +195,8 @@ class GetQualityResultRequest extends Model
                 $model->projectIds = [];
                 $n1 = 0;
                 foreach ($map['ProjectIds'] as $item1) {
-                    $model->projectIds[$n1++] = $item1;
+                    $model->projectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +206,8 @@ class GetQualityResultRequest extends Model
                 $model->qualityRuleIds = [];
                 $n1 = 0;
                 foreach ($map['QualityRuleIds'] as $item1) {
-                    $model->qualityRuleIds[$n1++] = $item1;
+                    $model->qualityRuleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

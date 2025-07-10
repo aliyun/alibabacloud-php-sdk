@@ -115,7 +115,8 @@ class qualityProjectList extends Model
                 $res['DepList'] = [];
                 $n1 = 0;
                 foreach ($this->depList as $item1) {
-                    $res['DepList'][$n1++] = $item1;
+                    $res['DepList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class qualityProjectList extends Model
                 $res['GroupList'] = [];
                 $n1 = 0;
                 foreach ($this->groupList as $item1) {
-                    $res['GroupList'][$n1++] = $item1;
+                    $res['GroupList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +149,8 @@ class qualityProjectList extends Model
                 $res['QualityRuleIds'] = [];
                 $n1 = 0;
                 foreach ($this->qualityRuleIds as $item1) {
-                    $res['QualityRuleIds'][$n1++] = $item1;
+                    $res['QualityRuleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +164,8 @@ class qualityProjectList extends Model
                 $res['ServicerList'] = [];
                 $n1 = 0;
                 foreach ($this->servicerList as $item1) {
-                    $res['ServicerList'][$n1++] = $item1;
+                    $res['ServicerList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +202,8 @@ class qualityProjectList extends Model
                 $model->depList = [];
                 $n1 = 0;
                 foreach ($map['DepList'] as $item1) {
-                    $model->depList[$n1++] = $item1;
+                    $model->depList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +213,8 @@ class qualityProjectList extends Model
                 $model->groupList = [];
                 $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
-                    $model->groupList[$n1++] = $item1;
+                    $model->groupList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +236,8 @@ class qualityProjectList extends Model
                 $model->qualityRuleIds = [];
                 $n1 = 0;
                 foreach ($map['QualityRuleIds'] as $item1) {
-                    $model->qualityRuleIds[$n1++] = $item1;
+                    $model->qualityRuleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +251,8 @@ class qualityProjectList extends Model
                 $model->servicerList = [];
                 $n1 = 0;
                 foreach ($map['ServicerList'] as $item1) {
-                    $model->servicerList[$n1++] = $item1;
+                    $model->servicerList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

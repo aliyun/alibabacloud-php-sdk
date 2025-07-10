@@ -128,7 +128,8 @@ class UpdateAiOutboundTaskRequest extends Model
                 $res['OutboundNums'] = [];
                 $n1 = 0;
                 foreach ($this->outboundNums as $item1) {
-                    $res['OutboundNums'][$n1++] = $item1;
+                    $res['OutboundNums'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +190,8 @@ class UpdateAiOutboundTaskRequest extends Model
                 $model->outboundNums = [];
                 $n1 = 0;
                 foreach ($map['OutboundNums'] as $item1) {
-                    $model->outboundNums[$n1++] = $item1;
+                    $model->outboundNums[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -75,7 +75,8 @@ class GetHotlineGroupDetailReportRequest extends Model
                 $res['DepIds'] = [];
                 $n1 = 0;
                 foreach ($this->depIds as $item1) {
-                    $res['DepIds'][$n1++] = $item1;
+                    $res['DepIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class GetHotlineGroupDetailReportRequest extends Model
                 $res['GroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->groupIds as $item1) {
-                    $res['GroupIds'][$n1++] = $item1;
+                    $res['GroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class GetHotlineGroupDetailReportRequest extends Model
                 $model->depIds = [];
                 $n1 = 0;
                 foreach ($map['DepIds'] as $item1) {
-                    $model->depIds[$n1++] = $item1;
+                    $model->depIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class GetHotlineGroupDetailReportRequest extends Model
                 $model->groupIds = [];
                 $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
-                    $model->groupIds[$n1++] = $item1;
+                    $model->groupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

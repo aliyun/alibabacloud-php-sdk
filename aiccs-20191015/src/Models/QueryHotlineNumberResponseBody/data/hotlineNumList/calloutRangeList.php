@@ -53,7 +53,8 @@ class calloutRangeList extends Model
                 $res['GroupDOList'] = [];
                 $n1 = 0;
                 foreach ($this->groupDOList as $item1) {
-                    $res['GroupDOList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupDOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class calloutRangeList extends Model
                 $model->groupDOList = [];
                 $n1 = 0;
                 foreach ($map['GroupDOList'] as $item1) {
-                    $model->groupDOList[$n1++] = groupDOList::fromMap($item1);
+                    $model->groupDOList[$n1] = groupDOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

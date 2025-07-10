@@ -31,6 +31,11 @@ class LlmSmartCallShrinkRequest extends Model
     /**
      * @var string
      */
+    public $customerLineCode;
+
+    /**
+     * @var string
+     */
     public $extension;
 
     /**
@@ -72,6 +77,7 @@ class LlmSmartCallShrinkRequest extends Model
         'bizParamShrink' => 'BizParam',
         'calledNumber' => 'CalledNumber',
         'callerNumber' => 'CallerNumber',
+        'customerLineCode' => 'CustomerLineCode',
         'extension' => 'Extension',
         'outId' => 'OutId',
         'promptParamShrink' => 'PromptParam',
@@ -104,6 +110,10 @@ class LlmSmartCallShrinkRequest extends Model
 
         if (null !== $this->callerNumber) {
             $res['CallerNumber'] = $this->callerNumber;
+        }
+
+        if (null !== $this->customerLineCode) {
+            $res['CustomerLineCode'] = $this->customerLineCode;
         }
 
         if (null !== $this->extension) {
@@ -163,6 +173,10 @@ class LlmSmartCallShrinkRequest extends Model
 
         if (isset($map['CallerNumber'])) {
             $model->callerNumber = $map['CallerNumber'];
+        }
+
+        if (isset($map['CustomerLineCode'])) {
+            $model->customerLineCode = $map['CustomerLineCode'];
         }
 
         if (isset($map['Extension'])) {

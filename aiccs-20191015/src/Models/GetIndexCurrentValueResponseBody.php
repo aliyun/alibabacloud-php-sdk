@@ -61,11 +61,12 @@ class GetIndexCurrentValueResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->data as $item1) {
                     if (\is_array($item1)) {
-                        $res['Data'][$n1++] = [];
+                        $res['Data'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Data'][$n1++][$key2] = $value2;
+                            $res['Data'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -103,11 +104,12 @@ class GetIndexCurrentValueResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     if (!empty($item1)) {
-                        $model->data[$n1++] = [];
+                        $model->data[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->data[$n1++][$key2] = $value2;
+                            $model->data[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
