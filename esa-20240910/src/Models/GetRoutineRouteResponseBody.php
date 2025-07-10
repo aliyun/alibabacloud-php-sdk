@@ -26,6 +26,11 @@ class GetRoutineRouteResponseBody extends Model
     /**
      * @var string
      */
+    public $fallback;
+
+    /**
+     * @var string
+     */
     public $mode;
 
     /**
@@ -66,6 +71,7 @@ class GetRoutineRouteResponseBody extends Model
         'bypass' => 'Bypass',
         'configId' => 'ConfigId',
         'configType' => 'ConfigType',
+        'fallback' => 'Fallback',
         'mode' => 'Mode',
         'requestId' => 'RequestId',
         'routeEnable' => 'RouteEnable',
@@ -94,6 +100,10 @@ class GetRoutineRouteResponseBody extends Model
 
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
+        }
+
+        if (null !== $this->fallback) {
+            $res['Fallback'] = $this->fallback;
         }
 
         if (null !== $this->mode) {
@@ -149,6 +159,10 @@ class GetRoutineRouteResponseBody extends Model
 
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
+        }
+
+        if (isset($map['Fallback'])) {
+            $model->fallback = $map['Fallback'];
         }
 
         if (isset($map['Mode'])) {

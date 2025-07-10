@@ -21,6 +21,11 @@ class UpdateRoutineRouteRequest extends Model
     /**
      * @var string
      */
+    public $fallback;
+
+    /**
+     * @var string
+     */
     public $routeEnable;
 
     /**
@@ -50,6 +55,7 @@ class UpdateRoutineRouteRequest extends Model
     protected $_name = [
         'bypass' => 'Bypass',
         'configId' => 'ConfigId',
+        'fallback' => 'Fallback',
         'routeEnable' => 'RouteEnable',
         'routeName' => 'RouteName',
         'routineName' => 'RoutineName',
@@ -72,6 +78,10 @@ class UpdateRoutineRouteRequest extends Model
 
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
+        }
+
+        if (null !== $this->fallback) {
+            $res['Fallback'] = $this->fallback;
         }
 
         if (null !== $this->routeEnable) {
@@ -115,6 +125,10 @@ class UpdateRoutineRouteRequest extends Model
 
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
+        }
+
+        if (isset($map['Fallback'])) {
+            $model->fallback = $map['Fallback'];
         }
 
         if (isset($map['RouteEnable'])) {

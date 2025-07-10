@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class regions extends Model
 {
     /**
+     * @var bool
+     */
+    public $isOffline;
+
+    /**
+     * @var bool
+     */
+    public $isStaging;
+
+    /**
      * @var string
      */
     public $isp;
@@ -28,6 +38,8 @@ class regions extends Model
      */
     public $total;
     protected $_name = [
+        'isOffline' => 'IsOffline',
+        'isStaging' => 'IsStaging',
         'isp' => 'Isp',
         'ready' => 'Ready',
         'region' => 'Region',
@@ -42,6 +54,14 @@ class regions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->isOffline) {
+            $res['IsOffline'] = $this->isOffline;
+        }
+
+        if (null !== $this->isStaging) {
+            $res['IsStaging'] = $this->isStaging;
+        }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
@@ -69,6 +89,14 @@ class regions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsOffline'])) {
+            $model->isOffline = $map['IsOffline'];
+        }
+
+        if (isset($map['IsStaging'])) {
+            $model->isStaging = $map['IsStaging'];
+        }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }

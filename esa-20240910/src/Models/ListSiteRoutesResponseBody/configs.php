@@ -26,6 +26,11 @@ class configs extends Model
     /**
      * @var string
      */
+    public $fallback;
+
+    /**
+     * @var string
+     */
     public $mode;
 
     /**
@@ -61,6 +66,7 @@ class configs extends Model
         'bypass' => 'Bypass',
         'configId' => 'ConfigId',
         'configType' => 'ConfigType',
+        'fallback' => 'Fallback',
         'mode' => 'Mode',
         'routeEnable' => 'RouteEnable',
         'routeName' => 'RouteName',
@@ -88,6 +94,10 @@ class configs extends Model
 
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
+        }
+
+        if (null !== $this->fallback) {
+            $res['Fallback'] = $this->fallback;
         }
 
         if (null !== $this->mode) {
@@ -139,6 +149,10 @@ class configs extends Model
 
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
+        }
+
+        if (isset($map['Fallback'])) {
+            $model->fallback = $map['Fallback'];
         }
 
         if (isset($map['Mode'])) {

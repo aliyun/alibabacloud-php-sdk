@@ -16,6 +16,11 @@ class CreateRoutineRouteRequest extends Model
     /**
      * @var string
      */
+    public $fallback;
+
+    /**
+     * @var string
+     */
     public $routeEnable;
 
     /**
@@ -44,6 +49,7 @@ class CreateRoutineRouteRequest extends Model
     public $siteId;
     protected $_name = [
         'bypass' => 'Bypass',
+        'fallback' => 'Fallback',
         'routeEnable' => 'RouteEnable',
         'routeName' => 'RouteName',
         'routineName' => 'RoutineName',
@@ -62,6 +68,10 @@ class CreateRoutineRouteRequest extends Model
         $res = [];
         if (null !== $this->bypass) {
             $res['Bypass'] = $this->bypass;
+        }
+
+        if (null !== $this->fallback) {
+            $res['Fallback'] = $this->fallback;
         }
 
         if (null !== $this->routeEnable) {
@@ -101,6 +111,10 @@ class CreateRoutineRouteRequest extends Model
         $model = new self();
         if (isset($map['Bypass'])) {
             $model->bypass = $map['Bypass'];
+        }
+
+        if (isset($map['Fallback'])) {
+            $model->fallback = $map['Fallback'];
         }
 
         if (isset($map['RouteEnable'])) {

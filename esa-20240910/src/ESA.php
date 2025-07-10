@@ -4,7 +4,13 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateVersionManagementRequest;
@@ -260,6 +266,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataShrinkReques
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeUrlObservationDataRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeUrlObservationDataResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DisableCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DisableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EditSiteWafSettingsRequest;
@@ -714,13 +722,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UploadSiteOriginClientCertificateReque
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadSiteOriginClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\VerifySiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\VerifySiteResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -735,6 +737,51 @@ class ESA extends OpenApiClient
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('esa', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -764,7 +811,7 @@ class ESA extends OpenApiClient
     /**
      * Activates the client based on the certificate ID.
      *
-     * @param request - ActivateClientCertificateRequest
+     * @param Request - ActivateClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ActivateClientCertificateResponse
@@ -799,7 +846,7 @@ class ESA extends OpenApiClient
     /**
      * Activates the client based on the certificate ID.
      *
-     * @param request - ActivateClientCertificateRequest
+     * @param Request - ActivateClientCertificateRequest
      *
      * @returns ActivateClientCertificateResponse
      *
@@ -817,7 +864,7 @@ class ESA extends OpenApiClient
     /**
      * Enable Version Management.
      *
-     * @param request - ActivateVersionManagementRequest
+     * @param Request - ActivateVersionManagementRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ActivateVersionManagementResponse
@@ -856,7 +903,7 @@ class ESA extends OpenApiClient
     /**
      * Enable Version Management.
      *
-     * @param request - ActivateVersionManagementRequest
+     * @param Request - ActivateVersionManagementRequest
      *
      * @returns ActivateVersionManagementResponse
      *
@@ -874,7 +921,7 @@ class ESA extends OpenApiClient
     /**
      * Applies for a free SSL certificate.
      *
-     * @param request - ApplyCertificateRequest
+     * @param Request - ApplyCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ApplyCertificateResponse
@@ -909,7 +956,7 @@ class ESA extends OpenApiClient
     /**
      * Applies for a free SSL certificate.
      *
-     * @param request - ApplyCertificateRequest
+     * @param Request - ApplyCertificateRequest
      *
      * @returns ApplyCertificateResponse
      *
@@ -984,7 +1031,7 @@ class ESA extends OpenApiClient
      * This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
      * Successful and failed records along with error messages are listed in the response.
      *
-     * @param request - BatchCreateRecordsRequest
+     * @param Request - BatchCreateRecordsRequest
      *
      * @returns BatchCreateRecordsResponse
      *
@@ -1073,7 +1120,7 @@ class ESA extends OpenApiClient
     /**
      * Batch Create WAF Rules.
      *
-     * @param request - BatchCreateWafRulesRequest
+     * @param Request - BatchCreateWafRulesRequest
      *
      * @returns BatchCreateWafRulesResponse
      *
@@ -1142,7 +1189,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes key-value pairs from a namespace at a time based on keys.
      *
-     * @param request - BatchDeleteKvRequest
+     * @param Request - BatchDeleteKvRequest
      *
      * @returns BatchDeleteKvResponse
      *
@@ -1197,7 +1244,7 @@ class ESA extends OpenApiClient
      *     	return nil
      *     }
      *
-     * @param request - BatchDeleteKvWithHighCapacityRequest
+     * @param Request - BatchDeleteKvWithHighCapacityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns BatchDeleteKvWithHighCapacityResponse
@@ -1277,7 +1324,7 @@ class ESA extends OpenApiClient
      *     	return nil
      *     }
      *
-     * @param request - BatchDeleteKvWithHighCapacityRequest
+     * @param Request - BatchDeleteKvWithHighCapacityRequest
      *
      * @returns BatchDeleteKvWithHighCapacityResponse
      *
@@ -1301,12 +1348,20 @@ class ESA extends OpenApiClient
     public function batchDeleteKvWithHighCapacityAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -1323,51 +1378,54 @@ class ESA extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'ESA',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'ESA',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $batchDeleteKvWithHighCapacityReq = new BatchDeleteKvWithHighCapacityRequest([]);
         Utils::convert($request, $batchDeleteKvWithHighCapacityReq);
         if (null !== $request->urlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->urlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $batchDeleteKvWithHighCapacityReq->url = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $batchDeleteKvWithHighCapacityReq->url = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->batchDeleteKvWithHighCapacityWithOptions($batchDeleteKvWithHighCapacityReq, $runtime);
@@ -1431,7 +1489,7 @@ class ESA extends OpenApiClient
     /**
      * Batch Get Expression Matches.
      *
-     * @param request - BatchGetExpressionFieldsRequest
+     * @param Request - BatchGetExpressionFieldsRequest
      *
      * @returns BatchGetExpressionFieldsResponse
      *
@@ -1500,7 +1558,7 @@ class ESA extends OpenApiClient
     /**
      * Configures key-value pairs for a namespace at a time based on specified keys.
      *
-     * @param request - BatchPutKvRequest
+     * @param Request - BatchPutKvRequest
      *
      * @returns BatchPutKvResponse
      *
@@ -1563,7 +1621,7 @@ class ESA extends OpenApiClient
      *     	return nil
      *     }
      *
-     * @param request - BatchPutKvWithHighCapacityRequest
+     * @param Request - BatchPutKvWithHighCapacityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns BatchPutKvWithHighCapacityResponse
@@ -1651,7 +1709,7 @@ class ESA extends OpenApiClient
      *     	return nil
      *     }
      *
-     * @param request - BatchPutKvWithHighCapacityRequest
+     * @param Request - BatchPutKvWithHighCapacityRequest
      *
      * @returns BatchPutKvWithHighCapacityResponse
      *
@@ -1675,12 +1733,20 @@ class ESA extends OpenApiClient
     public function batchPutKvWithHighCapacityAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -1697,51 +1763,54 @@ class ESA extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'ESA',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'ESA',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $batchPutKvWithHighCapacityReq = new BatchPutKvWithHighCapacityRequest([]);
         Utils::convert($request, $batchPutKvWithHighCapacityReq);
         if (null !== $request->urlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->urlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $batchPutKvWithHighCapacityReq->url = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $batchPutKvWithHighCapacityReq->url = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->batchPutKvWithHighCapacityWithOptions($batchPutKvWithHighCapacityReq, $runtime);
@@ -1821,7 +1890,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
      *
-     * @param request - BatchUpdateWafRulesRequest
+     * @param Request - BatchUpdateWafRulesRequest
      *
      * @returns BatchUpdateWafRulesResponse
      *
@@ -1900,7 +1969,7 @@ class ESA extends OpenApiClient
     /**
      * Blocks URLs.
      *
-     * @param request - BlockObjectRequest
+     * @param Request - BlockObjectRequest
      *
      * @returns BlockObjectResponse
      *
@@ -1918,7 +1987,7 @@ class ESA extends OpenApiClient
     /**
      * 检查实时日志slr角色是否已创建.
      *
-     * @param request - CheckAssumeSlrRoleRequest
+     * @param Request - CheckAssumeSlrRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckAssumeSlrRoleResponse
@@ -1962,7 +2031,7 @@ class ESA extends OpenApiClient
     /**
      * Checks whether a specified website name is available.
      *
-     * @param request - CheckSiteNameRequest
+     * @param Request - CheckSiteNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckSiteNameResponse
@@ -2001,7 +2070,7 @@ class ESA extends OpenApiClient
     /**
      * Checks whether a specified website name is available.
      *
-     * @param request - CheckSiteNameRequest
+     * @param Request - CheckSiteNameRequest
      *
      * @returns CheckSiteNameResponse
      *
@@ -2019,7 +2088,7 @@ class ESA extends OpenApiClient
     /**
      * Checks the name of a real-time log delivery task.
      *
-     * @param request - CheckSiteProjectNameRequest
+     * @param Request - CheckSiteProjectNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckSiteProjectNameResponse
@@ -2054,7 +2123,7 @@ class ESA extends OpenApiClient
     /**
      * Checks the name of a real-time log delivery task.
      *
-     * @param request - CheckSiteProjectNameRequest
+     * @param Request - CheckSiteProjectNameRequest
      *
      * @returns CheckSiteProjectNameResponse
      *
@@ -2072,7 +2141,7 @@ class ESA extends OpenApiClient
     /**
      * Checks the name of a real-time log delivery task by account.
      *
-     * @param request - CheckUserProjectNameRequest
+     * @param Request - CheckUserProjectNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckUserProjectNameResponse
@@ -2107,7 +2176,7 @@ class ESA extends OpenApiClient
     /**
      * Checks the name of a real-time log delivery task by account.
      *
-     * @param request - CheckUserProjectNameRequest
+     * @param Request - CheckUserProjectNameRequest
      *
      * @returns CheckUserProjectNameResponse
      *
@@ -2125,7 +2194,7 @@ class ESA extends OpenApiClient
     /**
      * Commits the unstable code in the staging environment to generate an official code version.
      *
-     * @param request - CommitRoutineStagingCodeRequest
+     * @param Request - CommitRoutineStagingCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CommitRoutineStagingCodeResponse
@@ -2168,7 +2237,7 @@ class ESA extends OpenApiClient
     /**
      * Commits the unstable code in the staging environment to generate an official code version.
      *
-     * @param request - CommitRoutineStagingCodeRequest
+     * @param Request - CommitRoutineStagingCodeRequest
      *
      * @returns CommitRoutineStagingCodeResponse
      *
@@ -2186,7 +2255,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site cache configuration.
      *
-     * @param request - CreateCacheRuleRequest
+     * @param Request - CreateCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateCacheRuleResponse
@@ -2325,7 +2394,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site cache configuration.
      *
-     * @param request - CreateCacheRuleRequest
+     * @param Request - CreateCacheRuleRequest
      *
      * @returns CreateCacheRuleResponse
      *
@@ -2343,7 +2412,7 @@ class ESA extends OpenApiClient
     /**
      * Uses the ESA-managed certificate authority (CA) to issue client certificates.
      *
-     * @param request - CreateClientCertificateRequest
+     * @param Request - CreateClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateClientCertificateResponse
@@ -2396,7 +2465,7 @@ class ESA extends OpenApiClient
     /**
      * Uses the ESA-managed certificate authority (CA) to issue client certificates.
      *
-     * @param request - CreateClientCertificateRequest
+     * @param Request - CreateClientCertificateRequest
      *
      * @returns CreateClientCertificateResponse
      *
@@ -2414,7 +2483,7 @@ class ESA extends OpenApiClient
     /**
      * Add a compression rule.
      *
-     * @param request - CreateCompressionRuleRequest
+     * @param Request - CreateCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateCompressionRuleResponse
@@ -2485,7 +2554,7 @@ class ESA extends OpenApiClient
     /**
      * Add a compression rule.
      *
-     * @param request - CreateCompressionRuleRequest
+     * @param Request - CreateCompressionRuleRequest
      *
      * @returns CreateCompressionRuleResponse
      *
@@ -2503,7 +2572,7 @@ class ESA extends OpenApiClient
     /**
      * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
      *
-     * @param request - CreateCustomScenePolicyRequest
+     * @param Request - CreateCustomScenePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateCustomScenePolicyResponse
@@ -2562,7 +2631,7 @@ class ESA extends OpenApiClient
     /**
      * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
      *
-     * @param request - CreateCustomScenePolicyRequest
+     * @param Request - CreateCustomScenePolicyRequest
      *
      * @returns CreateCustomScenePolicyResponse
      *
@@ -2580,7 +2649,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
      *
-     * @param request - CreateEdgeContainerAppRequest
+     * @param Request - CreateEdgeContainerAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateEdgeContainerAppResponse
@@ -2671,7 +2740,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
      *
-     * @param request - CreateEdgeContainerAppRequest
+     * @param Request - CreateEdgeContainerAppRequest
      *
      * @returns CreateEdgeContainerAppResponse
      *
@@ -2689,7 +2758,7 @@ class ESA extends OpenApiClient
     /**
      * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
      *
-     * @param request - CreateEdgeContainerAppRecordRequest
+     * @param Request - CreateEdgeContainerAppRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateEdgeContainerAppRecordResponse
@@ -2736,7 +2805,7 @@ class ESA extends OpenApiClient
     /**
      * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
      *
-     * @param request - CreateEdgeContainerAppRecordRequest
+     * @param Request - CreateEdgeContainerAppRecordRequest
      *
      * @returns CreateEdgeContainerAppRecordResponse
      *
@@ -2811,7 +2880,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a version for a containerized application. You can iterate the application based on the version.
      *
-     * @param request - CreateEdgeContainerAppVersionRequest
+     * @param Request - CreateEdgeContainerAppVersionRequest
      *
      * @returns CreateEdgeContainerAppVersionResponse
      *
@@ -2898,7 +2967,7 @@ class ESA extends OpenApiClient
     /**
      * Add HTTP Request Header Rule.
      *
-     * @param request - CreateHttpRequestHeaderModificationRuleRequest
+     * @param Request - CreateHttpRequestHeaderModificationRuleRequest
      *
      * @returns CreateHttpRequestHeaderModificationRuleResponse
      *
@@ -2985,7 +3054,7 @@ class ESA extends OpenApiClient
     /**
      * Add HTTP Response Header Rule.
      *
-     * @param request - CreateHttpResponseHeaderModificationRuleRequest
+     * @param Request - CreateHttpResponseHeaderModificationRuleRequest
      *
      * @returns CreateHttpResponseHeaderModificationRuleResponse
      *
@@ -3003,7 +3072,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site HTTPS application configuration.
      *
-     * @param request - CreateHttpsApplicationConfigurationRequest
+     * @param Request - CreateHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateHttpsApplicationConfigurationResponse
@@ -3114,7 +3183,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site HTTPS application configuration.
      *
-     * @param request - CreateHttpsApplicationConfigurationRequest
+     * @param Request - CreateHttpsApplicationConfigurationRequest
      *
      * @returns CreateHttpsApplicationConfigurationResponse
      *
@@ -3132,7 +3201,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site HTTPS basic configuration.
      *
-     * @param request - CreateHttpsBasicConfigurationRequest
+     * @param Request - CreateHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateHttpsBasicConfigurationResponse
@@ -3227,7 +3296,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site HTTPS basic configuration.
      *
-     * @param request - CreateHttpsBasicConfigurationRequest
+     * @param Request - CreateHttpsBasicConfigurationRequest
      *
      * @returns CreateHttpsBasicConfigurationResponse
      *
@@ -3245,7 +3314,7 @@ class ESA extends OpenApiClient
     /**
      * Add Site Image Transformation Configuration.
      *
-     * @param request - CreateImageTransformRequest
+     * @param Request - CreateImageTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateImageTransformResponse
@@ -3308,7 +3377,7 @@ class ESA extends OpenApiClient
     /**
      * Add Site Image Transformation Configuration.
      *
-     * @param request - CreateImageTransformRequest
+     * @param Request - CreateImageTransformRequest
      *
      * @returns CreateImageTransformResponse
      *
@@ -3326,7 +3395,7 @@ class ESA extends OpenApiClient
     /**
      * Create a namespace in your Alibaba Cloud account.
      *
-     * @param request - CreateKvNamespaceRequest
+     * @param Request - CreateKvNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateKvNamespaceResponse
@@ -3369,7 +3438,7 @@ class ESA extends OpenApiClient
     /**
      * Create a namespace in your Alibaba Cloud account.
      *
-     * @param request - CreateKvNamespaceRequest
+     * @param Request - CreateKvNamespaceRequest
      *
      * @returns CreateKvNamespaceResponse
      *
@@ -3444,7 +3513,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
      *
-     * @param request - CreateListRequest
+     * @param Request - CreateListRequest
      *
      * @returns CreateListResponse
      *
@@ -3585,7 +3654,7 @@ class ESA extends OpenApiClient
      * @remarks
      * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and more, to achieve effective traffic management and optimization.
      *
-     * @param request - CreateLoadBalancerRequest
+     * @param Request - CreateLoadBalancerRequest
      *
      * @returns CreateLoadBalancerResponse
      *
@@ -3603,7 +3672,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site network optimization configuration.
      *
-     * @param request - CreateNetworkOptimizationRequest
+     * @param Request - CreateNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateNetworkOptimizationResponse
@@ -3682,7 +3751,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new site network optimization configuration.
      *
-     * @param request - CreateNetworkOptimizationRequest
+     * @param Request - CreateNetworkOptimizationRequest
      *
      * @returns CreateNetworkOptimizationResponse
      *
@@ -3763,7 +3832,7 @@ class ESA extends OpenApiClient
      * @remarks
      * Multiple origins can be added under the origin address, supporting domain names, IPs, OSS, S3, and other types of origins. It supports authentication for OSS and S3 type origins.
      *
-     * @param request - CreateOriginPoolRequest
+     * @param Request - CreateOriginPoolRequest
      *
      * @returns CreateOriginPoolResponse
      *
@@ -3781,7 +3850,7 @@ class ESA extends OpenApiClient
     /**
      * Enables origin protection.
      *
-     * @param request - CreateOriginProtectionRequest
+     * @param Request - CreateOriginProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateOriginProtectionResponse
@@ -3820,7 +3889,7 @@ class ESA extends OpenApiClient
     /**
      * Enables origin protection.
      *
-     * @param request - CreateOriginProtectionRequest
+     * @param Request - CreateOriginProtectionRequest
      *
      * @returns CreateOriginProtectionResponse
      *
@@ -3838,7 +3907,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new origin rule configuration for the site.
      *
-     * @param request - CreateOriginRuleRequest
+     * @param Request - CreateOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateOriginRuleResponse
@@ -3961,7 +4030,7 @@ class ESA extends OpenApiClient
     /**
      * Create a new origin rule configuration for the site.
      *
-     * @param request - CreateOriginRuleRequest
+     * @param Request - CreateOriginRuleRequest
      *
      * @returns CreateOriginRuleResponse
      *
@@ -3979,7 +4048,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
      *
-     * @param request - CreatePageRequest
+     * @param Request - CreatePageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreatePageResponse
@@ -4030,7 +4099,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
      *
-     * @param request - CreatePageRequest
+     * @param Request - CreatePageRequest
      *
      * @returns CreatePageResponse
      *
@@ -4137,7 +4206,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a DNS record for a specific website.
      *
-     * @param request - CreateRecordRequest
+     * @param Request - CreateRecordRequest
      *
      * @returns CreateRecordResponse
      *
@@ -4155,7 +4224,7 @@ class ESA extends OpenApiClient
     /**
      * Add a Redirect Rule.
      *
-     * @param request - CreateRedirectRuleRequest
+     * @param Request - CreateRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateRedirectRuleResponse
@@ -4230,7 +4299,7 @@ class ESA extends OpenApiClient
     /**
      * Add a Redirect Rule.
      *
-     * @param request - CreateRedirectRuleRequest
+     * @param Request - CreateRedirectRuleRequest
      *
      * @returns CreateRedirectRuleResponse
      *
@@ -4248,7 +4317,7 @@ class ESA extends OpenApiClient
     /**
      * Add Rewrite URL Rule.
      *
-     * @param request - CreateRewriteUrlRuleRequest
+     * @param Request - CreateRewriteUrlRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateRewriteUrlRuleResponse
@@ -4323,7 +4392,7 @@ class ESA extends OpenApiClient
     /**
      * Add Rewrite URL Rule.
      *
-     * @param request - CreateRewriteUrlRuleRequest
+     * @param Request - CreateRewriteUrlRuleRequest
      *
      * @returns CreateRewriteUrlRuleResponse
      *
@@ -4341,7 +4410,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a routine.
      *
-     * @param request - CreateRoutineRequest
+     * @param Request - CreateRoutineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateRoutineResponse
@@ -4384,7 +4453,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a routine.
      *
-     * @param request - CreateRoutineRequest
+     * @param Request - CreateRoutineRequest
      *
      * @returns CreateRoutineResponse
      *
@@ -4402,7 +4471,7 @@ class ESA extends OpenApiClient
     /**
      * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
      *
-     * @param request - CreateRoutineRelatedRecordRequest
+     * @param Request - CreateRoutineRelatedRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateRoutineRelatedRecordResponse
@@ -4449,7 +4518,7 @@ class ESA extends OpenApiClient
     /**
      * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
      *
-     * @param request - CreateRoutineRelatedRecordRequest
+     * @param Request - CreateRoutineRelatedRecordRequest
      *
      * @returns CreateRoutineRelatedRecordResponse
      *
@@ -4467,7 +4536,7 @@ class ESA extends OpenApiClient
     /**
      * 新增边缘函数路由配置.
      *
-     * @param request - CreateRoutineRouteRequest
+     * @param Request - CreateRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateRoutineRouteResponse
@@ -4483,6 +4552,10 @@ class ESA extends OpenApiClient
         $query = [];
         if (null !== $request->bypass) {
             @$query['Bypass'] = $request->bypass;
+        }
+
+        if (null !== $request->fallback) {
+            @$query['Fallback'] = $request->fallback;
         }
 
         if (null !== $request->routeEnable) {
@@ -4530,7 +4603,7 @@ class ESA extends OpenApiClient
     /**
      * 新增边缘函数路由配置.
      *
-     * @param request - CreateRoutineRouteRequest
+     * @param Request - CreateRoutineRouteRequest
      *
      * @returns CreateRoutineRouteResponse
      *
@@ -4599,7 +4672,7 @@ class ESA extends OpenApiClient
     /**
      * Creates scheduled prefetch plans.
      *
-     * @param request - CreateScheduledPreloadExecutionsRequest
+     * @param Request - CreateScheduledPreloadExecutionsRequest
      *
      * @returns CreateScheduledPreloadExecutionsResponse
      *
@@ -4617,7 +4690,7 @@ class ESA extends OpenApiClient
     /**
      * Adds a scheduled prefetch task.
      *
-     * @param request - CreateScheduledPreloadJobRequest
+     * @param Request - CreateScheduledPreloadJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateScheduledPreloadJobResponse
@@ -4672,7 +4745,7 @@ class ESA extends OpenApiClient
     /**
      * Adds a scheduled prefetch task.
      *
-     * @param request - CreateScheduledPreloadJobRequest
+     * @param Request - CreateScheduledPreloadJobRequest
      *
      * @returns CreateScheduledPreloadJobResponse
      *
@@ -4694,7 +4767,7 @@ class ESA extends OpenApiClient
      *   Make sure that you have an available plan before you add a website.
      * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
      *
-     * @param request - CreateSiteRequest
+     * @param Request - CreateSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateSiteResponse
@@ -4753,7 +4826,7 @@ class ESA extends OpenApiClient
      *   Make sure that you have an available plan before you add a website.
      * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
      *
-     * @param request - CreateSiteRequest
+     * @param Request - CreateSiteRequest
      *
      * @returns CreateSiteResponse
      *
@@ -4846,7 +4919,7 @@ class ESA extends OpenApiClient
      * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
      * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
      *
-     * @param request - CreateSiteCustomLogRequest
+     * @param Request - CreateSiteCustomLogRequest
      *
      * @returns CreateSiteCustomLogResponse
      *
@@ -4973,7 +5046,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a real-time log delivery task.
      *
-     * @param request - CreateSiteDeliveryTaskRequest
+     * @param Request - CreateSiteDeliveryTaskRequest
      *
      * @returns CreateSiteDeliveryTaskResponse
      *
@@ -4991,7 +5064,7 @@ class ESA extends OpenApiClient
     /**
      * 创建一个实时日志slr角色.
      *
-     * @param request - CreateSlrRoleForRealtimeLogRequest
+     * @param Request - CreateSlrRoleForRealtimeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateSlrRoleForRealtimeLogResponse
@@ -5035,7 +5108,7 @@ class ESA extends OpenApiClient
     /**
      * 创建网页监测配置.
      *
-     * @param request - CreateUrlObservationRequest
+     * @param Request - CreateUrlObservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateUrlObservationResponse
@@ -5082,7 +5155,7 @@ class ESA extends OpenApiClient
     /**
      * 创建网页监测配置.
      *
-     * @param request - CreateUrlObservationRequest
+     * @param Request - CreateUrlObservationRequest
      *
      * @returns CreateUrlObservationResponse
      *
@@ -5231,7 +5304,7 @@ class ESA extends OpenApiClient
      * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
      * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
      *
-     * @param request - CreateUserDeliveryTaskRequest
+     * @param Request - CreateUserDeliveryTaskRequest
      *
      * @returns CreateUserDeliveryTaskResponse
      *
@@ -5249,7 +5322,7 @@ class ESA extends OpenApiClient
     /**
      * 新增站点视频处理配置.
      *
-     * @param request - CreateVideoProcessingRequest
+     * @param Request - CreateVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateVideoProcessingResponse
@@ -5332,7 +5405,7 @@ class ESA extends OpenApiClient
     /**
      * 新增站点视频处理配置.
      *
-     * @param request - CreateVideoProcessingRequest
+     * @param Request - CreateVideoProcessingRequest
      *
      * @returns CreateVideoProcessingResponse
      *
@@ -5413,7 +5486,7 @@ class ESA extends OpenApiClient
     /**
      * Create WAF Rule.
      *
-     * @param request - CreateWafRuleRequest
+     * @param Request - CreateWafRuleRequest
      *
      * @returns CreateWafRuleResponse
      *
@@ -5431,7 +5504,7 @@ class ESA extends OpenApiClient
     /**
      * Create WAF Ruleset.
      *
-     * @param request - CreateWafRulesetRequest
+     * @param Request - CreateWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateWafRulesetResponse
@@ -5484,7 +5557,7 @@ class ESA extends OpenApiClient
     /**
      * Create WAF Ruleset.
      *
-     * @param request - CreateWafRulesetRequest
+     * @param Request - CreateWafRulesetRequest
      *
      * @returns CreateWafRulesetResponse
      *
@@ -5611,7 +5684,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a waiting room for a website.
      *
-     * @param request - CreateWaitingRoomRequest
+     * @param Request - CreateWaitingRoomRequest
      *
      * @returns CreateWaitingRoomResponse
      *
@@ -5629,7 +5702,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a waiting room event.
      *
-     * @param request - CreateWaitingRoomEventRequest
+     * @param Request - CreateWaitingRoomEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateWaitingRoomEventResponse
@@ -5744,7 +5817,7 @@ class ESA extends OpenApiClient
     /**
      * Creates a waiting room event.
      *
-     * @param request - CreateWaitingRoomEventRequest
+     * @param Request - CreateWaitingRoomEventRequest
      *
      * @returns CreateWaitingRoomEventResponse
      *
@@ -5762,7 +5835,7 @@ class ESA extends OpenApiClient
     /**
      * Create Waiting Room Rule.
      *
-     * @param request - CreateWaitingRoomRuleRequest
+     * @param Request - CreateWaitingRoomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateWaitingRoomRuleResponse
@@ -5817,7 +5890,7 @@ class ESA extends OpenApiClient
     /**
      * Create Waiting Room Rule.
      *
-     * @param request - CreateWaitingRoomRuleRequest
+     * @param Request - CreateWaitingRoomRuleRequest
      *
      * @returns CreateWaitingRoomRuleResponse
      *
@@ -5838,7 +5911,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can disable version management only when the default environment and version 0 exist.
      *
-     * @param request - DeactivateVersionManagementRequest
+     * @param Request - DeactivateVersionManagementRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeactivateVersionManagementResponse
@@ -5880,7 +5953,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can disable version management only when the default environment and version 0 exist.
      *
-     * @param request - DeactivateVersionManagementRequest
+     * @param Request - DeactivateVersionManagementRequest
      *
      * @returns DeactivateVersionManagementResponse
      *
@@ -5898,7 +5971,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Cache Configuration.
      *
-     * @param request - DeleteCacheRuleRequest
+     * @param Request - DeleteCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCacheRuleResponse
@@ -5941,7 +6014,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Cache Configuration.
      *
-     * @param request - DeleteCacheRuleRequest
+     * @param Request - DeleteCacheRuleRequest
      *
      * @returns DeleteCacheRuleResponse
      *
@@ -5959,7 +6032,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a certificate for a website.
      *
-     * @param request - DeleteCertificateRequest
+     * @param Request - DeleteCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCertificateResponse
@@ -5994,7 +6067,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a certificate for a website.
      *
-     * @param request - DeleteCertificateRequest
+     * @param Request - DeleteCertificateRequest
      *
      * @returns DeleteCertificateResponse
      *
@@ -6012,7 +6085,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a client CA certificate.
      *
-     * @param request - DeleteClientCaCertificateRequest
+     * @param Request - DeleteClientCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteClientCaCertificateResponse
@@ -6047,7 +6120,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a client CA certificate.
      *
-     * @param request - DeleteClientCaCertificateRequest
+     * @param Request - DeleteClientCaCertificateRequest
      *
      * @returns DeleteClientCaCertificateResponse
      *
@@ -6065,7 +6138,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a revoked client certificate.
      *
-     * @param request - DeleteClientCertificateRequest
+     * @param Request - DeleteClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteClientCertificateResponse
@@ -6100,7 +6173,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a revoked client certificate.
      *
-     * @param request - DeleteClientCertificateRequest
+     * @param Request - DeleteClientCertificateRequest
      *
      * @returns DeleteClientCertificateResponse
      *
@@ -6118,7 +6191,7 @@ class ESA extends OpenApiClient
     /**
      * Delete compression rule.
      *
-     * @param request - DeleteCompressionRuleRequest
+     * @param Request - DeleteCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCompressionRuleResponse
@@ -6161,7 +6234,7 @@ class ESA extends OpenApiClient
     /**
      * Delete compression rule.
      *
-     * @param request - DeleteCompressionRuleRequest
+     * @param Request - DeleteCompressionRuleRequest
      *
      * @returns DeleteCompressionRuleResponse
      *
@@ -6179,7 +6252,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a scenario-specific custom policy.
      *
-     * @param request - DeleteCustomScenePolicyRequest
+     * @param Request - DeleteCustomScenePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCustomScenePolicyResponse
@@ -6218,7 +6291,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a scenario-specific custom policy.
      *
-     * @param request - DeleteCustomScenePolicyRequest
+     * @param Request - DeleteCustomScenePolicyRequest
      *
      * @returns DeleteCustomScenePolicyResponse
      *
@@ -6236,7 +6309,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a containerized application.
      *
-     * @param request - DeleteEdgeContainerAppRequest
+     * @param Request - DeleteEdgeContainerAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteEdgeContainerAppResponse
@@ -6275,7 +6348,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a containerized application.
      *
-     * @param request - DeleteEdgeContainerAppRequest
+     * @param Request - DeleteEdgeContainerAppRequest
      *
      * @returns DeleteEdgeContainerAppResponse
      *
@@ -6293,7 +6366,7 @@ class ESA extends OpenApiClient
     /**
      * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
      *
-     * @param request - DeleteEdgeContainerAppRecordRequest
+     * @param Request - DeleteEdgeContainerAppRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteEdgeContainerAppRecordResponse
@@ -6340,7 +6413,7 @@ class ESA extends OpenApiClient
     /**
      * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
      *
-     * @param request - DeleteEdgeContainerAppRecordRequest
+     * @param Request - DeleteEdgeContainerAppRecordRequest
      *
      * @returns DeleteEdgeContainerAppRecordResponse
      *
@@ -6358,7 +6431,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a version of a containerized application.
      *
-     * @param request - DeleteEdgeContainerAppVersionRequest
+     * @param Request - DeleteEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteEdgeContainerAppVersionResponse
@@ -6401,7 +6474,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a version of a containerized application.
      *
-     * @param request - DeleteEdgeContainerAppVersionRequest
+     * @param Request - DeleteEdgeContainerAppVersionRequest
      *
      * @returns DeleteEdgeContainerAppVersionResponse
      *
@@ -6419,7 +6492,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes the configuration of modifying HTTP request headers for a website.
      *
-     * @param request - DeleteHttpRequestHeaderModificationRuleRequest
+     * @param Request - DeleteHttpRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteHttpRequestHeaderModificationRuleResponse
@@ -6462,7 +6535,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes the configuration of modifying HTTP request headers for a website.
      *
-     * @param request - DeleteHttpRequestHeaderModificationRuleRequest
+     * @param Request - DeleteHttpRequestHeaderModificationRuleRequest
      *
      * @returns DeleteHttpRequestHeaderModificationRuleResponse
      *
@@ -6480,7 +6553,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes the configuration of modifying HTTP response headers for a website.
      *
-     * @param request - DeleteHttpResponseHeaderModificationRuleRequest
+     * @param Request - DeleteHttpResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteHttpResponseHeaderModificationRuleResponse
@@ -6523,7 +6596,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes the configuration of modifying HTTP response headers for a website.
      *
-     * @param request - DeleteHttpResponseHeaderModificationRuleRequest
+     * @param Request - DeleteHttpResponseHeaderModificationRuleRequest
      *
      * @returns DeleteHttpResponseHeaderModificationRuleResponse
      *
@@ -6541,7 +6614,7 @@ class ESA extends OpenApiClient
     /**
      * Delete HTTPS Application Configuration.
      *
-     * @param request - DeleteHttpsApplicationConfigurationRequest
+     * @param Request - DeleteHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteHttpsApplicationConfigurationResponse
@@ -6584,7 +6657,7 @@ class ESA extends OpenApiClient
     /**
      * Delete HTTPS Application Configuration.
      *
-     * @param request - DeleteHttpsApplicationConfigurationRequest
+     * @param Request - DeleteHttpsApplicationConfigurationRequest
      *
      * @returns DeleteHttpsApplicationConfigurationResponse
      *
@@ -6602,7 +6675,7 @@ class ESA extends OpenApiClient
     /**
      * Delete HTTPS Basic Configuration.
      *
-     * @param request - DeleteHttpsBasicConfigurationRequest
+     * @param Request - DeleteHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteHttpsBasicConfigurationResponse
@@ -6645,7 +6718,7 @@ class ESA extends OpenApiClient
     /**
      * Delete HTTPS Basic Configuration.
      *
-     * @param request - DeleteHttpsBasicConfigurationRequest
+     * @param Request - DeleteHttpsBasicConfigurationRequest
      *
      * @returns DeleteHttpsBasicConfigurationResponse
      *
@@ -6663,7 +6736,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Site Image Transformation Configuration.
      *
-     * @param request - DeleteImageTransformRequest
+     * @param Request - DeleteImageTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteImageTransformResponse
@@ -6706,7 +6779,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Site Image Transformation Configuration.
      *
-     * @param request - DeleteImageTransformRequest
+     * @param Request - DeleteImageTransformRequest
      *
      * @returns DeleteImageTransformResponse
      *
@@ -6724,7 +6797,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a key-value pair from a namespace.
      *
-     * @param request - DeleteKvRequest
+     * @param Request - DeleteKvRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteKvResponse
@@ -6759,7 +6832,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a key-value pair from a namespace.
      *
-     * @param request - DeleteKvRequest
+     * @param Request - DeleteKvRequest
      *
      * @returns DeleteKvResponse
      *
@@ -6777,7 +6850,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a namespace from an Alibaba Cloud account.
      *
-     * @param request - DeleteKvNamespaceRequest
+     * @param Request - DeleteKvNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteKvNamespaceResponse
@@ -6816,7 +6889,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a namespace from an Alibaba Cloud account.
      *
-     * @param request - DeleteKvNamespaceRequest
+     * @param Request - DeleteKvNamespaceRequest
      *
      * @returns DeleteKvNamespaceResponse
      *
@@ -6834,7 +6907,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a custom list that is no longer needed.
      *
-     * @param request - DeleteListRequest
+     * @param Request - DeleteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteListResponse
@@ -6873,7 +6946,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a custom list that is no longer needed.
      *
-     * @param request - DeleteListRequest
+     * @param Request - DeleteListRequest
      *
      * @returns DeleteListResponse
      *
@@ -6894,7 +6967,7 @@ class ESA extends OpenApiClient
      * @remarks
      * Delete a load balancer by its ID, only one can be deleted at a time.
      *
-     * @param request - DeleteLoadBalancerRequest
+     * @param Request - DeleteLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteLoadBalancerResponse
@@ -6940,7 +7013,7 @@ class ESA extends OpenApiClient
      * @remarks
      * Delete a load balancer by its ID, only one can be deleted at a time.
      *
-     * @param request - DeleteLoadBalancerRequest
+     * @param Request - DeleteLoadBalancerRequest
      *
      * @returns DeleteLoadBalancerResponse
      *
@@ -6958,7 +7031,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Network Optimization Configuration.
      *
-     * @param request - DeleteNetworkOptimizationRequest
+     * @param Request - DeleteNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteNetworkOptimizationResponse
@@ -7001,7 +7074,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Network Optimization Configuration.
      *
-     * @param request - DeleteNetworkOptimizationRequest
+     * @param Request - DeleteNetworkOptimizationRequest
      *
      * @returns DeleteNetworkOptimizationResponse
      *
@@ -7019,7 +7092,7 @@ class ESA extends OpenApiClient
     /**
      * 删除源服务器CA证书.
      *
-     * @param request - DeleteOriginCaCertificateRequest
+     * @param Request - DeleteOriginCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteOriginCaCertificateResponse
@@ -7054,7 +7127,7 @@ class ESA extends OpenApiClient
     /**
      * 删除源服务器CA证书.
      *
-     * @param request - DeleteOriginCaCertificateRequest
+     * @param Request - DeleteOriginCaCertificateRequest
      *
      * @returns DeleteOriginCaCertificateResponse
      *
@@ -7072,7 +7145,7 @@ class ESA extends OpenApiClient
     /**
      * 删除域名回源客户端证书.
      *
-     * @param request - DeleteOriginClientCertificateRequest
+     * @param Request - DeleteOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteOriginClientCertificateResponse
@@ -7107,7 +7180,7 @@ class ESA extends OpenApiClient
     /**
      * 删除域名回源客户端证书.
      *
-     * @param request - DeleteOriginClientCertificateRequest
+     * @param Request - DeleteOriginClientCertificateRequest
      *
      * @returns DeleteOriginClientCertificateResponse
      *
@@ -7125,7 +7198,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Origin Address Pool.
      *
-     * @param request - DeleteOriginPoolRequest
+     * @param Request - DeleteOriginPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteOriginPoolResponse
@@ -7168,7 +7241,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Origin Address Pool.
      *
-     * @param request - DeleteOriginPoolRequest
+     * @param Request - DeleteOriginPoolRequest
      *
      * @returns DeleteOriginPoolResponse
      *
@@ -7186,7 +7259,7 @@ class ESA extends OpenApiClient
     /**
      * Disables origin protection.
      *
-     * @param request - DeleteOriginProtectionRequest
+     * @param Request - DeleteOriginProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteOriginProtectionResponse
@@ -7225,7 +7298,7 @@ class ESA extends OpenApiClient
     /**
      * Disables origin protection.
      *
-     * @param request - DeleteOriginProtectionRequest
+     * @param Request - DeleteOriginProtectionRequest
      *
      * @returns DeleteOriginProtectionResponse
      *
@@ -7243,7 +7316,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Origin Rule Configuration.
      *
-     * @param request - DeleteOriginRuleRequest
+     * @param Request - DeleteOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteOriginRuleResponse
@@ -7286,7 +7359,7 @@ class ESA extends OpenApiClient
     /**
      * Delete Origin Rule Configuration.
      *
-     * @param request - DeleteOriginRuleRequest
+     * @param Request - DeleteOriginRuleRequest
      *
      * @returns DeleteOriginRuleResponse
      *
@@ -7304,7 +7377,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a custom error page that is no longer needed.
      *
-     * @param request - DeletePageRequest
+     * @param Request - DeletePageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeletePageResponse
@@ -7343,7 +7416,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a custom error page that is no longer needed.
      *
-     * @param request - DeletePageRequest
+     * @param Request - DeletePageRequest
      *
      * @returns DeletePageResponse
      *
@@ -7361,7 +7434,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a DNS record of a website based on the specified RecordId.
      *
-     * @param request - DeleteRecordRequest
+     * @param Request - DeleteRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRecordResponse
@@ -7400,7 +7473,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a DNS record of a website based on the specified RecordId.
      *
-     * @param request - DeleteRecordRequest
+     * @param Request - DeleteRecordRequest
      *
      * @returns DeleteRecordResponse
      *
@@ -7418,7 +7491,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a URL redirect rule for a website.
      *
-     * @param request - DeleteRedirectRuleRequest
+     * @param Request - DeleteRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRedirectRuleResponse
@@ -7461,7 +7534,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a URL redirect rule for a website.
      *
-     * @param request - DeleteRedirectRuleRequest
+     * @param Request - DeleteRedirectRuleRequest
      *
      * @returns DeleteRedirectRuleResponse
      *
@@ -7479,7 +7552,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a URL rewrite rule for a website.
      *
-     * @param request - DeleteRewriteUrlRuleRequest
+     * @param Request - DeleteRewriteUrlRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRewriteUrlRuleResponse
@@ -7522,7 +7595,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a URL rewrite rule for a website.
      *
-     * @param request - DeleteRewriteUrlRuleRequest
+     * @param Request - DeleteRewriteUrlRuleRequest
      *
      * @returns DeleteRewriteUrlRuleResponse
      *
@@ -7540,7 +7613,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a routine in Edge Routine.
      *
-     * @param request - DeleteRoutineRequest
+     * @param Request - DeleteRoutineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRoutineResponse
@@ -7579,7 +7652,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a routine in Edge Routine.
      *
-     * @param request - DeleteRoutineRequest
+     * @param Request - DeleteRoutineRequest
      *
      * @returns DeleteRoutineResponse
      *
@@ -7597,7 +7670,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a code version of a routine.
      *
-     * @param request - DeleteRoutineCodeVersionRequest
+     * @param Request - DeleteRoutineCodeVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRoutineCodeVersionResponse
@@ -7640,7 +7713,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a code version of a routine.
      *
-     * @param request - DeleteRoutineCodeVersionRequest
+     * @param Request - DeleteRoutineCodeVersionRequest
      *
      * @returns DeleteRoutineCodeVersionResponse
      *
@@ -7658,7 +7731,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a record that is associated with a routine.
      *
-     * @param request - DeleteRoutineRelatedRecordRequest
+     * @param Request - DeleteRoutineRelatedRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRoutineRelatedRecordResponse
@@ -7711,7 +7784,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a record that is associated with a routine.
      *
-     * @param request - DeleteRoutineRelatedRecordRequest
+     * @param Request - DeleteRoutineRelatedRecordRequest
      *
      * @returns DeleteRoutineRelatedRecordResponse
      *
@@ -7729,7 +7802,7 @@ class ESA extends OpenApiClient
     /**
      * 删除边缘函数路由配置.
      *
-     * @param request - DeleteRoutineRouteRequest
+     * @param Request - DeleteRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRoutineRouteResponse
@@ -7772,7 +7845,7 @@ class ESA extends OpenApiClient
     /**
      * 删除边缘函数路由配置.
      *
-     * @param request - DeleteRoutineRouteRequest
+     * @param Request - DeleteRoutineRouteRequest
      *
      * @returns DeleteRoutineRouteResponse
      *
@@ -7790,7 +7863,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - DeleteScheduledPreloadExecutionRequest
+     * @param Request - DeleteScheduledPreloadExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteScheduledPreloadExecutionResponse
@@ -7829,7 +7902,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - DeleteScheduledPreloadExecutionRequest
+     * @param Request - DeleteScheduledPreloadExecutionRequest
      *
      * @returns DeleteScheduledPreloadExecutionResponse
      *
@@ -7847,7 +7920,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a specified scheduled prefetch task based on the task ID.
      *
-     * @param request - DeleteScheduledPreloadJobRequest
+     * @param Request - DeleteScheduledPreloadJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteScheduledPreloadJobResponse
@@ -7886,7 +7959,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a specified scheduled prefetch task based on the task ID.
      *
-     * @param request - DeleteScheduledPreloadJobRequest
+     * @param Request - DeleteScheduledPreloadJobRequest
      *
      * @returns DeleteScheduledPreloadJobResponse
      *
@@ -7904,7 +7977,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a website based on the specified website ID.
      *
-     * @param request - DeleteSiteRequest
+     * @param Request - DeleteSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteSiteResponse
@@ -7951,7 +8024,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a website based on the specified website ID.
      *
-     * @param request - DeleteSiteRequest
+     * @param Request - DeleteSiteRequest
      *
      * @returns DeleteSiteResponse
      *
@@ -7969,7 +8042,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a real-time log delivery task.
      *
-     * @param request - DeleteSiteDeliveryTaskRequest
+     * @param Request - DeleteSiteDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteSiteDeliveryTaskResponse
@@ -8012,7 +8085,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a real-time log delivery task.
      *
-     * @param request - DeleteSiteDeliveryTaskRequest
+     * @param Request - DeleteSiteDeliveryTaskRequest
      *
      * @returns DeleteSiteDeliveryTaskResponse
      *
@@ -8030,7 +8103,7 @@ class ESA extends OpenApiClient
     /**
      * 删除站点回源客户端证书.
      *
-     * @param request - DeleteSiteOriginClientCertificateRequest
+     * @param Request - DeleteSiteOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteSiteOriginClientCertificateResponse
@@ -8065,7 +8138,7 @@ class ESA extends OpenApiClient
     /**
      * 删除站点回源客户端证书.
      *
-     * @param request - DeleteSiteOriginClientCertificateRequest
+     * @param Request - DeleteSiteOriginClientCertificateRequest
      *
      * @returns DeleteSiteOriginClientCertificateResponse
      *
@@ -8083,7 +8156,7 @@ class ESA extends OpenApiClient
     /**
      * 删除网页监测配置.
      *
-     * @param request - DeleteUrlObservationRequest
+     * @param Request - DeleteUrlObservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteUrlObservationResponse
@@ -8126,7 +8199,7 @@ class ESA extends OpenApiClient
     /**
      * 删除网页监测配置.
      *
-     * @param request - DeleteUrlObservationRequest
+     * @param Request - DeleteUrlObservationRequest
      *
      * @returns DeleteUrlObservationResponse
      *
@@ -8150,7 +8223,7 @@ class ESA extends OpenApiClient
      * *   To call this operation, you must have an account that has the required permissions.
      * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
      *
-     * @param request - DeleteUserDeliveryTaskRequest
+     * @param Request - DeleteUserDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteUserDeliveryTaskResponse
@@ -8195,7 +8268,7 @@ class ESA extends OpenApiClient
      * *   To call this operation, you must have an account that has the required permissions.
      * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
      *
-     * @param request - DeleteUserDeliveryTaskRequest
+     * @param Request - DeleteUserDeliveryTaskRequest
      *
      * @returns DeleteUserDeliveryTaskResponse
      *
@@ -8213,7 +8286,7 @@ class ESA extends OpenApiClient
     /**
      * 删除站点视频处理配置.
      *
-     * @param request - DeleteVideoProcessingRequest
+     * @param Request - DeleteVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteVideoProcessingResponse
@@ -8256,7 +8329,7 @@ class ESA extends OpenApiClient
     /**
      * 删除站点视频处理配置.
      *
-     * @param request - DeleteVideoProcessingRequest
+     * @param Request - DeleteVideoProcessingRequest
      *
      * @returns DeleteVideoProcessingResponse
      *
@@ -8274,7 +8347,7 @@ class ESA extends OpenApiClient
     /**
      * Delete WAF Rule.
      *
-     * @param request - DeleteWafRuleRequest
+     * @param Request - DeleteWafRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWafRuleResponse
@@ -8323,7 +8396,7 @@ class ESA extends OpenApiClient
     /**
      * Delete WAF Rule.
      *
-     * @param request - DeleteWafRuleRequest
+     * @param Request - DeleteWafRuleRequest
      *
      * @returns DeleteWafRuleResponse
      *
@@ -8341,7 +8414,7 @@ class ESA extends OpenApiClient
     /**
      * Delete WAF Ruleset.
      *
-     * @param request - DeleteWafRulesetRequest
+     * @param Request - DeleteWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWafRulesetResponse
@@ -8390,7 +8463,7 @@ class ESA extends OpenApiClient
     /**
      * Delete WAF Ruleset.
      *
-     * @param request - DeleteWafRulesetRequest
+     * @param Request - DeleteWafRulesetRequest
      *
      * @returns DeleteWafRulesetResponse
      *
@@ -8408,7 +8481,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a waiting room.
      *
-     * @param request - DeleteWaitingRoomRequest
+     * @param Request - DeleteWaitingRoomRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWaitingRoomResponse
@@ -8451,7 +8524,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a waiting room.
      *
-     * @param request - DeleteWaitingRoomRequest
+     * @param Request - DeleteWaitingRoomRequest
      *
      * @returns DeleteWaitingRoomResponse
      *
@@ -8469,7 +8542,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a waiting room event.
      *
-     * @param request - DeleteWaitingRoomEventRequest
+     * @param Request - DeleteWaitingRoomEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWaitingRoomEventResponse
@@ -8512,7 +8585,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a waiting room event.
      *
-     * @param request - DeleteWaitingRoomEventRequest
+     * @param Request - DeleteWaitingRoomEventRequest
      *
      * @returns DeleteWaitingRoomEventResponse
      *
@@ -8530,7 +8603,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a waiting room bypass rule.
      *
-     * @param request - DeleteWaitingRoomRuleRequest
+     * @param Request - DeleteWaitingRoomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWaitingRoomRuleResponse
@@ -8573,7 +8646,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a waiting room bypass rule.
      *
-     * @param request - DeleteWaitingRoomRuleRequest
+     * @param Request - DeleteWaitingRoomRuleRequest
      *
      * @returns DeleteWaitingRoomRuleResponse
      *
@@ -8591,7 +8664,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configurations of a scenario-specific policy.
      *
-     * @param request - DescribeCustomScenePoliciesRequest
+     * @param Request - DescribeCustomScenePoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCustomScenePoliciesResponse
@@ -8638,7 +8711,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configurations of a scenario-specific policy.
      *
-     * @param request - DescribeCustomScenePoliciesRequest
+     * @param Request - DescribeCustomScenePoliciesRequest
      *
      * @returns DescribeCustomScenePoliciesResponse
      *
@@ -8656,7 +8729,7 @@ class ESA extends OpenApiClient
     /**
      * Queries DDoS attack events.
      *
-     * @param request - DescribeDDoSAllEventListRequest
+     * @param Request - DescribeDDoSAllEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDDoSAllEventListResponse
@@ -8715,7 +8788,7 @@ class ESA extends OpenApiClient
     /**
      * Queries DDoS attack events.
      *
-     * @param request - DescribeDDoSAllEventListRequest
+     * @param Request - DescribeDDoSAllEventListRequest
      *
      * @returns DescribeDDoSAllEventListResponse
      *
@@ -8733,7 +8806,7 @@ class ESA extends OpenApiClient
     /**
      * Query DCDN DDoS user bps and pps data.
      *
-     * @param request - DescribeDDoSBpsListRequest
+     * @param Request - DescribeDDoSBpsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDDoSBpsListResponse
@@ -8768,7 +8841,7 @@ class ESA extends OpenApiClient
     /**
      * Query DCDN DDoS user bps and pps data.
      *
-     * @param request - DescribeDDoSBpsListRequest
+     * @param Request - DescribeDDoSBpsListRequest
      *
      * @returns DescribeDDoSBpsListResponse
      *
@@ -8786,7 +8859,7 @@ class ESA extends OpenApiClient
     /**
      * DDoS Analysis Layer 7 QPS Trend Chart API.
      *
-     * @param request - DescribeDDoSL7QpsListRequest
+     * @param Request - DescribeDDoSL7QpsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDDoSL7QpsListResponse
@@ -8841,7 +8914,7 @@ class ESA extends OpenApiClient
     /**
      * DDoS Analysis Layer 7 QPS Trend Chart API.
      *
-     * @param request - DescribeDDoSL7QpsListRequest
+     * @param Request - DescribeDDoSL7QpsListRequest
      *
      * @returns DescribeDDoSL7QpsListResponse
      *
@@ -8859,7 +8932,7 @@ class ESA extends OpenApiClient
     /**
      * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI.
      *
-     * @param request - DescribeEdgeContainerAppStatsRequest
+     * @param Request - DescribeEdgeContainerAppStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeEdgeContainerAppStatsResponse
@@ -8894,7 +8967,7 @@ class ESA extends OpenApiClient
     /**
      * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI.
      *
-     * @param request - DescribeEdgeContainerAppStatsRequest
+     * @param Request - DescribeEdgeContainerAppStatsRequest
      *
      * @returns DescribeEdgeContainerAppStatsResponse
      *
@@ -8912,7 +8985,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configuration of smart HTTP DDoS protection for a website.
      *
-     * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
+     * @param Request - DescribeHttpDDoSAttackIntelligentProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeHttpDDoSAttackIntelligentProtectionResponse
@@ -8951,7 +9024,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configuration of smart HTTP DDoS protection for a website.
      *
-     * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
+     * @param Request - DescribeHttpDDoSAttackIntelligentProtectionRequest
      *
      * @returns DescribeHttpDDoSAttackIntelligentProtectionResponse
      *
@@ -8969,7 +9042,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configurations of HTTP DDoS attack protection.
      *
-     * @param request - DescribeHttpDDoSAttackProtectionRequest
+     * @param Request - DescribeHttpDDoSAttackProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeHttpDDoSAttackProtectionResponse
@@ -9008,7 +9081,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configurations of HTTP DDoS attack protection.
      *
-     * @param request - DescribeHttpDDoSAttackProtectionRequest
+     * @param Request - DescribeHttpDDoSAttackProtectionRequest
      *
      * @returns DescribeHttpDDoSAttackProtectionResponse
      *
@@ -9026,7 +9099,7 @@ class ESA extends OpenApiClient
     /**
      * Queries whether Edge KV is activated in your Alibaba Cloud account.
      *
-     * @param request - DescribeKvAccountStatusRequest
+     * @param Request - DescribeKvAccountStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeKvAccountStatusResponse
@@ -9070,7 +9143,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of prefetch tasks by time, task status, or prefetch URL.
      *
-     * @param request - DescribePreloadTasksRequest
+     * @param Request - DescribePreloadTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribePreloadTasksResponse
@@ -9105,7 +9178,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of prefetch tasks by time, task status, or prefetch URL.
      *
-     * @param request - DescribePreloadTasksRequest
+     * @param Request - DescribePreloadTasksRequest
      *
      * @returns DescribePreloadTasksResponse
      *
@@ -9123,7 +9196,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of purge tasks.
      *
-     * @param request - DescribePurgeTasksRequest
+     * @param Request - DescribePurgeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribePurgeTasksResponse
@@ -9158,7 +9231,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of purge tasks.
      *
-     * @param request - DescribePurgeTasksRequest
+     * @param Request - DescribePurgeTasksRequest
      *
      * @returns DescribePurgeTasksResponse
      *
@@ -9179,7 +9252,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can query the status of an instance after you purchase a plan for the instance.
      *
-     * @param request - DescribeRatePlanInstanceStatusRequest
+     * @param Request - DescribeRatePlanInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRatePlanInstanceStatusResponse
@@ -9221,7 +9294,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can query the status of an instance after you purchase a plan for the instance.
      *
-     * @param request - DescribeRatePlanInstanceStatusRequest
+     * @param Request - DescribeRatePlanInstanceStatusRequest
      *
      * @returns DescribeRatePlanInstanceStatusResponse
      *
@@ -9239,7 +9312,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点离线日志.
      *
-     * @param request - DescribeSiteLogsRequest
+     * @param Request - DescribeSiteLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSiteLogsResponse
@@ -9294,7 +9367,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点离线日志.
      *
-     * @param request - DescribeSiteLogsRequest
+     * @param Request - DescribeSiteLogsRequest
      *
      * @returns DescribeSiteLogsResponse
      *
@@ -9373,7 +9446,7 @@ class ESA extends OpenApiClient
     /**
      * 获取时序数据.
      *
-     * @param request - DescribeSiteTimeSeriesDataRequest
+     * @param Request - DescribeSiteTimeSeriesDataRequest
      *
      * @returns DescribeSiteTimeSeriesDataResponse
      *
@@ -9456,7 +9529,7 @@ class ESA extends OpenApiClient
     /**
      * 获取Top数据.
      *
-     * @param request - DescribeSiteTopDataRequest
+     * @param Request - DescribeSiteTopDataRequest
      *
      * @returns DescribeSiteTopDataResponse
      *
@@ -9472,9 +9545,86 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询网页观测质量数据.
+     *
+     * @param Request - DescribeUrlObservationDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUrlObservationDataResponse
+     *
+     * @param DescribeUrlObservationDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeUrlObservationDataResponse
+     */
+    public function describeUrlObservationDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientPlatform) {
+            @$query['ClientPlatform'] = $request->clientPlatform;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUrlObservationData',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUrlObservationDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网页观测质量数据.
+     *
+     * @param Request - DescribeUrlObservationDataRequest
+     *
+     * @returns DescribeUrlObservationDataResponse
+     *
+     * @param DescribeUrlObservationDataRequest $request
+     *
+     * @return DescribeUrlObservationDataResponse
+     */
+    public function describeUrlObservationData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUrlObservationDataWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables a scenario-specific policy.
      *
-     * @param request - DisableCustomScenePolicyRequest
+     * @param Request - DisableCustomScenePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DisableCustomScenePolicyResponse
@@ -9513,7 +9663,7 @@ class ESA extends OpenApiClient
     /**
      * Disables a scenario-specific policy.
      *
-     * @param request - DisableCustomScenePolicyRequest
+     * @param Request - DisableCustomScenePolicyRequest
      *
      * @returns DisableCustomScenePolicyResponse
      *
@@ -9586,7 +9736,7 @@ class ESA extends OpenApiClient
     /**
      * Edit WAF Configuration for a Site.
      *
-     * @param request - EditSiteWafSettingsRequest
+     * @param Request - EditSiteWafSettingsRequest
      *
      * @returns EditSiteWafSettingsResponse
      *
@@ -9604,7 +9754,7 @@ class ESA extends OpenApiClient
     /**
      * Enables a scenario-specific policy.
      *
-     * @param request - EnableCustomScenePolicyRequest
+     * @param Request - EnableCustomScenePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EnableCustomScenePolicyResponse
@@ -9643,7 +9793,7 @@ class ESA extends OpenApiClient
     /**
      * Enables a scenario-specific policy.
      *
-     * @param request - EnableCustomScenePolicyRequest
+     * @param Request - EnableCustomScenePolicyRequest
      *
      * @returns EnableCustomScenePolicyResponse
      *
@@ -9661,7 +9811,7 @@ class ESA extends OpenApiClient
     /**
      * Exports all DNS records of a website domain as a TXT file.
      *
-     * @param request - ExportRecordsRequest
+     * @param Request - ExportRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ExportRecordsResponse
@@ -9696,7 +9846,7 @@ class ESA extends OpenApiClient
     /**
      * Exports all DNS records of a website domain as a TXT file.
      *
-     * @param request - ExportRecordsRequest
+     * @param Request - ExportRecordsRequest
      *
      * @returns ExportRecordsResponse
      *
@@ -9714,7 +9864,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the available specifications of cache reserve instances.
      *
-     * @param request - GetCacheReserveSpecificationRequest
+     * @param Request - GetCacheReserveSpecificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCacheReserveSpecificationResponse
@@ -9758,7 +9908,7 @@ class ESA extends OpenApiClient
     /**
      * Query a single cache configuration.
      *
-     * @param request - GetCacheRuleRequest
+     * @param Request - GetCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCacheRuleResponse
@@ -9793,7 +9943,7 @@ class ESA extends OpenApiClient
     /**
      * Query a single cache configuration.
      *
-     * @param request - GetCacheRuleRequest
+     * @param Request - GetCacheRuleRequest
      *
      * @returns GetCacheRuleResponse
      *
@@ -9811,7 +9961,7 @@ class ESA extends OpenApiClient
     /**
      * Query Site Cache Tag Configuration.
      *
-     * @param request - GetCacheTagRequest
+     * @param Request - GetCacheTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCacheTagResponse
@@ -9846,7 +9996,7 @@ class ESA extends OpenApiClient
     /**
      * Query Site Cache Tag Configuration.
      *
-     * @param request - GetCacheTagRequest
+     * @param Request - GetCacheTagRequest
      *
      * @returns GetCacheTagResponse
      *
@@ -9864,7 +10014,7 @@ class ESA extends OpenApiClient
     /**
      * Retrieve the certificate, private key, and certificate information.
      *
-     * @param request - GetCertificateRequest
+     * @param Request - GetCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCertificateResponse
@@ -9899,7 +10049,7 @@ class ESA extends OpenApiClient
     /**
      * Retrieve the certificate, private key, and certificate information.
      *
-     * @param request - GetCertificateRequest
+     * @param Request - GetCertificateRequest
      *
      * @returns GetCertificateResponse
      *
@@ -9917,7 +10067,7 @@ class ESA extends OpenApiClient
     /**
      * Query certificate quota and usage.
      *
-     * @param request - GetCertificateQuotaRequest
+     * @param Request - GetCertificateQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCertificateQuotaResponse
@@ -9952,7 +10102,7 @@ class ESA extends OpenApiClient
     /**
      * Query certificate quota and usage.
      *
-     * @param request - GetCertificateQuotaRequest
+     * @param Request - GetCertificateQuotaRequest
      *
      * @returns GetCertificateQuotaResponse
      *
@@ -9970,7 +10120,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a client CA certificate.
      *
-     * @param request - GetClientCaCertificateRequest
+     * @param Request - GetClientCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetClientCaCertificateResponse
@@ -10005,7 +10155,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a client CA certificate.
      *
-     * @param request - GetClientCaCertificateRequest
+     * @param Request - GetClientCaCertificateRequest
      *
      * @returns GetClientCaCertificateResponse
      *
@@ -10023,7 +10173,7 @@ class ESA extends OpenApiClient
     /**
      * Queries information about a client certificate.
      *
-     * @param request - GetClientCertificateRequest
+     * @param Request - GetClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetClientCertificateResponse
@@ -10058,7 +10208,7 @@ class ESA extends OpenApiClient
     /**
      * Queries information about a client certificate.
      *
-     * @param request - GetClientCertificateRequest
+     * @param Request - GetClientCertificateRequest
      *
      * @returns GetClientCertificateResponse
      *
@@ -10076,7 +10226,7 @@ class ESA extends OpenApiClient
     /**
      * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
      *
-     * @param request - GetClientCertificateHostnamesRequest
+     * @param Request - GetClientCertificateHostnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetClientCertificateHostnamesResponse
@@ -10111,7 +10261,7 @@ class ESA extends OpenApiClient
     /**
      * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
      *
-     * @param request - GetClientCertificateHostnamesRequest
+     * @param Request - GetClientCertificateHostnamesRequest
      *
      * @returns GetClientCertificateHostnamesResponse
      *
@@ -10129,7 +10279,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the CNAME flattening configuration of a website.
      *
-     * @param request - GetCnameFlatteningRequest
+     * @param Request - GetCnameFlatteningRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCnameFlatteningResponse
@@ -10164,7 +10314,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the CNAME flattening configuration of a website.
      *
-     * @param request - GetCnameFlatteningRequest
+     * @param Request - GetCnameFlatteningRequest
      *
      * @returns GetCnameFlatteningResponse
      *
@@ -10182,7 +10332,7 @@ class ESA extends OpenApiClient
     /**
      * Query Compression Rule Details.
      *
-     * @param request - GetCompressionRuleRequest
+     * @param Request - GetCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCompressionRuleResponse
@@ -10217,7 +10367,7 @@ class ESA extends OpenApiClient
     /**
      * Query Compression Rule Details.
      *
-     * @param request - GetCompressionRuleRequest
+     * @param Request - GetCompressionRuleRequest
      *
      * @returns GetCompressionRuleResponse
      *
@@ -10235,7 +10385,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点中国大陆网络接入优化配置.
      *
-     * @param request - GetCrossBorderOptimizationRequest
+     * @param Request - GetCrossBorderOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCrossBorderOptimizationResponse
@@ -10270,7 +10420,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点中国大陆网络接入优化配置.
      *
-     * @param request - GetCrossBorderOptimizationRequest
+     * @param Request - GetCrossBorderOptimizationRequest
      *
      * @returns GetCrossBorderOptimizationResponse
      *
@@ -10288,7 +10438,7 @@ class ESA extends OpenApiClient
     /**
      * Query Site Developer Mode Configuration.
      *
-     * @param request - GetDevelopmentModeRequest
+     * @param Request - GetDevelopmentModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDevelopmentModeResponse
@@ -10323,7 +10473,7 @@ class ESA extends OpenApiClient
     /**
      * Query Site Developer Mode Configuration.
      *
-     * @param request - GetDevelopmentModeRequest
+     * @param Request - GetDevelopmentModeRequest
      *
      * @returns GetDevelopmentModeResponse
      *
@@ -10341,7 +10491,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the information about a containerized application, including basic application configurations and health check configurations.
      *
-     * @param request - GetEdgeContainerAppRequest
+     * @param Request - GetEdgeContainerAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerAppResponse
@@ -10380,7 +10530,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the information about a containerized application, including basic application configurations and health check configurations.
      *
-     * @param request - GetEdgeContainerAppRequest
+     * @param Request - GetEdgeContainerAppRequest
      *
      * @returns GetEdgeContainerAppResponse
      *
@@ -10398,7 +10548,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the log collection configuration of a containerized application.
      *
-     * @param request - GetEdgeContainerAppLogRiverRequest
+     * @param Request - GetEdgeContainerAppLogRiverRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerAppLogRiverResponse
@@ -10433,7 +10583,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the log collection configuration of a containerized application.
      *
-     * @param request - GetEdgeContainerAppLogRiverRequest
+     * @param Request - GetEdgeContainerAppLogRiverRequest
      *
      * @returns GetEdgeContainerAppLogRiverResponse
      *
@@ -10451,7 +10601,7 @@ class ESA extends OpenApiClient
     /**
      * 获取边缘容器资源预留配置.
      *
-     * @param request - GetEdgeContainerAppResourceReserveRequest
+     * @param Request - GetEdgeContainerAppResourceReserveRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerAppResourceReserveResponse
@@ -10490,7 +10640,7 @@ class ESA extends OpenApiClient
     /**
      * 获取边缘容器资源预留配置.
      *
-     * @param request - GetEdgeContainerAppResourceReserveRequest
+     * @param Request - GetEdgeContainerAppResourceReserveRequest
      *
      * @returns GetEdgeContainerAppResourceReserveResponse
      *
@@ -10508,7 +10658,7 @@ class ESA extends OpenApiClient
     /**
      * 获取边缘容器应用资源分布.
      *
-     * @param request - GetEdgeContainerAppResourceStatusRequest
+     * @param Request - GetEdgeContainerAppResourceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerAppResourceStatusResponse
@@ -10547,7 +10697,7 @@ class ESA extends OpenApiClient
     /**
      * 获取边缘容器应用资源分布.
      *
-     * @param request - GetEdgeContainerAppResourceStatusRequest
+     * @param Request - GetEdgeContainerAppResourceStatusRequest
      *
      * @returns GetEdgeContainerAppResourceStatusResponse
      *
@@ -10565,7 +10715,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
      *
-     * @param request - GetEdgeContainerAppStatusRequest
+     * @param Request - GetEdgeContainerAppStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerAppStatusResponse
@@ -10608,7 +10758,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
      *
-     * @param request - GetEdgeContainerAppStatusRequest
+     * @param Request - GetEdgeContainerAppStatusRequest
      *
      * @returns GetEdgeContainerAppStatusResponse
      *
@@ -10626,7 +10776,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
      *
-     * @param request - GetEdgeContainerAppVersionRequest
+     * @param Request - GetEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerAppVersionResponse
@@ -10661,7 +10811,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
      *
-     * @param request - GetEdgeContainerAppVersionRequest
+     * @param Request - GetEdgeContainerAppVersionRequest
      *
      * @returns GetEdgeContainerAppVersionResponse
      *
@@ -10679,7 +10829,7 @@ class ESA extends OpenApiClient
     /**
      * Queries regions where a containerized application is deployed based on the application ID.
      *
-     * @param request - GetEdgeContainerDeployRegionsRequest
+     * @param Request - GetEdgeContainerDeployRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerDeployRegionsResponse
@@ -10714,7 +10864,7 @@ class ESA extends OpenApiClient
     /**
      * Queries regions where a containerized application is deployed based on the application ID.
      *
-     * @param request - GetEdgeContainerDeployRegionsRequest
+     * @param Request - GetEdgeContainerDeployRegionsRequest
      *
      * @returns GetEdgeContainerDeployRegionsResponse
      *
@@ -10732,7 +10882,7 @@ class ESA extends OpenApiClient
     /**
      * Queries Edge Container logs.
      *
-     * @param request - GetEdgeContainerLogsRequest
+     * @param Request - GetEdgeContainerLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerLogsResponse
@@ -10767,7 +10917,7 @@ class ESA extends OpenApiClient
     /**
      * Queries Edge Container logs.
      *
-     * @param request - GetEdgeContainerLogsRequest
+     * @param Request - GetEdgeContainerLogsRequest
      *
      * @returns GetEdgeContainerLogsResponse
      *
@@ -10785,7 +10935,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the deployment status of an application in the staging environment by using the application ID.
      *
-     * @param request - GetEdgeContainerStagingDeployStatusRequest
+     * @param Request - GetEdgeContainerStagingDeployStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerStagingDeployStatusResponse
@@ -10820,7 +10970,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the deployment status of an application in the staging environment by using the application ID.
      *
-     * @param request - GetEdgeContainerStagingDeployStatusRequest
+     * @param Request - GetEdgeContainerStagingDeployStatusRequest
      *
      * @returns GetEdgeContainerStagingDeployStatusResponse
      *
@@ -10838,7 +10988,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the terminal information of a containerized application.
      *
-     * @param request - GetEdgeContainerTerminalRequest
+     * @param Request - GetEdgeContainerTerminalRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEdgeContainerTerminalResponse
@@ -10877,7 +11027,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the terminal information of a containerized application.
      *
-     * @param request - GetEdgeContainerTerminalRequest
+     * @param Request - GetEdgeContainerTerminalRequest
      *
      * @returns GetEdgeContainerTerminalResponse
      *
@@ -10895,7 +11045,7 @@ class ESA extends OpenApiClient
     /**
      * Checks the status of Edge Routine.
      *
-     * @param request - GetErServiceRequest
+     * @param Request - GetErServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetErServiceResponse
@@ -10930,7 +11080,7 @@ class ESA extends OpenApiClient
     /**
      * Checks the status of Edge Routine.
      *
-     * @param request - GetErServiceRequest
+     * @param Request - GetErServiceRequest
      *
      * @returns GetErServiceResponse
      *
@@ -10948,7 +11098,7 @@ class ESA extends OpenApiClient
     /**
      * Query HTTP Request Header Rule Details.
      *
-     * @param request - GetHttpRequestHeaderModificationRuleRequest
+     * @param Request - GetHttpRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetHttpRequestHeaderModificationRuleResponse
@@ -10983,7 +11133,7 @@ class ESA extends OpenApiClient
     /**
      * Query HTTP Request Header Rule Details.
      *
-     * @param request - GetHttpRequestHeaderModificationRuleRequest
+     * @param Request - GetHttpRequestHeaderModificationRuleRequest
      *
      * @returns GetHttpRequestHeaderModificationRuleResponse
      *
@@ -11001,7 +11151,7 @@ class ESA extends OpenApiClient
     /**
      * Query HTTP Response Header Rules.
      *
-     * @param request - GetHttpResponseHeaderModificationRuleRequest
+     * @param Request - GetHttpResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetHttpResponseHeaderModificationRuleResponse
@@ -11036,7 +11186,7 @@ class ESA extends OpenApiClient
     /**
      * Query HTTP Response Header Rules.
      *
-     * @param request - GetHttpResponseHeaderModificationRuleRequest
+     * @param Request - GetHttpResponseHeaderModificationRuleRequest
      *
      * @returns GetHttpResponseHeaderModificationRuleResponse
      *
@@ -11054,7 +11204,7 @@ class ESA extends OpenApiClient
     /**
      * Query a Single HTTPS Application Configuration.
      *
-     * @param request - GetHttpsApplicationConfigurationRequest
+     * @param Request - GetHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetHttpsApplicationConfigurationResponse
@@ -11089,7 +11239,7 @@ class ESA extends OpenApiClient
     /**
      * Query a Single HTTPS Application Configuration.
      *
-     * @param request - GetHttpsApplicationConfigurationRequest
+     * @param Request - GetHttpsApplicationConfigurationRequest
      *
      * @returns GetHttpsApplicationConfigurationResponse
      *
@@ -11107,7 +11257,7 @@ class ESA extends OpenApiClient
     /**
      * Query a Single HTTPS Basic Configuration.
      *
-     * @param request - GetHttpsBasicConfigurationRequest
+     * @param Request - GetHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetHttpsBasicConfigurationResponse
@@ -11142,7 +11292,7 @@ class ESA extends OpenApiClient
     /**
      * Query a Single HTTPS Basic Configuration.
      *
-     * @param request - GetHttpsBasicConfigurationRequest
+     * @param Request - GetHttpsBasicConfigurationRequest
      *
      * @returns GetHttpsBasicConfigurationResponse
      *
@@ -11160,7 +11310,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the IPv6 configuration of a website.
      *
-     * @param request - GetIPv6Request
+     * @param Request - GetIPv6Request
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetIPv6Response
@@ -11195,7 +11345,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the IPv6 configuration of a website.
      *
-     * @param request - GetIPv6Request
+     * @param Request - GetIPv6Request
      *
      * @returns GetIPv6Response
      *
@@ -11213,7 +11363,7 @@ class ESA extends OpenApiClient
     /**
      * Query Single Site Image Transformation Configuration.
      *
-     * @param request - GetImageTransformRequest
+     * @param Request - GetImageTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetImageTransformResponse
@@ -11248,7 +11398,7 @@ class ESA extends OpenApiClient
     /**
      * Query Single Site Image Transformation Configuration.
      *
-     * @param request - GetImageTransformRequest
+     * @param Request - GetImageTransformRequest
      *
      * @returns GetImageTransformResponse
      *
@@ -11266,7 +11416,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the value of a key in a key-value pair.
      *
-     * @param request - GetKvRequest
+     * @param Request - GetKvRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetKvResponse
@@ -11301,7 +11451,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the value of a key in a key-value pair.
      *
-     * @param request - GetKvRequest
+     * @param Request - GetKvRequest
      *
      * @returns GetKvResponse
      *
@@ -11319,7 +11469,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
      *
-     * @param request - GetKvAccountRequest
+     * @param Request - GetKvAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetKvAccountResponse
@@ -11363,7 +11513,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the information about a namespace in your Alibaba Cloud account.
      *
-     * @param request - GetKvNamespaceRequest
+     * @param Request - GetKvNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetKvNamespaceResponse
@@ -11398,7 +11548,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the information about a namespace in your Alibaba Cloud account.
      *
-     * @param request - GetKvNamespaceRequest
+     * @param Request - GetKvNamespaceRequest
      *
      * @returns GetKvNamespaceResponse
      *
@@ -11416,7 +11566,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of a custom list, such as the name, description, type, and content.
      *
-     * @param request - GetListRequest
+     * @param Request - GetListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetListResponse
@@ -11455,7 +11605,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of a custom list, such as the name, description, type, and content.
      *
-     * @param request - GetListRequest
+     * @param Request - GetListRequest
      *
      * @returns GetListResponse
      *
@@ -11476,7 +11626,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
      *
-     * @param request - GetLoadBalancerRequest
+     * @param Request - GetLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetLoadBalancerResponse
@@ -11514,7 +11664,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
      *
-     * @param request - GetLoadBalancerRequest
+     * @param Request - GetLoadBalancerRequest
      *
      * @returns GetLoadBalancerResponse
      *
@@ -11532,7 +11682,7 @@ class ESA extends OpenApiClient
     /**
      * Query Managed Transform Configuration.
      *
-     * @param request - GetManagedTransformRequest
+     * @param Request - GetManagedTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetManagedTransformResponse
@@ -11567,7 +11717,7 @@ class ESA extends OpenApiClient
     /**
      * Query Managed Transform Configuration.
      *
-     * @param request - GetManagedTransformRequest
+     * @param Request - GetManagedTransformRequest
      *
      * @returns GetManagedTransformResponse
      *
@@ -11585,7 +11735,7 @@ class ESA extends OpenApiClient
     /**
      * Query a single network optimization configuration.
      *
-     * @param request - GetNetworkOptimizationRequest
+     * @param Request - GetNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNetworkOptimizationResponse
@@ -11620,7 +11770,7 @@ class ESA extends OpenApiClient
     /**
      * Query a single network optimization configuration.
      *
-     * @param request - GetNetworkOptimizationRequest
+     * @param Request - GetNetworkOptimizationRequest
      *
      * @returns GetNetworkOptimizationResponse
      *
@@ -11638,7 +11788,7 @@ class ESA extends OpenApiClient
     /**
      * 获取源服务器CA证书信息.
      *
-     * @param request - GetOriginCaCertificateRequest
+     * @param Request - GetOriginCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOriginCaCertificateResponse
@@ -11673,7 +11823,7 @@ class ESA extends OpenApiClient
     /**
      * 获取源服务器CA证书信息.
      *
-     * @param request - GetOriginCaCertificateRequest
+     * @param Request - GetOriginCaCertificateRequest
      *
      * @returns GetOriginCaCertificateResponse
      *
@@ -11691,7 +11841,7 @@ class ESA extends OpenApiClient
     /**
      * 获取域名回源客户端证书信息.
      *
-     * @param request - GetOriginClientCertificateRequest
+     * @param Request - GetOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOriginClientCertificateResponse
@@ -11726,7 +11876,7 @@ class ESA extends OpenApiClient
     /**
      * 获取域名回源客户端证书信息.
      *
-     * @param request - GetOriginClientCertificateRequest
+     * @param Request - GetOriginClientCertificateRequest
      *
      * @returns GetOriginClientCertificateResponse
      *
@@ -11744,7 +11894,7 @@ class ESA extends OpenApiClient
     /**
      * 获取域名回源客户端证书绑定的域名列表.
      *
-     * @param request - GetOriginClientCertificateHostnamesRequest
+     * @param Request - GetOriginClientCertificateHostnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOriginClientCertificateHostnamesResponse
@@ -11779,7 +11929,7 @@ class ESA extends OpenApiClient
     /**
      * 获取域名回源客户端证书绑定的域名列表.
      *
-     * @param request - GetOriginClientCertificateHostnamesRequest
+     * @param Request - GetOriginClientCertificateHostnamesRequest
      *
      * @returns GetOriginClientCertificateHostnamesResponse
      *
@@ -11797,7 +11947,7 @@ class ESA extends OpenApiClient
     /**
      * Query a specific origin pool.
      *
-     * @param request - GetOriginPoolRequest
+     * @param Request - GetOriginPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOriginPoolResponse
@@ -11832,7 +11982,7 @@ class ESA extends OpenApiClient
     /**
      * Query a specific origin pool.
      *
-     * @param request - GetOriginPoolRequest
+     * @param Request - GetOriginPoolRequest
      *
      * @returns GetOriginPoolResponse
      *
@@ -11850,7 +12000,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
      *
-     * @param request - GetOriginProtectionRequest
+     * @param Request - GetOriginProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOriginProtectionResponse
@@ -11885,7 +12035,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
      *
-     * @param request - GetOriginProtectionRequest
+     * @param Request - GetOriginProtectionRequest
      *
      * @returns GetOriginProtectionResponse
      *
@@ -11903,7 +12053,7 @@ class ESA extends OpenApiClient
     /**
      * Query a Single Origin Rule Configuration.
      *
-     * @param request - GetOriginRuleRequest
+     * @param Request - GetOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOriginRuleResponse
@@ -11938,7 +12088,7 @@ class ESA extends OpenApiClient
     /**
      * Query a Single Origin Rule Configuration.
      *
-     * @param request - GetOriginRuleRequest
+     * @param Request - GetOriginRuleRequest
      *
      * @returns GetOriginRuleResponse
      *
@@ -11956,7 +12106,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of a custom error page based on the error page ID.
      *
-     * @param request - GetPageRequest
+     * @param Request - GetPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPageResponse
@@ -11995,7 +12145,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the details of a custom error page based on the error page ID.
      *
-     * @param request - GetPageRequest
+     * @param Request - GetPageRequest
      *
      * @returns GetPageResponse
      *
@@ -12013,7 +12163,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the quotas and quota usage for different cache purge options.
      *
-     * @param request - GetPurgeQuotaRequest
+     * @param Request - GetPurgeQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPurgeQuotaResponse
@@ -12048,7 +12198,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the quotas and quota usage for different cache purge options.
      *
-     * @param request - GetPurgeQuotaRequest
+     * @param Request - GetPurgeQuotaRequest
      *
      * @returns GetPurgeQuotaResponse
      *
@@ -12066,7 +12216,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the fields in real-time logs based on the log category.
      *
-     * @param request - GetRealtimeDeliveryFieldRequest
+     * @param Request - GetRealtimeDeliveryFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRealtimeDeliveryFieldResponse
@@ -12101,7 +12251,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the fields in real-time logs based on the log category.
      *
-     * @param request - GetRealtimeDeliveryFieldRequest
+     * @param Request - GetRealtimeDeliveryFieldRequest
      *
      * @returns GetRealtimeDeliveryFieldResponse
      *
@@ -12119,7 +12269,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
      *
-     * @param request - GetRecordRequest
+     * @param Request - GetRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRecordResponse
@@ -12154,7 +12304,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
      *
-     * @param request - GetRecordRequest
+     * @param Request - GetRecordRequest
      *
      * @returns GetRecordResponse
      *
@@ -12172,7 +12322,7 @@ class ESA extends OpenApiClient
     /**
      * Query Redirect Rule Details.
      *
-     * @param request - GetRedirectRuleRequest
+     * @param Request - GetRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRedirectRuleResponse
@@ -12207,7 +12357,7 @@ class ESA extends OpenApiClient
     /**
      * Query Redirect Rule Details.
      *
-     * @param request - GetRedirectRuleRequest
+     * @param Request - GetRedirectRuleRequest
      *
      * @returns GetRedirectRuleResponse
      *
@@ -12225,7 +12375,7 @@ class ESA extends OpenApiClient
     /**
      * Query details of the rewrite URL rule.
      *
-     * @param request - GetRewriteUrlRuleRequest
+     * @param Request - GetRewriteUrlRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRewriteUrlRuleResponse
@@ -12260,7 +12410,7 @@ class ESA extends OpenApiClient
     /**
      * Query details of the rewrite URL rule.
      *
-     * @param request - GetRewriteUrlRuleRequest
+     * @param Request - GetRewriteUrlRuleRequest
      *
      * @returns GetRewriteUrlRuleResponse
      *
@@ -12278,7 +12428,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
      *
-     * @param request - GetRoutineRequest
+     * @param Request - GetRoutineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRoutineResponse
@@ -12317,7 +12467,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
      *
-     * @param request - GetRoutineRequest
+     * @param Request - GetRoutineRequest
      *
      * @returns GetRoutineResponse
      *
@@ -12335,7 +12485,7 @@ class ESA extends OpenApiClient
     /**
      * 查询单条边缘函数路由配置.
      *
-     * @param request - GetRoutineRouteRequest
+     * @param Request - GetRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRoutineRouteResponse
@@ -12378,7 +12528,7 @@ class ESA extends OpenApiClient
     /**
      * 查询单条边缘函数路由配置.
      *
-     * @param request - GetRoutineRouteRequest
+     * @param Request - GetRoutineRouteRequest
      *
      * @returns GetRoutineRouteResponse
      *
@@ -12400,7 +12550,7 @@ class ESA extends OpenApiClient
      *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
      * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
      *
-     * @param request - GetRoutineStagingCodeUploadInfoRequest
+     * @param Request - GetRoutineStagingCodeUploadInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRoutineStagingCodeUploadInfoResponse
@@ -12447,7 +12597,7 @@ class ESA extends OpenApiClient
      *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
      * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
      *
-     * @param request - GetRoutineStagingCodeUploadInfoRequest
+     * @param Request - GetRoutineStagingCodeUploadInfoRequest
      *
      * @returns GetRoutineStagingCodeUploadInfoResponse
      *
@@ -12465,7 +12615,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the IP addresses of staging environments for Edge Routine.
      *
-     * @param request - GetRoutineStagingEnvIpRequest
+     * @param Request - GetRoutineStagingEnvIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRoutineStagingEnvIpResponse
@@ -12509,7 +12659,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
      *
-     * @param request - GetRoutineUserInfoRequest
+     * @param Request - GetRoutineUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRoutineUserInfoResponse
@@ -12553,7 +12703,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a specified scheduled prefetch task based on the task ID.
      *
-     * @param request - GetScheduledPreloadJobRequest
+     * @param Request - GetScheduledPreloadJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetScheduledPreloadJobResponse
@@ -12588,7 +12738,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a specified scheduled prefetch task based on the task ID.
      *
-     * @param request - GetScheduledPreloadJobRequest
+     * @param Request - GetScheduledPreloadJobRequest
      *
      * @returns GetScheduledPreloadJobResponse
      *
@@ -12606,7 +12756,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configuration for search engine crawler of a website.
      *
-     * @param request - GetSeoBypassRequest
+     * @param Request - GetSeoBypassRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSeoBypassResponse
@@ -12641,7 +12791,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the configuration for search engine crawler of a website.
      *
-     * @param request - GetSeoBypassRequest
+     * @param Request - GetSeoBypassRequest
      *
      * @returns GetSeoBypassResponse
      *
@@ -12659,7 +12809,7 @@ class ESA extends OpenApiClient
     /**
      * Queries information about a website based on the website ID.
      *
-     * @param request - GetSiteRequest
+     * @param Request - GetSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteResponse
@@ -12694,7 +12844,7 @@ class ESA extends OpenApiClient
     /**
      * Queries information about a website based on the website ID.
      *
-     * @param request - GetSiteRequest
+     * @param Request - GetSiteRequest
      *
      * @returns GetSiteResponse
      *
@@ -12712,7 +12862,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the nameservers configured for a website.
      *
-     * @param request - GetSiteCurrentNSRequest
+     * @param Request - GetSiteCurrentNSRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteCurrentNSResponse
@@ -12747,7 +12897,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the nameservers configured for a website.
      *
-     * @param request - GetSiteCurrentNSRequest
+     * @param Request - GetSiteCurrentNSRequest
      *
      * @returns GetSiteCurrentNSResponse
      *
@@ -12769,7 +12919,7 @@ class ESA extends OpenApiClient
      *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
      * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
      *
-     * @param request - GetSiteCustomLogRequest
+     * @param Request - GetSiteCustomLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteCustomLogResponse
@@ -12808,7 +12958,7 @@ class ESA extends OpenApiClient
      *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
      * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
      *
-     * @param request - GetSiteCustomLogRequest
+     * @param Request - GetSiteCustomLogRequest
      *
      * @returns GetSiteCustomLogResponse
      *
@@ -12826,7 +12976,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a real-time log delivery task.
      *
-     * @param request - GetSiteDeliveryTaskRequest
+     * @param Request - GetSiteDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteDeliveryTaskResponse
@@ -12861,7 +13011,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a real-time log delivery task.
      *
-     * @param request - GetSiteDeliveryTaskRequest
+     * @param Request - GetSiteDeliveryTaskRequest
      *
      * @returns GetSiteDeliveryTaskResponse
      *
@@ -12888,7 +13038,7 @@ class ESA extends OpenApiClient
      * **Response:**
      * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
      *
-     * @param request - GetSiteLogDeliveryQuotaRequest
+     * @param Request - GetSiteLogDeliveryQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteLogDeliveryQuotaResponse
@@ -12932,7 +13082,7 @@ class ESA extends OpenApiClient
      * **Response:**
      * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
      *
-     * @param request - GetSiteLogDeliveryQuotaRequest
+     * @param Request - GetSiteLogDeliveryQuotaRequest
      *
      * @returns GetSiteLogDeliveryQuotaResponse
      *
@@ -12950,7 +13100,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
      *
-     * @param request - GetSiteNameExclusiveRequest
+     * @param Request - GetSiteNameExclusiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteNameExclusiveResponse
@@ -12985,7 +13135,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
      *
-     * @param request - GetSiteNameExclusiveRequest
+     * @param Request - GetSiteNameExclusiveRequest
      *
      * @returns GetSiteNameExclusiveResponse
      *
@@ -13003,7 +13153,7 @@ class ESA extends OpenApiClient
     /**
      * 获取站点回源客户端证书信息.
      *
-     * @param request - GetSiteOriginClientCertificateRequest
+     * @param Request - GetSiteOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteOriginClientCertificateResponse
@@ -13038,7 +13188,7 @@ class ESA extends OpenApiClient
     /**
      * 获取站点回源客户端证书信息.
      *
-     * @param request - GetSiteOriginClientCertificateRequest
+     * @param Request - GetSiteOriginClientCertificateRequest
      *
      * @returns GetSiteOriginClientCertificateResponse
      *
@@ -13056,7 +13206,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the ESA proxy configuration of a website.
      *
-     * @param request - GetSitePauseRequest
+     * @param Request - GetSitePauseRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSitePauseResponse
@@ -13091,7 +13241,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the ESA proxy configuration of a website.
      *
-     * @param request - GetSitePauseRequest
+     * @param Request - GetSitePauseRequest
      *
      * @returns GetSitePauseResponse
      *
@@ -13109,7 +13259,7 @@ class ESA extends OpenApiClient
     /**
      * Get WAF Configuration for a Site.
      *
-     * @param request - GetSiteWafSettingsRequest
+     * @param Request - GetSiteWafSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSiteWafSettingsResponse
@@ -13156,7 +13306,7 @@ class ESA extends OpenApiClient
     /**
      * Get WAF Configuration for a Site.
      *
-     * @param request - GetSiteWafSettingsRequest
+     * @param Request - GetSiteWafSettingsRequest
      *
      * @returns GetSiteWafSettingsResponse
      *
@@ -13174,7 +13324,7 @@ class ESA extends OpenApiClient
     /**
      * Query Multi-level Cache Configuration for Site.
      *
-     * @param request - GetTieredCacheRequest
+     * @param Request - GetTieredCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTieredCacheResponse
@@ -13209,7 +13359,7 @@ class ESA extends OpenApiClient
     /**
      * Query Multi-level Cache Configuration for Site.
      *
-     * @param request - GetTieredCacheRequest
+     * @param Request - GetTieredCacheRequest
      *
      * @returns GetTieredCacheResponse
      *
@@ -13227,7 +13377,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the execution status and running information of a file upload task based on the task ID.
      *
-     * @param request - GetUploadTaskRequest
+     * @param Request - GetUploadTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUploadTaskResponse
@@ -13262,7 +13412,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the execution status and running information of a file upload task based on the task ID.
      *
-     * @param request - GetUploadTaskRequest
+     * @param Request - GetUploadTaskRequest
      *
      * @returns GetUploadTaskResponse
      *
@@ -13285,7 +13435,7 @@ class ESA extends OpenApiClient
      * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
      * *   ****````
      *
-     * @param request - GetUserDeliveryTaskRequest
+     * @param Request - GetUserDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUserDeliveryTaskResponse
@@ -13325,7 +13475,7 @@ class ESA extends OpenApiClient
      * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
      * *   ****````
      *
-     * @param request - GetUserDeliveryTaskRequest
+     * @param Request - GetUserDeliveryTaskRequest
      *
      * @returns GetUserDeliveryTaskResponse
      *
@@ -13346,7 +13496,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
      *
-     * @param request - GetUserLogDeliveryQuotaRequest
+     * @param Request - GetUserLogDeliveryQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUserLogDeliveryQuotaResponse
@@ -13384,7 +13534,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
      *
-     * @param request - GetUserLogDeliveryQuotaRequest
+     * @param Request - GetUserLogDeliveryQuotaRequest
      *
      * @returns GetUserLogDeliveryQuotaResponse
      *
@@ -13402,7 +13552,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点视频处理配置详情.
      *
-     * @param request - GetVideoProcessingRequest
+     * @param Request - GetVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetVideoProcessingResponse
@@ -13445,7 +13595,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点视频处理配置详情.
      *
-     * @param request - GetVideoProcessingRequest
+     * @param Request - GetVideoProcessingRequest
      *
      * @returns GetVideoProcessingResponse
      *
@@ -13463,7 +13613,7 @@ class ESA extends OpenApiClient
     /**
      * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
      *
-     * @param request - GetWafBotAppKeyRequest
+     * @param Request - GetWafBotAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWafBotAppKeyResponse
@@ -13507,7 +13657,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
      *
-     * @param request - GetWafFilterRequest
+     * @param Request - GetWafFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWafFilterResponse
@@ -13558,7 +13708,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
      *
-     * @param request - GetWafFilterRequest
+     * @param Request - GetWafFilterRequest
      *
      * @returns GetWafFilterResponse
      *
@@ -13576,7 +13726,7 @@ class ESA extends OpenApiClient
     /**
      * Get WAF Quota Details.
      *
-     * @param request - GetWafQuotaRequest
+     * @param Request - GetWafQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWafQuotaResponse
@@ -13615,7 +13765,7 @@ class ESA extends OpenApiClient
     /**
      * Get WAF Quota Details.
      *
-     * @param request - GetWafQuotaRequest
+     * @param Request - GetWafQuotaRequest
      *
      * @returns GetWafQuotaResponse
      *
@@ -13633,7 +13783,7 @@ class ESA extends OpenApiClient
     /**
      * Get Details of a Single WAF Rule.
      *
-     * @param request - GetWafRuleRequest
+     * @param Request - GetWafRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWafRuleResponse
@@ -13676,7 +13826,7 @@ class ESA extends OpenApiClient
     /**
      * Get Details of a Single WAF Rule.
      *
-     * @param request - GetWafRuleRequest
+     * @param Request - GetWafRuleRequest
      *
      * @returns GetWafRuleResponse
      *
@@ -13694,7 +13844,7 @@ class ESA extends OpenApiClient
     /**
      * Get WAF Ruleset Details.
      *
-     * @param request - GetWafRulesetRequest
+     * @param Request - GetWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWafRulesetResponse
@@ -13741,7 +13891,7 @@ class ESA extends OpenApiClient
     /**
      * Get WAF Ruleset Details.
      *
-     * @param request - GetWafRulesetRequest
+     * @param Request - GetWafRulesetRequest
      *
      * @returns GetWafRulesetResponse
      *
@@ -13759,7 +13909,7 @@ class ESA extends OpenApiClient
     /**
      * Query Cache Reserve Instance List.
      *
-     * @param request - ListCacheReserveInstancesRequest
+     * @param Request - ListCacheReserveInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCacheReserveInstancesResponse
@@ -13794,7 +13944,7 @@ class ESA extends OpenApiClient
     /**
      * Query Cache Reserve Instance List.
      *
-     * @param request - ListCacheReserveInstancesRequest
+     * @param Request - ListCacheReserveInstancesRequest
      *
      * @returns ListCacheReserveInstancesResponse
      *
@@ -13812,7 +13962,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple cache configurations.
      *
-     * @param request - ListCacheRulesRequest
+     * @param Request - ListCacheRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCacheRulesResponse
@@ -13847,7 +13997,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple cache configurations.
      *
-     * @param request - ListCacheRulesRequest
+     * @param Request - ListCacheRulesRequest
      *
      * @returns ListCacheRulesResponse
      *
@@ -13865,7 +14015,7 @@ class ESA extends OpenApiClient
     /**
      * Lists certificates of a website.
      *
-     * @param request - ListCertificatesRequest
+     * @param Request - ListCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCertificatesResponse
@@ -13900,7 +14050,7 @@ class ESA extends OpenApiClient
     /**
      * Lists certificates of a website.
      *
-     * @param request - ListCertificatesRequest
+     * @param Request - ListCertificatesRequest
      *
      * @returns ListCertificatesResponse
      *
@@ -13918,7 +14068,7 @@ class ESA extends OpenApiClient
     /**
      * 查询匹配记录名的站点证书列表.
      *
-     * @param request - ListCertificatesByRecordRequest
+     * @param Request - ListCertificatesByRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCertificatesByRecordResponse
@@ -13953,7 +14103,7 @@ class ESA extends OpenApiClient
     /**
      * 查询匹配记录名的站点证书列表.
      *
-     * @param request - ListCertificatesByRecordRequest
+     * @param Request - ListCertificatesByRecordRequest
      *
      * @returns ListCertificatesByRecordResponse
      *
@@ -13971,7 +14121,7 @@ class ESA extends OpenApiClient
     /**
      * Query TLS Cipher Suite List.
      *
-     * @param request - ListCiphersRequest
+     * @param Request - ListCiphersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCiphersResponse
@@ -14006,7 +14156,7 @@ class ESA extends OpenApiClient
     /**
      * Query TLS Cipher Suite List.
      *
-     * @param request - ListCiphersRequest
+     * @param Request - ListCiphersRequest
      *
      * @returns ListCiphersResponse
      *
@@ -14024,7 +14174,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a list of client certificate authority (CA) certificates for a website.
      *
-     * @param request - ListClientCaCertificatesRequest
+     * @param Request - ListClientCaCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListClientCaCertificatesResponse
@@ -14059,7 +14209,7 @@ class ESA extends OpenApiClient
     /**
      * Queries a list of client certificate authority (CA) certificates for a website.
      *
-     * @param request - ListClientCaCertificatesRequest
+     * @param Request - ListClientCaCertificatesRequest
      *
      * @returns ListClientCaCertificatesResponse
      *
@@ -14077,7 +14227,7 @@ class ESA extends OpenApiClient
     /**
      * Queries client certificates configured for a website.
      *
-     * @param request - ListClientCertificatesRequest
+     * @param Request - ListClientCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListClientCertificatesResponse
@@ -14112,7 +14262,7 @@ class ESA extends OpenApiClient
     /**
      * Queries client certificates configured for a website.
      *
-     * @param request - ListClientCertificatesRequest
+     * @param Request - ListClientCertificatesRequest
      *
      * @returns ListClientCertificatesResponse
      *
@@ -14130,7 +14280,7 @@ class ESA extends OpenApiClient
     /**
      * Query the list of compression rules.
      *
-     * @param request - ListCompressionRulesRequest
+     * @param Request - ListCompressionRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCompressionRulesResponse
@@ -14165,7 +14315,7 @@ class ESA extends OpenApiClient
     /**
      * Query the list of compression rules.
      *
-     * @param request - ListCompressionRulesRequest
+     * @param Request - ListCompressionRulesRequest
      *
      * @returns ListCompressionRulesResponse
      *
@@ -14183,7 +14333,7 @@ class ESA extends OpenApiClient
     /**
      * 批量查询IP是否为VIP.
      *
-     * @param request - ListESAIPInfoRequest
+     * @param Request - ListESAIPInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListESAIPInfoResponse
@@ -14218,7 +14368,7 @@ class ESA extends OpenApiClient
     /**
      * 批量查询IP是否为VIP.
      *
-     * @param request - ListESAIPInfoRequest
+     * @param Request - ListESAIPInfoRequest
      *
      * @returns ListESAIPInfoResponse
      *
@@ -14236,7 +14386,7 @@ class ESA extends OpenApiClient
     /**
      * Lists domain names that are associated with a containerized application.
      *
-     * @param request - ListEdgeContainerAppRecordsRequest
+     * @param Request - ListEdgeContainerAppRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEdgeContainerAppRecordsResponse
@@ -14271,7 +14421,7 @@ class ESA extends OpenApiClient
     /**
      * Lists domain names that are associated with a containerized application.
      *
-     * @param request - ListEdgeContainerAppRecordsRequest
+     * @param Request - ListEdgeContainerAppRecordsRequest
      *
      * @returns ListEdgeContainerAppRecordsResponse
      *
@@ -14289,7 +14439,7 @@ class ESA extends OpenApiClient
     /**
      * Lists versions of all containerized applications.
      *
-     * @param request - ListEdgeContainerAppVersionsRequest
+     * @param Request - ListEdgeContainerAppVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEdgeContainerAppVersionsResponse
@@ -14324,7 +14474,7 @@ class ESA extends OpenApiClient
     /**
      * Lists versions of all containerized applications.
      *
-     * @param request - ListEdgeContainerAppVersionsRequest
+     * @param Request - ListEdgeContainerAppVersionsRequest
      *
      * @returns ListEdgeContainerAppVersionsResponse
      *
@@ -14342,7 +14492,7 @@ class ESA extends OpenApiClient
     /**
      * Queries all containerized applications in your Alibaba Cloud account.
      *
-     * @param request - ListEdgeContainerAppsRequest
+     * @param Request - ListEdgeContainerAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEdgeContainerAppsResponse
@@ -14401,7 +14551,7 @@ class ESA extends OpenApiClient
     /**
      * Queries all containerized applications in your Alibaba Cloud account.
      *
-     * @param request - ListEdgeContainerAppsRequest
+     * @param Request - ListEdgeContainerAppsRequest
      *
      * @returns ListEdgeContainerAppsResponse
      *
@@ -14419,7 +14569,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the records that are associated with Edge Container for a website.
      *
-     * @param request - ListEdgeContainerRecordsRequest
+     * @param Request - ListEdgeContainerRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEdgeContainerRecordsResponse
@@ -14454,7 +14604,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the records that are associated with Edge Container for a website.
      *
-     * @param request - ListEdgeContainerRecordsRequest
+     * @param Request - ListEdgeContainerRecordsRequest
      *
      * @returns ListEdgeContainerRecordsResponse
      *
@@ -14472,7 +14622,7 @@ class ESA extends OpenApiClient
     /**
      * Queries Edge Routine plans.
      *
-     * @param request - ListEdgeRoutinePlansRequest
+     * @param Request - ListEdgeRoutinePlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEdgeRoutinePlansResponse
@@ -14519,7 +14669,7 @@ class ESA extends OpenApiClient
      * @remarks
      * >  You can call this operation 100 times per second.
      *
-     * @param request - ListEdgeRoutineRecordsRequest
+     * @param Request - ListEdgeRoutineRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEdgeRoutineRecordsResponse
@@ -14557,7 +14707,7 @@ class ESA extends OpenApiClient
      * @remarks
      * >  You can call this operation 100 times per second.
      *
-     * @param request - ListEdgeRoutineRecordsRequest
+     * @param Request - ListEdgeRoutineRecordsRequest
      *
      * @returns ListEdgeRoutineRecordsResponse
      *
@@ -14575,7 +14725,7 @@ class ESA extends OpenApiClient
     /**
      * List of HTTP Request Header Rules.
      *
-     * @param request - ListHttpRequestHeaderModificationRulesRequest
+     * @param Request - ListHttpRequestHeaderModificationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListHttpRequestHeaderModificationRulesResponse
@@ -14610,7 +14760,7 @@ class ESA extends OpenApiClient
     /**
      * List of HTTP Request Header Rules.
      *
-     * @param request - ListHttpRequestHeaderModificationRulesRequest
+     * @param Request - ListHttpRequestHeaderModificationRulesRequest
      *
      * @returns ListHttpRequestHeaderModificationRulesResponse
      *
@@ -14628,7 +14778,7 @@ class ESA extends OpenApiClient
     /**
      * List of HTTP Response Header Rules.
      *
-     * @param request - ListHttpResponseHeaderModificationRulesRequest
+     * @param Request - ListHttpResponseHeaderModificationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListHttpResponseHeaderModificationRulesResponse
@@ -14663,7 +14813,7 @@ class ESA extends OpenApiClient
     /**
      * List of HTTP Response Header Rules.
      *
-     * @param request - ListHttpResponseHeaderModificationRulesRequest
+     * @param Request - ListHttpResponseHeaderModificationRulesRequest
      *
      * @returns ListHttpResponseHeaderModificationRulesResponse
      *
@@ -14681,7 +14831,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple HTTPS application configurations.
      *
-     * @param request - ListHttpsApplicationConfigurationsRequest
+     * @param Request - ListHttpsApplicationConfigurationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListHttpsApplicationConfigurationsResponse
@@ -14716,7 +14866,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple HTTPS application configurations.
      *
-     * @param request - ListHttpsApplicationConfigurationsRequest
+     * @param Request - ListHttpsApplicationConfigurationsRequest
      *
      * @returns ListHttpsApplicationConfigurationsResponse
      *
@@ -14734,7 +14884,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple HTTPS basic configurations.
      *
-     * @param request - ListHttpsBasicConfigurationsRequest
+     * @param Request - ListHttpsBasicConfigurationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListHttpsBasicConfigurationsResponse
@@ -14769,7 +14919,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple HTTPS basic configurations.
      *
-     * @param request - ListHttpsBasicConfigurationsRequest
+     * @param Request - ListHttpsBasicConfigurationsRequest
      *
      * @returns ListHttpsBasicConfigurationsResponse
      *
@@ -14787,7 +14937,7 @@ class ESA extends OpenApiClient
     /**
      * Query Multiple Site Image Transformation Configurations.
      *
-     * @param request - ListImageTransformsRequest
+     * @param Request - ListImageTransformsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListImageTransformsResponse
@@ -14822,7 +14972,7 @@ class ESA extends OpenApiClient
     /**
      * Query Multiple Site Image Transformation Configurations.
      *
-     * @param request - ListImageTransformsRequest
+     * @param Request - ListImageTransformsRequest
      *
      * @returns ListImageTransformsResponse
      *
@@ -14840,7 +14990,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the quota details in a subscription plan.
      *
-     * @param request - ListInstanceQuotasRequest
+     * @param Request - ListInstanceQuotasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInstanceQuotasResponse
@@ -14875,7 +15025,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the quota details in a subscription plan.
      *
-     * @param request - ListInstanceQuotasRequest
+     * @param Request - ListInstanceQuotasRequest
      *
      * @returns ListInstanceQuotasResponse
      *
@@ -14893,7 +15043,7 @@ class ESA extends OpenApiClient
     /**
      * Queries quotas and the actual usage in a plan based on the website or plan ID.
      *
-     * @param request - ListInstanceQuotasWithUsageRequest
+     * @param Request - ListInstanceQuotasWithUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInstanceQuotasWithUsageResponse
@@ -14928,7 +15078,7 @@ class ESA extends OpenApiClient
     /**
      * Queries quotas and the actual usage in a plan based on the website or plan ID.
      *
-     * @param request - ListInstanceQuotasWithUsageRequest
+     * @param Request - ListInstanceQuotasWithUsageRequest
      *
      * @returns ListInstanceQuotasWithUsageResponse
      *
@@ -14946,7 +15096,7 @@ class ESA extends OpenApiClient
     /**
      * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
      *
-     * @param request - ListKvsRequest
+     * @param Request - ListKvsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListKvsResponse
@@ -14981,7 +15131,7 @@ class ESA extends OpenApiClient
     /**
      * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
      *
-     * @param request - ListKvsRequest
+     * @param Request - ListKvsRequest
      *
      * @returns ListKvsResponse
      *
@@ -15052,7 +15202,7 @@ class ESA extends OpenApiClient
     /**
      * Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
      *
-     * @param request - ListListsRequest
+     * @param Request - ListListsRequest
      *
      * @returns ListListsResponse
      *
@@ -15077,7 +15227,7 @@ class ESA extends OpenApiClient
      * - Unknown(unknown): Unknown, the monitor has not yet probed.
      * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
      *
-     * @param request - ListLoadBalancerOriginStatusRequest
+     * @param Request - ListLoadBalancerOriginStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListLoadBalancerOriginStatusResponse
@@ -15119,7 +15269,7 @@ class ESA extends OpenApiClient
      * - Unknown(unknown): Unknown, the monitor has not yet probed.
      * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
      *
-     * @param request - ListLoadBalancerOriginStatusRequest
+     * @param Request - ListLoadBalancerOriginStatusRequest
      *
      * @returns ListLoadBalancerOriginStatusResponse
      *
@@ -15140,7 +15290,7 @@ class ESA extends OpenApiClient
      * @remarks
      * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
      *
-     * @param request - ListLoadBalancerRegionsRequest
+     * @param Request - ListLoadBalancerRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListLoadBalancerRegionsResponse
@@ -15178,7 +15328,7 @@ class ESA extends OpenApiClient
      * @remarks
      * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
      *
-     * @param request - ListLoadBalancerRegionsRequest
+     * @param Request - ListLoadBalancerRegionsRequest
      *
      * @returns ListLoadBalancerRegionsResponse
      *
@@ -15196,7 +15346,7 @@ class ESA extends OpenApiClient
     /**
      * Query the list of load balancers.
      *
-     * @param request - ListLoadBalancersRequest
+     * @param Request - ListLoadBalancersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListLoadBalancersResponse
@@ -15231,7 +15381,7 @@ class ESA extends OpenApiClient
     /**
      * Query the list of load balancers.
      *
-     * @param request - ListLoadBalancersRequest
+     * @param Request - ListLoadBalancersRequest
      *
      * @returns ListLoadBalancersResponse
      *
@@ -15249,7 +15399,7 @@ class ESA extends OpenApiClient
     /**
      * List Custom Managed Rule Groups.
      *
-     * @param request - ListManagedRulesGroupsRequest
+     * @param Request - ListManagedRulesGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListManagedRulesGroupsResponse
@@ -15292,7 +15442,7 @@ class ESA extends OpenApiClient
     /**
      * List Custom Managed Rule Groups.
      *
-     * @param request - ListManagedRulesGroupsRequest
+     * @param Request - ListManagedRulesGroupsRequest
      *
      * @returns ListManagedRulesGroupsResponse
      *
@@ -15310,7 +15460,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple network optimization configurations.
      *
-     * @param request - ListNetworkOptimizationsRequest
+     * @param Request - ListNetworkOptimizationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNetworkOptimizationsResponse
@@ -15345,7 +15495,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple network optimization configurations.
      *
-     * @param request - ListNetworkOptimizationsRequest
+     * @param Request - ListNetworkOptimizationsRequest
      *
      * @returns ListNetworkOptimizationsResponse
      *
@@ -15363,7 +15513,7 @@ class ESA extends OpenApiClient
     /**
      * 查询源服务器CA证书列表.
      *
-     * @param request - ListOriginCaCertificatesRequest
+     * @param Request - ListOriginCaCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListOriginCaCertificatesResponse
@@ -15398,7 +15548,7 @@ class ESA extends OpenApiClient
     /**
      * 查询源服务器CA证书列表.
      *
-     * @param request - ListOriginCaCertificatesRequest
+     * @param Request - ListOriginCaCertificatesRequest
      *
      * @returns ListOriginCaCertificatesResponse
      *
@@ -15416,7 +15566,7 @@ class ESA extends OpenApiClient
     /**
      * 查询域名回源客户端证书列表.
      *
-     * @param request - ListOriginClientCertificatesRequest
+     * @param Request - ListOriginClientCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListOriginClientCertificatesResponse
@@ -15451,7 +15601,7 @@ class ESA extends OpenApiClient
     /**
      * 查询域名回源客户端证书列表.
      *
-     * @param request - ListOriginClientCertificatesRequest
+     * @param Request - ListOriginClientCertificatesRequest
      *
      * @returns ListOriginClientCertificatesResponse
      *
@@ -15469,7 +15619,7 @@ class ESA extends OpenApiClient
     /**
      * List Origin Pools.
      *
-     * @param request - ListOriginPoolsRequest
+     * @param Request - ListOriginPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListOriginPoolsResponse
@@ -15504,7 +15654,7 @@ class ESA extends OpenApiClient
     /**
      * List Origin Pools.
      *
-     * @param request - ListOriginPoolsRequest
+     * @param Request - ListOriginPoolsRequest
      *
      * @returns ListOriginPoolsResponse
      *
@@ -15522,7 +15672,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple origin rule configurations.
      *
-     * @param request - ListOriginRulesRequest
+     * @param Request - ListOriginRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListOriginRulesResponse
@@ -15557,7 +15707,7 @@ class ESA extends OpenApiClient
     /**
      * Query multiple origin rule configurations.
      *
-     * @param request - ListOriginRulesRequest
+     * @param Request - ListOriginRulesRequest
      *
      * @returns ListOriginRulesResponse
      *
@@ -15628,7 +15778,7 @@ class ESA extends OpenApiClient
     /**
      * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
      *
-     * @param request - ListPagesRequest
+     * @param Request - ListPagesRequest
      *
      * @returns ListPagesResponse
      *
@@ -15649,7 +15799,7 @@ class ESA extends OpenApiClient
      * @remarks
      * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
      *
-     * @param request - ListRecordsRequest
+     * @param Request - ListRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRecordsResponse
@@ -15687,7 +15837,7 @@ class ESA extends OpenApiClient
      * @remarks
      * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
      *
-     * @param request - ListRecordsRequest
+     * @param Request - ListRecordsRequest
      *
      * @returns ListRecordsResponse
      *
@@ -15705,7 +15855,7 @@ class ESA extends OpenApiClient
     /**
      * Query Redirect Rule List.
      *
-     * @param request - ListRedirectRulesRequest
+     * @param Request - ListRedirectRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRedirectRulesResponse
@@ -15740,7 +15890,7 @@ class ESA extends OpenApiClient
     /**
      * Query Redirect Rule List.
      *
-     * @param request - ListRedirectRulesRequest
+     * @param Request - ListRedirectRulesRequest
      *
      * @returns ListRedirectRulesResponse
      *
@@ -15758,7 +15908,7 @@ class ESA extends OpenApiClient
     /**
      * List of Rewrite URL Rules.
      *
-     * @param request - ListRewriteUrlRulesRequest
+     * @param Request - ListRewriteUrlRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRewriteUrlRulesResponse
@@ -15793,7 +15943,7 @@ class ESA extends OpenApiClient
     /**
      * List of Rewrite URL Rules.
      *
-     * @param request - ListRewriteUrlRulesRequest
+     * @param Request - ListRewriteUrlRulesRequest
      *
      * @returns ListRewriteUrlRulesResponse
      *
@@ -15811,7 +15961,7 @@ class ESA extends OpenApiClient
     /**
      * Lists the regions to which Edge Routine code can be released for canary deployment.
      *
-     * @param request - ListRoutineCanaryAreasRequest
+     * @param Request - ListRoutineCanaryAreasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRoutineCanaryAreasResponse
@@ -15855,7 +16005,7 @@ class ESA extends OpenApiClient
     /**
      * 查询Routine的代码版本列表.
      *
-     * @param request - ListRoutineCodeVersionsRequest
+     * @param Request - ListRoutineCodeVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRoutineCodeVersionsResponse
@@ -15906,7 +16056,7 @@ class ESA extends OpenApiClient
     /**
      * 查询Routine的代码版本列表.
      *
-     * @param request - ListRoutineCodeVersionsRequest
+     * @param Request - ListRoutineCodeVersionsRequest
      *
      * @returns ListRoutineCodeVersionsResponse
      *
@@ -15924,7 +16074,7 @@ class ESA extends OpenApiClient
     /**
      * 查询函数关联域名列表.
      *
-     * @param request - ListRoutineRelatedRecordsRequest
+     * @param Request - ListRoutineRelatedRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRoutineRelatedRecordsResponse
@@ -15975,7 +16125,7 @@ class ESA extends OpenApiClient
     /**
      * 查询函数关联域名列表.
      *
-     * @param request - ListRoutineRelatedRecordsRequest
+     * @param Request - ListRoutineRelatedRecordsRequest
      *
      * @returns ListRoutineRelatedRecordsResponse
      *
@@ -15993,7 +16143,7 @@ class ESA extends OpenApiClient
     /**
      * 查询边缘程序的函数路由列表.
      *
-     * @param request - ListRoutineRoutesRequest
+     * @param Request - ListRoutineRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRoutineRoutesResponse
@@ -16040,7 +16190,7 @@ class ESA extends OpenApiClient
     /**
      * 查询边缘程序的函数路由列表.
      *
-     * @param request - ListRoutineRoutesRequest
+     * @param Request - ListRoutineRoutesRequest
      *
      * @returns ListRoutineRoutesResponse
      *
@@ -16058,7 +16208,7 @@ class ESA extends OpenApiClient
     /**
      * Lists the plans in a scheduled prefetch task by task ID.
      *
-     * @param request - ListScheduledPreloadExecutionsRequest
+     * @param Request - ListScheduledPreloadExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListScheduledPreloadExecutionsResponse
@@ -16093,7 +16243,7 @@ class ESA extends OpenApiClient
     /**
      * Lists the plans in a scheduled prefetch task by task ID.
      *
-     * @param request - ListScheduledPreloadExecutionsRequest
+     * @param Request - ListScheduledPreloadExecutionsRequest
      *
      * @returns ListScheduledPreloadExecutionsResponse
      *
@@ -16111,7 +16261,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the scheduled prefetch tasks for a website.
      *
-     * @param request - ListScheduledPreloadJobsRequest
+     * @param Request - ListScheduledPreloadJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListScheduledPreloadJobsResponse
@@ -16146,7 +16296,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the scheduled prefetch tasks for a website.
      *
-     * @param request - ListScheduledPreloadJobsRequest
+     * @param Request - ListScheduledPreloadJobsRequest
      *
      * @returns ListScheduledPreloadJobsResponse
      *
@@ -16164,7 +16314,7 @@ class ESA extends OpenApiClient
     /**
      * Lists all log delivery tasks that are in progress.
      *
-     * @param request - ListSiteDeliveryTasksRequest
+     * @param Request - ListSiteDeliveryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSiteDeliveryTasksResponse
@@ -16199,7 +16349,7 @@ class ESA extends OpenApiClient
     /**
      * Lists all log delivery tasks that are in progress.
      *
-     * @param request - ListSiteDeliveryTasksRequest
+     * @param Request - ListSiteDeliveryTasksRequest
      *
      * @returns ListSiteDeliveryTasksResponse
      *
@@ -16217,7 +16367,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点的函数路由列表.
      *
-     * @param request - ListSiteRoutesRequest
+     * @param Request - ListSiteRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSiteRoutesResponse
@@ -16276,7 +16426,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点的函数路由列表.
      *
-     * @param request - ListSiteRoutesRequest
+     * @param Request - ListSiteRoutesRequest
      *
      * @returns ListSiteRoutesResponse
      *
@@ -16335,7 +16485,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the information about websites in your account, such as the name, status, and configuration of each website.
      *
-     * @param request - ListSitesRequest
+     * @param Request - ListSitesRequest
      *
      * @returns ListSitesResponse
      *
@@ -16353,7 +16503,7 @@ class ESA extends OpenApiClient
     /**
      * Queries tags based on the region ID and resource type.
      *
-     * @param request - ListTagResourcesRequest
+     * @param Request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTagResourcesResponse
@@ -16420,7 +16570,7 @@ class ESA extends OpenApiClient
     /**
      * Queries tags based on the region ID and resource type.
      *
-     * @param request - ListTagResourcesRequest
+     * @param Request - ListTagResourcesRequest
      *
      * @returns ListTagResourcesResponse
      *
@@ -16438,7 +16588,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the execution status and running information of file upload tasks based on the task time and type.
      *
-     * @param request - ListUploadTasksRequest
+     * @param Request - ListUploadTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListUploadTasksResponse
@@ -16473,7 +16623,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the execution status and running information of file upload tasks based on the task time and type.
      *
-     * @param request - ListUploadTasksRequest
+     * @param Request - ListUploadTasksRequest
      *
      * @returns ListUploadTasksResponse
      *
@@ -16491,7 +16641,7 @@ class ESA extends OpenApiClient
     /**
      * 查询网页观测配置列表.
      *
-     * @param request - ListUrlObservationsRequest
+     * @param Request - ListUrlObservationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListUrlObservationsResponse
@@ -16542,7 +16692,7 @@ class ESA extends OpenApiClient
     /**
      * 查询网页观测配置列表.
      *
-     * @param request - ListUrlObservationsRequest
+     * @param Request - ListUrlObservationsRequest
      *
      * @returns ListUrlObservationsResponse
      *
@@ -16560,7 +16710,7 @@ class ESA extends OpenApiClient
     /**
      * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
      *
-     * @param request - ListUserDeliveryTasksRequest
+     * @param Request - ListUserDeliveryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListUserDeliveryTasksResponse
@@ -16595,7 +16745,7 @@ class ESA extends OpenApiClient
     /**
      * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
      *
-     * @param request - ListUserDeliveryTasksRequest
+     * @param Request - ListUserDeliveryTasksRequest
      *
      * @returns ListUserDeliveryTasksResponse
      *
@@ -16613,7 +16763,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the plans that you purchased and the details of the plans.
      *
-     * @param request - ListUserRatePlanInstancesRequest
+     * @param Request - ListUserRatePlanInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListUserRatePlanInstancesResponse
@@ -16648,7 +16798,7 @@ class ESA extends OpenApiClient
     /**
      * Queries the plans that you purchased and the details of the plans.
      *
-     * @param request - ListUserRatePlanInstancesRequest
+     * @param Request - ListUserRatePlanInstancesRequest
      *
      * @returns ListUserRatePlanInstancesResponse
      *
@@ -16666,7 +16816,7 @@ class ESA extends OpenApiClient
     /**
      * 查询用户的Routine列表.
      *
-     * @param request - ListUserRoutinesRequest
+     * @param Request - ListUserRoutinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListUserRoutinesResponse
@@ -16713,7 +16863,7 @@ class ESA extends OpenApiClient
     /**
      * 查询用户的Routine列表.
      *
-     * @param request - ListUserRoutinesRequest
+     * @param Request - ListUserRoutinesRequest
      *
      * @returns ListUserRoutinesResponse
      *
@@ -16731,7 +16881,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点视频处理配置列表.
      *
-     * @param request - ListVideoProcessingsRequest
+     * @param Request - ListVideoProcessingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListVideoProcessingsResponse
@@ -16794,7 +16944,7 @@ class ESA extends OpenApiClient
     /**
      * 查询站点视频处理配置列表.
      *
-     * @param request - ListVideoProcessingsRequest
+     * @param Request - ListVideoProcessingsRequest
      *
      * @returns ListVideoProcessingsResponse
      *
@@ -16885,7 +17035,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Managed Rules.
      *
-     * @param request - ListWafManagedRulesRequest
+     * @param Request - ListWafManagedRulesRequest
      *
      * @returns ListWafManagedRulesResponse
      *
@@ -16903,7 +17053,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Phases.
      *
-     * @param request - ListWafPhasesRequest
+     * @param Request - ListWafPhasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListWafPhasesResponse
@@ -16946,7 +17096,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Phases.
      *
-     * @param request - ListWafPhasesRequest
+     * @param Request - ListWafPhasesRequest
      *
      * @returns ListWafPhasesResponse
      *
@@ -17033,7 +17183,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Rules.
      *
-     * @param request - ListWafRulesRequest
+     * @param Request - ListWafRulesRequest
      *
      * @returns ListWafRulesResponse
      *
@@ -17116,7 +17266,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Rule Sets.
      *
-     * @param request - ListWafRulesetsRequest
+     * @param Request - ListWafRulesetsRequest
      *
      * @returns ListWafRulesetsResponse
      *
@@ -17187,7 +17337,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Template Rules.
      *
-     * @param request - ListWafTemplateRulesRequest
+     * @param Request - ListWafTemplateRulesRequest
      *
      * @returns ListWafTemplateRulesResponse
      *
@@ -17205,7 +17355,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Rule Usage.
      *
-     * @param request - ListWafUsageOfRulesRequest
+     * @param Request - ListWafUsageOfRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListWafUsageOfRulesResponse
@@ -17248,7 +17398,7 @@ class ESA extends OpenApiClient
     /**
      * List WAF Rule Usage.
      *
-     * @param request - ListWafUsageOfRulesRequest
+     * @param Request - ListWafUsageOfRulesRequest
      *
      * @returns ListWafUsageOfRulesResponse
      *
@@ -17269,7 +17419,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can call this operation to query details of all waiting room events related to a waiting room in a website.
      *
-     * @param request - ListWaitingRoomEventsRequest
+     * @param Request - ListWaitingRoomEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListWaitingRoomEventsResponse
@@ -17307,7 +17457,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can call this operation to query details of all waiting room events related to a waiting room in a website.
      *
-     * @param request - ListWaitingRoomEventsRequest
+     * @param Request - ListWaitingRoomEventsRequest
      *
      * @returns ListWaitingRoomEventsResponse
      *
@@ -17328,7 +17478,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This API allows users to query the list of waiting room bypass rules associated with a specific site.
      *
-     * @param request - ListWaitingRoomRulesRequest
+     * @param Request - ListWaitingRoomRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListWaitingRoomRulesResponse
@@ -17366,7 +17516,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This API allows users to query the list of waiting room bypass rules associated with a specific site.
      *
-     * @param request - ListWaitingRoomRulesRequest
+     * @param Request - ListWaitingRoomRulesRequest
      *
      * @returns ListWaitingRoomRulesResponse
      *
@@ -17387,7 +17537,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
      *
-     * @param request - ListWaitingRoomsRequest
+     * @param Request - ListWaitingRoomsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListWaitingRoomsResponse
@@ -17425,7 +17575,7 @@ class ESA extends OpenApiClient
      * @remarks
      * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
      *
-     * @param request - ListWaitingRoomsRequest
+     * @param Request - ListWaitingRoomsRequest
      *
      * @returns ListWaitingRoomsResponse
      *
@@ -17443,7 +17593,7 @@ class ESA extends OpenApiClient
     /**
      * OpenErService.
      *
-     * @param request - OpenErServiceRequest
+     * @param Request - OpenErServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns OpenErServiceResponse
@@ -17486,7 +17636,7 @@ class ESA extends OpenApiClient
     /**
      * OpenErService.
      *
-     * @param request - OpenErServiceRequest
+     * @param Request - OpenErServiceRequest
      *
      * @returns OpenErServiceResponse
      *
@@ -17561,7 +17711,7 @@ class ESA extends OpenApiClient
     /**
      * Prefetches cache.
      *
-     * @param request - PreloadCachesRequest
+     * @param Request - PreloadCachesRequest
      *
      * @returns PreloadCachesResponse
      *
@@ -17658,7 +17808,7 @@ class ESA extends OpenApiClient
     /**
      * Releases a specific version of a containerized application. You can call this operation to iterate an application.
      *
-     * @param request - PublishEdgeContainerAppVersionRequest
+     * @param Request - PublishEdgeContainerAppVersionRequest
      *
      * @returns PublishEdgeContainerAppVersionResponse
      *
@@ -17676,7 +17826,7 @@ class ESA extends OpenApiClient
     /**
      * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
      *
-     * @param request - PublishRoutineCodeVersionRequest
+     * @param Request - PublishRoutineCodeVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PublishRoutineCodeVersionResponse
@@ -17723,7 +17873,7 @@ class ESA extends OpenApiClient
     /**
      * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
      *
-     * @param request - PublishRoutineCodeVersionRequest
+     * @param Request - PublishRoutineCodeVersionRequest
      *
      * @returns PublishRoutineCodeVersionResponse
      *
@@ -17741,7 +17891,7 @@ class ESA extends OpenApiClient
     /**
      * New Purchase of Cache Retention.
      *
-     * @param request - PurchaseCacheReserveRequest
+     * @param Request - PurchaseCacheReserveRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PurchaseCacheReserveResponse
@@ -17800,7 +17950,7 @@ class ESA extends OpenApiClient
     /**
      * New Purchase of Cache Retention.
      *
-     * @param request - PurchaseCacheReserveRequest
+     * @param Request - PurchaseCacheReserveRequest
      *
      * @returns PurchaseCacheReserveResponse
      *
@@ -17822,7 +17972,7 @@ class ESA extends OpenApiClient
      * 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
      * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
      *
-     * @param request - PurchaseRatePlanRequest
+     * @param Request - PurchaseRatePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PurchaseRatePlanResponse
@@ -17901,7 +18051,7 @@ class ESA extends OpenApiClient
      * 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
      * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
      *
-     * @param request - PurchaseRatePlanRequest
+     * @param Request - PurchaseRatePlanRequest
      *
      * @returns PurchaseRatePlanResponse
      *
@@ -17980,7 +18130,7 @@ class ESA extends OpenApiClient
     /**
      * Cache Refresh.
      *
-     * @param request - PurgeCachesRequest
+     * @param Request - PurgeCachesRequest
      *
      * @returns PurgeCachesResponse
      *
@@ -17998,7 +18148,7 @@ class ESA extends OpenApiClient
     /**
      * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
      *
-     * @param request - PutKvRequest
+     * @param Request - PutKvRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PutKvResponse
@@ -18059,7 +18209,7 @@ class ESA extends OpenApiClient
     /**
      * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
      *
-     * @param request - PutKvRequest
+     * @param Request - PutKvRequest
      *
      * @returns PutKvResponse
      *
@@ -18115,7 +18265,7 @@ class ESA extends OpenApiClient
      *     	return nil
      *     }
      *
-     * @param request - PutKvWithHighCapacityRequest
+     * @param Request - PutKvWithHighCapacityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PutKvWithHighCapacityResponse
@@ -18200,7 +18350,7 @@ class ESA extends OpenApiClient
      *     	return nil
      *     }
      *
-     * @param request - PutKvWithHighCapacityRequest
+     * @param Request - PutKvWithHighCapacityRequest
      *
      * @returns PutKvWithHighCapacityResponse
      *
@@ -18224,12 +18374,20 @@ class ESA extends OpenApiClient
     public function putKvWithHighCapacityAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -18246,51 +18404,54 @@ class ESA extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'ESA',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'ESA',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $putKvWithHighCapacityReq = new PutKvWithHighCapacityRequest([]);
         Utils::convert($request, $putKvWithHighCapacityReq);
         if (null !== $request->urlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->urlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $putKvWithHighCapacityReq->url = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $putKvWithHighCapacityReq->url = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->putKvWithHighCapacityWithOptions($putKvWithHighCapacityReq, $runtime);
@@ -18299,7 +18460,7 @@ class ESA extends OpenApiClient
     /**
      * Rebuilds the staging environment for containerized applications.
      *
-     * @param request - RebuildEdgeContainerAppStagingEnvRequest
+     * @param Request - RebuildEdgeContainerAppStagingEnvRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RebuildEdgeContainerAppStagingEnvResponse
@@ -18338,7 +18499,7 @@ class ESA extends OpenApiClient
     /**
      * Rebuilds the staging environment for containerized applications.
      *
-     * @param request - RebuildEdgeContainerAppStagingEnvRequest
+     * @param Request - RebuildEdgeContainerAppStagingEnvRequest
      *
      * @returns RebuildEdgeContainerAppStagingEnvResponse
      *
@@ -18356,7 +18517,7 @@ class ESA extends OpenApiClient
     /**
      * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
      *
-     * @param request - ResetScheduledPreloadJobRequest
+     * @param Request - ResetScheduledPreloadJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ResetScheduledPreloadJobResponse
@@ -18395,7 +18556,7 @@ class ESA extends OpenApiClient
     /**
      * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
      *
-     * @param request - ResetScheduledPreloadJobRequest
+     * @param Request - ResetScheduledPreloadJobRequest
      *
      * @returns ResetScheduledPreloadJobResponse
      *
@@ -18413,7 +18574,7 @@ class ESA extends OpenApiClient
     /**
      * Revokes an activated client certificate.
      *
-     * @param request - RevokeClientCertificateRequest
+     * @param Request - RevokeClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RevokeClientCertificateResponse
@@ -18448,7 +18609,7 @@ class ESA extends OpenApiClient
     /**
      * Revokes an activated client certificate.
      *
-     * @param request - RevokeClientCertificateRequest
+     * @param Request - RevokeClientCertificateRequest
      *
      * @returns RevokeClientCertificateResponse
      *
@@ -18466,7 +18627,7 @@ class ESA extends OpenApiClient
     /**
      * Rolls back a version of a containerized application.
      *
-     * @param request - RollbackEdgeContainerAppVersionRequest
+     * @param Request - RollbackEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RollbackEdgeContainerAppVersionResponse
@@ -18523,7 +18684,7 @@ class ESA extends OpenApiClient
     /**
      * Rolls back a version of a containerized application.
      *
-     * @param request - RollbackEdgeContainerAppVersionRequest
+     * @param Request - RollbackEdgeContainerAppVersionRequest
      *
      * @returns RollbackEdgeContainerAppVersionResponse
      *
@@ -18541,7 +18702,7 @@ class ESA extends OpenApiClient
     /**
      * Configures whether to enable certificates and update certificate information for a website.
      *
-     * @param request - SetCertificateRequest
+     * @param Request - SetCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SetCertificateResponse
@@ -18618,7 +18779,7 @@ class ESA extends OpenApiClient
     /**
      * Configures whether to enable certificates and update certificate information for a website.
      *
-     * @param request - SetCertificateRequest
+     * @param Request - SetCertificateRequest
      *
      * @returns SetCertificateResponse
      *
@@ -18691,7 +18852,7 @@ class ESA extends OpenApiClient
     /**
      * Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
      *
-     * @param request - SetClientCertificateHostnamesRequest
+     * @param Request - SetClientCertificateHostnamesRequest
      *
      * @returns SetClientCertificateHostnamesResponse
      *
@@ -18709,7 +18870,7 @@ class ESA extends OpenApiClient
     /**
      * Configures smart HTTP DDoS protection.
      *
-     * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
+     * @param Request - SetHttpDDoSAttackIntelligentProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SetHttpDDoSAttackIntelligentProtectionResponse
@@ -18756,7 +18917,7 @@ class ESA extends OpenApiClient
     /**
      * Configures smart HTTP DDoS protection.
      *
-     * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
+     * @param Request - SetHttpDDoSAttackIntelligentProtectionRequest
      *
      * @returns SetHttpDDoSAttackIntelligentProtectionResponse
      *
@@ -18774,7 +18935,7 @@ class ESA extends OpenApiClient
     /**
      * Configures HTTP DDoS attack protection for a website.
      *
-     * @param request - SetHttpDDoSAttackProtectionRequest
+     * @param Request - SetHttpDDoSAttackProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SetHttpDDoSAttackProtectionResponse
@@ -18817,7 +18978,7 @@ class ESA extends OpenApiClient
     /**
      * Configures HTTP DDoS attack protection for a website.
      *
-     * @param request - SetHttpDDoSAttackProtectionRequest
+     * @param Request - SetHttpDDoSAttackProtectionRequest
      *
      * @returns SetHttpDDoSAttackProtectionResponse
      *
@@ -18888,7 +19049,7 @@ class ESA extends OpenApiClient
     /**
      * 为域名回源客户端证书绑定域名.
      *
-     * @param request - SetOriginClientCertificateHostnamesRequest
+     * @param Request - SetOriginClientCertificateHostnamesRequest
      *
      * @returns SetOriginClientCertificateHostnamesResponse
      *
@@ -18906,7 +19067,7 @@ class ESA extends OpenApiClient
     /**
      * Starts a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - StartScheduledPreloadExecutionRequest
+     * @param Request - StartScheduledPreloadExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StartScheduledPreloadExecutionResponse
@@ -18945,7 +19106,7 @@ class ESA extends OpenApiClient
     /**
      * Starts a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - StartScheduledPreloadExecutionRequest
+     * @param Request - StartScheduledPreloadExecutionRequest
      *
      * @returns StartScheduledPreloadExecutionResponse
      *
@@ -18963,7 +19124,7 @@ class ESA extends OpenApiClient
     /**
      * Stops a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - StopScheduledPreloadExecutionRequest
+     * @param Request - StopScheduledPreloadExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopScheduledPreloadExecutionResponse
@@ -19002,7 +19163,7 @@ class ESA extends OpenApiClient
     /**
      * Stops a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - StopScheduledPreloadExecutionRequest
+     * @param Request - StopScheduledPreloadExecutionRequest
      *
      * @returns StopScheduledPreloadExecutionResponse
      *
@@ -19020,7 +19181,7 @@ class ESA extends OpenApiClient
     /**
      * Adds one or more tags to resources.
      *
-     * @param request - TagResourcesRequest
+     * @param Request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TagResourcesResponse
@@ -19079,7 +19240,7 @@ class ESA extends OpenApiClient
     /**
      * Adds one or more tags to resources.
      *
-     * @param request - TagResourcesRequest
+     * @param Request - TagResourcesRequest
      *
      * @returns TagResourcesResponse
      *
@@ -19097,7 +19258,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a resource tag based on a specified resource ID.
      *
-     * @param request - UntagResourcesRequest
+     * @param Request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UntagResourcesResponse
@@ -19160,7 +19321,7 @@ class ESA extends OpenApiClient
     /**
      * Deletes a resource tag based on a specified resource ID.
      *
-     * @param request - UntagResourcesRequest
+     * @param Request - UntagResourcesRequest
      *
      * @returns UntagResourcesResponse
      *
@@ -19178,7 +19339,7 @@ class ESA extends OpenApiClient
     /**
      * 缓存保持变配.
      *
-     * @param request - UpdateCacheReserveSpecRequest
+     * @param Request - UpdateCacheReserveSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateCacheReserveSpecResponse
@@ -19229,7 +19390,7 @@ class ESA extends OpenApiClient
     /**
      * 缓存保持变配.
      *
-     * @param request - UpdateCacheReserveSpecRequest
+     * @param Request - UpdateCacheReserveSpecRequest
      *
      * @returns UpdateCacheReserveSpecResponse
      *
@@ -19247,7 +19408,7 @@ class ESA extends OpenApiClient
     /**
      * Modify cache configuration.
      *
-     * @param request - UpdateCacheRuleRequest
+     * @param Request - UpdateCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateCacheRuleResponse
@@ -19386,7 +19547,7 @@ class ESA extends OpenApiClient
     /**
      * Modify cache configuration.
      *
-     * @param request - UpdateCacheRuleRequest
+     * @param Request - UpdateCacheRuleRequest
      *
      * @returns UpdateCacheRuleResponse
      *
@@ -19404,7 +19565,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
      *
-     * @param request - UpdateCacheTagRequest
+     * @param Request - UpdateCacheTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateCacheTagResponse
@@ -19455,7 +19616,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
      *
-     * @param request - UpdateCacheTagRequest
+     * @param Request - UpdateCacheTagRequest
      *
      * @returns UpdateCacheTagResponse
      *
@@ -19473,7 +19634,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the CNAME flattening configuration of a website.
      *
-     * @param request - UpdateCnameFlatteningRequest
+     * @param Request - UpdateCnameFlatteningRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateCnameFlatteningResponse
@@ -19516,7 +19677,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the CNAME flattening configuration of a website.
      *
-     * @param request - UpdateCnameFlatteningRequest
+     * @param Request - UpdateCnameFlatteningRequest
      *
      * @returns UpdateCnameFlatteningResponse
      *
@@ -19534,7 +19695,7 @@ class ESA extends OpenApiClient
     /**
      * Modify compression rule.
      *
-     * @param request - UpdateCompressionRuleRequest
+     * @param Request - UpdateCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateCompressionRuleResponse
@@ -19605,7 +19766,7 @@ class ESA extends OpenApiClient
     /**
      * Modify compression rule.
      *
-     * @param request - UpdateCompressionRuleRequest
+     * @param Request - UpdateCompressionRuleRequest
      *
      * @returns UpdateCompressionRuleResponse
      *
@@ -19623,7 +19784,7 @@ class ESA extends OpenApiClient
     /**
      * 修改站点中国大陆网络接入优化配置.
      *
-     * @param request - UpdateCrossBorderOptimizationRequest
+     * @param Request - UpdateCrossBorderOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateCrossBorderOptimizationResponse
@@ -19666,7 +19827,7 @@ class ESA extends OpenApiClient
     /**
      * 修改站点中国大陆网络接入优化配置.
      *
-     * @param request - UpdateCrossBorderOptimizationRequest
+     * @param Request - UpdateCrossBorderOptimizationRequest
      *
      * @returns UpdateCrossBorderOptimizationResponse
      *
@@ -19684,7 +19845,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a custom scenario-specific policy.
      *
-     * @param request - UpdateCustomScenePolicyRequest
+     * @param Request - UpdateCustomScenePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateCustomScenePolicyResponse
@@ -19747,7 +19908,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a custom scenario-specific policy.
      *
-     * @param request - UpdateCustomScenePolicyRequest
+     * @param Request - UpdateCustomScenePolicyRequest
      *
      * @returns UpdateCustomScenePolicyResponse
      *
@@ -19765,7 +19926,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
      *
-     * @param request - UpdateDevelopmentModeRequest
+     * @param Request - UpdateDevelopmentModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDevelopmentModeResponse
@@ -19808,7 +19969,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
      *
-     * @param request - UpdateDevelopmentModeRequest
+     * @param Request - UpdateDevelopmentModeRequest
      *
      * @returns UpdateDevelopmentModeResponse
      *
@@ -19826,7 +19987,7 @@ class ESA extends OpenApiClient
     /**
      * Updates the log collection configuration of a containerized application.
      *
-     * @param request - UpdateEdgeContainerAppLogRiverRequest
+     * @param Request - UpdateEdgeContainerAppLogRiverRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateEdgeContainerAppLogRiverResponse
@@ -19873,7 +20034,7 @@ class ESA extends OpenApiClient
     /**
      * Updates the log collection configuration of a containerized application.
      *
-     * @param request - UpdateEdgeContainerAppLogRiverRequest
+     * @param Request - UpdateEdgeContainerAppLogRiverRequest
      *
      * @returns UpdateEdgeContainerAppLogRiverResponse
      *
@@ -19952,7 +20113,7 @@ class ESA extends OpenApiClient
     /**
      * 更新边缘容器资源预留配置.
      *
-     * @param request - UpdateEdgeContainerAppResourceReserveRequest
+     * @param Request - UpdateEdgeContainerAppResourceReserveRequest
      *
      * @returns UpdateEdgeContainerAppResourceReserveResponse
      *
@@ -20039,7 +20200,7 @@ class ESA extends OpenApiClient
     /**
      * Modify HTTP Request Header Rules.
      *
-     * @param request - UpdateHttpRequestHeaderModificationRuleRequest
+     * @param Request - UpdateHttpRequestHeaderModificationRuleRequest
      *
      * @returns UpdateHttpRequestHeaderModificationRuleResponse
      *
@@ -20126,7 +20287,7 @@ class ESA extends OpenApiClient
     /**
      * Modify HTTP response header rules.
      *
-     * @param request - UpdateHttpResponseHeaderModificationRuleRequest
+     * @param Request - UpdateHttpResponseHeaderModificationRuleRequest
      *
      * @returns UpdateHttpResponseHeaderModificationRuleResponse
      *
@@ -20144,7 +20305,7 @@ class ESA extends OpenApiClient
     /**
      * Modify HTTPS Application Configuration.
      *
-     * @param request - UpdateHttpsApplicationConfigurationRequest
+     * @param Request - UpdateHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateHttpsApplicationConfigurationResponse
@@ -20255,7 +20416,7 @@ class ESA extends OpenApiClient
     /**
      * Modify HTTPS Application Configuration.
      *
-     * @param request - UpdateHttpsApplicationConfigurationRequest
+     * @param Request - UpdateHttpsApplicationConfigurationRequest
      *
      * @returns UpdateHttpsApplicationConfigurationResponse
      *
@@ -20273,7 +20434,7 @@ class ESA extends OpenApiClient
     /**
      * Modify HTTPS Basic Configuration.
      *
-     * @param request - UpdateHttpsBasicConfigurationRequest
+     * @param Request - UpdateHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateHttpsBasicConfigurationResponse
@@ -20372,7 +20533,7 @@ class ESA extends OpenApiClient
     /**
      * Modify HTTPS Basic Configuration.
      *
-     * @param request - UpdateHttpsBasicConfigurationRequest
+     * @param Request - UpdateHttpsBasicConfigurationRequest
      *
      * @returns UpdateHttpsBasicConfigurationResponse
      *
@@ -20390,7 +20551,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the IPv6 configuration of a website.
      *
-     * @param request - UpdateIPv6Request
+     * @param Request - UpdateIPv6Request
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateIPv6Response
@@ -20437,7 +20598,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the IPv6 configuration of a website.
      *
-     * @param request - UpdateIPv6Request
+     * @param Request - UpdateIPv6Request
      *
      * @returns UpdateIPv6Response
      *
@@ -20455,7 +20616,7 @@ class ESA extends OpenApiClient
     /**
      * Modify Site Image Transformation Configuration.
      *
-     * @param request - UpdateImageTransformRequest
+     * @param Request - UpdateImageTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateImageTransformResponse
@@ -20518,7 +20679,7 @@ class ESA extends OpenApiClient
     /**
      * Modify Site Image Transformation Configuration.
      *
-     * @param request - UpdateImageTransformRequest
+     * @param Request - UpdateImageTransformRequest
      *
      * @returns UpdateImageTransformResponse
      *
@@ -20593,7 +20754,7 @@ class ESA extends OpenApiClient
     /**
      * Updates a custom list.
      *
-     * @param request - UpdateListRequest
+     * @param Request - UpdateListRequest
      *
      * @returns UpdateListResponse
      *
@@ -20734,7 +20895,7 @@ class ESA extends OpenApiClient
      * @remarks
      * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence strategy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
      *
-     * @param request - UpdateLoadBalancerRequest
+     * @param Request - UpdateLoadBalancerRequest
      *
      * @returns UpdateLoadBalancerResponse
      *
@@ -20752,7 +20913,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configuration of managed transforms for your website.
      *
-     * @param request - UpdateManagedTransformRequest
+     * @param Request - UpdateManagedTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateManagedTransformResponse
@@ -20807,7 +20968,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configuration of managed transforms for your website.
      *
-     * @param request - UpdateManagedTransformRequest
+     * @param Request - UpdateManagedTransformRequest
      *
      * @returns UpdateManagedTransformResponse
      *
@@ -20825,7 +20986,7 @@ class ESA extends OpenApiClient
     /**
      * Modify network optimization configuration.
      *
-     * @param request - UpdateNetworkOptimizationRequest
+     * @param Request - UpdateNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateNetworkOptimizationResponse
@@ -20904,7 +21065,7 @@ class ESA extends OpenApiClient
     /**
      * Modify network optimization configuration.
      *
-     * @param request - UpdateNetworkOptimizationRequest
+     * @param Request - UpdateNetworkOptimizationRequest
      *
      * @returns UpdateNetworkOptimizationResponse
      *
@@ -20979,7 +21140,7 @@ class ESA extends OpenApiClient
     /**
      * Modify the Monitor.
      *
-     * @param request - UpdateOriginPoolRequest
+     * @param Request - UpdateOriginPoolRequest
      *
      * @returns UpdateOriginPoolResponse
      *
@@ -20997,7 +21158,7 @@ class ESA extends OpenApiClient
     /**
      * Enables or disables IP convergence.
      *
-     * @param request - UpdateOriginProtectionRequest
+     * @param Request - UpdateOriginProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateOriginProtectionResponse
@@ -21040,7 +21201,7 @@ class ESA extends OpenApiClient
     /**
      * Enables or disables IP convergence.
      *
-     * @param request - UpdateOriginProtectionRequest
+     * @param Request - UpdateOriginProtectionRequest
      *
      * @returns UpdateOriginProtectionResponse
      *
@@ -21058,7 +21219,7 @@ class ESA extends OpenApiClient
     /**
      * Updates the IP whitelist for origin protection used by a website to the latest version.
      *
-     * @param request - UpdateOriginProtectionIpWhiteListRequest
+     * @param Request - UpdateOriginProtectionIpWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateOriginProtectionIpWhiteListResponse
@@ -21097,7 +21258,7 @@ class ESA extends OpenApiClient
     /**
      * Updates the IP whitelist for origin protection used by a website to the latest version.
      *
-     * @param request - UpdateOriginProtectionIpWhiteListRequest
+     * @param Request - UpdateOriginProtectionIpWhiteListRequest
      *
      * @returns UpdateOriginProtectionIpWhiteListResponse
      *
@@ -21115,7 +21276,7 @@ class ESA extends OpenApiClient
     /**
      * Modify Origin Rule Configuration for Site.
      *
-     * @param request - UpdateOriginRuleRequest
+     * @param Request - UpdateOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateOriginRuleResponse
@@ -21238,7 +21399,7 @@ class ESA extends OpenApiClient
     /**
      * Modify Origin Rule Configuration for Site.
      *
-     * @param request - UpdateOriginRuleRequest
+     * @param Request - UpdateOriginRuleRequest
      *
      * @returns UpdateOriginRuleResponse
      *
@@ -21256,7 +21417,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
      *
-     * @param request - UpdatePageRequest
+     * @param Request - UpdatePageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdatePageResponse
@@ -21311,7 +21472,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
      *
-     * @param request - UpdatePageRequest
+     * @param Request - UpdatePageRequest
      *
      * @returns UpdatePageResponse
      *
@@ -21329,7 +21490,7 @@ class ESA extends OpenApiClient
     /**
      * 套餐变配.
      *
-     * @param request - UpdateRatePlanSpecRequest
+     * @param Request - UpdateRatePlanSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateRatePlanSpecResponse
@@ -21388,7 +21549,7 @@ class ESA extends OpenApiClient
     /**
      * 套餐变配.
      *
-     * @param request - UpdateRatePlanSpecRequest
+     * @param Request - UpdateRatePlanSpecRequest
      *
      * @returns UpdateRatePlanSpecResponse
      *
@@ -21509,7 +21670,7 @@ class ESA extends OpenApiClient
      * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
      * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
      *
-     * @param request - UpdateRecordRequest
+     * @param Request - UpdateRecordRequest
      *
      * @returns UpdateRecordResponse
      *
@@ -21527,7 +21688,7 @@ class ESA extends OpenApiClient
     /**
      * Update Redirect Rule.
      *
-     * @param request - UpdateRedirectRuleRequest
+     * @param Request - UpdateRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateRedirectRuleResponse
@@ -21602,7 +21763,7 @@ class ESA extends OpenApiClient
     /**
      * Update Redirect Rule.
      *
-     * @param request - UpdateRedirectRuleRequest
+     * @param Request - UpdateRedirectRuleRequest
      *
      * @returns UpdateRedirectRuleResponse
      *
@@ -21620,7 +21781,7 @@ class ESA extends OpenApiClient
     /**
      * Modify Rewrite URL Rule.
      *
-     * @param request - UpdateRewriteUrlRuleRequest
+     * @param Request - UpdateRewriteUrlRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateRewriteUrlRuleResponse
@@ -21695,7 +21856,7 @@ class ESA extends OpenApiClient
     /**
      * Modify Rewrite URL Rule.
      *
-     * @param request - UpdateRewriteUrlRuleRequest
+     * @param Request - UpdateRewriteUrlRuleRequest
      *
      * @returns UpdateRewriteUrlRuleResponse
      *
@@ -21713,7 +21874,7 @@ class ESA extends OpenApiClient
     /**
      * 修改边缘函数路由配置.
      *
-     * @param request - UpdateRoutineRouteRequest
+     * @param Request - UpdateRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateRoutineRouteResponse
@@ -21733,6 +21894,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->configId) {
             @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->fallback) {
+            @$query['Fallback'] = $request->fallback;
         }
 
         if (null !== $request->routeEnable) {
@@ -21780,7 +21945,7 @@ class ESA extends OpenApiClient
     /**
      * 修改边缘函数路由配置.
      *
-     * @param request - UpdateRoutineRouteRequest
+     * @param Request - UpdateRoutineRouteRequest
      *
      * @returns UpdateRoutineRouteResponse
      *
@@ -21798,7 +21963,7 @@ class ESA extends OpenApiClient
     /**
      * Updates a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - UpdateScheduledPreloadExecutionRequest
+     * @param Request - UpdateScheduledPreloadExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateScheduledPreloadExecutionResponse
@@ -21855,7 +22020,7 @@ class ESA extends OpenApiClient
     /**
      * Updates a scheduled prefetch plan based on the plan ID.
      *
-     * @param request - UpdateScheduledPreloadExecutionRequest
+     * @param Request - UpdateScheduledPreloadExecutionRequest
      *
      * @returns UpdateScheduledPreloadExecutionResponse
      *
@@ -21873,7 +22038,7 @@ class ESA extends OpenApiClient
     /**
      * 修改站点放行搜索引擎爬虫配置.
      *
-     * @param request - UpdateSeoBypassRequest
+     * @param Request - UpdateSeoBypassRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSeoBypassResponse
@@ -21916,7 +22081,7 @@ class ESA extends OpenApiClient
     /**
      * 修改站点放行搜索引擎爬虫配置.
      *
-     * @param request - UpdateSeoBypassRequest
+     * @param Request - UpdateSeoBypassRequest
      *
      * @returns UpdateSeoBypassResponse
      *
@@ -21939,7 +22104,7 @@ class ESA extends OpenApiClient
      * *   The website only has proxied A/AAAA and CNAME records.
      * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
      *
-     * @param request - UpdateSiteAccessTypeRequest
+     * @param Request - UpdateSiteAccessTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSiteAccessTypeResponse
@@ -21987,7 +22152,7 @@ class ESA extends OpenApiClient
      * *   The website only has proxied A/AAAA and CNAME records.
      * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
      *
-     * @param request - UpdateSiteAccessTypeRequest
+     * @param Request - UpdateSiteAccessTypeRequest
      *
      * @returns UpdateSiteAccessTypeResponse
      *
@@ -22005,7 +22170,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
      *
-     * @param request - UpdateSiteCoverageRequest
+     * @param Request - UpdateSiteCoverageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSiteCoverageResponse
@@ -22048,7 +22213,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
      *
-     * @param request - UpdateSiteCoverageRequest
+     * @param Request - UpdateSiteCoverageRequest
      *
      * @returns UpdateSiteCoverageResponse
      *
@@ -22131,7 +22296,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
      *
-     * @param request - UpdateSiteCustomLogRequest
+     * @param Request - UpdateSiteCustomLogRequest
      *
      * @returns UpdateSiteCustomLogResponse
      *
@@ -22149,7 +22314,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies a real-time log delivery task.
      *
-     * @param request - UpdateSiteDeliveryTaskRequest
+     * @param Request - UpdateSiteDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSiteDeliveryTaskResponse
@@ -22208,7 +22373,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies a real-time log delivery task.
      *
-     * @param request - UpdateSiteDeliveryTaskRequest
+     * @param Request - UpdateSiteDeliveryTaskRequest
      *
      * @returns UpdateSiteDeliveryTaskResponse
      *
@@ -22226,7 +22391,7 @@ class ESA extends OpenApiClient
     /**
      * Changes the status of a real-time log delivery task.
      *
-     * @param request - UpdateSiteDeliveryTaskStatusRequest
+     * @param Request - UpdateSiteDeliveryTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSiteDeliveryTaskStatusResponse
@@ -22261,7 +22426,7 @@ class ESA extends OpenApiClient
     /**
      * Changes the status of a real-time log delivery task.
      *
-     * @param request - UpdateSiteDeliveryTaskStatusRequest
+     * @param Request - UpdateSiteDeliveryTaskStatusRequest
      *
      * @returns UpdateSiteDeliveryTaskStatusResponse
      *
@@ -22279,7 +22444,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
      *
-     * @param request - UpdateSiteNameExclusiveRequest
+     * @param Request - UpdateSiteNameExclusiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSiteNameExclusiveResponse
@@ -22322,7 +22487,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
      *
-     * @param request - UpdateSiteNameExclusiveRequest
+     * @param Request - UpdateSiteNameExclusiveRequest
      *
      * @returns UpdateSiteNameExclusiveResponse
      *
@@ -22340,7 +22505,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the ESA proxy configuration of a website.
      *
-     * @param request - UpdateSitePauseRequest
+     * @param Request - UpdateSitePauseRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSitePauseResponse
@@ -22383,7 +22548,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the ESA proxy configuration of a website.
      *
-     * @param request - UpdateSitePauseRequest
+     * @param Request - UpdateSitePauseRequest
      *
      * @returns UpdateSitePauseResponse
      *
@@ -22401,7 +22566,7 @@ class ESA extends OpenApiClient
     /**
      * Updates the custom nameserver names for a single website.
      *
-     * @param request - UpdateSiteVanityNSRequest
+     * @param Request - UpdateSiteVanityNSRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSiteVanityNSResponse
@@ -22444,7 +22609,7 @@ class ESA extends OpenApiClient
     /**
      * Updates the custom nameserver names for a single website.
      *
-     * @param request - UpdateSiteVanityNSRequest
+     * @param Request - UpdateSiteVanityNSRequest
      *
      * @returns UpdateSiteVanityNSResponse
      *
@@ -22462,7 +22627,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the tiered cache configuration of your website.
      *
-     * @param request - UpdateTieredCacheRequest
+     * @param Request - UpdateTieredCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTieredCacheResponse
@@ -22505,7 +22670,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the tiered cache configuration of your website.
      *
-     * @param request - UpdateTieredCacheRequest
+     * @param Request - UpdateTieredCacheRequest
      *
      * @returns UpdateTieredCacheResponse
      *
@@ -22523,7 +22688,7 @@ class ESA extends OpenApiClient
     /**
      * 更新网页监测配置.
      *
-     * @param request - UpdateUrlObservationRequest
+     * @param Request - UpdateUrlObservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateUrlObservationResponse
@@ -22570,7 +22735,7 @@ class ESA extends OpenApiClient
     /**
      * 更新网页监测配置.
      *
-     * @param request - UpdateUrlObservationRequest
+     * @param Request - UpdateUrlObservationRequest
      *
      * @returns UpdateUrlObservationResponse
      *
@@ -22588,7 +22753,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
      *
-     * @param request - UpdateUserDeliveryTaskRequest
+     * @param Request - UpdateUserDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateUserDeliveryTaskResponse
@@ -22647,7 +22812,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
      *
-     * @param request - UpdateUserDeliveryTaskRequest
+     * @param Request - UpdateUserDeliveryTaskRequest
      *
      * @returns UpdateUserDeliveryTaskResponse
      *
@@ -22669,7 +22834,7 @@ class ESA extends OpenApiClient
      * ## [](#)
      * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
      *
-     * @param request - UpdateUserDeliveryTaskStatusRequest
+     * @param Request - UpdateUserDeliveryTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateUserDeliveryTaskStatusResponse
@@ -22708,7 +22873,7 @@ class ESA extends OpenApiClient
      * ## [](#)
      * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
      *
-     * @param request - UpdateUserDeliveryTaskStatusRequest
+     * @param Request - UpdateUserDeliveryTaskStatusRequest
      *
      * @returns UpdateUserDeliveryTaskStatusResponse
      *
@@ -22726,7 +22891,7 @@ class ESA extends OpenApiClient
     /**
      * 修改站点视频处理配置.
      *
-     * @param request - UpdateVideoProcessingRequest
+     * @param Request - UpdateVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateVideoProcessingResponse
@@ -22809,7 +22974,7 @@ class ESA extends OpenApiClient
     /**
      * 修改站点视频处理配置.
      *
-     * @param request - UpdateVideoProcessingRequest
+     * @param Request - UpdateVideoProcessingRequest
      *
      * @returns UpdateVideoProcessingResponse
      *
@@ -22894,7 +23059,7 @@ class ESA extends OpenApiClient
     /**
      * Update WAF Rule Page.
      *
-     * @param request - UpdateWafRuleRequest
+     * @param Request - UpdateWafRuleRequest
      *
      * @returns UpdateWafRuleResponse
      *
@@ -22912,7 +23077,7 @@ class ESA extends OpenApiClient
     /**
      * Update WAF Ruleset.
      *
-     * @param request - UpdateWafRulesetRequest
+     * @param Request - UpdateWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateWafRulesetResponse
@@ -22965,7 +23130,7 @@ class ESA extends OpenApiClient
     /**
      * Update WAF Ruleset.
      *
-     * @param request - UpdateWafRulesetRequest
+     * @param Request - UpdateWafRulesetRequest
      *
      * @returns UpdateWafRulesetResponse
      *
@@ -23096,7 +23261,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a waiting room.
      *
-     * @param request - UpdateWaitingRoomRequest
+     * @param Request - UpdateWaitingRoomRequest
      *
      * @returns UpdateWaitingRoomResponse
      *
@@ -23114,7 +23279,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a waiting room event.
      *
-     * @param request - UpdateWaitingRoomEventRequest
+     * @param Request - UpdateWaitingRoomEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateWaitingRoomEventResponse
@@ -23229,7 +23394,7 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a waiting room event.
      *
-     * @param request - UpdateWaitingRoomEventRequest
+     * @param Request - UpdateWaitingRoomEventRequest
      *
      * @returns UpdateWaitingRoomEventResponse
      *
@@ -23250,7 +23415,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
      *
-     * @param request - UpdateWaitingRoomRuleRequest
+     * @param Request - UpdateWaitingRoomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateWaitingRoomRuleResponse
@@ -23308,7 +23473,7 @@ class ESA extends OpenApiClient
      * @remarks
      * This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
      *
-     * @param request - UpdateWaitingRoomRuleRequest
+     * @param Request - UpdateWaitingRoomRuleRequest
      *
      * @returns UpdateWaitingRoomRuleResponse
      *
@@ -23326,7 +23491,7 @@ class ESA extends OpenApiClient
     /**
      * Uploads a client certificate authority (CA) certificate.
      *
-     * @param request - UploadClientCaCertificateRequest
+     * @param Request - UploadClientCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UploadClientCaCertificateResponse
@@ -23375,7 +23540,7 @@ class ESA extends OpenApiClient
     /**
      * Uploads a client certificate authority (CA) certificate.
      *
-     * @param request - UploadClientCaCertificateRequest
+     * @param Request - UploadClientCaCertificateRequest
      *
      * @returns UploadClientCaCertificateResponse
      *
@@ -23397,7 +23562,7 @@ class ESA extends OpenApiClient
      * >
      * *   The file can be up to 10 MB in size.
      *
-     * @param request - UploadFileRequest
+     * @param Request - UploadFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UploadFileResponse
@@ -23452,7 +23617,7 @@ class ESA extends OpenApiClient
      * >
      * *   The file can be up to 10 MB in size.
      *
-     * @param request - UploadFileRequest
+     * @param Request - UploadFileRequest
      *
      * @returns UploadFileResponse
      *
@@ -23476,12 +23641,20 @@ class ESA extends OpenApiClient
     public function uploadFileAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -23498,51 +23671,54 @@ class ESA extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'ESA',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'ESA',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $uploadFileReq = new UploadFileRequest([]);
         Utils::convert($request, $uploadFileReq);
         if (null !== $request->urlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->urlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $uploadFileReq->url = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $uploadFileReq->url = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->uploadFileWithOptions($uploadFileReq, $runtime);
@@ -23551,7 +23727,7 @@ class ESA extends OpenApiClient
     /**
      * 上传源服务器CA证书.
      *
-     * @param request - UploadOriginCaCertificateRequest
+     * @param Request - UploadOriginCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UploadOriginCaCertificateResponse
@@ -23598,7 +23774,7 @@ class ESA extends OpenApiClient
     /**
      * 上传源服务器CA证书.
      *
-     * @param request - UploadOriginCaCertificateRequest
+     * @param Request - UploadOriginCaCertificateRequest
      *
      * @returns UploadOriginCaCertificateResponse
      *
@@ -23616,7 +23792,7 @@ class ESA extends OpenApiClient
     /**
      * 上传域名回源客户端证书.
      *
-     * @param request - UploadOriginClientCertificateRequest
+     * @param Request - UploadOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UploadOriginClientCertificateResponse
@@ -23669,7 +23845,7 @@ class ESA extends OpenApiClient
     /**
      * 上传域名回源客户端证书.
      *
-     * @param request - UploadOriginClientCertificateRequest
+     * @param Request - UploadOriginClientCertificateRequest
      *
      * @returns UploadOriginClientCertificateResponse
      *
@@ -23687,7 +23863,7 @@ class ESA extends OpenApiClient
     /**
      * Upload site origin client certificate.
      *
-     * @param request - UploadSiteOriginClientCertificateRequest
+     * @param Request - UploadSiteOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UploadSiteOriginClientCertificateResponse
@@ -23740,7 +23916,7 @@ class ESA extends OpenApiClient
     /**
      * Upload site origin client certificate.
      *
-     * @param request - UploadSiteOriginClientCertificateRequest
+     * @param Request - UploadSiteOriginClientCertificateRequest
      *
      * @returns UploadSiteOriginClientCertificateResponse
      *
@@ -23762,7 +23938,7 @@ class ESA extends OpenApiClient
      * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
      * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
      *
-     * @param request - VerifySiteRequest
+     * @param Request - VerifySiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns VerifySiteResponse
@@ -23805,7 +23981,7 @@ class ESA extends OpenApiClient
      * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
      * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
      *
-     * @param request - VerifySiteRequest
+     * @param Request - VerifySiteRequest
      *
      * @returns VerifySiteResponse
      *
