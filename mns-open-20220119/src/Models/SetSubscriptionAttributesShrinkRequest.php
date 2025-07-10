@@ -26,11 +26,17 @@ class SetSubscriptionAttributesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tenantRateLimitPolicyShrink;
+
+    /**
+     * @var string
+     */
     public $topicName;
     protected $_name = [
         'dlqPolicyShrink' => 'DlqPolicy',
         'notifyStrategy' => 'NotifyStrategy',
         'subscriptionName' => 'SubscriptionName',
+        'tenantRateLimitPolicyShrink' => 'TenantRateLimitPolicy',
         'topicName' => 'TopicName',
     ];
 
@@ -52,6 +58,10 @@ class SetSubscriptionAttributesShrinkRequest extends Model
 
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
+        }
+
+        if (null !== $this->tenantRateLimitPolicyShrink) {
+            $res['TenantRateLimitPolicy'] = $this->tenantRateLimitPolicyShrink;
         }
 
         if (null !== $this->topicName) {
@@ -79,6 +89,10 @@ class SetSubscriptionAttributesShrinkRequest extends Model
 
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
+        }
+
+        if (isset($map['TenantRateLimitPolicy'])) {
+            $model->tenantRateLimitPolicyShrink = $map['TenantRateLimitPolicy'];
         }
 
         if (isset($map['TopicName'])) {

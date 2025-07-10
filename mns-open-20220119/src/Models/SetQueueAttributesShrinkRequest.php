@@ -44,6 +44,11 @@ class SetQueueAttributesShrinkRequest extends Model
     public $queueName;
 
     /**
+     * @var string
+     */
+    public $tenantRateLimitPolicyShrink;
+
+    /**
      * @var int
      */
     public $visibilityTimeout;
@@ -55,6 +60,7 @@ class SetQueueAttributesShrinkRequest extends Model
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
+        'tenantRateLimitPolicyShrink' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
     ];
 
@@ -92,6 +98,10 @@ class SetQueueAttributesShrinkRequest extends Model
 
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+
+        if (null !== $this->tenantRateLimitPolicyShrink) {
+            $res['TenantRateLimitPolicy'] = $this->tenantRateLimitPolicyShrink;
         }
 
         if (null !== $this->visibilityTimeout) {
@@ -135,6 +145,10 @@ class SetQueueAttributesShrinkRequest extends Model
 
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+
+        if (isset($map['TenantRateLimitPolicy'])) {
+            $model->tenantRateLimitPolicyShrink = $map['TenantRateLimitPolicy'];
         }
 
         if (isset($map['VisibilityTimeout'])) {

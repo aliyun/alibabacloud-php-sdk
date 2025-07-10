@@ -10,6 +10,16 @@ use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateEventRuleRequest\endpoints;
 class CreateEventRuleRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $deliveryMode;
+
+    /**
      * @var endpoints[]
      */
     public $endpoints;
@@ -34,6 +44,8 @@ class CreateEventRuleRequest extends Model
      */
     public $ruleName;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'deliveryMode' => 'DeliveryMode',
         'endpoints' => 'Endpoints',
         'eventTypes' => 'EventTypes',
         'matchRules' => 'MatchRules',
@@ -58,12 +70,21 @@ class CreateEventRuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->deliveryMode) {
+            $res['DeliveryMode'] = $this->deliveryMode;
+        }
+
         if (null !== $this->endpoints) {
             if (\is_array($this->endpoints)) {
                 $res['Endpoints'] = [];
                 $n1 = 0;
                 foreach ($this->endpoints as $item1) {
-                    $res['Endpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +94,8 @@ class CreateEventRuleRequest extends Model
                 $res['EventTypes'] = [];
                 $n1 = 0;
                 foreach ($this->eventTypes as $item1) {
-                    $res['EventTypes'][$n1++] = $item1;
+                    $res['EventTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,12 +106,14 @@ class CreateEventRuleRequest extends Model
                 $n1 = 0;
                 foreach ($this->matchRules as $item1) {
                     if (\is_array($item1)) {
-                        $res['MatchRules'][$n1++] = [];
+                        $res['MatchRules'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['MatchRules'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['MatchRules'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -113,12 +137,21 @@ class CreateEventRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DeliveryMode'])) {
+            $model->deliveryMode = $map['DeliveryMode'];
+        }
+
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
                 $n1 = 0;
                 foreach ($map['Endpoints'] as $item1) {
-                    $model->endpoints[$n1++] = endpoints::fromMap($item1);
+                    $model->endpoints[$n1] = endpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +161,8 @@ class CreateEventRuleRequest extends Model
                 $model->eventTypes = [];
                 $n1 = 0;
                 foreach ($map['EventTypes'] as $item1) {
-                    $model->eventTypes[$n1++] = $item1;
+                    $model->eventTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,12 +173,14 @@ class CreateEventRuleRequest extends Model
                 $n1 = 0;
                 foreach ($map['MatchRules'] as $item1) {
                     if (!empty($item1)) {
-                        $model->matchRules[$n1++] = [];
+                        $model->matchRules[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->matchRules[$n1++][$n2++] = EventMatchRule::fromMap($item2);
+                            $model->matchRules[$n1][$n2] = EventMatchRule::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

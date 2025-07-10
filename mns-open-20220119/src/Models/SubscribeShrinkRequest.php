@@ -16,7 +16,22 @@ class SubscribeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $dmAttributesShrink;
+
+    /**
+     * @var string
+     */
+    public $dysmsAttributesShrink;
+
+    /**
+     * @var string
+     */
     public $endpoint;
+
+    /**
+     * @var string
+     */
+    public $kafkaAttributesShrink;
 
     /**
      * @var string
@@ -51,16 +66,25 @@ class SubscribeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tenantRateLimitPolicyShrink;
+
+    /**
+     * @var string
+     */
     public $topicName;
     protected $_name = [
         'dlqPolicyShrink' => 'DlqPolicy',
+        'dmAttributesShrink' => 'DmAttributes',
+        'dysmsAttributesShrink' => 'DysmsAttributes',
         'endpoint' => 'Endpoint',
+        'kafkaAttributesShrink' => 'KafkaAttributes',
         'messageTag' => 'MessageTag',
         'notifyContentFormat' => 'NotifyContentFormat',
         'notifyStrategy' => 'NotifyStrategy',
         'pushType' => 'PushType',
         'stsRoleArn' => 'StsRoleArn',
         'subscriptionName' => 'SubscriptionName',
+        'tenantRateLimitPolicyShrink' => 'TenantRateLimitPolicy',
         'topicName' => 'TopicName',
     ];
 
@@ -76,8 +100,20 @@ class SubscribeShrinkRequest extends Model
             $res['DlqPolicy'] = $this->dlqPolicyShrink;
         }
 
+        if (null !== $this->dmAttributesShrink) {
+            $res['DmAttributes'] = $this->dmAttributesShrink;
+        }
+
+        if (null !== $this->dysmsAttributesShrink) {
+            $res['DysmsAttributes'] = $this->dysmsAttributesShrink;
+        }
+
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
+        }
+
+        if (null !== $this->kafkaAttributesShrink) {
+            $res['KafkaAttributes'] = $this->kafkaAttributesShrink;
         }
 
         if (null !== $this->messageTag) {
@@ -104,6 +140,10 @@ class SubscribeShrinkRequest extends Model
             $res['SubscriptionName'] = $this->subscriptionName;
         }
 
+        if (null !== $this->tenantRateLimitPolicyShrink) {
+            $res['TenantRateLimitPolicy'] = $this->tenantRateLimitPolicyShrink;
+        }
+
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
@@ -123,8 +163,20 @@ class SubscribeShrinkRequest extends Model
             $model->dlqPolicyShrink = $map['DlqPolicy'];
         }
 
+        if (isset($map['DmAttributes'])) {
+            $model->dmAttributesShrink = $map['DmAttributes'];
+        }
+
+        if (isset($map['DysmsAttributes'])) {
+            $model->dysmsAttributesShrink = $map['DysmsAttributes'];
+        }
+
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
+        }
+
+        if (isset($map['KafkaAttributes'])) {
+            $model->kafkaAttributesShrink = $map['KafkaAttributes'];
         }
 
         if (isset($map['MessageTag'])) {
@@ -149,6 +201,10 @@ class SubscribeShrinkRequest extends Model
 
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
+        }
+
+        if (isset($map['TenantRateLimitPolicy'])) {
+            $model->tenantRateLimitPolicyShrink = $map['TenantRateLimitPolicy'];
         }
 
         if (isset($map['TopicName'])) {

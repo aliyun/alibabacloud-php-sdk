@@ -197,6 +197,14 @@ class Mnsopen extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deliveryMode) {
+            @$query['DeliveryMode'] = $request->deliveryMode;
+        }
+
         if (null !== $request->endpointsShrink) {
             @$query['Endpoints'] = $request->endpointsShrink;
         }
@@ -275,6 +283,10 @@ class Mnsopen extends OpenApiClient
             $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
         }
 
+        if (null !== $tmpReq->tenantRateLimitPolicy) {
+            $request->tenantRateLimitPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantRateLimitPolicy, 'TenantRateLimitPolicy', 'json');
+        }
+
         $query = [];
         if (null !== $request->delaySeconds) {
             @$query['DelaySeconds'] = $request->delaySeconds;
@@ -306,6 +318,10 @@ class Mnsopen extends OpenApiClient
 
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->tenantRateLimitPolicyShrink) {
+            @$query['TenantRateLimitPolicy'] = $request->tenantRateLimitPolicyShrink;
         }
 
         if (null !== $request->visibilityTimeout) {
@@ -1256,6 +1272,10 @@ class Mnsopen extends OpenApiClient
             $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
         }
 
+        if (null !== $tmpReq->tenantRateLimitPolicy) {
+            $request->tenantRateLimitPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantRateLimitPolicy, 'TenantRateLimitPolicy', 'json');
+        }
+
         $query = [];
         if (null !== $request->delaySeconds) {
             @$query['DelaySeconds'] = $request->delaySeconds;
@@ -1283,6 +1303,10 @@ class Mnsopen extends OpenApiClient
 
         if (null !== $request->queueName) {
             @$query['QueueName'] = $request->queueName;
+        }
+
+        if (null !== $request->tenantRateLimitPolicyShrink) {
+            @$query['TenantRateLimitPolicy'] = $request->tenantRateLimitPolicyShrink;
         }
 
         if (null !== $request->visibilityTimeout) {
@@ -1347,6 +1371,10 @@ class Mnsopen extends OpenApiClient
             $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
         }
 
+        if (null !== $tmpReq->tenantRateLimitPolicy) {
+            $request->tenantRateLimitPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantRateLimitPolicy, 'TenantRateLimitPolicy', 'json');
+        }
+
         $query = [];
         if (null !== $request->dlqPolicyShrink) {
             @$query['DlqPolicy'] = $request->dlqPolicyShrink;
@@ -1358,6 +1386,10 @@ class Mnsopen extends OpenApiClient
 
         if (null !== $request->subscriptionName) {
             @$query['SubscriptionName'] = $request->subscriptionName;
+        }
+
+        if (null !== $request->tenantRateLimitPolicyShrink) {
+            @$query['TenantRateLimitPolicy'] = $request->tenantRateLimitPolicyShrink;
         }
 
         if (null !== $request->topicName) {
@@ -1487,13 +1519,41 @@ class Mnsopen extends OpenApiClient
             $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
         }
 
+        if (null !== $tmpReq->dmAttributes) {
+            $request->dmAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dmAttributes, 'DmAttributes', 'json');
+        }
+
+        if (null !== $tmpReq->dysmsAttributes) {
+            $request->dysmsAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dysmsAttributes, 'DysmsAttributes', 'json');
+        }
+
+        if (null !== $tmpReq->kafkaAttributes) {
+            $request->kafkaAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kafkaAttributes, 'KafkaAttributes', 'json');
+        }
+
+        if (null !== $tmpReq->tenantRateLimitPolicy) {
+            $request->tenantRateLimitPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantRateLimitPolicy, 'TenantRateLimitPolicy', 'json');
+        }
+
         $query = [];
         if (null !== $request->dlqPolicyShrink) {
             @$query['DlqPolicy'] = $request->dlqPolicyShrink;
         }
 
+        if (null !== $request->dmAttributesShrink) {
+            @$query['DmAttributes'] = $request->dmAttributesShrink;
+        }
+
+        if (null !== $request->dysmsAttributesShrink) {
+            @$query['DysmsAttributes'] = $request->dysmsAttributesShrink;
+        }
+
         if (null !== $request->endpoint) {
             @$query['Endpoint'] = $request->endpoint;
+        }
+
+        if (null !== $request->kafkaAttributesShrink) {
+            @$query['KafkaAttributes'] = $request->kafkaAttributesShrink;
         }
 
         if (null !== $request->messageTag) {
@@ -1518,6 +1578,10 @@ class Mnsopen extends OpenApiClient
 
         if (null !== $request->subscriptionName) {
             @$query['SubscriptionName'] = $request->subscriptionName;
+        }
+
+        if (null !== $request->tenantRateLimitPolicyShrink) {
+            @$query['TenantRateLimitPolicy'] = $request->tenantRateLimitPolicyShrink;
         }
 
         if (null !== $request->topicName) {

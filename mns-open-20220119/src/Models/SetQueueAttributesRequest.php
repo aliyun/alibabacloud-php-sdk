@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesRequest\dlqPolicy;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesRequest\tenantRateLimitPolicy;
 
 class SetQueueAttributesRequest extends Model
 {
@@ -45,6 +46,11 @@ class SetQueueAttributesRequest extends Model
     public $queueName;
 
     /**
+     * @var tenantRateLimitPolicy
+     */
+    public $tenantRateLimitPolicy;
+
+    /**
      * @var int
      */
     public $visibilityTimeout;
@@ -56,6 +62,7 @@ class SetQueueAttributesRequest extends Model
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
+        'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
     ];
 
@@ -63,6 +70,9 @@ class SetQueueAttributesRequest extends Model
     {
         if (null !== $this->dlqPolicy) {
             $this->dlqPolicy->validate();
+        }
+        if (null !== $this->tenantRateLimitPolicy) {
+            $this->tenantRateLimitPolicy->validate();
         }
         parent::validate();
     }
@@ -96,6 +106,10 @@ class SetQueueAttributesRequest extends Model
 
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+
+        if (null !== $this->tenantRateLimitPolicy) {
+            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toArray($noStream) : $this->tenantRateLimitPolicy;
         }
 
         if (null !== $this->visibilityTimeout) {
@@ -139,6 +153,10 @@ class SetQueueAttributesRequest extends Model
 
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+
+        if (isset($map['TenantRateLimitPolicy'])) {
+            $model->tenantRateLimitPolicy = tenantRateLimitPolicy::fromMap($map['TenantRateLimitPolicy']);
         }
 
         if (isset($map['VisibilityTimeout'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest\dlqPolicy;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest\tag;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest\tenantRateLimitPolicy;
 
 class CreateQueueRequest extends Model
 {
@@ -51,6 +52,11 @@ class CreateQueueRequest extends Model
     public $tag;
 
     /**
+     * @var tenantRateLimitPolicy
+     */
+    public $tenantRateLimitPolicy;
+
+    /**
      * @var int
      */
     public $visibilityTimeout;
@@ -63,6 +69,7 @@ class CreateQueueRequest extends Model
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
         'tag' => 'Tag',
+        'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
     ];
 
@@ -73,6 +80,9 @@ class CreateQueueRequest extends Model
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
+        }
+        if (null !== $this->tenantRateLimitPolicy) {
+            $this->tenantRateLimitPolicy->validate();
         }
         parent::validate();
     }
@@ -113,9 +123,14 @@ class CreateQueueRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->tenantRateLimitPolicy) {
+            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toArray($noStream) : $this->tenantRateLimitPolicy;
         }
 
         if (null !== $this->visibilityTimeout) {
@@ -166,9 +181,14 @@ class CreateQueueRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TenantRateLimitPolicy'])) {
+            $model->tenantRateLimitPolicy = tenantRateLimitPolicy::fromMap($map['TenantRateLimitPolicy']);
         }
 
         if (isset($map['VisibilityTimeout'])) {

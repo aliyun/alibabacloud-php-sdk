@@ -11,6 +11,16 @@ class CreateEventRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $deliveryMode;
+
+    /**
+     * @var string
+     */
     public $endpointsShrink;
 
     /**
@@ -33,6 +43,8 @@ class CreateEventRuleShrinkRequest extends Model
      */
     public $ruleName;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'deliveryMode' => 'DeliveryMode',
         'endpointsShrink' => 'Endpoints',
         'eventTypesShrink' => 'EventTypes',
         'matchRulesShrink' => 'MatchRules',
@@ -48,6 +60,14 @@ class CreateEventRuleShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->deliveryMode) {
+            $res['DeliveryMode'] = $this->deliveryMode;
+        }
+
         if (null !== $this->endpointsShrink) {
             $res['Endpoints'] = $this->endpointsShrink;
         }
@@ -79,6 +99,14 @@ class CreateEventRuleShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DeliveryMode'])) {
+            $model->deliveryMode = $map['DeliveryMode'];
+        }
+
         if (isset($map['Endpoints'])) {
             $model->endpointsShrink = $map['Endpoints'];
         }

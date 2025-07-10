@@ -63,7 +63,8 @@ class data extends Model
                 $res['PageData'] = [];
                 $n1 = 0;
                 foreach ($this->pageData as $item1) {
-                    $res['PageData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PageData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class data extends Model
                 $model->pageData = [];
                 $n1 = 0;
                 foreach ($map['PageData'] as $item1) {
-                    $model->pageData[$n1++] = pageData::fromMap($item1);
+                    $model->pageData[$n1] = pageData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

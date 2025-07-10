@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetSubscriptionAttributesRes
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetSubscriptionAttributesResponseBody\data\dlqPolicy;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetSubscriptionAttributesResponseBody\data\tenantRateLimitPolicy;
 
 class data extends Model
 {
@@ -50,6 +51,11 @@ class data extends Model
     public $subscriptionName;
 
     /**
+     * @var tenantRateLimitPolicy
+     */
+    public $tenantRateLimitPolicy;
+
+    /**
      * @var string
      */
     public $topicName;
@@ -67,6 +73,7 @@ class data extends Model
         'notifyContentFormat' => 'NotifyContentFormat',
         'notifyStrategy' => 'NotifyStrategy',
         'subscriptionName' => 'SubscriptionName',
+        'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'topicName' => 'TopicName',
         'topicOwner' => 'TopicOwner',
     ];
@@ -75,6 +82,9 @@ class data extends Model
     {
         if (null !== $this->dlqPolicy) {
             $this->dlqPolicy->validate();
+        }
+        if (null !== $this->tenantRateLimitPolicy) {
+            $this->tenantRateLimitPolicy->validate();
         }
         parent::validate();
     }
@@ -112,6 +122,10 @@ class data extends Model
 
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
+        }
+
+        if (null !== $this->tenantRateLimitPolicy) {
+            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toArray($noStream) : $this->tenantRateLimitPolicy;
         }
 
         if (null !== $this->topicName) {
@@ -163,6 +177,10 @@ class data extends Model
 
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
+        }
+
+        if (isset($map['TenantRateLimitPolicy'])) {
+            $model->tenantRateLimitPolicy = tenantRateLimitPolicy::fromMap($map['TenantRateLimitPolicy']);
         }
 
         if (isset($map['TopicName'])) {

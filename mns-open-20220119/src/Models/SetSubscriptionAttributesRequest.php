@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesRequest\dlqPolicy;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesRequest\tenantRateLimitPolicy;
 
 class SetSubscriptionAttributesRequest extends Model
 {
@@ -25,6 +26,11 @@ class SetSubscriptionAttributesRequest extends Model
     public $subscriptionName;
 
     /**
+     * @var tenantRateLimitPolicy
+     */
+    public $tenantRateLimitPolicy;
+
+    /**
      * @var string
      */
     public $topicName;
@@ -32,6 +38,7 @@ class SetSubscriptionAttributesRequest extends Model
         'dlqPolicy' => 'DlqPolicy',
         'notifyStrategy' => 'NotifyStrategy',
         'subscriptionName' => 'SubscriptionName',
+        'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'topicName' => 'TopicName',
     ];
 
@@ -39,6 +46,9 @@ class SetSubscriptionAttributesRequest extends Model
     {
         if (null !== $this->dlqPolicy) {
             $this->dlqPolicy->validate();
+        }
+        if (null !== $this->tenantRateLimitPolicy) {
+            $this->tenantRateLimitPolicy->validate();
         }
         parent::validate();
     }
@@ -56,6 +66,10 @@ class SetSubscriptionAttributesRequest extends Model
 
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
+        }
+
+        if (null !== $this->tenantRateLimitPolicy) {
+            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toArray($noStream) : $this->tenantRateLimitPolicy;
         }
 
         if (null !== $this->topicName) {
@@ -83,6 +97,10 @@ class SetSubscriptionAttributesRequest extends Model
 
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
+        }
+
+        if (isset($map['TenantRateLimitPolicy'])) {
+            $model->tenantRateLimitPolicy = tenantRateLimitPolicy::fromMap($map['TenantRateLimitPolicy']);
         }
 
         if (isset($map['TopicName'])) {
