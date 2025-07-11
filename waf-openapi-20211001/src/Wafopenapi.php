@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupReque
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleBlockIpRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleBlockIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseTemplateRequest;
@@ -2208,6 +2210,79 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新防护规则封禁Ip.
+     *
+     * @param request - DeleteDefenseRuleBlockIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDefenseRuleBlockIpResponse
+     *
+     * @param DeleteDefenseRuleBlockIpRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDefenseRuleBlockIpResponse
+     */
+    public function deleteDefenseRuleBlockIpWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDefenseRuleBlockIp',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDefenseRuleBlockIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新防护规则封禁Ip.
+     *
+     * @param request - DeleteDefenseRuleBlockIpRequest
+     *
+     * @returns DeleteDefenseRuleBlockIpResponse
+     *
+     * @param DeleteDefenseRuleBlockIpRequest $request
+     *
+     * @return DeleteDefenseRuleBlockIpResponse
+     */
+    public function deleteDefenseRuleBlockIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDefenseRuleBlockIpWithOptions($request, $runtime);
     }
 
     /**
@@ -5971,6 +6046,10 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (null !== $request->domain) {
             @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
 
         if (null !== $request->instanceId) {
@@ -12645,6 +12724,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->domain) {
             @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
 
         if (null !== $request->instanceId) {

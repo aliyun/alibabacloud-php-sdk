@@ -26,6 +26,11 @@ class domains extends Model
     public $domain;
 
     /**
+     * @var string
+     */
+    public $domainId;
+
+    /**
      * @var listenPorts
      */
     public $listenPorts;
@@ -43,6 +48,7 @@ class domains extends Model
         'backeds' => 'Backeds',
         'cname' => 'Cname',
         'domain' => 'Domain',
+        'domainId' => 'DomainId',
         'listenPorts' => 'ListenPorts',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'status' => 'Status',
@@ -72,6 +78,10 @@ class domains extends Model
 
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+
+        if (null !== $this->domainId) {
+            $res['DomainId'] = $this->domainId;
         }
 
         if (null !== $this->listenPorts) {
@@ -107,6 +117,10 @@ class domains extends Model
 
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+
+        if (isset($map['DomainId'])) {
+            $model->domainId = $map['DomainId'];
         }
 
         if (isset($map['ListenPorts'])) {

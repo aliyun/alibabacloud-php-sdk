@@ -28,6 +28,11 @@ class DescribeDomainDetailResponseBody extends Model
     public $domain;
 
     /**
+     * @var string
+     */
+    public $domainId;
+
+    /**
      * @var listen
      */
     public $listen;
@@ -60,6 +65,7 @@ class DescribeDomainDetailResponseBody extends Model
         'certDetail' => 'CertDetail',
         'cname' => 'Cname',
         'domain' => 'Domain',
+        'domainId' => 'DomainId',
         'listen' => 'Listen',
         'redirect' => 'Redirect',
         'requestId' => 'RequestId',
@@ -98,6 +104,10 @@ class DescribeDomainDetailResponseBody extends Model
 
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+
+        if (null !== $this->domainId) {
+            $res['DomainId'] = $this->domainId;
         }
 
         if (null !== $this->listen) {
@@ -145,6 +155,10 @@ class DescribeDomainDetailResponseBody extends Model
 
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+
+        if (isset($map['DomainId'])) {
+            $model->domainId = $map['DomainId'];
         }
 
         if (isset($map['Listen'])) {

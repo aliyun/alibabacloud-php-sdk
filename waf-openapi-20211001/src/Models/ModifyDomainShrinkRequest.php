@@ -21,6 +21,11 @@ class ModifyDomainShrinkRequest extends Model
     /**
      * @var string
      */
+    public $domainId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -40,6 +45,7 @@ class ModifyDomainShrinkRequest extends Model
     protected $_name = [
         'accessType' => 'AccessType',
         'domain' => 'Domain',
+        'domainId' => 'DomainId',
         'instanceId' => 'InstanceId',
         'listenShrink' => 'Listen',
         'redirectShrink' => 'Redirect',
@@ -60,6 +66,10 @@ class ModifyDomainShrinkRequest extends Model
 
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+
+        if (null !== $this->domainId) {
+            $res['DomainId'] = $this->domainId;
         }
 
         if (null !== $this->instanceId) {
@@ -95,6 +105,10 @@ class ModifyDomainShrinkRequest extends Model
 
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+
+        if (isset($map['DomainId'])) {
+            $model->domainId = $map['DomainId'];
         }
 
         if (isset($map['InstanceId'])) {
