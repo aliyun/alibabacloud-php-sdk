@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseResourceGroupNamesResponseBody extends Model
 {
     /**
+     * @description The names of the protected object groups.
+     *
      * @var string[]
      */
     public $groupNames;
 
     /**
+     * @description The request ID.
+     *
+     * @example 59DA4258-2F32-5095-B283-57AC****70B3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $totalCount;
@@ -28,32 +38,17 @@ class DescribeDefenseResourceGroupNamesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->groupNames)) {
-            Model::validateArray($this->groupNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupNames) {
-            if (\is_array($this->groupNames)) {
-                $res['GroupNames'] = [];
-                $n1 = 0;
-                foreach ($this->groupNames as $item1) {
-                    $res['GroupNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['GroupNames'] = $this->groupNames;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -61,29 +56,22 @@ class DescribeDefenseResourceGroupNamesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDefenseResourceGroupNamesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupNames'])) {
             if (!empty($map['GroupNames'])) {
-                $model->groupNames = [];
-                $n1 = 0;
-                foreach ($map['GroupNames'] as $item1) {
-                    $model->groupNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->groupNames = $map['GroupNames'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

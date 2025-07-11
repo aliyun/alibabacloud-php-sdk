@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeResourceRegionIdResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F5905D3F-F674-5177-9E48-466DD3B8****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode.
+     *
      * @var string[]
      */
     public $resourceRegionIds;
@@ -22,55 +28,35 @@ class DescribeResourceRegionIdResponseBody extends Model
         'resourceRegionIds' => 'ResourceRegionIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceRegionIds)) {
-            Model::validateArray($this->resourceRegionIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceRegionIds) {
-            if (\is_array($this->resourceRegionIds)) {
-                $res['ResourceRegionIds'] = [];
-                $n1 = 0;
-                foreach ($this->resourceRegionIds as $item1) {
-                    $res['ResourceRegionIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ResourceRegionIds'] = $this->resourceRegionIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeResourceRegionIdResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceRegionIds'])) {
             if (!empty($map['ResourceRegionIds'])) {
-                $model->resourceRegionIds = [];
-                $n1 = 0;
-                foreach ($map['ResourceRegionIds'] as $item1) {
-                    $model->resourceRegionIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->resourceRegionIds = $map['ResourceRegionIds'];
             }
         }
 

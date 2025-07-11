@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeResourcePortResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array of HTTP and HTTPS listener ports that are added to the WAF instance.
+     *
      * @var string[]
      */
     public $resourcePorts;
@@ -22,55 +28,35 @@ class DescribeResourcePortResponseBody extends Model
         'resourcePorts' => 'ResourcePorts',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourcePorts)) {
-            Model::validateArray($this->resourcePorts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourcePorts) {
-            if (\is_array($this->resourcePorts)) {
-                $res['ResourcePorts'] = [];
-                $n1 = 0;
-                foreach ($this->resourcePorts as $item1) {
-                    $res['ResourcePorts'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ResourcePorts'] = $this->resourcePorts;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeResourcePortResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourcePorts'])) {
             if (!empty($map['ResourcePorts'])) {
-                $model->resourcePorts = [];
-                $n1 = 0;
-                foreach ($map['ResourcePorts'] as $item1) {
-                    $model->resourcePorts[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->resourcePorts = $map['ResourcePorts'];
             }
         }
 

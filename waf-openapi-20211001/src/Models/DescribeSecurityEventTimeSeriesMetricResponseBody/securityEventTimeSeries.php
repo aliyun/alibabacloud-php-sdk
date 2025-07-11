@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTimeSeriesMetricResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityEventTimeSeries extends Model
 {
     /**
+     * @description The metric. This value is the same as the value of Metric in the request parameters.
+     *
+     * @example monitored_requests
+     *
      * @var string
      */
     public $metric;
 
     /**
+     * @description The time points. Each point represents a time range.
+     *
      * @var string[]
      */
     public $timestamps;
 
     /**
+     * @description The data points. Each point represents a count for a time range.
+     *
      * @var int[]
      */
     public $values;
@@ -28,80 +36,43 @@ class securityEventTimeSeries extends Model
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->timestamps)) {
-            Model::validateArray($this->timestamps);
-        }
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metric) {
             $res['Metric'] = $this->metric;
         }
-
         if (null !== $this->timestamps) {
-            if (\is_array($this->timestamps)) {
-                $res['Timestamps'] = [];
-                $n1 = 0;
-                foreach ($this->timestamps as $item1) {
-                    $res['Timestamps'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Timestamps'] = $this->timestamps;
         }
-
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1 = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Values'] = $this->values;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityEventTimeSeries
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metric'])) {
             $model->metric = $map['Metric'];
         }
-
         if (isset($map['Timestamps'])) {
             if (!empty($map['Timestamps'])) {
-                $model->timestamps = [];
-                $n1 = 0;
-                foreach ($map['Timestamps'] as $item1) {
-                    $model->timestamps[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->timestamps = $map['Timestamps'];
             }
         }
-
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = [];
-                $n1 = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->values = $map['Values'];
             }
         }
 

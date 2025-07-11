@@ -4,16 +4,29 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceRequest\listen;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class certificates extends Model
 {
     /**
+     * @description The type of the certificate. Valid values:
+     *
+     *   **default**: default certificate.
+     *   **extension**: additional certificate.
+     *
+     * @example default
+     *
      * @var string
      */
     public $appliedType;
 
     /**
+     * @description The ID of the certificate that you want to add.
+     *
+     * >  You can call the [DescribeCertificates](https://help.aliyun.com/document_detail/160783.html) operation to query the IDs of all SSL certificates that are associated with a domain name.
+     *
+     * @example 123-cn-hangzhou
+     *
      * @var string
      */
     public $certificateId;
@@ -22,18 +35,14 @@ class certificates extends Model
         'certificateId' => 'CertificateId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appliedType) {
             $res['AppliedType'] = $this->appliedType;
         }
-
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
@@ -41,18 +50,17 @@ class certificates extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return certificates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppliedType'])) {
             $model->appliedType = $map['AppliedType'];
         }
-
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }

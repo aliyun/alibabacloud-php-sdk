@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecProtectionGroupsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The switch of the API security module.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $apisecStatus;
 
     /**
+     * @description The switch of the compliance check feature.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $reportStatus;
 
     /**
+     * @description The name of the protected object group.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $resourceGroup;
 
     /**
+     * @description The switch of the tracing and auditing feature.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $traceStatus;
@@ -34,26 +50,20 @@ class data extends Model
         'traceStatus' => 'TraceStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apisecStatus) {
             $res['ApisecStatus'] = $this->apisecStatus;
         }
-
         if (null !== $this->reportStatus) {
             $res['ReportStatus'] = $this->reportStatus;
         }
-
         if (null !== $this->resourceGroup) {
             $res['ResourceGroup'] = $this->resourceGroup;
         }
-
         if (null !== $this->traceStatus) {
             $res['TraceStatus'] = $this->traceStatus;
         }
@@ -61,26 +71,23 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApisecStatus'])) {
             $model->apisecStatus = $map['ApisecStatus'];
         }
-
         if (isset($map['ReportStatus'])) {
             $model->reportStatus = $map['ReportStatus'];
         }
-
         if (isset($map['ResourceGroup'])) {
             $model->resourceGroup = $map['ResourceGroup'];
         }
-
         if (isset($map['TraceStatus'])) {
             $model->traceStatus = $map['TraceStatus'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyApisecLogDeliveryStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F35F45B0-5D6B-4238-BE02-A62D****E840
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyApisecLogDeliveryStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyApisecLogDeliveryStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyApisecLogDeliveryStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

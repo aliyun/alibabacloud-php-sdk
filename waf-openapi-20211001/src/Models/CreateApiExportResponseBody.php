@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateApiExportResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 62382992-F9AA-52B2-9147-66B3B9E51D74
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateApiExportResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateApiExportResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateApiExportResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userInfo extends Model
 {
     /**
+     * @description The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+     *
+     * @example 80,8080
+     *
      * @var string
      */
     public $httpPorts;
 
     /**
+     * @description The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+     *
+     * @example 8443,443
+     *
      * @var string
      */
     public $httpsPorts;
@@ -22,18 +30,14 @@ class userInfo extends Model
         'httpsPorts' => 'HttpsPorts',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->httpPorts) {
             $res['HttpPorts'] = $this->httpPorts;
         }
-
         if (null !== $this->httpsPorts) {
             $res['HttpsPorts'] = $this->httpsPorts;
         }
@@ -41,18 +45,17 @@ class userInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HttpPorts'])) {
             $model->httpPorts = $map['HttpPorts'];
         }
-
         if (isset($map['HttpsPorts'])) {
             $model->httpsPorts = $map['HttpsPorts'];
         }

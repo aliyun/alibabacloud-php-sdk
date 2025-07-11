@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateResponseBody\template;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the template.
+     *
      * @var template
      */
     public $template;
@@ -23,40 +29,32 @@ class DescribeDefenseTemplateResponseBody extends Model
         'template' => 'Template',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->template) {
-            $this->template->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
+            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDefenseTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);
         }

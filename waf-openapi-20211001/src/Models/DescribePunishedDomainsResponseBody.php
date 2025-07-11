@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePunishedDomainsResponseBody extends Model
 {
     /**
+     * @description The domain names that are penalized for failing to obtain an ICP filing.
+     *
      * @var string[]
      */
     public $punishedDomains;
 
     /**
+     * @description The request ID.
+     *
+     * @example B1F4D802-55A1-5D53-A247-7E79****85E7
+     *
      * @var string
      */
     public $requestId;
@@ -22,28 +28,14 @@ class DescribePunishedDomainsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->punishedDomains)) {
-            Model::validateArray($this->punishedDomains);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->punishedDomains) {
-            if (\is_array($this->punishedDomains)) {
-                $res['PunishedDomains'] = [];
-                $n1 = 0;
-                foreach ($this->punishedDomains as $item1) {
-                    $res['PunishedDomains'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['PunishedDomains'] = $this->punishedDomains;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,25 +43,19 @@ class DescribePunishedDomainsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePunishedDomainsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PunishedDomains'])) {
             if (!empty($map['PunishedDomains'])) {
-                $model->punishedDomains = [];
-                $n1 = 0;
-                foreach ($map['PunishedDomains'] as $item1) {
-                    $model->punishedDomains[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->punishedDomains = $map['PunishedDomains'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

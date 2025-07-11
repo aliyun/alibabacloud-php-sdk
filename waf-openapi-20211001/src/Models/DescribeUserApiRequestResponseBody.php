@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserApiRequestResponseBody\requests;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserApiRequestResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example D13E4540-4432-5AD7-B216-6369512514F4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics.
+     *
      * @var requests[]
      */
     public $requests;
@@ -23,28 +29,20 @@ class DescribeUserApiRequestResponseBody extends Model
         'requests' => 'Requests',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->requests)) {
-            Model::validateArray($this->requests);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->requests) {
-            if (\is_array($this->requests)) {
-                $res['Requests'] = [];
-                $n1 = 0;
-                foreach ($this->requests as $item1) {
-                    $res['Requests'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Requests'] = [];
+            if (null !== $this->requests && \is_array($this->requests)) {
+                $n = 0;
+                foreach ($this->requests as $item) {
+                    $res['Requests'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +50,23 @@ class DescribeUserApiRequestResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserApiRequestResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Requests'])) {
             if (!empty($map['Requests'])) {
                 $model->requests = [];
-                $n1 = 0;
-                foreach ($map['Requests'] as $item1) {
-                    $model->requests[$n1] = requests::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Requests'] as $item) {
+                    $model->requests[$n++] = null !== $item ? requests::fromMap($item) : $item;
                 }
             }
         }

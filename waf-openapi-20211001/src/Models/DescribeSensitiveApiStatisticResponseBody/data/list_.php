@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveApiStatisticResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @description The API.
+     *
+     * @example /api/login
+     *
      * @var string
      */
     public $apiFormat;
 
     /**
+     * @description The ID of the API.
+     *
+     * @example d288137009c119a873d4c395****
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description The number of personal information records involved in cross-border data transfer by API.
+     *
+     * @example 78
+     *
      * @var int
      */
     public $infoCount;
 
     /**
+     * @description The types of sensitive data.
+     *
      * @var string[]
      */
     public $sensitiveCode;
 
     /**
+     * @description The number of sensitive personal information records involved in cross-border data transfer by API.
+     *
+     * @example 55
+     *
      * @var int
      */
     public $sensitiveCount;
@@ -40,40 +58,23 @@ class list_ extends Model
         'sensitiveCount' => 'SensitiveCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sensitiveCode)) {
-            Model::validateArray($this->sensitiveCode);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiFormat) {
             $res['ApiFormat'] = $this->apiFormat;
         }
-
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-
         if (null !== $this->infoCount) {
             $res['InfoCount'] = $this->infoCount;
         }
-
         if (null !== $this->sensitiveCode) {
-            if (\is_array($this->sensitiveCode)) {
-                $res['SensitiveCode'] = [];
-                $n1 = 0;
-                foreach ($this->sensitiveCode as $item1) {
-                    $res['SensitiveCode'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SensitiveCode'] = $this->sensitiveCode;
         }
-
         if (null !== $this->sensitiveCount) {
             $res['SensitiveCount'] = $this->sensitiveCount;
         }
@@ -81,37 +82,28 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiFormat'])) {
             $model->apiFormat = $map['ApiFormat'];
         }
-
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-
         if (isset($map['InfoCount'])) {
             $model->infoCount = $map['InfoCount'];
         }
-
         if (isset($map['SensitiveCode'])) {
             if (!empty($map['SensitiveCode'])) {
-                $model->sensitiveCode = [];
-                $n1 = 0;
-                foreach ($map['SensitiveCode'] as $item1) {
-                    $model->sensitiveCode[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->sensitiveCode = $map['SensitiveCode'];
             }
         }
-
         if (isset($map['SensitiveCount'])) {
             $model->sensitiveCount = $map['SensitiveCount'];
         }

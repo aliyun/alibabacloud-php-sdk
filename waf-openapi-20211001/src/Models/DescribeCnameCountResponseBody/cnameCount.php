@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class cnameCount extends Model
 {
     /**
+     * @description The number of domain names that are added to WAF in CNAME record mode.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cname;
 
     /**
+     * @description The number of domain names that are added to WAF in hybrid cloud reverse proxy mode.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $hybridCloudCname;
 
     /**
+     * @description The total number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
@@ -28,22 +40,17 @@ class cnameCount extends Model
         'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
         }
-
         if (null !== $this->hybridCloudCname) {
             $res['HybridCloudCname'] = $this->hybridCloudCname;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -51,22 +58,20 @@ class cnameCount extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cnameCount
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
         }
-
         if (isset($map['HybridCloudCname'])) {
             $model->hybridCloudCname = $map['HybridCloudCname'];
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

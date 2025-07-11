@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDefenseResourceResponseBody extends Model
 {
     /**
+     * @example 745F051D-95FD-57EC-9DC1-79BB4883C6A4
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteDefenseResourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteDefenseResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDefenseResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

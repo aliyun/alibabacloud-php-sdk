@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class uas extends Model
 {
     /**
+     * @description The number of requests that use the user agent.
+     *
+     * @example 698455
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The user agent.
+     *
+     * @example chrome
+     *
      * @var string
      */
     public $ua;
@@ -22,18 +30,14 @@ class uas extends Model
         'ua' => 'Ua',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->ua) {
             $res['Ua'] = $this->ua;
         }
@@ -41,18 +45,17 @@ class uas extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return uas
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Ua'])) {
             $model->ua = $map['Ua'];
         }

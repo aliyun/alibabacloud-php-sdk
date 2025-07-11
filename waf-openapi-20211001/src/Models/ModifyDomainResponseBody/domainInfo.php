@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class domainInfo extends Model
 {
     /**
+     * @description The CNAME that is assigned by WAF to the domain name.
+     *
+     * @example xxxxxcvdaf.****.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description The domain name whose access configurations you modified.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the domain name.
+     *
+     * @example www.aliyundoc.com-waf
+     *
      * @var string
      */
     public $domainId;
@@ -28,22 +40,17 @@ class domainInfo extends Model
         'domainId' => 'DomainId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
         }
-
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
@@ -51,22 +58,20 @@ class domainInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return domainInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
         }
-
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }

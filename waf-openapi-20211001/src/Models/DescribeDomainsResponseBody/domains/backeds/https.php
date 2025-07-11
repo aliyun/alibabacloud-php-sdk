@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsResponseBody\domains\backeds;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class https extends Model
 {
     /**
+     * @description The HTTPS address of the origin server.
+     *
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $backend;
@@ -16,12 +20,9 @@ class https extends Model
         'backend' => 'Backend',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backend) {
@@ -31,11 +32,11 @@ class https extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return https
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

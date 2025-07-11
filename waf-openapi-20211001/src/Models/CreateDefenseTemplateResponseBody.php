@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDefenseTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F48ABDF7-D777-5F26-892A-57349765D7A9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the protection rule template.
+     *
+     * @example 2212
+     *
      * @var int
      */
     public $templateId;
@@ -22,18 +30,14 @@ class CreateDefenseTemplateResponseBody extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -41,18 +45,17 @@ class CreateDefenseTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDefenseTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

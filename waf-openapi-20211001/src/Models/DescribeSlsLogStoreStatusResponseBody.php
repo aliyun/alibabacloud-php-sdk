@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSlsLogStoreStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether a Logstore is created for WAF. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $existStatus;
 
     /**
+     * @description The request ID.
+     *
+     * @example 184F538F-C115-5C89-A4EF-C79CD2E29AC7
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +33,14 @@ class DescribeSlsLogStoreStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->existStatus) {
             $res['ExistStatus'] = $this->existStatus;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +48,17 @@ class DescribeSlsLogStoreStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSlsLogStoreStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExistStatus'])) {
             $model->existStatus = $map['ExistStatus'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

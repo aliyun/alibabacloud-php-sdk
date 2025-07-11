@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTemplateResourcesResponseBody extends Model
 {
@@ -19,11 +19,17 @@ class DescribeTemplateResourcesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C7BC9373-3960-53B0-8968-2B13454AE18F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array of protected objects or protected object groups that are associated to the protection rule template.
+     *
      * @var string[]
      */
     public $resources;
@@ -40,40 +46,23 @@ class DescribeTemplateResourcesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resources)) {
-            Model::validateArray($this->resources);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resources) {
-            if (\is_array($this->resources)) {
-                $res['Resources'] = [];
-                $n1 = 0;
-                foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Resources'] = $this->resources;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -81,37 +70,28 @@ class DescribeTemplateResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTemplateResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
-                $model->resources = [];
-                $n1 = 0;
-                foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->resources = $map['Resources'];
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

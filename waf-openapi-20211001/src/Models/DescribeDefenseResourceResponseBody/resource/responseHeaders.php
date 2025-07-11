@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceResponseBody\resource;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class responseHeaders extends Model
 {
     /**
+     * @description Specifies the key for a custom response header.
+     *
+     * @example Header-Key
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description Specifies the value for a custom response header.
+     *
+     * @example Header-Value
+     *
      * @var string
      */
     public $value;
@@ -22,18 +30,14 @@ class responseHeaders extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class responseHeaders extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return responseHeaders
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

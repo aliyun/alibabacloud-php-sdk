@@ -4,22 +4,36 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApiExportsResponseBody\apiExports;
+use AlibabaCloud\Tea\Model;
 
 class DescribeApiExportsResponseBody extends Model
 {
     /**
+     * @description The returned data export tasks.
+     *
      * @var apiExports[]
      */
     public $apiExports;
 
     /**
+     * @description The request ID.
+     *
+     * @example D9532525-E885-54E7-A178-D5554D563AFB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the data export task. Valid values:
+     *
+     *   **expired**: The file is expired.
+     *   **exporting**: Data is being exported.
+     *   **completed**: Data is exported.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $total;
@@ -29,32 +43,23 @@ class DescribeApiExportsResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->apiExports)) {
-            Model::validateArray($this->apiExports);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiExports) {
-            if (\is_array($this->apiExports)) {
-                $res['ApiExports'] = [];
-                $n1 = 0;
-                foreach ($this->apiExports as $item1) {
-                    $res['ApiExports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ApiExports'] = [];
+            if (null !== $this->apiExports && \is_array($this->apiExports)) {
+                $n = 0;
+                foreach ($this->apiExports as $item) {
+                    $res['ApiExports'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -62,29 +67,26 @@ class DescribeApiExportsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeApiExportsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiExports'])) {
             if (!empty($map['ApiExports'])) {
                 $model->apiExports = [];
-                $n1 = 0;
-                foreach ($map['ApiExports'] as $item1) {
-                    $model->apiExports[$n1] = apiExports::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ApiExports'] as $item) {
+                    $model->apiExports[$n++] = null !== $item ? apiExports::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

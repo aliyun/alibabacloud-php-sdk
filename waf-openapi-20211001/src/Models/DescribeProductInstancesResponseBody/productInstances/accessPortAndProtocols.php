@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponseBody\productInstances;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class accessPortAndProtocols extends Model
 {
@@ -28,32 +28,17 @@ class accessPortAndProtocols extends Model
         'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->certificateIds)) {
-            Model::validateArray($this->certificateIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certificateIds) {
-            if (\is_array($this->certificateIds)) {
-                $res['CertificateIds'] = [];
-                $n1 = 0;
-                foreach ($this->certificateIds as $item1) {
-                    $res['CertificateIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['CertificateIds'] = $this->certificateIds;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -61,29 +46,22 @@ class accessPortAndProtocols extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accessPortAndProtocols
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateIds'])) {
             if (!empty($map['CertificateIds'])) {
-                $model->certificateIds = [];
-                $n1 = 0;
-                foreach ($map['CertificateIds'] as $item1) {
-                    $model->certificateIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->certificateIds = $map['CertificateIds'];
             }
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

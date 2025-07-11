@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateMajorProtectionBlackIpResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example D7861F61-5B61-46CE-A47C-6B19160D****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateMajorProtectionBlackIpResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateMajorProtectionBlackIpResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateMajorProtectionBlackIpResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyCloudResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the resource that is added to WAF.
+     *
+     * @example lb-xxx-80-clb7
+     *
      * @var string
      */
     public $cloudResource;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D7861F61-5B61-46CE-A47C-***
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class ModifyCloudResourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cloudResource) {
             $res['CloudResource'] = $this->cloudResource;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class ModifyCloudResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyCloudResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudResource'])) {
             $model->cloudResource = $map['CloudResource'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

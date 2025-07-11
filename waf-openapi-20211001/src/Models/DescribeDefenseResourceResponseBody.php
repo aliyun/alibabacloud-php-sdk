@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceResponseBody\resource;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseResourceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 439AADF2-368C-5E98-B14E-3086****0573
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The protected object.
+     *
      * @var resource
      */
     public $resource;
@@ -23,40 +29,32 @@ class DescribeDefenseResourceResponseBody extends Model
         'resource' => 'Resource',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->resource) {
-            $this->resource->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resource) {
-            $res['Resource'] = null !== $this->resource ? $this->resource->toArray($noStream) : $this->resource;
+            $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDefenseResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
         }

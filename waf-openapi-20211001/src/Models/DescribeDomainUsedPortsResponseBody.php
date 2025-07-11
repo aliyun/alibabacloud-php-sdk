@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDomainUsedPortsResponseBody extends Model
 {
     /**
+     * @example D7861F61-5B61-*-A47C-*
+     *
      * @var string
      */
     public $requestId;
@@ -22,55 +24,35 @@ class DescribeDomainUsedPortsResponseBody extends Model
         'usedPorts' => 'UsedPorts',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->usedPorts)) {
-            Model::validateArray($this->usedPorts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->usedPorts) {
-            if (\is_array($this->usedPorts)) {
-                $res['UsedPorts'] = [];
-                $n1 = 0;
-                foreach ($this->usedPorts as $item1) {
-                    $res['UsedPorts'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['UsedPorts'] = $this->usedPorts;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDomainUsedPortsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UsedPorts'])) {
             if (!empty($map['UsedPorts'])) {
-                $model->usedPorts = [];
-                $n1 = 0;
-                foreach ($map['UsedPorts'] as $item1) {
-                    $model->usedPorts[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->usedPorts = $map['UsedPorts'];
             }
         }
 

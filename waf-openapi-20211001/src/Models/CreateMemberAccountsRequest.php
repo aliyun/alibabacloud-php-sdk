@@ -4,31 +4,58 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateMemberAccountsRequest extends Model
 {
     /**
+     * @description The ID of the WAF instance.
+     *
+     * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+     *
+     * This parameter is required.
+     *
+     * @example waf_cdnsdf3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The Alibaba Cloud account IDs of the members that you want to add. You can add up to 10 members at the same time.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $memberAccountIds;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
+     * @example rg-acfm***q
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The source IP address of the request. The system automatically obtains the value of this parameter.
+     *
+     * @example 1.1.X.X
+     *
      * @var string
      */
     public $sourceIp;
@@ -40,40 +67,23 @@ class CreateMemberAccountsRequest extends Model
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->memberAccountIds)) {
-            Model::validateArray($this->memberAccountIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->memberAccountIds) {
-            if (\is_array($this->memberAccountIds)) {
-                $res['MemberAccountIds'] = [];
-                $n1 = 0;
-                foreach ($this->memberAccountIds as $item1) {
-                    $res['MemberAccountIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['MemberAccountIds'] = $this->memberAccountIds;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -81,37 +91,28 @@ class CreateMemberAccountsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateMemberAccountsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['MemberAccountIds'])) {
             if (!empty($map['MemberAccountIds'])) {
-                $model->memberAccountIds = [];
-                $n1 = 0;
-                foreach ($map['MemberAccountIds'] as $item1) {
-                    $model->memberAccountIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->memberAccountIds = $map['MemberAccountIds'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

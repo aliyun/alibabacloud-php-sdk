@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCloudResourceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example D7861F61-5B61-46CE-A47C-***
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteCloudResourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteCloudResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCloudResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

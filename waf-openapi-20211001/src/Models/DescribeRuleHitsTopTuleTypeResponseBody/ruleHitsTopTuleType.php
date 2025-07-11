@@ -4,16 +4,33 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopTuleTypeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ruleHitsTopTuleType extends Model
 {
     /**
+     * @description The number of requests that match protection rules.
+     *
+     * @example 698455
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The type of rule that is matched. By default, this parameter is not returned. This indicates that all types of rules that are matched are returned.
+     *
+     *   **waf:** basic protection rules.
+     *   **blacklist:** IP address blacklist rules.
+     *   **custom:** custom rules.
+     *   **antiscan:** scan protection rules.
+     *   **cc_system:** HTTP flood protection rules.
+     *   **region_block:** region blacklist rules.
+     *   **scene:** bot management rules.
+     *   **dlp:** data leakage prevention rules.
+     *
+     * @example cc_system
+     *
      * @var string
      */
     public $ruleType;
@@ -22,18 +39,14 @@ class ruleHitsTopTuleType extends Model
         'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
@@ -41,18 +54,17 @@ class ruleHitsTopTuleType extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleHitsTopTuleType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }

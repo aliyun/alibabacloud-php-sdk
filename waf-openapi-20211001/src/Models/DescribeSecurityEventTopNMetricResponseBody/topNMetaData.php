@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTopNMetricResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTopNMetricResponseBody\topNMetaData\dateRange;
+use AlibabaCloud\Tea\Model;
 
 class topNMetaData extends Model
 {
     /**
+     * @description The time range that is used for the query.
+     *
      * @var dateRange
      */
     public $dateRange;
 
     /**
+     * @description The unit of the statistics returned. It is fixed as requests.
+     *
+     * @example requests
+     *
      * @var string
      */
     public $units;
@@ -23,21 +29,14 @@ class topNMetaData extends Model
         'units' => 'Units',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->dateRange) {
-            $this->dateRange->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dateRange) {
-            $res['DateRange'] = null !== $this->dateRange ? $this->dateRange->toArray($noStream) : $this->dateRange;
+            $res['DateRange'] = null !== $this->dateRange ? $this->dateRange->toMap() : null;
         }
-
         if (null !== $this->units) {
             $res['Units'] = $this->units;
         }
@@ -45,18 +44,17 @@ class topNMetaData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return topNMetaData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DateRange'])) {
             $model->dateRange = dateRange::fromMap($map['DateRange']);
         }
-
         if (isset($map['Units'])) {
             $model->units = $map['Units'];
         }

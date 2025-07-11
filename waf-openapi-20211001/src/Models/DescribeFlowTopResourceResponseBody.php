@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceResponseBody\ruleHitsTopResource;
+use AlibabaCloud\Tea\Model;
 
 class DescribeFlowTopResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8F0E0B9A-B518-5C6D-BEFC-A373DDE4F652
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 protected objects that receive requests.
+     *
      * @var ruleHitsTopResource[]
      */
     public $ruleHitsTopResource;
@@ -23,28 +29,20 @@ class DescribeFlowTopResourceResponseBody extends Model
         'ruleHitsTopResource' => 'RuleHitsTopResource',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ruleHitsTopResource)) {
-            Model::validateArray($this->ruleHitsTopResource);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->ruleHitsTopResource) {
-            if (\is_array($this->ruleHitsTopResource)) {
-                $res['RuleHitsTopResource'] = [];
-                $n1 = 0;
-                foreach ($this->ruleHitsTopResource as $item1) {
-                    $res['RuleHitsTopResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['RuleHitsTopResource'] = [];
+            if (null !== $this->ruleHitsTopResource && \is_array($this->ruleHitsTopResource)) {
+                $n = 0;
+                foreach ($this->ruleHitsTopResource as $item) {
+                    $res['RuleHitsTopResource'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +50,23 @@ class DescribeFlowTopResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeFlowTopResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RuleHitsTopResource'])) {
             if (!empty($map['RuleHitsTopResource'])) {
                 $model->ruleHitsTopResource = [];
-                $n1 = 0;
-                foreach ($map['RuleHitsTopResource'] as $item1) {
-                    $model->ruleHitsTopResource[$n1] = ruleHitsTopResource::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['RuleHitsTopResource'] as $item) {
+                    $model->ruleHitsTopResource[$n++] = null !== $item ? ruleHitsTopResource::fromMap($item) : $item;
                 }
             }
         }

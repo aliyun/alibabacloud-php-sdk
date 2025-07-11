@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SyncProductInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 45BA2382-7C3F-5B29-9A83-C3BCE586****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class SyncProductInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class SyncProductInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SyncProductInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

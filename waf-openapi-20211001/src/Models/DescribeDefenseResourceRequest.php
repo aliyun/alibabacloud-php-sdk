@@ -4,26 +4,51 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseResourceRequest extends Model
 {
     /**
+     * @description The ID of the Web Application Firewall (WAF) instance.
+     *
+     * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+     *
+     * This parameter is required.
+     *
+     * @example waf_v3prepaid_public_cn-4xl****i60i
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the WAF instance. Valid values:
+     *
+     *   **cn-hangzhou**: The Chinese mainland.
+     *   **ap-southeast-1**: Outside the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the protected object that you want to query. Only exact queries are supported.
+     *
+     * This parameter is required.
+     *
+     * @example example.aliyundoc.com-waf
+     *
      * @var string
      */
     public $resource;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
+     * @example rg-acfm***q
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
@@ -34,26 +59,20 @@ class DescribeDefenseResourceRequest extends Model
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
-
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
@@ -61,26 +80,23 @@ class DescribeDefenseResourceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDefenseResourceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }
-
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }

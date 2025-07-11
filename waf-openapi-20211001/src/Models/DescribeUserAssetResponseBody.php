@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAssetResponseBody\assets;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserAssetResponseBody extends Model
 {
     /**
+     * @description The API statistics.
+     *
      * @var assets[]
      */
     public $assets;
 
     /**
+     * @description The request ID.
+     *
+     * @example C1823E96-EF4B-5BD2-9E02-1D18****3ED8
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +29,20 @@ class DescribeUserAssetResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->assets)) {
-            Model::validateArray($this->assets);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assets) {
-            if (\is_array($this->assets)) {
-                $res['Assets'] = [];
-                $n1 = 0;
-                foreach ($this->assets as $item1) {
-                    $res['Assets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Assets'] = [];
+            if (null !== $this->assets && \is_array($this->assets)) {
+                $n = 0;
+                foreach ($this->assets as $item) {
+                    $res['Assets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +50,23 @@ class DescribeUserAssetResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserAssetResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n1 = 0;
-                foreach ($map['Assets'] as $item1) {
-                    $model->assets[$n1] = assets::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Assets'] as $item) {
+                    $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDefenseRuleStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example BB305BF3-3C71-57A9-9704-E22F567689B0
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyDefenseRuleStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyDefenseRuleStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDefenseRuleStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

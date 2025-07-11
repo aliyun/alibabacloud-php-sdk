@@ -4,31 +4,58 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeProductInstancesRequest extends Model
 {
     /**
+     * @description The ID of the WAF instance.
+     *
+     * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+     *
+     * This parameter is required.
+     *
+     * @example waf_v3prepaid_public_cn-zxu****9d02
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
+     * @example 1704********9107
+     *
      * @var string
      */
     public $ownerUserId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,41 +66,92 @@ class DescribeProductInstancesRequest extends Model
     public $resourceInstanceAccessStatus;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example lb-2zeugkfj81jvo****4tqm
+     *
      * @var string
      */
     public $resourceInstanceId;
 
     /**
+     * @description The IP address of the instance that is added to WAF.
+     *
+     * @example 1.X.X.1
+     *
      * @var string
      */
     public $resourceInstanceIp;
 
     /**
+     * @description The name of the instance that is added to WAF.
+     *
+     * @example demoInstanceName
+     *
      * @var string
      */
     public $resourceInstanceName;
 
     /**
+     * @description The public IP address of the instance.
+     *
+     * @example 1.X.X.1
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $resourceIp;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
+     * @example rg-aekz6ql****5uzi
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example exampleResourceName
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The cloud service to which the instance belongs. Valid values:
+     *
+     *   **clb4**: Layer 4 Classic Load Balancer (CLB).
+     *   **clb7**: Layer 7 CLB.
+     *   **ecs**: Elastic Compute Service (ECS).
+     *
+     * @example clb7
+     *
      * @var string
      */
     public $resourceProduct;
 
     /**
+     * @description The region ID of the instance. Valid values:
+     *
+     *   **cn-chengdu**: China (Chengdu).
+     *   **cn-beijing**: China (Beijing).
+     *   **cn-zhangjiakou**: China (Zhangjiakou).
+     *   **cn-hangzhou**: China (Hangzhou).
+     *   **cn-shanghai**: China (Shanghai).
+     *   **cn-shenzhen**: China (Shenzhen).
+     *   **cn-qingdao**: China (Qingdao).
+     *   **cn-hongkong**: China (Hong Kong).
+     *   **ap-southeast-3**: Malaysia (Kuala Lumpur).
+     *   **ap-southeast-5**: Indonesia (Jakarta).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $resourceRegionId;
@@ -94,66 +172,50 @@ class DescribeProductInstancesRequest extends Model
         'resourceRegionId' => 'ResourceRegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ownerUserId) {
             $res['OwnerUserId'] = $this->ownerUserId;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceInstanceAccessStatus) {
             $res['ResourceInstanceAccessStatus'] = $this->resourceInstanceAccessStatus;
         }
-
         if (null !== $this->resourceInstanceId) {
             $res['ResourceInstanceId'] = $this->resourceInstanceId;
         }
-
         if (null !== $this->resourceInstanceIp) {
             $res['ResourceInstanceIp'] = $this->resourceInstanceIp;
         }
-
         if (null !== $this->resourceInstanceName) {
             $res['ResourceInstanceName'] = $this->resourceInstanceName;
         }
-
         if (null !== $this->resourceIp) {
             $res['ResourceIp'] = $this->resourceIp;
         }
-
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
-
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-
         if (null !== $this->resourceProduct) {
             $res['ResourceProduct'] = $this->resourceProduct;
         }
-
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
         }
@@ -161,66 +223,53 @@ class DescribeProductInstancesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeProductInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OwnerUserId'])) {
             $model->ownerUserId = $map['OwnerUserId'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceInstanceAccessStatus'])) {
             $model->resourceInstanceAccessStatus = $map['ResourceInstanceAccessStatus'];
         }
-
         if (isset($map['ResourceInstanceId'])) {
             $model->resourceInstanceId = $map['ResourceInstanceId'];
         }
-
         if (isset($map['ResourceInstanceIp'])) {
             $model->resourceInstanceIp = $map['ResourceInstanceIp'];
         }
-
         if (isset($map['ResourceInstanceName'])) {
             $model->resourceInstanceName = $map['ResourceInstanceName'];
         }
-
         if (isset($map['ResourceIp'])) {
             $model->resourceIp = $map['ResourceIp'];
         }
-
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
-
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-
         if (isset($map['ResourceProduct'])) {
             $model->resourceProduct = $map['ResourceProduct'];
         }
-
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
         }

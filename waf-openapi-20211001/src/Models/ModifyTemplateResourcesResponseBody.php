@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyTemplateResourcesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CF708F2F-FFB0-54D4-B1E0-B84A7CEBFB60
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyTemplateResourcesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyTemplateResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyTemplateResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

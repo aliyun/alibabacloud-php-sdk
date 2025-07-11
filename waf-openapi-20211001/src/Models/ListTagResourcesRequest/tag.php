@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
+     * @description The key of tag N that is added to the resource. Valid values of N: 1 to 20.
+     *
+     * @example Tagkey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N that is added to the resource. Valid values of N: 1 to 20.
+     *
+     * @example TagValue1
+     *
      * @var string
      */
     public $value;
@@ -22,18 +30,14 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class tag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

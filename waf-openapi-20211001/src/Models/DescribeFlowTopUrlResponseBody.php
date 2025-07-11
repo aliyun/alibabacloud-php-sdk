@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopUrlResponseBody\ruleHitsTopUrl;
+use AlibabaCloud\Tea\Model;
 
 class DescribeFlowTopUrlResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 520D4E4C-B8EC-5602-ACB6-4D378ACBA28D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The array of the top 10 URLs that are used to initiate requests.
+     *
      * @var ruleHitsTopUrl[]
      */
     public $ruleHitsTopUrl;
@@ -23,28 +29,20 @@ class DescribeFlowTopUrlResponseBody extends Model
         'ruleHitsTopUrl' => 'RuleHitsTopUrl',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ruleHitsTopUrl)) {
-            Model::validateArray($this->ruleHitsTopUrl);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->ruleHitsTopUrl) {
-            if (\is_array($this->ruleHitsTopUrl)) {
-                $res['RuleHitsTopUrl'] = [];
-                $n1 = 0;
-                foreach ($this->ruleHitsTopUrl as $item1) {
-                    $res['RuleHitsTopUrl'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['RuleHitsTopUrl'] = [];
+            if (null !== $this->ruleHitsTopUrl && \is_array($this->ruleHitsTopUrl)) {
+                $n = 0;
+                foreach ($this->ruleHitsTopUrl as $item) {
+                    $res['RuleHitsTopUrl'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +50,23 @@ class DescribeFlowTopUrlResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeFlowTopUrlResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RuleHitsTopUrl'])) {
             if (!empty($map['RuleHitsTopUrl'])) {
                 $model->ruleHitsTopUrl = [];
-                $n1 = 0;
-                foreach ($map['RuleHitsTopUrl'] as $item1) {
-                    $model->ruleHitsTopUrl[$n1] = ruleHitsTopUrl::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['RuleHitsTopUrl'] as $item) {
+                    $model->ruleHitsTopUrl[$n++] = null !== $item ? ruleHitsTopUrl::fromMap($item) : $item;
                 }
             }
         }
