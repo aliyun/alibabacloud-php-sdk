@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetJobExecutionThreadDumpRequest extends Model
 {
     /**
+     * @example xxl-job-executor-sample
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example xxljob-b6ec1xxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example http://192.168.0.215:9966/
+     *
      * @var string
      */
     public $executorAddr;
 
     /**
+     * @example 1310630367761285120
+     *
      * @var string
      */
     public $jobExecutionId;
@@ -34,26 +42,20 @@ class GetJobExecutionThreadDumpRequest extends Model
         'jobExecutionId' => 'JobExecutionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->executorAddr) {
             $res['ExecutorAddr'] = $this->executorAddr;
         }
-
         if (null !== $this->jobExecutionId) {
             $res['JobExecutionId'] = $this->jobExecutionId;
         }
@@ -61,26 +63,23 @@ class GetJobExecutionThreadDumpRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetJobExecutionThreadDumpRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['ExecutorAddr'])) {
             $model->executorAddr = $map['ExecutorAddr'];
         }
-
         if (isset($map['JobExecutionId'])) {
             $model->jobExecutionId = $map['JobExecutionId'];
         }

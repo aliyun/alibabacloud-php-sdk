@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxljob-c20f7ec9a78
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xx-test-1107
+     *
      * @var string
      */
     public $clusterName;
@@ -22,18 +30,14 @@ class UpdateClusterRequest extends Model
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -41,18 +45,17 @@ class UpdateClusterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateClusterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }

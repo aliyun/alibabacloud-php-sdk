@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperateStopJobExecutionShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example test-app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxljob-b6ec1xxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1310630367761285120
+     *
      * @var string
      */
     public $jobExecutionId;
@@ -34,26 +46,20 @@ class OperateStopJobExecutionShrinkRequest extends Model
         'taskListShrink' => 'TaskList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->jobExecutionId) {
             $res['JobExecutionId'] = $this->jobExecutionId;
         }
-
         if (null !== $this->taskListShrink) {
             $res['TaskList'] = $this->taskListShrink;
         }
@@ -61,26 +67,23 @@ class OperateStopJobExecutionShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperateStopJobExecutionShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['JobExecutionId'])) {
             $model->jobExecutionId = $map['JobExecutionId'];
         }
-
         if (isset($map['TaskList'])) {
             $model->taskListShrink = $map['TaskList'];
         }

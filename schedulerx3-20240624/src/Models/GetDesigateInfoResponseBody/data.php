@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetDesigateInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $designateType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $transferable;
@@ -22,18 +26,14 @@ class data extends Model
         'transferable' => 'Transferable',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->designateType) {
             $res['DesignateType'] = $this->designateType;
         }
-
         if (null !== $this->transferable) {
             $res['Transferable'] = $this->transferable;
         }
@@ -41,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesignateType'])) {
             $model->designateType = $map['DesignateType'];
         }
-
         if (isset($map['Transferable'])) {
             $model->transferable = $map['Transferable'];
         }

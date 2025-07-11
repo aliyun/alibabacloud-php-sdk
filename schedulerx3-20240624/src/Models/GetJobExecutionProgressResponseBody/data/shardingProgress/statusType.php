@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressResponseBody\data\shardingProgress;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class statusType extends Model
 {
     /**
+     * @example 5
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example TaskStatus.FAILED
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description -
+     *
      * @var string[]
      */
     public $tips;
@@ -28,60 +34,40 @@ class statusType extends Model
         'tips' => 'Tips',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tips)) {
-            Model::validateArray($this->tips);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->tips) {
-            if (\is_array($this->tips)) {
-                $res['Tips'] = [];
-                foreach ($this->tips as $key1 => $value1) {
-                    $res['Tips'][$key1] = $value1;
-                }
-            }
+            $res['Tips'] = $this->tips;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return statusType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Tips'])) {
-            if (!empty($map['Tips'])) {
-                $model->tips = [];
-                foreach ($map['Tips'] as $key1 => $value1) {
-                    $model->tips[$key1] = $value1;
-                }
-            }
+            $model->tips = $map['Tips'];
         }
 
         return $model;

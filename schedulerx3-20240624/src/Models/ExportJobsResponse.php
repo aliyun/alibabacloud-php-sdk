@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExportJobsResponse extends Model
 {
@@ -28,30 +28,17 @@ class ExportJobsResponse extends Model
         'body' => 'body',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->headers)) {
-            Model::validateArray($this->headers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headers) {
-            if (\is_array($this->headers)) {
-                $res['headers'] = [];
-                foreach ($this->headers as $key1 => $value1) {
-                    $res['headers'][$key1] = $value1;
-                }
-            }
+            $res['headers'] = $this->headers;
         }
-
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
-
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -59,27 +46,20 @@ class ExportJobsResponse extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExportJobsResponse
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headers'])) {
-            if (!empty($map['headers'])) {
-                $model->headers = [];
-                foreach ($map['headers'] as $key1 => $value1) {
-                    $model->headers[$key1] = $value1;
-                }
-            }
+            $model->headers = $map['headers'];
         }
-
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
         }
-
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

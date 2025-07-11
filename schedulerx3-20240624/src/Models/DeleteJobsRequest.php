@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteJobsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example test-app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxljob-b6ec1xxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description -
+     *
      * @var int[]
      */
     public $jobIds;
@@ -28,63 +38,41 @@ class DeleteJobsRequest extends Model
         'jobIds' => 'JobIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobIds)) {
-            Model::validateArray($this->jobIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->jobIds) {
-            if (\is_array($this->jobIds)) {
-                $res['JobIds'] = [];
-                $n1 = 0;
-                foreach ($this->jobIds as $item1) {
-                    $res['JobIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['JobIds'] = $this->jobIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteJobsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['JobIds'])) {
             if (!empty($map['JobIds'])) {
-                $model->jobIds = [];
-                $n1 = 0;
-                foreach ($map['JobIds'] as $item1) {
-                    $model->jobIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->jobIds = $map['JobIds'];
             }
         }
 
