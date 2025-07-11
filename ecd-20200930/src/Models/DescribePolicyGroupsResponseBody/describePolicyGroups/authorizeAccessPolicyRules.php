@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class authorizeAccessPolicyRules extends Model
 {
     /**
+     * @description The CIDR block that is allowed to access the client. The value is an IPv4 CIDR block.
+     *
+     * @example 47.100.XX.XX/16
+     *
      * @var string
      */
     public $cidrIp;
 
     /**
+     * @description The remarks on the CIDR block that is allowed to access the client.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -22,18 +30,14 @@ class authorizeAccessPolicyRules extends Model
         'description' => 'Description',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cidrIp) {
             $res['CidrIp'] = $this->cidrIp;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -41,18 +45,17 @@ class authorizeAccessPolicyRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return authorizeAccessPolicyRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrIp'])) {
             $model->cidrIp = $map['CidrIp'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

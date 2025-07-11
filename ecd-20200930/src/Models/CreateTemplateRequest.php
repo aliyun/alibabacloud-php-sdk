@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest\dataDiskList;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest\regionConfigList;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest\resourceTagList;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest\siteConfigList;
+use AlibabaCloud\Tea\Model;
 
 class CreateTemplateRequest extends Model
 {
@@ -23,6 +23,8 @@ class CreateTemplateRequest extends Model
     public $autoRenew;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $bizType;
@@ -38,6 +40,8 @@ class CreateTemplateRequest extends Model
     public $dataDiskList;
 
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $defaultLanguage;
@@ -48,6 +52,8 @@ class CreateTemplateRequest extends Model
     public $description;
 
     /**
+     * @example desktopimage-windows-server-2022-64-asp
+     *
      * @var string
      */
     public $imageId;
@@ -63,6 +69,8 @@ class CreateTemplateRequest extends Model
     public $periodUnit;
 
     /**
+     * @example pg-8hlryfn331******
+     *
      * @var string
      */
     public $policyGroupId;
@@ -73,6 +81,8 @@ class CreateTemplateRequest extends Model
     public $postPaidAfterUsedUp;
 
     /**
+     * @example CloudDesktop
+     *
      * @var string
      */
     public $productType;
@@ -83,6 +93,8 @@ class CreateTemplateRequest extends Model
     public $regionConfigList;
 
     /**
+     * @example rg-4knxmfneq1e******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -98,21 +110,29 @@ class CreateTemplateRequest extends Model
     public $siteConfigList;
 
     /**
+     * @example AutoPL
+     *
      * @var string
      */
     public $systemDiskPerformanceLevel;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example ccg-0caoeogrk9m5****
+     *
      * @var string
      */
     public $timerGroupId;
@@ -146,138 +166,98 @@ class CreateTemplateRequest extends Model
         'userDuration' => 'UserDuration',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataDiskList)) {
-            Model::validateArray($this->dataDiskList);
-        }
-        if (\is_array($this->regionConfigList)) {
-            Model::validateArray($this->regionConfigList);
-        }
-        if (\is_array($this->resourceTagList)) {
-            Model::validateArray($this->resourceTagList);
-        }
-        if (\is_array($this->siteConfigList)) {
-            Model::validateArray($this->siteConfigList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
-
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
-
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
-
         if (null !== $this->dataDiskList) {
-            if (\is_array($this->dataDiskList)) {
-                $res['DataDiskList'] = [];
-                $n1 = 0;
-                foreach ($this->dataDiskList as $item1) {
-                    $res['DataDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DataDiskList'] = [];
+            if (null !== $this->dataDiskList && \is_array($this->dataDiskList)) {
+                $n = 0;
+                foreach ($this->dataDiskList as $item) {
+                    $res['DataDiskList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->defaultLanguage) {
             $res['DefaultLanguage'] = $this->defaultLanguage;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
-
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
-
         if (null !== $this->postPaidAfterUsedUp) {
             $res['PostPaidAfterUsedUp'] = $this->postPaidAfterUsedUp;
         }
-
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-
         if (null !== $this->regionConfigList) {
-            if (\is_array($this->regionConfigList)) {
-                $res['RegionConfigList'] = [];
-                $n1 = 0;
-                foreach ($this->regionConfigList as $item1) {
-                    $res['RegionConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['RegionConfigList'] = [];
+            if (null !== $this->regionConfigList && \is_array($this->regionConfigList)) {
+                $n = 0;
+                foreach ($this->regionConfigList as $item) {
+                    $res['RegionConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->resourceTagList) {
-            if (\is_array($this->resourceTagList)) {
-                $res['ResourceTagList'] = [];
-                $n1 = 0;
-                foreach ($this->resourceTagList as $item1) {
-                    $res['ResourceTagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ResourceTagList'] = [];
+            if (null !== $this->resourceTagList && \is_array($this->resourceTagList)) {
+                $n = 0;
+                foreach ($this->resourceTagList as $item) {
+                    $res['ResourceTagList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->siteConfigList) {
-            if (\is_array($this->siteConfigList)) {
-                $res['SiteConfigList'] = [];
-                $n1 = 0;
-                foreach ($this->siteConfigList as $item1) {
-                    $res['SiteConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['SiteConfigList'] = [];
+            if (null !== $this->siteConfigList && \is_array($this->siteConfigList)) {
+                $n = 0;
+                foreach ($this->siteConfigList as $item) {
+                    $res['SiteConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
         }
-
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
-
         if (null !== $this->timerGroupId) {
             $res['TimerGroupId'] = $this->timerGroupId;
         }
-
         if (null !== $this->userDuration) {
             $res['UserDuration'] = $this->userDuration;
         }
@@ -285,126 +265,101 @@ class CreateTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
-
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
-
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
-
         if (isset($map['DataDiskList'])) {
             if (!empty($map['DataDiskList'])) {
                 $model->dataDiskList = [];
-                $n1 = 0;
-                foreach ($map['DataDiskList'] as $item1) {
-                    $model->dataDiskList[$n1] = dataDiskList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DataDiskList'] as $item) {
+                    $model->dataDiskList[$n++] = null !== $item ? dataDiskList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DefaultLanguage'])) {
             $model->defaultLanguage = $map['DefaultLanguage'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
-
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
-
         if (isset($map['PostPaidAfterUsedUp'])) {
             $model->postPaidAfterUsedUp = $map['PostPaidAfterUsedUp'];
         }
-
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-
         if (isset($map['RegionConfigList'])) {
             if (!empty($map['RegionConfigList'])) {
                 $model->regionConfigList = [];
-                $n1 = 0;
-                foreach ($map['RegionConfigList'] as $item1) {
-                    $model->regionConfigList[$n1] = regionConfigList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['RegionConfigList'] as $item) {
+                    $model->regionConfigList[$n++] = null !== $item ? regionConfigList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['ResourceTagList'])) {
             if (!empty($map['ResourceTagList'])) {
                 $model->resourceTagList = [];
-                $n1 = 0;
-                foreach ($map['ResourceTagList'] as $item1) {
-                    $model->resourceTagList[$n1] = resourceTagList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ResourceTagList'] as $item) {
+                    $model->resourceTagList[$n++] = null !== $item ? resourceTagList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SiteConfigList'])) {
             if (!empty($map['SiteConfigList'])) {
                 $model->siteConfigList = [];
-                $n1 = 0;
-                foreach ($map['SiteConfigList'] as $item1) {
-                    $model->siteConfigList[$n1] = siteConfigList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['SiteConfigList'] as $item) {
+                    $model->siteConfigList[$n++] = null !== $item ? siteConfigList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SystemDiskPerformanceLevel'])) {
             $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
         }
-
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
-
         if (isset($map['TimerGroupId'])) {
             $model->timerGroupId = $map['TimerGroupId'];
         }
-
         if (isset($map['UserDuration'])) {
             $model->userDuration = $map['UserDuration'];
         }

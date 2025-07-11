@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsResponseBody\fotaPendingDesktops;
+use AlibabaCloud\Tea\Model;
 
 class DescribeFotaPendingDesktopsResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The cloud computers whose images can be and are pending to be updated to the version specified in `TaskUid`.
+     *
      * @var fotaPendingDesktops[]
      */
     public $fotaPendingDesktops;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -41,40 +59,29 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fotaPendingDesktops)) {
-            Model::validateArray($this->fotaPendingDesktops);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->fotaPendingDesktops) {
-            if (\is_array($this->fotaPendingDesktops)) {
-                $res['FotaPendingDesktops'] = [];
-                $n1 = 0;
-                foreach ($this->fotaPendingDesktops as $item1) {
-                    $res['FotaPendingDesktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FotaPendingDesktops'] = [];
+            if (null !== $this->fotaPendingDesktops && \is_array($this->fotaPendingDesktops)) {
+                $n = 0;
+                foreach ($this->fotaPendingDesktops as $item) {
+                    $res['FotaPendingDesktops'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -82,37 +89,32 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeFotaPendingDesktopsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['FotaPendingDesktops'])) {
             if (!empty($map['FotaPendingDesktops'])) {
                 $model->fotaPendingDesktops = [];
-                $n1 = 0;
-                foreach ($map['FotaPendingDesktops'] as $item1) {
-                    $model->fotaPendingDesktops[$n1] = fotaPendingDesktops::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FotaPendingDesktops'] as $item) {
+                    $model->fotaPendingDesktops[$n++] = null !== $item ? fotaPendingDesktops::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

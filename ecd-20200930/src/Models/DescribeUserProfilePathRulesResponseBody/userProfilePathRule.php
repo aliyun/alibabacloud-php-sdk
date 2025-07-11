@@ -4,22 +4,50 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserProfilePathRulesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserProfilePathRulesResponseBody\userProfilePathRule\rules;
+use AlibabaCloud\Tea\Model;
 
 class userProfilePathRule extends Model
 {
     /**
+     * @description The desktop group ID.
+     *
+     * @example dg-4i8fvpv6tfs03****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The directory rules.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The directory type that is configured for the directory.
+     *
+     * Valid values:
+     *
+     *   DesktopGroup
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Default
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example Default
+     *
      * @var string
      */
     public $userProfileRuleType;
@@ -29,32 +57,23 @@ class userProfilePathRule extends Model
         'userProfileRuleType' => 'UserProfileRuleType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1 = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->userProfileRuleType) {
             $res['UserProfileRuleType'] = $this->userProfileRuleType;
         }
@@ -62,29 +81,26 @@ class userProfilePathRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userProfilePathRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1 = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1] = rules::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['UserProfileRuleType'])) {
             $model->userProfileRuleType = $map['UserProfileRuleType'];
         }

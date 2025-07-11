@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteImagesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete the associated template.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteCascadedBundle;
 
     /**
+     * @description The image IDs. You can specify 1 to 100 image IDs.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $imageId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,32 +42,17 @@ class DeleteImagesRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->imageId)) {
-            Model::validateArray($this->imageId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deleteCascadedBundle) {
             $res['DeleteCascadedBundle'] = $this->deleteCascadedBundle;
         }
-
         if (null !== $this->imageId) {
-            if (\is_array($this->imageId)) {
-                $res['ImageId'] = [];
-                $n1 = 0;
-                foreach ($this->imageId as $item1) {
-                    $res['ImageId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,29 +60,22 @@ class DeleteImagesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteImagesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteCascadedBundle'])) {
             $model->deleteCascadedBundle = $map['DeleteCascadedBundle'];
         }
-
         if (isset($map['ImageId'])) {
             if (!empty($map['ImageId'])) {
-                $model->imageId = [];
-                $n1 = 0;
-                foreach ($map['ImageId'] as $item1) {
-                    $model->imageId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->imageId = $map['ImageId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

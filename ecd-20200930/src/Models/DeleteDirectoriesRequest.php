@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDirectoriesRequest extends Model
 {
     /**
+     * @description The directory IDs. You can specify one or more directory IDs.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
+     *
      * @var string[]
      */
     public $directoryId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -22,28 +34,14 @@ class DeleteDirectoriesRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->directoryId)) {
-            Model::validateArray($this->directoryId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->directoryId) {
-            if (\is_array($this->directoryId)) {
-                $res['DirectoryId'] = [];
-                $n1 = 0;
-                foreach ($this->directoryId as $item1) {
-                    $res['DirectoryId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DirectoryId'] = $this->directoryId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,25 +49,19 @@ class DeleteDirectoriesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDirectoriesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             if (!empty($map['DirectoryId'])) {
-                $model->directoryId = [];
-                $n1 = 0;
-                foreach ($map['DirectoryId'] as $item1) {
-                    $model->directoryId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->directoryId = $map['DirectoryId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

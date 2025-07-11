@@ -4,16 +4,30 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVirtualMFADeviceRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The serial number of the virtual MFA device, which is a unique identifier.
+     *
+     * You can call the [DescribeVirtualMFADevices](https://help.aliyun.com/document_detail/206210.html) operation to query the serial number of the virtual MFA device that is bound by AD users.
+     *
+     * This parameter is required.
+     *
+     * @example a25f297f-f2e1-4a44-bbf1-5f48a6e5****
+     *
      * @var string
      */
     public $serialNumber;
@@ -22,18 +36,14 @@ class DeleteVirtualMFADeviceRequest extends Model
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
@@ -41,18 +51,17 @@ class DeleteVirtualMFADeviceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVirtualMFADeviceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }

@@ -4,11 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RenewNetworkPackagesRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the automatic payment feature.
+     *
+     * Valid values:
+     *
+     *   true (default): enables the auto-payment feature.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * Make sure that your account has sufficient balance. Otherwise, no order is generated.
+     *
+     * <!-- -->
+     *
+     *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * To make the payment, log on to the Elastic Desktop Service console, go to the Orders page, and find the order based on the order ID.
+     *
+     * <!-- -->
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
@@ -19,26 +45,57 @@ class RenewNetworkPackagesRequest extends Model
     public $autoRenew;
 
     /**
+     * @description The IDs of premium bandwidth plans. You can specify up to 100 IDs.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $networkPackageId;
 
     /**
+     * @description The subscription duration if you specify subscription as the new billing method for the cloud desktop. The unit of the value is specified by the `PeriodUnit` parameter. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`.
+     *
+     *   If the `PeriodUnit` parameter is set to `Week`, the valid value of the Period parameter is 1.
+     *   If the `PeriodUnit` parameter is set to `Month`, the valid values of the Period parameter are 1, 2, 3, and 6.
+     *   If the `PeriodUnit` parameter is set to `Year`, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the renewal duration specified by the Period parameter. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Month.
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The promotion ID.
+     *
+     * @example 500038360030606
+     *
      * @var string
      */
     public $promotionId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -58,52 +115,32 @@ class RenewNetworkPackagesRequest extends Model
         'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->networkPackageId)) {
-            Model::validateArray($this->networkPackageId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
-
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
-
         if (null !== $this->networkPackageId) {
-            if (\is_array($this->networkPackageId)) {
-                $res['NetworkPackageId'] = [];
-                $n1 = 0;
-                foreach ($this->networkPackageId as $item1) {
-                    $res['NetworkPackageId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NetworkPackageId'] = $this->networkPackageId;
         }
-
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
-
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resellerOwnerUid) {
             $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
@@ -111,49 +148,37 @@ class RenewNetworkPackagesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RenewNetworkPackagesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
-
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
-
         if (isset($map['NetworkPackageId'])) {
             if (!empty($map['NetworkPackageId'])) {
-                $model->networkPackageId = [];
-                $n1 = 0;
-                foreach ($map['NetworkPackageId'] as $item1) {
-                    $model->networkPackageId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->networkPackageId = $map['NetworkPackageId'];
             }
         }
-
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
-
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResellerOwnerUid'])) {
             $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }

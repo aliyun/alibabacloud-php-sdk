@@ -4,21 +4,42 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetDirectorySsoStatusRequest extends Model
 {
     /**
+     * @description The AD directory ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou+dir-h95efs1mbukd9****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description Specifies whether to enable SSO. Valid values:
+     *
+     *   true: enables SSO.
+     *   false: disables SSO.
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSso;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,22 +49,17 @@ class SetDirectorySsoStatusRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-
         if (null !== $this->enableSso) {
             $res['EnableSso'] = $this->enableSso;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,22 +67,20 @@ class SetDirectorySsoStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetDirectorySsoStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-
         if (isset($map['EnableSso'])) {
             $model->enableSso = $map['EnableSso'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

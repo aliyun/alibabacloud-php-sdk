@@ -4,16 +4,42 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserProfilePathRulesResponseBody\userProfilePathRule\rules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class blackPath extends Model
 {
     /**
+     * @description The path.
+     *
+     * @example AppLocal/Data
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The path type.
+     *
+     * Valid values:
+     *
+     *   file
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   folder
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example file
+     *
      * @var string
      */
     public $type;
@@ -22,18 +48,14 @@ class blackPath extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +63,17 @@ class blackPath extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return blackPath
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

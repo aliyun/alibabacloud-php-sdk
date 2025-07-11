@@ -4,26 +4,60 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAclEntriesRequest extends Model
 {
     /**
+     * @description The Internet access control policy.
+     *
+     * Valid values:
+     *
+     *   allow: allows access to the Internet.
+     *
+     *   disable: forbids access to the Internet.
+     *
+     * This parameter is required.
+     *
+     * @example allow
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The instance IDs (office network IDs or cloud computer IDs) to which the Internet access control policy is applicable.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $sourceId;
 
     /**
+     * @description The granularity to which the Internet access control policy is applicable.
+     *
+     * Valid values:
+     *
+     *   desktop: cloud computer granularity.
+     *
+     *   vpc: office network granularity.
+     *
+     * This parameter is required.
+     *
+     * @example desktop
+     *
      * @var string
      */
     public $sourceType;
@@ -34,36 +68,20 @@ class ModifyAclEntriesRequest extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sourceId)) {
-            Model::validateArray($this->sourceId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->sourceId) {
-            if (\is_array($this->sourceId)) {
-                $res['SourceId'] = [];
-                $n1 = 0;
-                foreach ($this->sourceId as $item1) {
-                    $res['SourceId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SourceId'] = $this->sourceId;
         }
-
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -71,33 +89,25 @@ class ModifyAclEntriesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAclEntriesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SourceId'])) {
             if (!empty($map['SourceId'])) {
-                $model->sourceId = [];
-                $n1 = 0;
-                foreach ($map['SourceId'] as $item1) {
-                    $model->sourceId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->sourceId = $map['SourceId'];
             }
         }
-
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

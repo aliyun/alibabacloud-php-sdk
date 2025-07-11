@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WakeupDesktopsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 6557DBA9-CF3E-5C1B-B1F1-68FDA599****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class WakeupDesktopsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class WakeupDesktopsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WakeupDesktopsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

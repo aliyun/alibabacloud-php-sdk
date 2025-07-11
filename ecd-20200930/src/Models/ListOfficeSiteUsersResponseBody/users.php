@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class users extends Model
 {
@@ -14,6 +14,10 @@ class users extends Model
     public $assignedDesktopNumber;
 
     /**
+     * @description The display name of the AD account.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $displayName;
@@ -29,6 +33,10 @@ class users extends Model
     public $email;
 
     /**
+     * @description The username of the AD account.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $endUser;
@@ -52,38 +60,29 @@ class users extends Model
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assignedDesktopNumber) {
             $res['AssignedDesktopNumber'] = $this->assignedDesktopNumber;
         }
-
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->displayNameNew) {
             $res['DisplayNameNew'] = $this->displayNameNew;
         }
-
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-
         if (null !== $this->endUser) {
             $res['EndUser'] = $this->endUser;
         }
-
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
-
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
         }
@@ -91,38 +90,32 @@ class users extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return users
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssignedDesktopNumber'])) {
             $model->assignedDesktopNumber = $map['AssignedDesktopNumber'];
         }
-
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['DisplayNameNew'])) {
             $model->displayNameNew = $map['DisplayNameNew'];
         }
-
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-
         if (isset($map['EndUser'])) {
             $model->endUser = $map['EndUser'];
         }
-
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }
-
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
         }

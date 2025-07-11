@@ -4,126 +4,380 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsInGroupResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class postPaidDesktops extends Model
 {
     /**
+     * @description The connection status of the cloud computer.
+     *
+     * Valid values:
+     *
+     *   Unknown
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Connected
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Disconnected
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example Connected
+     *
      * @var string
      */
     public $connectionStatus;
 
     /**
+     * @description The retention period. Unit: milliseconds.
+     *
+     * @example 4153958447
+     *
      * @var string
      */
     public $createDuration;
 
     /**
+     * @description The time when the cloud computer was created.
+     *
+     * @example 2022-01-21T06:34:57Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the cloud computer.
+     *
+     * @example ud-2i8qxpv6t1a07****
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud computer.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $desktopName;
 
     /**
+     * @description The status of the cloud computer.
+     *
+     * Valid values:
+     *
+     *   Stopped
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Rebuilding
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Expired
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Deleted
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Pending
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example Stopped
+     *
      * @var string
      */
     public $desktopStatus;
 
     /**
+     * @description The type of the disk.
+     *
+     * Valid values:
+     *
+     *   SYSTEM: system disk
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   DATA: data disk
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description The ID of the authorized user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The IDs of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+     *
      * @var string[]
      */
     public $endUserIds;
 
     /**
+     * @description The username of the authorized user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserName;
 
     /**
+     * @description The usernames of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+     *
      * @var string[]
      */
     public $endUserNames;
 
     /**
+     * @description The image version.
+     *
+     * @example 0.1.0-R-20220914.17****
+     *
      * @var string
      */
     public $fotaVersion;
 
     /**
+     * @description The version of the GPU driver.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $gpuDriverVersion;
 
     /**
+     * @description The image ID.
+     *
+     * @example m-hn5v2mmk0****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The image name.
+     *
+     * @example Win10_ZC
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The flag that is used to manage the cloud computer.
+     *
+     * Valid values:
+     *
+     *   Updating: The configurations of the cloud computer are being updated.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   NoFlag: No flags are attached to the cloud computer.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example NoFlag
+     *
      * @var string
      */
     public $managementFlag;
 
     /**
+     * @description The flags that are used to manage the cloud computers.
+     *
      * @var string[]
      */
     public $managementFlags;
 
     /**
+     * @description The IP address of the member NIC of the instance.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $memberEniIp;
 
     /**
+     * @description The OS.
+     *
+     * Valid values:
+     *
+     *   Linux
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Windows
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The IP address of the primary NIC of the instance.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $primaryEniIp;
 
     /**
+     * @description The protocol.
+     *
+     * Valid values:
+     *
+     *   HDX: HDX protocol
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   ASP: ASP protocol provided by Alibaba Cloud
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example HDX
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @description The time when the cloud computer was released.
+     *
+     * @example 2022-01-21T16:34:57Z
+     *
      * @var string
      */
     public $releaseTime;
 
     /**
+     * @description The time when the cloud computer was reset.
+     *
+     * @example 2021-03-03 08:48:08
+     *
      * @var string
      */
     public $resetTime;
 
     /**
+     * @description The system disk size. Unit: GiB.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $systemDiskSize;
@@ -154,136 +408,80 @@ class postPaidDesktops extends Model
         'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->endUserIds)) {
-            Model::validateArray($this->endUserIds);
-        }
-        if (\is_array($this->endUserNames)) {
-            Model::validateArray($this->endUserNames);
-        }
-        if (\is_array($this->managementFlags)) {
-            Model::validateArray($this->managementFlags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->connectionStatus) {
             $res['ConnectionStatus'] = $this->connectionStatus;
         }
-
         if (null !== $this->createDuration) {
             $res['CreateDuration'] = $this->createDuration;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
-
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
         }
-
         if (null !== $this->desktopStatus) {
             $res['DesktopStatus'] = $this->desktopStatus;
         }
-
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->endUserIds) {
-            if (\is_array($this->endUserIds)) {
-                $res['EndUserIds'] = [];
-                $n1 = 0;
-                foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['EndUserIds'] = $this->endUserIds;
         }
-
         if (null !== $this->endUserName) {
             $res['EndUserName'] = $this->endUserName;
         }
-
         if (null !== $this->endUserNames) {
-            if (\is_array($this->endUserNames)) {
-                $res['EndUserNames'] = [];
-                $n1 = 0;
-                foreach ($this->endUserNames as $item1) {
-                    $res['EndUserNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['EndUserNames'] = $this->endUserNames;
         }
-
         if (null !== $this->fotaVersion) {
             $res['FotaVersion'] = $this->fotaVersion;
         }
-
         if (null !== $this->gpuDriverVersion) {
             $res['GpuDriverVersion'] = $this->gpuDriverVersion;
         }
-
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
-
         if (null !== $this->managementFlag) {
             $res['ManagementFlag'] = $this->managementFlag;
         }
-
         if (null !== $this->managementFlags) {
-            if (\is_array($this->managementFlags)) {
-                $res['ManagementFlags'] = [];
-                $n1 = 0;
-                foreach ($this->managementFlags as $item1) {
-                    $res['ManagementFlags'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ManagementFlags'] = $this->managementFlags;
         }
-
         if (null !== $this->memberEniIp) {
             $res['MemberEniIp'] = $this->memberEniIp;
         }
-
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
-
         if (null !== $this->primaryEniIp) {
             $res['PrimaryEniIp'] = $this->primaryEniIp;
         }
-
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
-
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
         }
-
         if (null !== $this->resetTime) {
             $res['ResetTime'] = $this->resetTime;
         }
-
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
         }
@@ -291,127 +489,89 @@ class postPaidDesktops extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return postPaidDesktops
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionStatus'])) {
             $model->connectionStatus = $map['ConnectionStatus'];
         }
-
         if (isset($map['CreateDuration'])) {
             $model->createDuration = $map['CreateDuration'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
-
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
         }
-
         if (isset($map['DesktopStatus'])) {
             $model->desktopStatus = $map['DesktopStatus'];
         }
-
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
-                $model->endUserIds = [];
-                $n1 = 0;
-                foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->endUserIds = $map['EndUserIds'];
             }
         }
-
         if (isset($map['EndUserName'])) {
             $model->endUserName = $map['EndUserName'];
         }
-
         if (isset($map['EndUserNames'])) {
             if (!empty($map['EndUserNames'])) {
-                $model->endUserNames = [];
-                $n1 = 0;
-                foreach ($map['EndUserNames'] as $item1) {
-                    $model->endUserNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->endUserNames = $map['EndUserNames'];
             }
         }
-
         if (isset($map['FotaVersion'])) {
             $model->fotaVersion = $map['FotaVersion'];
         }
-
         if (isset($map['GpuDriverVersion'])) {
             $model->gpuDriverVersion = $map['GpuDriverVersion'];
         }
-
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
-
         if (isset($map['ManagementFlag'])) {
             $model->managementFlag = $map['ManagementFlag'];
         }
-
         if (isset($map['ManagementFlags'])) {
             if (!empty($map['ManagementFlags'])) {
-                $model->managementFlags = [];
-                $n1 = 0;
-                foreach ($map['ManagementFlags'] as $item1) {
-                    $model->managementFlags[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->managementFlags = $map['ManagementFlags'];
             }
         }
-
         if (isset($map['MemberEniIp'])) {
             $model->memberEniIp = $map['MemberEniIp'];
         }
-
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
-
         if (isset($map['PrimaryEniIp'])) {
             $model->primaryEniIp = $map['PrimaryEniIp'];
         }
-
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
-
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];
         }
-
         if (isset($map['ResetTime'])) {
             $model->resetTime = $map['ResetTime'];
         }
-
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
         }

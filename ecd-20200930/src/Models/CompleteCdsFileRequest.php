@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CompleteCdsFileRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
+     * This parameter is required.
+     *
+     * @example cn-shanghai+cds-465878****
+     *
      * @var string
      */
     public $cdsId;
 
     /**
+     * @description The name of the end user.
+     *
+     * @example test0
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The file ID. An ID is the unique identifier of a file.
+     *
+     * This parameter is required.
+     *
+     * @example 635a316c94f40f35f5354da29b2aee88c9d1****
+     *
      * @var string
      */
     public $fileId;
@@ -29,11 +45,23 @@ class CompleteCdsFileRequest extends Model
     public $groupId;
 
     /**
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the file uploading task.
+     *
+     * This parameter is required.
+     *
+     * @example 6C48B55A1FAC4E1A9E0579059514****
+     *
      * @var string
      */
     public $uploadId;
@@ -46,34 +74,26 @@ class CompleteCdsFileRequest extends Model
         'uploadId' => 'UploadId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->uploadId) {
             $res['UploadId'] = $this->uploadId;
         }
@@ -81,34 +101,29 @@ class CompleteCdsFileRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CompleteCdsFileRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['UploadId'])) {
             $model->uploadId = $map['UploadId'];
         }

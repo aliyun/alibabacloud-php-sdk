@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCensResponseBody\cens;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class packageIds extends Model
 {
     /**
+     * @description The ID of the bandwidth plan that is bound to the CEN instance.
+     *
+     * @example cenbwp-4c2zaavbvh5f42****
+     *
      * @var string
      */
     public $packageId;
@@ -16,12 +20,9 @@ class packageIds extends Model
         'packageId' => 'PackageId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->packageId) {
@@ -31,11 +32,11 @@ class packageIds extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return packageIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

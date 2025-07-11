@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteNetworkPackagesRequest extends Model
 {
     /**
+     * @description The IDs of premium bandwidth plans. You can specify one or more IDs.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $networkPackageId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,32 +38,17 @@ class DeleteNetworkPackagesRequest extends Model
         'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->networkPackageId)) {
-            Model::validateArray($this->networkPackageId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->networkPackageId) {
-            if (\is_array($this->networkPackageId)) {
-                $res['NetworkPackageId'] = [];
-                $n1 = 0;
-                foreach ($this->networkPackageId as $item1) {
-                    $res['NetworkPackageId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NetworkPackageId'] = $this->networkPackageId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resellerOwnerUid) {
             $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
@@ -61,29 +56,22 @@ class DeleteNetworkPackagesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteNetworkPackagesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkPackageId'])) {
             if (!empty($map['NetworkPackageId'])) {
-                $model->networkPackageId = [];
-                $n1 = 0;
-                foreach ($map['NetworkPackageId'] as $item1) {
-                    $model->networkPackageId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->networkPackageId = $map['NetworkPackageId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResellerOwnerUid'])) {
             $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }

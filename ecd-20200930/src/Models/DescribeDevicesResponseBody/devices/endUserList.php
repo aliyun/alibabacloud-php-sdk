@@ -4,26 +4,47 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDevicesResponseBody\devices;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class endUserList extends Model
 {
     /**
+     * @description The address of the AD office network.
+     *
+     * @example xn--0zw****
+     *
      * @var string
      */
     public $adDomain;
 
     /**
+     * @description The ID of the convenient office network.
+     *
+     * @example cn-hangzhou+dir-jedbpr4sl9l37****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example moli
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The account type of the user.
+     *
+     * Valid values:
+     *
+     *   AD: enterprise AD account.
+     *   SIMPLE: convenience account
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $userType;
@@ -34,26 +55,20 @@ class endUserList extends Model
         'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
         }
-
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -61,26 +76,23 @@ class endUserList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return endUserList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
         }
-
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

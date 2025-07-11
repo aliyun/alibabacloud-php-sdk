@@ -4,21 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddDevicesRequest extends Model
 {
     /**
+     * @description The type of the client.
+     *
+     * Valid values:
+     *
+     *   1: hardware client.
+     *   2: software client.
+     *
+     * This parameter is required.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $clientType;
 
     /**
+     * @description The IDs of the devices. You can specify up to 200 IDs.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $deviceIds;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,32 +47,17 @@ class AddDevicesRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->deviceIds)) {
-            Model::validateArray($this->deviceIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-
         if (null !== $this->deviceIds) {
-            if (\is_array($this->deviceIds)) {
-                $res['DeviceIds'] = [];
-                $n1 = 0;
-                foreach ($this->deviceIds as $item1) {
-                    $res['DeviceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DeviceIds'] = $this->deviceIds;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,29 +65,22 @@ class AddDevicesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddDevicesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-
         if (isset($map['DeviceIds'])) {
             if (!empty($map['DeviceIds'])) {
-                $model->deviceIds = [];
-                $n1 = 0;
-                foreach ($map['DeviceIds'] as $item1) {
-                    $model->deviceIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->deviceIds = $map['DeviceIds'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

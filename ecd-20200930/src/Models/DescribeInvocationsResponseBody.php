@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeInvocationsResponseBody\invocations;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInvocationsResponseBody extends Model
 {
     /**
+     * @description The command execution records.
+     *
      * @var invocations[]
      */
     public $invocations;
 
     /**
+     * @description The query token that is returned from this call.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
@@ -29,32 +39,23 @@ class DescribeInvocationsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->invocations)) {
-            Model::validateArray($this->invocations);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invocations) {
-            if (\is_array($this->invocations)) {
-                $res['Invocations'] = [];
-                $n1 = 0;
-                foreach ($this->invocations as $item1) {
-                    $res['Invocations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Invocations'] = [];
+            if (null !== $this->invocations && \is_array($this->invocations)) {
+                $n = 0;
+                foreach ($this->invocations as $item) {
+                    $res['Invocations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,29 +63,26 @@ class DescribeInvocationsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInvocationsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Invocations'])) {
             if (!empty($map['Invocations'])) {
                 $model->invocations = [];
-                $n1 = 0;
-                foreach ($map['Invocations'] as $item1) {
-                    $model->invocations[$n1] = invocations::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Invocations'] as $item) {
+                    $model->invocations[$n++] = null !== $item ? invocations::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

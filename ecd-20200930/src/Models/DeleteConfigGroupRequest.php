@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteConfigGroupRequest extends Model
 {
     /**
+     * @description The IDs of the configuration groups that you want to delete.
+     *
      * @var string[]
      */
     public $groupIds;
 
     /**
+     * @description The ID of the region. Set the value to `cn-shanghai`.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -22,28 +28,14 @@ class DeleteConfigGroupRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->groupIds)) {
-            Model::validateArray($this->groupIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupIds) {
-            if (\is_array($this->groupIds)) {
-                $res['GroupIds'] = [];
-                $n1 = 0;
-                foreach ($this->groupIds as $item1) {
-                    $res['GroupIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['GroupIds'] = $this->groupIds;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,25 +43,19 @@ class DeleteConfigGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteConfigGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = [];
-                $n1 = 0;
-                foreach ($map['GroupIds'] as $item1) {
-                    $model->groupIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->groupIds = $map['GroupIds'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveGroupsResponseBody\cloudDriveGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class adminUserInfos extends Model
 {
@@ -52,38 +52,29 @@ class adminUserInfos extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->jobNumber) {
             $res['JobNumber'] = $this->jobNumber;
         }
-
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
-
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
-
         if (null !== $this->realNickName) {
             $res['RealNickName'] = $this->realNickName;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -91,38 +82,32 @@ class adminUserInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return adminUserInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['JobNumber'])) {
             $model->jobNumber = $map['JobNumber'];
         }
-
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
-
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }
-
         if (isset($map['RealNickName'])) {
             $model->realNickName = $map['RealNickName'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

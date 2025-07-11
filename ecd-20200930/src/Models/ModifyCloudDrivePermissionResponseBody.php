@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyCloudDrivePermissionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9197824D-AD4B-571F-94BB-C2E6D5855AB6
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyCloudDrivePermissionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyCloudDrivePermissionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyCloudDrivePermissionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddUserToDesktopGroupRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25693.html).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the cloud computer share.
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
+     * @description The IDs of the cloud computer shares.
+     *
      * @var string[]
      */
     public $desktopGroupIds;
 
     /**
+     * @description The IDs of the users to whom you want to grant permissions.
+     *
      * @var string[]
      */
     public $endUserIds;
 
     /**
+     * @description The ID of the region.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -58,62 +76,32 @@ class AddUserToDesktopGroupRequest extends Model
         'userOuPath' => 'UserOuPath',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->desktopGroupIds)) {
-            Model::validateArray($this->desktopGroupIds);
-        }
-        if (\is_array($this->endUserIds)) {
-            Model::validateArray($this->endUserIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
-
         if (null !== $this->desktopGroupIds) {
-            if (\is_array($this->desktopGroupIds)) {
-                $res['DesktopGroupIds'] = [];
-                $n1 = 0;
-                foreach ($this->desktopGroupIds as $item1) {
-                    $res['DesktopGroupIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DesktopGroupIds'] = $this->desktopGroupIds;
         }
-
         if (null !== $this->endUserIds) {
-            if (\is_array($this->endUserIds)) {
-                $res['EndUserIds'] = [];
-                $n1 = 0;
-                foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['EndUserIds'] = $this->endUserIds;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->simpleUserGroupId) {
             $res['SimpleUserGroupId'] = $this->simpleUserGroupId;
         }
-
         if (null !== $this->userGroupName) {
             $res['UserGroupName'] = $this->userGroupName;
         }
-
         if (null !== $this->userOuPath) {
             $res['UserOuPath'] = $this->userOuPath;
         }
@@ -121,56 +109,39 @@ class AddUserToDesktopGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddUserToDesktopGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
-
         if (isset($map['DesktopGroupIds'])) {
             if (!empty($map['DesktopGroupIds'])) {
-                $model->desktopGroupIds = [];
-                $n1 = 0;
-                foreach ($map['DesktopGroupIds'] as $item1) {
-                    $model->desktopGroupIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->desktopGroupIds = $map['DesktopGroupIds'];
             }
         }
-
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
-                $model->endUserIds = [];
-                $n1 = 0;
-                foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->endUserIds = $map['EndUserIds'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SimpleUserGroupId'])) {
             $model->simpleUserGroupId = $map['SimpleUserGroupId'];
         }
-
         if (isset($map['UserGroupName'])) {
             $model->userGroupName = $map['UserGroupName'];
         }
-
         if (isset($map['UserOuPath'])) {
             $model->userOuPath = $map['UserOuPath'];
         }

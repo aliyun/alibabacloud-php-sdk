@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCloudDriveUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou+cds-64326*****
+     *
      * @var string
      */
     public $cdsId;
@@ -19,6 +23,10 @@ class DeleteCloudDriveUsersRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,32 +36,17 @@ class DeleteCloudDriveUsersRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->endUserId)) {
-            Model::validateArray($this->endUserId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
-
         if (null !== $this->endUserId) {
-            if (\is_array($this->endUserId)) {
-                $res['EndUserId'] = [];
-                $n1 = 0;
-                foreach ($this->endUserId as $item1) {
-                    $res['EndUserId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,29 +54,22 @@ class DeleteCloudDriveUsersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCloudDriveUsersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
-
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
-                $model->endUserId = [];
-                $n1 = 0;
-                foreach ($map['EndUserId'] as $item1) {
-                    $model->endUserId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->endUserId = $map['EndUserId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

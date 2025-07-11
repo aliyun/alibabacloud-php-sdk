@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDrivesRequest extends Model
 {
@@ -14,26 +14,36 @@ class DescribeDrivesRequest extends Model
     public $domainIds;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example AAAA****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example NAS
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example user01
+     *
      * @var string
      */
     public $userId;
@@ -46,44 +56,26 @@ class DescribeDrivesRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domainIds)) {
-            Model::validateArray($this->domainIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainIds) {
-            if (\is_array($this->domainIds)) {
-                $res['DomainIds'] = [];
-                $n1 = 0;
-                foreach ($this->domainIds as $item1) {
-                    $res['DomainIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DomainIds'] = $this->domainIds;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -91,41 +83,31 @@ class DescribeDrivesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDrivesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainIds'])) {
             if (!empty($map['DomainIds'])) {
-                $model->domainIds = [];
-                $n1 = 0;
-                foreach ($map['DomainIds'] as $item1) {
-                    $model->domainIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->domainIds = $map['DomainIds'];
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

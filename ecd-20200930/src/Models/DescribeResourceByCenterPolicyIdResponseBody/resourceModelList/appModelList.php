@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourceByCenterPolicyIdResponseBody\resourceModelList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class appModelList extends Model
 {
     /**
+     * @description The application ID. This parameter is only applicable to cloud applications.
+     *
+     * @example 18
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The application name.
+     *
+     * @example alipic-powergem
+     *
      * @var string
      */
     public $appName;
@@ -22,18 +30,14 @@ class appModelList extends Model
         'appName' => 'AppName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -41,18 +45,17 @@ class appModelList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appModelList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

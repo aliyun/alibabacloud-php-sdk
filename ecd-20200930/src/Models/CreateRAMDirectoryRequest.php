@@ -4,36 +4,128 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateRAMDirectoryRequest extends Model
 {
     /**
+     * @description The method in which the cloud computer is connected.
+     *
+     * Valid values:
+     *
+     *   VPC
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Internet (default)
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   Any
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example Internet
+     *
      * @var string
      */
     public $desktopAccessType;
 
     /**
+     * @description The directory name. The name must be 2 to 255 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+     *
+     * This parameter is required.
+     *
+     * @example testDirectoryName
+     *
      * @var string
      */
     public $directoryName;
 
     /**
+     * @description Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
+     *
+     * Valid values:
+     *
+     *   <!-- -->
+     *
+     * true
+     *
+     * <!-- -->
+     *
+     * (default)
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * false
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableAdminAccess;
 
     /**
+     * @description Specifies whether to enable Internet access.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableInternetAccess;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The vSwitch IDs. You can configure only one vSwitch.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $vSwitchId;
@@ -46,87 +138,59 @@ class CreateRAMDirectoryRequest extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vSwitchId)) {
-            Model::validateArray($this->vSwitchId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktopAccessType) {
             $res['DesktopAccessType'] = $this->desktopAccessType;
         }
-
         if (null !== $this->directoryName) {
             $res['DirectoryName'] = $this->directoryName;
         }
-
         if (null !== $this->enableAdminAccess) {
             $res['EnableAdminAccess'] = $this->enableAdminAccess;
         }
-
         if (null !== $this->enableInternetAccess) {
             $res['EnableInternetAccess'] = $this->enableInternetAccess;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->vSwitchId) {
-            if (\is_array($this->vSwitchId)) {
-                $res['VSwitchId'] = [];
-                $n1 = 0;
-                foreach ($this->vSwitchId as $item1) {
-                    $res['VSwitchId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateRAMDirectoryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopAccessType'])) {
             $model->desktopAccessType = $map['DesktopAccessType'];
         }
-
         if (isset($map['DirectoryName'])) {
             $model->directoryName = $map['DirectoryName'];
         }
-
         if (isset($map['EnableAdminAccess'])) {
             $model->enableAdminAccess = $map['EnableAdminAccess'];
         }
-
         if (isset($map['EnableInternetAccess'])) {
             $model->enableInternetAccess = $map['EnableInternetAccess'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['VSwitchId'])) {
             if (!empty($map['VSwitchId'])) {
-                $model->vSwitchId = [];
-                $n1 = 0;
-                foreach ($map['VSwitchId'] as $item1) {
-                    $model->vSwitchId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->vSwitchId = $map['VSwitchId'];
             }
         }
 

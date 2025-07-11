@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersInGroupResponseBody\endUsers;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUsersInGroupResponseBody extends Model
 {
     /**
+     * @description The authorized users.
+     *
      * @var endUsers[]
      */
     public $endUsers;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The total number of authorized users that are connected to cloud computers of the cloud computer share.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $onlineUsersCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -40,6 +54,10 @@ class DescribeUsersInGroupResponseBody extends Model
     public $userOuPath;
 
     /**
+     * @description The total number of authorized users of the cloud computer share.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $usersCount;
@@ -53,48 +71,35 @@ class DescribeUsersInGroupResponseBody extends Model
         'usersCount' => 'UsersCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->endUsers)) {
-            Model::validateArray($this->endUsers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endUsers) {
-            if (\is_array($this->endUsers)) {
-                $res['EndUsers'] = [];
-                $n1 = 0;
-                foreach ($this->endUsers as $item1) {
-                    $res['EndUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['EndUsers'] = [];
+            if (null !== $this->endUsers && \is_array($this->endUsers)) {
+                $n = 0;
+                foreach ($this->endUsers as $item) {
+                    $res['EndUsers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->onlineUsersCount) {
             $res['OnlineUsersCount'] = $this->onlineUsersCount;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->userGroupName) {
             $res['UserGroupName'] = $this->userGroupName;
         }
-
         if (null !== $this->userOuPath) {
             $res['UserOuPath'] = $this->userOuPath;
         }
-
         if (null !== $this->usersCount) {
             $res['UsersCount'] = $this->usersCount;
         }
@@ -102,45 +107,38 @@ class DescribeUsersInGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUsersInGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUsers'])) {
             if (!empty($map['EndUsers'])) {
                 $model->endUsers = [];
-                $n1 = 0;
-                foreach ($map['EndUsers'] as $item1) {
-                    $model->endUsers[$n1] = endUsers::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['EndUsers'] as $item) {
+                    $model->endUsers[$n++] = null !== $item ? endUsers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['OnlineUsersCount'])) {
             $model->onlineUsersCount = $map['OnlineUsersCount'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UserGroupName'])) {
             $model->userGroupName = $map['UserGroupName'];
         }
-
         if (isset($map['UserOuPath'])) {
             $model->userOuPath = $map['UserOuPath'];
         }
-
         if (isset($map['UsersCount'])) {
             $model->usersCount = $map['UsersCount'];
         }

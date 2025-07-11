@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteSnapshotRequest extends Model
 {
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The snapshot IDs. You can specify 1 to 100 IDs.
+     *
+     * This parameter is required.
+     *
+     * @example s-2ze81owrnv9pity4****
+     *
      * @var string[]
      */
     public $snapshotId;
@@ -22,55 +34,35 @@ class DeleteSnapshotRequest extends Model
         'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->snapshotId)) {
-            Model::validateArray($this->snapshotId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->snapshotId) {
-            if (\is_array($this->snapshotId)) {
-                $res['SnapshotId'] = [];
-                $n1 = 0;
-                foreach ($this->snapshotId as $item1) {
-                    $res['SnapshotId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteSnapshotRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SnapshotId'])) {
             if (!empty($map['SnapshotId'])) {
-                $model->snapshotId = [];
-                $n1 = 0;
-                foreach ($map['SnapshotId'] as $item1) {
-                    $model->snapshotId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->snapshotId = $map['SnapshotId'];
             }
         }
 

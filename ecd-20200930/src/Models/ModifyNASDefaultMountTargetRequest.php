@@ -4,21 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyNASDefaultMountTargetRequest extends Model
 {
     /**
+     * @description The ID of the NAS file system.
+     *
+     * This parameter is required.
+     *
+     * @example 04f314****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The domain name of the mount target.
+     *
+     * This parameter is required.
+     *
+     * @example 0bf744****-xo***.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,22 +46,17 @@ class ModifyNASDefaultMountTargetRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->mountTargetDomain) {
             $res['MountTargetDomain'] = $this->mountTargetDomain;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,22 +64,20 @@ class ModifyNASDefaultMountTargetRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyNASDefaultMountTargetRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['MountTargetDomain'])) {
             $model->mountTargetDomain = $map['MountTargetDomain'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

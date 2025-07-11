@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserProfilePathRulesResponseBody\userProfilePathRule;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserProfilePathRulesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A87DBB05-653A-5E4B-B72B-5F4A1E07****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The directory blacklist and whitelist.
+     *
      * @var userProfilePathRule
      */
     public $userProfilePathRule;
@@ -23,40 +29,32 @@ class DescribeUserProfilePathRulesResponseBody extends Model
         'userProfilePathRule' => 'UserProfilePathRule',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->userProfilePathRule) {
-            $this->userProfilePathRule->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->userProfilePathRule) {
-            $res['UserProfilePathRule'] = null !== $this->userProfilePathRule ? $this->userProfilePathRule->toArray($noStream) : $this->userProfilePathRule;
+            $res['UserProfilePathRule'] = null !== $this->userProfilePathRule ? $this->userProfilePathRule->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserProfilePathRulesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UserProfilePathRule'])) {
             $model->userProfilePathRule = userProfilePathRule::fromMap($map['UserProfilePathRule']);
         }

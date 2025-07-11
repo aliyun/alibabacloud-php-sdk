@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRefundPriceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class priceInfo extends Model
 {
     /**
+     * @description The unit of currency (USD).
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The amount of the refund.
+     *
+     * @example 3990.75
+     *
      * @var float
      */
     public $refundFee;
@@ -22,18 +30,14 @@ class priceInfo extends Model
         'refundFee' => 'RefundFee',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
-
         if (null !== $this->refundFee) {
             $res['RefundFee'] = $this->refundFee;
         }
@@ -41,18 +45,17 @@ class priceInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return priceInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
-
         if (isset($map['RefundFee'])) {
             $model->refundFee = $map['RefundFee'];
         }

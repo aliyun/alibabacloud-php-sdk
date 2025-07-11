@@ -4,26 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetIdpMetadataRequest extends Model
 {
     /**
+     * @description The workspace ID. This parameter is the same as `OfficeSiteId`. We recommend that you use `OfficeSiteId` to replace `DirectoryId`. You can specify only `DirectoryId` or `OfficeSiteId`.
+     *
+     * @example cn-hangzhou+dir-400695****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The metadata of the IdP.
+     *
+     * This parameter is required.
+     *
+     * @example &lt;EntityDescriptor ID********Descriptor&gt;
+     *
      * @var string
      */
     public $idpMetadata;
 
     /**
+     * @description The workspace ID.
+     *
+     * @example cn-hangzhou+dir-400695****
+     *
      * @var string
      */
     public $officeSiteId;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,26 +54,20 @@ class SetIdpMetadataRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-
         if (null !== $this->idpMetadata) {
             $res['IdpMetadata'] = $this->idpMetadata;
         }
-
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,26 +75,23 @@ class SetIdpMetadataRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetIdpMetadataRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-
         if (isset($map['IdpMetadata'])) {
             $model->idpMetadata = $map['IdpMetadata'];
         }
-
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

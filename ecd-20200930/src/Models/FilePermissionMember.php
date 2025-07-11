@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\FilePermissionMember\cdsIdentity;
+use AlibabaCloud\Tea\Model;
 
 class FilePermissionMember extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var cdsIdentity
      */
     public $cdsIdentity;
@@ -25,6 +27,8 @@ class FilePermissionMember extends Model
     public $expireTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $roleId;
@@ -35,29 +39,20 @@ class FilePermissionMember extends Model
         'roleId' => 'RoleId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->cdsIdentity) {
-            $this->cdsIdentity->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cdsIdentity) {
-            $res['CdsIdentity'] = null !== $this->cdsIdentity ? $this->cdsIdentity->toArray($noStream) : $this->cdsIdentity;
+            $res['CdsIdentity'] = null !== $this->cdsIdentity ? $this->cdsIdentity->toMap() : null;
         }
-
         if (null !== $this->disinheritSubGroup) {
             $res['DisinheritSubGroup'] = $this->disinheritSubGroup;
         }
-
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
@@ -65,26 +60,23 @@ class FilePermissionMember extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FilePermissionMember
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsIdentity'])) {
             $model->cdsIdentity = cdsIdentity::fromMap($map['CdsIdentity']);
         }
-
         if (isset($map['DisinheritSubGroup'])) {
             $model->disinheritSubGroup = $map['DisinheritSubGroup'];
         }
-
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
