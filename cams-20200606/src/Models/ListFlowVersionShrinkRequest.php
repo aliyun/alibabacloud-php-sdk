@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListPhoneMessageQrdlRequest extends Model
+class ListFlowVersionShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $custSpaceId;
+    public $bizCode;
+
+    /**
+     * @var string
+     */
+    public $bizExtendShrink;
+
+    /**
+     * @var string
+     */
+    public $flowCode;
 
     /**
      * @var int
@@ -19,9 +29,14 @@ class ListPhoneMessageQrdlRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $phoneNumber;
+    public $pageNo;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -32,12 +47,21 @@ class ListPhoneMessageQrdlRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'custSpaceId' => 'CustSpaceId',
+        'bizCode' => 'BizCode',
+        'bizExtendShrink' => 'BizExtend',
+        'flowCode' => 'FlowCode',
         'ownerId' => 'OwnerId',
-        'phoneNumber' => 'PhoneNumber',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -48,16 +72,28 @@ class ListPhoneMessageQrdlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->custSpaceId) {
-            $res['CustSpaceId'] = $this->custSpaceId;
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
+        }
+
+        if (null !== $this->bizExtendShrink) {
+            $res['BizExtend'] = $this->bizExtendShrink;
+        }
+
+        if (null !== $this->flowCode) {
+            $res['FlowCode'] = $this->flowCode;
         }
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -66,6 +102,10 @@ class ListPhoneMessageQrdlRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -79,16 +119,28 @@ class ListPhoneMessageQrdlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustSpaceId'])) {
-            $model->custSpaceId = $map['CustSpaceId'];
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
+        }
+
+        if (isset($map['BizExtend'])) {
+            $model->bizExtendShrink = $map['BizExtend'];
+        }
+
+        if (isset($map['FlowCode'])) {
+            $model->flowCode = $map['FlowCode'];
         }
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -97,6 +149,10 @@ class ListPhoneMessageQrdlRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

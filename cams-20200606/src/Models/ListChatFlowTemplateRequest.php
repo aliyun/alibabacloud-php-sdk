@@ -6,12 +6,17 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListPhoneMessageQrdlRequest extends Model
+class ListChatFlowTemplateRequest extends Model
 {
     /**
      * @var string
      */
-    public $custSpaceId;
+    public $bizCode;
+
+    /**
+     * @var string
+     */
+    public $keyword;
 
     /**
      * @var int
@@ -19,9 +24,14 @@ class ListPhoneMessageQrdlRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $phoneNumber;
+    public $pageNo;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -32,12 +42,20 @@ class ListPhoneMessageQrdlRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $triggerType;
     protected $_name = [
-        'custSpaceId' => 'CustSpaceId',
+        'bizCode' => 'BizCode',
+        'keyword' => 'Keyword',
         'ownerId' => 'OwnerId',
-        'phoneNumber' => 'PhoneNumber',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'triggerType' => 'TriggerType',
     ];
 
     public function validate()
@@ -48,16 +66,24 @@ class ListPhoneMessageQrdlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->custSpaceId) {
-            $res['CustSpaceId'] = $this->custSpaceId;
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
+        }
+
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -66,6 +92,10 @@ class ListPhoneMessageQrdlRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->triggerType) {
+            $res['TriggerType'] = $this->triggerType;
         }
 
         return $res;
@@ -79,16 +109,24 @@ class ListPhoneMessageQrdlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustSpaceId'])) {
-            $model->custSpaceId = $map['CustSpaceId'];
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
+        }
+
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -97,6 +135,10 @@ class ListPhoneMessageQrdlRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['TriggerType'])) {
+            $model->triggerType = $map['TriggerType'];
         }
 
         return $model;

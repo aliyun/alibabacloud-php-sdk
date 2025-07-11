@@ -11,12 +11,6 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupInviteLinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupInviteLinkResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatGroupResponse;
-use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateResponse;
-use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateShrinkRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatRequest;
-use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponse;
-use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappBindWabaRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappBindWabaResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappEmbedSignUpRequest;
@@ -38,13 +32,27 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappMigrationInitiateRespons
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowByImportRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowByImportResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowByImportShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowLogSettingRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowLogSettingResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowVersionShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreatePhoneMessageQrdlRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreatePhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupInviteLinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupInviteLinkResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupParticipantsRequest;
@@ -54,12 +62,24 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatGroupResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowVersionShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeletePhoneMessageQrdlRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeletePhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeprecateFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeprecateFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\EnableWhatsappROIMetricRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\EnableWhatsappROIMetricResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowBindPhoneRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowBindPhoneResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowBindPhoneShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowRebindPhoneRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowRebindPhoneResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowRebindPhoneShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowUnbindPhoneRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowUnbindPhoneResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowUnbindPhoneShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappPhoneNumberMetricRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappPhoneNumberMetricResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailRequest;
@@ -70,6 +90,11 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatFlowMetricRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatFlowMetricResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatFlowMetricShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatFlowTemplateRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatFlowTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetConversationalAutomationRequest;
@@ -97,9 +122,16 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappHealthStatusRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappHealthStatusResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListBindingRelationsForFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListBindingRelationsForFlowVersionResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatFlowShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatFlowTemplateRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatFlowTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsShrinkRequest;
@@ -109,6 +141,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowVersionShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListPhoneMessageQrdlRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListPhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogRequest;
@@ -126,6 +161,12 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\OfflineFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\OfflineFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\OfflineFlowVersionShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\OnlineFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\OnlineFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\OnlineFlowVersionShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\PublishFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\PublishFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappBindWabaRequest;
@@ -136,6 +177,14 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\QueryPhoneBusinessProfileRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryPhoneBusinessProfileResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryWabaBusinessInfoRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryWabaBusinessInfoResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadChatFlowLogSettingRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadChatFlowLogSettingResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadChatFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadChatFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadChatFlowShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ReadFlowVersionShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageShrinkRequest;
@@ -149,6 +198,11 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\TriggerChatFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\TriggerChatFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatFlowLogSettingRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatFlowLogSettingResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatGroupRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateChatGroupResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingRequest;
@@ -158,6 +212,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateConversationalAutomationRespons
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateConversationalAutomationShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowJSONAssetRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowJSONAssetResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowVersionRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowVersionResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowVersionShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneEncryptionPublicKeyRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneEncryptionPublicKeyResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneMessageQrdlRequest;
@@ -452,212 +509,6 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addChatappPhoneNumberWithOptions($request, $runtime);
-    }
-
-    /**
-     * Associates FAQs in the knowledge base.
-     *
-     * @remarks
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param tmpReq - BeeBotAssociateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BeeBotAssociateResponse
-     *
-     * @param BeeBotAssociateRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return BeeBotAssociateResponse
-     */
-    public function beeBotAssociateWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new BeeBotAssociateShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->perspective) {
-            $request->perspectiveShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
-        }
-
-        $body = [];
-        if (null !== $request->chatBotInstanceId) {
-            @$body['ChatBotInstanceId'] = $request->chatBotInstanceId;
-        }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
-        }
-
-        if (null !== $request->isvCode) {
-            @$body['IsvCode'] = $request->isvCode;
-        }
-
-        if (null !== $request->perspectiveShrink) {
-            @$body['Perspective'] = $request->perspectiveShrink;
-        }
-
-        if (null !== $request->recommendNum) {
-            @$body['RecommendNum'] = $request->recommendNum;
-        }
-
-        if (null !== $request->sessionId) {
-            @$body['SessionId'] = $request->sessionId;
-        }
-
-        if (null !== $request->utterance) {
-            @$body['Utterance'] = $request->utterance;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'BeeBotAssociate',
-            'version' => '2020-06-06',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return BeeBotAssociateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Associates FAQs in the knowledge base.
-     *
-     * @remarks
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - BeeBotAssociateRequest
-     *
-     * @returns BeeBotAssociateResponse
-     *
-     * @param BeeBotAssociateRequest $request
-     *
-     * @return BeeBotAssociateResponse
-     */
-    public function beeBotAssociate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->beeBotAssociateWithOptions($request, $runtime);
-    }
-
-    /**
-     * Conducts sessions with the bot based on its unique identifier (ID).
-     *
-     * @remarks
-     * The ID of the session.
-     *
-     * @param tmpReq - BeeBotChatRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BeeBotChatResponse
-     *
-     * @param BeeBotChatRequest $tmpReq
-     * @param RuntimeOptions    $runtime
-     *
-     * @return BeeBotChatResponse
-     */
-    public function beeBotChatWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new BeeBotChatShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->perspective) {
-            $request->perspectiveShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
-        }
-
-        if (null !== $tmpReq->vendorParam) {
-            $request->vendorParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vendorParam, 'VendorParam', 'json');
-        }
-
-        $body = [];
-        if (null !== $request->chatBotInstanceId) {
-            @$body['ChatBotInstanceId'] = $request->chatBotInstanceId;
-        }
-
-        if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
-        }
-
-        if (null !== $request->intentName) {
-            @$body['IntentName'] = $request->intentName;
-        }
-
-        if (null !== $request->isvCode) {
-            @$body['IsvCode'] = $request->isvCode;
-        }
-
-        if (null !== $request->knowledgeId) {
-            @$body['KnowledgeId'] = $request->knowledgeId;
-        }
-
-        if (null !== $request->perspectiveShrink) {
-            @$body['Perspective'] = $request->perspectiveShrink;
-        }
-
-        if (null !== $request->senderId) {
-            @$body['SenderId'] = $request->senderId;
-        }
-
-        if (null !== $request->senderNick) {
-            @$body['SenderNick'] = $request->senderNick;
-        }
-
-        if (null !== $request->sessionId) {
-            @$body['SessionId'] = $request->sessionId;
-        }
-
-        if (null !== $request->utterance) {
-            @$body['Utterance'] = $request->utterance;
-        }
-
-        if (null !== $request->vendorParamShrink) {
-            @$body['VendorParam'] = $request->vendorParamShrink;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'BeeBotChat',
-            'version' => '2020-06-06',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return BeeBotChatResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Conducts sessions with the bot based on its unique identifier (ID).
-     *
-     * @remarks
-     * The ID of the session.
-     *
-     * @param request - BeeBotChatRequest
-     *
-     * @returns BeeBotChatResponse
-     *
-     * @param BeeBotChatRequest $request
-     *
-     * @return BeeBotChatResponse
-     */
-    public function beeBotChat($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->beeBotChatWithOptions($request, $runtime);
     }
 
     /**
@@ -1241,6 +1092,257 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * Create Chatflow.
+     *
+     * @param tmpReq - CreateChatFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatFlowResponse
+     *
+     * @param CreateChatFlowRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateChatFlowResponse
+     */
+    public function createChatFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateChatFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowTriggerType) {
+            @$query['FlowTriggerType'] = $request->flowTriggerType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChatFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Chatflow.
+     *
+     * @param request - CreateChatFlowRequest
+     *
+     * @returns CreateChatFlowResponse
+     *
+     * @param CreateChatFlowRequest $request
+     *
+     * @return CreateChatFlowResponse
+     */
+    public function createChatFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createChatFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Import and create flow.
+     *
+     * @param tmpReq - CreateChatFlowByImportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatFlowByImportResponse
+     *
+     * @param CreateChatFlowByImportRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateChatFlowByImportResponse
+     */
+    public function createChatFlowByImportWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateChatFlowByImportShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowViewModel) {
+            @$query['FlowViewModel'] = $request->flowViewModel;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChatFlowByImport',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatFlowByImportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Import and create flow.
+     *
+     * @param request - CreateChatFlowByImportRequest
+     *
+     * @returns CreateChatFlowByImportResponse
+     *
+     * @param CreateChatFlowByImportRequest $request
+     *
+     * @return CreateChatFlowByImportResponse
+     */
+    public function createChatFlowByImport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createChatFlowByImportWithOptions($request, $runtime);
+    }
+
+    /**
+     * Create chatFlow log setting.
+     *
+     * @param request - CreateChatFlowLogSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatFlowLogSettingResponse
+     *
+     * @param CreateChatFlowLogSettingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateChatFlowLogSettingResponse
+     */
+    public function createChatFlowLogSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChatFlowLogSetting',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatFlowLogSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create chatFlow log setting.
+     *
+     * @param request - CreateChatFlowLogSettingRequest
+     *
+     * @returns CreateChatFlowLogSettingResponse
+     *
+     * @param CreateChatFlowLogSettingRequest $request
+     *
+     * @return CreateChatFlowLogSettingResponse
+     */
+    public function createChatFlowLogSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createChatFlowLogSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * The ID of the number.
      *
      * @remarks
@@ -1512,6 +1614,97 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * CreateFlowVersion.
+     *
+     * @param tmpReq - CreateFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFlowVersionResponse
+     *
+     * @param CreateFlowVersionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateFlowVersionResponse
+     */
+    public function createFlowVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateFlowVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersionCopyFrom) {
+            @$query['FlowVersionCopyFrom'] = $request->flowVersionCopyFrom;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateFlowVersion.
+     *
+     * @param request - CreateFlowVersionRequest
+     *
+     * @returns CreateFlowVersionResponse
+     *
+     * @param CreateFlowVersionRequest $request
+     *
+     * @return CreateFlowVersionResponse
+     */
+    public function createFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a quick-response (QR) code that contains a message.
      *
      * @param request - CreatePhoneMessageQrdlRequest
@@ -1578,6 +1771,89 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPhoneMessageQrdlWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Process.
+     *
+     * @param tmpReq - DeleteChatFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChatFlowResponse
+     *
+     * @param DeleteChatFlowRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteChatFlowResponse
+     */
+    public function deleteChatFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteChatFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteChatFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Process.
+     *
+     * @param request - DeleteChatFlowRequest
+     *
+     * @returns DeleteChatFlowResponse
+     *
+     * @param DeleteChatFlowRequest $request
+     *
+     * @return DeleteChatFlowResponse
+     */
+    public function deleteChatFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChatFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -2002,6 +2278,93 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * Delete Flow Version.
+     *
+     * @param tmpReq - DeleteFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFlowVersionResponse
+     *
+     * @param DeleteFlowVersionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteFlowVersionResponse
+     */
+    public function deleteFlowVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteFlowVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Flow Version.
+     *
+     * @param request - DeleteFlowVersionRequest
+     *
+     * @returns DeleteFlowVersionResponse
+     *
+     * @param DeleteFlowVersionRequest $request
+     *
+     * @return DeleteFlowVersionResponse
+     */
+    public function deleteFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a quick-response (QR) code that contains a message.
      *
      * @param request - DeletePhoneMessageQrdlRequest
@@ -2192,6 +2555,455 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableWhatsappROIMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * Bind phone numbers to flow.
+     *
+     * @param tmpReq - FlowBindPhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlowBindPhoneResponse
+     *
+     * @param FlowBindPhoneRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return FlowBindPhoneResponse
+     */
+    public function flowBindPhoneWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new FlowBindPhoneShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phoneNumbers) {
+            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->channelCode) {
+            @$query['ChannelCode'] = $request->channelCode;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumbersShrink) {
+            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->wabaId) {
+            @$query['WabaId'] = $request->wabaId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FlowBindPhone',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FlowBindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Bind phone numbers to flow.
+     *
+     * @param request - FlowBindPhoneRequest
+     *
+     * @returns FlowBindPhoneResponse
+     *
+     * @param FlowBindPhoneRequest $request
+     *
+     * @return FlowBindPhoneResponse
+     */
+    public function flowBindPhone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->flowBindPhoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Rebind phone number for flow.
+     *
+     * @param tmpReq - FlowRebindPhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlowRebindPhoneResponse
+     *
+     * @param FlowRebindPhoneRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FlowRebindPhoneResponse
+     */
+    public function flowRebindPhoneWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new FlowRebindPhoneShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phoneNumbers) {
+            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->channelCode) {
+            @$query['ChannelCode'] = $request->channelCode;
+        }
+
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumbersShrink) {
+            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->wabaId) {
+            @$query['WabaId'] = $request->wabaId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FlowRebindPhone',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FlowRebindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Rebind phone number for flow.
+     *
+     * @param request - FlowRebindPhoneRequest
+     *
+     * @returns FlowRebindPhoneResponse
+     *
+     * @param FlowRebindPhoneRequest $request
+     *
+     * @return FlowRebindPhoneResponse
+     */
+    public function flowRebindPhone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->flowRebindPhoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Unbind phone number from flow.
+     *
+     * @param tmpReq - FlowUnbindPhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlowUnbindPhoneResponse
+     *
+     * @param FlowUnbindPhoneRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FlowUnbindPhoneResponse
+     */
+    public function flowUnbindPhoneWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new FlowUnbindPhoneShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phoneNumbers) {
+            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumbersShrink) {
+            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FlowUnbindPhone',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FlowUnbindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unbind phone number from flow.
+     *
+     * @param request - FlowUnbindPhoneRequest
+     *
+     * @returns FlowUnbindPhoneResponse
+     *
+     * @param FlowUnbindPhoneRequest $request
+     *
+     * @return FlowUnbindPhoneResponse
+     */
+    public function flowUnbindPhone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->flowUnbindPhoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get ChatFlow Runtime Data.
+     *
+     * @param tmpReq - GetChatFlowMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatFlowMetricResponse
+     *
+     * @param GetChatFlowMetricRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetChatFlowMetricResponse
+     */
+    public function getChatFlowMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetChatFlowMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->to) {
+            @$query['To'] = $request->to;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetChatFlowMetric',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatFlowMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get ChatFlow Runtime Data.
+     *
+     * @param request - GetChatFlowMetricRequest
+     *
+     * @returns GetChatFlowMetricResponse
+     *
+     * @param GetChatFlowMetricRequest $request
+     *
+     * @return GetChatFlowMetricResponse
+     */
+    public function getChatFlowMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatFlowMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query chatFlow template.
+     *
+     * @param request - GetChatFlowTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatFlowTemplateResponse
+     *
+     * @param GetChatFlowTemplateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetChatFlowTemplateResponse
+     */
+    public function getChatFlowTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetChatFlowTemplate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatFlowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query chatFlow template.
+     *
+     * @param request - GetChatFlowTemplateRequest
+     *
+     * @returns GetChatFlowTemplateResponse
+     *
+     * @param GetChatFlowTemplateRequest $request
+     *
+     * @return GetChatFlowTemplateResponse
+     */
+    public function getChatFlowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatFlowTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -3551,6 +4363,267 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * 根据flowCode查询已绑定列表.
+     *
+     * @param request - ListBindingRelationsForFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBindingRelationsForFlowVersionResponse
+     *
+     * @param ListBindingRelationsForFlowVersionRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListBindingRelationsForFlowVersionResponse
+     */
+    public function listBindingRelationsForFlowVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBindingRelationsForFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBindingRelationsForFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据flowCode查询已绑定列表.
+     *
+     * @param request - ListBindingRelationsForFlowVersionRequest
+     *
+     * @returns ListBindingRelationsForFlowVersionResponse
+     *
+     * @param ListBindingRelationsForFlowVersionRequest $request
+     *
+     * @return ListBindingRelationsForFlowVersionResponse
+     */
+    public function listBindingRelationsForFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBindingRelationsForFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * List Flows.
+     *
+     * @param tmpReq - ListChatFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChatFlowResponse
+     *
+     * @param ListChatFlowRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListChatFlowResponse
+     */
+    public function listChatFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListChatFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowTriggerType) {
+            @$query['FlowTriggerType'] = $request->flowTriggerType;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->returnWithOnlineVersion) {
+            @$query['ReturnWithOnlineVersion'] = $request->returnWithOnlineVersion;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * List Flows.
+     *
+     * @param request - ListChatFlowRequest
+     *
+     * @returns ListChatFlowResponse
+     *
+     * @param ListChatFlowRequest $request
+     *
+     * @return ListChatFlowResponse
+     */
+    public function listChatFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChatFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * ChatFlow Template List.
+     *
+     * @param request - ListChatFlowTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChatFlowTemplateResponse
+     *
+     * @param ListChatFlowTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListChatFlowTemplateResponse
+     */
+    public function listChatFlowTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatFlowTemplate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatFlowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ChatFlow Template List.
+     *
+     * @param request - ListChatFlowTemplateRequest
+     *
+     * @returns ListChatFlowTemplateResponse
+     *
+     * @param ListChatFlowTemplateRequest $request
+     *
+     * @return ListChatFlowTemplateResponse
+     */
+    public function listChatFlowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChatFlowTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * ListChatGroup.
      *
      * @param tmpReq - ListChatGroupRequest
@@ -3933,6 +5006,101 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * List Flow Versions.
+     *
+     * @param tmpReq - ListFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFlowVersionResponse
+     *
+     * @param ListFlowVersionRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListFlowVersionResponse
+     */
+    public function listFlowVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListFlowVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * List Flow Versions.
+     *
+     * @param request - ListFlowVersionRequest
+     *
+     * @returns ListFlowVersionResponse
+     *
+     * @param ListFlowVersionRequest $request
+     *
+     * @return ListFlowVersionResponse
+     */
+    public function listFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a list of quick-response (QR) codes that contain messages.
      *
      * @param request - ListPhoneMessageQrdlRequest
@@ -3948,17 +5116,29 @@ class Cams extends OpenApiClient
     public function listPhoneMessageQrdlWithOptions($request, $runtime)
     {
         $request->validate();
-        $body = [];
+        $query = [];
         if (null !== $request->custSpaceId) {
-            @$body['CustSpaceId'] = $request->custSpaceId;
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
 
         if (null !== $request->phoneNumber) {
-            @$body['PhoneNumber'] = $request->phoneNumber;
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
 
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPhoneMessageQrdl',
@@ -4588,6 +5768,188 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * Offline Flow Version.
+     *
+     * @param tmpReq - OfflineFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineFlowVersionResponse
+     *
+     * @param OfflineFlowVersionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OfflineFlowVersionResponse
+     */
+    public function offlineFlowVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new OfflineFlowVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Offline Flow Version.
+     *
+     * @param request - OfflineFlowVersionRequest
+     *
+     * @returns OfflineFlowVersionResponse
+     *
+     * @param OfflineFlowVersionRequest $request
+     *
+     * @return OfflineFlowVersionResponse
+     */
+    public function offlineFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlineFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Online Flow Version.
+     *
+     * @param tmpReq - OnlineFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OnlineFlowVersionResponse
+     *
+     * @param OnlineFlowVersionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return OnlineFlowVersionResponse
+     */
+    public function onlineFlowVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new OnlineFlowVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OnlineFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OnlineFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Online Flow Version.
+     *
+     * @param request - OnlineFlowVersionRequest
+     *
+     * @returns OnlineFlowVersionResponse
+     *
+     * @param OnlineFlowVersionRequest $request
+     *
+     * @return OnlineFlowVersionResponse
+     */
+    public function onlineFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->onlineFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Publishes a Flow.
      *
      * @remarks
@@ -4972,6 +6334,249 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryWabaBusinessInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieve Flow.
+     *
+     * @param tmpReq - ReadChatFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadChatFlowResponse
+     *
+     * @param ReadChatFlowRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ReadChatFlowResponse
+     */
+    public function readChatFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReadChatFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReadChatFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieve Flow.
+     *
+     * @param request - ReadChatFlowRequest
+     *
+     * @returns ReadChatFlowResponse
+     *
+     * @param ReadChatFlowRequest $request
+     *
+     * @return ReadChatFlowResponse
+     */
+    public function readChatFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readChatFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * View chatFlow log settings.
+     *
+     * @param request - ReadChatFlowLogSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadChatFlowLogSettingResponse
+     *
+     * @param ReadChatFlowLogSettingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ReadChatFlowLogSettingResponse
+     */
+    public function readChatFlowLogSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReadChatFlowLogSetting',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadChatFlowLogSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * View chatFlow log settings.
+     *
+     * @param request - ReadChatFlowLogSettingRequest
+     *
+     * @returns ReadChatFlowLogSettingResponse
+     *
+     * @param ReadChatFlowLogSettingRequest $request
+     *
+     * @return ReadChatFlowLogSettingResponse
+     */
+    public function readChatFlowLogSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readChatFlowLogSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get Flow Version.
+     *
+     * @param tmpReq - ReadFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadFlowVersionResponse
+     *
+     * @param ReadFlowVersionRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReadFlowVersionResponse
+     */
+    public function readFlowVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReadFlowVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReadFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Flow Version.
+     *
+     * @param request - ReadFlowVersionRequest
+     *
+     * @returns ReadFlowVersionResponse
+     *
+     * @param ReadFlowVersionRequest $request
+     *
+     * @return ReadFlowVersionResponse
+     */
+    public function readFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readFlowVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -5562,6 +7167,174 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * Get Process.
+     *
+     * @param tmpReq - UpdateChatFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChatFlowResponse
+     *
+     * @param UpdateChatFlowRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateChatFlowResponse
+     */
+    public function updateChatFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateChatFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateChatFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Process.
+     *
+     * @param request - UpdateChatFlowRequest
+     *
+     * @returns UpdateChatFlowResponse
+     *
+     * @param UpdateChatFlowRequest $request
+     *
+     * @return UpdateChatFlowResponse
+     */
+    public function updateChatFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateChatFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modify chatFlow log settings.
+     *
+     * @param request - UpdateChatFlowLogSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChatFlowLogSettingResponse
+     *
+     * @param UpdateChatFlowLogSettingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateChatFlowLogSettingResponse
+     */
+    public function updateChatFlowLogSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateChatFlowLogSetting',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateChatFlowLogSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modify chatFlow log settings.
+     *
+     * @param request - UpdateChatFlowLogSettingRequest
+     *
+     * @returns UpdateChatFlowLogSettingResponse
+     *
+     * @param UpdateChatFlowLogSettingRequest $request
+     *
+     * @return UpdateChatFlowLogSettingResponse
+     */
+    public function updateChatFlowLogSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateChatFlowLogSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * UpdateChatGroup.
      *
      * @param request - UpdateChatGroupRequest
@@ -5909,6 +7682,101 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFlowJSONAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update flow version, used for updating the flow DSL on the canvas.
+     *
+     * @param tmpReq - UpdateFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFlowVersionResponse
+     *
+     * @param UpdateFlowVersionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateFlowVersionResponse
+     */
+    public function updateFlowVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateFlowVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizExtend) {
+            $request->bizExtendShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizExtend, 'BizExtend', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->bizExtendShrink) {
+            @$query['BizExtend'] = $request->bizExtendShrink;
+        }
+
+        if (null !== $request->flowCode) {
+            @$query['FlowCode'] = $request->flowCode;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        if (null !== $request->flowViewModel) {
+            @$query['FlowViewModel'] = $request->flowViewModel;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFlowVersion',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update flow version, used for updating the flow DSL on the canvas.
+     *
+     * @param request - UpdateFlowVersionRequest
+     *
+     * @returns UpdateFlowVersionResponse
+     *
+     * @param UpdateFlowVersionRequest $request
+     *
+     * @return UpdateFlowVersionResponse
+     */
+    public function updateFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFlowVersionWithOptions($request, $runtime);
     }
 
     /**

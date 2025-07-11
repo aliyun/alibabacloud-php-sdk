@@ -6,12 +6,27 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListPhoneMessageQrdlRequest extends Model
+class OfflineFlowVersionShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $custSpaceId;
+    public $bizCode;
+
+    /**
+     * @var string
+     */
+    public $bizExtendShrink;
+
+    /**
+     * @var string
+     */
+    public $flowCode;
+
+    /**
+     * @var string
+     */
+    public $flowVersion;
 
     /**
      * @var int
@@ -21,7 +36,7 @@ class ListPhoneMessageQrdlRequest extends Model
     /**
      * @var string
      */
-    public $phoneNumber;
+    public $remark;
 
     /**
      * @var string
@@ -33,9 +48,12 @@ class ListPhoneMessageQrdlRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'custSpaceId' => 'CustSpaceId',
+        'bizCode' => 'BizCode',
+        'bizExtendShrink' => 'BizExtend',
+        'flowCode' => 'FlowCode',
+        'flowVersion' => 'FlowVersion',
         'ownerId' => 'OwnerId',
-        'phoneNumber' => 'PhoneNumber',
+        'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -48,16 +66,28 @@ class ListPhoneMessageQrdlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->custSpaceId) {
-            $res['CustSpaceId'] = $this->custSpaceId;
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
+        }
+
+        if (null !== $this->bizExtendShrink) {
+            $res['BizExtend'] = $this->bizExtendShrink;
+        }
+
+        if (null !== $this->flowCode) {
+            $res['FlowCode'] = $this->flowCode;
+        }
+
+        if (null !== $this->flowVersion) {
+            $res['FlowVersion'] = $this->flowVersion;
         }
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -79,16 +109,28 @@ class ListPhoneMessageQrdlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustSpaceId'])) {
-            $model->custSpaceId = $map['CustSpaceId'];
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
+        }
+
+        if (isset($map['BizExtend'])) {
+            $model->bizExtendShrink = $map['BizExtend'];
+        }
+
+        if (isset($map['FlowCode'])) {
+            $model->flowCode = $map['FlowCode'];
+        }
+
+        if (isset($map['FlowVersion'])) {
+            $model->flowVersion = $map['FlowVersion'];
         }
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

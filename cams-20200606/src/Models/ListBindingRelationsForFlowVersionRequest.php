@@ -6,22 +6,22 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListPhoneMessageQrdlRequest extends Model
+class ListBindingRelationsForFlowVersionRequest extends Model
 {
     /**
      * @var string
      */
-    public $custSpaceId;
+    public $channelType;
+
+    /**
+     * @var string
+     */
+    public $flowCode;
 
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $phoneNumber;
 
     /**
      * @var string
@@ -33,9 +33,9 @@ class ListPhoneMessageQrdlRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'custSpaceId' => 'CustSpaceId',
+        'channelType' => 'ChannelType',
+        'flowCode' => 'FlowCode',
         'ownerId' => 'OwnerId',
-        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -48,16 +48,16 @@ class ListPhoneMessageQrdlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->custSpaceId) {
-            $res['CustSpaceId'] = $this->custSpaceId;
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
+        }
+
+        if (null !== $this->flowCode) {
+            $res['FlowCode'] = $this->flowCode;
         }
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -79,16 +79,16 @@ class ListPhoneMessageQrdlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustSpaceId'])) {
-            $model->custSpaceId = $map['CustSpaceId'];
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
+        }
+
+        if (isset($map['FlowCode'])) {
+            $model->flowCode = $map['FlowCode'];
         }
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

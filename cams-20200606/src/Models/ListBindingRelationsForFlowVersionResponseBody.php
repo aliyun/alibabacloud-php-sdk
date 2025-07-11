@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cams\V20200606\Models\ListPhoneMessageQrdlResponseBody\data;
 
-class ListPhoneMessageQrdlResponseBody extends Model
+class ListBindingRelationsForFlowVersionResponseBody extends Model
 {
     /**
      * @var string
@@ -20,7 +19,7 @@ class ListPhoneMessageQrdlResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var mixed[][]
      */
     public $data;
 
@@ -33,12 +32,18 @@ class ListPhoneMessageQrdlResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
         'data' => 'Data',
         'message' => 'Message',
         'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -65,7 +70,12 @@ class ListPhoneMessageQrdlResponseBody extends Model
                 $res['Data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    if (\is_array($item1)) {
+                        $res['Data'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Data'][$n1][$key2] = $value2;
+                        }
+                    }
                     ++$n1;
                 }
             }
@@ -77,6 +87,10 @@ class ListPhoneMessageQrdlResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -103,7 +117,12 @@ class ListPhoneMessageQrdlResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
+                    if (!empty($item1)) {
+                        $model->data[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->data[$n1][$key2] = $value2;
+                        }
+                    }
                     ++$n1;
                 }
             }
@@ -115,6 +134,10 @@ class ListPhoneMessageQrdlResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;
