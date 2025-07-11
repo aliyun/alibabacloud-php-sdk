@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDirectoriesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noPagination;
@@ -24,26 +30,36 @@ class DescribeDirectoriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example ID
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;
@@ -58,42 +74,32 @@ class DescribeDirectoriesRequest extends Model
         'sortDirection' => 'SortDirection',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->noPagination) {
             $res['NoPagination'] = $this->noPagination;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
-
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
         }
@@ -101,42 +107,35 @@ class DescribeDirectoriesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDirectoriesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['NoPagination'])) {
             $model->noPagination = $map['NoPagination'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
-
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
         }

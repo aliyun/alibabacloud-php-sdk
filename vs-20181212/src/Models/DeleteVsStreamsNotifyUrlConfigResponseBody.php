@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVsStreamsNotifyUrlConfigResponseBody extends Model
 {
     /**
+     * @example 4C747C97-7ECD-4C61-8A92-67AD806331FF
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteVsStreamsNotifyUrlConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteVsStreamsNotifyUrlConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVsStreamsNotifyUrlConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

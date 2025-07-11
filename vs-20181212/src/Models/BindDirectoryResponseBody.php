@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BindDirectoryResponseBody extends Model
 {
     /**
+     * @example 3CB843A9-DD34-4881-B8D6-B0D539D111E4
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class BindDirectoryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class BindDirectoryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BindDirectoryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

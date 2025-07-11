@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartTransferStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,11 +23,17 @@ class StartTransferStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example sd
+     *
      * @var string
      */
     public $transcode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $url;
@@ -34,26 +44,20 @@ class StartTransferStreamRequest extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->transcode) {
             $res['Transcode'] = $this->transcode;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -61,26 +65,23 @@ class StartTransferStreamRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartTransferStreamRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['Transcode'])) {
             $model->transcode = $map['Transcode'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

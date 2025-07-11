@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVsPullStreamInfoConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -24,6 +32,10 @@ class DeleteVsPullStreamInfoConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxStream
+     *
      * @var string
      */
     public $streamName;
@@ -34,26 +46,20 @@ class DeleteVsPullStreamInfoConfigRequest extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -61,26 +67,23 @@ class DeleteVsPullStreamInfoConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVsPullStreamInfoConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

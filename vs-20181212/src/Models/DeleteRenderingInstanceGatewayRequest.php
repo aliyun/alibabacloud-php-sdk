@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteRenderingInstanceGatewayRequest extends Model
 {
     /**
+     * @example render-9f8c57355d224ad7beaf95e145f22111
+     *
      * @var string
      */
     public $renderingInstanceId;
@@ -16,12 +18,9 @@ class DeleteRenderingInstanceGatewayRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->renderingInstanceId) {
@@ -31,11 +30,11 @@ class DeleteRenderingInstanceGatewayRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteRenderingInstanceGatewayRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

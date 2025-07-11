@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUserResourcePackageResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUserResourcePackageResponseBody\resourcePackageInfos\resourcePackageInfo;
+use AlibabaCloud\Tea\Model;
 
 class resourcePackageInfos extends Model
 {
@@ -17,24 +17,17 @@ class resourcePackageInfos extends Model
         'resourcePackageInfo' => 'ResourcePackageInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourcePackageInfo)) {
-            Model::validateArray($this->resourcePackageInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourcePackageInfo) {
-            if (\is_array($this->resourcePackageInfo)) {
-                $res['ResourcePackageInfo'] = [];
-                $n1 = 0;
-                foreach ($this->resourcePackageInfo as $item1) {
-                    $res['ResourcePackageInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ResourcePackageInfo'] = [];
+            if (null !== $this->resourcePackageInfo && \is_array($this->resourcePackageInfo)) {
+                $n = 0;
+                foreach ($this->resourcePackageInfo as $item) {
+                    $res['ResourcePackageInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class resourcePackageInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourcePackageInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourcePackageInfo'])) {
             if (!empty($map['ResourcePackageInfo'])) {
                 $model->resourcePackageInfo = [];
-                $n1 = 0;
-                foreach ($map['ResourcePackageInfo'] as $item1) {
-                    $model->resourcePackageInfo[$n1] = resourcePackageInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ResourcePackageInfo'] as $item) {
+                    $model->resourcePackageInfo[$n++] = null !== $item ? resourcePackageInfo::fromMap($item) : $item;
                 }
             }
         }

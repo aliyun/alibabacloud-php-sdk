@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindTemplateResponseBody\bindings;
+use AlibabaCloud\Tea\Model;
 
 class BatchBindTemplateResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class BatchBindTemplateResponseBody extends Model
     public $bindings;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +25,20 @@ class BatchBindTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->bindings)) {
-            Model::validateArray($this->bindings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bindings) {
-            if (\is_array($this->bindings)) {
-                $res['Bindings'] = [];
-                $n1 = 0;
-                foreach ($this->bindings as $item1) {
-                    $res['Bindings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Bindings'] = [];
+            if (null !== $this->bindings && \is_array($this->bindings)) {
+                $n = 0;
+                foreach ($this->bindings as $item) {
+                    $res['Bindings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +46,23 @@ class BatchBindTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchBindTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bindings'])) {
             if (!empty($map['Bindings'])) {
                 $model->bindings = [];
-                $n1 = 0;
-                foreach ($map['Bindings'] as $item1) {
-                    $model->bindings[$n1] = bindings::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Bindings'] as $item) {
+                    $model->bindings[$n++] = null !== $item ? bindings::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

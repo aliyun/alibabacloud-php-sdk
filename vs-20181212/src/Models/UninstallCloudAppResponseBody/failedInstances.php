@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\UninstallCloudAppResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failedInstances extends Model
 {
@@ -28,22 +28,17 @@ class failedInstances extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
-
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
-
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -51,22 +46,20 @@ class failedInstances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failedInstances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
-
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
-
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

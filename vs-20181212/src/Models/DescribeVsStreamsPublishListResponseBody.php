@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsPublishListResponseBody\publishInfo;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVsStreamsPublishListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 3000
+     *
      * @var int
      */
     public $pageSize;
@@ -25,16 +29,22 @@ class DescribeVsStreamsPublishListResponseBody extends Model
     public $publishInfo;
 
     /**
+     * @example 119F7639-4646-51A4-B6C1-300D391C0104
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;
@@ -47,37 +57,26 @@ class DescribeVsStreamsPublishListResponseBody extends Model
         'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->publishInfo) {
-            $this->publishInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->publishInfo) {
-            $res['PublishInfo'] = null !== $this->publishInfo ? $this->publishInfo->toArray($noStream) : $this->publishInfo;
+            $res['PublishInfo'] = null !== $this->publishInfo ? $this->publishInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
-
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -85,34 +84,29 @@ class DescribeVsStreamsPublishListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVsStreamsPublishListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['PublishInfo'])) {
             $model->publishInfo = publishInfo::fromMap($map['PublishInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
-
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }

@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainConfigsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainConfigsResponseBody\domainConfigs\functionArgs;
+use AlibabaCloud\Tea\Model;
 
 class domainConfigs extends Model
 {
     /**
+     * @example 6295
+     *
      * @var string
      */
     public $configId;
@@ -20,11 +22,15 @@ class domainConfigs extends Model
     public $functionArgs;
 
     /**
+     * @example aliauth
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
@@ -35,36 +41,26 @@ class domainConfigs extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->functionArgs)) {
-            Model::validateArray($this->functionArgs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-
         if (null !== $this->functionArgs) {
-            if (\is_array($this->functionArgs)) {
-                $res['FunctionArgs'] = [];
-                $n1 = 0;
-                foreach ($this->functionArgs as $item1) {
-                    $res['FunctionArgs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FunctionArgs'] = [];
+            if (null !== $this->functionArgs && \is_array($this->functionArgs)) {
+                $n = 0;
+                foreach ($this->functionArgs as $item) {
+                    $res['FunctionArgs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -72,33 +68,29 @@ class domainConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return domainConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-
         if (isset($map['FunctionArgs'])) {
             if (!empty($map['FunctionArgs'])) {
                 $model->functionArgs = [];
-                $n1 = 0;
-                foreach ($map['FunctionArgs'] as $item1) {
-                    $model->functionArgs[$n1] = functionArgs::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FunctionArgs'] as $item) {
+                    $model->functionArgs[$n++] = null !== $item ? functionArgs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

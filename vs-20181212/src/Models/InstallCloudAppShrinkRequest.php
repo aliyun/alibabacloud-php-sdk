@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InstallCloudAppShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cap-b06b26edfhytbn b94a75ae1a79efc90eb
+     *
      * @var string
      */
     public $appId;
@@ -29,6 +33,8 @@ class InstallCloudAppShrinkRequest extends Model
     public $projectId;
 
     /**
+     * @example render-9f8c57355d224ad7beaf95e145f22111
+     *
      * @var string
      */
     public $renderingInstanceId;
@@ -46,34 +52,26 @@ class InstallCloudAppShrinkRequest extends Model
         'renderingInstanceIdsShrink' => 'RenderingInstanceIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
-
         if (null !== $this->renderingInstanceIdsShrink) {
             $res['RenderingInstanceIds'] = $this->renderingInstanceIdsShrink;
         }
@@ -81,34 +79,29 @@ class InstallCloudAppShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InstallCloudAppShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
-
         if (isset($map['RenderingInstanceIds'])) {
             $model->renderingInstanceIdsShrink = $map['RenderingInstanceIds'];
         }

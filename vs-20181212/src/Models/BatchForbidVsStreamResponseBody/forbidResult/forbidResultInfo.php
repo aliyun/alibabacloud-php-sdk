@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchForbidVsStreamResponseBody\forbidResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchForbidVsStreamResponseBody\forbidResult\forbidResultInfo\channels;
+use AlibabaCloud\Tea\Model;
 
 class forbidResultInfo extends Model
 {
@@ -15,16 +15,22 @@ class forbidResultInfo extends Model
     public $channels;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $result;
@@ -35,29 +41,20 @@ class forbidResultInfo extends Model
         'result' => 'Result',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->channels) {
-            $this->channels->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toArray($noStream) : $this->channels;
+            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
-
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
-
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -65,26 +62,23 @@ class forbidResultInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return forbidResultInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channels'])) {
             $model->channels = channels::fromMap($map['Channels']);
         }
-
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
-
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

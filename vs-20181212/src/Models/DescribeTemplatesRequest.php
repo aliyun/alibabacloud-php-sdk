@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTemplatesRequest extends Model
 {
     /**
+     * @example 323434****83423432
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $instanceId;
@@ -24,26 +28,36 @@ class DescribeTemplatesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;
 
     /**
+     * @example record
+     *
      * @var string
      */
     public $type;
@@ -58,42 +72,32 @@ class DescribeTemplatesRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-
         if (null !== $this->sortDirection) {
             $res['SortDirection'] = $this->sortDirection;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -101,42 +105,35 @@ class DescribeTemplatesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTemplatesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-
         if (isset($map['SortDirection'])) {
             $model->sortDirection = $map['SortDirection'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

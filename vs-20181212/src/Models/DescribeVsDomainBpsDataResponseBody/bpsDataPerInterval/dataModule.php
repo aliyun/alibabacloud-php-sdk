@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainBpsDataResponseBody\bpsDataPerInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataModule extends Model
 {
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $bpsValue;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -22,18 +26,14 @@ class dataModule extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bpsValue) {
             $res['BpsValue'] = $this->bpsValue;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -41,18 +41,17 @@ class dataModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BpsValue'])) {
             $model->bpsValue = $map['BpsValue'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

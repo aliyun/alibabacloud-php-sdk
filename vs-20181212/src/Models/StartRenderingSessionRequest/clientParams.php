@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\StartRenderingSessionRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clientParams extends Model
 {
     /**
+     * @example 106.11.43.1
+     *
      * @var string
      */
     public $clientIp;
@@ -16,12 +18,9 @@ class clientParams extends Model
         'clientIp' => 'ClientIp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientIp) {
@@ -31,11 +30,11 @@ class clientParams extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clientParams
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

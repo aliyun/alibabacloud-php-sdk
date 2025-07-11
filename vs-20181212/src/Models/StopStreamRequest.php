@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 32388487****92997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 31000000*****0000002
+     *
      * @var string
      */
     public $name;
@@ -24,6 +30,8 @@ class StopStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-12-12T10:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -34,26 +42,20 @@ class StopStreamRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -61,26 +63,23 @@ class StopStreamRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopStreamRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

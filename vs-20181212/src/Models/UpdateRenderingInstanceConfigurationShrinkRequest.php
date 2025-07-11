@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRenderingInstanceConfigurationShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $configurationShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example render-9f8c57355d224ad7beaf95e145f22111
+     *
      * @var string
      */
     public $renderingInstanceId;
@@ -22,18 +28,14 @@ class UpdateRenderingInstanceConfigurationShrinkRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configurationShrink) {
             $res['Configuration'] = $this->configurationShrink;
         }
-
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -41,18 +43,17 @@ class UpdateRenderingInstanceConfigurationShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRenderingInstanceConfigurationShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configuration'])) {
             $model->configurationShrink = $map['Configuration'];
         }
-
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

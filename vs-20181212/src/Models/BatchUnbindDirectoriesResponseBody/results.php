@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchUnbindDirectoriesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @example An error occurred while processing your request.
+     *
      * @var string
      */
     public $error;
@@ -28,22 +34,17 @@ class results extends Model
         'error' => 'Error',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
@@ -51,22 +52,20 @@ class results extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return results
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingProjectInstanceStateMetricsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class stateMetrics extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @example Idle
+     *
      * @var string
      */
     public $state;
@@ -22,18 +26,14 @@ class stateMetrics extends Model
         'state' => 'State',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -41,18 +41,17 @@ class stateMetrics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return stateMetrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

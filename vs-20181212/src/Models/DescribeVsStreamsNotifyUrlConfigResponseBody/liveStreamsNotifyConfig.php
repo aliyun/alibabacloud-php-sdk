@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsNotifyUrlConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class liveStreamsNotifyConfig extends Model
 {
@@ -19,6 +19,8 @@ class liveStreamsNotifyConfig extends Model
     public $authType;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -34,26 +36,20 @@ class liveStreamsNotifyConfig extends Model
         'notifyUrl' => 'NotifyUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authKey) {
             $res['AuthKey'] = $this->authKey;
         }
-
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->notifyUrl) {
             $res['NotifyUrl'] = $this->notifyUrl;
         }
@@ -61,26 +57,23 @@ class liveStreamsNotifyConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return liveStreamsNotifyConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthKey'])) {
             $model->authKey = $map['AuthKey'];
         }
-
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['NotifyUrl'])) {
             $model->notifyUrl = $map['NotifyUrl'];
         }

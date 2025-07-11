@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingInstanceConfigurationRequest\configuration;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class attributes extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example lon
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 100
+     *
      * @var mixed
      */
     public $value;
@@ -22,18 +30,14 @@ class attributes extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class attributes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return attributes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

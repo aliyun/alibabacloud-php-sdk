@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\StartRenderingSessionResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class stateInfo extends Model
 {
@@ -14,11 +14,15 @@ class stateInfo extends Model
     public $comment;
 
     /**
+     * @example SessionStarting
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 2021-05-06T06:37Z
+     *
      * @var string
      */
     public $updateTime;
@@ -28,22 +32,17 @@ class stateInfo extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -51,22 +50,20 @@ class stateInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return stateInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

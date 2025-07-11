@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainDetailResponseBody\domainConfig;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVsDomainDetailResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class DescribeVsDomainDetailResponseBody extends Model
     public $domainConfig;
 
     /**
+     * @example 9BEC5E85-C76B-56EF-A922-860EFDB8B64B
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class DescribeVsDomainDetailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->domainConfig) {
-            $this->domainConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainConfig) {
-            $res['DomainConfig'] = null !== $this->domainConfig ? $this->domainConfig->toArray($noStream) : $this->domainConfig;
+            $res['DomainConfig'] = null !== $this->domainConfig ? $this->domainConfig->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class DescribeVsDomainDetailResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVsDomainDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainConfig'])) {
             $model->domainConfig = domainConfig::fromMap($map['DomainConfig']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

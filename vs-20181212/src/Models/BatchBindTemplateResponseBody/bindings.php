@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindTemplateResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bindings extends Model
 {
     /**
+     * @example some error
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example 323*****994-cn-qingdao
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example group
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $templateId;
@@ -34,26 +42,20 @@ class bindings extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -61,26 +63,23 @@ class bindings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bindings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

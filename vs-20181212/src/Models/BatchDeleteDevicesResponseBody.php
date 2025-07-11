@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchDeleteDevicesResponseBody\results;
+use AlibabaCloud\Tea\Model;
 
 class BatchDeleteDevicesResponseBody extends Model
 {
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +25,20 @@ class BatchDeleteDevicesResponseBody extends Model
         'results' => 'Results',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->results)) {
-            Model::validateArray($this->results);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->results) {
-            if (\is_array($this->results)) {
-                $res['Results'] = [];
-                $n1 = 0;
-                foreach ($this->results as $item1) {
-                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Results'] = [];
+            if (null !== $this->results && \is_array($this->results)) {
+                $n = 0;
+                foreach ($this->results as $item) {
+                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class BatchDeleteDevicesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchDeleteDevicesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n1 = 0;
-                foreach ($map['Results'] as $item1) {
-                    $model->results[$n1] = results::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Results'] as $item) {
+                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
         }

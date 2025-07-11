@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetVsDomainCertificateResponseBody extends Model
 {
     /**
+     * @example 119F7639-4646-51A4-B6C1-300D391C0104
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class SetVsDomainCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class SetVsDomainCertificateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetVsDomainCertificateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

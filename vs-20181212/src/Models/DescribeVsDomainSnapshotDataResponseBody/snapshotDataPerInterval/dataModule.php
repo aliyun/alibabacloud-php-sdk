@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainSnapshotDataResponseBody\snapshotDataPerInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataModule extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $snapshotValue;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -22,18 +26,14 @@ class dataModule extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->snapshotValue) {
             $res['SnapshotValue'] = $this->snapshotValue;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -41,18 +41,17 @@ class dataModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SnapshotValue'])) {
             $model->snapshotValue = $map['SnapshotValue'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

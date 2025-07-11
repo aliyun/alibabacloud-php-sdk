@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainPvUvDataResponseBody\pvUvDataInfos;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pvUvDataInfo extends Model
 {
     /**
+     * @example 100
+     *
      * @var string
      */
     public $PV;
 
     /**
+     * @example 2021-10-14T23:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $UV;
@@ -28,22 +34,17 @@ class pvUvDataInfo extends Model
         'UV' => 'UV',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->PV) {
             $res['PV'] = $this->PV;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-
         if (null !== $this->UV) {
             $res['UV'] = $this->UV;
         }
@@ -51,22 +52,20 @@ class pvUvDataInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pvUvDataInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PV'])) {
             $model->PV = $map['PV'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-
         if (isset($map['UV'])) {
             $model->UV = $map['UV'];
         }

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainConfigsResponseBody\domainConfigs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class functionArgs extends Model
 {
     /**
+     * @example auth_type
+     *
      * @var string
      */
     public $argName;
 
     /**
+     * @example req_auth
+     *
      * @var string
      */
     public $argValue;
@@ -22,18 +26,14 @@ class functionArgs extends Model
         'argValue' => 'ArgValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->argName) {
             $res['ArgName'] = $this->argName;
         }
-
         if (null !== $this->argValue) {
             $res['ArgValue'] = $this->argValue;
         }
@@ -41,18 +41,17 @@ class functionArgs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return functionArgs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArgName'])) {
             $model->argName = $map['ArgName'];
         }
-
         if (isset($map['ArgValue'])) {
             $model->argValue = $map['ArgValue'];
         }

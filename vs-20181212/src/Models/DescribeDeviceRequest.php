@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 3238848****092996-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeDirectory;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeStats;
@@ -34,26 +42,20 @@ class DescribeDeviceRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->includeDirectory) {
             $res['IncludeDirectory'] = $this->includeDirectory;
         }
-
         if (null !== $this->includeStats) {
             $res['IncludeStats'] = $this->includeStats;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -61,26 +63,23 @@ class DescribeDeviceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDeviceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['IncludeDirectory'])) {
             $model->includeDirectory = $map['IncludeDirectory'];
         }
-
         if (isset($map['IncludeStats'])) {
             $model->includeStats = $map['IncludeStats'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

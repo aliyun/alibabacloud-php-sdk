@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchStartStreamsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
+     * @example stream not found
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 31000000*****0000002
+     *
      * @var string
      */
     public $name;
@@ -28,22 +34,17 @@ class results extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -51,22 +52,20 @@ class results extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return results
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

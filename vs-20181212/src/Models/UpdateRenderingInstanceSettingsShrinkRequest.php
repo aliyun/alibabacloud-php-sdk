@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRenderingInstanceSettingsShrinkRequest extends Model
 {
     /**
+     * @example render-9f8c57355d224ad7beaf95e145f22111
+     *
      * @var string
      */
     public $renderingInstanceId;
@@ -22,18 +24,14 @@ class UpdateRenderingInstanceSettingsShrinkRequest extends Model
         'settingsShrink' => 'Settings',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
-
         if (null !== $this->settingsShrink) {
             $res['Settings'] = $this->settingsShrink;
         }
@@ -41,18 +39,17 @@ class UpdateRenderingInstanceSettingsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRenderingInstanceSettingsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
-
         if (isset($map['Settings'])) {
             $model->settingsShrink = $map['Settings'];
         }

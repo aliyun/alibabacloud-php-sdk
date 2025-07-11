@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUpPeakPublishStreamDataResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUpPeakPublishStreamDataResponseBody\describeVsUpPeakPublishStreamDatas\describeVsUpPeakPublishStreamData;
+use AlibabaCloud\Tea\Model;
 
 class describeVsUpPeakPublishStreamDatas extends Model
 {
@@ -17,24 +17,17 @@ class describeVsUpPeakPublishStreamDatas extends Model
         'describeVsUpPeakPublishStreamData' => 'DescribeVsUpPeakPublishStreamData',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->describeVsUpPeakPublishStreamData)) {
-            Model::validateArray($this->describeVsUpPeakPublishStreamData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->describeVsUpPeakPublishStreamData) {
-            if (\is_array($this->describeVsUpPeakPublishStreamData)) {
-                $res['DescribeVsUpPeakPublishStreamData'] = [];
-                $n1 = 0;
-                foreach ($this->describeVsUpPeakPublishStreamData as $item1) {
-                    $res['DescribeVsUpPeakPublishStreamData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DescribeVsUpPeakPublishStreamData'] = [];
+            if (null !== $this->describeVsUpPeakPublishStreamData && \is_array($this->describeVsUpPeakPublishStreamData)) {
+                $n = 0;
+                foreach ($this->describeVsUpPeakPublishStreamData as $item) {
+                    $res['DescribeVsUpPeakPublishStreamData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class describeVsUpPeakPublishStreamDatas extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return describeVsUpPeakPublishStreamDatas
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DescribeVsUpPeakPublishStreamData'])) {
             if (!empty($map['DescribeVsUpPeakPublishStreamData'])) {
                 $model->describeVsUpPeakPublishStreamData = [];
-                $n1 = 0;
-                foreach ($map['DescribeVsUpPeakPublishStreamData'] as $item1) {
-                    $model->describeVsUpPeakPublishStreamData[$n1] = describeVsUpPeakPublishStreamData::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DescribeVsUpPeakPublishStreamData'] as $item) {
+                    $model->describeVsUpPeakPublishStreamData[$n++] = null !== $item ? describeVsUpPeakPublishStreamData::fromMap($item) : $item;
                 }
             }
         }

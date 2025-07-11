@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDeviceChannelsResponseBody extends Model
 {
     /**
+     * @example 8F4D95B6-EB19-5245-AD77-95EDA83E53B7
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class ModifyDeviceChannelsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class ModifyDeviceChannelsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDeviceChannelsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

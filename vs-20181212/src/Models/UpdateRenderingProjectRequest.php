@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingProjectRequest\sessionAttribs;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRenderingProjectRequest extends Model
 {
@@ -15,11 +15,17 @@ class UpdateRenderingProjectRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example project-422bc38dfgh5eb44149f135ef76304f63b
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example idata_content
+     *
      * @var string
      */
     public $projectName;
@@ -35,56 +41,44 @@ class UpdateRenderingProjectRequest extends Model
         'sessionAttribs' => 'SessionAttribs',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->sessionAttribs) {
-            $this->sessionAttribs->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-
         if (null !== $this->sessionAttribs) {
-            $res['SessionAttribs'] = null !== $this->sessionAttribs ? $this->sessionAttribs->toArray($noStream) : $this->sessionAttribs;
+            $res['SessionAttribs'] = null !== $this->sessionAttribs ? $this->sessionAttribs->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRenderingProjectRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-
         if (isset($map['SessionAttribs'])) {
             $model->sessionAttribs = sessionAttribs::fromMap($map['SessionAttribs']);
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsPublishListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsPublishListResponseBody\publishInfo\liveStreamPublishInfo;
+use AlibabaCloud\Tea\Model;
 
 class publishInfo extends Model
 {
@@ -17,24 +17,17 @@ class publishInfo extends Model
         'liveStreamPublishInfo' => 'LiveStreamPublishInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->liveStreamPublishInfo)) {
-            Model::validateArray($this->liveStreamPublishInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->liveStreamPublishInfo) {
-            if (\is_array($this->liveStreamPublishInfo)) {
-                $res['LiveStreamPublishInfo'] = [];
-                $n1 = 0;
-                foreach ($this->liveStreamPublishInfo as $item1) {
-                    $res['LiveStreamPublishInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['LiveStreamPublishInfo'] = [];
+            if (null !== $this->liveStreamPublishInfo && \is_array($this->liveStreamPublishInfo)) {
+                $n = 0;
+                foreach ($this->liveStreamPublishInfo as $item) {
+                    $res['LiveStreamPublishInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class publishInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return publishInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveStreamPublishInfo'])) {
             if (!empty($map['LiveStreamPublishInfo'])) {
                 $model->liveStreamPublishInfo = [];
-                $n1 = 0;
-                foreach ($map['LiveStreamPublishInfo'] as $item1) {
-                    $model->liveStreamPublishInfo[$n1] = liveStreamPublishInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['LiveStreamPublishInfo'] as $item) {
+                    $model->liveStreamPublishInfo[$n++] = null !== $item ? liveStreamPublishInfo::fromMap($item) : $item;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\additionalIngresses;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class portMappings extends Model
 {
@@ -22,18 +22,14 @@ class portMappings extends Model
         'internalPort' => 'InternalPort',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->externalPort) {
             $res['ExternalPort'] = $this->externalPort;
         }
-
         if (null !== $this->internalPort) {
             $res['InternalPort'] = $this->internalPort;
         }
@@ -41,18 +37,17 @@ class portMappings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return portMappings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExternalPort'])) {
             $model->externalPort = $map['ExternalPort'];
         }
-
         if (isset($map['InternalPort'])) {
             $model->internalPort = $map['InternalPort'];
         }

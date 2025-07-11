@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchUnbindParentPlatformDevicesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example some error
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example 361*****212-cn-qingdao
+     *
      * @var string
      */
     public $parentPlatformId;
@@ -28,22 +34,17 @@ class results extends Model
         'parentPlatformId' => 'ParentPlatformId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
-
         if (null !== $this->parentPlatformId) {
             $res['ParentPlatformId'] = $this->parentPlatformId;
         }
@@ -51,22 +52,20 @@ class results extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return results
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
-
         if (isset($map['ParentPlatformId'])) {
             $model->parentPlatformId = $map['ParentPlatformId'];
         }

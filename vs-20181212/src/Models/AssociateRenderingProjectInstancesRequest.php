@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AssociateRenderingProjectInstancesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example project-422bc38dfgh5eb44149f135ef76304f63b
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $renderingInstanceIds;
@@ -22,55 +28,35 @@ class AssociateRenderingProjectInstancesRequest extends Model
         'renderingInstanceIds' => 'RenderingInstanceIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->renderingInstanceIds)) {
-            Model::validateArray($this->renderingInstanceIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->renderingInstanceIds) {
-            if (\is_array($this->renderingInstanceIds)) {
-                $res['RenderingInstanceIds'] = [];
-                $n1 = 0;
-                foreach ($this->renderingInstanceIds as $item1) {
-                    $res['RenderingInstanceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RenderingInstanceIds'] = $this->renderingInstanceIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AssociateRenderingProjectInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['RenderingInstanceIds'])) {
             if (!empty($map['RenderingInstanceIds'])) {
-                $model->renderingInstanceIds = [];
-                $n1 = 0;
-                foreach ($map['RenderingInstanceIds'] as $item1) {
-                    $model->renderingInstanceIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->renderingInstanceIds = $map['RenderingInstanceIds'];
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainTrafficDataResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainTrafficDataResponseBody\trafficDataPerInterval\dataModule;
+use AlibabaCloud\Tea\Model;
 
 class trafficDataPerInterval extends Model
 {
@@ -17,24 +17,17 @@ class trafficDataPerInterval extends Model
         'dataModule' => 'DataModule',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataModule)) {
-            Model::validateArray($this->dataModule);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataModule) {
-            if (\is_array($this->dataModule)) {
-                $res['DataModule'] = [];
-                $n1 = 0;
-                foreach ($this->dataModule as $item1) {
-                    $res['DataModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DataModule'] = [];
+            if (null !== $this->dataModule && \is_array($this->dataModule)) {
+                $n = 0;
+                foreach ($this->dataModule as $item) {
+                    $res['DataModule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class trafficDataPerInterval extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return trafficDataPerInterval
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataModule'])) {
             if (!empty($map['DataModule'])) {
                 $model->dataModule = [];
-                $n1 = 0;
-                foreach ($map['DataModule'] as $item1) {
-                    $model->dataModule[$n1] = dataModule::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DataModule'] as $item) {
+                    $model->dataModule[$n++] = null !== $item ? dataModule::fromMap($item) : $item;
                 }
             }
         }

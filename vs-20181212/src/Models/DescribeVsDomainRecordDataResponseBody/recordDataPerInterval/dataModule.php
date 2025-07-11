@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainRecordDataResponseBody\recordDataPerInterval;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataModule extends Model
 {
     /**
+     * @example 100
+     *
      * @var string
      */
     public $recordValue;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $streamCountValue;
 
     /**
+     * @example 2021-11-19T15:59:59Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -28,22 +34,17 @@ class dataModule extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordValue) {
             $res['RecordValue'] = $this->recordValue;
         }
-
         if (null !== $this->streamCountValue) {
             $res['StreamCountValue'] = $this->streamCountValue;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -51,22 +52,20 @@ class dataModule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataModule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordValue'])) {
             $model->recordValue = $map['RecordValue'];
         }
-
         if (isset($map['StreamCountValue'])) {
             $model->streamCountValue = $map['StreamCountValue'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

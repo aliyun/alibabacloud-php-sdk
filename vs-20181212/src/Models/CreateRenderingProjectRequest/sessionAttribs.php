@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingProjectRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sessionAttribs extends Model
 {
     /**
+     * @example Async
+     *
      * @var string
      */
     public $startMode;
@@ -16,12 +18,9 @@ class sessionAttribs extends Model
         'startMode' => 'StartMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->startMode) {
@@ -31,11 +30,11 @@ class sessionAttribs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sessionAttribs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
