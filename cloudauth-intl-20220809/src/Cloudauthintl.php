@@ -49,6 +49,7 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\KeepaliveIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
 use Darabonba\OpenApi\Exceptions\ClientException;
@@ -1849,6 +1850,50 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->initializeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 客户端连接保持
+     *
+     * @param Request - KeepaliveIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns KeepaliveIntlResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return KeepaliveIntlResponse
+     */
+    public function keepaliveIntlWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'KeepaliveIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return KeepaliveIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户端连接保持
+     *
+     * @returns KeepaliveIntlResponse
+     *
+     * @return KeepaliveIntlResponse
+     */
+    public function keepaliveIntl()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->keepaliveIntlWithOptions($runtime);
     }
 
     /**
