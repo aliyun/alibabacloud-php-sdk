@@ -40,7 +40,7 @@ class processSqlLists extends Model
     public $executeTime;
 
     /**
-     * @var string
+     * @var int
      */
     public $planId;
 

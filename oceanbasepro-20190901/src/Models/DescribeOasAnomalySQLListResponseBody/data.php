@@ -105,7 +105,7 @@ class data extends Model
     public $sumDbTime;
 
     /**
-     * @var string
+     * @var float
      */
     public $sumElapsedTime;
 
