@@ -89,6 +89,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsShrinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNASFileSystemRequest;
@@ -127,6 +129,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDevicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDirectoriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDriveRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDriveResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteEduRoomRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteEduRoomResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteImagesRequest;
@@ -193,6 +197,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDevicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDrivesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDrivesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowStatisticRequest;
@@ -4612,6 +4618,99 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 创建网盘.
+     *
+     * @param request - CreateDriveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDriveResponse
+     *
+     * @param CreateDriveRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDriveResponse
+     */
+    public function createDriveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
+        }
+
+        if (null !== $request->driveName) {
+            @$query['DriveName'] = $request->driveName;
+        }
+
+        if (null !== $request->externalDomainId) {
+            @$query['ExternalDomainId'] = $request->externalDomainId;
+        }
+
+        if (null !== $request->profileRoaming) {
+            @$query['ProfileRoaming'] = $request->profileRoaming;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDrive',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDriveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网盘.
+     *
+     * @param request - CreateDriveRequest
+     *
+     * @returns CreateDriveResponse
+     *
+     * @param CreateDriveRequest $request
+     *
+     * @return CreateDriveResponse
+     */
+    public function createDrive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDriveWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
      *
      * @param request - CreateImageRequest
@@ -6343,6 +6442,67 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDirectoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除网盘.
+     *
+     * @param request - DeleteDriveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDriveResponse
+     *
+     * @param DeleteDriveRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDriveResponse
+     */
+    public function deleteDriveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->driveId) {
+            @$query['DriveId'] = $request->driveId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDrive',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDriveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网盘.
+     *
+     * @param request - DeleteDriveRequest
+     *
+     * @returns DeleteDriveResponse
+     *
+     * @param DeleteDriveRequest $request
+     *
+     * @return DeleteDriveResponse
+     */
+    public function deleteDrive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDriveWithOptions($request, $runtime);
     }
 
     /**
@@ -9170,6 +9330,83 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDirectoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询网盘列表.
+     *
+     * @param request - DescribeDrivesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrivesResponse
+     *
+     * @param DescribeDrivesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeDrivesResponse
+     */
+    public function describeDrivesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainIds) {
+            @$query['DomainIds'] = $request->domainIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrives',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrivesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网盘列表.
+     *
+     * @param request - DescribeDrivesRequest
+     *
+     * @returns DescribeDrivesResponse
+     *
+     * @param DescribeDrivesRequest $request
+     *
+     * @return DescribeDrivesResponse
+     */
+    public function describeDrives($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDrivesWithOptions($request, $runtime);
     }
 
     /**
