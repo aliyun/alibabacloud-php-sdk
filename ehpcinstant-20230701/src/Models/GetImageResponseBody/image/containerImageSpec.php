@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\containerImageSpec\registryCredential;
+use AlibabaCloud\Tea\Model;
 
 class containerImageSpec extends Model
 {
@@ -15,11 +15,15 @@ class containerImageSpec extends Model
     public $architecture;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $isACREnterprise;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $isACRRegistry;
@@ -40,11 +44,15 @@ class containerImageSpec extends Model
     public $registryCredential;
 
     /**
+     * @example cri-xyz795ygf8k9****
+     *
      * @var string
      */
     public $registryCriId;
 
     /**
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com/ehpc_open/nginx:latest
+     *
      * @var string
      */
     public $registryUrl;
@@ -59,45 +67,32 @@ class containerImageSpec extends Model
         'registryUrl' => 'RegistryUrl',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->registryCredential) {
-            $this->registryCredential->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
         }
-
         if (null !== $this->isACREnterprise) {
             $res['IsACREnterprise'] = $this->isACREnterprise;
         }
-
         if (null !== $this->isACRRegistry) {
             $res['IsACRRegistry'] = $this->isACRRegistry;
         }
-
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
         }
-
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-
         if (null !== $this->registryCredential) {
-            $res['RegistryCredential'] = null !== $this->registryCredential ? $this->registryCredential->toArray($noStream) : $this->registryCredential;
+            $res['RegistryCredential'] = null !== $this->registryCredential ? $this->registryCredential->toMap() : null;
         }
-
         if (null !== $this->registryCriId) {
             $res['RegistryCriId'] = $this->registryCriId;
         }
-
         if (null !== $this->registryUrl) {
             $res['RegistryUrl'] = $this->registryUrl;
         }
@@ -105,42 +100,35 @@ class containerImageSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return containerImageSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
         }
-
         if (isset($map['IsACREnterprise'])) {
             $model->isACREnterprise = $map['IsACREnterprise'];
         }
-
         if (isset($map['IsACRRegistry'])) {
             $model->isACRRegistry = $map['IsACRRegistry'];
         }
-
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];
         }
-
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-
         if (isset($map['RegistryCredential'])) {
             $model->registryCredential = registryCredential::fromMap($map['RegistryCredential']);
         }
-
         if (isset($map['RegistryCriId'])) {
             $model->registryCriId = $map['RegistryCriId'];
         }
-
         if (isset($map['RegistryUrl'])) {
             $model->registryUrl = $map['RegistryUrl'];
         }

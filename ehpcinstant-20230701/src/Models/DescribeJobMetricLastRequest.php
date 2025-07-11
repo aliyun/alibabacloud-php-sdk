@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeJobMetricLastRequest extends Model
 {
@@ -14,11 +14,15 @@ class DescribeJobMetricLastRequest extends Model
     public $arrayIndex;
 
     /**
+     * @example job-xxxxx
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example Task0
+     *
      * @var string
      */
     public $taskName;
@@ -28,32 +32,17 @@ class DescribeJobMetricLastRequest extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->arrayIndex)) {
-            Model::validateArray($this->arrayIndex);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->arrayIndex) {
-            if (\is_array($this->arrayIndex)) {
-                $res['ArrayIndex'] = [];
-                $n1 = 0;
-                foreach ($this->arrayIndex as $item1) {
-                    $res['ArrayIndex'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ArrayIndex'] = $this->arrayIndex;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -61,29 +50,22 @@ class DescribeJobMetricLastRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeJobMetricLastRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArrayIndex'])) {
             if (!empty($map['ArrayIndex'])) {
-                $model->arrayIndex = [];
-                $n1 = 0;
-                foreach ($map['ArrayIndex'] as $item1) {
-                    $model->arrayIndex[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->arrayIndex = $map['ArrayIndex'];
             }
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

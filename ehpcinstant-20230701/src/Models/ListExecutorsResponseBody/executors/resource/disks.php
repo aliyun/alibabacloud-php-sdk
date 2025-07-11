@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsResponseBody\executors\resource;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class disks extends Model
 {
@@ -22,18 +22,14 @@ class disks extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +37,17 @@ class disks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return disks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class documentInfo extends Model
 {
@@ -28,22 +28,17 @@ class documentInfo extends Model
         'encodingMode' => 'EncodingMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->document) {
             $res['Document'] = $this->document;
         }
-
         if (null !== $this->documentId) {
             $res['DocumentId'] = $this->documentId;
         }
-
         if (null !== $this->encodingMode) {
             $res['EncodingMode'] = $this->encodingMode;
         }
@@ -51,22 +46,20 @@ class documentInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return documentInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Document'])) {
             $model->document = $map['Document'];
         }
-
         if (isset($map['DocumentId'])) {
             $model->documentId = $map['DocumentId'];
         }
-
         if (isset($map['EncodingMode'])) {
             $model->encodingMode = $map['EncodingMode'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsRequest\jobSpec;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class taskSpec extends Model
 {
@@ -14,6 +14,8 @@ class taskSpec extends Model
     public $arrayIndex;
 
     /**
+     * @example task0
+     *
      * @var string
      */
     public $taskName;
@@ -22,28 +24,14 @@ class taskSpec extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->arrayIndex)) {
-            Model::validateArray($this->arrayIndex);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->arrayIndex) {
-            if (\is_array($this->arrayIndex)) {
-                $res['ArrayIndex'] = [];
-                $n1 = 0;
-                foreach ($this->arrayIndex as $item1) {
-                    $res['ArrayIndex'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ArrayIndex'] = $this->arrayIndex;
         }
-
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -51,25 +39,19 @@ class taskSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArrayIndex'])) {
             if (!empty($map['ArrayIndex'])) {
-                $model->arrayIndex = [];
-                $n1 = 0;
-                foreach ($map['ArrayIndex'] as $item1) {
-                    $model->arrayIndex[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->arrayIndex = $map['ArrayIndex'];
             }
         }
-
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

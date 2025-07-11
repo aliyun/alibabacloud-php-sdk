@@ -4,22 +4,28 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponseBody\executors\tags;
+use AlibabaCloud\Tea\Model;
 
 class executors extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $arrayIndex;
 
     /**
+     * @example 2024-02-20 10:04:10
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2024-02-20 10:04:18
+     *
      * @var string
      */
     public $endTime;
@@ -55,11 +61,15 @@ class executors extends Model
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Creating executor
+     *
      * @var string
      */
     public $statusReason;
@@ -83,98 +93,50 @@ class executors extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->externalIpAddress)) {
-            Model::validateArray($this->externalIpAddress);
-        }
-        if (\is_array($this->hostName)) {
-            Model::validateArray($this->hostName);
-        }
-        if (\is_array($this->ipAddress)) {
-            Model::validateArray($this->ipAddress);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->arrayIndex) {
             $res['ArrayIndex'] = $this->arrayIndex;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->executorId) {
             $res['ExecutorId'] = $this->executorId;
         }
-
         if (null !== $this->expirationTime) {
             $res['ExpirationTime'] = $this->expirationTime;
         }
-
         if (null !== $this->externalIpAddress) {
-            if (\is_array($this->externalIpAddress)) {
-                $res['ExternalIpAddress'] = [];
-                $n1 = 0;
-                foreach ($this->externalIpAddress as $item1) {
-                    $res['ExternalIpAddress'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ExternalIpAddress'] = $this->externalIpAddress;
         }
-
         if (null !== $this->hostName) {
-            if (\is_array($this->hostName)) {
-                $res['HostName'] = [];
-                $n1 = 0;
-                foreach ($this->hostName as $item1) {
-                    $res['HostName'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['HostName'] = $this->hostName;
         }
-
         if (null !== $this->ipAddress) {
-            if (\is_array($this->ipAddress)) {
-                $res['IpAddress'] = [];
-                $n1 = 0;
-                foreach ($this->ipAddress as $item1) {
-                    $res['IpAddress'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['IpAddress'] = $this->ipAddress;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -182,86 +144,59 @@ class executors extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return executors
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArrayIndex'])) {
             $model->arrayIndex = $map['ArrayIndex'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['ExecutorId'])) {
             $model->executorId = $map['ExecutorId'];
         }
-
         if (isset($map['ExpirationTime'])) {
             $model->expirationTime = $map['ExpirationTime'];
         }
-
         if (isset($map['ExternalIpAddress'])) {
             if (!empty($map['ExternalIpAddress'])) {
-                $model->externalIpAddress = [];
-                $n1 = 0;
-                foreach ($map['ExternalIpAddress'] as $item1) {
-                    $model->externalIpAddress[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->externalIpAddress = $map['ExternalIpAddress'];
             }
         }
-
         if (isset($map['HostName'])) {
             if (!empty($map['HostName'])) {
-                $model->hostName = [];
-                $n1 = 0;
-                foreach ($map['HostName'] as $item1) {
-                    $model->hostName[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->hostName = $map['HostName'];
             }
         }
-
         if (isset($map['IpAddress'])) {
             if (!empty($map['IpAddress'])) {
-                $model->ipAddress = [];
-                $n1 = 0;
-                foreach ($map['IpAddress'] as $item1) {
-                    $model->ipAddress[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ipAddress = $map['IpAddress'];
             }
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

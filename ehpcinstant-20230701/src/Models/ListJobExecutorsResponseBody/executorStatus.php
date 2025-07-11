@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class executorStatus extends Model
 {
@@ -52,38 +52,29 @@ class executorStatus extends Model
         'succeeded' => 'Succeeded',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deleted) {
             $res['Deleted'] = $this->deleted;
         }
-
         if (null !== $this->exception) {
             $res['Exception'] = $this->exception;
         }
-
         if (null !== $this->failed) {
             $res['Failed'] = $this->failed;
         }
-
         if (null !== $this->initing) {
             $res['Initing'] = $this->initing;
         }
-
         if (null !== $this->pending) {
             $res['Pending'] = $this->pending;
         }
-
         if (null !== $this->running) {
             $res['Running'] = $this->running;
         }
-
         if (null !== $this->succeeded) {
             $res['Succeeded'] = $this->succeeded;
         }
@@ -91,38 +82,32 @@ class executorStatus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return executorStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Deleted'])) {
             $model->deleted = $map['Deleted'];
         }
-
         if (isset($map['Exception'])) {
             $model->exception = $map['Exception'];
         }
-
         if (isset($map['Failed'])) {
             $model->failed = $map['Failed'];
         }
-
         if (isset($map['Initing'])) {
             $model->initing = $map['Initing'];
         }
-
         if (isset($map['Pending'])) {
             $model->pending = $map['Pending'];
         }
-
         if (isset($map['Running'])) {
             $model->running = $map['Running'];
         }
-
         if (isset($map['Succeeded'])) {
             $model->succeeded = $map['Succeeded'];
         }

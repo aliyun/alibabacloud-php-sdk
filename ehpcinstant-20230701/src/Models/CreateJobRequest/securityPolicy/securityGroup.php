@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\securityPolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityGroup extends Model
 {
@@ -16,47 +16,29 @@ class securityGroup extends Model
         'securityGroupIds' => 'SecurityGroupIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->securityGroupIds)) {
-            Model::validateArray($this->securityGroupIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->securityGroupIds) {
-            if (\is_array($this->securityGroupIds)) {
-                $res['SecurityGroupIds'] = [];
-                $n1 = 0;
-                foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = [];
-                $n1 = 0;
-                foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->securityGroupIds = $map['SecurityGroupIds'];
             }
         }
 

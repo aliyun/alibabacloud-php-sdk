@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListImagesRequest extends Model
 {
@@ -34,11 +34,15 @@ class ListImagesRequest extends Model
     public $mode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -52,58 +56,29 @@ class ListImagesRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->imageIds)) {
-            Model::validateArray($this->imageIds);
-        }
-        if (\is_array($this->imageNames)) {
-            Model::validateArray($this->imageNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
         }
-
         if (null !== $this->imageIds) {
-            if (\is_array($this->imageIds)) {
-                $res['ImageIds'] = [];
-                $n1 = 0;
-                foreach ($this->imageIds as $item1) {
-                    $res['ImageIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ImageIds'] = $this->imageIds;
         }
-
         if (null !== $this->imageNames) {
-            if (\is_array($this->imageNames)) {
-                $res['ImageNames'] = [];
-                $n1 = 0;
-                foreach ($this->imageNames as $item1) {
-                    $res['ImageNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ImageNames'] = $this->imageNames;
         }
-
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -111,52 +86,36 @@ class ListImagesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListImagesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];
         }
-
         if (isset($map['ImageIds'])) {
             if (!empty($map['ImageIds'])) {
-                $model->imageIds = [];
-                $n1 = 0;
-                foreach ($map['ImageIds'] as $item1) {
-                    $model->imageIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->imageIds = $map['ImageIds'];
             }
         }
-
         if (isset($map['ImageNames'])) {
             if (!empty($map['ImageNames'])) {
-                $model->imageNames = [];
-                $n1 = 0;
-                foreach ($map['ImageNames'] as $item1) {
-                    $model->imageNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->imageNames = $map['ImageNames'];
             }
         }
-
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

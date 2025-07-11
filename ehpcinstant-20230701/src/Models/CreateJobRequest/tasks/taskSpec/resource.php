@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\resource\disks;
+use AlibabaCloud\Tea\Model;
 
 class resource extends Model
 {
     /**
+     * @example 2
+     *
      * @var float
      */
     public $cores;
@@ -25,6 +27,8 @@ class resource extends Model
     public $instanceTypes;
 
     /**
+     * @example 4
+     *
      * @var float
      */
     public $memory;
@@ -35,46 +39,26 @@ class resource extends Model
         'memory' => 'Memory',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->disks)) {
-            Model::validateArray($this->disks);
-        }
-        if (\is_array($this->instanceTypes)) {
-            Model::validateArray($this->instanceTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
-
         if (null !== $this->disks) {
-            if (\is_array($this->disks)) {
-                $res['Disks'] = [];
-                $n1 = 0;
-                foreach ($this->disks as $item1) {
-                    $res['Disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Disks'] = [];
+            if (null !== $this->disks && \is_array($this->disks)) {
+                $n = 0;
+                foreach ($this->disks as $item) {
+                    $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->instanceTypes) {
-            if (\is_array($this->instanceTypes)) {
-                $res['InstanceTypes'] = [];
-                $n1 = 0;
-                foreach ($this->instanceTypes as $item1) {
-                    $res['InstanceTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InstanceTypes'] = $this->instanceTypes;
         }
-
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -82,40 +66,31 @@ class resource extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
-
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
-                $n1 = 0;
-                foreach ($map['Disks'] as $item1) {
-                    $model->disks[$n1] = disks::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Disks'] as $item) {
+                    $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = [];
-                $n1 = 0;
-                foreach ($map['InstanceTypes'] as $item1) {
-                    $model->instanceTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->instanceTypes = $map['InstanceTypes'];
             }
         }
-
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }

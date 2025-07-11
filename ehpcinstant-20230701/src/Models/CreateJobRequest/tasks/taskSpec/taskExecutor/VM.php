@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class VM extends Model
 {
@@ -14,6 +14,10 @@ class VM extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example m-xxxx
+     *
      * @var string
      */
     public $image;
@@ -24,11 +28,15 @@ class VM extends Model
     public $password;
 
     /**
+     * @example ZWNobyBoZWxsbyBlY3Mh
+     *
      * @var string
      */
     public $prologScript;
 
     /**
+     * @example ZWNobyBoZWxsbyBlY3Mh
+     *
      * @var string
      */
     public $script;
@@ -40,30 +48,23 @@ class VM extends Model
         'script' => 'Script',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
-
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->prologScript) {
             $res['PrologScript'] = $this->prologScript;
         }
-
         if (null !== $this->script) {
             $res['Script'] = $this->script;
         }
@@ -71,30 +72,26 @@ class VM extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return VM
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
-
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['PrologScript'])) {
             $model->prologScript = $map['PrologScript'];
         }
-
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
         }

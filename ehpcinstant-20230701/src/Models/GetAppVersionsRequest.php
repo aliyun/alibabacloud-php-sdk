@@ -4,31 +4,43 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAppVersionsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example V-Ray
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @example VM
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -40,30 +52,23 @@ class GetAppVersionsRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
         }
-
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -71,30 +76,26 @@ class GetAppVersionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAppVersionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];
         }
-
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

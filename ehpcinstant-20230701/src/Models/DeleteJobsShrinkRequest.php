@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteJobsShrinkRequest extends Model
 {
@@ -28,22 +28,17 @@ class DeleteJobsShrinkRequest extends Model
         'jobSpecShrink' => 'JobSpec',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->executorIdsShrink) {
             $res['ExecutorIds'] = $this->executorIdsShrink;
         }
-
         if (null !== $this->jobScheduler) {
             $res['JobScheduler'] = $this->jobScheduler;
         }
-
         if (null !== $this->jobSpecShrink) {
             $res['JobSpec'] = $this->jobSpecShrink;
         }
@@ -51,22 +46,20 @@ class DeleteJobsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteJobsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutorIds'])) {
             $model->executorIdsShrink = $map['ExecutorIds'];
         }
-
         if (isset($map['JobScheduler'])) {
             $model->jobScheduler = $map['JobScheduler'];
         }
-
         if (isset($map['JobSpec'])) {
             $model->jobSpecShrink = $map['JobSpec'];
         }

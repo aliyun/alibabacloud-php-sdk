@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\taskExecutor\VM;
+use AlibabaCloud\Tea\Model;
 
 class taskExecutor extends Model
 {
@@ -17,29 +17,23 @@ class taskExecutor extends Model
         'VM' => 'VM',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->VM) {
-            $this->VM->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->VM) {
-            $res['VM'] = null !== $this->VM ? $this->VM->toArray($noStream) : $this->VM;
+            $res['VM'] = null !== $this->VM ? $this->VM->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskExecutor
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

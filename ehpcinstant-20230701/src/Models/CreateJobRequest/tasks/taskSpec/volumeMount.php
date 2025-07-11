@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class volumeMount extends Model
 {
     /**
+     * @example {"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
+     *
      * @var string
      */
     public $mountOptions;
 
     /**
+     * @example /mnt
+     *
      * @var string
      */
     public $mountPath;
@@ -24,6 +28,8 @@ class volumeMount extends Model
     public $readOnly;
 
     /**
+     * @example alicloud/nas
+     *
      * @var string
      */
     public $volumeDriver;
@@ -34,26 +40,20 @@ class volumeMount extends Model
         'volumeDriver' => 'VolumeDriver',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mountOptions) {
             $res['MountOptions'] = $this->mountOptions;
         }
-
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
-
         if (null !== $this->readOnly) {
             $res['ReadOnly'] = $this->readOnly;
         }
-
         if (null !== $this->volumeDriver) {
             $res['VolumeDriver'] = $this->volumeDriver;
         }
@@ -61,26 +61,23 @@ class volumeMount extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return volumeMount
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountOptions'])) {
             $model->mountOptions = $map['MountOptions'];
         }
-
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
-
         if (isset($map['ReadOnly'])) {
             $model->readOnly = $map['ReadOnly'];
         }
-
         if (isset($map['VolumeDriver'])) {
             $model->volumeDriver = $map['VolumeDriver'];
         }

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest\resourceLimits;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePoolRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example PoolTest
+     *
      * @var string
      */
     public $poolName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
@@ -29,48 +35,38 @@ class UpdatePoolRequest extends Model
         'resourceLimits' => 'ResourceLimits',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->resourceLimits) {
-            $this->resourceLimits->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->poolName) {
             $res['PoolName'] = $this->poolName;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->resourceLimits) {
-            $res['ResourceLimits'] = null !== $this->resourceLimits ? $this->resourceLimits->toArray($noStream) : $this->resourceLimits;
+            $res['ResourceLimits'] = null !== $this->resourceLimits ? $this->resourceLimits->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePoolRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PoolName'])) {
             $model->poolName = $map['PoolName'];
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['ResourceLimits'])) {
             $model->resourceLimits = resourceLimits::fromMap($map['ResourceLimits']);
         }

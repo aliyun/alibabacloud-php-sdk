@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListImagesShrinkRequest extends Model
 {
@@ -34,11 +34,15 @@ class ListImagesShrinkRequest extends Model
     public $mode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -52,38 +56,29 @@ class ListImagesShrinkRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
         }
-
         if (null !== $this->imageIdsShrink) {
             $res['ImageIds'] = $this->imageIdsShrink;
         }
-
         if (null !== $this->imageNamesShrink) {
             $res['ImageNames'] = $this->imageNamesShrink;
         }
-
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -91,38 +86,32 @@ class ListImagesShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListImagesShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];
         }
-
         if (isset($map['ImageIds'])) {
             $model->imageIdsShrink = $map['ImageIds'];
         }
-
         if (isset($map['ImageNames'])) {
             $model->imageNamesShrink = $map['ImageNames'];
         }
-
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

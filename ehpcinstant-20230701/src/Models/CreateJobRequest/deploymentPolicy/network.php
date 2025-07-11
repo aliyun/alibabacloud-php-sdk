@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\deploymentPolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class network extends Model
 {
@@ -22,55 +22,35 @@ class network extends Model
         'vswitch' => 'Vswitch',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vswitch)) {
-            Model::validateArray($this->vswitch);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableExternalIpAddress) {
             $res['EnableExternalIpAddress'] = $this->enableExternalIpAddress;
         }
-
         if (null !== $this->vswitch) {
-            if (\is_array($this->vswitch)) {
-                $res['Vswitch'] = [];
-                $n1 = 0;
-                foreach ($this->vswitch as $item1) {
-                    $res['Vswitch'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Vswitch'] = $this->vswitch;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return network
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableExternalIpAddress'])) {
             $model->enableExternalIpAddress = $map['EnableExternalIpAddress'];
         }
-
         if (isset($map['Vswitch'])) {
             if (!empty($map['Vswitch'])) {
-                $model->vswitch = [];
-                $n1 = 0;
-                foreach ($map['Vswitch'] as $item1) {
-                    $model->vswitch[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->vswitch = $map['Vswitch'];
             }
         }
 

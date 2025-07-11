@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateJobShrinkRequest extends Model
 {
@@ -14,11 +14,17 @@ class CreateJobShrinkRequest extends Model
     public $deploymentPolicyShrink;
 
     /**
+     * @example Demo
+     *
      * @var string
      */
     public $jobDescription;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example testjob
+     *
      * @var string
      */
     public $jobName;
@@ -34,6 +40,8 @@ class CreateJobShrinkRequest extends Model
     public $securityPolicyShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tasksShrink;
@@ -46,34 +54,26 @@ class CreateJobShrinkRequest extends Model
         'tasksShrink' => 'Tasks',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deploymentPolicyShrink) {
             $res['DeploymentPolicy'] = $this->deploymentPolicyShrink;
         }
-
         if (null !== $this->jobDescription) {
             $res['JobDescription'] = $this->jobDescription;
         }
-
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
-
         if (null !== $this->jobScheduler) {
             $res['JobScheduler'] = $this->jobScheduler;
         }
-
         if (null !== $this->securityPolicyShrink) {
             $res['SecurityPolicy'] = $this->securityPolicyShrink;
         }
-
         if (null !== $this->tasksShrink) {
             $res['Tasks'] = $this->tasksShrink;
         }
@@ -81,34 +81,29 @@ class CreateJobShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateJobShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentPolicy'])) {
             $model->deploymentPolicyShrink = $map['DeploymentPolicy'];
         }
-
         if (isset($map['JobDescription'])) {
             $model->jobDescription = $map['JobDescription'];
         }
-
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
-
         if (isset($map['JobScheduler'])) {
             $model->jobScheduler = $map['JobScheduler'];
         }
-
         if (isset($map['SecurityPolicy'])) {
             $model->securityPolicyShrink = $map['SecurityPolicy'];
         }
-
         if (isset($map['Tasks'])) {
             $model->tasksShrink = $map['Tasks'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetImageRequest extends Model
 {
@@ -19,6 +19,8 @@ class GetImageRequest extends Model
     public $imageCategory;
 
     /**
+     * @example m-2ze74g5mvy4pjg*****
+     *
      * @var string
      */
     public $imageId;
@@ -34,36 +36,20 @@ class GetImageRequest extends Model
         'imageType' => 'ImageType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->additionalRegionIds)) {
-            Model::validateArray($this->additionalRegionIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->additionalRegionIds) {
-            if (\is_array($this->additionalRegionIds)) {
-                $res['AdditionalRegionIds'] = [];
-                $n1 = 0;
-                foreach ($this->additionalRegionIds as $item1) {
-                    $res['AdditionalRegionIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AdditionalRegionIds'] = $this->additionalRegionIds;
         }
-
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
         }
-
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
@@ -71,33 +57,25 @@ class GetImageRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetImageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdditionalRegionIds'])) {
             if (!empty($map['AdditionalRegionIds'])) {
-                $model->additionalRegionIds = [];
-                $n1 = 0;
-                foreach ($map['AdditionalRegionIds'] as $item1) {
-                    $model->additionalRegionIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->additionalRegionIds = $map['AdditionalRegionIds'];
             }
         }
-
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];
         }
-
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }

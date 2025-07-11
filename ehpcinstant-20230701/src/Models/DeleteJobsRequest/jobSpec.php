@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsRequest\jobSpec\taskSpec;
+use AlibabaCloud\Tea\Model;
 
 class jobSpec extends Model
 {
     /**
+     * @example job-xxxx
+     *
      * @var string
      */
     public $jobId;
@@ -23,28 +25,20 @@ class jobSpec extends Model
         'taskSpec' => 'TaskSpec',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->taskSpec)) {
-            Model::validateArray($this->taskSpec);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->taskSpec) {
-            if (\is_array($this->taskSpec)) {
-                $res['TaskSpec'] = [];
-                $n1 = 0;
-                foreach ($this->taskSpec as $item1) {
-                    $res['TaskSpec'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TaskSpec'] = [];
+            if (null !== $this->taskSpec && \is_array($this->taskSpec)) {
+                $n = 0;
+                foreach ($this->taskSpec as $item) {
+                    $res['TaskSpec'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class jobSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return jobSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['TaskSpec'])) {
             if (!empty($map['TaskSpec'])) {
                 $model->taskSpec = [];
-                $n1 = 0;
-                foreach ($map['TaskSpec'] as $item1) {
-                    $model->taskSpec[$n1] = taskSpec::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TaskSpec'] as $item) {
+                    $model->taskSpec[$n++] = null !== $item ? taskSpec::fromMap($item) : $item;
                 }
             }
         }

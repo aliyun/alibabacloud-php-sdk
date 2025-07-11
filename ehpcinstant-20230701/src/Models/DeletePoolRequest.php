@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePoolRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example PoolTest
+     *
      * @var string
      */
     public $poolName;
@@ -16,12 +20,9 @@ class DeletePoolRequest extends Model
         'poolName' => 'PoolName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->poolName) {
@@ -31,11 +32,11 @@ class DeletePoolRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePoolRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

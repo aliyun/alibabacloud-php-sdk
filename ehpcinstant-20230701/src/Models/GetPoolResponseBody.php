@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolResponseBody\poolInfo;
+use AlibabaCloud\Tea\Model;
 
 class GetPoolResponseBody extends Model
 {
@@ -15,6 +15,10 @@ class GetPoolResponseBody extends Model
     public $poolInfo;
 
     /**
+     * @description Id of the request
+     *
+     * @example 896D338C-E4F4-41EC-A154-D605E5DE****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +27,14 @@ class GetPoolResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->poolInfo) {
-            $this->poolInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->poolInfo) {
-            $res['PoolInfo'] = null !== $this->poolInfo ? $this->poolInfo->toArray($noStream) : $this->poolInfo;
+            $res['PoolInfo'] = null !== $this->poolInfo ? $this->poolInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +42,17 @@ class GetPoolResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPoolResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PoolInfo'])) {
             $model->poolInfo = poolInfo::fromMap($map['PoolInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

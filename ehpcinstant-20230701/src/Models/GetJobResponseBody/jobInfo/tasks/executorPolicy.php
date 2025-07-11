@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\executorPolicy\arraySpec;
+use AlibabaCloud\Tea\Model;
 
 class executorPolicy extends Model
 {
@@ -15,6 +15,8 @@ class executorPolicy extends Model
     public $arraySpec;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxCount;
@@ -23,21 +25,14 @@ class executorPolicy extends Model
         'maxCount' => 'MaxCount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->arraySpec) {
-            $this->arraySpec->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->arraySpec) {
-            $res['ArraySpec'] = null !== $this->arraySpec ? $this->arraySpec->toArray($noStream) : $this->arraySpec;
+            $res['ArraySpec'] = null !== $this->arraySpec ? $this->arraySpec->toMap() : null;
         }
-
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
         }
@@ -45,18 +40,17 @@ class executorPolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return executorPolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArraySpec'])) {
             $model->arraySpec = arraySpec::fromMap($map['ArraySpec']);
         }
-
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
         }

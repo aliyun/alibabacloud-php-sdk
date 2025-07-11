@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddImageShrinkRequest extends Model
 {
@@ -24,11 +24,17 @@ class AddImageShrinkRequest extends Model
     public $imageType;
 
     /**
+     * @example V1.0
+     *
      * @var string
      */
     public $imageVersion;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example app-image
+     *
      * @var string
      */
     public $name;
@@ -46,34 +52,26 @@ class AddImageShrinkRequest extends Model
         'VMImageSpecShrink' => 'VMImageSpec',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->containerImageSpecShrink) {
             $res['ContainerImageSpec'] = $this->containerImageSpecShrink;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
-
         if (null !== $this->imageVersion) {
             $res['ImageVersion'] = $this->imageVersion;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->VMImageSpecShrink) {
             $res['VMImageSpec'] = $this->VMImageSpecShrink;
         }
@@ -81,34 +79,29 @@ class AddImageShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddImageShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerImageSpec'])) {
             $model->containerImageSpecShrink = $map['ContainerImageSpec'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
-
         if (isset($map['ImageVersion'])) {
             $model->imageVersion = $map['ImageVersion'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['VMImageSpec'])) {
             $model->VMImageSpecShrink = $map['VMImageSpec'];
         }
