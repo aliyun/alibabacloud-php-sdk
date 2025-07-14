@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClustersResponseBody\clusters;
+use AlibabaCloud\Tea\Model;
 
 class ListClustersResponseBody extends Model
 {
     /**
+     * @description The clusters.
+     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
+     * @description The returned pagination token which can be used in the next request to retrieve a new page of results.
+     *
+     * @example f4f9a292c17072a2
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
+     *
      * @var string
      */
     public $requestId;
@@ -29,32 +39,23 @@ class ListClustersResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->clusters)) {
-            Model::validateArray($this->clusters);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusters) {
-            if (\is_array($this->clusters)) {
-                $res['Clusters'] = [];
-                $n1 = 0;
-                foreach ($this->clusters as $item1) {
-                    $res['Clusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Clusters'] = [];
+            if (null !== $this->clusters && \is_array($this->clusters)) {
+                $n = 0;
+                foreach ($this->clusters as $item) {
+                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,29 +63,26 @@ class ListClustersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListClustersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n1 = 0;
-                foreach ($map['Clusters'] as $item1) {
-                    $model->clusters[$n1] = clusters::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Clusters'] as $item) {
+                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

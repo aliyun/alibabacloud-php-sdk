@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteNodeGroupResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 887FA855-89F4-5DB3-B305-C5879EC480E6
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteNodeGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteNodeGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteNodeGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineNetworkInfoResponseBody\machineNetworkInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListMachineNetworkInfoResponseBody extends Model
 {
     /**
+     * @description machine network infomation
+     *
      * @var machineNetworkInfo[]
      */
     public $machineNetworkInfo;
 
     /**
+     * @description Id of the request
+     *
+     * @example 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+     *
      * @var string
      */
     public $requestId;
@@ -23,28 +29,20 @@ class ListMachineNetworkInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->machineNetworkInfo)) {
-            Model::validateArray($this->machineNetworkInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->machineNetworkInfo) {
-            if (\is_array($this->machineNetworkInfo)) {
-                $res['MachineNetworkInfo'] = [];
-                $n1 = 0;
-                foreach ($this->machineNetworkInfo as $item1) {
-                    $res['MachineNetworkInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['MachineNetworkInfo'] = [];
+            if (null !== $this->machineNetworkInfo && \is_array($this->machineNetworkInfo)) {
+                $n = 0;
+                foreach ($this->machineNetworkInfo as $item) {
+                    $res['MachineNetworkInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,25 +50,23 @@ class ListMachineNetworkInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListMachineNetworkInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MachineNetworkInfo'])) {
             if (!empty($map['MachineNetworkInfo'])) {
                 $model->machineNetworkInfo = [];
-                $n1 = 0;
-                foreach ($map['MachineNetworkInfo'] as $item1) {
-                    $model->machineNetworkInfo[$n1] = machineNetworkInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['MachineNetworkInfo'] as $item) {
+                    $model->machineNetworkInfo[$n++] = null !== $item ? machineNetworkInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

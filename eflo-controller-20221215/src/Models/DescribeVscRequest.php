@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVscRequest extends Model
 {
     /**
+     * @description The VSC ID.
+     *
+     * This parameter is required.
+     *
+     * @example vsc-001
+     *
      * @var string
      */
     public $vscId;
@@ -16,12 +22,9 @@ class DescribeVscRequest extends Model
         'vscId' => 'VscId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vscId) {
@@ -31,11 +34,11 @@ class DescribeVscRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVscRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

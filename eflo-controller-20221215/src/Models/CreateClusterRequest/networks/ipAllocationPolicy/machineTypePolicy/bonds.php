@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\ipAllocationPolicy\machineTypePolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bonds extends Model
 {
     /**
+     * @description Bond name
+     *
+     * @example bond0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description IP source subnet for the cluster
+     *
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $subnet;
@@ -22,18 +30,14 @@ class bonds extends Model
         'subnet' => 'Subnet',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->subnet) {
             $res['Subnet'] = $this->subnet;
         }
@@ -41,18 +45,17 @@ class bonds extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bonds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Subnet'])) {
             $model->subnet = $map['Subnet'];
         }

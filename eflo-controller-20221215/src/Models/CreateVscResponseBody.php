@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVscResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 887FA855-89F4-5DB3-B305-C5879EC480E6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The VSC ID.
+     *
+     * @example vsc-001
+     *
      * @var string
      */
     public $vscId;
@@ -22,18 +30,14 @@ class CreateVscResponseBody extends Model
         'vscId' => 'VscId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->vscId) {
             $res['VscId'] = $this->vscId;
         }
@@ -41,18 +45,17 @@ class CreateVscResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVscResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['VscId'])) {
             $model->vscId = $map['VscId'];
         }

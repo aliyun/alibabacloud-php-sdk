@@ -4,37 +4,61 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateVscRequest\tag;
+use AlibabaCloud\Tea\Model;
 
 class CreateVscRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The node ID.
+     *
+     * This parameter is required.
+     *
+     * @example e01-cn-zvp2tgykr08
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aek2xdkc6icwfha
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The resource tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The custom name of the VSC, which is unique on a compute node.
+     *
+     * @example test_name
+     *
      * @var string
      */
     public $vscName;
 
     /**
+     * @description The VSC type. Valid values: primary and standard. Default value: primary.
+     *
+     * @example primary
+     *
      * @var string
      */
     public $vscType;
@@ -47,44 +71,32 @@ class CreateVscRequest extends Model
         'vscType' => 'VscType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vscName) {
             $res['VscName'] = $this->vscName;
         }
-
         if (null !== $this->vscType) {
             $res['VscType'] = $this->vscType;
         }
@@ -92,41 +104,35 @@ class CreateVscRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVscRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1] = tag::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['VscName'])) {
             $model->vscName = $map['VscName'];
         }
-
         if (isset($map['VscType'])) {
             $model->vscType = $map['VscType'];
         }

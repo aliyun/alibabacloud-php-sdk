@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeNodeRequest extends Model
 {
     /**
+     * @description The node ID.
+     *
+     * This parameter is required.
+     *
+     * @example mock-sn-2060
+     *
      * @var string
      */
     public $nodeId;
@@ -16,12 +22,9 @@ class DescribeNodeRequest extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
@@ -31,11 +34,11 @@ class DescribeNodeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeNodeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

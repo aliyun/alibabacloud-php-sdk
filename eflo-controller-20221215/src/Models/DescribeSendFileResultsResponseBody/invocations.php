@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsResponseBody\invocations\invocation;
+use AlibabaCloud\Tea\Model;
 
 class invocations extends Model
 {
     /**
+     * @description The command execution ID.
+     *
      * @var invocation[]
      */
     public $invocation;
@@ -17,24 +19,17 @@ class invocations extends Model
         'invocation' => 'Invocation',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->invocation)) {
-            Model::validateArray($this->invocation);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invocation) {
-            if (\is_array($this->invocation)) {
-                $res['Invocation'] = [];
-                $n1 = 0;
-                foreach ($this->invocation as $item1) {
-                    $res['Invocation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Invocation'] = [];
+            if (null !== $this->invocation && \is_array($this->invocation)) {
+                $n = 0;
+                foreach ($this->invocation as $item) {
+                    $res['Invocation'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +37,20 @@ class invocations extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return invocations
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Invocation'])) {
             if (!empty($map['Invocation'])) {
                 $model->invocation = [];
-                $n1 = 0;
-                foreach ($map['Invocation'] as $item1) {
-                    $model->invocation[$n1] = invocation::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Invocation'] as $item) {
+                    $model->invocation[$n++] = null !== $item ? invocation::fromMap($item) : $item;
                 }
             }
         }

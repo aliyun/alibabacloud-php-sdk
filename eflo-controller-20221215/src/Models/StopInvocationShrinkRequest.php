@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopInvocationShrinkRequest extends Model
 {
     /**
+     * @description The execution ID.
+     *
+     * This parameter is required.
+     *
+     * @example f-hz044748dzepds0
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @description The nodes.
+     *
      * @var string
      */
     public $nodeIdListShrink;
@@ -22,18 +30,14 @@ class StopInvocationShrinkRequest extends Model
         'nodeIdListShrink' => 'NodeIdList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
-
         if (null !== $this->nodeIdListShrink) {
             $res['NodeIdList'] = $this->nodeIdListShrink;
         }
@@ -41,18 +45,17 @@ class StopInvocationShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopInvocationShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
         }
-
         if (isset($map['NodeIdList'])) {
             $model->nodeIdListShrink = $map['NodeIdList'];
         }

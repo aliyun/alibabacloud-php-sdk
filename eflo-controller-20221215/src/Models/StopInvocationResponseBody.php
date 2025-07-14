@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopInvocationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A7FD7411-9395-52E8-AF42-EB3A4A55446D
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class StopInvocationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class StopInvocationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopInvocationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

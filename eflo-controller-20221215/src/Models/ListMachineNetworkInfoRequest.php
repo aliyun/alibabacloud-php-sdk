@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineNetworkInfoRequest\machineHpnInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListMachineNetworkInfoRequest extends Model
 {
     /**
+     * @description hpn information of machine
+     *
      * @var machineHpnInfo[]
      */
     public $machineHpnInfo;
@@ -17,24 +19,17 @@ class ListMachineNetworkInfoRequest extends Model
         'machineHpnInfo' => 'MachineHpnInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->machineHpnInfo)) {
-            Model::validateArray($this->machineHpnInfo);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->machineHpnInfo) {
-            if (\is_array($this->machineHpnInfo)) {
-                $res['MachineHpnInfo'] = [];
-                $n1 = 0;
-                foreach ($this->machineHpnInfo as $item1) {
-                    $res['MachineHpnInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['MachineHpnInfo'] = [];
+            if (null !== $this->machineHpnInfo && \is_array($this->machineHpnInfo)) {
+                $n = 0;
+                foreach ($this->machineHpnInfo as $item) {
+                    $res['MachineHpnInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +37,20 @@ class ListMachineNetworkInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListMachineNetworkInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MachineHpnInfo'])) {
             if (!empty($map['MachineHpnInfo'])) {
                 $model->machineHpnInfo = [];
-                $n1 = 0;
-                foreach ($map['MachineHpnInfo'] as $item1) {
-                    $model->machineHpnInfo[$n1] = machineHpnInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['MachineHpnInfo'] as $item) {
+                    $model->machineHpnInfo[$n++] = null !== $item ? machineHpnInfo::fromMap($item) : $item;
                 }
             }
         }

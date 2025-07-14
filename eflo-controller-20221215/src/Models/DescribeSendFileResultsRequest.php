@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSendFileResultsRequest extends Model
 {
     /**
+     * @description The command execution ID.
+     *
+     * This parameter is required.
+     *
+     * @example t-bj038i0d6r8zoqo
+     *
      * @var string
      */
     public $invokeId;
 
     /**
+     * @description The node ID.
+     *
+     * @example e01-cn-zvp2tgykr08
+     *
      * @var string
      */
     public $nodeId;
@@ -22,18 +32,14 @@ class DescribeSendFileResultsRequest extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -41,18 +47,17 @@ class DescribeSendFileResultsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSendFileResultsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vpdInfo extends Model
 {
     /**
+     * @description VPC ID
+     *
+     * @example vpd-vfuz6ejv
+     *
      * @var string
      */
     public $vpdId;
 
     /**
+     * @description List of cluster subnet IDs
+     *
      * @var string[]
      */
     public $vpdSubnets;
@@ -22,55 +28,35 @@ class vpdInfo extends Model
         'vpdSubnets' => 'VpdSubnets',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vpdSubnets)) {
-            Model::validateArray($this->vpdSubnets);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
         }
-
         if (null !== $this->vpdSubnets) {
-            if (\is_array($this->vpdSubnets)) {
-                $res['VpdSubnets'] = [];
-                $n1 = 0;
-                foreach ($this->vpdSubnets as $item1) {
-                    $res['VpdSubnets'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['VpdSubnets'] = $this->vpdSubnets;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpdInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
         }
-
         if (isset($map['VpdSubnets'])) {
             if (!empty($map['VpdSubnets'])) {
-                $model->vpdSubnets = [];
-                $n1 = 0;
-                foreach ($map['VpdSubnets'] as $item1) {
-                    $model->vpdSubnets[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->vpdSubnets = $map['VpdSubnets'];
             }
         }
 

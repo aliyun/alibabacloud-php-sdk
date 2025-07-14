@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ShrinkClusterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CC9FEF89-9BE5-5E03-845E-238B48D7599B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The job ID.
+     *
+     * @example i159136551662516768776
+     *
      * @var string
      */
     public $taskId;
@@ -22,18 +30,14 @@ class ShrinkClusterResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -41,18 +45,17 @@ class ShrinkClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ShrinkClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

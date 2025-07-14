@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\nodes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataDisk extends Model
 {
     /**
+     * @description Type
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description Whether the data disk is deleted with the node when it is unsubscribed
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteWithNode;
 
     /**
+     * @description Data disk performance level
+     *
+     * @example PL0
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @description Disk size
+     *
+     * @example 10
+     *
      * @var int
      */
     public $size;
@@ -34,26 +50,20 @@ class dataDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->deleteWithNode) {
             $res['DeleteWithNode'] = $this->deleteWithNode;
         }
-
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -61,26 +71,23 @@ class dataDisk extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataDisk
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['DeleteWithNode'])) {
             $model->deleteWithNode = $map['DeleteWithNode'];
         }
-
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
