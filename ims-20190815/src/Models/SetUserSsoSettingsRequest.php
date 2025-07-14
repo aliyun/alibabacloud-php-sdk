@@ -21,6 +21,7 @@ class SetUserSsoSettingsRequest extends Model
      * @description The metadata file, which is Base64-encoded.
      *
      * The file is provided by an identity provider (IdP) that supports Security Assertion Markup Language (SAML) 2.0.
+     *
      * @example PD94bWwgdmVy****
      *
      * @var string
@@ -46,21 +47,20 @@ class SetUserSsoSettingsRequest extends Model
      *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
      *
      * Set the value to the default `true`.
+     *
      * @example true
      *
      * @var bool
      */
     public $ssoLoginWithDomain;
     protected $_name = [
-        'auxiliaryDomain'    => 'AuxiliaryDomain',
-        'metadataDocument'   => 'MetadataDocument',
-        'ssoEnabled'         => 'SsoEnabled',
+        'auxiliaryDomain' => 'AuxiliaryDomain',
+        'metadataDocument' => 'MetadataDocument',
+        'ssoEnabled' => 'SsoEnabled',
         'ssoLoginWithDomain' => 'SsoLoginWithDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

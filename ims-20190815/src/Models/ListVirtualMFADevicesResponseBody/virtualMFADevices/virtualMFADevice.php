@@ -36,12 +36,10 @@ class virtualMFADevice extends Model
     protected $_name = [
         'activateDate' => 'ActivateDate',
         'serialNumber' => 'SerialNumber',
-        'user'         => 'User',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

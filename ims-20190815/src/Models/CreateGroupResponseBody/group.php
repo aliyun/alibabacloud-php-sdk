@@ -62,17 +62,15 @@ class group extends Model
      */
     public $updateDate;
     protected $_name = [
-        'comments'    => 'Comments',
-        'createDate'  => 'CreateDate',
+        'comments' => 'Comments',
+        'createDate' => 'CreateDate',
         'displayName' => 'DisplayName',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'updateDate'  => 'UpdateDate',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

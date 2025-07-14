@@ -71,17 +71,15 @@ class externalApplication extends Model
     public $updateDate;
     protected $_name = [
         'appPrincipalName' => 'AppPrincipalName',
-        'createDate'       => 'CreateDate',
-        'delegatedScope'   => 'DelegatedScope',
-        'displayName'      => 'DisplayName',
-        'foreignAppId'     => 'ForeignAppId',
-        'tenantId'         => 'TenantId',
-        'updateDate'       => 'UpdateDate',
+        'createDate' => 'CreateDate',
+        'delegatedScope' => 'DelegatedScope',
+        'displayName' => 'DisplayName',
+        'foreignAppId' => 'ForeignAppId',
+        'tenantId' => 'TenantId',
+        'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

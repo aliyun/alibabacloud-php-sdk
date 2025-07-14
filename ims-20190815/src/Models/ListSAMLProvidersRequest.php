@@ -21,19 +21,18 @@ class ListSAMLProvidersRequest extends Model
      * @description The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
      *
      * Valid values: 1 to 100. Default value: 100.
+     *
      * @example 100
      *
      * @var int
      */
     public $maxItems;
     protected $_name = [
-        'marker'   => 'Marker',
+        'marker' => 'Marker',
         'maxItems' => 'MaxItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -46,15 +46,13 @@ class ListTagResourcesResponseBody extends Model
      */
     public $tagResources;
     protected $_name = [
-        'isTruncated'  => 'IsTruncated',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'isTruncated' => 'IsTruncated',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'tagResources' => 'TagResources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

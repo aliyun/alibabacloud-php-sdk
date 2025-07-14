@@ -30,12 +30,10 @@ class MFADevice extends Model
     public $type;
     protected $_name = [
         'serialNumber' => 'SerialNumber',
-        'type'         => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

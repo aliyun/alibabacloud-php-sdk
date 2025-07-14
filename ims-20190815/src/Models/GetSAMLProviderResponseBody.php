@@ -25,13 +25,11 @@ class GetSAMLProviderResponseBody extends Model
      */
     public $SAMLProvider;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'SAMLProvider' => 'SAMLProvider',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

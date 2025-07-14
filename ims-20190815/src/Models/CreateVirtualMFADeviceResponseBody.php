@@ -25,13 +25,11 @@ class CreateVirtualMFADeviceResponseBody extends Model
      */
     public $virtualMFADevice;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'virtualMFADevice' => 'VirtualMFADevice',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

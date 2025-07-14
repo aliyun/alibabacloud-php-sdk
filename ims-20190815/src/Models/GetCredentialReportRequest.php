@@ -12,6 +12,7 @@ class GetCredentialReportRequest extends Model
      * @description The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
      *
      * Valid values: 1 to 3501. Default value: 3501.
+     *
      * @example 1000
      *
      * @var string
@@ -27,13 +28,11 @@ class GetCredentialReportRequest extends Model
      */
     public $nextToken;
     protected $_name = [
-        'maxItems'  => 'MaxItems',
+        'maxItems' => 'MaxItems',
         'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

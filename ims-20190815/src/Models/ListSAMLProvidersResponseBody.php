@@ -46,15 +46,13 @@ class ListSAMLProvidersResponseBody extends Model
      */
     public $SAMLProviders;
     protected $_name = [
-        'isTruncated'   => 'IsTruncated',
-        'marker'        => 'Marker',
-        'requestId'     => 'RequestId',
+        'isTruncated' => 'IsTruncated',
+        'marker' => 'Marker',
+        'requestId' => 'RequestId',
         'SAMLProviders' => 'SAMLProviders',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

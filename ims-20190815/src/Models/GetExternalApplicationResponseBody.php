@@ -26,12 +26,10 @@ class GetExternalApplicationResponseBody extends Model
     public $requestId;
     protected $_name = [
         'externalApplication' => 'ExternalApplication',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

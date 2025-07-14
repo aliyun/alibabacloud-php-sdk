@@ -35,14 +35,12 @@ class UpdatePasskeyRequest extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'passkeyId'         => 'PasskeyId',
-        'passkeyName'       => 'PasskeyName',
+        'passkeyId' => 'PasskeyId',
+        'passkeyName' => 'PasskeyName',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

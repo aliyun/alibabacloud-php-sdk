@@ -107,22 +107,20 @@ class OIDCProvider extends Model
      */
     public $updateDate;
     protected $_name = [
-        'arn'               => 'Arn',
-        'clientIds'         => 'ClientIds',
-        'createDate'        => 'CreateDate',
-        'description'       => 'Description',
-        'fingerprints'      => 'Fingerprints',
-        'gmtCreate'         => 'GmtCreate',
-        'gmtModified'       => 'GmtModified',
+        'arn' => 'Arn',
+        'clientIds' => 'ClientIds',
+        'createDate' => 'CreateDate',
+        'description' => 'Description',
+        'fingerprints' => 'Fingerprints',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
         'issuanceLimitTime' => 'IssuanceLimitTime',
-        'issuerUrl'         => 'IssuerUrl',
-        'OIDCProviderName'  => 'OIDCProviderName',
-        'updateDate'        => 'UpdateDate',
+        'issuerUrl' => 'IssuerUrl',
+        'OIDCProviderName' => 'OIDCProviderName',
+        'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

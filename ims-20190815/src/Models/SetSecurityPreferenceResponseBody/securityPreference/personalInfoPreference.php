@@ -20,9 +20,7 @@ class personalInfoPreference extends Model
         'allowUserToManagePersonalDingTalk' => 'AllowUserToManagePersonalDingTalk',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,9 +23,7 @@ class ListApplicationProvisionInfosRequest extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

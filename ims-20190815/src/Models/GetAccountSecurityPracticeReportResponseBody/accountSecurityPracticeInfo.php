@@ -26,12 +26,10 @@ class accountSecurityPracticeInfo extends Model
     public $score;
     protected $_name = [
         'accountSecurityPracticeUserInfo' => 'AccountSecurityPracticeUserInfo',
-        'score'                           => 'Score',
+        'score' => 'Score',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

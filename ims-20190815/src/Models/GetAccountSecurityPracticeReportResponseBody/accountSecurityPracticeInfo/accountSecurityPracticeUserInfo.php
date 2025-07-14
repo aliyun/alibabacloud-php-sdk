@@ -96,20 +96,18 @@ class accountSecurityPracticeUserInfo extends Model
      */
     public $unusedAkNum;
     protected $_name = [
-        'bindMfa'                    => 'BindMfa',
-        'oldAkNum'                   => 'OldAkNum',
-        'rootWithAccessKey'          => 'RootWithAccessKey',
-        'subUser'                    => 'SubUser',
-        'subUserBindMfa'             => 'SubUserBindMfa',
-        'subUserPwdLevel'            => 'SubUserPwdLevel',
-        'subUserWithOldAccessKey'    => 'SubUserWithOldAccessKey',
+        'bindMfa' => 'BindMfa',
+        'oldAkNum' => 'OldAkNum',
+        'rootWithAccessKey' => 'RootWithAccessKey',
+        'subUser' => 'SubUser',
+        'subUserBindMfa' => 'SubUserBindMfa',
+        'subUserPwdLevel' => 'SubUserPwdLevel',
+        'subUserWithOldAccessKey' => 'SubUserWithOldAccessKey',
         'subUserWithUnusedAccessKey' => 'SubUserWithUnusedAccessKey',
-        'unusedAkNum'                => 'UnusedAkNum',
+        'unusedAkNum' => 'UnusedAkNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

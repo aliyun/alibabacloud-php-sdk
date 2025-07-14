@@ -20,9 +20,7 @@ class GetOIDCProviderRequest extends Model
         'OIDCProviderName' => 'OIDCProviderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,6 +25,7 @@ class ListUsersForGroupResponseBody extends Model
      * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * >  This parameter is returned only when `IsTruncated` is `true`.
+     *
      * @example EXAMPLE
      *
      * @var string
@@ -48,14 +49,12 @@ class ListUsersForGroupResponseBody extends Model
     public $users;
     protected $_name = [
         'isTruncated' => 'IsTruncated',
-        'marker'      => 'Marker',
-        'requestId'   => 'RequestId',
-        'users'       => 'Users',
+        'marker' => 'Marker',
+        'requestId' => 'RequestId',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

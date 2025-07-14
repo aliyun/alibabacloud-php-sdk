@@ -107,22 +107,20 @@ class passwordPolicy extends Model
      */
     public $requireUppercaseCharacters;
     protected $_name = [
-        'hardExpire'                        => 'HardExpire',
-        'maxLoginAttemps'                   => 'MaxLoginAttemps',
-        'maxPasswordAge'                    => 'MaxPasswordAge',
+        'hardExpire' => 'HardExpire',
+        'maxLoginAttemps' => 'MaxLoginAttemps',
+        'maxPasswordAge' => 'MaxPasswordAge',
         'minimumPasswordDifferentCharacter' => 'MinimumPasswordDifferentCharacter',
-        'minimumPasswordLength'             => 'MinimumPasswordLength',
-        'passwordNotContainUserName'        => 'PasswordNotContainUserName',
-        'passwordReusePrevention'           => 'PasswordReusePrevention',
-        'requireLowercaseCharacters'        => 'RequireLowercaseCharacters',
-        'requireNumbers'                    => 'RequireNumbers',
-        'requireSymbols'                    => 'RequireSymbols',
-        'requireUppercaseCharacters'        => 'RequireUppercaseCharacters',
+        'minimumPasswordLength' => 'MinimumPasswordLength',
+        'passwordNotContainUserName' => 'PasswordNotContainUserName',
+        'passwordReusePrevention' => 'PasswordReusePrevention',
+        'requireLowercaseCharacters' => 'RequireLowercaseCharacters',
+        'requireNumbers' => 'RequireNumbers',
+        'requireSymbols' => 'RequireSymbols',
+        'requireUppercaseCharacters' => 'RequireUppercaseCharacters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

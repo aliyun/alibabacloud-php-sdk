@@ -12,7 +12,8 @@ class GetAccessKeyInfoInRecycleBinRequest extends Model
      * @description The AccessKey ID of the Resource Access Management (RAM) user.
      *
      * This parameter is required.
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -21,9 +22,7 @@ class GetAccessKeyInfoInRecycleBinRequest extends Model
         'userAccessKeyId' => 'UserAccessKeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

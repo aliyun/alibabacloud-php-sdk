@@ -17,9 +17,7 @@ class SAMLProviders extends Model
         'SAMLProvider' => 'SAMLProvider',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class SAMLProviders extends Model
         if (isset($map['SAMLProvider'])) {
             if (!empty($map['SAMLProvider'])) {
                 $model->SAMLProvider = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['SAMLProvider'] as $item) {
                     $model->SAMLProvider[$n++] = null !== $item ? SAMLProvider::fromMap($item) : $item;
                 }

@@ -12,7 +12,8 @@ class GetAccessKeyLastUsedRequest extends Model
      * @description The ID of the AccessKey pair that you want to query.
      *
      * This parameter is required.
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -22,19 +23,18 @@ class GetAccessKeyLastUsedRequest extends Model
      * @description The logon name of the RAM user.
      *
      * If you do not specify this parameter, the AccessKey pair of the current user is queried.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
      */
     public $userPrincipalName;
     protected $_name = [
-        'userAccessKeyId'   => 'UserAccessKeyId',
+        'userAccessKeyId' => 'UserAccessKeyId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -83,22 +83,22 @@ class loginProfilePreference extends Model
      *
      * @example autonomous
      *
+     * @deprecated
+     *
      * @var string
      */
     public $operationForRiskLogin;
     protected $_name = [
-        'allowUserToChangePassword'   => 'AllowUserToChangePassword',
+        'allowUserToChangePassword' => 'AllowUserToChangePassword',
         'allowUserToLoginWithPasskey' => 'AllowUserToLoginWithPasskey',
-        'enableSaveMFATicket'         => 'EnableSaveMFATicket',
-        'loginNetworkMasks'           => 'LoginNetworkMasks',
-        'loginSessionDuration'        => 'LoginSessionDuration',
-        'MFAOperationForLogin'        => 'MFAOperationForLogin',
-        'operationForRiskLogin'       => 'OperationForRiskLogin',
+        'enableSaveMFATicket' => 'EnableSaveMFATicket',
+        'loginNetworkMasks' => 'LoginNetworkMasks',
+        'loginSessionDuration' => 'LoginSessionDuration',
+        'MFAOperationForLogin' => 'MFAOperationForLogin',
+        'operationForRiskLogin' => 'OperationForRiskLogin',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

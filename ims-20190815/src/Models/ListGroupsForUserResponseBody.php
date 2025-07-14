@@ -25,13 +25,11 @@ class ListGroupsForUserResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'groups'    => 'Groups',
+        'groups' => 'Groups',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

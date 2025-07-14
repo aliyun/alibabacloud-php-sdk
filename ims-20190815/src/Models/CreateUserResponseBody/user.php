@@ -40,6 +40,7 @@ class user extends Model
      * @description The email address of the RAM user.
      *
      * > This parameter is valid only on the China site (aliyun.com).
+     *
      * @example alice@example.com
      *
      * @var string
@@ -59,6 +60,7 @@ class user extends Model
      * @description The mobile phone number of the RAM user.
      *
      * > This parameter is valid only on the China site (aliyun.com).
+     *
      * @example 86-1868888****
      *
      * @var string
@@ -112,22 +114,20 @@ class user extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'comments'          => 'Comments',
-        'createDate'        => 'CreateDate',
-        'displayName'       => 'DisplayName',
-        'email'             => 'Email',
-        'lastLoginDate'     => 'LastLoginDate',
-        'mobilePhone'       => 'MobilePhone',
-        'provisionType'     => 'ProvisionType',
-        'tags'              => 'Tags',
-        'updateDate'        => 'UpdateDate',
-        'userId'            => 'UserId',
+        'comments' => 'Comments',
+        'createDate' => 'CreateDate',
+        'displayName' => 'DisplayName',
+        'email' => 'Email',
+        'lastLoginDate' => 'LastLoginDate',
+        'mobilePhone' => 'MobilePhone',
+        'provisionType' => 'ProvisionType',
+        'tags' => 'Tags',
+        'updateDate' => 'UpdateDate',
+        'userId' => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -46,15 +46,13 @@ class ListOIDCProvidersResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'isTruncated'   => 'IsTruncated',
-        'marker'        => 'Marker',
+        'isTruncated' => 'IsTruncated',
+        'marker' => 'Marker',
         'OIDCProviders' => 'OIDCProviders',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

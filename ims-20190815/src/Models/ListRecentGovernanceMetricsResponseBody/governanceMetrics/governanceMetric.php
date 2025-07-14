@@ -40,13 +40,11 @@ class governanceMetric extends Model
     public $metricValue;
     protected $_name = [
         'governanceItem' => 'GovernanceItem',
-        'metricType'     => 'MetricType',
-        'metricValue'    => 'MetricValue',
+        'metricType' => 'MetricType',
+        'metricValue' => 'MetricValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

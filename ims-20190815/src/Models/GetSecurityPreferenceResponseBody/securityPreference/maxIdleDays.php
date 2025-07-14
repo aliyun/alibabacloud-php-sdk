@@ -27,12 +27,10 @@ class maxIdleDays extends Model
     public $maxIdleDaysForUsers;
     protected $_name = [
         'maxIdleDaysForAccessKeys' => 'MaxIdleDaysForAccessKeys',
-        'maxIdleDaysForUsers'      => 'MaxIdleDaysForUsers',
+        'maxIdleDaysForUsers' => 'MaxIdleDaysForUsers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

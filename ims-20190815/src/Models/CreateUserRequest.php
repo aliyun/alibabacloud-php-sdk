@@ -13,6 +13,7 @@ class CreateUserRequest extends Model
      * @description The description.
      *
      * The description must be 1 to 128 characters in length.
+     *
      * @example This is a cloud computing engineer.
      *
      * @var string
@@ -22,7 +23,10 @@ class CreateUserRequest extends Model
     /**
      * @description The display name of the RAM user.
      *
+     * The name must be 1 to 24 characters in length.
+     *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -33,6 +37,7 @@ class CreateUserRequest extends Model
      * @description The email address of the RAM user.
      *
      * > This parameter is valid only on the China site (aliyun.com).
+     *
      * @example alice@example.com
      *
      * @var string
@@ -42,7 +47,10 @@ class CreateUserRequest extends Model
     /**
      * @description The mobile number of the RAM user.
      *
+     * Format: Country code-Mobile phone number.
+     *
      * > This parameter is valid only on the China site (aliyun.com).
+     *
      * @example 86-1868888****
      *
      * @var string
@@ -59,24 +67,27 @@ class CreateUserRequest extends Model
     /**
      * @description The logon name of the Resource Access Management (RAM) user.
      *
+     * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name. For more information about how to query the default domain name, see [GetDefaultDomain](https://help.aliyun.com/document_detail/186720.html).
+     *
+     * The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
+     *
      * This parameter is required.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
      */
     public $userPrincipalName;
     protected $_name = [
-        'comments'          => 'Comments',
-        'displayName'       => 'DisplayName',
-        'email'             => 'Email',
-        'mobilePhone'       => 'MobilePhone',
-        'tag'               => 'Tag',
+        'comments' => 'Comments',
+        'displayName' => 'DisplayName',
+        'email' => 'Email',
+        'mobilePhone' => 'MobilePhone',
+        'tag' => 'Tag',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -132,7 +143,7 @@ class CreateUserRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

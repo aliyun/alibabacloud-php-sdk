@@ -12,7 +12,8 @@ class GetUserRequest extends Model
      * @description The AccessKey ID of the RAM user.
      *
      * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -22,6 +23,7 @@ class GetUserRequest extends Model
      * @description The ID of the RAM user.
      *
      * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+     *
      * @example 20732900249392****
      *
      * @var string
@@ -31,21 +33,24 @@ class GetUserRequest extends Model
     /**
      * @description The logon name of the RAM user.
      *
+     * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
+     *
+     * The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
+     *
      * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
      */
     public $userPrincipalName;
     protected $_name = [
-        'userAccessKeyId'   => 'UserAccessKeyId',
-        'userId'            => 'UserId',
+        'userAccessKeyId' => 'UserAccessKeyId',
+        'userId' => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

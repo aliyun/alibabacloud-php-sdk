@@ -12,6 +12,7 @@ class GetExternalApplicationRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 472457090344041****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetExternalApplicationRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

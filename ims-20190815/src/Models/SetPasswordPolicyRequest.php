@@ -23,7 +23,10 @@ class SetPasswordPolicyRequest extends Model
     /**
      * @description The maximum number of password retries. If you enter the wrong passwords for the specified consecutive times, the account is locked for one hour.
      *
+     * Valid values: 0 to 32.
+     *
      * The default value is 0, which indicates that the password retries are not limited.
+     *
      * @example 0
      *
      * @var int
@@ -33,7 +36,10 @@ class SetPasswordPolicyRequest extends Model
     /**
      * @description The validity period of the password.
      *
+     * Valid values: 0 to 1095. Unit: days.
+     *
      * The default value is 0, which indicates that the password never expires.
+     *
      * @example 0
      *
      * @var int
@@ -43,7 +49,10 @@ class SetPasswordPolicyRequest extends Model
     /**
      * @description The minimum number of unique characters in the password.
      *
+     * Valid values: 0 to 8.
+     *
      * The default value is 0, which indicates that no limits are imposed on the number of unique characters in a password.
+     *
      * @example 0
      *
      * @var int
@@ -54,6 +63,7 @@ class SetPasswordPolicyRequest extends Model
      * @description The minimum number of characters in the password.
      *
      * Valid values: 8 to 32. Default value: 8.
+     *
      * @example 8
      *
      * @var int
@@ -75,7 +85,10 @@ class SetPasswordPolicyRequest extends Model
     /**
      * @description The policy for password history check.
      *
+     * The previous N passwords cannot be reused. Valid values of N: 0 to 24.
+     *
      * The default value is 0, which indicates that RAM users can reuse previous passwords.
+     *
      * @example 0
      *
      * @var int
@@ -130,22 +143,20 @@ class SetPasswordPolicyRequest extends Model
      */
     public $requireUppercaseCharacters;
     protected $_name = [
-        'hardExpire'                        => 'HardExpire',
-        'maxLoginAttemps'                   => 'MaxLoginAttemps',
-        'maxPasswordAge'                    => 'MaxPasswordAge',
+        'hardExpire' => 'HardExpire',
+        'maxLoginAttemps' => 'MaxLoginAttemps',
+        'maxPasswordAge' => 'MaxPasswordAge',
         'minimumPasswordDifferentCharacter' => 'MinimumPasswordDifferentCharacter',
-        'minimumPasswordLength'             => 'MinimumPasswordLength',
-        'passwordNotContainUserName'        => 'PasswordNotContainUserName',
-        'passwordReusePrevention'           => 'PasswordReusePrevention',
-        'requireLowercaseCharacters'        => 'RequireLowercaseCharacters',
-        'requireNumbers'                    => 'RequireNumbers',
-        'requireSymbols'                    => 'RequireSymbols',
-        'requireUppercaseCharacters'        => 'RequireUppercaseCharacters',
+        'minimumPasswordLength' => 'MinimumPasswordLength',
+        'passwordNotContainUserName' => 'PasswordNotContainUserName',
+        'passwordReusePrevention' => 'PasswordReusePrevention',
+        'requireLowercaseCharacters' => 'RequireLowercaseCharacters',
+        'requireNumbers' => 'RequireNumbers',
+        'requireSymbols' => 'RequireSymbols',
+        'requireUppercaseCharacters' => 'RequireUppercaseCharacters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

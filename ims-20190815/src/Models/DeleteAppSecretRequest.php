@@ -12,6 +12,7 @@ class DeleteAppSecretRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 472457090344041****
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteAppSecretRequest extends Model
      * @description The ID of the application secret.
      *
      * This parameter is required.
+     *
      * @example 2efd5004-005c-4f05-83c6-5b1dd176****
      *
      * @var string
      */
     public $appSecretId;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'appSecretId' => 'AppSecretId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

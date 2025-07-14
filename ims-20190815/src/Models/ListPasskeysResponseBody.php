@@ -25,13 +25,11 @@ class ListPasskeysResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'passkeys'  => 'Passkeys',
+        'passkeys' => 'Passkeys',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListPasskeysResponseBody extends Model
         if (isset($map['Passkeys'])) {
             if (!empty($map['Passkeys'])) {
                 $model->passkeys = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Passkeys'] as $item) {
                     $model->passkeys[$n++] = null !== $item ? passkeys::fromMap($item) : $item;
                 }

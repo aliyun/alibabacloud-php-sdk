@@ -20,9 +20,7 @@ class MFADevice extends Model
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

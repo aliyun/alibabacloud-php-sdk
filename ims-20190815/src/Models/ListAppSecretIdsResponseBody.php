@@ -26,12 +26,10 @@ class ListAppSecretIdsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'appSecrets' => 'AppSecrets',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

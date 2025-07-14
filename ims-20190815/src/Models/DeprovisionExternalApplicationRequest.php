@@ -12,6 +12,7 @@ class DeprovisionExternalApplicationRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 417273362044613****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeprovisionExternalApplicationRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

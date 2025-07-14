@@ -17,9 +17,7 @@ class governanceItemsStatus extends Model
         'governanceItemStatus' => 'GovernanceItemStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class governanceItemsStatus extends Model
         if (isset($map['GovernanceItemStatus'])) {
             if (!empty($map['GovernanceItemStatus'])) {
                 $model->governanceItemStatus = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['GovernanceItemStatus'] as $item) {
                     $model->governanceItemStatus[$n++] = null !== $item ? governanceItemStatus::fromMap($item) : $item;
                 }

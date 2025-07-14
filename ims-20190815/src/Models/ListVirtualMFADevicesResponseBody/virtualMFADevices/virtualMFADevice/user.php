@@ -35,14 +35,12 @@ class user extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'displayName'       => 'DisplayName',
-        'userId'            => 'UserId',
+        'displayName' => 'DisplayName',
+        'userId' => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

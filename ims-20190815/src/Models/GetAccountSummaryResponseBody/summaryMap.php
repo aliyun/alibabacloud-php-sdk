@@ -72,7 +72,7 @@ class summaryMap extends Model
     public $attachedSystemPoliciesPerUserQuota;
 
     /**
-     * @description The number of network access control policies that can be configured for an account or AccessKey pair.
+     * @description The maximum number of network access control policies that can be configured for an Alibaba Cloud account or AccessKey pair.
      *
      * @example 8
      *
@@ -108,7 +108,7 @@ class summaryMap extends Model
     public $groupsQuota;
 
     /**
-     * @description The total number of IP addresses that can be configured in a network access control policy of an account or AccessKey pair.
+     * @description The maximum number of IP addresses that can be specified in an account-level AccessKey pair-based or AccessKey pair-level policy for network access control.
      *
      * @example 50
      *
@@ -215,34 +215,32 @@ class summaryMap extends Model
      */
     public $virtualMFADevicesQuota;
     protected $_name = [
-        'accessKeysPerUserQuota'              => 'AccessKeysPerUserQuota',
-        'attachedPoliciesPerGroupQuota'       => 'AttachedPoliciesPerGroupQuota',
-        'attachedPoliciesPerRoleQuota'        => 'AttachedPoliciesPerRoleQuota',
-        'attachedPoliciesPerUserQuota'        => 'AttachedPoliciesPerUserQuota',
+        'accessKeysPerUserQuota' => 'AccessKeysPerUserQuota',
+        'attachedPoliciesPerGroupQuota' => 'AttachedPoliciesPerGroupQuota',
+        'attachedPoliciesPerRoleQuota' => 'AttachedPoliciesPerRoleQuota',
+        'attachedPoliciesPerUserQuota' => 'AttachedPoliciesPerUserQuota',
         'attachedSystemPoliciesPerGroupQuota' => 'AttachedSystemPoliciesPerGroupQuota',
-        'attachedSystemPoliciesPerRoleQuota'  => 'AttachedSystemPoliciesPerRoleQuota',
-        'attachedSystemPoliciesPerUserQuota'  => 'AttachedSystemPoliciesPerUserQuota',
-        'conditionsPerAKPolicyQuota'          => 'ConditionsPerAKPolicyQuota',
-        'groups'                              => 'Groups',
-        'groupsPerUserQuota'                  => 'GroupsPerUserQuota',
-        'groupsQuota'                         => 'GroupsQuota',
-        'IPItemsPerAKPolicyQuota'             => 'IPItemsPerAKPolicyQuota',
-        'MFADevices'                          => 'MFADevices',
-        'MFADevicesInUse'                     => 'MFADevicesInUse',
-        'policies'                            => 'Policies',
-        'policiesQuota'                       => 'PoliciesQuota',
-        'policySizeQuota'                     => 'PolicySizeQuota',
-        'roles'                               => 'Roles',
-        'rolesQuota'                          => 'RolesQuota',
-        'users'                               => 'Users',
-        'usersQuota'                          => 'UsersQuota',
-        'versionsPerPolicyQuota'              => 'VersionsPerPolicyQuota',
-        'virtualMFADevicesQuota'              => 'VirtualMFADevicesQuota',
+        'attachedSystemPoliciesPerRoleQuota' => 'AttachedSystemPoliciesPerRoleQuota',
+        'attachedSystemPoliciesPerUserQuota' => 'AttachedSystemPoliciesPerUserQuota',
+        'conditionsPerAKPolicyQuota' => 'ConditionsPerAKPolicyQuota',
+        'groups' => 'Groups',
+        'groupsPerUserQuota' => 'GroupsPerUserQuota',
+        'groupsQuota' => 'GroupsQuota',
+        'IPItemsPerAKPolicyQuota' => 'IPItemsPerAKPolicyQuota',
+        'MFADevices' => 'MFADevices',
+        'MFADevicesInUse' => 'MFADevicesInUse',
+        'policies' => 'Policies',
+        'policiesQuota' => 'PoliciesQuota',
+        'policySizeQuota' => 'PolicySizeQuota',
+        'roles' => 'Roles',
+        'rolesQuota' => 'RolesQuota',
+        'users' => 'Users',
+        'usersQuota' => 'UsersQuota',
+        'versionsPerPolicyQuota' => 'VersionsPerPolicyQuota',
+        'virtualMFADevicesQuota' => 'VirtualMFADevicesQuota',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

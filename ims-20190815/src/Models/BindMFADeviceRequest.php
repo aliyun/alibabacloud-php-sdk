@@ -12,6 +12,7 @@ class BindMFADeviceRequest extends Model
      * @description The first verification code.
      *
      * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
+     *
      * @example 123456
      *
      * @var string
@@ -22,6 +23,7 @@ class BindMFADeviceRequest extends Model
      * @description The second verification code.
      *
      * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
+     *
      * @example 654321
      *
      * @var string
@@ -32,6 +34,7 @@ class BindMFADeviceRequest extends Model
      * @description The serial number of the MFA device.
      *
      * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to obtain the serial number of the MFA device.
+     *
      * @example acs:ram::177242285274****:mfa/device001
      *
      * @var string
@@ -42,6 +45,7 @@ class BindMFADeviceRequest extends Model
      * @description The logon name of the RAM user.
      *
      * This parameter is required.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
@@ -50,13 +54,11 @@ class BindMFADeviceRequest extends Model
     protected $_name = [
         'authenticationCode1' => 'AuthenticationCode1',
         'authenticationCode2' => 'AuthenticationCode2',
-        'serialNumber'        => 'SerialNumber',
-        'userPrincipalName'   => 'UserPrincipalName',
+        'serialNumber' => 'SerialNumber',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -123,24 +123,22 @@ class application extends Model
      */
     public $updateDate;
     protected $_name = [
-        'accessTokenValidity'  => 'AccessTokenValidity',
-        'accountId'            => 'AccountId',
-        'appId'                => 'AppId',
-        'appName'              => 'AppName',
-        'appType'              => 'AppType',
-        'createDate'           => 'CreateDate',
-        'delegatedScope'       => 'DelegatedScope',
-        'displayName'          => 'DisplayName',
-        'isMultiTenant'        => 'IsMultiTenant',
-        'redirectUris'         => 'RedirectUris',
+        'accessTokenValidity' => 'AccessTokenValidity',
+        'accountId' => 'AccountId',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'appType' => 'AppType',
+        'createDate' => 'CreateDate',
+        'delegatedScope' => 'DelegatedScope',
+        'displayName' => 'DisplayName',
+        'isMultiTenant' => 'IsMultiTenant',
+        'redirectUris' => 'RedirectUris',
         'refreshTokenValidity' => 'RefreshTokenValidity',
-        'secretRequired'       => 'SecretRequired',
-        'updateDate'           => 'UpdateDate',
+        'secretRequired' => 'SecretRequired',
+        'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

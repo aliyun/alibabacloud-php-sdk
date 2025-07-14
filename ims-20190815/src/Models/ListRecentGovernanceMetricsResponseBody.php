@@ -34,14 +34,12 @@ class ListRecentGovernanceMetricsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'generateTime'      => 'GenerateTime',
+        'generateTime' => 'GenerateTime',
         'governanceMetrics' => 'GovernanceMetrics',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

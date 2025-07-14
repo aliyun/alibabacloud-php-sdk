@@ -53,16 +53,14 @@ class group extends Model
      */
     public $joinDate;
     protected $_name = [
-        'comments'    => 'Comments',
+        'comments' => 'Comments',
         'displayName' => 'DisplayName',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'joinDate'    => 'JoinDate',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'joinDate' => 'JoinDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

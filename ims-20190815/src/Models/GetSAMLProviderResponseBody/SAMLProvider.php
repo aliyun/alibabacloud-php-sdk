@@ -62,17 +62,15 @@ class SAMLProvider extends Model
      */
     public $updateDate;
     protected $_name = [
-        'arn'                         => 'Arn',
-        'createDate'                  => 'CreateDate',
-        'description'                 => 'Description',
+        'arn' => 'Arn',
+        'createDate' => 'CreateDate',
+        'description' => 'Description',
         'encodedSAMLMetadataDocument' => 'EncodedSAMLMetadataDocument',
-        'SAMLProviderName'            => 'SAMLProviderName',
-        'updateDate'                  => 'UpdateDate',
+        'SAMLProviderName' => 'SAMLProviderName',
+        'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

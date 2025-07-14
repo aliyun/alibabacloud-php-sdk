@@ -17,9 +17,7 @@ class virtualMFADevices extends Model
         'virtualMFADevice' => 'VirtualMFADevice',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class virtualMFADevices extends Model
         if (isset($map['VirtualMFADevice'])) {
             if (!empty($map['VirtualMFADevice'])) {
                 $model->virtualMFADevice = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['VirtualMFADevice'] as $item) {
                     $model->virtualMFADevice[$n++] = null !== $item ? virtualMFADevice::fromMap($item) : $item;
                 }

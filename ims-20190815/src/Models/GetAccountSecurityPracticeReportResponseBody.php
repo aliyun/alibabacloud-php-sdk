@@ -26,12 +26,10 @@ class GetAccountSecurityPracticeReportResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accountSecurityPracticeInfo' => 'AccountSecurityPracticeInfo',
-        'requestId'                   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

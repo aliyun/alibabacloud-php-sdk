@@ -33,6 +33,7 @@ class predefinedScope extends Model
      *   false
      *
      * `openid` is required by default.
+     *
      * @example true
      *
      * @var bool
@@ -40,13 +41,11 @@ class predefinedScope extends Model
     public $required;
     protected $_name = [
         'description' => 'Description',
-        'name'        => 'Name',
-        'required'    => 'Required',
+        'name' => 'Name',
+        'required' => 'Required',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

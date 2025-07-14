@@ -26,12 +26,10 @@ class ProvisionApplicationResponseBody extends Model
     public $requestId;
     protected $_name = [
         'applicationProvisionInfo' => 'ApplicationProvisionInfo',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

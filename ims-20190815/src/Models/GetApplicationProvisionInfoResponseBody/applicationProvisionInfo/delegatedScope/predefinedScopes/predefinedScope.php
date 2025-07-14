@@ -27,12 +27,10 @@ class predefinedScope extends Model
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

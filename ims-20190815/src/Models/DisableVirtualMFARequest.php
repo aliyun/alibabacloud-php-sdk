@@ -12,6 +12,7 @@ class DisableVirtualMFARequest extends Model
      * @description The logon name of the RAM user.
      *
      * This parameter is required.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
@@ -21,9 +22,7 @@ class DisableVirtualMFARequest extends Model
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

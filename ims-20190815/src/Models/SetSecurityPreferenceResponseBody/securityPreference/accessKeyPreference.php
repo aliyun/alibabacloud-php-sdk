@@ -20,9 +20,7 @@ class accessKeyPreference extends Model
         'allowUserToManageAccessKeys' => 'AllowUserToManageAccessKeys',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

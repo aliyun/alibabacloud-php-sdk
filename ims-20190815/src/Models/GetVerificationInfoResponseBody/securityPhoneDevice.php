@@ -38,14 +38,12 @@ class securityPhoneDevice extends Model
      */
     public $status;
     protected $_name = [
-        'areaCode'    => 'AreaCode',
+        'areaCode' => 'AreaCode',
         'phoneNumber' => 'PhoneNumber',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

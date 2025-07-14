@@ -88,20 +88,18 @@ class applicationProvisionInfo extends Model
      */
     public $updateDate;
     protected $_name = [
-        'accountId'        => 'AccountId',
-        'appId'            => 'AppId',
-        'appName'          => 'AppName',
+        'accountId' => 'AccountId',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'appPrincipalName' => 'AppPrincipalName',
-        'createDate'       => 'CreateDate',
-        'delegatedScope'   => 'DelegatedScope',
-        'displayName'      => 'DisplayName',
-        'tenantId'         => 'TenantId',
-        'updateDate'       => 'UpdateDate',
+        'createDate' => 'CreateDate',
+        'delegatedScope' => 'DelegatedScope',
+        'displayName' => 'DisplayName',
+        'tenantId' => 'TenantId',
+        'updateDate' => 'UpdateDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class columnRow extends Model
         'columnValue' => 'ColumnValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetSAMLProviderRequest extends Model
      * @description The name of the IdP.
      *
      * This parameter is required.
+     *
      * @example test-provider
      *
      * @var string
@@ -21,9 +22,7 @@ class GetSAMLProviderRequest extends Model
         'SAMLProviderName' => 'SAMLProviderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

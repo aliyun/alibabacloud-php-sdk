@@ -12,6 +12,7 @@ class ListAccessKeysRequest extends Model
      * @description The logon name of the RAM user.
      *
      * If this parameter is empty, the AccessKey pairs of the current user are queried.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
@@ -21,9 +22,7 @@ class ListAccessKeysRequest extends Model
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

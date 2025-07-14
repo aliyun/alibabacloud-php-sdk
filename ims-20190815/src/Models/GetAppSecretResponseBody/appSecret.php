@@ -44,15 +44,13 @@ class appSecret extends Model
      */
     public $createDate;
     protected $_name = [
-        'appId'          => 'AppId',
-        'appSecretId'    => 'AppSecretId',
+        'appId' => 'AppId',
+        'appSecretId' => 'AppSecretId',
         'appSecretValue' => 'AppSecretValue',
-        'createDate'     => 'CreateDate',
+        'createDate' => 'CreateDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

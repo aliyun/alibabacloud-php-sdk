@@ -11,7 +11,10 @@ class ChangePasswordRequest extends Model
     /**
      * @description The new password that is used to log on to the console.
      *
+     * The password must meet the complexity requirements. For more information, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/186691.html).
+     *
      * This parameter is required.
+     *
      * @example newpassword
      *
      * @var string
@@ -22,6 +25,7 @@ class ChangePasswordRequest extends Model
      * @description The old password that is used to log on to the console.
      *
      * This parameter is required.
+     *
      * @example mypassword
      *
      * @var string
@@ -32,9 +36,7 @@ class ChangePasswordRequest extends Model
         'oldPassword' => 'OldPassword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

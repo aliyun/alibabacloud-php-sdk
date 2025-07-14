@@ -17,9 +17,7 @@ class accessKeys extends Model
         'accessKey' => 'AccessKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class accessKeys extends Model
         if (isset($map['AccessKey'])) {
             if (!empty($map['AccessKey'])) {
                 $model->accessKey = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['AccessKey'] as $item) {
                     $model->accessKey[$n++] = null !== $item ? accessKey::fromMap($item) : $item;
                 }

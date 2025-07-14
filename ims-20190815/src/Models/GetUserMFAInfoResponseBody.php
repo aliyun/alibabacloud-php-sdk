@@ -38,13 +38,11 @@ class GetUserMFAInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'isMFAEnable' => 'IsMFAEnable',
-        'MFADevice'   => 'MFADevice',
-        'requestId'   => 'RequestId',
+        'MFADevice' => 'MFADevice',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class UpdateSAMLProviderRequest extends Model
      * @description The new description.
      *
      * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
+     *
      * @example This is a new provider.
      *
      * @var string
@@ -22,6 +23,7 @@ class UpdateSAMLProviderRequest extends Model
      * @description The new metadata file.
      *
      * >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
+     *
      * @example PD94bWwgdmVy****
      *
      * @var string
@@ -32,20 +34,19 @@ class UpdateSAMLProviderRequest extends Model
      * @description The name of the IdP whose information you want to modify.
      *
      * This parameter is required.
+     *
      * @example test-provider
      *
      * @var string
      */
     public $SAMLProviderName;
     protected $_name = [
-        'newDescription'                 => 'NewDescription',
+        'newDescription' => 'NewDescription',
         'newEncodedSAMLMetadataDocument' => 'NewEncodedSAMLMetadataDocument',
-        'SAMLProviderName'               => 'SAMLProviderName',
+        'SAMLProviderName' => 'SAMLProviderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

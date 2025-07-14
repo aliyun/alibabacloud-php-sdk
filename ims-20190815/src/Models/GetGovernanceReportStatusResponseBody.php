@@ -29,13 +29,11 @@ class GetGovernanceReportStatusResponseBody extends Model
     public $wholeReportStatus;
     protected $_name = [
         'governanceItemsStatus' => 'GovernanceItemsStatus',
-        'requestId'             => 'RequestId',
-        'wholeReportStatus'     => 'WholeReportStatus',
+        'requestId' => 'RequestId',
+        'wholeReportStatus' => 'WholeReportStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

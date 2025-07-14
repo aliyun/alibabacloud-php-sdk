@@ -26,9 +26,7 @@ class columnSchema extends Model
         'columnType' => 'ColumnType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,9 +9,12 @@ use AlibabaCloud\Tea\Model;
 class AddFingerprintToOIDCProviderRequest extends Model
 {
     /**
-     * @description The fingerprint of the HTTPS certificate.
+     * @description The fingerprint of the HTTPS CA certificate.
      *
-     * The fingerprint can be up to 40 characters in length.
+     * The fingerprint can contain letters and digits.
+     *
+     * The fingerprint can be up to 128 characters in length.
+     *
      * @example 902ef2deeb3c5b13ea4c3d5193629309e231****
      *
      * @var string
@@ -27,13 +30,11 @@ class AddFingerprintToOIDCProviderRequest extends Model
      */
     public $OIDCProviderName;
     protected $_name = [
-        'fingerprint'      => 'Fingerprint',
+        'fingerprint' => 'Fingerprint',
         'OIDCProviderName' => 'OIDCProviderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

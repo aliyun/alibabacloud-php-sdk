@@ -11,7 +11,12 @@ class UpdateOIDCProviderRequest extends Model
     /**
      * @description The ID of the client. If you want to specify multiple client IDs, separate the client IDs with commas (,).
      *
-     * > If you specify this parameter, all the client IDs of the OIDC IdP are replaced. If you need to only add or remove a client ID, call the AddClientIdToOIDCProvider or RemoveClientIdFromOIDCProvider operation. For more information, see [AddClientIdToOIDCProvider](https://help.aliyun.com/document_detail/332057.html) or [RemoveClientIdFromOIDCProvider](https://help.aliyun.com/document_detail/332058.html).
+     * A client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+     *
+     * A client ID can be up to 128 characters in length.
+     *
+     * >  If you specify this parameter, all the client IDs of the OIDC IdP are replaced. If you need to only add or remove a client ID, call the AddClientIdToOIDCProvider or RemoveClientIdFromOIDCProvider operation. For more information, see [AddClientIdToOIDCProvider](https://help.aliyun.com/document_detail/332057.html) or [RemoveClientIdFromOIDCProvider](https://help.aliyun.com/document_detail/332058.html).
+     *
      * @example 498469743454717****
      *
      * @var string
@@ -31,6 +36,7 @@ class UpdateOIDCProviderRequest extends Model
      * @description The description of the OIDC IdP.
      *
      * The description can be up to 256 characters in length.
+     *
      * @example This is a new OIDC Provider.
      *
      * @var string
@@ -46,15 +52,13 @@ class UpdateOIDCProviderRequest extends Model
      */
     public $OIDCProviderName;
     protected $_name = [
-        'clientIds'         => 'ClientIds',
+        'clientIds' => 'ClientIds',
         'issuanceLimitTime' => 'IssuanceLimitTime',
-        'newDescription'    => 'NewDescription',
-        'OIDCProviderName'  => 'OIDCProviderName',
+        'newDescription' => 'NewDescription',
+        'OIDCProviderName' => 'OIDCProviderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

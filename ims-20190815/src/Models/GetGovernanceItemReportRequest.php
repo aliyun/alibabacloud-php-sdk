@@ -30,13 +30,11 @@ class GetGovernanceItemReportRequest extends Model
     public $maxItems;
     protected $_name = [
         'governanceItemType' => 'GovernanceItemType',
-        'marker'             => 'Marker',
-        'maxItems'           => 'MaxItems',
+        'marker' => 'Marker',
+        'maxItems' => 'MaxItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

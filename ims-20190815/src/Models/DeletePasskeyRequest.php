@@ -26,13 +26,11 @@ class DeletePasskeyRequest extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'passkeyId'         => 'PasskeyId',
+        'passkeyId' => 'PasskeyId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

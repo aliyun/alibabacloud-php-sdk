@@ -17,9 +17,7 @@ class predefinedScopes extends Model
         'predefinedScope' => 'PredefinedScope',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class predefinedScopes extends Model
         if (isset($map['PredefinedScope'])) {
             if (!empty($map['PredefinedScope'])) {
                 $model->predefinedScope = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PredefinedScope'] as $item) {
                     $model->predefinedScope[$n++] = null !== $item ? predefinedScope::fromMap($item) : $item;
                 }

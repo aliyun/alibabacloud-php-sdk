@@ -12,7 +12,8 @@ class DeleteAccessKeyRequest extends Model
      * @description The ID of the AccessKey pair that you want to delete.
      *
      * This parameter is required.
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -22,19 +23,18 @@ class DeleteAccessKeyRequest extends Model
      * @description The logon name of the RAM user.
      *
      * If this parameter is empty, the AccessKey pair of the current user is deleted.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
      */
     public $userPrincipalName;
     protected $_name = [
-        'userAccessKeyId'   => 'UserAccessKeyId',
+        'userAccessKeyId' => 'UserAccessKeyId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

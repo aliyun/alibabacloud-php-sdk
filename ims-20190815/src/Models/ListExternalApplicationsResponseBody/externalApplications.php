@@ -17,9 +17,7 @@ class externalApplications extends Model
         'externalApplication' => 'ExternalApplication',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class externalApplications extends Model
         if (isset($map['ExternalApplication'])) {
             if (!empty($map['ExternalApplication'])) {
                 $model->externalApplication = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ExternalApplication'] as $item) {
                     $model->externalApplication[$n++] = null !== $item ? externalApplication::fromMap($item) : $item;
                 }

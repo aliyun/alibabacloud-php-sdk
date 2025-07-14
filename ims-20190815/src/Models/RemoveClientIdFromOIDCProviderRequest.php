@@ -11,7 +11,10 @@ class RemoveClientIdFromOIDCProviderRequest extends Model
     /**
      * @description The client ID that you want to remove.
      *
-     * The client ID can be up to 64 characters in length.
+     * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+     *
+     * The client ID can be up to 128 characters in length.
+     *
      * @example 498469743454717****
      *
      * @var string
@@ -27,13 +30,11 @@ class RemoveClientIdFromOIDCProviderRequest extends Model
      */
     public $OIDCProviderName;
     protected $_name = [
-        'clientId'         => 'ClientId',
+        'clientId' => 'ClientId',
         'OIDCProviderName' => 'OIDCProviderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

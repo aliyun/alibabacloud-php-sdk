@@ -19,9 +19,7 @@ class delegatedScope extends Model
         'predefinedScopes' => 'PredefinedScopes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

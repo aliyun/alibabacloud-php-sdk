@@ -25,6 +25,7 @@ class ListVirtualMFADevicesResponseBody extends Model
      * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * >  This parameter is returned only when `IsTruncated` is `true`.
+     *
      * @example EXAMPLE
      *
      * @var string
@@ -47,15 +48,13 @@ class ListVirtualMFADevicesResponseBody extends Model
      */
     public $virtualMFADevices;
     protected $_name = [
-        'isTruncated'       => 'IsTruncated',
-        'marker'            => 'Marker',
-        'requestId'         => 'RequestId',
+        'isTruncated' => 'IsTruncated',
+        'marker' => 'Marker',
+        'requestId' => 'RequestId',
         'virtualMFADevices' => 'VirtualMFADevices',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

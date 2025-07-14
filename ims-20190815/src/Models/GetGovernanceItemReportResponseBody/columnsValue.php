@@ -17,9 +17,7 @@ class columnsValue extends Model
         'columnRow' => 'ColumnRow',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class columnsValue extends Model
         if (isset($map['ColumnRow'])) {
             if (!empty($map['ColumnRow'])) {
                 $model->columnRow = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ColumnRow'] as $item) {
                     $model->columnRow[$n++] = null !== $item ? columnRow::fromMap($item) : $item;
                 }

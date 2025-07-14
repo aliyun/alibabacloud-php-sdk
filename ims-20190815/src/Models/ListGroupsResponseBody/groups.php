@@ -17,9 +17,7 @@ class groups extends Model
         'group' => 'Group',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class groups extends Model
         if (isset($map['Group'])) {
             if (!empty($map['Group'])) {
                 $model->group = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Group'] as $item) {
                     $model->group[$n++] = null !== $item ? group::fromMap($item) : $item;
                 }

@@ -18,9 +18,7 @@ class verificationPreference extends Model
         'verificationTypes' => 'VerificationTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

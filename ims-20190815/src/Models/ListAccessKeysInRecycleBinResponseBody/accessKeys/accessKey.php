@@ -11,7 +11,7 @@ class accessKey extends Model
     /**
      * @description The AccessKey ID.
      *
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -45,14 +45,12 @@ class accessKey extends Model
     public $recycleDate;
     protected $_name = [
         'accessKeyId' => 'AccessKeyId',
-        'createDate'  => 'CreateDate',
-        'deleteDate'  => 'DeleteDate',
+        'createDate' => 'CreateDate',
+        'deleteDate' => 'DeleteDate',
         'recycleDate' => 'RecycleDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

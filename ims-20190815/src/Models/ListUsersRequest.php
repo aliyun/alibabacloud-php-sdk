@@ -22,6 +22,7 @@ class ListUsersRequest extends Model
      * @description The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
      *
      * Valid values: 1 to 1000. Default value: 1000.
+     *
      * @example 1000
      *
      * @var int
@@ -44,15 +45,13 @@ class ListUsersRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'marker'   => 'Marker',
+        'marker' => 'Marker',
         'maxItems' => 'MaxItems',
-        'status'   => 'Status',
-        'tag'      => 'Tag',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -99,7 +98,7 @@ class ListUsersRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

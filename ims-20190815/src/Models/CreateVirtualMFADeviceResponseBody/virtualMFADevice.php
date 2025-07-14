@@ -36,13 +36,11 @@ class virtualMFADevice extends Model
     public $serialNumber;
     protected $_name = [
         'base32StringSeed' => 'Base32StringSeed',
-        'QRCodePNG'        => 'QRCodePNG',
-        'serialNumber'     => 'SerialNumber',
+        'QRCodePNG' => 'QRCodePNG',
+        'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

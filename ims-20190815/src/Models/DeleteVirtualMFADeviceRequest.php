@@ -12,6 +12,7 @@ class DeleteVirtualMFADeviceRequest extends Model
      * @description The serial number of the MFA device.
      *
      * This parameter is required.
+     *
      * @example acs:ram::123456789012****:mfa/device002
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteVirtualMFADeviceRequest extends Model
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

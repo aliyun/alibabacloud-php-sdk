@@ -11,7 +11,7 @@ class RestoreAccessKeyFromRecycleBinRequest extends Model
     /**
      * @description The AccessKey ID of the RAM user.
      *
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -27,12 +27,10 @@ class RestoreAccessKeyFromRecycleBinRequest extends Model
     public $userId;
     protected $_name = [
         'userAccessKeyId' => 'UserAccessKeyId',
-        'userId'          => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

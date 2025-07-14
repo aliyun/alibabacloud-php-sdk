@@ -29,13 +29,11 @@ class securityEmailDevice extends Model
      */
     public $status;
     protected $_name = [
-        'email'  => 'Email',
+        'email' => 'Email',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

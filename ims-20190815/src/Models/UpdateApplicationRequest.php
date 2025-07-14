@@ -12,6 +12,7 @@ class UpdateApplicationRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 472457090344041****
      *
      * @var string
@@ -22,6 +23,7 @@ class UpdateApplicationRequest extends Model
      * @description The validity period of the access token.
      *
      * Valid values: 900 to 10800. Unit: seconds.
+     *
      * @example 3600
      *
      * @var int
@@ -52,7 +54,12 @@ class UpdateApplicationRequest extends Model
     /**
      * @description The permission that is granted on the application.
      *
+     * For more information about the application permission scope, see [OAuth scopes](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to query the permissions that are supported by different types of applications.
+     *
+     * If you enter multiple permissions, separate them with semicolons (;).
+     *
      * The new value of this parameter overwrites the original value, and the permission specified by the new value takes effect. For example, if the original value is `/acs/ccc`, and the new value is `/acs/alidns`, `/acs/alidns` takes effect. If you want to retain the original permission and the `/acs/alidns` permission, set the value to `/acs/ccc;/acs/alidns`.
+     *
      * @example openid
      *
      * @var string
@@ -63,6 +70,7 @@ class UpdateApplicationRequest extends Model
      * @description The callback URL.
      *
      * If you enter multiple callback URLs, separate them with semicolons (;).
+     *
      * @example https://www.example.com
      *
      * @var string
@@ -73,6 +81,7 @@ class UpdateApplicationRequest extends Model
      * @description The validity period of the refresh token.
      *
      * Valid values: 7200 to 31536000. Unit: seconds.
+     *
      * @example 7776000
      *
      * @var int
@@ -82,7 +91,16 @@ class UpdateApplicationRequest extends Model
     /**
      * @description The required permission.
      *
+     * You can specify one or more permissions for the `RequiredScopes` parameter. After you specify this parameter, the required permissions are automatically selected and cannot be revoked when a user grants permissions on the application.
+     *
+     * If you also specify the `NewPredefinedScopes` parameter, the `NewPredefinedScopes` parameter specifies the permissions that can be granted on the application, and this parameter specifies the required permissions.
+     *
+     * If you enter multiple permissions, separate them with semicolons (;).
+     *
+     * The new value of this parameter overwrites the original value, and the required permission specified by the new value takes effect.
+     *
      * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
+     *
      * @example profile;aliuid
      *
      * @var string
@@ -106,20 +124,18 @@ class UpdateApplicationRequest extends Model
      */
     public $newSecretRequired;
     protected $_name = [
-        'appId'                   => 'AppId',
-        'newAccessTokenValidity'  => 'NewAccessTokenValidity',
-        'newDisplayName'          => 'NewDisplayName',
-        'newIsMultiTenant'        => 'NewIsMultiTenant',
-        'newPredefinedScopes'     => 'NewPredefinedScopes',
-        'newRedirectUris'         => 'NewRedirectUris',
+        'appId' => 'AppId',
+        'newAccessTokenValidity' => 'NewAccessTokenValidity',
+        'newDisplayName' => 'NewDisplayName',
+        'newIsMultiTenant' => 'NewIsMultiTenant',
+        'newPredefinedScopes' => 'NewPredefinedScopes',
+        'newRedirectUris' => 'NewRedirectUris',
         'newRefreshTokenValidity' => 'NewRefreshTokenValidity',
-        'newRequiredScopes'       => 'NewRequiredScopes',
-        'newSecretRequired'       => 'NewSecretRequired',
+        'newRequiredScopes' => 'NewRequiredScopes',
+        'newSecretRequired' => 'NewSecretRequired',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

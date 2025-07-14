@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAccessKeysResponseBody extends Model
 {
     /**
-     * @description The information about the AccessKey pairs.
+     * @description The AccessKey pairs.
      *
      * @var accessKeys
      */
@@ -26,12 +26,10 @@ class ListAccessKeysResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accessKeys' => 'AccessKeys',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

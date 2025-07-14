@@ -11,7 +11,7 @@ class accessKey extends Model
     /**
      * @description The AccessKey ID.
      *
-     * @example LTAI4G3HaMmeHpay2gcq****
+     * @example yourAccessKeyID
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class accessKey extends Model
     /**
      * @description The AccessKey secret.
      *
-     * @example Y3MSLE6OgizS4qrz5LVFDoyZEL****
+     * @example yourAccessKeySecret
      *
      * @var string
      */
@@ -47,15 +47,13 @@ class accessKey extends Model
      */
     public $status;
     protected $_name = [
-        'accessKeyId'     => 'AccessKeyId',
+        'accessKeyId' => 'AccessKeyId',
         'accessKeySecret' => 'AccessKeySecret',
-        'createDate'      => 'CreateDate',
-        'status'          => 'Status',
+        'createDate' => 'CreateDate',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

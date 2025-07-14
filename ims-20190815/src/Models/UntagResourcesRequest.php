@@ -15,6 +15,7 @@ class UntagResourcesRequest extends Model
      *   false (default): does not remove all tags from the resources.
      *
      * > This parameter takes effect only when TagKey.N is not set in the request.
+     *
      * @example false
      *
      * @var bool
@@ -24,7 +25,10 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of resources.
      *
+     * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
+     *
      * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+     *
      * @example UntagResources
      *
      * @var string[]
@@ -34,7 +38,10 @@ class UntagResourcesRequest extends Model
     /**
      * @description The names of resources.
      *
+     * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
+     *
      * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+     *
      * @var string[]
      */
     public $resourcePrincipalName;
@@ -54,20 +61,19 @@ class UntagResourcesRequest extends Model
      * @description The tag keys of resources.
      *
      * Valid values of N: 1 to 20. N must be consecutive.
+     *
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'all'                   => 'All',
-        'resourceId'            => 'ResourceId',
+        'all' => 'All',
+        'resourceId' => 'ResourceId',
         'resourcePrincipalName' => 'ResourcePrincipalName',
-        'resourceType'          => 'ResourceType',
-        'tagKey'                => 'TagKey',
+        'resourceType' => 'ResourceType',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

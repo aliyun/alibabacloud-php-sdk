@@ -16,6 +16,7 @@ class ListPredefinedScopesRequest extends Model
      *   ServerApp
      *
      * If this parameter is empty, the permissions on all types of applications are queried.
+     *
      * @example WebApp
      *
      * @var string
@@ -25,9 +26,7 @@ class ListPredefinedScopesRequest extends Model
         'appType' => 'AppType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

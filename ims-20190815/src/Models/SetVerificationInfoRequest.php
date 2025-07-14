@@ -12,6 +12,7 @@ class SetVerificationInfoRequest extends Model
      * @description The email address.
      *
      * >  If you set `VerifyType` to `email`, you must specify this parameter.
+     *
      * @example username@example.com
      *
      * @var string
@@ -22,6 +23,7 @@ class SetVerificationInfoRequest extends Model
      * @description The mobile phone number.
      *
      * >  If you set `VerifyType` to `sms`, you must specify this parameter.
+     *
      * @example 86-13900001234
      *
      * @var string
@@ -49,15 +51,13 @@ class SetVerificationInfoRequest extends Model
      */
     public $verifyType;
     protected $_name = [
-        'email'             => 'Email',
-        'mobilePhone'       => 'MobilePhone',
+        'email' => 'Email',
+        'mobilePhone' => 'MobilePhone',
         'userPrincipalName' => 'UserPrincipalName',
-        'verifyType'        => 'VerifyType',
+        'verifyType' => 'VerifyType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

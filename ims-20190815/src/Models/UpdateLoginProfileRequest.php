@@ -24,6 +24,7 @@ class UpdateLoginProfileRequest extends Model
      * @description The new password that is used to log on to the console.
      *
      * The new password must meet the complexity requirements.
+     *
      * @example mypassword
      *
      * @var string
@@ -58,22 +59,21 @@ class UpdateLoginProfileRequest extends Model
      * @description The logon name of the RAM user.
      *
      * This parameter is required.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
      */
     public $userPrincipalName;
     protected $_name = [
-        'MFABindRequired'       => 'MFABindRequired',
-        'password'              => 'Password',
+        'MFABindRequired' => 'MFABindRequired',
+        'password' => 'Password',
         'passwordResetRequired' => 'PasswordResetRequired',
-        'status'                => 'Status',
-        'userPrincipalName'     => 'UserPrincipalName',
+        'status' => 'Status',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

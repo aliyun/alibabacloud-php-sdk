@@ -12,7 +12,8 @@ class GetUserInRecycleBinRequest extends Model
      * @description The AccessKey ID of the RAM user.
      *
      * >  You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -22,6 +23,7 @@ class GetUserInRecycleBinRequest extends Model
      * @description The ID of the RAM user.
      *
      * >  You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
+     *
      * @example 20732900249392****
      *
      * @var string
@@ -29,12 +31,10 @@ class GetUserInRecycleBinRequest extends Model
     public $userId;
     protected $_name = [
         'userAccessKeyId' => 'UserAccessKeyId',
-        'userId'          => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

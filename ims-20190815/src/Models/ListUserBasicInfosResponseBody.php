@@ -46,15 +46,13 @@ class ListUserBasicInfosResponseBody extends Model
      */
     public $userBasicInfos;
     protected $_name = [
-        'isTruncated'    => 'IsTruncated',
-        'marker'         => 'Marker',
-        'requestId'      => 'RequestId',
+        'isTruncated' => 'IsTruncated',
+        'marker' => 'Marker',
+        'requestId' => 'RequestId',
         'userBasicInfos' => 'UserBasicInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

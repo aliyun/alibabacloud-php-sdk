@@ -62,17 +62,15 @@ class user extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'createDate'        => 'CreateDate',
-        'deleteDate'        => 'DeleteDate',
-        'displayName'       => 'DisplayName',
-        'recycleDate'       => 'RecycleDate',
-        'userId'            => 'UserId',
+        'createDate' => 'CreateDate',
+        'deleteDate' => 'DeleteDate',
+        'displayName' => 'DisplayName',
+        'recycleDate' => 'RecycleDate',
+        'userId' => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

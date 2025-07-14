@@ -27,12 +27,10 @@ class accessKeyLastUsed extends Model
     public $serviceName;
     protected $_name = [
         'lastUsedDate' => 'LastUsedDate',
-        'serviceName'  => 'ServiceName',
+        'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

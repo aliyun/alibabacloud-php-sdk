@@ -12,6 +12,7 @@ class DeleteSAMLProviderRequest extends Model
      * @description The name of the IdP that you want to delete.
      *
      * This parameter is required.
+     *
      * @example test-provider
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteSAMLProviderRequest extends Model
         'SAMLProviderName' => 'SAMLProviderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

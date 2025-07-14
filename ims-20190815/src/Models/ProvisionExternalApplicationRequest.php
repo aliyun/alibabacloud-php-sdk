@@ -12,6 +12,7 @@ class ProvisionExternalApplicationRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 403550611646604****
      *
      * @var string
@@ -19,22 +20,21 @@ class ProvisionExternalApplicationRequest extends Model
     public $appId;
 
     /**
-     * @description The information about the scope of permissions granted to the application. You can enter multiple scopes and separate them with semicolons (;).
+     * @description The permissions that are granted to the application. Separate multiple permissions with a semicolon (;).
      *
-     * >  For more information about the supported permission scopes, see the "OAuth scope" section in the [Overview](https://help.aliyun.com/zh/ram/user-guide/overview-of-oauth-applications) topic.
+     * >  For more information about the supported permissions, see [Overview](https://help.aliyun.com/document_detail/93693.html).
+     *
      * @example openid;aliuid
      *
      * @var string
      */
     public $scopes;
     protected $_name = [
-        'appId'  => 'AppId',
+        'appId' => 'AppId',
         'scopes' => 'Scopes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

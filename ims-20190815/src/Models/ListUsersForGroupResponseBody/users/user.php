@@ -44,15 +44,13 @@ class user extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'displayName'       => 'DisplayName',
-        'joinDate'          => 'JoinDate',
-        'userId'            => 'UserId',
+        'displayName' => 'DisplayName',
+        'joinDate' => 'JoinDate',
+        'userId' => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

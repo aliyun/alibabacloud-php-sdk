@@ -27,12 +27,10 @@ class GetDefaultDomainResponseBody extends Model
     public $requestId;
     protected $_name = [
         'defaultDomainName' => 'DefaultDomainName',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

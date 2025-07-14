@@ -30,7 +30,10 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of resource N.
      *
+     * Valid values of N: 1 to 50. If ResourceType is set to user, the resource ID is the ID of the RAM user.
+     *
      * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -38,7 +41,10 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The name of resource N.
      *
+     * Valid values of N: 1 to 50. If ResourceType is set to user, the resource name is the name of the RAM user.
+     *
      * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+     *
      * @var string[]
      */
     public $resourcePrincipalName;
@@ -58,21 +64,20 @@ class ListTagResourcesRequest extends Model
      * @description The tag value.
      *
      * Valid values of N: 1 to 20. N must be consecutive.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'nextToken'             => 'NextToken',
-        'pageSize'              => 'PageSize',
-        'resourceId'            => 'ResourceId',
+        'nextToken' => 'NextToken',
+        'pageSize' => 'PageSize',
+        'resourceId' => 'ResourceId',
         'resourcePrincipalName' => 'ResourcePrincipalName',
-        'resourceType'          => 'ResourceType',
-        'tag'                   => 'Tag',
+        'resourceType' => 'ResourceType',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -135,7 +140,7 @@ class ListTagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -23,9 +23,7 @@ class GetUserMFAInfoRequest extends Model
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

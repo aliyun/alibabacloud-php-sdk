@@ -26,12 +26,10 @@ class ListPredefinedScopesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'predefinedScopes' => 'PredefinedScopes',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetCredentialReportResponseBody extends Model
      * @description The content of the user credential report.
      *
      * The report is Base64-encoded. After you decode the report, the credential report is in the CSV format.
+     *
      * @example OVZWK4RMOVZW****
      *
      * @var string
@@ -57,16 +58,14 @@ class GetCredentialReportResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'content'       => 'Content',
+        'content' => 'Content',
         'generatedTime' => 'GeneratedTime',
-        'isTruncated'   => 'IsTruncated',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
+        'isTruncated' => 'IsTruncated',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

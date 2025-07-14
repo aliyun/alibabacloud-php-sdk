@@ -23,9 +23,7 @@ class MFAPreference extends Model
         'allowUserToManageMFADevices' => 'AllowUserToManageMFADevices',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

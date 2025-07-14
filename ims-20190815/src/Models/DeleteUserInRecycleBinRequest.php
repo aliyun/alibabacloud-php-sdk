@@ -20,9 +20,7 @@ class DeleteUserInRecycleBinRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

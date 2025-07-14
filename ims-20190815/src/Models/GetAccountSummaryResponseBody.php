@@ -25,13 +25,11 @@ class GetAccountSummaryResponseBody extends Model
      */
     public $summaryMap;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'summaryMap' => 'SummaryMap',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -63,16 +63,14 @@ class loginProfile extends Model
     public $userPrincipalName;
     protected $_name = [
         'autoDisableLoginStatus' => 'AutoDisableLoginStatus',
-        'MFABindRequired'        => 'MFABindRequired',
-        'passwordResetRequired'  => 'PasswordResetRequired',
-        'status'                 => 'Status',
-        'updateDate'             => 'UpdateDate',
-        'userPrincipalName'      => 'UserPrincipalName',
+        'MFABindRequired' => 'MFABindRequired',
+        'passwordResetRequired' => 'PasswordResetRequired',
+        'status' => 'Status',
+        'updateDate' => 'UpdateDate',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

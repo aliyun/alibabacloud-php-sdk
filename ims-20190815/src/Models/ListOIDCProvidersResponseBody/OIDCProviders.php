@@ -17,9 +17,7 @@ class OIDCProviders extends Model
         'OIDCProvider' => 'OIDCProvider',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class OIDCProviders extends Model
         if (isset($map['OIDCProvider'])) {
             if (!empty($map['OIDCProvider'])) {
                 $model->OIDCProvider = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OIDCProvider'] as $item) {
                     $model->OIDCProvider[$n++] = null !== $item ? OIDCProvider::fromMap($item) : $item;
                 }

@@ -53,16 +53,14 @@ class loginProfile extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'MFABindRequired'       => 'MFABindRequired',
+        'MFABindRequired' => 'MFABindRequired',
         'passwordResetRequired' => 'PasswordResetRequired',
-        'status'                => 'Status',
-        'updateDate'            => 'UpdateDate',
-        'userPrincipalName'     => 'UserPrincipalName',
+        'status' => 'Status',
+        'updateDate' => 'UpdateDate',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

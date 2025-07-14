@@ -42,21 +42,20 @@ class userSsoSettings extends Model
      *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
      *
      * The default value is `true`.
+     *
      * @example true
      *
      * @var bool
      */
     public $ssoLoginWithDomain;
     protected $_name = [
-        'auxiliaryDomain'    => 'AuxiliaryDomain',
-        'metadataDocument'   => 'MetadataDocument',
-        'ssoEnabled'         => 'SsoEnabled',
+        'auxiliaryDomain' => 'AuxiliaryDomain',
+        'metadataDocument' => 'MetadataDocument',
+        'ssoEnabled' => 'SsoEnabled',
         'ssoLoginWithDomain' => 'SsoLoginWithDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

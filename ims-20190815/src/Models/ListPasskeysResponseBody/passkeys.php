@@ -44,15 +44,13 @@ class passkeys extends Model
      */
     public $passkeyName;
     protected $_name = [
-        'createDate'  => 'CreateDate',
+        'createDate' => 'CreateDate',
         'lastUseDate' => 'LastUseDate',
-        'passkeyId'   => 'PasskeyId',
+        'passkeyId' => 'PasskeyId',
         'passkeyName' => 'PasskeyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

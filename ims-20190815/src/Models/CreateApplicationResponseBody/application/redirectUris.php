@@ -16,9 +16,7 @@ class redirectUris extends Model
         'redirectUri' => 'RedirectUri',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class SetUserSsoSettingsResponseBody extends Model
      */
     public $userSsoSettings;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'userSsoSettings' => 'UserSsoSettings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

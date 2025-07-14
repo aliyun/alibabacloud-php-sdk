@@ -15,6 +15,7 @@ class UpdateAccessKeyRequest extends Model
      *   Inactive
      *
      * This parameter is required.
+     *
      * @example Active
      *
      * @var string
@@ -25,7 +26,8 @@ class UpdateAccessKeyRequest extends Model
      * @description The AccessKey ID of the AccessKey pair for which you want to modify the status.
      *
      * This parameter is required.
-     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
+     * @example LTAI*******************
      *
      * @var string
      */
@@ -35,20 +37,19 @@ class UpdateAccessKeyRequest extends Model
      * @description The logon name of the RAM user.
      *
      * If this parameter is empty, the status of the AccessKey pair for the current user is modified.
+     *
      * @example test@example.onaliyun.com
      *
      * @var string
      */
     public $userPrincipalName;
     protected $_name = [
-        'status'            => 'Status',
-        'userAccessKeyId'   => 'UserAccessKeyId',
+        'status' => 'Status',
+        'userAccessKeyId' => 'UserAccessKeyId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

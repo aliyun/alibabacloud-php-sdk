@@ -21,19 +21,18 @@ class RemoveUserFromGroupRequest extends Model
      * @description The logon name of the RAM user.
      *
      * This parameter is required.
+     *
      * @example alice@example.onaliyun.com
      *
      * @var string
      */
     public $userPrincipalName;
     protected $_name = [
-        'groupName'         => 'GroupName',
+        'groupName' => 'GroupName',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

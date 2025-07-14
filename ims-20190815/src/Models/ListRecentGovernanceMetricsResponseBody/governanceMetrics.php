@@ -17,9 +17,7 @@ class governanceMetrics extends Model
         'governanceMetric' => 'GovernanceMetric',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class governanceMetrics extends Model
         if (isset($map['GovernanceMetric'])) {
             if (!empty($map['GovernanceMetric'])) {
                 $model->governanceMetric = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['GovernanceMetric'] as $item) {
                     $model->governanceMetric[$n++] = null !== $item ? governanceMetric::fromMap($item) : $item;
                 }

@@ -63,18 +63,16 @@ class GetGovernanceItemReportResponseBody extends Model
     public $requestId;
     protected $_name = [
         'columnsSchema' => 'ColumnsSchema',
-        'columnsValue'  => 'ColumnsValue',
-        'generateTime'  => 'GenerateTime',
-        'isTruncated'   => 'IsTruncated',
-        'marker'        => 'Marker',
-        'metricType'    => 'MetricType',
-        'metricValue'   => 'MetricValue',
-        'requestId'     => 'RequestId',
+        'columnsValue' => 'ColumnsValue',
+        'generateTime' => 'GenerateTime',
+        'isTruncated' => 'IsTruncated',
+        'marker' => 'Marker',
+        'metricType' => 'MetricType',
+        'metricValue' => 'MetricValue',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,14 +33,12 @@ class GetVerificationInfoResponseBody extends Model
      */
     public $securityPhoneDevice;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'securityEmailDevice' => 'SecurityEmailDevice',
         'securityPhoneDevice' => 'SecurityPhoneDevice',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

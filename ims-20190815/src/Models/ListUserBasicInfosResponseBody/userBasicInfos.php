@@ -17,9 +17,7 @@ class userBasicInfos extends Model
         'userBasicInfo' => 'UserBasicInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class userBasicInfos extends Model
         if (isset($map['UserBasicInfo'])) {
             if (!empty($map['UserBasicInfo'])) {
                 $model->userBasicInfo = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['UserBasicInfo'] as $item) {
                     $model->userBasicInfo[$n++] = null !== $item ? userBasicInfo::fromMap($item) : $item;
                 }

@@ -47,14 +47,12 @@ class ListUsersInRecycleBinResponseBody extends Model
     public $users;
     protected $_name = [
         'isTruncated' => 'IsTruncated',
-        'marker'      => 'Marker',
-        'requestId'   => 'RequestId',
-        'users'       => 'Users',
+        'marker' => 'Marker',
+        'requestId' => 'RequestId',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

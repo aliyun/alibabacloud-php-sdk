@@ -12,6 +12,7 @@ class GetApplicationProvisionInfoRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 452392483381546****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetApplicationProvisionInfoRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

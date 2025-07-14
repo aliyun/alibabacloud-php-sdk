@@ -32,6 +32,7 @@ class ListExternalApplicationsResponseBody extends Model
      * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * >  This parameter is returned only when `IsTruncated` is `true`.
+     *
      * @example EXAMPLE
      *
      * @var string
@@ -48,14 +49,12 @@ class ListExternalApplicationsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'externalApplications' => 'ExternalApplications',
-        'isTruncated'          => 'IsTruncated',
-        'marker'               => 'Marker',
-        'requestId'            => 'RequestId',
+        'isTruncated' => 'IsTruncated',
+        'marker' => 'Marker',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class GetSecurityPreferenceResponseBody extends Model
      */
     public $securityPreference;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'securityPreference' => 'SecurityPreference',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateGroupRequest extends Model
      * @description The description.
      *
      * The description can be up to 128 characters in length.
+     *
      * @example Dev-Team
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateGroupRequest extends Model
      * @description The display name of the RAM user group.
      *
      * The name can be up to 24 characters in length.
+     *
      * @example Dev-Team
      *
      * @var string
@@ -32,20 +34,19 @@ class CreateGroupRequest extends Model
      * @description The name of the RAM user group. You must specify this parameter.
      *
      * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+     *
      * @example Dev-Team
      *
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'comments'    => 'Comments',
+        'comments' => 'Comments',
         'displayName' => 'DisplayName',
-        'groupName'   => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

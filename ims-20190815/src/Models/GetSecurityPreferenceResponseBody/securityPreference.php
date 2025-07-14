@@ -56,17 +56,15 @@ class securityPreference extends Model
      */
     public $verificationPreference;
     protected $_name = [
-        'accessKeyPreference'    => 'AccessKeyPreference',
+        'accessKeyPreference' => 'AccessKeyPreference',
         'loginProfilePreference' => 'LoginProfilePreference',
-        'MFAPreference'          => 'MFAPreference',
-        'maxIdleDays'            => 'MaxIdleDays',
+        'MFAPreference' => 'MFAPreference',
+        'maxIdleDays' => 'MaxIdleDays',
         'personalInfoPreference' => 'PersonalInfoPreference',
         'verificationPreference' => 'VerificationPreference',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

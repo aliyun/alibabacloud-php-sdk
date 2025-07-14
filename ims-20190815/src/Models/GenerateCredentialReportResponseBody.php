@@ -31,12 +31,10 @@ class GenerateCredentialReportResponseBody extends Model
     public $state;
     protected $_name = [
         'requestId' => 'RequestId',
-        'state'     => 'State',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

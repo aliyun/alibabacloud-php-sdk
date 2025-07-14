@@ -21,9 +21,13 @@ class SetSecurityPreferenceShrinkRequest extends Model
     public $allowUserToChangePassword;
 
     /**
-     * @description Allow direct login using passkey.
+     * @description Specifies whether a RAM user can use a passkey for logon. Valid values:
      *
-     * - false
+     *   true: A RAM user can use a passkey for logon. This is the default value.
+     *   false: A RAM user cannot use a passkey for logon.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToLoginWithPasskey;
@@ -82,7 +86,10 @@ class SetSecurityPreferenceShrinkRequest extends Model
      *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
      *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
      *
+     * If you need to specify multiple subnet masks, separate the subnet masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
+     *
      * You can specify up to 40 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
+     *
      * @example 10.0.0.0/8
      *
      * @var string
@@ -92,7 +99,10 @@ class SetSecurityPreferenceShrinkRequest extends Model
     /**
      * @description The validity period of the logon session of RAM users.
      *
+     * Valid values: 1 to 24. Unit: hours.
+     *
      * Default value: 6.
+     *
      * @example 6
      *
      * @var int
@@ -120,6 +130,8 @@ class SetSecurityPreferenceShrinkRequest extends Model
      *
      * @example autonomous
      *
+     * @deprecated
+     *
      * @var string
      */
     public $operationForRiskLogin;
@@ -131,22 +143,20 @@ class SetSecurityPreferenceShrinkRequest extends Model
      */
     public $verificationTypesShrink;
     protected $_name = [
-        'allowUserToChangePassword'         => 'AllowUserToChangePassword',
-        'allowUserToLoginWithPasskey'       => 'AllowUserToLoginWithPasskey',
-        'allowUserToManageAccessKeys'       => 'AllowUserToManageAccessKeys',
-        'allowUserToManageMFADevices'       => 'AllowUserToManageMFADevices',
+        'allowUserToChangePassword' => 'AllowUserToChangePassword',
+        'allowUserToLoginWithPasskey' => 'AllowUserToLoginWithPasskey',
+        'allowUserToManageAccessKeys' => 'AllowUserToManageAccessKeys',
+        'allowUserToManageMFADevices' => 'AllowUserToManageMFADevices',
         'allowUserToManagePersonalDingTalk' => 'AllowUserToManagePersonalDingTalk',
-        'enableSaveMFATicket'               => 'EnableSaveMFATicket',
-        'loginNetworkMasks'                 => 'LoginNetworkMasks',
-        'loginSessionDuration'              => 'LoginSessionDuration',
-        'MFAOperationForLogin'              => 'MFAOperationForLogin',
-        'operationForRiskLogin'             => 'OperationForRiskLogin',
-        'verificationTypesShrink'           => 'VerificationTypes',
+        'enableSaveMFATicket' => 'EnableSaveMFATicket',
+        'loginNetworkMasks' => 'LoginNetworkMasks',
+        'loginSessionDuration' => 'LoginSessionDuration',
+        'MFAOperationForLogin' => 'MFAOperationForLogin',
+        'operationForRiskLogin' => 'OperationForRiskLogin',
+        'verificationTypesShrink' => 'VerificationTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

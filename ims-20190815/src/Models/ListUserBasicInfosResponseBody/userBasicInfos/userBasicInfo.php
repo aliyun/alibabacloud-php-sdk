@@ -44,15 +44,13 @@ class userBasicInfo extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'displayName'       => 'DisplayName',
-        'status'            => 'Status',
-        'userId'            => 'UserId',
+        'displayName' => 'DisplayName',
+        'status' => 'Status',
+        'userId' => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

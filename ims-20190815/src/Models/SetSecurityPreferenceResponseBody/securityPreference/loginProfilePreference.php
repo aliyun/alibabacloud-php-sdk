@@ -18,9 +18,10 @@ class loginProfilePreference extends Model
     public $allowUserToChangePassword;
 
     /**
-     * @description Allow direct login using passkey.
+     * @description Indicates whether a RAM user can use a passkey for logon.
      *
-     * - false
+     * @example false
+     *
      * @var bool
      */
     public $allowUserToLoginWithPasskey;
@@ -66,22 +67,22 @@ class loginProfilePreference extends Model
      *
      * @example autonomous
      *
+     * @deprecated
+     *
      * @var string
      */
     public $operationForRiskLogin;
     protected $_name = [
-        'allowUserToChangePassword'   => 'AllowUserToChangePassword',
+        'allowUserToChangePassword' => 'AllowUserToChangePassword',
         'allowUserToLoginWithPasskey' => 'AllowUserToLoginWithPasskey',
-        'enableSaveMFATicket'         => 'EnableSaveMFATicket',
-        'loginNetworkMasks'           => 'LoginNetworkMasks',
-        'loginSessionDuration'        => 'LoginSessionDuration',
-        'MFAOperationForLogin'        => 'MFAOperationForLogin',
-        'operationForRiskLogin'       => 'OperationForRiskLogin',
+        'enableSaveMFATicket' => 'EnableSaveMFATicket',
+        'loginNetworkMasks' => 'LoginNetworkMasks',
+        'loginSessionDuration' => 'LoginSessionDuration',
+        'MFAOperationForLogin' => 'MFAOperationForLogin',
+        'operationForRiskLogin' => 'OperationForRiskLogin',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

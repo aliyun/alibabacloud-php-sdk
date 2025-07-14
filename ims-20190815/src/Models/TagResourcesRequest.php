@@ -12,7 +12,10 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of resource N.
      *
+     * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
+     *
      * >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -20,7 +23,10 @@ class TagResourcesRequest extends Model
     /**
      * @description The name of resource N.
      *
+     * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
+     *
      * >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
+     *
      * @example TagResources
      *
      * @var string[]
@@ -42,19 +48,18 @@ class TagResourcesRequest extends Model
      * @description The key of tag N.
      *
      * Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key can be up to 128 characters in length. The tag key cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'resourceId'            => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourcePrincipalName' => 'ResourcePrincipalName',
-        'resourceType'          => 'ResourceType',
-        'tag'                   => 'Tag',
+        'resourceType' => 'ResourceType',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +110,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

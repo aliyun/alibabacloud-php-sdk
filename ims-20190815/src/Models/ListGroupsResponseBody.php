@@ -46,15 +46,13 @@ class ListGroupsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'groups'      => 'Groups',
+        'groups' => 'Groups',
         'isTruncated' => 'IsTruncated',
-        'marker'      => 'Marker',
-        'requestId'   => 'RequestId',
+        'marker' => 'Marker',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
