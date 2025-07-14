@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRangeResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRangeResponseBody\result\apiCopilotThemeModels\apiCopilotLlmCubeModels;
+use AlibabaCloud\Tea\Model;
 
 class apiCopilotThemeModels extends Model
 {
     /**
+     * @description Array of LlmCube resources.
+     *
      * @var apiCopilotLlmCubeModels[]
      */
     public $apiCopilotLlmCubeModels;
 
     /**
+     * @description Nickname of the creator.
+     *
+     * @example zhuge
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @description Analysis theme ID.
+     *
+     * @example 36631232342312312
+     *
      * @var string
      */
     public $themeId;
 
     /**
+     * @description Nickname of the analysis theme.
+     *
+     * @example test theme
+     *
      * @var string
      */
     public $themeName;
@@ -35,36 +49,26 @@ class apiCopilotThemeModels extends Model
         'themeName' => 'ThemeName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->apiCopilotLlmCubeModels)) {
-            Model::validateArray($this->apiCopilotLlmCubeModels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiCopilotLlmCubeModels) {
-            if (\is_array($this->apiCopilotLlmCubeModels)) {
-                $res['ApiCopilotLlmCubeModels'] = [];
-                $n1 = 0;
-                foreach ($this->apiCopilotLlmCubeModels as $item1) {
-                    $res['ApiCopilotLlmCubeModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ApiCopilotLlmCubeModels'] = [];
+            if (null !== $this->apiCopilotLlmCubeModels && \is_array($this->apiCopilotLlmCubeModels)) {
+                $n = 0;
+                foreach ($this->apiCopilotLlmCubeModels as $item) {
+                    $res['ApiCopilotLlmCubeModels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->createUser) {
             $res['CreateUser'] = $this->createUser;
         }
-
         if (null !== $this->themeId) {
             $res['ThemeId'] = $this->themeId;
         }
-
         if (null !== $this->themeName) {
             $res['ThemeName'] = $this->themeName;
         }
@@ -72,33 +76,29 @@ class apiCopilotThemeModels extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apiCopilotThemeModels
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiCopilotLlmCubeModels'])) {
             if (!empty($map['ApiCopilotLlmCubeModels'])) {
                 $model->apiCopilotLlmCubeModels = [];
-                $n1 = 0;
-                foreach ($map['ApiCopilotLlmCubeModels'] as $item1) {
-                    $model->apiCopilotLlmCubeModels[$n1] = apiCopilotLlmCubeModels::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ApiCopilotLlmCubeModels'] as $item) {
+                    $model->apiCopilotLlmCubeModels[$n++] = null !== $item ? apiCopilotLlmCubeModels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CreateUser'])) {
             $model->createUser = $map['CreateUser'];
         }
-
         if (isset($map['ThemeId'])) {
             $model->themeId = $map['ThemeId'];
         }
-
         if (isset($map['ThemeName'])) {
             $model->themeName = $map['ThemeName'];
         }

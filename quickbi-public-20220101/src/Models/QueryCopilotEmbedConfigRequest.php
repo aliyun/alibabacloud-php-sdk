@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryCopilotEmbedConfigRequest extends Model
 {
     /**
+     * @description Name of the embedded configuration module, supports fuzzy search.
+     *
+     * @example 06-ELive
+     *
      * @var string
      */
     public $keyword;
@@ -16,12 +20,9 @@ class QueryCopilotEmbedConfigRequest extends Model
         'keyword' => 'Keyword',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keyword) {
@@ -31,11 +32,11 @@ class QueryCopilotEmbedConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryCopilotEmbedConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

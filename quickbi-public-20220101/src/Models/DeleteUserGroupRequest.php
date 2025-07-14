@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUserGroupRequest extends Model
 {
     /**
+     * @description The ID of the user group.
+     *
+     * This parameter is required.
+     *
+     * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
+     *
      * @var string
      */
     public $userGroupId;
@@ -16,12 +22,9 @@ class DeleteUserGroupRequest extends Model
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userGroupId) {
@@ -31,11 +34,11 @@ class DeleteUserGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUserGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

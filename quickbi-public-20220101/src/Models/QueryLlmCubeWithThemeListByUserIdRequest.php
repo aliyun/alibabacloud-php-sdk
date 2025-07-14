@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryLlmCubeWithThemeListByUserIdRequest extends Model
 {
     /**
+     * @description User ID.
+     *
+     * This parameter is required.
+     *
+     * @example adsdasd-***********-123wdasd
+     *
      * @var string
      */
     public $userId;
@@ -16,12 +22,9 @@ class QueryLlmCubeWithThemeListByUserIdRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userId) {
@@ -31,11 +34,11 @@ class QueryLlmCubeWithThemeListByUserIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryLlmCubeWithThemeListByUserIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

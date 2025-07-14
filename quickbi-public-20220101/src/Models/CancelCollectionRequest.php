@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelCollectionRequest extends Model
 {
     /**
+     * @description The ID of the favorite user. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
+     *
+     * This parameter is required.
+     *
+     * @example 121344444790****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The ID of the work to cancel the collection.
+     *
+     * This parameter is required.
+     *
+     * @example 5d6ae4e7-cede-43cd-b4d3-d2fd442a9202
+     *
      * @var string
      */
     public $worksId;
@@ -22,18 +34,14 @@ class CancelCollectionRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->worksId) {
             $res['WorksId'] = $this->worksId;
         }
@@ -41,18 +49,17 @@ class CancelCollectionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelCollectionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['WorksId'])) {
             $model->worksId = $map['WorksId'];
         }

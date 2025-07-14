@@ -4,11 +4,28 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationRoleConfigResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class authConfigList extends Model
 {
     /**
+     * @description Permission type:
+     * - quick_monitor: Metric Monitoring
+     * - subscription: Subscription Management
+     * - offline_download: Self-service Data Retrieval
+     * - resource_package: Resource Package Management
+     * - organization_ask: Organization Access Key/Secret (AK/SK)
+     * - developer_openapi: OpenAPI
+     * - data_service: Data Service
+     * - admin_authorize3rd: Embedded Analysis
+     * - component_manage: Custom Component
+     * - template_open: Custom Template
+     * - custom_driver: Custom Driver (supported only in standalone deployment)
+     * - open_platform_custom_plugin: Custom Plugin (supported only in standalone deployment)
+     * - enterprise_safety: Enterprise Security
+     *
+     * @example quick_monitor
+     *
      * @var string
      */
     public $authKey;
@@ -16,12 +33,9 @@ class authConfigList extends Model
         'authKey' => 'AuthKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authKey) {
@@ -31,11 +45,11 @@ class authConfigList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return authConfigList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

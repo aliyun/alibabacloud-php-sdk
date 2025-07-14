@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTicketRequest extends Model
 {
     /**
+     * @description The value of the third-party embedded ticket, which is the `accessTicket` in the URL.
+     *
+     * This parameter is required.
+     *
+     * @example 040e6f79d****7d283c7206c070
+     *
      * @var string
      */
     public $ticket;
@@ -16,12 +22,9 @@ class DeleteTicketRequest extends Model
         'ticket' => 'Ticket',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ticket) {
@@ -31,11 +34,11 @@ class DeleteTicketRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTicketRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

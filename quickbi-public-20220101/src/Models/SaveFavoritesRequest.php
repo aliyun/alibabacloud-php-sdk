@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SaveFavoritesRequest extends Model
 {
     /**
+     * @description The user ID of the person who favorites the work. This user ID is the UserID of Quick BI, not the UID of Alibaba Cloud.
+     *
+     * This parameter is required.
+     *
+     * @example 121344444790****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The ID of the work being favorited.
+     *
+     * This parameter is required.
+     *
+     * @example d23e84a1-82a0-4292-bfdb-521306c3****
+     *
      * @var string
      */
     public $worksId;
@@ -22,18 +34,14 @@ class SaveFavoritesRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->worksId) {
             $res['WorksId'] = $this->worksId;
         }
@@ -41,18 +49,17 @@ class SaveFavoritesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SaveFavoritesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['WorksId'])) {
             $model->worksId = $map['WorksId'];
         }

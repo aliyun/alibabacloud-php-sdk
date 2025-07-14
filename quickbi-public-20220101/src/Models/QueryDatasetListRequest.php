@@ -4,36 +4,64 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryDatasetListRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example schemaad8aad00-9c55-4984-a767-b4e0ec60****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description Information about the directory where the dataset is located
+     *
+     * @example Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description Specifies the directory ID.
+     *
+     *   If this field is not empty, all datasets in the directory are obtained.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $withChildren;
 
     /**
+     * @description The name of the data source.
+     *
+     * This parameter is required.
+     *
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $workspaceId;
@@ -46,34 +74,26 @@ class QueryDatasetListRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->withChildren) {
             $res['WithChildren'] = $this->withChildren;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -81,34 +101,29 @@ class QueryDatasetListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDatasetListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['WithChildren'])) {
             $model->withChildren = $map['WithChildren'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

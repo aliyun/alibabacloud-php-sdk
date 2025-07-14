@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataLevelPermissionWhiteListResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class usersModel extends Model
 {
     /**
+     * @description UserGroups.
+     *
      * @var string[]
      */
     public $userGroups;
 
     /**
+     * @description Users.
+     *
      * @var string[]
      */
     public $users;
@@ -22,72 +26,37 @@ class usersModel extends Model
         'users' => 'Users',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->userGroups)) {
-            Model::validateArray($this->userGroups);
-        }
-        if (\is_array($this->users)) {
-            Model::validateArray($this->users);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userGroups) {
-            if (\is_array($this->userGroups)) {
-                $res['UserGroups'] = [];
-                $n1 = 0;
-                foreach ($this->userGroups as $item1) {
-                    $res['UserGroups'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['UserGroups'] = $this->userGroups;
         }
-
         if (null !== $this->users) {
-            if (\is_array($this->users)) {
-                $res['Users'] = [];
-                $n1 = 0;
-                foreach ($this->users as $item1) {
-                    $res['Users'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Users'] = $this->users;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return usersModel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserGroups'])) {
             if (!empty($map['UserGroups'])) {
-                $model->userGroups = [];
-                $n1 = 0;
-                foreach ($map['UserGroups'] as $item1) {
-                    $model->userGroups[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->userGroups = $map['UserGroups'];
             }
         }
-
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
-                $model->users = [];
-                $n1 = 0;
-                foreach ($map['Users'] as $item1) {
-                    $model->users[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->users = $map['Users'];
             }
         }
 

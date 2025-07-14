@@ -4,26 +4,38 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCopilotEmbedConfigResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataRange extends Model
 {
     /**
+     * @description Whether all question resources are selected.
+     *
+     * @example true/false
+     *
      * @var bool
      */
     public $allCube;
 
     /**
+     * @description Whether all analysis themes are selected.
+     *
+     * @example true/false
+     *
      * @var bool
      */
     public $allTheme;
 
     /**
+     * @description Collection of question resource IDs.
+     *
      * @var string[]
      */
     public $llmCubes;
 
     /**
+     * @description Collection of analysis theme IDs.
+     *
      * @var string[]
      */
     public $themes;
@@ -34,88 +46,49 @@ class dataRange extends Model
         'themes' => 'Themes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->llmCubes)) {
-            Model::validateArray($this->llmCubes);
-        }
-        if (\is_array($this->themes)) {
-            Model::validateArray($this->themes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allCube) {
             $res['AllCube'] = $this->allCube;
         }
-
         if (null !== $this->allTheme) {
             $res['AllTheme'] = $this->allTheme;
         }
-
         if (null !== $this->llmCubes) {
-            if (\is_array($this->llmCubes)) {
-                $res['LlmCubes'] = [];
-                $n1 = 0;
-                foreach ($this->llmCubes as $item1) {
-                    $res['LlmCubes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['LlmCubes'] = $this->llmCubes;
         }
-
         if (null !== $this->themes) {
-            if (\is_array($this->themes)) {
-                $res['Themes'] = [];
-                $n1 = 0;
-                foreach ($this->themes as $item1) {
-                    $res['Themes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Themes'] = $this->themes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataRange
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllCube'])) {
             $model->allCube = $map['AllCube'];
         }
-
         if (isset($map['AllTheme'])) {
             $model->allTheme = $map['AllTheme'];
         }
-
         if (isset($map['LlmCubes'])) {
             if (!empty($map['LlmCubes'])) {
-                $model->llmCubes = [];
-                $n1 = 0;
-                foreach ($map['LlmCubes'] as $item1) {
-                    $model->llmCubes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->llmCubes = $map['LlmCubes'];
             }
         }
-
         if (isset($map['Themes'])) {
             if (!empty($map['Themes'])) {
-                $model->themes = [];
-                $n1 = 0;
-                foreach ($map['Themes'] as $item1) {
-                    $model->themes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->themes = $map['Themes'];
             }
         }
 

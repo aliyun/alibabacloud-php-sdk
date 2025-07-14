@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryDatasetDetailInfoRequest extends Model
 {
     /**
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *
+     * This parameter is required.
+     *
+     * @example 5820f58c-c734-4d8a-baf1-7979af4f****
+     *
      * @var string
      */
     public $datasetId;
@@ -16,12 +22,9 @@ class QueryDatasetDetailInfoRequest extends Model
         'datasetId' => 'DatasetId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->datasetId) {
@@ -31,11 +34,11 @@ class QueryDatasetDetailInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDatasetDetailInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

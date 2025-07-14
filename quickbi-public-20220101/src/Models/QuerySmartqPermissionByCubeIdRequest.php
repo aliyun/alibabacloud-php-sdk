@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QuerySmartqPermissionByCubeIdRequest extends Model
 {
     /**
+     * @description Dataset ID.
+     *
+     * This parameter is required.
+     *
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @description User ID.
+     *
+     * This parameter is required.
+     *
+     * @example 95c4d**************3852e202
+     *
      * @var string
      */
     public $userId;
@@ -22,18 +34,14 @@ class QuerySmartqPermissionByCubeIdRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cubeId) {
             $res['CubeId'] = $this->cubeId;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -41,18 +49,17 @@ class QuerySmartqPermissionByCubeIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QuerySmartqPermissionByCubeIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CubeId'])) {
             $model->cubeId = $map['CubeId'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

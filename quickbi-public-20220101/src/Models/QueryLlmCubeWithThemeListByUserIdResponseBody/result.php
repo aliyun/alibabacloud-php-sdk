@@ -4,16 +4,25 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryLlmCubeWithThemeListByUserIdResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @description Dataset map.
+     *
+     * - key - Dataset ID
+     * - value - Dataset name
+     *
      * @var string[]
      */
     public $cubeIds;
 
     /**
+     * @description Analysis theme map.
+     * - key - Analysis theme ID
+     * - value - Analysis theme name
+     *
      * @var string[]
      */
     public $themeIds;
@@ -22,65 +31,34 @@ class result extends Model
         'themeIds' => 'ThemeIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cubeIds)) {
-            Model::validateArray($this->cubeIds);
-        }
-        if (\is_array($this->themeIds)) {
-            Model::validateArray($this->themeIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cubeIds) {
-            if (\is_array($this->cubeIds)) {
-                $res['CubeIds'] = [];
-                foreach ($this->cubeIds as $key1 => $value1) {
-                    $res['CubeIds'][$key1] = $value1;
-                }
-            }
+            $res['CubeIds'] = $this->cubeIds;
         }
-
         if (null !== $this->themeIds) {
-            if (\is_array($this->themeIds)) {
-                $res['ThemeIds'] = [];
-                foreach ($this->themeIds as $key1 => $value1) {
-                    $res['ThemeIds'][$key1] = $value1;
-                }
-            }
+            $res['ThemeIds'] = $this->themeIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CubeIds'])) {
-            if (!empty($map['CubeIds'])) {
-                $model->cubeIds = [];
-                foreach ($map['CubeIds'] as $key1 => $value1) {
-                    $model->cubeIds[$key1] = $value1;
-                }
-            }
+            $model->cubeIds = $map['CubeIds'];
         }
-
         if (isset($map['ThemeIds'])) {
-            if (!empty($map['ThemeIds'])) {
-                $model->themeIds = [];
-                foreach ($map['ThemeIds'] as $key1 => $value1) {
-                    $model->themeIds[$key1] = $value1;
-                }
-            }
+            $model->themeIds = $map['ThemeIds'];
         }
 
         return $model;

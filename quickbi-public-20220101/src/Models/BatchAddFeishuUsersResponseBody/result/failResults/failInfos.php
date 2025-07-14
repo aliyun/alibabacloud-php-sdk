@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersResponseBody\result\failResults;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failInfos extends Model
 {
     /**
+     * @example ACCOUNT_EXIST
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class failInfos extends Model
     public $codeDesc;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $input;
@@ -28,22 +32,17 @@ class failInfos extends Model
         'input' => 'Input',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->codeDesc) {
             $res['CodeDesc'] = $this->codeDesc;
         }
-
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
@@ -51,22 +50,20 @@ class failInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['CodeDesc'])) {
             $model->codeDesc = $map['CodeDesc'];
         }
-
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }

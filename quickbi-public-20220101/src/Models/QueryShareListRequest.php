@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryShareListRequest extends Model
 {
     /**
+     * @description The ID of the work. The works include data portal, dashboard, spreadsheet, self-service data retrieval, ad-hoc analysis, data entry, and data screen.
+     *
+     * This parameter is required.
+     *
+     * @example 6b407e50-e774-406b-9956-da2425c2****
+     *
      * @var string
      */
     public $reportId;
@@ -16,12 +22,9 @@ class QueryShareListRequest extends Model
         'reportId' => 'ReportId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reportId) {
@@ -31,11 +34,11 @@ class QueryShareListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryShareListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

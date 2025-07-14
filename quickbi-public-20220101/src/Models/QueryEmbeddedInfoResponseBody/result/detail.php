@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedInfoResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class detail extends Model
 {
     /**
+     * @description The number of embedded self-service fetching.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dashboardOfflineQuery;
 
     /**
+     * @description The number of embedded dashboards.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of embedded spreadsheets.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $report;
@@ -28,22 +40,17 @@ class detail extends Model
         'report' => 'Report',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dashboardOfflineQuery) {
             $res['DashboardOfflineQuery'] = $this->dashboardOfflineQuery;
         }
-
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-
         if (null !== $this->report) {
             $res['Report'] = $this->report;
         }
@@ -51,22 +58,20 @@ class detail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return detail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DashboardOfflineQuery'])) {
             $model->dashboardOfflineQuery = $map['DashboardOfflineQuery'];
         }
-
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-
         if (isset($map['Report'])) {
             $model->report = $map['Report'];
         }

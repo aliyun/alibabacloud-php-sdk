@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUserFromWorkspaceRequest extends Model
 {
     /**
+     * @description The ID of the user to be deleted. Note that this UserID is for Quick BI, not the Alibaba Cloud UID.
+     *
+     * This parameter is required.
+     *
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * This parameter is required.
+     *
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $workspaceId;
@@ -22,18 +34,14 @@ class DeleteUserFromWorkspaceRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -41,18 +49,17 @@ class DeleteUserFromWorkspaceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUserFromWorkspaceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

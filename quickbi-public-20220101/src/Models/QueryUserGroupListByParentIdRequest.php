@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryUserGroupListByParentIdRequest extends Model
 {
     /**
+     * @description The ID of the parent user group.
+     *
+     *   If you enter the ID of the parent user group, you can obtain the information of the child user group under this ID.
+     *   If you enter -1, you can obtain the sub-user group information under the root directory.
+     *
+     * This parameter is required.
+     *
+     * @example 3d2c23d4-2b41-4af8-a1f5-f6390f32****
+     *
      * @var string
      */
     public $parentUserGroupId;
@@ -16,12 +25,9 @@ class QueryUserGroupListByParentIdRequest extends Model
         'parentUserGroupId' => 'ParentUserGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->parentUserGroupId) {
@@ -31,11 +37,11 @@ class QueryUserGroupListByParentIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryUserGroupListByParentIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

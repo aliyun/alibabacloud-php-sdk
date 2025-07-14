@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSwitchInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isOpenColumnLevelPermission;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isOpenRowLevelPermission;
@@ -28,22 +34,17 @@ class result extends Model
         'isOpenRowLevelPermission' => 'IsOpenRowLevelPermission',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cubeId) {
             $res['CubeId'] = $this->cubeId;
         }
-
         if (null !== $this->isOpenColumnLevelPermission) {
             $res['IsOpenColumnLevelPermission'] = $this->isOpenColumnLevelPermission;
         }
-
         if (null !== $this->isOpenRowLevelPermission) {
             $res['IsOpenRowLevelPermission'] = $this->isOpenRowLevelPermission;
         }
@@ -51,22 +52,20 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CubeId'])) {
             $model->cubeId = $map['CubeId'];
         }
-
         if (isset($map['IsOpenColumnLevelPermission'])) {
             $model->isOpenColumnLevelPermission = $map['IsOpenColumnLevelPermission'];
         }
-
         if (isset($map['IsOpenRowLevelPermission'])) {
             $model->isOpenRowLevelPermission = $map['IsOpenRowLevelPermission'];
         }

@@ -4,16 +4,32 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class authConfigList extends Model
 {
     /**
+     * @description Authorization scope.
+     *
      * @var string[]
      */
     public $actionAuthKeys;
 
     /**
+     * @description Authorization type:
+     * - portal_create: Data Portal
+     * - dashboard_create: Dashboard
+     * - report_create: Spreadsheet
+     * - screen_create: Data Screen
+     * - analysis: Ad-hoc Analysis
+     * - offline_download: Self-service Data Retrieval
+     * - data_form: Data Entry
+     * - quick_etl: Data Preparation
+     * - cube: Dataset
+     * - datasource: Data Source
+     *
+     * @example portal_create
+     *
      * @var string
      */
     public $authKey;
@@ -22,28 +38,14 @@ class authConfigList extends Model
         'authKey' => 'AuthKey',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->actionAuthKeys)) {
-            Model::validateArray($this->actionAuthKeys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->actionAuthKeys) {
-            if (\is_array($this->actionAuthKeys)) {
-                $res['ActionAuthKeys'] = [];
-                $n1 = 0;
-                foreach ($this->actionAuthKeys as $item1) {
-                    $res['ActionAuthKeys'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ActionAuthKeys'] = $this->actionAuthKeys;
         }
-
         if (null !== $this->authKey) {
             $res['AuthKey'] = $this->authKey;
         }
@@ -51,25 +53,19 @@ class authConfigList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return authConfigList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionAuthKeys'])) {
             if (!empty($map['ActionAuthKeys'])) {
-                $model->actionAuthKeys = [];
-                $n1 = 0;
-                foreach ($map['ActionAuthKeys'] as $item1) {
-                    $model->actionAuthKeys[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->actionAuthKeys = $map['ActionAuthKeys'];
             }
         }
-
         if (isset($map['AuthKey'])) {
             $model->authKey = $map['AuthKey'];
         }

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryWorksBloodRelationshipRequest extends Model
 {
     /**
+     * @description The ID of the data work.
+     *
+     * This parameter is required.
+     *
+     * @example abcd****
+     *
      * @var string
      */
     public $worksId;
@@ -16,12 +22,9 @@ class QueryWorksBloodRelationshipRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->worksId) {
@@ -31,11 +34,11 @@ class QueryWorksBloodRelationshipRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryWorksBloodRelationshipRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

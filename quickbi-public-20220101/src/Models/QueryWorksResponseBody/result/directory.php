@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class directory extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example 83d37ba6-d909-48a2-a517-f4d05c3a****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the directory.
+     *
+     * @example Test directory
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The hierarchical structure of the directory ID to which the directory belongs. Separate the hierarchical structure with a /.
+     *
+     * @example 83d37ba6-d909-48a2-a517-f4d05c3a****
+     *
      * @var string
      */
     public $pathId;
 
     /**
+     * @description The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
+     *
+     * @example Test directory
+     *
      * @var string
      */
     public $pathName;
@@ -34,26 +50,20 @@ class directory extends Model
         'pathName' => 'PathName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->pathId) {
             $res['PathId'] = $this->pathId;
         }
-
         if (null !== $this->pathName) {
             $res['PathName'] = $this->pathName;
         }
@@ -61,26 +71,23 @@ class directory extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return directory
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['PathId'])) {
             $model->pathId = $map['PathId'];
         }
-
         if (isset($map['PathName'])) {
             $model->pathName = $map['PathName'];
         }

@@ -4,22 +4,35 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataLevelPermissionWhiteListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataLevelPermissionWhiteListResponseBody\result\usersModel;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @description Dataset ID.
+     *
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @description Type of dataset row and column permissions. Possible values:
+     *
+     * - ROW_LEVEL: Row-level permission
+     * - COLUMN_LEVEL: Column-level permission
+     *
+     * @example ROW_LEVEL
+     *
      * @var string
      */
     public $ruleType;
 
     /**
+     * @description Whitelist information.
+     *
      * @var usersModel
      */
     public $usersModel;
@@ -29,48 +42,38 @@ class result extends Model
         'usersModel' => 'UsersModel',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->usersModel) {
-            $this->usersModel->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cubeId) {
             $res['CubeId'] = $this->cubeId;
         }
-
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-
         if (null !== $this->usersModel) {
-            $res['UsersModel'] = null !== $this->usersModel ? $this->usersModel->toArray($noStream) : $this->usersModel;
+            $res['UsersModel'] = null !== $this->usersModel ? $this->usersModel->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CubeId'])) {
             $model->cubeId = $map['CubeId'];
         }
-
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
-
         if (isset($map['UsersModel'])) {
             $model->usersModel = usersModel::fromMap($map['UsersModel']);
         }

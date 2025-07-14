@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class values extends Model
 {
     /**
+     * @description Data values for each row.
+     *
      * @var string[]
      */
     public $row;
@@ -16,47 +18,29 @@ class values extends Model
         'row' => 'Row',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->row)) {
-            Model::validateArray($this->row);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->row) {
-            if (\is_array($this->row)) {
-                $res['Row'] = [];
-                $n1 = 0;
-                foreach ($this->row as $item1) {
-                    $res['Row'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Row'] = $this->row;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return values
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Row'])) {
             if (!empty($map['Row'])) {
-                $model->row = [];
-                $n1 = 0;
-                foreach ($map['Row'] as $item1) {
-                    $model->row[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->row = $map['Row'];
             }
         }
 

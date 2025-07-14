@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceResponseBody\result\data;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @description The list of API data sources that were queried.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of rows per page set when the interface is requested.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of rows.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
@@ -35,36 +49,26 @@ class result extends Model
         'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -72,33 +76,29 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

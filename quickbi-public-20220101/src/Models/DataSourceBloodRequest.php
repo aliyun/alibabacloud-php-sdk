@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DataSourceBloodRequest extends Model
 {
     /**
+     * @description Data source ID.
+     *
+     * This parameter is required.
+     *
+     * @example 44051300991327000048
+     *
      * @var string
      */
     public $dataSourceId;
@@ -16,12 +22,9 @@ class DataSourceBloodRequest extends Model
         'dataSourceId' => 'DataSourceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceId) {
@@ -31,11 +34,11 @@ class DataSourceBloodRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DataSourceBloodRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

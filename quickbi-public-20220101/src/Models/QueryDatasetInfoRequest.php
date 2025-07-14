@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryDatasetInfoRequest extends Model
 {
     /**
+     * @description Queries information about a specified dataset.
+     *
+     * This parameter is required.
+     *
+     * @example a201c85c-******
+     *
      * @var string
      */
     public $datasetId;
@@ -16,12 +22,9 @@ class QueryDatasetInfoRequest extends Model
         'datasetId' => 'DatasetId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->datasetId) {
@@ -31,11 +34,11 @@ class QueryDatasetInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDatasetInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

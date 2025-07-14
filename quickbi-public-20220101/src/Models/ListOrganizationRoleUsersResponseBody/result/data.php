@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListOrganizationRoleUsersResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Nickname of the organization member.
+     *
+     * @example Test User
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @description UserID of the organization member in Quick BI.
+     *
+     * @example b5d8fd9348cc4327****afb604
+     *
      * @var string
      */
     public $userId;
@@ -22,18 +30,14 @@ class data extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

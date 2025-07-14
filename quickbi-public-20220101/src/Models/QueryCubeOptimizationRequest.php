@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryCubeOptimizationRequest extends Model
 {
     /**
+     * @description The workspace ID.
+     *
+     * This parameter is required.
+     *
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $workspaceId;
@@ -16,12 +22,9 @@ class QueryCubeOptimizationRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->workspaceId) {
@@ -31,11 +34,11 @@ class QueryCubeOptimizationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryCubeOptimizationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

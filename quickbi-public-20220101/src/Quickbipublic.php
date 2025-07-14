@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataLevelPermissionRuleUsersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataLevelPermissionRuleUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataLevelPermissionWhiteListRequest;
@@ -157,6 +158,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceLi
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdV2Request;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdV2Response;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReportPerformanceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReportPerformanceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryShareListRequest;
@@ -230,10 +233,11 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateWorkspaceUsersRoleRequ
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateWorkspaceUsersRoleResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\WithdrawAllUserGroupsRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\WithdrawAllUserGroupsResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Quickbipublic extends OpenApiClient
 {
@@ -258,43 +262,35 @@ class Quickbipublic extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Add selected groups of people incrementally for a single row and column permission rule.
+     * @summary Add selected groups of people incrementally for a single row and column permission rule.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+     *  *
+     * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
-     *
-     * @param request - AddDataLevelPermissionRuleUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDataLevelPermissionRuleUsersResponse
-     *
-     * @param AddDataLevelPermissionRuleUsersRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return AddDataLevelPermissionRuleUsersResponse
+     * @return AddDataLevelPermissionRuleUsersResponse AddDataLevelPermissionRuleUsersResponse
      */
     public function addDataLevelPermissionRuleUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addUserModel) {
-            @$query['AddUserModel'] = $request->addUserModel;
+        if (!Utils::isUnset($request->addUserModel)) {
+            $query['AddUserModel'] = $request->addUserModel;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDataLevelPermissionRuleUsers',
@@ -312,18 +308,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add selected groups of people incrementally for a single row and column permission rule.
+     * @summary Add selected groups of people incrementally for a single row and column permission rule.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+     *  *
+     * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
      *
-     * @remarks
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
-     *
-     * @param request - AddDataLevelPermissionRuleUsersRequest
-     *
-     * @returns AddDataLevelPermissionRuleUsersResponse
-     *
-     * @param AddDataLevelPermissionRuleUsersRequest $request
-     *
-     * @return AddDataLevelPermissionRuleUsersResponse
+     * @return AddDataLevelPermissionRuleUsersResponse AddDataLevelPermissionRuleUsersResponse
      */
     public function addDataLevelPermissionRuleUsers($request)
     {
@@ -333,47 +324,36 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 43342***435,1553a****41231.
+     * @summary 43342***435,1553a****41231
+     *  *
+     * @description ROW_LEVEL
+     *  *
+     * @param AddDataLevelPermissionWhiteListRequest $request AddDataLevelPermissionWhiteListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * ROW_LEVEL
-     *
-     * @param request - AddDataLevelPermissionWhiteListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddDataLevelPermissionWhiteListResponse
-     *
-     * @param AddDataLevelPermissionWhiteListRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return AddDataLevelPermissionWhiteListResponse
+     * @return AddDataLevelPermissionWhiteListResponse AddDataLevelPermissionWhiteListResponse
      */
     public function addDataLevelPermissionWhiteListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->operateType) {
-            @$query['OperateType'] = $request->operateType;
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
         }
-
-        if (null !== $request->ruleType) {
-            @$query['RuleType'] = $request->ruleType;
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
         }
-
-        if (null !== $request->targetIds) {
-            @$query['TargetIds'] = $request->targetIds;
+        if (!Utils::isUnset($request->targetIds)) {
+            $query['TargetIds'] = $request->targetIds;
         }
-
-        if (null !== $request->targetType) {
-            @$query['TargetType'] = $request->targetType;
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddDataLevelPermissionWhiteList',
@@ -391,18 +371,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 43342***435,1553a****41231.
+     * @summary 43342***435,1553a****41231
+     *  *
+     * @description ROW_LEVEL
+     *  *
+     * @param AddDataLevelPermissionWhiteListRequest $request AddDataLevelPermissionWhiteListRequest
      *
-     * @remarks
-     * ROW_LEVEL
-     *
-     * @param request - AddDataLevelPermissionWhiteListRequest
-     *
-     * @returns AddDataLevelPermissionWhiteListResponse
-     *
-     * @param AddDataLevelPermissionWhiteListRequest $request
-     *
-     * @return AddDataLevelPermissionWhiteListResponse
+     * @return AddDataLevelPermissionWhiteListResponse AddDataLevelPermissionWhiteListResponse
      */
     public function addDataLevelPermissionWhiteList($request)
     {
@@ -412,44 +387,34 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a sharing configuration for data works.
+     * @summary Add a sharing configuration for data works.
+     *  *
+     * @param AddShareReportRequest $request AddShareReportRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddShareReportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddShareReportResponse
-     *
-     * @param AddShareReportRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddShareReportResponse
+     * @return AddShareReportResponse AddShareReportResponse
      */
     public function addShareReportWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->authPoint) {
-            @$query['AuthPoint'] = $request->authPoint;
+        if (!Utils::isUnset($request->authPoint)) {
+            $query['AuthPoint'] = $request->authPoint;
         }
-
-        if (null !== $request->expireDate) {
-            @$query['ExpireDate'] = $request->expireDate;
+        if (!Utils::isUnset($request->expireDate)) {
+            $query['ExpireDate'] = $request->expireDate;
         }
-
-        if (null !== $request->shareToId) {
-            @$query['ShareToId'] = $request->shareToId;
+        if (!Utils::isUnset($request->shareToId)) {
+            $query['ShareToId'] = $request->shareToId;
         }
-
-        if (null !== $request->shareToType) {
-            @$query['ShareToType'] = $request->shareToType;
+        if (!Utils::isUnset($request->shareToType)) {
+            $query['ShareToType'] = $request->shareToType;
         }
-
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddShareReport',
@@ -467,15 +432,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a sharing configuration for data works.
+     * @summary Add a sharing configuration for data works.
+     *  *
+     * @param AddShareReportRequest $request AddShareReportRequest
      *
-     * @param request - AddShareReportRequest
-     *
-     * @returns AddShareReportResponse
-     *
-     * @param AddShareReportRequest $request
-     *
-     * @return AddShareReportResponse
+     * @return AddShareReportResponse AddShareReportResponse
      */
     public function addShareReport($request)
     {
@@ -485,54 +446,42 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add an organization member.
+     * @summary Add an organization member.
+     *  *
+     * @param AddUserRequest $request AddUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddUserResponse
-     *
-     * @param AddUserRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return AddUserResponse
+     * @return AddUserResponse AddUserResponse
      */
     public function addUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->adminUser) {
-            @$query['AdminUser'] = $request->adminUser;
+        if (!Utils::isUnset($request->adminUser)) {
+            $query['AdminUser'] = $request->adminUser;
         }
-
-        if (null !== $request->authAdminUser) {
-            @$query['AuthAdminUser'] = $request->authAdminUser;
+        if (!Utils::isUnset($request->authAdminUser)) {
+            $query['AuthAdminUser'] = $request->authAdminUser;
         }
-
-        if (null !== $request->nickName) {
-            @$query['NickName'] = $request->nickName;
+        if (!Utils::isUnset($request->nickName)) {
+            $query['NickName'] = $request->nickName;
         }
-
-        if (null !== $request->userType) {
-            @$query['UserType'] = $request->userType;
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
         }
-
         $body = [];
-        if (null !== $request->roleIds) {
-            @$body['RoleIds'] = $request->roleIds;
+        if (!Utils::isUnset($request->roleIds)) {
+            $body['RoleIds'] = $request->roleIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddUser',
@@ -550,15 +499,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add an organization member.
+     * @summary Add an organization member.
+     *  *
+     * @param AddUserRequest $request AddUserRequest
      *
-     * @param request - AddUserRequest
-     *
-     * @returns AddUserResponse
-     *
-     * @param AddUserRequest $request
-     *
-     * @return AddUserResponse
+     * @return AddUserResponse AddUserResponse
      */
     public function addUser($request)
     {
@@ -568,32 +513,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds an organization member to a specified user group.
+     * @summary Adds an organization member to a specified user group.
+     *  *
+     * @param AddUserGroupMemberRequest $request AddUserGroupMemberRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddUserGroupMemberRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddUserGroupMemberResponse
-     *
-     * @param AddUserGroupMemberRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AddUserGroupMemberResponse
+     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
      */
     public function addUserGroupMemberWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userGroupId) {
-            @$query['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
         }
-
-        if (null !== $request->userIdList) {
-            @$query['UserIdList'] = $request->userIdList;
+        if (!Utils::isUnset($request->userIdList)) {
+            $query['UserIdList'] = $request->userIdList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddUserGroupMember',
@@ -611,15 +549,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds an organization member to a specified user group.
+     * @summary Adds an organization member to a specified user group.
+     *  *
+     * @param AddUserGroupMemberRequest $request AddUserGroupMemberRequest
      *
-     * @param request - AddUserGroupMemberRequest
-     *
-     * @returns AddUserGroupMemberResponse
-     *
-     * @param AddUserGroupMemberRequest $request
-     *
-     * @return AddUserGroupMemberResponse
+     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
      */
     public function addUserGroupMember($request)
     {
@@ -629,32 +563,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add users to a specified user group at a time.
+     * @summary Add users to a specified user group at a time.
+     *  *
+     * @param AddUserGroupMembersRequest $request AddUserGroupMembersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddUserGroupMembersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddUserGroupMembersResponse
-     *
-     * @param AddUserGroupMembersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AddUserGroupMembersResponse
+     * @return AddUserGroupMembersResponse AddUserGroupMembersResponse
      */
     public function addUserGroupMembersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userGroupIds) {
-            @$query['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddUserGroupMembers',
@@ -672,15 +599,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add users to a specified user group at a time.
+     * @summary Add users to a specified user group at a time.
+     *  *
+     * @param AddUserGroupMembersRequest $request AddUserGroupMembersRequest
      *
-     * @param request - AddUserGroupMembersRequest
-     *
-     * @returns AddUserGroupMembersResponse
-     *
-     * @param AddUserGroupMembersRequest $request
-     *
-     * @return AddUserGroupMembersResponse
+     * @return AddUserGroupMembersResponse AddUserGroupMembersResponse
      */
     public function addUserGroupMembers($request)
     {
@@ -690,32 +613,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add organization member tag metadata.
+     * @summary Add organization member tag metadata.
+     *  *
+     * @param AddUserTagMetaRequest $request AddUserTagMetaRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddUserTagMetaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddUserTagMetaResponse
-     *
-     * @param AddUserTagMetaRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddUserTagMetaResponse
+     * @return AddUserTagMetaResponse AddUserTagMetaResponse
      */
     public function addUserTagMetaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->tagDescription) {
-            @$query['TagDescription'] = $request->tagDescription;
+        if (!Utils::isUnset($request->tagDescription)) {
+            $query['TagDescription'] = $request->tagDescription;
         }
-
-        if (null !== $request->tagName) {
-            @$query['TagName'] = $request->tagName;
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddUserTagMeta',
@@ -733,15 +649,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add organization member tag metadata.
+     * @summary Add organization member tag metadata.
+     *  *
+     * @param AddUserTagMetaRequest $request AddUserTagMetaRequest
      *
-     * @param request - AddUserTagMetaRequest
-     *
-     * @returns AddUserTagMetaResponse
-     *
-     * @param AddUserTagMetaRequest $request
-     *
-     * @return AddUserTagMetaResponse
+     * @return AddUserTagMetaResponse AddUserTagMetaResponse
      */
     public function addUserTagMeta($request)
     {
@@ -751,36 +663,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a member to the specified workspace.
+     * @summary Add a member to the specified workspace.
+     *  *
+     * @param AddUserToWorkspaceRequest $request AddUserToWorkspaceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddUserToWorkspaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddUserToWorkspaceResponse
-     *
-     * @param AddUserToWorkspaceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AddUserToWorkspaceResponse
+     * @return AddUserToWorkspaceResponse AddUserToWorkspaceResponse
      */
     public function addUserToWorkspaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddUserToWorkspace',
@@ -798,15 +702,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a member to the specified workspace.
+     * @summary Add a member to the specified workspace.
+     *  *
+     * @param AddUserToWorkspaceRequest $request AddUserToWorkspaceRequest
      *
-     * @param request - AddUserToWorkspaceRequest
-     *
-     * @returns AddUserToWorkspaceResponse
-     *
-     * @param AddUserToWorkspaceRequest $request
-     *
-     * @return AddUserToWorkspaceResponse
+     * @return AddUserToWorkspaceResponse AddUserToWorkspaceResponse
      */
     public function addUserToWorkspace($request)
     {
@@ -816,36 +716,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch add members to the workspace.
+     * @summary Batch add members to the workspace.
+     *  *
+     * @param AddWorkspaceUsersRequest $request AddWorkspaceUsersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddWorkspaceUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddWorkspaceUsersResponse
-     *
-     * @param AddWorkspaceUsersRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AddWorkspaceUsersResponse
+     * @return AddWorkspaceUsersResponse AddWorkspaceUsersResponse
      */
     public function addWorkspaceUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
-        if (null !== $request->userIds) {
-            @$query['UserIds'] = $request->userIds;
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddWorkspaceUsers',
@@ -863,15 +755,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch add members to the workspace.
+     * @summary Batch add members to the workspace.
+     *  *
+     * @param AddWorkspaceUsersRequest $request AddWorkspaceUsersRequest
      *
-     * @param request - AddWorkspaceUsersRequest
-     *
-     * @returns AddWorkspaceUsersResponse
-     *
-     * @param AddWorkspaceUsersRequest $request
-     *
-     * @return AddWorkspaceUsersResponse
+     * @return AddWorkspaceUsersResponse AddWorkspaceUsersResponse
      */
     public function addWorkspaceUsers($request)
     {
@@ -881,28 +769,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Trigger the collection acceleration of the Quick engine for datasets.
+     * @summary Trigger the collection acceleration of the Quick engine for datasets.
+     *  *
+     * @param AllotDatasetAccelerationTaskRequest $request AllotDatasetAccelerationTaskRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AllotDatasetAccelerationTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AllotDatasetAccelerationTaskResponse
-     *
-     * @param AllotDatasetAccelerationTaskRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return AllotDatasetAccelerationTaskResponse
+     * @return AllotDatasetAccelerationTaskResponse AllotDatasetAccelerationTaskResponse
      */
     public function allotDatasetAccelerationTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AllotDatasetAccelerationTask',
@@ -920,15 +802,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Trigger the collection acceleration of the Quick engine for datasets.
+     * @summary Trigger the collection acceleration of the Quick engine for datasets.
+     *  *
+     * @param AllotDatasetAccelerationTaskRequest $request AllotDatasetAccelerationTaskRequest
      *
-     * @param request - AllotDatasetAccelerationTaskRequest
-     *
-     * @returns AllotDatasetAccelerationTaskResponse
-     *
-     * @param AllotDatasetAccelerationTaskRequest $request
-     *
-     * @return AllotDatasetAccelerationTaskResponse
+     * @return AllotDatasetAccelerationTaskResponse AllotDatasetAccelerationTaskResponse
      */
     public function allotDatasetAccelerationTask($request)
     {
@@ -938,44 +816,34 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch authorization of BI portal menu will be skipped automatically.
+     * @summary Batch authorization of BI portal menu will be skipped automatically.
+     *  *
+     * @param AuthorizeMenuRequest $request AuthorizeMenuRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AuthorizeMenuRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AuthorizeMenuResponse
-     *
-     * @param AuthorizeMenuRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return AuthorizeMenuResponse
+     * @return AuthorizeMenuResponse AuthorizeMenuResponse
      */
     public function authorizeMenuWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->authPointsValue) {
-            @$query['AuthPointsValue'] = $request->authPointsValue;
+        if (!Utils::isUnset($request->authPointsValue)) {
+            $query['AuthPointsValue'] = $request->authPointsValue;
         }
-
-        if (null !== $request->dataPortalId) {
-            @$query['DataPortalId'] = $request->dataPortalId;
+        if (!Utils::isUnset($request->dataPortalId)) {
+            $query['DataPortalId'] = $request->dataPortalId;
         }
-
-        if (null !== $request->menuIds) {
-            @$query['MenuIds'] = $request->menuIds;
+        if (!Utils::isUnset($request->menuIds)) {
+            $query['MenuIds'] = $request->menuIds;
         }
-
-        if (null !== $request->userGroupIds) {
-            @$query['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->userIds) {
-            @$query['UserIds'] = $request->userIds;
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AuthorizeMenu',
@@ -993,15 +861,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch authorization of BI portal menu will be skipped automatically.
+     * @summary Batch authorization of BI portal menu will be skipped automatically.
+     *  *
+     * @param AuthorizeMenuRequest $request AuthorizeMenuRequest
      *
-     * @param request - AuthorizeMenuRequest
-     *
-     * @returns AuthorizeMenuResponse
-     *
-     * @param AuthorizeMenuRequest $request
-     *
-     * @return AuthorizeMenuResponse
+     * @return AuthorizeMenuResponse AuthorizeMenuResponse
      */
     public function authorizeMenu($request)
     {
@@ -1010,48 +874,39 @@ class Quickbipublic extends OpenApiClient
         return $this->authorizeMenuWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
-     * 批量添加飞书用户。
-     *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
+     *  *
+     * @summary 批量添加飞书用户。
+     *  *
+     * Deprecated
      *
-     * @param request - BatchAddFeishuUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param BatchAddFeishuUsersRequest $request BatchAddFeishuUsersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @returns BatchAddFeishuUsersResponse
-     *
-     * @param BatchAddFeishuUsersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return BatchAddFeishuUsersResponse
+     * @return BatchAddFeishuUsersResponse BatchAddFeishuUsersResponse
      */
     public function batchAddFeishuUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->feishuUsers) {
-            @$query['FeishuUsers'] = $request->feishuUsers;
+        if (!Utils::isUnset($request->feishuUsers)) {
+            $query['FeishuUsers'] = $request->feishuUsers;
         }
-
-        if (null !== $request->isAdmin) {
-            @$query['IsAdmin'] = $request->isAdmin;
+        if (!Utils::isUnset($request->isAdmin)) {
+            $query['IsAdmin'] = $request->isAdmin;
         }
-
-        if (null !== $request->isAuthAdmin) {
-            @$query['IsAuthAdmin'] = $request->isAuthAdmin;
+        if (!Utils::isUnset($request->isAuthAdmin)) {
+            $query['IsAuthAdmin'] = $request->isAuthAdmin;
         }
-
-        if (null !== $request->userGroupIds) {
-            @$query['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->userType) {
-            @$query['UserType'] = $request->userType;
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchAddFeishuUsers',
@@ -1068,19 +923,16 @@ class Quickbipublic extends OpenApiClient
         return BatchAddFeishuUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * 批量添加飞书用户。
-     *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
+     *  *
+     * @summary 批量添加飞书用户。
+     *  *
+     * Deprecated
      *
-     * @param request - BatchAddFeishuUsersRequest
+     * @param BatchAddFeishuUsersRequest $request BatchAddFeishuUsersRequest
      *
-     * @returns BatchAddFeishuUsersResponse
-     *
-     * @param BatchAddFeishuUsersRequest $request
-     *
-     * @return BatchAddFeishuUsersResponse
+     * @return BatchAddFeishuUsersResponse BatchAddFeishuUsersResponse
      */
     public function batchAddFeishuUsers($request)
     {
@@ -1090,40 +942,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the authorization records for specified users and user groups based on the portal menu ID.
+     * @summary Cancel the authorization records for specified users and user groups based on the portal menu ID.
+     *  *
+     * @param CancelAuthorizationMenuRequest $request CancelAuthorizationMenuRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelAuthorizationMenuRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelAuthorizationMenuResponse
-     *
-     * @param CancelAuthorizationMenuRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CancelAuthorizationMenuResponse
+     * @return CancelAuthorizationMenuResponse CancelAuthorizationMenuResponse
      */
     public function cancelAuthorizationMenuWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataPortalId) {
-            @$query['DataPortalId'] = $request->dataPortalId;
+        if (!Utils::isUnset($request->dataPortalId)) {
+            $query['DataPortalId'] = $request->dataPortalId;
         }
-
-        if (null !== $request->menuIds) {
-            @$query['MenuIds'] = $request->menuIds;
+        if (!Utils::isUnset($request->menuIds)) {
+            $query['MenuIds'] = $request->menuIds;
         }
-
-        if (null !== $request->userGroupIds) {
-            @$query['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->userIds) {
-            @$query['UserIds'] = $request->userIds;
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelAuthorizationMenu',
@@ -1141,15 +984,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the authorization records for specified users and user groups based on the portal menu ID.
+     * @summary Cancel the authorization records for specified users and user groups based on the portal menu ID.
+     *  *
+     * @param CancelAuthorizationMenuRequest $request CancelAuthorizationMenuRequest
      *
-     * @param request - CancelAuthorizationMenuRequest
-     *
-     * @returns CancelAuthorizationMenuResponse
-     *
-     * @param CancelAuthorizationMenuRequest $request
-     *
-     * @return CancelAuthorizationMenuResponse
+     * @return CancelAuthorizationMenuResponse CancelAuthorizationMenuResponse
      */
     public function cancelAuthorizationMenu($request)
     {
@@ -1159,32 +998,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the data works from the user\\"s collection.
+     * @summary Cancel the data works from the user\\"s collection.
+     *  *
+     * @param CancelCollectionRequest $request CancelCollectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelCollectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelCollectionResponse
-     *
-     * @param CancelCollectionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CancelCollectionResponse
+     * @return CancelCollectionResponse CancelCollectionResponse
      */
     public function cancelCollectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelCollection',
@@ -1202,15 +1034,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the data works from the user\\"s collection.
+     * @summary Cancel the data works from the user\\"s collection.
+     *  *
+     * @param CancelCollectionRequest $request CancelCollectionRequest
      *
-     * @param request - CancelCollectionRequest
-     *
-     * @returns CancelCollectionResponse
-     *
-     * @param CancelCollectionRequest $request
-     *
-     * @return CancelCollectionResponse
+     * @return CancelCollectionResponse CancelCollectionResponse
      */
     public function cancelCollection($request)
     {
@@ -1220,36 +1048,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete a share authorization for a data work.
+     * @summary Delete a share authorization for a data work.
+     *  *
+     * @param CancelReportShareRequest $request CancelReportShareRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelReportShareRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelReportShareResponse
-     *
-     * @param CancelReportShareRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CancelReportShareResponse
+     * @return CancelReportShareResponse CancelReportShareResponse
      */
     public function cancelReportShareWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->reportId) {
-            @$query['ReportId'] = $request->reportId;
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
         }
-
-        if (null !== $request->shareToIds) {
-            @$query['ShareToIds'] = $request->shareToIds;
+        if (!Utils::isUnset($request->shareToIds)) {
+            $query['ShareToIds'] = $request->shareToIds;
         }
-
-        if (null !== $request->shareToType) {
-            @$query['ShareToType'] = $request->shareToType;
+        if (!Utils::isUnset($request->shareToType)) {
+            $query['ShareToType'] = $request->shareToType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelReportShare',
@@ -1267,15 +1087,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete a share authorization for a data work.
+     * @summary Delete a share authorization for a data work.
+     *  *
+     * @param CancelReportShareRequest $request CancelReportShareRequest
      *
-     * @param request - CancelReportShareRequest
-     *
-     * @returns CancelReportShareResponse
-     *
-     * @param CancelReportShareRequest $request
-     *
-     * @return CancelReportShareResponse
+     * @return CancelReportShareResponse CancelReportShareResponse
      */
     public function cancelReportShare($request)
     {
@@ -1285,36 +1101,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+     * @summary Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+     *  *
+     * @param ChangeVisibilityModelRequest $request ChangeVisibilityModelRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeVisibilityModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChangeVisibilityModelResponse
-     *
-     * @param ChangeVisibilityModelRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ChangeVisibilityModelResponse
+     * @return ChangeVisibilityModelResponse ChangeVisibilityModelResponse
      */
     public function changeVisibilityModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataPortalId) {
-            @$query['DataPortalId'] = $request->dataPortalId;
+        if (!Utils::isUnset($request->dataPortalId)) {
+            $query['DataPortalId'] = $request->dataPortalId;
         }
-
-        if (null !== $request->menuIds) {
-            @$query['MenuIds'] = $request->menuIds;
+        if (!Utils::isUnset($request->menuIds)) {
+            $query['MenuIds'] = $request->menuIds;
         }
-
-        if (null !== $request->showOnlyWithAccess) {
-            @$query['ShowOnlyWithAccess'] = $request->showOnlyWithAccess;
+        if (!Utils::isUnset($request->showOnlyWithAccess)) {
+            $query['ShowOnlyWithAccess'] = $request->showOnlyWithAccess;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeVisibilityModel',
@@ -1332,15 +1140,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+     * @summary Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+     *  *
+     * @param ChangeVisibilityModelRequest $request ChangeVisibilityModelRequest
      *
-     * @param request - ChangeVisibilityModelRequest
-     *
-     * @returns ChangeVisibilityModelResponse
-     *
-     * @param ChangeVisibilityModelRequest $request
-     *
-     * @return ChangeVisibilityModelResponse
+     * @return ChangeVisibilityModelResponse ChangeVisibilityModelResponse
      */
     public function changeVisibilityModel($request)
     {
@@ -1350,32 +1154,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+     * @summary Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+     *  *
+     * @param CheckReadableRequest $request CheckReadableRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckReadableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckReadableResponse
-     *
-     * @param CheckReadableRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CheckReadableResponse
+     * @return CheckReadableResponse CheckReadableResponse
      */
     public function checkReadableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckReadable',
@@ -1393,15 +1190,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+     * @summary Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+     *  *
+     * @param CheckReadableRequest $request CheckReadableRequest
      *
-     * @param request - CheckReadableRequest
-     *
-     * @returns CheckReadableResponse
-     *
-     * @param CheckReadableRequest $request
-     *
-     * @return CheckReadableResponse
+     * @return CheckReadableResponse CheckReadableResponse
      */
     public function checkReadable($request)
     {
@@ -1411,63 +1204,48 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Generate a ticket for third-party embedding.
+     * @summary Generate a ticket for third-party embedding.
+     *  *
+     * @description For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+     *  *
+     * @param CreateTicketRequest $request CreateTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
-     *
-     * @param request - CreateTicketRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTicketResponse
-     *
-     * @param CreateTicketRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateTicketResponse
+     * @return CreateTicketResponse CreateTicketResponse
      */
     public function createTicketWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountType) {
-            @$query['AccountType'] = $request->accountType;
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
         }
-
-        if (null !== $request->cmptId) {
-            @$query['CmptId'] = $request->cmptId;
+        if (!Utils::isUnset($request->cmptId)) {
+            $query['CmptId'] = $request->cmptId;
         }
-
-        if (null !== $request->expireTime) {
-            @$query['ExpireTime'] = $request->expireTime;
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
         }
-
-        if (null !== $request->globalParam) {
-            @$query['GlobalParam'] = $request->globalParam;
+        if (!Utils::isUnset($request->globalParam)) {
+            $query['GlobalParam'] = $request->globalParam;
         }
-
-        if (null !== $request->ticketNum) {
-            @$query['TicketNum'] = $request->ticketNum;
+        if (!Utils::isUnset($request->ticketNum)) {
+            $query['TicketNum'] = $request->ticketNum;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->watermarkParam) {
-            @$query['WatermarkParam'] = $request->watermarkParam;
+        if (!Utils::isUnset($request->watermarkParam)) {
+            $query['WatermarkParam'] = $request->watermarkParam;
         }
-
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTicket',
@@ -1485,18 +1263,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Generate a ticket for third-party embedding.
+     * @summary Generate a ticket for third-party embedding.
+     *  *
+     * @description For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+     *  *
+     * @param CreateTicketRequest $request CreateTicketRequest
      *
-     * @remarks
-     * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
-     *
-     * @param request - CreateTicketRequest
-     *
-     * @returns CreateTicketResponse
-     *
-     * @param CreateTicketRequest $request
-     *
-     * @return CreateTicketResponse
+     * @return CreateTicketResponse CreateTicketResponse
      */
     public function createTicket($request)
     {
@@ -1506,48 +1279,37 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Generate an embedding ticket for Smart Q.
+     * @summary Generate an embedding ticket for Smart Q.
+     *  *
+     * @param CreateTicket4CopilotRequest $request CreateTicket4CopilotRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTicket4CopilotRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTicket4CopilotResponse
-     *
-     * @param CreateTicket4CopilotRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateTicket4CopilotResponse
+     * @return CreateTicket4CopilotResponse CreateTicket4CopilotResponse
      */
     public function createTicket4CopilotWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountType) {
-            @$query['AccountType'] = $request->accountType;
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
         }
-
-        if (null !== $request->copilotId) {
-            @$query['CopilotId'] = $request->copilotId;
+        if (!Utils::isUnset($request->copilotId)) {
+            $query['CopilotId'] = $request->copilotId;
         }
-
-        if (null !== $request->expireTime) {
-            @$query['ExpireTime'] = $request->expireTime;
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
         }
-
-        if (null !== $request->ticketNum) {
-            @$query['TicketNum'] = $request->ticketNum;
+        if (!Utils::isUnset($request->ticketNum)) {
+            $query['TicketNum'] = $request->ticketNum;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTicket4Copilot',
@@ -1565,15 +1327,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Generate an embedding ticket for Smart Q.
+     * @summary Generate an embedding ticket for Smart Q.
+     *  *
+     * @param CreateTicket4CopilotRequest $request CreateTicket4CopilotRequest
      *
-     * @param request - CreateTicket4CopilotRequest
-     *
-     * @returns CreateTicket4CopilotResponse
-     *
-     * @param CreateTicket4CopilotRequest $request
-     *
-     * @return CreateTicket4CopilotResponse
+     * @return CreateTicket4CopilotResponse CreateTicket4CopilotResponse
      */
     public function createTicket4Copilot($request)
     {
@@ -1583,40 +1341,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Create a user group. You can specify a parent user group.
+     * @summary Create a user group. You can specify a parent user group.
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateUserGroupResponse
-     *
-     * @param CreateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->parentUserGroupId) {
-            @$query['ParentUserGroupId'] = $request->parentUserGroupId;
+        if (!Utils::isUnset($request->parentUserGroupId)) {
+            $query['ParentUserGroupId'] = $request->parentUserGroupId;
         }
-
-        if (null !== $request->userGroupDescription) {
-            @$query['UserGroupDescription'] = $request->userGroupDescription;
+        if (!Utils::isUnset($request->userGroupDescription)) {
+            $query['UserGroupDescription'] = $request->userGroupDescription;
         }
-
-        if (null !== $request->userGroupId) {
-            @$query['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
         }
-
-        if (null !== $request->userGroupName) {
-            @$query['UserGroupName'] = $request->userGroupName;
+        if (!Utils::isUnset($request->userGroupName)) {
+            $query['UserGroupName'] = $request->userGroupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateUserGroup',
@@ -1634,15 +1383,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Create a user group. You can specify a parent user group.
+     * @summary Create a user group. You can specify a parent user group.
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
      *
-     * @param request - CreateUserGroupRequest
-     *
-     * @returns CreateUserGroupResponse
-     *
-     * @param CreateUserGroupRequest $request
-     *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroup($request)
     {
@@ -1652,44 +1397,34 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 数据解读开放接口.
+     * @summary 数据解读开放接口
+     *  *
+     * @param DataInterpretationRequest $request DataInterpretationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DataInterpretationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DataInterpretationResponse
-     *
-     * @param DataInterpretationRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DataInterpretationResponse
+     * @return DataInterpretationResponse DataInterpretationResponse
      */
     public function dataInterpretationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->data) {
-            @$query['Data'] = $request->data;
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
         }
-
-        if (null !== $request->modelCode) {
-            @$query['ModelCode'] = $request->modelCode;
+        if (!Utils::isUnset($request->modelCode)) {
+            $query['ModelCode'] = $request->modelCode;
         }
-
-        if (null !== $request->promptForceOverride) {
-            @$query['PromptForceOverride'] = $request->promptForceOverride;
+        if (!Utils::isUnset($request->promptForceOverride)) {
+            $query['PromptForceOverride'] = $request->promptForceOverride;
         }
-
-        if (null !== $request->userPrompt) {
-            @$query['UserPrompt'] = $request->userPrompt;
+        if (!Utils::isUnset($request->userPrompt)) {
+            $query['UserPrompt'] = $request->userPrompt;
         }
-
-        if (null !== $request->userQuestion) {
-            @$query['UserQuestion'] = $request->userQuestion;
+        if (!Utils::isUnset($request->userQuestion)) {
+            $query['UserQuestion'] = $request->userQuestion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DataInterpretation',
@@ -1707,15 +1442,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 数据解读开放接口.
+     * @summary 数据解读开放接口
+     *  *
+     * @param DataInterpretationRequest $request DataInterpretationRequest
      *
-     * @param request - DataInterpretationRequest
-     *
-     * @returns DataInterpretationResponse
-     *
-     * @param DataInterpretationRequest $request
-     *
-     * @return DataInterpretationResponse
+     * @return DataInterpretationResponse DataInterpretationResponse
      */
     public function dataInterpretation($request)
     {
@@ -1725,36 +1456,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query works information under the specified dataset.
+     * @summary Query works information under the specified dataset.
+     *  *
+     * @param DataSetBloodRequest $request DataSetBloodRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DataSetBloodRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DataSetBloodResponse
-     *
-     * @param DataSetBloodRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DataSetBloodResponse
+     * @return DataSetBloodResponse DataSetBloodResponse
      */
     public function dataSetBloodWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataSetIds) {
-            @$query['DataSetIds'] = $request->dataSetIds;
+        if (!Utils::isUnset($request->dataSetIds)) {
+            $query['DataSetIds'] = $request->dataSetIds;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->worksType) {
-            @$query['WorksType'] = $request->worksType;
+        if (!Utils::isUnset($request->worksType)) {
+            $query['WorksType'] = $request->worksType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DataSetBlood',
@@ -1772,15 +1495,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query works information under the specified dataset.
+     * @summary Query works information under the specified dataset.
+     *  *
+     * @param DataSetBloodRequest $request DataSetBloodRequest
      *
-     * @param request - DataSetBloodRequest
-     *
-     * @returns DataSetBloodResponse
-     *
-     * @param DataSetBloodRequest $request
-     *
-     * @return DataSetBloodResponse
+     * @return DataSetBloodResponse DataSetBloodResponse
      */
     public function dataSetBlood($request)
     {
@@ -1790,28 +1509,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query dataset information under the specified data source.
+     * @summary Query dataset information under the specified data source
+     *  *
+     * @param DataSourceBloodRequest $request DataSourceBloodRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DataSourceBloodRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DataSourceBloodResponse
-     *
-     * @param DataSourceBloodRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DataSourceBloodResponse
+     * @return DataSourceBloodResponse DataSourceBloodResponse
      */
     public function dataSourceBloodWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataSourceId) {
-            @$query['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DataSourceBlood',
@@ -1829,15 +1542,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query dataset information under the specified data source.
+     * @summary Query dataset information under the specified data source
+     *  *
+     * @param DataSourceBloodRequest $request DataSourceBloodRequest
      *
-     * @param request - DataSourceBloodRequest
-     *
-     * @returns DataSourceBloodResponse
-     *
-     * @param DataSourceBloodRequest $request
-     *
-     * @return DataSourceBloodResponse
+     * @return DataSourceBloodResponse DataSourceBloodResponse
      */
     public function dataSourceBlood($request)
     {
@@ -1847,32 +1556,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the expiration time of the ticket embedded in the report.
+     * @summary Update the expiration time of the ticket embedded in the report.
+     *  *
+     * @param DelayTicketExpireTimeRequest $request DelayTicketExpireTimeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DelayTicketExpireTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DelayTicketExpireTimeResponse
-     *
-     * @param DelayTicketExpireTimeRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DelayTicketExpireTimeResponse
+     * @return DelayTicketExpireTimeResponse DelayTicketExpireTimeResponse
      */
     public function delayTicketExpireTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->expireTime) {
-            @$query['ExpireTime'] = $request->expireTime;
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
         }
-
-        if (null !== $request->ticket) {
-            @$query['Ticket'] = $request->ticket;
+        if (!Utils::isUnset($request->ticket)) {
+            $query['Ticket'] = $request->ticket;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DelayTicketExpireTime',
@@ -1890,15 +1592,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the expiration time of the ticket embedded in the report.
+     * @summary Update the expiration time of the ticket embedded in the report.
+     *  *
+     * @param DelayTicketExpireTimeRequest $request DelayTicketExpireTimeRequest
      *
-     * @param request - DelayTicketExpireTimeRequest
-     *
-     * @returns DelayTicketExpireTimeResponse
-     *
-     * @param DelayTicketExpireTimeRequest $request
-     *
-     * @return DelayTicketExpireTimeResponse
+     * @return DelayTicketExpireTimeResponse DelayTicketExpireTimeResponse
      */
     public function delayTicketExpireTime($request)
     {
@@ -1908,31 +1606,24 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }.
+     * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+     *  *
+     * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+     *  *
+     * @param DeleteDataLevelPermissionRuleUsersRequest $request DeleteDataLevelPermissionRuleUsersRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
-     *
-     * @param request - DeleteDataLevelPermissionRuleUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDataLevelPermissionRuleUsersResponse
-     *
-     * @param DeleteDataLevelPermissionRuleUsersRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DeleteDataLevelPermissionRuleUsersResponse
+     * @return DeleteDataLevelPermissionRuleUsersResponse DeleteDataLevelPermissionRuleUsersResponse
      */
     public function deleteDataLevelPermissionRuleUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->deleteUserModel) {
-            @$query['DeleteUserModel'] = $request->deleteUserModel;
+        if (!Utils::isUnset($request->deleteUserModel)) {
+            $query['DeleteUserModel'] = $request->deleteUserModel;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDataLevelPermissionRuleUsers',
@@ -1950,18 +1641,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }.
+     * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+     *  *
+     * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+     *  *
+     * @param DeleteDataLevelPermissionRuleUsersRequest $request DeleteDataLevelPermissionRuleUsersRequest
      *
-     * @remarks
-     * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
-     *
-     * @param request - DeleteDataLevelPermissionRuleUsersRequest
-     *
-     * @returns DeleteDataLevelPermissionRuleUsersResponse
-     *
-     * @param DeleteDataLevelPermissionRuleUsersRequest $request
-     *
-     * @return DeleteDataLevelPermissionRuleUsersResponse
+     * @return DeleteDataLevelPermissionRuleUsersResponse DeleteDataLevelPermissionRuleUsersResponse
      */
     public function deleteDataLevelPermissionRuleUsers($request)
     {
@@ -1971,35 +1657,27 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * @summary The ID of the request.
+     *  *
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *  *
+     * @param DeleteDataLevelRuleConfigRequest $request DeleteDataLevelRuleConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The ID of the training dataset that you want to remove from the specified custom linguistic model.
-     *
-     * @param request - DeleteDataLevelRuleConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDataLevelRuleConfigResponse
-     *
-     * @param DeleteDataLevelRuleConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteDataLevelRuleConfigResponse
+     * @return DeleteDataLevelRuleConfigResponse DeleteDataLevelRuleConfigResponse
      */
     public function deleteDataLevelRuleConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->ruleId) {
-            @$query['RuleId'] = $request->ruleId;
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDataLevelRuleConfig',
@@ -2017,18 +1695,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * @summary The ID of the request.
+     *  *
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *  *
+     * @param DeleteDataLevelRuleConfigRequest $request DeleteDataLevelRuleConfigRequest
      *
-     * @remarks
-     * The ID of the training dataset that you want to remove from the specified custom linguistic model.
-     *
-     * @param request - DeleteDataLevelRuleConfigRequest
-     *
-     * @returns DeleteDataLevelRuleConfigResponse
-     *
-     * @param DeleteDataLevelRuleConfigRequest $request
-     *
-     * @return DeleteDataLevelRuleConfigResponse
+     * @return DeleteDataLevelRuleConfigResponse DeleteDataLevelRuleConfigResponse
      */
     public function deleteDataLevelRuleConfig($request)
     {
@@ -2038,28 +1711,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete Third-Party Embedded Ticket.
+     * @summary Delete Third-Party Embedded Ticket
+     *  *
+     * @param DeleteTicketRequest $request DeleteTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteTicketRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteTicketResponse
-     *
-     * @param DeleteTicketRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteTicketResponse
+     * @return DeleteTicketResponse DeleteTicketResponse
      */
     public function deleteTicketWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ticket) {
-            @$query['Ticket'] = $request->ticket;
+        if (!Utils::isUnset($request->ticket)) {
+            $query['Ticket'] = $request->ticket;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTicket',
@@ -2077,15 +1744,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete Third-Party Embedded Ticket.
+     * @summary Delete Third-Party Embedded Ticket
+     *  *
+     * @param DeleteTicketRequest $request DeleteTicketRequest
      *
-     * @param request - DeleteTicketRequest
-     *
-     * @returns DeleteTicketResponse
-     *
-     * @param DeleteTicketRequest $request
-     *
-     * @return DeleteTicketResponse
+     * @return DeleteTicketResponse DeleteTicketResponse
      */
     public function deleteTicket($request)
     {
@@ -2095,32 +1758,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete the specified organization user.
+     * @summary Delete the specified organization user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserResponse
-     *
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->transferUserId) {
-            @$query['TransferUserId'] = $request->transferUserId;
+        if (!Utils::isUnset($request->transferUserId)) {
+            $query['TransferUserId'] = $request->transferUserId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUser',
@@ -2138,15 +1794,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete the specified organization user.
+     * @summary Delete the specified organization user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @param request - DeleteUserRequest
-     *
-     * @returns DeleteUserResponse
-     *
-     * @param DeleteUserRequest $request
-     *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -2156,32 +1808,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete a member from the specified workspace.
+     * @summary Delete a member from the specified workspace.
+     *  *
+     * @param DeleteUserFromWorkspaceRequest $request DeleteUserFromWorkspaceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserFromWorkspaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserFromWorkspaceResponse
-     *
-     * @param DeleteUserFromWorkspaceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteUserFromWorkspaceResponse
+     * @return DeleteUserFromWorkspaceResponse DeleteUserFromWorkspaceResponse
      */
     public function deleteUserFromWorkspaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUserFromWorkspace',
@@ -2199,15 +1844,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete a member from the specified workspace.
+     * @summary Delete a member from the specified workspace.
+     *  *
+     * @param DeleteUserFromWorkspaceRequest $request DeleteUserFromWorkspaceRequest
      *
-     * @param request - DeleteUserFromWorkspaceRequest
-     *
-     * @returns DeleteUserFromWorkspaceResponse
-     *
-     * @param DeleteUserFromWorkspaceRequest $request
-     *
-     * @return DeleteUserFromWorkspaceResponse
+     * @return DeleteUserFromWorkspaceResponse DeleteUserFromWorkspaceResponse
      */
     public function deleteUserFromWorkspace($request)
     {
@@ -2217,28 +1858,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes a user group in an organization.
+     * @summary Deletes a user group in an organization.
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserGroupResponse
-     *
-     * @param DeleteUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userGroupId) {
-            @$query['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUserGroup',
@@ -2256,15 +1891,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes a user group in an organization.
+     * @summary Deletes a user group in an organization.
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
      *
-     * @param request - DeleteUserGroupRequest
-     *
-     * @returns DeleteUserGroupResponse
-     *
-     * @param DeleteUserGroupRequest $request
-     *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroup($request)
     {
@@ -2274,32 +1905,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes a specified member from a specified user group.
+     * @summary Deletes a specified member from a specified user group.
+     *  *
+     * @param DeleteUserGroupMemberRequest $request DeleteUserGroupMemberRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserGroupMemberRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserGroupMemberResponse
-     *
-     * @param DeleteUserGroupMemberRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteUserGroupMemberResponse
+     * @return DeleteUserGroupMemberResponse DeleteUserGroupMemberResponse
      */
     public function deleteUserGroupMemberWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userGroupId) {
-            @$query['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUserGroupMember',
@@ -2317,15 +1941,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes a specified member from a specified user group.
+     * @summary Deletes a specified member from a specified user group.
+     *  *
+     * @param DeleteUserGroupMemberRequest $request DeleteUserGroupMemberRequest
      *
-     * @param request - DeleteUserGroupMemberRequest
-     *
-     * @returns DeleteUserGroupMemberResponse
-     *
-     * @param DeleteUserGroupMemberRequest $request
-     *
-     * @return DeleteUserGroupMemberResponse
+     * @return DeleteUserGroupMemberResponse DeleteUserGroupMemberResponse
      */
     public function deleteUserGroupMember($request)
     {
@@ -2335,32 +1955,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch remove specified users from user groups.
+     * @summary Batch remove specified users from user groups.
+     *  *
+     * @param DeleteUserGroupMembersRequest $request DeleteUserGroupMembersRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserGroupMembersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserGroupMembersResponse
-     *
-     * @param DeleteUserGroupMembersRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteUserGroupMembersResponse
+     * @return DeleteUserGroupMembersResponse DeleteUserGroupMembersResponse
      */
     public function deleteUserGroupMembersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userGroupIds) {
-            @$query['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUserGroupMembers',
@@ -2378,15 +1991,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch remove specified users from user groups.
+     * @summary Batch remove specified users from user groups.
+     *  *
+     * @param DeleteUserGroupMembersRequest $request DeleteUserGroupMembersRequest
      *
-     * @param request - DeleteUserGroupMembersRequest
-     *
-     * @returns DeleteUserGroupMembersResponse
-     *
-     * @param DeleteUserGroupMembersRequest $request
-     *
-     * @return DeleteUserGroupMembersResponse
+     * @return DeleteUserGroupMembersResponse DeleteUserGroupMembersResponse
      */
     public function deleteUserGroupMembers($request)
     {
@@ -2396,28 +2005,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes the tag metadata of an organization member.
+     * @summary Deletes the tag metadata of an organization member.
+     *  *
+     * @param DeleteUserTagMetaRequest $request DeleteUserTagMetaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserTagMetaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteUserTagMetaResponse
-     *
-     * @param DeleteUserTagMetaRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteUserTagMetaResponse
+     * @return DeleteUserTagMetaResponse DeleteUserTagMetaResponse
      */
     public function deleteUserTagMetaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->tagId) {
-            @$query['TagId'] = $request->tagId;
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUserTagMeta',
@@ -2435,15 +2038,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes the tag metadata of an organization member.
+     * @summary Deletes the tag metadata of an organization member.
+     *  *
+     * @param DeleteUserTagMetaRequest $request DeleteUserTagMetaRequest
      *
-     * @param request - DeleteUserTagMetaRequest
-     *
-     * @returns DeleteUserTagMetaResponse
-     *
-     * @param DeleteUserTagMetaRequest $request
-     *
-     * @return DeleteUserTagMetaResponse
+     * @return DeleteUserTagMetaResponse DeleteUserTagMetaResponse
      */
     public function deleteUserTagMeta($request)
     {
@@ -2453,28 +2052,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Data Source Information.
+     * @summary Get Data Source Information
+     *  *
+     * @param GetDataSourceConnectionInfoRequest $request GetDataSourceConnectionInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDataSourceConnectionInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDataSourceConnectionInfoResponse
-     *
-     * @param GetDataSourceConnectionInfoRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetDataSourceConnectionInfoResponse
+     * @return GetDataSourceConnectionInfoResponse GetDataSourceConnectionInfoResponse
      */
     public function getDataSourceConnectionInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dsId) {
-            @$query['DsId'] = $request->dsId;
+        if (!Utils::isUnset($request->dsId)) {
+            $query['DsId'] = $request->dsId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataSourceConnectionInfo',
@@ -2492,15 +2085,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Data Source Information.
+     * @summary Get Data Source Information
+     *  *
+     * @param GetDataSourceConnectionInfoRequest $request GetDataSourceConnectionInfoRequest
      *
-     * @param request - GetDataSourceConnectionInfoRequest
-     *
-     * @returns GetDataSourceConnectionInfoResponse
-     *
-     * @param GetDataSourceConnectionInfoRequest $request
-     *
-     * @return GetDataSourceConnectionInfoResponse
+     * @return GetDataSourceConnectionInfoResponse GetDataSourceConnectionInfoResponse
      */
     public function getDataSourceConnectionInfo($request)
     {
@@ -2510,32 +2099,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check the running status of mail tasks within an organization.
+     * @summary Check the running status of mail tasks within an organization
+     *  *
+     * @param GetMailTaskStatusRequest $request GetMailTaskStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetMailTaskStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMailTaskStatusResponse
-     *
-     * @param GetMailTaskStatusRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetMailTaskStatusResponse
+     * @return GetMailTaskStatusResponse GetMailTaskStatusResponse
      */
     public function getMailTaskStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->mailId) {
-            @$query['MailId'] = $request->mailId;
+        if (!Utils::isUnset($request->mailId)) {
+            $query['MailId'] = $request->mailId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMailTaskStatus',
@@ -2553,15 +2135,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check the running status of mail tasks within an organization.
+     * @summary Check the running status of mail tasks within an organization
+     *  *
+     * @param GetMailTaskStatusRequest $request GetMailTaskStatusRequest
      *
-     * @param request - GetMailTaskStatusRequest
-     *
-     * @returns GetMailTaskStatusResponse
-     *
-     * @param GetMailTaskStatusRequest $request
-     *
-     * @return GetMailTaskStatusResponse
+     * @return GetMailTaskStatusResponse GetMailTaskStatusResponse
      */
     public function getMailTaskStatus($request)
     {
@@ -2571,28 +2149,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Search for user group information based on the keyword of the user group name.
+     * @summary Search for user group information based on the keyword of the user group name.
+     *  *
+     * @param GetUserGroupInfoRequest $request GetUserGroupInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserGroupInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUserGroupInfoResponse
-     *
-     * @param GetUserGroupInfoRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetUserGroupInfoResponse
+     * @return GetUserGroupInfoResponse GetUserGroupInfoResponse
      */
     public function getUserGroupInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUserGroupInfo',
@@ -2610,15 +2182,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Search for user group information based on the keyword of the user group name.
+     * @summary Search for user group information based on the keyword of the user group name.
+     *  *
+     * @param GetUserGroupInfoRequest $request GetUserGroupInfoRequest
      *
-     * @param request - GetUserGroupInfoRequest
-     *
-     * @returns GetUserGroupInfoResponse
-     *
-     * @param GetUserGroupInfoRequest $request
-     *
-     * @return GetUserGroupInfoResponse
+     * @return GetUserGroupInfoResponse GetUserGroupInfoResponse
      */
     public function getUserGroupInfo($request)
     {
@@ -2628,44 +2196,34 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of embedded reports.
+     * @summary Query the list of embedded reports
+     *  *
+     * @param GetWorksEmbedListRequest $request GetWorksEmbedListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetWorksEmbedListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetWorksEmbedListResponse
-     *
-     * @param GetWorksEmbedListRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetWorksEmbedListResponse
+     * @return GetWorksEmbedListResponse GetWorksEmbedListResponse
      */
     public function getWorksEmbedListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->worksType) {
-            @$query['WorksType'] = $request->worksType;
+        if (!Utils::isUnset($request->worksType)) {
+            $query['WorksType'] = $request->worksType;
         }
-
-        if (null !== $request->wsId) {
-            @$query['WsId'] = $request->wsId;
+        if (!Utils::isUnset($request->wsId)) {
+            $query['WsId'] = $request->wsId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWorksEmbedList',
@@ -2683,15 +2241,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of embedded reports.
+     * @summary Query the list of embedded reports
+     *  *
+     * @param GetWorksEmbedListRequest $request GetWorksEmbedListRequest
      *
-     * @param request - GetWorksEmbedListRequest
-     *
-     * @returns GetWorksEmbedListResponse
-     *
-     * @param GetWorksEmbedListRequest $request
-     *
-     * @return GetWorksEmbedListResponse
+     * @return GetWorksEmbedListResponse GetWorksEmbedListResponse
      */
     public function getWorksEmbedList($request)
     {
@@ -2701,43 +2255,33 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries API data sources.
+     * @summary Queries API data sources.
+     *  *
+     * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+     *  *
+     * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
-     *
-     * @param request - ListApiDatasourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApiDatasourceResponse
-     *
-     * @param ListApiDatasourceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListApiDatasourceResponse
+     * @return ListApiDatasourceResponse ListApiDatasourceResponse
      */
     public function listApiDatasourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyWord) {
-            @$query['KeyWord'] = $request->keyWord;
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApiDatasource',
@@ -2755,18 +2299,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries API data sources.
+     * @summary Queries API data sources.
+     *  *
+     * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+     *  *
+     * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
      *
-     * @remarks
-     * For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
-     *
-     * @param request - ListApiDatasourceRequest
-     *
-     * @returns ListApiDatasourceResponse
-     *
-     * @param ListApiDatasourceRequest $request
-     *
-     * @return ListApiDatasourceResponse
+     * @return ListApiDatasourceResponse ListApiDatasourceResponse
      */
     public function listApiDatasource($request)
     {
@@ -2776,28 +2315,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user group information at a time by user group ID.
+     * @summary Queries user group information at a time by user group ID.
+     *  *
+     * @param ListByUserGroupIdRequest $request ListByUserGroupIdRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListByUserGroupIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListByUserGroupIdResponse
-     *
-     * @param ListByUserGroupIdRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListByUserGroupIdResponse
+     * @return ListByUserGroupIdResponse ListByUserGroupIdResponse
      */
     public function listByUserGroupIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userGroupIds) {
-            @$query['UserGroupIds'] = $request->userGroupIds;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListByUserGroupId',
@@ -2815,15 +2348,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user group information at a time by user group ID.
+     * @summary Queries user group information at a time by user group ID.
+     *  *
+     * @param ListByUserGroupIdRequest $request ListByUserGroupIdRequest
      *
-     * @param request - ListByUserGroupIdRequest
-     *
-     * @returns ListByUserGroupIdResponse
-     *
-     * @param ListByUserGroupIdRequest $request
-     *
-     * @return ListByUserGroupIdResponse
+     * @return ListByUserGroupIdResponse ListByUserGroupIdResponse
      */
     public function listByUserGroupId($request)
     {
@@ -2833,28 +2362,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the work.
+     * @summary The ID of the work.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCollectionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCollectionsResponse
-     *
-     * @param ListCollectionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollectionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCollections',
@@ -2872,15 +2395,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the work.
+     * @summary The ID of the work.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
      *
-     * @param request - ListCollectionsRequest
-     *
-     * @returns ListCollectionsResponse
-     *
-     * @param ListCollectionsRequest $request
-     *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollections($request)
     {
@@ -2890,35 +2409,27 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+     * @summary You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
+     * @param ListCubeDataLevelPermissionConfigRequest $request ListCubeDataLevelPermissionConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *
-     * @param request - ListCubeDataLevelPermissionConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCubeDataLevelPermissionConfigResponse
-     *
-     * @param ListCubeDataLevelPermissionConfigRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ListCubeDataLevelPermissionConfigResponse
+     * @return ListCubeDataLevelPermissionConfigResponse ListCubeDataLevelPermissionConfigResponse
      */
     public function listCubeDataLevelPermissionConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->ruleType) {
-            @$query['RuleType'] = $request->ruleType;
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCubeDataLevelPermissionConfig',
@@ -2936,18 +2447,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+     * @summary You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
+     * @param ListCubeDataLevelPermissionConfigRequest $request ListCubeDataLevelPermissionConfigRequest
      *
-     * @remarks
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *
-     * @param request - ListCubeDataLevelPermissionConfigRequest
-     *
-     * @returns ListCubeDataLevelPermissionConfigResponse
-     *
-     * @param ListCubeDataLevelPermissionConfigRequest $request
-     *
-     * @return ListCubeDataLevelPermissionConfigResponse
+     * @return ListCubeDataLevelPermissionConfigResponse ListCubeDataLevelPermissionConfigResponse
      */
     public function listCubeDataLevelPermissionConfig($request)
     {
@@ -2957,35 +2463,27 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     * @summary Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     *  *
+     * @description > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+     *  *
+     * @param ListDataLevelPermissionWhiteListRequest $request ListDataLevelPermissionWhiteListRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
-     *
-     * @param request - ListDataLevelPermissionWhiteListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDataLevelPermissionWhiteListResponse
-     *
-     * @param ListDataLevelPermissionWhiteListRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ListDataLevelPermissionWhiteListResponse
+     * @return ListDataLevelPermissionWhiteListResponse ListDataLevelPermissionWhiteListResponse
      */
     public function listDataLevelPermissionWhiteListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->ruleType) {
-            @$query['RuleType'] = $request->ruleType;
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDataLevelPermissionWhiteList',
@@ -3003,18 +2501,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     * @summary Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     *  *
+     * @description > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+     *  *
+     * @param ListDataLevelPermissionWhiteListRequest $request ListDataLevelPermissionWhiteListRequest
      *
-     * @remarks
-     * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
-     *
-     * @param request - ListDataLevelPermissionWhiteListRequest
-     *
-     * @returns ListDataLevelPermissionWhiteListResponse
-     *
-     * @param ListDataLevelPermissionWhiteListRequest $request
-     *
-     * @return ListDataLevelPermissionWhiteListResponse
+     * @return ListDataLevelPermissionWhiteListResponse ListDataLevelPermissionWhiteListResponse
      */
     public function listDataLevelPermissionWhiteList($request)
     {
@@ -3024,32 +2517,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query all data sources under the specified space.
+     * @summary Query all data sources under the specified space
+     *  *
+     * @param ListDataSourceRequest $request ListDataSourceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDataSourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDataSourceResponse
-     *
-     * @param ListDataSourceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListDataSourceResponse
+     * @return ListDataSourceResponse ListDataSourceResponse
      */
     public function listDataSourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dsType) {
-            @$query['DsType'] = $request->dsType;
+        if (!Utils::isUnset($request->dsType)) {
+            $query['DsType'] = $request->dsType;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDataSource',
@@ -3067,15 +2553,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query all data sources under the specified space.
+     * @summary Query all data sources under the specified space
+     *  *
+     * @param ListDataSourceRequest $request ListDataSourceRequest
      *
-     * @param request - ListDataSourceRequest
-     *
-     * @returns ListDataSourceResponse
-     *
-     * @param ListDataSourceRequest $request
-     *
-     * @return ListDataSourceResponse
+     * @return ListDataSourceResponse ListDataSourceResponse
      */
     public function listDataSource($request)
     {
@@ -3085,40 +2567,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Overview.
+     * @summary Overview
+     *  *
+     * @param ListFavoriteReportsRequest $request ListFavoriteReportsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListFavoriteReportsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListFavoriteReportsResponse
-     *
-     * @param ListFavoriteReportsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListFavoriteReportsResponse
+     * @return ListFavoriteReportsResponse ListFavoriteReportsResponse
      */
     public function listFavoriteReportsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->treeType) {
-            @$query['TreeType'] = $request->treeType;
+        if (!Utils::isUnset($request->treeType)) {
+            $query['TreeType'] = $request->treeType;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFavoriteReports',
@@ -3136,15 +2609,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Overview.
+     * @summary Overview
+     *  *
+     * @param ListFavoriteReportsRequest $request ListFavoriteReportsRequest
      *
-     * @param request - ListFavoriteReportsRequest
-     *
-     * @returns ListFavoriteReportsResponse
-     *
-     * @param ListFavoriteReportsRequest $request
-     *
-     * @return ListFavoriteReportsResponse
+     * @return ListFavoriteReportsResponse ListFavoriteReportsResponse
      */
     public function listFavoriteReports($request)
     {
@@ -3154,40 +2623,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get user list under the specified organization role.
+     * @summary Get user list under the specified organization role.
+     *  *
+     * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListOrganizationRoleUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListOrganizationRoleUsersResponse
-     *
-     * @param ListOrganizationRoleUsersRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListOrganizationRoleUsersResponse
+     * @return ListOrganizationRoleUsersResponse ListOrganizationRoleUsersResponse
      */
     public function listOrganizationRoleUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListOrganizationRoleUsers',
@@ -3205,15 +2665,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get user list under the specified organization role.
+     * @summary Get user list under the specified organization role.
+     *  *
+     * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
      *
-     * @param request - ListOrganizationRoleUsersRequest
-     *
-     * @returns ListOrganizationRoleUsersResponse
-     *
-     * @param ListOrganizationRoleUsersRequest $request
-     *
-     * @return ListOrganizationRoleUsersResponse
+     * @return ListOrganizationRoleUsersResponse ListOrganizationRoleUsersResponse
      */
     public function listOrganizationRoleUsers($request)
     {
@@ -3223,16 +2679,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of custom roles at the organization level.
+     * @summary Retrieve the list of custom roles at the organization level.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListOrganizationRolesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListOrganizationRolesResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListOrganizationRolesResponse
+     * @return ListOrganizationRolesResponse ListOrganizationRolesResponse
      */
     public function listOrganizationRolesWithOptions($runtime)
     {
@@ -3253,11 +2704,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of custom roles at the organization level.
-     *
-     * @returns ListOrganizationRolesResponse
-     *
-     * @return ListOrganizationRolesResponse
+     * @summary Retrieve the list of custom roles at the organization level.
+     *  *
+     * @return ListOrganizationRolesResponse ListOrganizationRolesResponse
      */
     public function listOrganizationRoles()
     {
@@ -3267,28 +2716,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the list of authorization details for a BI portal menu.
+     * @summary Obtains the list of authorization details for a BI portal menu.
+     *  *
+     * @param ListPortalMenuAuthorizationRequest $request ListPortalMenuAuthorizationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPortalMenuAuthorizationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPortalMenuAuthorizationResponse
-     *
-     * @param ListPortalMenuAuthorizationRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListPortalMenuAuthorizationResponse
+     * @return ListPortalMenuAuthorizationResponse ListPortalMenuAuthorizationResponse
      */
     public function listPortalMenuAuthorizationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataPortalId) {
-            @$query['DataPortalId'] = $request->dataPortalId;
+        if (!Utils::isUnset($request->dataPortalId)) {
+            $query['DataPortalId'] = $request->dataPortalId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPortalMenuAuthorization',
@@ -3306,15 +2749,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the list of authorization details for a BI portal menu.
+     * @summary Obtains the list of authorization details for a BI portal menu.
+     *  *
+     * @param ListPortalMenuAuthorizationRequest $request ListPortalMenuAuthorizationRequest
      *
-     * @param request - ListPortalMenuAuthorizationRequest
-     *
-     * @returns ListPortalMenuAuthorizationResponse
-     *
-     * @param ListPortalMenuAuthorizationRequest $request
-     *
-     * @return ListPortalMenuAuthorizationResponse
+     * @return ListPortalMenuAuthorizationResponse ListPortalMenuAuthorizationResponse
      */
     public function listPortalMenuAuthorization($request)
     {
@@ -3324,32 +2763,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Gets a hierarchical list of menus under a specific BI portal.
+     * @summary Gets a hierarchical list of menus under a specific BI portal.
+     *  *
+     * @param ListPortalMenusRequest $request ListPortalMenusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPortalMenusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPortalMenusResponse
-     *
-     * @param ListPortalMenusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListPortalMenusResponse
+     * @return ListPortalMenusResponse ListPortalMenusResponse
      */
     public function listPortalMenusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dataPortalId) {
-            @$query['DataPortalId'] = $request->dataPortalId;
+        if (!Utils::isUnset($request->dataPortalId)) {
+            $query['DataPortalId'] = $request->dataPortalId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPortalMenus',
@@ -3367,15 +2799,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Gets a hierarchical list of menus under a specific BI portal.
+     * @summary Gets a hierarchical list of menus under a specific BI portal.
+     *  *
+     * @param ListPortalMenusRequest $request ListPortalMenusRequest
      *
-     * @param request - ListPortalMenusRequest
-     *
-     * @returns ListPortalMenusResponse
-     *
-     * @param ListPortalMenusRequest $request
-     *
-     * @return ListPortalMenusResponse
+     * @return ListPortalMenusResponse ListPortalMenusResponse
      */
     public function listPortalMenus($request)
     {
@@ -3385,48 +2813,37 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+     * @summary You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+     *  *
+     * @param ListRecentViewReportsRequest $request ListRecentViewReportsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListRecentViewReportsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRecentViewReportsResponse
-     *
-     * @param ListRecentViewReportsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListRecentViewReportsResponse
+     * @return ListRecentViewReportsResponse ListRecentViewReportsResponse
      */
     public function listRecentViewReportsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->offsetDay) {
-            @$query['OffsetDay'] = $request->offsetDay;
+        if (!Utils::isUnset($request->offsetDay)) {
+            $query['OffsetDay'] = $request->offsetDay;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryMode) {
-            @$query['QueryMode'] = $request->queryMode;
+        if (!Utils::isUnset($request->queryMode)) {
+            $query['QueryMode'] = $request->queryMode;
         }
-
-        if (null !== $request->treeType) {
-            @$query['TreeType'] = $request->treeType;
+        if (!Utils::isUnset($request->treeType)) {
+            $query['TreeType'] = $request->treeType;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRecentViewReports',
@@ -3444,15 +2861,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+     * @summary You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+     *  *
+     * @param ListRecentViewReportsRequest $request ListRecentViewReportsRequest
      *
-     * @param request - ListRecentViewReportsRequest
-     *
-     * @returns ListRecentViewReportsResponse
-     *
-     * @param ListRecentViewReportsRequest $request
-     *
-     * @return ListRecentViewReportsResponse
+     * @return ListRecentViewReportsResponse ListRecentViewReportsResponse
      */
     public function listRecentViewReports($request)
     {
@@ -3462,40 +2875,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can this operation to obtain the list of authorized works displayed on the homepage of a specified user.
+     * @summary You can this operation to obtain the list of authorized works displayed on the homepage of a specified user.
+     *  *
+     * @param ListSharedReportsRequest $request ListSharedReportsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSharedReportsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListSharedReportsResponse
-     *
-     * @param ListSharedReportsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListSharedReportsResponse
+     * @return ListSharedReportsResponse ListSharedReportsResponse
      */
     public function listSharedReportsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->treeType) {
-            @$query['TreeType'] = $request->treeType;
+        if (!Utils::isUnset($request->treeType)) {
+            $query['TreeType'] = $request->treeType;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSharedReports',
@@ -3513,15 +2917,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can this operation to obtain the list of authorized works displayed on the homepage of a specified user.
+     * @summary You can this operation to obtain the list of authorized works displayed on the homepage of a specified user.
+     *  *
+     * @param ListSharedReportsRequest $request ListSharedReportsRequest
      *
-     * @param request - ListSharedReportsRequest
-     *
-     * @returns ListSharedReportsResponse
-     *
-     * @param ListSharedReportsRequest $request
-     *
-     * @return ListSharedReportsResponse
+     * @return ListSharedReportsResponse ListSharedReportsResponse
      */
     public function listSharedReports($request)
     {
@@ -3531,28 +2931,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries all user groups to which a user belongs based on the user ID.
+     * @summary Queries all user groups to which a user belongs based on the user ID.
+     *  *
+     * @param ListUserGroupsByUserIdRequest $request ListUserGroupsByUserIdRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserGroupsByUserIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUserGroupsByUserIdResponse
-     *
-     * @param ListUserGroupsByUserIdRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListUserGroupsByUserIdResponse
+     * @return ListUserGroupsByUserIdResponse ListUserGroupsByUserIdResponse
      */
     public function listUserGroupsByUserIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserGroupsByUserId',
@@ -3570,15 +2964,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries all user groups to which a user belongs based on the user ID.
+     * @summary Queries all user groups to which a user belongs based on the user ID.
+     *  *
+     * @param ListUserGroupsByUserIdRequest $request ListUserGroupsByUserIdRequest
      *
-     * @param request - ListUserGroupsByUserIdRequest
-     *
-     * @returns ListUserGroupsByUserIdResponse
-     *
-     * @param ListUserGroupsByUserIdRequest $request
-     *
-     * @return ListUserGroupsByUserIdResponse
+     * @return ListUserGroupsByUserIdResponse ListUserGroupsByUserIdResponse
      */
     public function listUserGroupsByUserId($request)
     {
@@ -3588,44 +2978,34 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get user list under the specified workspace role.
+     * @summary Get user list under the specified workspace role.
+     *  *
+     * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListWorkspaceRoleUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListWorkspaceRoleUsersResponse
-     *
-     * @param ListWorkspaceRoleUsersRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListWorkspaceRoleUsersResponse
+     * @return ListWorkspaceRoleUsersResponse ListWorkspaceRoleUsersResponse
      */
     public function listWorkspaceRoleUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListWorkspaceRoleUsers',
@@ -3643,15 +3023,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get user list under the specified workspace role.
+     * @summary Get user list under the specified workspace role.
+     *  *
+     * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
      *
-     * @param request - ListWorkspaceRoleUsersRequest
-     *
-     * @returns ListWorkspaceRoleUsersResponse
-     *
-     * @param ListWorkspaceRoleUsersRequest $request
-     *
-     * @return ListWorkspaceRoleUsersResponse
+     * @return ListWorkspaceRoleUsersResponse ListWorkspaceRoleUsersResponse
      */
     public function listWorkspaceRoleUsers($request)
     {
@@ -3661,28 +3037,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the list of workspace roles.
+     * @summary Get the list of workspace roles.
+     *  *
+     * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListWorkspaceRolesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListWorkspaceRolesResponse
-     *
-     * @param ListWorkspaceRolesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListWorkspaceRolesResponse
+     * @return ListWorkspaceRolesResponse ListWorkspaceRolesResponse
      */
     public function listWorkspaceRolesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListWorkspaceRoles',
@@ -3700,15 +3070,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the list of workspace roles.
+     * @summary Get the list of workspace roles.
+     *  *
+     * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
      *
-     * @param request - ListWorkspaceRolesRequest
-     *
-     * @returns ListWorkspaceRolesResponse
-     *
-     * @param ListWorkspaceRolesRequest $request
-     *
-     * @return ListWorkspaceRolesResponse
+     * @return ListWorkspaceRolesResponse ListWorkspaceRolesResponse
      */
     public function listWorkspaceRoles($request)
     {
@@ -3718,28 +3084,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Manually Execute Email Task.
+     * @summary Manually Execute Email Task
+     *  *
+     * @param ManualRunMailTaskRequest $request ManualRunMailTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ManualRunMailTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ManualRunMailTaskResponse
-     *
-     * @param ManualRunMailTaskRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ManualRunMailTaskResponse
+     * @return ManualRunMailTaskResponse ManualRunMailTaskResponse
      */
     public function manualRunMailTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->mailId) {
-            @$query['MailId'] = $request->mailId;
+        if (!Utils::isUnset($request->mailId)) {
+            $query['MailId'] = $request->mailId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ManualRunMailTask',
@@ -3757,15 +3117,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Manually Execute Email Task.
+     * @summary Manually Execute Email Task
+     *  *
+     * @param ManualRunMailTaskRequest $request ManualRunMailTaskRequest
      *
-     * @param request - ManualRunMailTaskRequest
-     *
-     * @returns ManualRunMailTaskResponse
-     *
-     * @param ManualRunMailTaskRequest $request
-     *
-     * @return ManualRunMailTaskResponse
+     * @return ManualRunMailTaskResponse ManualRunMailTaskResponse
      */
     public function manualRunMailTask($request)
     {
@@ -3775,39 +3131,30 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a specified API data source.
+     * @summary Modifies the configurations of a specified API data source.
+     *  *
+     * @description When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+     *  *
+     * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
-     *
-     * @param request - ModifyApiDatasourceParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyApiDatasourceParametersResponse
-     *
-     * @param ModifyApiDatasourceParametersRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyApiDatasourceParametersResponse
+     * @return ModifyApiDatasourceParametersResponse ModifyApiDatasourceParametersResponse
      */
     public function modifyApiDatasourceParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyApiDatasourceParameters',
@@ -3825,18 +3172,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a specified API data source.
+     * @summary Modifies the configurations of a specified API data source.
+     *  *
+     * @description When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+     *  *
+     * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
      *
-     * @remarks
-     * When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
-     *
-     * @param request - ModifyApiDatasourceParametersRequest
-     *
-     * @returns ModifyApiDatasourceParametersResponse
-     *
-     * @param ModifyApiDatasourceParametersRequest $request
-     *
-     * @return ModifyApiDatasourceParametersResponse
+     * @return ModifyApiDatasourceParametersResponse ModifyApiDatasourceParametersResponse
      */
     public function modifyApiDatasourceParameters($request)
     {
@@ -3846,40 +3188,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modify Intelligent Query Embedding Configuration.
+     * @summary Modify Intelligent Query Embedding Configuration
+     *  *
+     * @param ModifyCopilotEmbedConfigRequest $request ModifyCopilotEmbedConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyCopilotEmbedConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyCopilotEmbedConfigResponse
-     *
-     * @param ModifyCopilotEmbedConfigRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyCopilotEmbedConfigResponse
+     * @return ModifyCopilotEmbedConfigResponse ModifyCopilotEmbedConfigResponse
      */
     public function modifyCopilotEmbedConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->agentName) {
-            @$query['AgentName'] = $request->agentName;
+        if (!Utils::isUnset($request->agentName)) {
+            $query['AgentName'] = $request->agentName;
         }
-
-        if (null !== $request->copilotId) {
-            @$query['CopilotId'] = $request->copilotId;
+        if (!Utils::isUnset($request->copilotId)) {
+            $query['CopilotId'] = $request->copilotId;
         }
-
-        if (null !== $request->dataRange) {
-            @$query['DataRange'] = $request->dataRange;
+        if (!Utils::isUnset($request->dataRange)) {
+            $query['DataRange'] = $request->dataRange;
         }
-
-        if (null !== $request->moduleName) {
-            @$query['ModuleName'] = $request->moduleName;
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyCopilotEmbedConfig',
@@ -3897,15 +3230,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modify Intelligent Query Embedding Configuration.
+     * @summary Modify Intelligent Query Embedding Configuration
+     *  *
+     * @param ModifyCopilotEmbedConfigRequest $request ModifyCopilotEmbedConfigRequest
      *
-     * @param request - ModifyCopilotEmbedConfigRequest
-     *
-     * @returns ModifyCopilotEmbedConfigResponse
-     *
-     * @param ModifyCopilotEmbedConfigRequest $request
-     *
-     * @return ModifyCopilotEmbedConfigResponse
+     * @return ModifyCopilotEmbedConfigResponse ModifyCopilotEmbedConfigResponse
      */
     public function modifyCopilotEmbedConfig($request)
     {
@@ -3915,40 +3244,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get approval flow information based on the approver.
+     * @summary Get approval flow information based on the approver.
+     *  *
+     * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryApprovalInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryApprovalInfoResponse
-     *
-     * @param QueryApprovalInfoRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return QueryApprovalInfoResponse
+     * @return QueryApprovalInfoResponse QueryApprovalInfoResponse
      */
     public function queryApprovalInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->page) {
-            @$query['Page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryApprovalInfo',
@@ -3966,15 +3286,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get approval flow information based on the approver.
+     * @summary Get approval flow information based on the approver.
+     *  *
+     * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
      *
-     * @param request - QueryApprovalInfoRequest
-     *
-     * @returns QueryApprovalInfoResponse
-     *
-     * @param QueryApprovalInfoRequest $request
-     *
-     * @return QueryApprovalInfoResponse
+     * @return QueryApprovalInfoResponse QueryApprovalInfoResponse
      */
     public function queryApprovalInfo($request)
     {
@@ -3984,60 +3300,46 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query audit log information.
+     * @summary Query audit log information.
+     *  *
+     * @param QueryAuditLogRequest $request QueryAuditLogRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryAuditLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryAuditLogResponse
-     *
-     * @param QueryAuditLogRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return QueryAuditLogResponse
+     * @return QueryAuditLogResponse QueryAuditLogResponse
      */
     public function queryAuditLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessSourceFlag) {
-            @$query['AccessSourceFlag'] = $request->accessSourceFlag;
+        if (!Utils::isUnset($request->accessSourceFlag)) {
+            $query['AccessSourceFlag'] = $request->accessSourceFlag;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->logType) {
-            @$query['LogType'] = $request->logType;
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
         }
-
-        if (null !== $request->operatorId) {
-            @$query['OperatorId'] = $request->operatorId;
+        if (!Utils::isUnset($request->operatorId)) {
+            $query['OperatorId'] = $request->operatorId;
         }
-
-        if (null !== $request->operatorTypes) {
-            @$query['OperatorTypes'] = $request->operatorTypes;
+        if (!Utils::isUnset($request->operatorTypes)) {
+            $query['OperatorTypes'] = $request->operatorTypes;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->userAccessDevice) {
-            @$query['UserAccessDevice'] = $request->userAccessDevice;
+        if (!Utils::isUnset($request->userAccessDevice)) {
+            $query['UserAccessDevice'] = $request->userAccessDevice;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryAuditLog',
@@ -4055,15 +3357,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query audit log information.
+     * @summary Query audit log information.
+     *  *
+     * @param QueryAuditLogRequest $request QueryAuditLogRequest
      *
-     * @param request - QueryAuditLogRequest
-     *
-     * @returns QueryAuditLogResponse
-     *
-     * @param QueryAuditLogRequest $request
-     *
-     * @return QueryAuditLogResponse
+     * @return QueryAuditLogResponse QueryAuditLogResponse
      */
     public function queryAuditLog($request)
     {
@@ -4073,52 +3371,40 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries component performance logs.
+     * @summary Queries component performance logs.
+     *  *
+     * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryComponentPerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryComponentPerformanceResponse
-     *
-     * @param QueryComponentPerformanceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return QueryComponentPerformanceResponse
+     * @return QueryComponentPerformanceResponse QueryComponentPerformanceResponse
      */
     public function queryComponentPerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->costTimeAvgMin) {
-            @$query['CostTimeAvgMin'] = $request->costTimeAvgMin;
+        if (!Utils::isUnset($request->costTimeAvgMin)) {
+            $query['CostTimeAvgMin'] = $request->costTimeAvgMin;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryType) {
-            @$query['QueryType'] = $request->queryType;
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
         }
-
-        if (null !== $request->reportId) {
-            @$query['ReportId'] = $request->reportId;
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryComponentPerformance',
@@ -4136,15 +3422,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries component performance logs.
+     * @summary Queries component performance logs.
+     *  *
+     * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
      *
-     * @param request - QueryComponentPerformanceRequest
-     *
-     * @returns QueryComponentPerformanceResponse
-     *
-     * @param QueryComponentPerformanceRequest $request
-     *
-     * @return QueryComponentPerformanceResponse
+     * @return QueryComponentPerformanceResponse QueryComponentPerformanceResponse
      */
     public function queryComponentPerformance($request)
     {
@@ -4154,28 +3436,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the List of Configurations for Activating XiaoQ Embedding.
+     * @summary Get the List of Configurations for Activating XiaoQ Embedding
+     *  *
+     * @param QueryCopilotEmbedConfigRequest $request QueryCopilotEmbedConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryCopilotEmbedConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryCopilotEmbedConfigResponse
-     *
-     * @param QueryCopilotEmbedConfigRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return QueryCopilotEmbedConfigResponse
+     * @return QueryCopilotEmbedConfigResponse QueryCopilotEmbedConfigResponse
      */
     public function queryCopilotEmbedConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryCopilotEmbedConfig',
@@ -4193,15 +3469,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the List of Configurations for Activating XiaoQ Embedding.
+     * @summary Get the List of Configurations for Activating XiaoQ Embedding
+     *  *
+     * @param QueryCopilotEmbedConfigRequest $request QueryCopilotEmbedConfigRequest
      *
-     * @param request - QueryCopilotEmbedConfigRequest
-     *
-     * @returns QueryCopilotEmbedConfigResponse
-     *
-     * @param QueryCopilotEmbedConfigRequest $request
-     *
-     * @return QueryCopilotEmbedConfigResponse
+     * @return QueryCopilotEmbedConfigResponse QueryCopilotEmbedConfigResponse
      */
     public function queryCopilotEmbedConfig($request)
     {
@@ -4211,28 +3483,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries dataset optimization suggestions.
+     * @summary Queries dataset optimization suggestions.
+     *  *
+     * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryCubeOptimizationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryCubeOptimizationResponse
-     *
-     * @param QueryCubeOptimizationRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryCubeOptimizationResponse
+     * @return QueryCubeOptimizationResponse QueryCubeOptimizationResponse
      */
     public function queryCubeOptimizationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryCubeOptimization',
@@ -4250,15 +3516,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries dataset optimization suggestions.
+     * @summary Queries dataset optimization suggestions.
+     *  *
+     * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
      *
-     * @param request - QueryCubeOptimizationRequest
-     *
-     * @returns QueryCubeOptimizationResponse
-     *
-     * @param QueryCubeOptimizationRequest $request
-     *
-     * @return QueryCubeOptimizationResponse
+     * @return QueryCubeOptimizationResponse QueryCubeOptimizationResponse
      */
     public function queryCubeOptimization($request)
     {
@@ -4268,48 +3530,37 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the performance logs of a dataset.
+     * @summary Queries the performance logs of a dataset.
+     *  *
+     * @param QueryCubePerformanceRequest $request QueryCubePerformanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryCubePerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryCubePerformanceResponse
-     *
-     * @param QueryCubePerformanceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return QueryCubePerformanceResponse
+     * @return QueryCubePerformanceResponse QueryCubePerformanceResponse
      */
     public function queryCubePerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->costTimeAvgMin) {
-            @$query['CostTimeAvgMin'] = $request->costTimeAvgMin;
+        if (!Utils::isUnset($request->costTimeAvgMin)) {
+            $query['CostTimeAvgMin'] = $request->costTimeAvgMin;
         }
-
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryType) {
-            @$query['QueryType'] = $request->queryType;
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryCubePerformance',
@@ -4327,15 +3578,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the performance logs of a dataset.
+     * @summary Queries the performance logs of a dataset.
+     *  *
+     * @param QueryCubePerformanceRequest $request QueryCubePerformanceRequest
      *
-     * @param request - QueryCubePerformanceRequest
-     *
-     * @returns QueryCubePerformanceResponse
-     *
-     * @param QueryCubePerformanceRequest $request
-     *
-     * @return QueryCubePerformanceResponse
+     * @return QueryCubePerformanceResponse QueryCubePerformanceResponse
      */
     public function queryCubePerformance($request)
     {
@@ -4345,48 +3592,38 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Invoke the open data service API.
-     *
-     * @remarks
-     * ### Prerequisites
+     * @summary Invoke the open data service API.
+     *  *
+     * @description ### Prerequisites
      * You need to create a data service API through Quick BI\\"s data service. For more details, see: [Data Service](https://help.aliyun.com/document_detail/144980.html).
      * ### Usage Restrictions
      * * The data service feature is only available to professional edition customers.
      * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
      * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call will also be intercepted by the row-level permission policy.
+     *  *
+     * @param QueryDataRequest $request QueryDataRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDataResponse
-     *
-     * @param QueryDataRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return QueryDataResponse
+     * @return QueryDataResponse QueryDataResponse
      */
     public function queryDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->conditions) {
-            @$query['Conditions'] = $request->conditions;
+        if (!Utils::isUnset($request->conditions)) {
+            $query['Conditions'] = $request->conditions;
         }
-
-        if (null !== $request->returnFields) {
-            @$query['ReturnFields'] = $request->returnFields;
+        if (!Utils::isUnset($request->returnFields)) {
+            $query['ReturnFields'] = $request->returnFields;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryData',
@@ -4404,23 +3641,18 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Invoke the open data service API.
-     *
-     * @remarks
-     * ### Prerequisites
+     * @summary Invoke the open data service API.
+     *  *
+     * @description ### Prerequisites
      * You need to create a data service API through Quick BI\\"s data service. For more details, see: [Data Service](https://help.aliyun.com/document_detail/144980.html).
      * ### Usage Restrictions
      * * The data service feature is only available to professional edition customers.
      * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
      * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call will also be intercepted by the row-level permission policy.
+     *  *
+     * @param QueryDataRequest $request QueryDataRequest
      *
-     * @param request - QueryDataRequest
-     *
-     * @returns QueryDataResponse
-     *
-     * @param QueryDataRequest $request
-     *
-     * @return QueryDataResponse
+     * @return QueryDataResponse QueryDataResponse
      */
     public function queryData($request)
     {
@@ -4430,32 +3662,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Data Range Catalog List.
+     * @summary Get Data Range Catalog List
+     *  *
+     * @param QueryDataRangeRequest $request QueryDataRangeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDataRangeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDataRangeResponse
-     *
-     * @param QueryDataRangeRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return QueryDataRangeResponse
+     * @return QueryDataRangeResponse QueryDataRangeResponse
      */
     public function queryDataRangeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDataRange',
@@ -4473,15 +3698,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Data Range Catalog List.
+     * @summary Get Data Range Catalog List
+     *  *
+     * @param QueryDataRangeRequest $request QueryDataRangeRequest
      *
-     * @param request - QueryDataRangeRequest
-     *
-     * @returns QueryDataRangeResponse
-     *
-     * @param QueryDataRangeRequest $request
-     *
-     * @return QueryDataRangeResponse
+     * @return QueryDataRangeResponse QueryDataRangeResponse
      */
     public function queryDataRange($request)
     {
@@ -4490,48 +3711,40 @@ class Quickbipublic extends OpenApiClient
         return $this->queryDataRangeWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
-     * Invoke an already created API in the data service.
-     *
-     * @remarks
-     * #### Prerequisites
+     * @deprecated openAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead
+     *  *
+     * @summary Invoke an already created API in the data service.
+     *  *
+     * @description #### Prerequisites
      * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
      * #### Usage Restrictions
      * * The data service feature is only available to professional edition customers.
      * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
      * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+     *  *
+     * Deprecated
      *
-     * @deprecated openAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead
+     * @param QueryDataServiceRequest $request QueryDataServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDataServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDataServiceResponse
-     *
-     * @param QueryDataServiceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return QueryDataServiceResponse
+     * @return QueryDataServiceResponse QueryDataServiceResponse
      */
     public function queryDataServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->conditions) {
-            @$query['Conditions'] = $request->conditions;
+        if (!Utils::isUnset($request->conditions)) {
+            $query['Conditions'] = $request->conditions;
         }
-
-        if (null !== $request->returnFields) {
-            @$query['ReturnFields'] = $request->returnFields;
+        if (!Utils::isUnset($request->returnFields)) {
+            $query['ReturnFields'] = $request->returnFields;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDataService',
@@ -4548,27 +3761,23 @@ class Quickbipublic extends OpenApiClient
         return QueryDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * Invoke an already created API in the data service.
-     *
-     * @remarks
-     * #### Prerequisites
+     * @deprecated openAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead
+     *  *
+     * @summary Invoke an already created API in the data service.
+     *  *
+     * @description #### Prerequisites
      * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
      * #### Usage Restrictions
      * * The data service feature is only available to professional edition customers.
      * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
      * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+     *  *
+     * Deprecated
      *
-     * @deprecated openAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead
+     * @param QueryDataServiceRequest $request QueryDataServiceRequest
      *
-     * @param request - QueryDataServiceRequest
-     *
-     * @returns QueryDataServiceResponse
-     *
-     * @param QueryDataServiceRequest $request
-     *
-     * @return QueryDataServiceResponse
+     * @return QueryDataServiceResponse QueryDataServiceResponse
      */
     public function queryDataService($request)
     {
@@ -4578,40 +3787,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Data Service API List.
+     * @summary Query Data Service API List
+     *  *
+     * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDataServiceListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDataServiceListResponse
-     *
-     * @param QueryDataServiceListRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return QueryDataServiceListResponse
+     * @return QueryDataServiceListResponse QueryDataServiceListResponse
      */
     public function queryDataServiceListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDataServiceList',
@@ -4629,15 +3829,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Data Service API List.
+     * @summary Query Data Service API List
+     *  *
+     * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
      *
-     * @param request - QueryDataServiceListRequest
-     *
-     * @returns QueryDataServiceListResponse
-     *
-     * @param QueryDataServiceListRequest $request
-     *
-     * @return QueryDataServiceListResponse
+     * @return QueryDataServiceListResponse QueryDataServiceListResponse
      */
     public function queryDataServiceList($request)
     {
@@ -4647,31 +3843,24 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified dataset, including the data source, directory, and dataset model.
+     * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+     *  *
+     * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+     *  *
+     * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
-     *
-     * @param request - QueryDatasetDetailInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDatasetDetailInfoResponse
-     *
-     * @param QueryDatasetDetailInfoRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryDatasetDetailInfoResponse
+     * @return QueryDatasetDetailInfoResponse QueryDatasetDetailInfoResponse
      */
     public function queryDatasetDetailInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDatasetDetailInfo',
@@ -4689,18 +3878,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified dataset, including the data source, directory, and dataset model.
+     * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+     *  *
+     * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+     *  *
+     * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
      *
-     * @remarks
-     * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
-     *
-     * @param request - QueryDatasetDetailInfoRequest
-     *
-     * @returns QueryDatasetDetailInfoResponse
-     *
-     * @param QueryDatasetDetailInfoRequest $request
-     *
-     * @return QueryDatasetDetailInfoResponse
+     * @return QueryDatasetDetailInfoResponse QueryDatasetDetailInfoResponse
      */
     public function queryDatasetDetailInfo($request)
     {
@@ -4710,30 +3894,24 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the table is a custom SQL table. Valid values:
+     * @summary Indicates whether the table is a custom SQL table. Valid values:
      * \\*   true: custom SQL table
      * \\*   false: non-custom SQL table
+     *  *
+     * @param QueryDatasetInfoRequest $request QueryDatasetInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDatasetInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDatasetInfoResponse
-     *
-     * @param QueryDatasetInfoRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return QueryDatasetInfoResponse
+     * @return QueryDatasetInfoResponse QueryDatasetInfoResponse
      */
     public function queryDatasetInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDatasetInfo',
@@ -4751,17 +3929,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the table is a custom SQL table. Valid values:
+     * @summary Indicates whether the table is a custom SQL table. Valid values:
      * \\*   true: custom SQL table
      * \\*   false: non-custom SQL table
+     *  *
+     * @param QueryDatasetInfoRequest $request QueryDatasetInfoRequest
      *
-     * @param request - QueryDatasetInfoRequest
-     *
-     * @returns QueryDatasetInfoResponse
-     *
-     * @param QueryDatasetInfoRequest $request
-     *
-     * @return QueryDatasetInfoResponse
+     * @return QueryDatasetInfoResponse QueryDatasetInfoResponse
      */
     public function queryDatasetInfo($request)
     {
@@ -4771,48 +3945,37 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The name of the training dataset.
+     * @summary The name of the training dataset.
+     *  *
+     * @param QueryDatasetListRequest $request QueryDatasetListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDatasetListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDatasetListResponse
-     *
-     * @param QueryDatasetListRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return QueryDatasetListResponse
+     * @return QueryDatasetListResponse QueryDatasetListResponse
      */
     public function queryDatasetListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->directoryId) {
-            @$query['DirectoryId'] = $request->directoryId;
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->withChildren) {
-            @$query['WithChildren'] = $request->withChildren;
+        if (!Utils::isUnset($request->withChildren)) {
+            $query['WithChildren'] = $request->withChildren;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDatasetList',
@@ -4830,15 +3993,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The name of the training dataset.
+     * @summary The name of the training dataset.
+     *  *
+     * @param QueryDatasetListRequest $request QueryDatasetListRequest
      *
-     * @param request - QueryDatasetListRequest
-     *
-     * @returns QueryDatasetListResponse
-     *
-     * @param QueryDatasetListRequest $request
-     *
-     * @return QueryDatasetListResponse
+     * @return QueryDatasetListResponse QueryDatasetListResponse
      */
     public function queryDatasetList($request)
     {
@@ -4848,28 +4007,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check if the Dataset has Enabled Smart Query.
+     * @summary Check if the Dataset has Enabled Smart Query
+     *  *
+     * @param QueryDatasetSmartqStatusRequest $request QueryDatasetSmartqStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDatasetSmartqStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDatasetSmartqStatusResponse
-     *
-     * @param QueryDatasetSmartqStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryDatasetSmartqStatusResponse
+     * @return QueryDatasetSmartqStatusResponse QueryDatasetSmartqStatusResponse
      */
     public function queryDatasetSmartqStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDatasetSmartqStatus',
@@ -4887,15 +4040,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check if the Dataset has Enabled Smart Query.
+     * @summary Check if the Dataset has Enabled Smart Query
+     *  *
+     * @param QueryDatasetSmartqStatusRequest $request QueryDatasetSmartqStatusRequest
      *
-     * @param request - QueryDatasetSmartqStatusRequest
-     *
-     * @returns QueryDatasetSmartqStatusResponse
-     *
-     * @param QueryDatasetSmartqStatusRequest $request
-     *
-     * @return QueryDatasetSmartqStatusResponse
+     * @return QueryDatasetSmartqStatusResponse QueryDatasetSmartqStatusResponse
      */
     public function queryDatasetSmartqStatus($request)
     {
@@ -4905,28 +4054,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取指定数据集的行级权限开关状态。
+     * @summary 获取指定数据集的行级权限开关状态。
+     *  *
+     * @param QueryDatasetSwitchInfoRequest $request QueryDatasetSwitchInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryDatasetSwitchInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryDatasetSwitchInfoResponse
-     *
-     * @param QueryDatasetSwitchInfoRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryDatasetSwitchInfoResponse
+     * @return QueryDatasetSwitchInfoResponse QueryDatasetSwitchInfoResponse
      */
     public function queryDatasetSwitchInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDatasetSwitchInfo',
@@ -4944,15 +4087,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取指定数据集的行级权限开关状态。
+     * @summary 获取指定数据集的行级权限开关状态。
+     *  *
+     * @param QueryDatasetSwitchInfoRequest $request QueryDatasetSwitchInfoRequest
      *
-     * @param request - QueryDatasetSwitchInfoRequest
-     *
-     * @returns QueryDatasetSwitchInfoResponse
-     *
-     * @param QueryDatasetSwitchInfoRequest $request
-     *
-     * @return QueryDatasetSwitchInfoResponse
+     * @return QueryDatasetSwitchInfoResponse QueryDatasetSwitchInfoResponse
      */
     public function queryDatasetSwitchInfo($request)
     {
@@ -4962,16 +4101,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
+     * @summary Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryEmbeddedInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryEmbeddedInfoResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return QueryEmbeddedInfoResponse
+     * @return QueryEmbeddedInfoResponse QueryEmbeddedInfoResponse
      */
     public function queryEmbeddedInfoWithOptions($runtime)
     {
@@ -4992,11 +4126,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
-     *
-     * @returns QueryEmbeddedInfoResponse
-     *
-     * @return QueryEmbeddedInfoResponse
+     * @summary Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
+     *  *
+     * @return QueryEmbeddedInfoResponse QueryEmbeddedInfoResponse
      */
     public function queryEmbeddedInfo()
     {
@@ -5006,28 +4138,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries whether embedding is enabled for a report.
+     * @summary Queries whether embedding is enabled for a report.
+     *  *
+     * @param QueryEmbeddedStatusRequest $request QueryEmbeddedStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryEmbeddedStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryEmbeddedStatusResponse
-     *
-     * @param QueryEmbeddedStatusRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return QueryEmbeddedStatusResponse
+     * @return QueryEmbeddedStatusResponse QueryEmbeddedStatusResponse
      */
     public function queryEmbeddedStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryEmbeddedStatus',
@@ -5045,15 +4171,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries whether embedding is enabled for a report.
+     * @summary Queries whether embedding is enabled for a report.
+     *  *
+     * @param QueryEmbeddedStatusRequest $request QueryEmbeddedStatusRequest
      *
-     * @param request - QueryEmbeddedStatusRequest
-     *
-     * @returns QueryEmbeddedStatusResponse
-     *
-     * @param QueryEmbeddedStatusRequest $request
-     *
-     * @return QueryEmbeddedStatusResponse
+     * @return QueryEmbeddedStatusResponse QueryEmbeddedStatusResponse
      */
     public function queryEmbeddedStatus($request)
     {
@@ -5063,28 +4185,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check which datasets and analysis themes the user has question authorization for.
+     * @summary Check which datasets and analysis themes the user has question authorization for
+     *  *
+     * @param QueryLlmCubeWithThemeListByUserIdRequest $request QueryLlmCubeWithThemeListByUserIdRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryLlmCubeWithThemeListByUserIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryLlmCubeWithThemeListByUserIdResponse
-     *
-     * @param QueryLlmCubeWithThemeListByUserIdRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return QueryLlmCubeWithThemeListByUserIdResponse
+     * @return QueryLlmCubeWithThemeListByUserIdResponse QueryLlmCubeWithThemeListByUserIdResponse
      */
     public function queryLlmCubeWithThemeListByUserIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryLlmCubeWithThemeListByUserId',
@@ -5102,15 +4218,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check which datasets and analysis themes the user has question authorization for.
+     * @summary Check which datasets and analysis themes the user has question authorization for
+     *  *
+     * @param QueryLlmCubeWithThemeListByUserIdRequest $request QueryLlmCubeWithThemeListByUserIdRequest
      *
-     * @param request - QueryLlmCubeWithThemeListByUserIdRequest
-     *
-     * @returns QueryLlmCubeWithThemeListByUserIdResponse
-     *
-     * @param QueryLlmCubeWithThemeListByUserIdRequest $request
-     *
-     * @return QueryLlmCubeWithThemeListByUserIdResponse
+     * @return QueryLlmCubeWithThemeListByUserIdResponse QueryLlmCubeWithThemeListByUserIdResponse
      */
     public function queryLlmCubeWithThemeListByUserId($request)
     {
@@ -5120,28 +4232,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Gets the configuration of the specified organization role.
+     * @summary Gets the configuration of the specified organization role.
+     *  *
+     * @param QueryOrganizationRoleConfigRequest $request QueryOrganizationRoleConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryOrganizationRoleConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryOrganizationRoleConfigResponse
-     *
-     * @param QueryOrganizationRoleConfigRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return QueryOrganizationRoleConfigResponse
+     * @return QueryOrganizationRoleConfigResponse QueryOrganizationRoleConfigResponse
      */
     public function queryOrganizationRoleConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryOrganizationRoleConfig',
@@ -5159,15 +4265,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Gets the configuration of the specified organization role.
+     * @summary Gets the configuration of the specified organization role.
+     *  *
+     * @param QueryOrganizationRoleConfigRequest $request QueryOrganizationRoleConfigRequest
      *
-     * @param request - QueryOrganizationRoleConfigRequest
-     *
-     * @returns QueryOrganizationRoleConfigResponse
-     *
-     * @param QueryOrganizationRoleConfigRequest $request
-     *
-     * @return QueryOrganizationRoleConfigResponse
+     * @return QueryOrganizationRoleConfigResponse QueryOrganizationRoleConfigResponse
      */
     public function queryOrganizationRoleConfig($request)
     {
@@ -5177,40 +4279,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of workspaces under the current organization.
+     * @summary Retrieve the list of workspaces under the current organization.
+     *  *
+     * @param QueryOrganizationWorkspaceListRequest $request QueryOrganizationWorkspaceListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryOrganizationWorkspaceListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryOrganizationWorkspaceListResponse
-     *
-     * @param QueryOrganizationWorkspaceListRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return QueryOrganizationWorkspaceListResponse
+     * @return QueryOrganizationWorkspaceListResponse QueryOrganizationWorkspaceListResponse
      */
     public function queryOrganizationWorkspaceListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryOrganizationWorkspaceList',
@@ -5228,15 +4321,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of workspaces under the current organization.
+     * @summary Retrieve the list of workspaces under the current organization.
+     *  *
+     * @param QueryOrganizationWorkspaceListRequest $request QueryOrganizationWorkspaceListRequest
      *
-     * @param request - QueryOrganizationWorkspaceListRequest
-     *
-     * @returns QueryOrganizationWorkspaceListResponse
-     *
-     * @param QueryOrganizationWorkspaceListRequest $request
-     *
-     * @return QueryOrganizationWorkspaceListResponse
+     * @return QueryOrganizationWorkspaceListResponse QueryOrganizationWorkspaceListResponse
      */
     public function queryOrganizationWorkspaceList($request)
     {
@@ -5246,28 +4335,26 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+     * @deprecated openAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead
+     *  *
+     * @summary Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+     *  *
+     * Deprecated
      *
-     * @param request - QueryReadableResourcesListByUserIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param QueryReadableResourcesListByUserIdRequest $request QueryReadableResourcesListByUserIdRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @returns QueryReadableResourcesListByUserIdResponse
-     *
-     * @param QueryReadableResourcesListByUserIdRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return QueryReadableResourcesListByUserIdResponse
+     * @return QueryReadableResourcesListByUserIdResponse QueryReadableResourcesListByUserIdResponse
      */
     public function queryReadableResourcesListByUserIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryReadableResourcesListByUserId',
@@ -5285,15 +4372,15 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+     * @deprecated openAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead
+     *  *
+     * @summary Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+     *  *
+     * Deprecated
      *
-     * @param request - QueryReadableResourcesListByUserIdRequest
+     * @param QueryReadableResourcesListByUserIdRequest $request QueryReadableResourcesListByUserIdRequest
      *
-     * @returns QueryReadableResourcesListByUserIdResponse
-     *
-     * @param QueryReadableResourcesListByUserIdRequest $request
-     *
-     * @return QueryReadableResourcesListByUserIdResponse
+     * @return QueryReadableResourcesListByUserIdResponse QueryReadableResourcesListByUserIdResponse
      */
     public function queryReadableResourcesListByUserId($request)
     {
@@ -5303,52 +4390,93 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries report performance logs.
+     * @summary 查询用户有权查看的作品列表(新)
+     *  *
+     * @param QueryReadableResourcesListByUserIdV2Request $request QueryReadableResourcesListByUserIdV2Request
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryReportPerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return QueryReadableResourcesListByUserIdV2Response QueryReadableResourcesListByUserIdV2Response
+     */
+    public function queryReadableResourcesListByUserIdV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->workType)) {
+            $query['WorkType'] = $request->workType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryReadableResourcesListByUserIdV2',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryReadableResourcesListByUserIdV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户有权查看的作品列表(新)
+     *  *
+     * @param QueryReadableResourcesListByUserIdV2Request $request QueryReadableResourcesListByUserIdV2Request
      *
-     * @returns QueryReportPerformanceResponse
+     * @return QueryReadableResourcesListByUserIdV2Response QueryReadableResourcesListByUserIdV2Response
+     */
+    public function queryReadableResourcesListByUserIdV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryReadableResourcesListByUserIdV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries report performance logs.
+     *  *
+     * @param QueryReportPerformanceRequest $request QueryReportPerformanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param QueryReportPerformanceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryReportPerformanceResponse
+     * @return QueryReportPerformanceResponse QueryReportPerformanceResponse
      */
     public function queryReportPerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->costTimeAvgMin) {
-            @$query['CostTimeAvgMin'] = $request->costTimeAvgMin;
+        if (!Utils::isUnset($request->costTimeAvgMin)) {
+            $query['CostTimeAvgMin'] = $request->costTimeAvgMin;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryType) {
-            @$query['QueryType'] = $request->queryType;
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
         }
-
-        if (null !== $request->reportId) {
-            @$query['ReportId'] = $request->reportId;
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryReportPerformance',
@@ -5366,15 +4494,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries report performance logs.
+     * @summary Queries report performance logs.
+     *  *
+     * @param QueryReportPerformanceRequest $request QueryReportPerformanceRequest
      *
-     * @param request - QueryReportPerformanceRequest
-     *
-     * @returns QueryReportPerformanceResponse
-     *
-     * @param QueryReportPerformanceRequest $request
-     *
-     * @return QueryReportPerformanceResponse
+     * @return QueryReportPerformanceResponse QueryReportPerformanceResponse
      */
     public function queryReportPerformance($request)
     {
@@ -5384,28 +4508,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of objects to which a work has been shared, returning only the sharing configurations that are still within their validity period.
+     * @summary Query the list of objects to which a work has been shared, returning only the sharing configurations that are still within their validity period.
+     *  *
+     * @param QueryShareListRequest $request QueryShareListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryShareListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryShareListResponse
-     *
-     * @param QueryShareListRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return QueryShareListResponse
+     * @return QueryShareListResponse QueryShareListResponse
      */
     public function queryShareListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->reportId) {
-            @$query['ReportId'] = $request->reportId;
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryShareList',
@@ -5423,15 +4541,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of objects to which a work has been shared, returning only the sharing configurations that are still within their validity period.
+     * @summary Query the list of objects to which a work has been shared, returning only the sharing configurations that are still within their validity period.
+     *  *
+     * @param QueryShareListRequest $request QueryShareListRequest
      *
-     * @param request - QueryShareListRequest
-     *
-     * @returns QueryShareListResponse
-     *
-     * @param QueryShareListRequest $request
-     *
-     * @return QueryShareListResponse
+     * @return QueryShareListResponse QueryShareListResponse
      */
     public function queryShareList($request)
     {
@@ -5441,28 +4555,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the list of works authorized to a user.
+     * @summary You can call this operation to query the list of works authorized to a user.
+     *  *
+     * @param QuerySharesToUserListRequest $request QuerySharesToUserListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QuerySharesToUserListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QuerySharesToUserListResponse
-     *
-     * @param QuerySharesToUserListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QuerySharesToUserListResponse
+     * @return QuerySharesToUserListResponse QuerySharesToUserListResponse
      */
     public function querySharesToUserListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QuerySharesToUserList',
@@ -5480,15 +4588,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the list of works authorized to a user.
+     * @summary You can call this operation to query the list of works authorized to a user.
+     *  *
+     * @param QuerySharesToUserListRequest $request QuerySharesToUserListRequest
      *
-     * @param request - QuerySharesToUserListRequest
-     *
-     * @returns QuerySharesToUserListResponse
-     *
-     * @param QuerySharesToUserListRequest $request
-     *
-     * @return QuerySharesToUserListResponse
+     * @return QuerySharesToUserListResponse QuerySharesToUserListResponse
      */
     public function querySharesToUserList($request)
     {
@@ -5498,32 +4602,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check if a user has permission for a specific smart question dataset.
+     * @summary Check if a user has permission for a specific smart question dataset
+     *  *
+     * @param QuerySmartqPermissionByCubeIdRequest $request QuerySmartqPermissionByCubeIdRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QuerySmartqPermissionByCubeIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QuerySmartqPermissionByCubeIdResponse
-     *
-     * @param QuerySmartqPermissionByCubeIdRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return QuerySmartqPermissionByCubeIdResponse
+     * @return QuerySmartqPermissionByCubeIdResponse QuerySmartqPermissionByCubeIdResponse
      */
     public function querySmartqPermissionByCubeIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QuerySmartqPermissionByCubeId',
@@ -5541,15 +4638,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check if a user has permission for a specific smart question dataset.
+     * @summary Check if a user has permission for a specific smart question dataset
+     *  *
+     * @param QuerySmartqPermissionByCubeIdRequest $request QuerySmartqPermissionByCubeIdRequest
      *
-     * @param request - QuerySmartqPermissionByCubeIdRequest
-     *
-     * @returns QuerySmartqPermissionByCubeIdResponse
-     *
-     * @param QuerySmartqPermissionByCubeIdRequest $request
-     *
-     * @return QuerySmartqPermissionByCubeIdResponse
+     * @return QuerySmartqPermissionByCubeIdResponse QuerySmartqPermissionByCubeIdResponse
      */
     public function querySmartqPermissionByCubeId($request)
     {
@@ -5559,28 +4652,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified ticket for a report that is not embedded in the report.
+     * @summary Obtains the details of a specified ticket for a report that is not embedded in the report.
+     *  *
+     * @param QueryTicketInfoRequest $request QueryTicketInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryTicketInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryTicketInfoResponse
-     *
-     * @param QueryTicketInfoRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return QueryTicketInfoResponse
+     * @return QueryTicketInfoResponse QueryTicketInfoResponse
      */
     public function queryTicketInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ticket) {
-            @$query['Ticket'] = $request->ticket;
+        if (!Utils::isUnset($request->ticket)) {
+            $query['Ticket'] = $request->ticket;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryTicketInfo',
@@ -5598,15 +4685,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified ticket for a report that is not embedded in the report.
+     * @summary Obtains the details of a specified ticket for a report that is not embedded in the report.
+     *  *
+     * @param QueryTicketInfoRequest $request QueryTicketInfoRequest
      *
-     * @param request - QueryTicketInfoRequest
-     *
-     * @returns QueryTicketInfoResponse
-     *
-     * @param QueryTicketInfoRequest $request
-     *
-     * @return QueryTicketInfoResponse
+     * @return QueryTicketInfoResponse QueryTicketInfoResponse
      */
     public function queryTicketInfo($request)
     {
@@ -5616,28 +4699,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can this operation to obtain information about child user groups under a specified parent user group.
+     * @summary You can this operation to obtain information about child user groups under a specified parent user group.
+     *  *
+     * @param QueryUserGroupListByParentIdRequest $request QueryUserGroupListByParentIdRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserGroupListByParentIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserGroupListByParentIdResponse
-     *
-     * @param QueryUserGroupListByParentIdRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return QueryUserGroupListByParentIdResponse
+     * @return QueryUserGroupListByParentIdResponse QueryUserGroupListByParentIdResponse
      */
     public function queryUserGroupListByParentIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->parentUserGroupId) {
-            @$query['ParentUserGroupId'] = $request->parentUserGroupId;
+        if (!Utils::isUnset($request->parentUserGroupId)) {
+            $query['ParentUserGroupId'] = $request->parentUserGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUserGroupListByParentId',
@@ -5655,15 +4732,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can this operation to obtain information about child user groups under a specified parent user group.
+     * @summary You can this operation to obtain information about child user groups under a specified parent user group.
+     *  *
+     * @param QueryUserGroupListByParentIdRequest $request QueryUserGroupListByParentIdRequest
      *
-     * @param request - QueryUserGroupListByParentIdRequest
-     *
-     * @returns QueryUserGroupListByParentIdResponse
-     *
-     * @param QueryUserGroupListByParentIdRequest $request
-     *
-     * @return QueryUserGroupListByParentIdResponse
+     * @return QueryUserGroupListByParentIdResponse QueryUserGroupListByParentIdResponse
      */
     public function queryUserGroupListByParentId($request)
     {
@@ -5673,32 +4746,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of members under a user group.
+     * @summary Retrieve the list of members under a user group.
+     *  *
+     * @param QueryUserGroupMemberRequest $request QueryUserGroupMemberRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserGroupMemberRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserGroupMemberResponse
-     *
-     * @param QueryUserGroupMemberRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return QueryUserGroupMemberResponse
+     * @return QueryUserGroupMemberResponse QueryUserGroupMemberResponse
      */
     public function queryUserGroupMemberWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->userGroupId) {
-            @$query['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUserGroupMember',
@@ -5716,15 +4782,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of members under a user group.
+     * @summary Retrieve the list of members under a user group.
+     *  *
+     * @param QueryUserGroupMemberRequest $request QueryUserGroupMemberRequest
      *
-     * @param request - QueryUserGroupMemberRequest
-     *
-     * @returns QueryUserGroupMemberResponse
-     *
-     * @param QueryUserGroupMemberRequest $request
-     *
-     * @return QueryUserGroupMemberResponse
+     * @return QueryUserGroupMemberResponse QueryUserGroupMemberResponse
      */
     public function queryUserGroupMember($request)
     {
@@ -5734,32 +4796,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+     * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+     *  *
+     * @param QueryUserInfoByAccountRequest $request QueryUserInfoByAccountRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserInfoByAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserInfoByAccountResponse
-     *
-     * @param QueryUserInfoByAccountRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryUserInfoByAccountResponse
+     * @return QueryUserInfoByAccountResponse QueryUserInfoByAccountResponse
      */
     public function queryUserInfoByAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->account) {
-            @$query['Account'] = $request->account;
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
         }
-
-        if (null !== $request->parentAccountName) {
-            @$query['ParentAccountName'] = $request->parentAccountName;
+        if (!Utils::isUnset($request->parentAccountName)) {
+            $query['ParentAccountName'] = $request->parentAccountName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUserInfoByAccount',
@@ -5777,15 +4832,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+     * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+     *  *
+     * @param QueryUserInfoByAccountRequest $request QueryUserInfoByAccountRequest
      *
-     * @param request - QueryUserInfoByAccountRequest
-     *
-     * @returns QueryUserInfoByAccountResponse
-     *
-     * @param QueryUserInfoByAccountRequest $request
-     *
-     * @return QueryUserInfoByAccountResponse
+     * @return QueryUserInfoByAccountResponse QueryUserInfoByAccountResponse
      */
     public function queryUserInfoByAccount($request)
     {
@@ -5795,28 +4846,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user information based on the user ID.
+     * @summary Queries user information based on the user ID.
+     *  *
+     * @param QueryUserInfoByUserIdRequest $request QueryUserInfoByUserIdRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserInfoByUserIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserInfoByUserIdResponse
-     *
-     * @param QueryUserInfoByUserIdRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryUserInfoByUserIdResponse
+     * @return QueryUserInfoByUserIdResponse QueryUserInfoByUserIdResponse
      */
     public function queryUserInfoByUserIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUserInfoByUserId',
@@ -5834,15 +4879,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user information based on the user ID.
+     * @summary Queries user information based on the user ID.
+     *  *
+     * @param QueryUserInfoByUserIdRequest $request QueryUserInfoByUserIdRequest
      *
-     * @param request - QueryUserInfoByUserIdRequest
-     *
-     * @returns QueryUserInfoByUserIdResponse
-     *
-     * @param QueryUserInfoByUserIdRequest $request
-     *
-     * @return QueryUserInfoByUserIdResponse
+     * @return QueryUserInfoByUserIdResponse QueryUserInfoByUserIdResponse
      */
     public function queryUserInfoByUserId($request)
     {
@@ -5852,24 +4893,19 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the members of an organization.
+     * @summary Queries the members of an organization.
+     *  *
+     * @param QueryUserListRequest $request QueryUserListRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserListResponse
-     *
-     * @param QueryUserListRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return QueryUserListResponse
+     * @return QueryUserListResponse QueryUserListResponse
      */
     public function queryUserListWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUserList',
@@ -5887,15 +4923,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the members of an organization.
+     * @summary Queries the members of an organization.
+     *  *
+     * @param QueryUserListRequest $request QueryUserListRequest
      *
-     * @param request - QueryUserListRequest
-     *
-     * @returns QueryUserListResponse
-     *
-     * @param QueryUserListRequest $request
-     *
-     * @return QueryUserListResponse
+     * @return QueryUserListResponse QueryUserListResponse
      */
     public function queryUserList($request)
     {
@@ -5905,32 +4937,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the preset workspace role information for a specified workspace member.
+     * @summary Get the preset workspace role information for a specified workspace member.
+     *  *
+     * @param QueryUserRoleInfoInWorkspaceRequest $request QueryUserRoleInfoInWorkspaceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserRoleInfoInWorkspaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserRoleInfoInWorkspaceResponse
-     *
-     * @param QueryUserRoleInfoInWorkspaceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return QueryUserRoleInfoInWorkspaceResponse
+     * @return QueryUserRoleInfoInWorkspaceResponse QueryUserRoleInfoInWorkspaceResponse
      */
     public function queryUserRoleInfoInWorkspaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUserRoleInfoInWorkspace',
@@ -5948,15 +4973,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the preset workspace role information for a specified workspace member.
+     * @summary Get the preset workspace role information for a specified workspace member.
+     *  *
+     * @param QueryUserRoleInfoInWorkspaceRequest $request QueryUserRoleInfoInWorkspaceRequest
      *
-     * @param request - QueryUserRoleInfoInWorkspaceRequest
-     *
-     * @returns QueryUserRoleInfoInWorkspaceResponse
-     *
-     * @param QueryUserRoleInfoInWorkspaceRequest $request
-     *
-     * @return QueryUserRoleInfoInWorkspaceResponse
+     * @return QueryUserRoleInfoInWorkspaceResponse QueryUserRoleInfoInWorkspaceResponse
      */
     public function queryUserRoleInfoInWorkspace($request)
     {
@@ -5966,16 +4987,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the metadata list of member tags in an organization.
+     * @summary Queries the metadata list of member tags in an organization.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserTagMetaListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserTagMetaListResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return QueryUserTagMetaListResponse
+     * @return QueryUserTagMetaListResponse QueryUserTagMetaListResponse
      */
     public function queryUserTagMetaListWithOptions($runtime)
     {
@@ -5996,11 +5012,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the metadata list of member tags in an organization.
-     *
-     * @returns QueryUserTagMetaListResponse
-     *
-     * @return QueryUserTagMetaListResponse
+     * @summary Queries the metadata list of member tags in an organization.
+     *  *
+     * @return QueryUserTagMetaListResponse QueryUserTagMetaListResponse
      */
     public function queryUserTagMetaList()
     {
@@ -6010,24 +5024,19 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of specific user tag values.
+     * @summary Query the list of specific user tag values.
+     *  *
+     * @param QueryUserTagValueListRequest $request QueryUserTagValueListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryUserTagValueListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryUserTagValueListResponse
-     *
-     * @param QueryUserTagValueListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryUserTagValueListResponse
+     * @return QueryUserTagValueListResponse QueryUserTagValueListResponse
      */
     public function queryUserTagValueListWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUserTagValueList',
@@ -6045,15 +5054,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of specific user tag values.
+     * @summary Query the list of specific user tag values.
+     *  *
+     * @param QueryUserTagValueListRequest $request QueryUserTagValueListRequest
      *
-     * @param request - QueryUserTagValueListRequest
-     *
-     * @returns QueryUserTagValueListResponse
-     *
-     * @param QueryUserTagValueListRequest $request
-     *
-     * @return QueryUserTagValueListResponse
+     * @return QueryUserTagValueListResponse QueryUserTagValueListResponse
      */
     public function queryUserTagValueList($request)
     {
@@ -6063,28 +5068,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries information about a specified data work.
+     * @summary Queries information about a specified data work.
+     *  *
+     * @param QueryWorksRequest $request QueryWorksRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryWorksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryWorksResponse
-     *
-     * @param QueryWorksRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return QueryWorksResponse
+     * @return QueryWorksResponse QueryWorksResponse
      */
     public function queryWorksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryWorks',
@@ -6102,15 +5101,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries information about a specified data work.
+     * @summary Queries information about a specified data work.
+     *  *
+     * @param QueryWorksRequest $request QueryWorksRequest
      *
-     * @param request - QueryWorksRequest
-     *
-     * @returns QueryWorksResponse
-     *
-     * @param QueryWorksRequest $request
-     *
-     * @return QueryWorksResponse
+     * @return QueryWorksResponse QueryWorksResponse
      */
     public function queryWorks($request)
     {
@@ -6120,28 +5115,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+     * @summary Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+     *  *
+     * @param QueryWorksBloodRelationshipRequest $request QueryWorksBloodRelationshipRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryWorksBloodRelationshipRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryWorksBloodRelationshipResponse
-     *
-     * @param QueryWorksBloodRelationshipRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return QueryWorksBloodRelationshipResponse
+     * @return QueryWorksBloodRelationshipResponse QueryWorksBloodRelationshipResponse
      */
     public function queryWorksBloodRelationshipWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryWorksBloodRelationship',
@@ -6159,15 +5148,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+     * @summary Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+     *  *
+     * @param QueryWorksBloodRelationshipRequest $request QueryWorksBloodRelationshipRequest
      *
-     * @param request - QueryWorksBloodRelationshipRequest
-     *
-     * @returns QueryWorksBloodRelationshipResponse
-     *
-     * @param QueryWorksBloodRelationshipRequest $request
-     *
-     * @return QueryWorksBloodRelationshipResponse
+     * @return QueryWorksBloodRelationshipResponse QueryWorksBloodRelationshipResponse
      */
     public function queryWorksBloodRelationship($request)
     {
@@ -6177,44 +5162,34 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query all works under the entire organization, with the option to specify the type of work.
+     * @summary Query all works under the entire organization, with the option to specify the type of work.
+     *  *
+     * @param QueryWorksByOrganizationRequest $request QueryWorksByOrganizationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryWorksByOrganizationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryWorksByOrganizationResponse
-     *
-     * @param QueryWorksByOrganizationRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryWorksByOrganizationResponse
+     * @return QueryWorksByOrganizationResponse QueryWorksByOrganizationResponse
      */
     public function queryWorksByOrganizationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->thirdPartAuthFlag) {
-            @$query['ThirdPartAuthFlag'] = $request->thirdPartAuthFlag;
+        if (!Utils::isUnset($request->thirdPartAuthFlag)) {
+            $query['ThirdPartAuthFlag'] = $request->thirdPartAuthFlag;
         }
-
-        if (null !== $request->worksType) {
-            @$query['WorksType'] = $request->worksType;
+        if (!Utils::isUnset($request->worksType)) {
+            $query['WorksType'] = $request->worksType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryWorksByOrganization',
@@ -6232,15 +5207,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query all works under the entire organization, with the option to specify the type of work.
+     * @summary Query all works under the entire organization, with the option to specify the type of work.
+     *  *
+     * @param QueryWorksByOrganizationRequest $request QueryWorksByOrganizationRequest
      *
-     * @param request - QueryWorksByOrganizationRequest
-     *
-     * @returns QueryWorksByOrganizationResponse
-     *
-     * @param QueryWorksByOrganizationRequest $request
-     *
-     * @return QueryWorksByOrganizationResponse
+     * @return QueryWorksByOrganizationResponse QueryWorksByOrganizationResponse
      */
     public function queryWorksByOrganization($request)
     {
@@ -6250,48 +5221,37 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries all works in a workspace under an organization. You can specify the type of work.
+     * @summary Queries all works in a workspace under an organization. You can specify the type of work.
+     *  *
+     * @param QueryWorksByWorkspaceRequest $request QueryWorksByWorkspaceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryWorksByWorkspaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryWorksByWorkspaceResponse
-     *
-     * @param QueryWorksByWorkspaceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return QueryWorksByWorkspaceResponse
+     * @return QueryWorksByWorkspaceResponse QueryWorksByWorkspaceResponse
      */
     public function queryWorksByWorkspaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->thirdPartAuthFlag) {
-            @$query['ThirdPartAuthFlag'] = $request->thirdPartAuthFlag;
+        if (!Utils::isUnset($request->thirdPartAuthFlag)) {
+            $query['ThirdPartAuthFlag'] = $request->thirdPartAuthFlag;
         }
-
-        if (null !== $request->worksType) {
-            @$query['WorksType'] = $request->worksType;
+        if (!Utils::isUnset($request->worksType)) {
+            $query['WorksType'] = $request->worksType;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryWorksByWorkspace',
@@ -6309,15 +5269,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries all works in a workspace under an organization. You can specify the type of work.
+     * @summary Queries all works in a workspace under an organization. You can specify the type of work.
+     *  *
+     * @param QueryWorksByWorkspaceRequest $request QueryWorksByWorkspaceRequest
      *
-     * @param request - QueryWorksByWorkspaceRequest
-     *
-     * @returns QueryWorksByWorkspaceResponse
-     *
-     * @param QueryWorksByWorkspaceRequest $request
-     *
-     * @return QueryWorksByWorkspaceResponse
+     * @return QueryWorksByWorkspaceResponse QueryWorksByWorkspaceResponse
      */
     public function queryWorksByWorkspace($request)
     {
@@ -6327,28 +5283,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Configuration Information for a Specified Workspace Role.
+     * @summary Get Configuration Information for a Specified Workspace Role
+     *  *
+     * @param QueryWorkspaceRoleConfigRequest $request QueryWorkspaceRoleConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryWorkspaceRoleConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryWorkspaceRoleConfigResponse
-     *
-     * @param QueryWorkspaceRoleConfigRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryWorkspaceRoleConfigResponse
+     * @return QueryWorkspaceRoleConfigResponse QueryWorkspaceRoleConfigResponse
      */
     public function queryWorkspaceRoleConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryWorkspaceRoleConfig',
@@ -6366,15 +5316,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Configuration Information for a Specified Workspace Role.
+     * @summary Get Configuration Information for a Specified Workspace Role
+     *  *
+     * @param QueryWorkspaceRoleConfigRequest $request QueryWorkspaceRoleConfigRequest
      *
-     * @param request - QueryWorkspaceRoleConfigRequest
-     *
-     * @returns QueryWorkspaceRoleConfigResponse
-     *
-     * @param QueryWorkspaceRoleConfigRequest $request
-     *
-     * @return QueryWorkspaceRoleConfigResponse
+     * @return QueryWorkspaceRoleConfigResponse QueryWorkspaceRoleConfigResponse
      */
     public function queryWorkspaceRoleConfig($request)
     {
@@ -6384,40 +5330,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of members under a specified workspace.
+     * @summary Query the list of members under a specified workspace.
+     *  *
+     * @param QueryWorkspaceUserListRequest $request QueryWorkspaceUserListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryWorkspaceUserListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryWorkspaceUserListResponse
-     *
-     * @param QueryWorkspaceUserListRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryWorkspaceUserListResponse
+     * @return QueryWorkspaceUserListResponse QueryWorkspaceUserListResponse
      */
     public function queryWorkspaceUserListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryWorkspaceUserList',
@@ -6435,15 +5372,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of members under a specified workspace.
+     * @summary Query the list of members under a specified workspace.
+     *  *
+     * @param QueryWorkspaceUserListRequest $request QueryWorkspaceUserListRequest
      *
-     * @param request - QueryWorkspaceUserListRequest
-     *
-     * @returns QueryWorkspaceUserListResponse
-     *
-     * @param QueryWorkspaceUserListRequest $request
-     *
-     * @return QueryWorkspaceUserListResponse
+     * @return QueryWorkspaceUserListResponse QueryWorkspaceUserListResponse
      */
     public function queryWorkspaceUserList($request)
     {
@@ -6453,36 +5386,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can customize the callback interface for approval processes to process Quick BI approval processes.
+     * @summary You can customize the callback interface for approval processes to process Quick BI approval processes.
+     *  *
+     * @param ResultCallbackRequest $request ResultCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResultCallbackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResultCallbackResponse
-     *
-     * @param ResultCallbackRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ResultCallbackResponse
+     * @return ResultCallbackResponse ResultCallbackResponse
      */
     public function resultCallbackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationId) {
-            @$query['ApplicationId'] = $request->applicationId;
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
         }
-
-        if (null !== $request->handleReason) {
-            @$query['HandleReason'] = $request->handleReason;
+        if (!Utils::isUnset($request->handleReason)) {
+            $query['HandleReason'] = $request->handleReason;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResultCallback',
@@ -6500,15 +5425,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can customize the callback interface for approval processes to process Quick BI approval processes.
+     * @summary You can customize the callback interface for approval processes to process Quick BI approval processes.
+     *  *
+     * @param ResultCallbackRequest $request ResultCallbackRequest
      *
-     * @param request - ResultCallbackRequest
-     *
-     * @returns ResultCallbackResponse
-     *
-     * @param ResultCallbackRequest $request
-     *
-     * @return ResultCallbackResponse
+     * @return ResultCallbackResponse ResultCallbackResponse
      */
     public function resultCallback($request)
     {
@@ -6518,32 +5439,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a user\\"s favorite work.
+     * @summary Add a user\\"s favorite work
+     *  *
+     * @param SaveFavoritesRequest $request SaveFavoritesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SaveFavoritesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SaveFavoritesResponse
-     *
-     * @param SaveFavoritesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SaveFavoritesResponse
+     * @return SaveFavoritesResponse SaveFavoritesResponse
      */
     public function saveFavoritesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveFavorites',
@@ -6561,15 +5475,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a user\\"s favorite work.
+     * @summary Add a user\\"s favorite work
+     *  *
+     * @param SaveFavoritesRequest $request SaveFavoritesRequest
      *
-     * @param request - SaveFavoritesRequest
-     *
-     * @returns SaveFavoritesResponse
-     *
-     * @param SaveFavoritesRequest $request
-     *
-     * @return SaveFavoritesResponse
+     * @return SaveFavoritesResponse SaveFavoritesResponse
      */
     public function saveFavorites($request)
     {
@@ -6579,36 +5489,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置行列权限的额外配置.
+     * @summary 设置行列权限的额外配置
+     *  *
+     * @param SetDataLevelPermissionExtraConfigRequest $request SetDataLevelPermissionExtraConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDataLevelPermissionExtraConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDataLevelPermissionExtraConfigResponse
-     *
-     * @param SetDataLevelPermissionExtraConfigRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return SetDataLevelPermissionExtraConfigResponse
+     * @return SetDataLevelPermissionExtraConfigResponse SetDataLevelPermissionExtraConfigResponse
      */
     public function setDataLevelPermissionExtraConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->missHitPolicy) {
-            @$query['MissHitPolicy'] = $request->missHitPolicy;
+        if (!Utils::isUnset($request->missHitPolicy)) {
+            $query['MissHitPolicy'] = $request->missHitPolicy;
         }
-
-        if (null !== $request->ruleType) {
-            @$query['RuleType'] = $request->ruleType;
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDataLevelPermissionExtraConfig',
@@ -6626,15 +5528,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置行列权限的额外配置.
+     * @summary 设置行列权限的额外配置
+     *  *
+     * @param SetDataLevelPermissionExtraConfigRequest $request SetDataLevelPermissionExtraConfigRequest
      *
-     * @param request - SetDataLevelPermissionExtraConfigRequest
-     *
-     * @returns SetDataLevelPermissionExtraConfigResponse
-     *
-     * @param SetDataLevelPermissionExtraConfigRequest $request
-     *
-     * @return SetDataLevelPermissionExtraConfigResponse
+     * @return SetDataLevelPermissionExtraConfigResponse SetDataLevelPermissionExtraConfigResponse
      */
     public function setDataLevelPermissionExtraConfig($request)
     {
@@ -6644,28 +5542,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置单条数据集行列权限配置信息（新增和更新）.
+     * @summary 设置单条数据集行列权限配置信息（新增和更新）
+     *  *
+     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDataLevelPermissionRuleConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDataLevelPermissionRuleConfigResponse
-     *
-     * @param SetDataLevelPermissionRuleConfigRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ruleModel) {
-            @$query['RuleModel'] = $request->ruleModel;
+        if (!Utils::isUnset($request->ruleModel)) {
+            $query['RuleModel'] = $request->ruleModel;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDataLevelPermissionRuleConfig',
@@ -6683,15 +5575,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置单条数据集行列权限配置信息（新增和更新）.
+     * @summary 设置单条数据集行列权限配置信息（新增和更新）
+     *  *
+     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
      *
-     * @param request - SetDataLevelPermissionRuleConfigRequest
-     *
-     * @returns SetDataLevelPermissionRuleConfigResponse
-     *
-     * @param SetDataLevelPermissionRuleConfigRequest $request
-     *
-     * @return SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfig($request)
     {
@@ -6701,31 +5589,24 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Sets the whitelist for the specified row-level permissions.
+     * @summary Sets the whitelist for the specified row-level permissions.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
+     * @param SetDataLevelPermissionWhiteListRequest $request SetDataLevelPermissionWhiteListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *
-     * @param request - SetDataLevelPermissionWhiteListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SetDataLevelPermissionWhiteListResponse
-     *
-     * @param SetDataLevelPermissionWhiteListRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return SetDataLevelPermissionWhiteListResponse
+     * @return SetDataLevelPermissionWhiteListResponse SetDataLevelPermissionWhiteListResponse
      */
     public function setDataLevelPermissionWhiteListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->whiteListModel) {
-            @$query['WhiteListModel'] = $request->whiteListModel;
+        if (!Utils::isUnset($request->whiteListModel)) {
+            $query['WhiteListModel'] = $request->whiteListModel;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDataLevelPermissionWhiteList',
@@ -6743,18 +5624,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Sets the whitelist for the specified row-level permissions.
+     * @summary Sets the whitelist for the specified row-level permissions.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
+     * @param SetDataLevelPermissionWhiteListRequest $request SetDataLevelPermissionWhiteListRequest
      *
-     * @remarks
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *
-     * @param request - SetDataLevelPermissionWhiteListRequest
-     *
-     * @returns SetDataLevelPermissionWhiteListResponse
-     *
-     * @param SetDataLevelPermissionWhiteListRequest $request
-     *
-     * @return SetDataLevelPermissionWhiteListResponse
+     * @return SetDataLevelPermissionWhiteListResponse SetDataLevelPermissionWhiteListResponse
      */
     public function setDataLevelPermissionWhiteList($request)
     {
@@ -6764,32 +5640,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Synchronize the question count permissions of a specified user to other users.
+     * @summary Synchronize the question count permissions of a specified user to other users
+     *  *
+     * @param SmartqAuthTransferRequest $request SmartqAuthTransferRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SmartqAuthTransferRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SmartqAuthTransferResponse
-     *
-     * @param SmartqAuthTransferRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SmartqAuthTransferResponse
+     * @return SmartqAuthTransferResponse SmartqAuthTransferResponse
      */
     public function smartqAuthTransferWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->originUserId) {
-            @$query['OriginUserId'] = $request->originUserId;
+        if (!Utils::isUnset($request->originUserId)) {
+            $query['OriginUserId'] = $request->originUserId;
         }
-
-        if (null !== $request->targetUserIds) {
-            @$query['TargetUserIds'] = $request->targetUserIds;
+        if (!Utils::isUnset($request->targetUserIds)) {
+            $query['TargetUserIds'] = $request->targetUserIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SmartqAuthTransfer',
@@ -6807,15 +5676,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Synchronize the question count permissions of a specified user to other users.
+     * @summary Synchronize the question count permissions of a specified user to other users
+     *  *
+     * @param SmartqAuthTransferRequest $request SmartqAuthTransferRequest
      *
-     * @param request - SmartqAuthTransferRequest
-     *
-     * @returns SmartqAuthTransferResponse
-     *
-     * @param SmartqAuthTransferRequest $request
-     *
-     * @return SmartqAuthTransferResponse
+     * @return SmartqAuthTransferResponse SmartqAuthTransferResponse
      */
     public function smartqAuthTransfer($request)
     {
@@ -6825,51 +5690,39 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch Management of Smart Q\\\\\\&A Authorizations.
+     * @summary Batch Management of Smart Q\\\\\\&A Authorizations
+     *  *
+     * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
+     *  *
+     * @param SmartqAuthorizeRequest $request SmartqAuthorizeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
-     *
-     * @param request - SmartqAuthorizeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SmartqAuthorizeResponse
-     *
-     * @param SmartqAuthorizeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SmartqAuthorizeResponse
+     * @return SmartqAuthorizeResponse SmartqAuthorizeResponse
      */
     public function smartqAuthorizeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeIds) {
-            @$query['CubeIds'] = $request->cubeIds;
+        if (!Utils::isUnset($request->cubeIds)) {
+            $query['CubeIds'] = $request->cubeIds;
         }
-
-        if (null !== $request->expireDay) {
-            @$query['ExpireDay'] = $request->expireDay;
+        if (!Utils::isUnset($request->expireDay)) {
+            $query['ExpireDay'] = $request->expireDay;
         }
-
-        if (null !== $request->llmCubeThemes) {
-            @$query['LlmCubeThemes'] = $request->llmCubeThemes;
+        if (!Utils::isUnset($request->llmCubeThemes)) {
+            $query['LlmCubeThemes'] = $request->llmCubeThemes;
         }
-
-        if (null !== $request->llmCubes) {
-            @$query['LlmCubes'] = $request->llmCubes;
+        if (!Utils::isUnset($request->llmCubes)) {
+            $query['LlmCubes'] = $request->llmCubes;
         }
-
-        if (null !== $request->operationType) {
-            @$query['OperationType'] = $request->operationType;
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
         }
-
-        if (null !== $request->userIds) {
-            @$query['UserIds'] = $request->userIds;
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SmartqAuthorize',
@@ -6887,18 +5740,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch Management of Smart Q\\\\\\&A Authorizations.
+     * @summary Batch Management of Smart Q\\\\\\&A Authorizations
+     *  *
+     * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
+     *  *
+     * @param SmartqAuthorizeRequest $request SmartqAuthorizeRequest
      *
-     * @remarks
-     * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
-     *
-     * @param request - SmartqAuthorizeRequest
-     *
-     * @returns SmartqAuthorizeResponse
-     *
-     * @param SmartqAuthorizeRequest $request
-     *
-     * @return SmartqAuthorizeResponse
+     * @return SmartqAuthorizeResponse SmartqAuthorizeResponse
      */
     public function smartqAuthorize($request)
     {
@@ -6908,39 +5756,30 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Capability Open.
+     * @summary Query Capability Open
+     *  *
+     * @description Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
+     *  *
+     * @param SmartqQueryAbilityRequest $request SmartqQueryAbilityRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
-     *
-     * @param request - SmartqQueryAbilityRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SmartqQueryAbilityResponse
-     *
-     * @param SmartqQueryAbilityRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SmartqQueryAbilityResponse
+     * @return SmartqQueryAbilityResponse SmartqQueryAbilityResponse
      */
     public function smartqQueryAbilityWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->userQuestion) {
-            @$query['UserQuestion'] = $request->userQuestion;
+        if (!Utils::isUnset($request->userQuestion)) {
+            $query['UserQuestion'] = $request->userQuestion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SmartqQueryAbility',
@@ -6958,18 +5797,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Capability Open.
+     * @summary Query Capability Open
+     *  *
+     * @description Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
+     *  *
+     * @param SmartqQueryAbilityRequest $request SmartqQueryAbilityRequest
      *
-     * @remarks
-     * Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
-     *
-     * @param request - SmartqQueryAbilityRequest
-     *
-     * @returns SmartqQueryAbilityResponse
-     *
-     * @param SmartqQueryAbilityRequest $request
-     *
-     * @return SmartqQueryAbilityResponse
+     * @return SmartqQueryAbilityResponse SmartqQueryAbilityResponse
      */
     public function smartqQueryAbility($request)
     {
@@ -6979,43 +5813,34 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
+     * @summary Indicates whether the request is successful. Valid values:
      * *   true: The request was successful.
      * *   false: The request failed.
-     *
-     * @remarks
-     * The execution result of the interface. Valid values:
+     *  *
+     * @description The execution result of the interface. Valid values:
      * *   true: The request was successful.
      * *   false: The request failed.
+     *  *
+     * @param UpdateDataLevelPermissionStatusRequest $request UpdateDataLevelPermissionStatusRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateDataLevelPermissionStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDataLevelPermissionStatusResponse
-     *
-     * @param UpdateDataLevelPermissionStatusRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return UpdateDataLevelPermissionStatusResponse
+     * @return UpdateDataLevelPermissionStatusResponse UpdateDataLevelPermissionStatusResponse
      */
     public function updateDataLevelPermissionStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cubeId) {
-            @$query['CubeId'] = $request->cubeId;
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
         }
-
-        if (null !== $request->isOpen) {
-            @$query['IsOpen'] = $request->isOpen;
+        if (!Utils::isUnset($request->isOpen)) {
+            $query['IsOpen'] = $request->isOpen;
         }
-
-        if (null !== $request->ruleType) {
-            @$query['RuleType'] = $request->ruleType;
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateDataLevelPermissionStatus',
@@ -7033,22 +5858,17 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
+     * @summary Indicates whether the request is successful. Valid values:
      * *   true: The request was successful.
      * *   false: The request failed.
-     *
-     * @remarks
-     * The execution result of the interface. Valid values:
+     *  *
+     * @description The execution result of the interface. Valid values:
      * *   true: The request was successful.
      * *   false: The request failed.
+     *  *
+     * @param UpdateDataLevelPermissionStatusRequest $request UpdateDataLevelPermissionStatusRequest
      *
-     * @param request - UpdateDataLevelPermissionStatusRequest
-     *
-     * @returns UpdateDataLevelPermissionStatusResponse
-     *
-     * @param UpdateDataLevelPermissionStatusRequest $request
-     *
-     * @return UpdateDataLevelPermissionStatusResponse
+     * @return UpdateDataLevelPermissionStatusResponse UpdateDataLevelPermissionStatusResponse
      */
     public function updateDataLevelPermissionStatus($request)
     {
@@ -7058,32 +5878,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Change the embedding status of a report, turn on embedding, or turn off embedding.
+     * @summary Change the embedding status of a report, turn on embedding, or turn off embedding.
+     *  *
+     * @param UpdateEmbeddedStatusRequest $request UpdateEmbeddedStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateEmbeddedStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateEmbeddedStatusResponse
-     *
-     * @param UpdateEmbeddedStatusRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateEmbeddedStatusResponse
+     * @return UpdateEmbeddedStatusResponse UpdateEmbeddedStatusResponse
      */
     public function updateEmbeddedStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->thirdPartAuthFlag) {
-            @$query['ThirdPartAuthFlag'] = $request->thirdPartAuthFlag;
+        if (!Utils::isUnset($request->thirdPartAuthFlag)) {
+            $query['ThirdPartAuthFlag'] = $request->thirdPartAuthFlag;
         }
-
-        if (null !== $request->worksId) {
-            @$query['WorksId'] = $request->worksId;
+        if (!Utils::isUnset($request->worksId)) {
+            $query['WorksId'] = $request->worksId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateEmbeddedStatus',
@@ -7101,15 +5914,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Change the embedding status of a report, turn on embedding, or turn off embedding.
+     * @summary Change the embedding status of a report, turn on embedding, or turn off embedding.
+     *  *
+     * @param UpdateEmbeddedStatusRequest $request UpdateEmbeddedStatusRequest
      *
-     * @param request - UpdateEmbeddedStatusRequest
-     *
-     * @returns UpdateEmbeddedStatusResponse
-     *
-     * @param UpdateEmbeddedStatusRequest $request
-     *
-     * @return UpdateEmbeddedStatusResponse
+     * @return UpdateEmbeddedStatusResponse UpdateEmbeddedStatusResponse
      */
     public function updateEmbeddedStatus($request)
     {
@@ -7119,32 +5928,25 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the ticket quantity on the specified ticket used for the exemption embedded report.
+     * @summary Update the ticket quantity on the specified ticket used for the exemption embedded report.
+     *  *
+     * @param UpdateTicketNumRequest $request UpdateTicketNumRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateTicketNumRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateTicketNumResponse
-     *
-     * @param UpdateTicketNumRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateTicketNumResponse
+     * @return UpdateTicketNumResponse UpdateTicketNumResponse
      */
     public function updateTicketNumWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ticket) {
-            @$query['Ticket'] = $request->ticket;
+        if (!Utils::isUnset($request->ticket)) {
+            $query['Ticket'] = $request->ticket;
         }
-
-        if (null !== $request->ticketNum) {
-            @$query['TicketNum'] = $request->ticketNum;
+        if (!Utils::isUnset($request->ticketNum)) {
+            $query['TicketNum'] = $request->ticketNum;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateTicketNum',
@@ -7162,15 +5964,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the ticket quantity on the specified ticket used for the exemption embedded report.
+     * @summary Update the ticket quantity on the specified ticket used for the exemption embedded report.
+     *  *
+     * @param UpdateTicketNumRequest $request UpdateTicketNumRequest
      *
-     * @param request - UpdateTicketNumRequest
-     *
-     * @returns UpdateTicketNumResponse
-     *
-     * @param UpdateTicketNumRequest $request
-     *
-     * @return UpdateTicketNumResponse
+     * @return UpdateTicketNumResponse UpdateTicketNumResponse
      */
     public function updateTicketNum($request)
     {
@@ -7180,52 +5978,40 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Updates the information of a specified member in an organization.
+     * @summary Updates the information of a specified member in an organization.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserResponse
-     *
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->adminUser) {
-            @$query['AdminUser'] = $request->adminUser;
+        if (!Utils::isUnset($request->adminUser)) {
+            $query['AdminUser'] = $request->adminUser;
         }
-
-        if (null !== $request->authAdminUser) {
-            @$query['AuthAdminUser'] = $request->authAdminUser;
+        if (!Utils::isUnset($request->authAdminUser)) {
+            $query['AuthAdminUser'] = $request->authAdminUser;
         }
-
-        if (null !== $request->isDeleted) {
-            @$query['IsDeleted'] = $request->isDeleted;
+        if (!Utils::isUnset($request->isDeleted)) {
+            $query['IsDeleted'] = $request->isDeleted;
         }
-
-        if (null !== $request->nickName) {
-            @$query['NickName'] = $request->nickName;
+        if (!Utils::isUnset($request->nickName)) {
+            $query['NickName'] = $request->nickName;
         }
-
-        if (null !== $request->roleIds) {
-            @$query['RoleIds'] = $request->roleIds;
+        if (!Utils::isUnset($request->roleIds)) {
+            $query['RoleIds'] = $request->roleIds;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->userType) {
-            @$query['UserType'] = $request->userType;
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUser',
@@ -7243,15 +6029,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Updates the information of a specified member in an organization.
+     * @summary Updates the information of a specified member in an organization.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @param request - UpdateUserRequest
-     *
-     * @returns UpdateUserResponse
-     *
-     * @param UpdateUserRequest $request
-     *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -7261,36 +6043,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Updates information about a specified user group in an organization.
+     * @summary Updates information about a specified user group in an organization.
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserGroupResponse
-     *
-     * @param UpdateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userGroupDescription) {
-            @$query['UserGroupDescription'] = $request->userGroupDescription;
+        if (!Utils::isUnset($request->userGroupDescription)) {
+            $query['UserGroupDescription'] = $request->userGroupDescription;
         }
-
-        if (null !== $request->userGroupId) {
-            @$query['UserGroupId'] = $request->userGroupId;
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
         }
-
-        if (null !== $request->userGroupName) {
-            @$query['UserGroupName'] = $request->userGroupName;
+        if (!Utils::isUnset($request->userGroupName)) {
+            $query['UserGroupName'] = $request->userGroupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUserGroup',
@@ -7308,15 +6082,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Updates information about a specified user group in an organization.
+     * @summary Updates information about a specified user group in an organization.
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
      *
-     * @param request - UpdateUserGroupRequest
-     *
-     * @returns UpdateUserGroupResponse
-     *
-     * @param UpdateUserGroupRequest $request
-     *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroup($request)
     {
@@ -7326,36 +6096,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Used for updating the metadata of organization member tags.
+     * @summary Used for updating the metadata of organization member tags
+     *  *
+     * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserTagMetaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserTagMetaResponse
-     *
-     * @param UpdateUserTagMetaRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateUserTagMetaResponse
+     * @return UpdateUserTagMetaResponse UpdateUserTagMetaResponse
      */
     public function updateUserTagMetaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->tagDescription) {
-            @$query['TagDescription'] = $request->tagDescription;
+        if (!Utils::isUnset($request->tagDescription)) {
+            $query['TagDescription'] = $request->tagDescription;
         }
-
-        if (null !== $request->tagId) {
-            @$query['TagId'] = $request->tagId;
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
         }
-
-        if (null !== $request->tagName) {
-            @$query['TagName'] = $request->tagName;
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUserTagMeta',
@@ -7373,15 +6135,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Used for updating the metadata of organization member tags.
+     * @summary Used for updating the metadata of organization member tags
+     *  *
+     * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
      *
-     * @param request - UpdateUserTagMetaRequest
-     *
-     * @returns UpdateUserTagMetaResponse
-     *
-     * @param UpdateUserTagMetaRequest $request
-     *
-     * @return UpdateUserTagMetaResponse
+     * @return UpdateUserTagMetaResponse UpdateUserTagMetaResponse
      */
     public function updateUserTagMeta($request)
     {
@@ -7391,36 +6149,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the tag value of an organization member.
+     * @summary Update the tag value of an organization member.
+     *  *
+     * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserTagValueRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateUserTagValueResponse
-     *
-     * @param UpdateUserTagValueRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateUserTagValueResponse
+     * @return UpdateUserTagValueResponse UpdateUserTagValueResponse
      */
     public function updateUserTagValueWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->tagId) {
-            @$query['TagId'] = $request->tagId;
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
         }
-
-        if (null !== $request->tagValue) {
-            @$query['TagValue'] = $request->tagValue;
+        if (!Utils::isUnset($request->tagValue)) {
+            $query['TagValue'] = $request->tagValue;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUserTagValue',
@@ -7438,15 +6188,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the tag value of an organization member.
+     * @summary Update the tag value of an organization member.
+     *  *
+     * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
      *
-     * @param request - UpdateUserTagValueRequest
-     *
-     * @returns UpdateUserTagValueResponse
-     *
-     * @param UpdateUserTagValueRequest $request
-     *
-     * @return UpdateUserTagValueResponse
+     * @return UpdateUserTagValueResponse UpdateUserTagValueResponse
      */
     public function updateUserTagValue($request)
     {
@@ -7456,40 +6202,31 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modify the role of a specified member under the workspace, existing roles will be overwritten.
+     * @summary Modify the role of a specified member under the workspace, existing roles will be overwritten.
+     *  *
+     * @param UpdateWorkspaceUserRoleRequest $request UpdateWorkspaceUserRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateWorkspaceUserRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateWorkspaceUserRoleResponse
-     *
-     * @param UpdateWorkspaceUserRoleRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateWorkspaceUserRoleResponse
+     * @return UpdateWorkspaceUserRoleResponse UpdateWorkspaceUserRoleResponse
      */
     public function updateWorkspaceUserRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
-        if (null !== $request->roleIds) {
-            @$query['RoleIds'] = $request->roleIds;
+        if (!Utils::isUnset($request->roleIds)) {
+            $query['RoleIds'] = $request->roleIds;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateWorkspaceUserRole',
@@ -7507,15 +6244,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modify the role of a specified member under the workspace, existing roles will be overwritten.
+     * @summary Modify the role of a specified member under the workspace, existing roles will be overwritten.
+     *  *
+     * @param UpdateWorkspaceUserRoleRequest $request UpdateWorkspaceUserRoleRequest
      *
-     * @param request - UpdateWorkspaceUserRoleRequest
-     *
-     * @returns UpdateWorkspaceUserRoleResponse
-     *
-     * @param UpdateWorkspaceUserRoleRequest $request
-     *
-     * @return UpdateWorkspaceUserRoleResponse
+     * @return UpdateWorkspaceUserRoleResponse UpdateWorkspaceUserRoleResponse
      */
     public function updateWorkspaceUserRole($request)
     {
@@ -7525,36 +6258,28 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch update the role information of workspace members, existing roles will be overwritten.
+     * @summary Batch update the role information of workspace members, existing roles will be overwritten
+     *  *
+     * @param UpdateWorkspaceUsersRoleRequest $request UpdateWorkspaceUsersRoleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateWorkspaceUsersRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateWorkspaceUsersRoleResponse
-     *
-     * @param UpdateWorkspaceUsersRoleRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UpdateWorkspaceUsersRoleResponse
+     * @return UpdateWorkspaceUsersRoleResponse UpdateWorkspaceUsersRoleResponse
      */
     public function updateWorkspaceUsersRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
-        if (null !== $request->userIds) {
-            @$query['UserIds'] = $request->userIds;
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
         }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateWorkspaceUsersRole',
@@ -7572,15 +6297,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch update the role information of workspace members, existing roles will be overwritten.
+     * @summary Batch update the role information of workspace members, existing roles will be overwritten
+     *  *
+     * @param UpdateWorkspaceUsersRoleRequest $request UpdateWorkspaceUsersRoleRequest
      *
-     * @param request - UpdateWorkspaceUsersRoleRequest
-     *
-     * @returns UpdateWorkspaceUsersRoleResponse
-     *
-     * @param UpdateWorkspaceUsersRoleRequest $request
-     *
-     * @return UpdateWorkspaceUsersRoleResponse
+     * @return UpdateWorkspaceUsersRoleResponse UpdateWorkspaceUsersRoleResponse
      */
     public function updateWorkspaceUsersRole($request)
     {
@@ -7590,28 +6311,22 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+     * @summary Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+     *  *
+     * @param WithdrawAllUserGroupsRequest $request WithdrawAllUserGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - WithdrawAllUserGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns WithdrawAllUserGroupsResponse
-     *
-     * @param WithdrawAllUserGroupsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return WithdrawAllUserGroupsResponse
+     * @return WithdrawAllUserGroupsResponse WithdrawAllUserGroupsResponse
      */
     public function withdrawAllUserGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'WithdrawAllUserGroups',
@@ -7629,15 +6344,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+     * @summary Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+     *  *
+     * @param WithdrawAllUserGroupsRequest $request WithdrawAllUserGroupsRequest
      *
-     * @param request - WithdrawAllUserGroupsRequest
-     *
-     * @returns WithdrawAllUserGroupsResponse
-     *
-     * @param WithdrawAllUserGroupsRequest $request
-     *
-     * @return WithdrawAllUserGroupsResponse
+     * @return WithdrawAllUserGroupsResponse WithdrawAllUserGroupsResponse
      */
     public function withdrawAllUserGroups($request)
     {

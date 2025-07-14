@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListResponseBody\result\data\role;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Alibaba Cloud account ID.
+     *
+     * @example 16020915****8429
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description Alibaba Cloud account name.
+     *
+     * @example pop****@aliyunid.test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description Nickname.
+     *
+     * @example test
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @description Preset role information for the workspace member.
+     *
      * @var role
      */
     public $role;
 
     /**
+     * @description Quick BI user ID.
+     *
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $userId;
@@ -41,33 +59,23 @@ class data extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->role) {
-            $this->role->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
-
         if (null !== $this->role) {
-            $res['Role'] = null !== $this->role ? $this->role->toArray($noStream) : $this->role;
+            $res['Role'] = null !== $this->role ? $this->role->toMap() : null;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -75,30 +83,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
-
         if (isset($map['Role'])) {
             $model->role = role::fromMap($map['Role']);
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

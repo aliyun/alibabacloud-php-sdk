@@ -4,16 +4,33 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateEmbeddedStatusRequest extends Model
 {
     /**
+     * @description Whether to enable the embedding feature for the work. Valid values:
+     *
+     *   true: enables embedding.
+     *   false: disables embedding.
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $thirdPartAuthFlag;
 
     /**
+     * @description The ID of the work.
+     *
+     *   Batch modification is supported. Separate multiple values with commas (,).
+     *
+     * This parameter is required.
+     *
+     * @example 897ce25e-f993-4abd-af84-d13c5610****
+     *
      * @var string
      */
     public $worksId;
@@ -22,18 +39,14 @@ class UpdateEmbeddedStatusRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->thirdPartAuthFlag) {
             $res['ThirdPartAuthFlag'] = $this->thirdPartAuthFlag;
         }
-
         if (null !== $this->worksId) {
             $res['WorksId'] = $this->worksId;
         }
@@ -41,18 +54,17 @@ class UpdateEmbeddedStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateEmbeddedStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ThirdPartAuthFlag'])) {
             $model->thirdPartAuthFlag = $map['ThirdPartAuthFlag'];
         }
-
         if (isset($map['WorksId'])) {
             $model->worksId = $map['WorksId'];
         }

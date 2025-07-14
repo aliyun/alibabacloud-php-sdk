@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddUserGroupMemberRequest extends Model
 {
     /**
+     * @description The ID of the user group.
+     *
+     * This parameter is required.
+     *
+     * @example 555c4cd****
+     *
      * @var string
      */
     public $userGroupId;
 
     /**
+     * @description The ID of the Quick BI user. Separate multiple IDs with commas (,). Example: abc,efg. You can enter a maximum of 1000 entries.
+     *
+     * This parameter is required.
+     *
+     * @example 46e537a5****,3dadsu****
+     *
      * @var string
      */
     public $userIdList;
@@ -22,18 +34,14 @@ class AddUserGroupMemberRequest extends Model
         'userIdList' => 'UserIdList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
-
         if (null !== $this->userIdList) {
             $res['UserIdList'] = $this->userIdList;
         }
@@ -41,18 +49,17 @@ class AddUserGroupMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddUserGroupMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
         }
-
         if (isset($map['UserIdList'])) {
             $model->userIdList = $map['UserIdList'];
         }

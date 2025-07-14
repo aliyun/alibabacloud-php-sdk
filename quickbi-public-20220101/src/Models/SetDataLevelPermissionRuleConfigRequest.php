@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetDataLevelPermissionRuleConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleModel;
@@ -16,12 +18,9 @@ class SetDataLevelPermissionRuleConfigRequest extends Model
         'ruleModel' => 'RuleModel',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleModel) {
@@ -31,11 +30,11 @@ class SetDataLevelPermissionRuleConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetDataLevelPermissionRuleConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

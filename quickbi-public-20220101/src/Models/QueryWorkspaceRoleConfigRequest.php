@@ -4,11 +4,23 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryWorkspaceRoleConfigRequest extends Model
 {
     /**
+     * @description Workspace role ID, including predefined roles and custom roles:
+     *
+     * - 25: Workspace Administrator (predefined role)
+     * - 26: Developer (predefined role)
+     * - 27: Analyst (predefined role)
+     * - 30: Viewer (predefined role)
+     * - Custom role: The corresponding role ID for the custom role
+     *
+     * This parameter is required.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $roleId;
@@ -16,12 +28,9 @@ class QueryWorkspaceRoleConfigRequest extends Model
         'roleId' => 'RoleId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->roleId) {
@@ -31,11 +40,11 @@ class QueryWorkspaceRoleConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryWorkspaceRoleConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

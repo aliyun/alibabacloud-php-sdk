@@ -4,21 +4,42 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResultCallbackRequest extends Model
 {
     /**
+     * @description The ID of the approval process.
+     *
+     * This parameter is required.
+     *
+     * @example c5ea0db8-****-****-9081-04bc0df4c6a3
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The reason for the approval.
+     *
+     * This parameter is required.
+     *
+     * @example You are not a Division A analyst.
+     *
      * @var string
      */
     public $handleReason;
 
     /**
+     * @description Approval result:
+     *
+     *   1: passed
+     *   2: rejected
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
@@ -28,22 +49,17 @@ class ResultCallbackRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->handleReason) {
             $res['HandleReason'] = $this->handleReason;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,22 +67,20 @@ class ResultCallbackRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResultCallbackRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['HandleReason'])) {
             $model->handleReason = $map['HandleReason'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
