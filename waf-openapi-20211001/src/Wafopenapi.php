@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterRuleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpRequest;
@@ -59,6 +61,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseTemplateRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteHybridCloudClusterRuleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteHybridCloudClusterRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
@@ -169,6 +173,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventTypesReque
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventTypesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRulesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRulesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClustersRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClustersResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudGroupsRequest;
@@ -1183,6 +1189,71 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @summary 新增集群规则信息
+     *  *
+     * @param CreateHybridCloudClusterRuleRequest $request CreateHybridCloudClusterRuleRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateHybridCloudClusterRuleResponse CreateHybridCloudClusterRuleResponse
+     */
+    public function createHybridCloudClusterRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleConfig)) {
+            $query['RuleConfig'] = $request->ruleConfig;
+        }
+        if (!Utils::isUnset($request->ruleStatus)) {
+            $query['RuleStatus'] = $request->ruleStatus;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHybridCloudClusterRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增集群规则信息
+     *  *
+     * @param CreateHybridCloudClusterRuleRequest $request CreateHybridCloudClusterRuleRequest
+     *
+     * @return CreateHybridCloudClusterRuleResponse CreateHybridCloudClusterRuleResponse
+     */
+    public function createHybridCloudClusterRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHybridCloudClusterRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a node group for a hybrid cloud cluster.
      *  *
      * @param CreateHybridCloudGroupRequest $request CreateHybridCloudGroupRequest
@@ -2034,6 +2105,62 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除集群规则信息
+     *  *
+     * @param DeleteHybridCloudClusterRuleRequest $request DeleteHybridCloudClusterRuleRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteHybridCloudClusterRuleResponse DeleteHybridCloudClusterRuleResponse
+     */
+    public function deleteHybridCloudClusterRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterRuleResourceId)) {
+            $query['ClusterRuleResourceId'] = $request->clusterRuleResourceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHybridCloudClusterRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除集群规则信息
+     *  *
+     * @param DeleteHybridCloudClusterRuleRequest $request DeleteHybridCloudClusterRuleRequest
+     *
+     * @return DeleteHybridCloudClusterRuleResponse DeleteHybridCloudClusterRuleResponse
+     */
+    public function deleteHybridCloudClusterRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHybridCloudClusterRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -5537,6 +5664,77 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHybridCloudClusterRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 集群规则列表
+     *  *
+     * @param DescribeHybridCloudClusterRulesRequest $request DescribeHybridCloudClusterRulesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHybridCloudClusterRulesResponse DescribeHybridCloudClusterRulesResponse
+     */
+    public function describeHybridCloudClusterRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->ruleContent)) {
+            $query['RuleContent'] = $request->ruleContent;
+        }
+        if (!Utils::isUnset($request->ruleMatchType)) {
+            $query['RuleMatchType'] = $request->ruleMatchType;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudClusterRules',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudClusterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 集群规则列表
+     *  *
+     * @param DescribeHybridCloudClusterRulesRequest $request DescribeHybridCloudClusterRulesRequest
+     *
+     * @return DescribeHybridCloudClusterRulesResponse DescribeHybridCloudClusterRulesResponse
+     */
+    public function describeHybridCloudClusterRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudClusterRulesWithOptions($request, $runtime);
     }
 
     /**
