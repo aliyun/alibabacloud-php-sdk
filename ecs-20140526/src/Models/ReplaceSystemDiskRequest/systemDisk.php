@@ -4,11 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ReplaceSystemDiskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class systemDisk extends Model
 {
     /**
+     * @description The capacity of the new system disk. Unit: GiB. Valid values:
+     *
+     *   Basic disk: Max{20, Size of the image specified by ImageId} to 500.
+     *
+     *   Enterprise SSD (ESSD):
+     *
+     *   PL0 ESSD: Max{1, Size of the image specified by ImageId} to 2048.
+     *   PL1 ESSD: Max{20, Size of the image specified by ImageId} to 2048.
+     *   PL2 ESSD: Max{461, Size of the image specified by ImageId} to 2048.
+     *   PL3 ESSD: Max{1261, Size of the image specified by ImageId} to 2048.
+     *
+     *   ESSD AutoPL disk: Max{1, Size of the image specified by ImageId} to 2048.
+     *
+     *   Other disk categories: Max{20, Size of the image specified by ImageId} to 2048.
+     *
+     * Default value: Max{40, Size of the image specified by ImageId}.
+     *
+     * >  If the capacity of the new system disk exceeds `Max{20, Capacity of the original system disk}`, you are charged for the excess capacity.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $size;
@@ -16,12 +37,9 @@ class systemDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->size) {
@@ -31,11 +49,11 @@ class systemDisk extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return systemDisk
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

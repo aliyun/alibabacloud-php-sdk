@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class imageOptions extends Model
 {
     /**
+     * @description Specifies whether the instance that uses the image supports logons of the ecs-user user. Valid value:
+     *
+     *   true: The instance that uses the image supports logons of the ecs-user user.
+     *   false: The instance that uses the image does not support logons of the ecs-user user.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $loginAsNonRoot;
@@ -16,12 +23,9 @@ class imageOptions extends Model
         'loginAsNonRoot' => 'LoginAsNonRoot',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->loginAsNonRoot) {
@@ -31,11 +35,11 @@ class imageOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

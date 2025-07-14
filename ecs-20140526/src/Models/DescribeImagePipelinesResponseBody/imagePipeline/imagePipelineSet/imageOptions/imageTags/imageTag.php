@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\imageOptions\imageTags;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class imageTag extends Model
 {
     /**
+     * @description The tag key of the image.
+     *
+     * @example testKey
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the image.
+     *
+     * @example testValue
+     *
      * @var string
      */
     public $tagValue;
@@ -22,18 +30,14 @@ class imageTag extends Model
         'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
-
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -41,18 +45,17 @@ class imageTag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageTag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
-
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

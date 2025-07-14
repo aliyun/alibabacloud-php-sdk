@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotPriceHistoryResponseBody\spotPrices;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSpotPriceHistoryResponseBody extends Model
 {
     /**
+     * @description The instance type of the spot instance.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The network type of the spot instance.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $nextOffset;
 
     /**
+     * @description The instance type of the spot instance.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The zone ID of the spot instance.
+     *
      * @var spotPrices
      */
     public $spotPrices;
@@ -35,56 +49,44 @@ class DescribeSpotPriceHistoryResponseBody extends Model
         'spotPrices' => 'SpotPrices',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->spotPrices) {
-            $this->spotPrices->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
-
         if (null !== $this->nextOffset) {
             $res['NextOffset'] = $this->nextOffset;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->spotPrices) {
-            $res['SpotPrices'] = null !== $this->spotPrices ? $this->spotPrices->toArray($noStream) : $this->spotPrices;
+            $res['SpotPrices'] = null !== $this->spotPrices ? $this->spotPrices->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSpotPriceHistoryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
-
         if (isset($map['NextOffset'])) {
             $model->nextOffset = $map['NextOffset'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SpotPrices'])) {
             $model->spotPrices = spotPrices::fromMap($map['SpotPrices']);
         }

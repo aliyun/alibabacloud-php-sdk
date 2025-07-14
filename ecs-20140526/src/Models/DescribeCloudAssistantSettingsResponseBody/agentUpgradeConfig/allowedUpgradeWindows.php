@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\agentUpgradeConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class allowedUpgradeWindows extends Model
 {
@@ -16,47 +16,29 @@ class allowedUpgradeWindows extends Model
         'allowedUpgradeWindow' => 'AllowedUpgradeWindow',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->allowedUpgradeWindow)) {
-            Model::validateArray($this->allowedUpgradeWindow);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowedUpgradeWindow) {
-            if (\is_array($this->allowedUpgradeWindow)) {
-                $res['AllowedUpgradeWindow'] = [];
-                $n1 = 0;
-                foreach ($this->allowedUpgradeWindow as $item1) {
-                    $res['AllowedUpgradeWindow'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AllowedUpgradeWindow'] = $this->allowedUpgradeWindow;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return allowedUpgradeWindows
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowedUpgradeWindow'])) {
             if (!empty($map['AllowedUpgradeWindow'])) {
-                $model->allowedUpgradeWindow = [];
-                $n1 = 0;
-                foreach ($map['AllowedUpgradeWindow'] as $item1) {
-                    $model->allowedUpgradeWindow[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->allowedUpgradeWindow = $map['AllowedUpgradeWindow'];
             }
         }
 

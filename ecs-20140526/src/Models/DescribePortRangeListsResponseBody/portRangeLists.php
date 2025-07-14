@@ -4,47 +4,77 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListsResponseBody\portRangeLists\tags;
+use AlibabaCloud\Tea\Model;
 
 class portRangeLists extends Model
 {
     /**
+     * @description The number of associated resources.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $associationCount;
 
     /**
+     * @description The time when the port list was created.
+     *
+     * @example 2024-12-04T07:11Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description of the port list.
+     *
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The maximum number of entries in the port list.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxEntries;
 
     /**
+     * @description The ID of the port list.
+     *
+     * @example prl-2ze9743****
+     *
      * @var string
      */
     public $portRangeListId;
 
     /**
+     * @description The name of the port list.
+     *
+     * @example PortRangeListNameSample
+     *
      * @var string
      */
     public $portRangeListName;
 
     /**
+     * @description The ID of the resource group to which to assign the port list.
+     *
+     * @example rg-2zeg82g****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags of the port list.
+     *
      * @var tags[]
      */
     public $tags;
@@ -59,52 +89,38 @@ class portRangeLists extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->associationCount) {
             $res['AssociationCount'] = $this->associationCount;
         }
-
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->maxEntries) {
             $res['MaxEntries'] = $this->maxEntries;
         }
-
         if (null !== $this->portRangeListId) {
             $res['PortRangeListId'] = $this->portRangeListId;
         }
-
         if (null !== $this->portRangeListName) {
             $res['PortRangeListName'] = $this->portRangeListName;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -112,49 +128,41 @@ class portRangeLists extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return portRangeLists
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociationCount'])) {
             $model->associationCount = $map['AssociationCount'];
         }
-
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['MaxEntries'])) {
             $model->maxEntries = $map['MaxEntries'];
         }
-
         if (isset($map['PortRangeListId'])) {
             $model->portRangeListId = $map['PortRangeListId'];
         }
-
         if (isset($map['PortRangeListName'])) {
             $model->portRangeListName = $map['PortRangeListName'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

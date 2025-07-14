@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CancelImagePipelineExecutionRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class templateTag extends Model
 {
     /**
+     * @description >  This parameter is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $value;
@@ -22,18 +30,14 @@ class templateTag extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +45,17 @@ class templateTag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return templateTag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

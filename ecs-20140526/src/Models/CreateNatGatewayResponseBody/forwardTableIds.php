@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNatGatewayResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class forwardTableIds extends Model
 {
@@ -16,47 +16,29 @@ class forwardTableIds extends Model
         'forwardTableId' => 'ForwardTableId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->forwardTableId)) {
-            Model::validateArray($this->forwardTableId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->forwardTableId) {
-            if (\is_array($this->forwardTableId)) {
-                $res['ForwardTableId'] = [];
-                $n1 = 0;
-                foreach ($this->forwardTableId as $item1) {
-                    $res['ForwardTableId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ForwardTableId'] = $this->forwardTableId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return forwardTableIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForwardTableId'])) {
             if (!empty($map['ForwardTableId'])) {
-                $model->forwardTableId = [];
-                $n1 = 0;
-                foreach ($map['ForwardTableId'] as $item1) {
-                    $model->forwardTableId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->forwardTableId = $map['ForwardTableId'];
             }
         }
 

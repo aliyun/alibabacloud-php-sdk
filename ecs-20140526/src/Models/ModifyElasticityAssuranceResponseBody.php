@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyElasticityAssuranceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 8455DD10-84F8-43C9-8365-5F448EB169B6
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyElasticityAssuranceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyElasticityAssuranceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyElasticityAssuranceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

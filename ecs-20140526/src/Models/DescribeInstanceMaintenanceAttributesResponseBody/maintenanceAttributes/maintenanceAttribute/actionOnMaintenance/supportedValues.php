@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponseBody\maintenanceAttributes\maintenanceAttribute\actionOnMaintenance;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class supportedValues extends Model
 {
@@ -16,47 +16,29 @@ class supportedValues extends Model
         'supportedValue' => 'SupportedValue',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->supportedValue)) {
-            Model::validateArray($this->supportedValue);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedValue) {
-            if (\is_array($this->supportedValue)) {
-                $res['SupportedValue'] = [];
-                $n1 = 0;
-                foreach ($this->supportedValue as $item1) {
-                    $res['SupportedValue'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SupportedValue'] = $this->supportedValue;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedValues
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedValue'])) {
             if (!empty($map['SupportedValue'])) {
-                $model->supportedValue = [];
-                $n1 = 0;
-                foreach ($map['SupportedValue'] as $item1) {
-                    $model->supportedValue[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->supportedValue = $map['SupportedValue'];
             }
         }
 

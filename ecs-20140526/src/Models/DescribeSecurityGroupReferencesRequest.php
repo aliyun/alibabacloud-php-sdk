@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityGroupReferencesRequest extends Model
 {
@@ -19,6 +19,12 @@ class DescribeSecurityGroupReferencesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +40,12 @@ class DescribeSecurityGroupReferencesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The IDs of security groups. You can specify up to 10 IDs of security groups.
+     *
+     * This parameter is required.
+     *
+     * @example sg-bp14vtedjtobkvi****
+     *
      * @var string[]
      */
     public $securityGroupId;
@@ -46,87 +58,59 @@ class DescribeSecurityGroupReferencesRequest extends Model
         'securityGroupId' => 'SecurityGroupId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->securityGroupId)) {
-            Model::validateArray($this->securityGroupId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->securityGroupId) {
-            if (\is_array($this->securityGroupId)) {
-                $res['SecurityGroupId'] = [];
-                $n1 = 0;
-                foreach ($this->securityGroupId as $item1) {
-                    $res['SecurityGroupId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSecurityGroupReferencesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SecurityGroupId'])) {
             if (!empty($map['SecurityGroupId'])) {
-                $model->securityGroupId = [];
-                $n1 = 0;
-                foreach ($map['SecurityGroupId'] as $item1) {
-                    $model->securityGroupId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->securityGroupId = $map['SecurityGroupId'];
             }
         }
 

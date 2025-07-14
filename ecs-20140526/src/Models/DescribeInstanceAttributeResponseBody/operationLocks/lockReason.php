@@ -4,11 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\operationLocks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class lockReason extends Model
 {
     /**
+     * @description The reason why the instance was locked. Valid values:
+     *
+     *   financial: The instance was locked due to overdue payments.
+     *   security: The instance was locked due to security reasons.
+     *   recycling: The spot instance was locked and pending release.
+     *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
+     *   refunded: The instance was locked because a refund is made for the instance.
+     *
+     * @example financial
+     *
      * @var string
      */
     public $lockReason;
@@ -16,12 +26,9 @@ class lockReason extends Model
         'lockReason' => 'LockReason',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lockReason) {
@@ -31,11 +38,11 @@ class lockReason extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return lockReason
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

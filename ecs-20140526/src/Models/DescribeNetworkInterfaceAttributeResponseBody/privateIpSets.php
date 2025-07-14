@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\privateIpSets\privateIpSet;
+use AlibabaCloud\Tea\Model;
 
 class privateIpSets extends Model
 {
@@ -17,24 +17,17 @@ class privateIpSets extends Model
         'privateIpSet' => 'PrivateIpSet',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->privateIpSet)) {
-            Model::validateArray($this->privateIpSet);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->privateIpSet) {
-            if (\is_array($this->privateIpSet)) {
-                $res['PrivateIpSet'] = [];
-                $n1 = 0;
-                foreach ($this->privateIpSet as $item1) {
-                    $res['PrivateIpSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PrivateIpSet'] = [];
+            if (null !== $this->privateIpSet && \is_array($this->privateIpSet)) {
+                $n = 0;
+                foreach ($this->privateIpSet as $item) {
+                    $res['PrivateIpSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class privateIpSets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privateIpSets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateIpSet'])) {
             if (!empty($map['PrivateIpSet'])) {
                 $model->privateIpSet = [];
-                $n1 = 0;
-                foreach ($map['PrivateIpSet'] as $item1) {
-                    $model->privateIpSet[$n1] = privateIpSet::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PrivateIpSet'] as $item) {
+                    $model->privateIpSet[$n++] = null !== $item ? privateIpSet::fromMap($item) : $item;
                 }
             }
         }

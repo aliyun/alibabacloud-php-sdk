@@ -4,31 +4,63 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopInstanceRequest extends Model
 {
     /**
+     * @description This parameter will be removed in the future and is retained only to ensure compatibility. We recommend that you ignore this parameter.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $confirmStop;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and available ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and performs the actual request.
+     *
+     * Default value: false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description Specifies whether to forcefully stop the ECS instance. Valid values:
+     *
+     *   true: forcefully stops the ECS instance. If you set ForceStop to true, this operation is equivalent to a power-off operation. Cache data that is not written to storage devices on the instance is lost.
+     *   false: normally stops the ECS instance.
+     *
+     * Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forceStop;
 
     /**
+     * @description > This parameter is in invitational preview and is not publicly available.
+     *
+     * @example hide
+     *
      * @var bool
      */
     public $hibernate;
 
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example i-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $instanceId;
@@ -54,6 +86,12 @@ class StopInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The stop mode of the pay-as-you-go instance. Valid values:
+     *
+     *   StopCharging: economical mode. After the economical mode is enabled, billing for the following resources of the instance stops: computing resources (vCPUs, memory, and GPUs), image licenses, and public bandwidth of the static public IP address (if any) that uses the pay-by-bandwidth metering method. Billing for the following resources of the instance continues: system disk, data disks, and public bandwidth of the elastic IP address (EIP) (if any) that uses the pay-by-bandwidth metering method. For more information, see [Economical mode](https://help.aliyun.com/document_detail/63353.html).
+     * Default value: If the conditions for [enabling the economical mode for an instance in a VPC](~~63353#default~~) are met and you have enabled this mode in the ECS console, the default value is `StopCharging`. Otherwise, the default value is `KeepCharging`.
+     * @example KeepCharging
+     *
      * @var string
      */
     public $stoppedMode;
@@ -70,50 +108,38 @@ class StopInstanceRequest extends Model
         'stoppedMode' => 'StoppedMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->confirmStop) {
             $res['ConfirmStop'] = $this->confirmStop;
         }
-
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-
         if (null !== $this->forceStop) {
             $res['ForceStop'] = $this->forceStop;
         }
-
         if (null !== $this->hibernate) {
             $res['Hibernate'] = $this->hibernate;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->stoppedMode) {
             $res['StoppedMode'] = $this->stoppedMode;
         }
@@ -121,50 +147,41 @@ class StopInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfirmStop'])) {
             $model->confirmStop = $map['ConfirmStop'];
         }
-
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-
         if (isset($map['ForceStop'])) {
             $model->forceStop = $map['ForceStop'];
         }
-
         if (isset($map['Hibernate'])) {
             $model->hibernate = $map['Hibernate'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['StoppedMode'])) {
             $model->stoppedMode = $map['StoppedMode'];
         }

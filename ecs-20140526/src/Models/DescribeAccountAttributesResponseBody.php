@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesResponseBody\accountAttributeItems;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAccountAttributesResponseBody extends Model
 {
     /**
+     * @description Details about account privileges in the specified region.
+     *
      * @var accountAttributeItems
      */
     public $accountAttributeItems;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8CE45CD5-31FB-47C2-959D-CA8144CE****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeAccountAttributesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->accountAttributeItems) {
-            $this->accountAttributeItems->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountAttributeItems) {
-            $res['AccountAttributeItems'] = null !== $this->accountAttributeItems ? $this->accountAttributeItems->toArray($noStream) : $this->accountAttributeItems;
+            $res['AccountAttributeItems'] = null !== $this->accountAttributeItems ? $this->accountAttributeItems->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeAccountAttributesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAccountAttributesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountAttributeItems'])) {
             $model->accountAttributeItems = accountAttributeItems::fromMap($map['AccountAttributeItems']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

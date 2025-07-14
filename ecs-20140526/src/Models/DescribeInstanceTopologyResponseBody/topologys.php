@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTopologyResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTopologyResponseBody\topologys\topology;
+use AlibabaCloud\Tea\Model;
 
 class topologys extends Model
 {
@@ -17,24 +17,17 @@ class topologys extends Model
         'topology' => 'Topology',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->topology)) {
-            Model::validateArray($this->topology);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->topology) {
-            if (\is_array($this->topology)) {
-                $res['Topology'] = [];
-                $n1 = 0;
-                foreach ($this->topology as $item1) {
-                    $res['Topology'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Topology'] = [];
+            if (null !== $this->topology && \is_array($this->topology)) {
+                $n = 0;
+                foreach ($this->topology as $item) {
+                    $res['Topology'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class topologys extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return topologys
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Topology'])) {
             if (!empty($map['Topology'])) {
                 $model->topology = [];
-                $n1 = 0;
-                foreach ($map['Topology'] as $item1) {
-                    $model->topology[$n1] = topology::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Topology'] as $item) {
+                    $model->topology[$n++] = null !== $item ? topology::fromMap($item) : $item;
                 }
             }
         }

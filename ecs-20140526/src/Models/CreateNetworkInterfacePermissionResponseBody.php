@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfacePermissionResponseBody\networkInterfacePermission;
+use AlibabaCloud\Tea\Model;
 
 class CreateNetworkInterfacePermissionResponseBody extends Model
 {
     /**
+     * @description Details about permissions on the ENI.
+     *
      * @var networkInterfacePermission
      */
     public $networkInterfacePermission;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0FCD3DEF-63D3-4605-A818-805C8BD7DB87
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class CreateNetworkInterfacePermissionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->networkInterfacePermission) {
-            $this->networkInterfacePermission->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->networkInterfacePermission) {
-            $res['NetworkInterfacePermission'] = null !== $this->networkInterfacePermission ? $this->networkInterfacePermission->toArray($noStream) : $this->networkInterfacePermission;
+            $res['NetworkInterfacePermission'] = null !== $this->networkInterfacePermission ? $this->networkInterfacePermission->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class CreateNetworkInterfacePermissionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateNetworkInterfacePermissionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkInterfacePermission'])) {
             $model->networkInterfacePermission = networkInterfacePermission::fromMap($map['NetworkInterfacePermission']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bandwidthPackageIds extends Model
 {
@@ -16,47 +16,29 @@ class bandwidthPackageIds extends Model
         'bandwidthPackageId' => 'BandwidthPackageId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->bandwidthPackageId)) {
-            Model::validateArray($this->bandwidthPackageId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bandwidthPackageId) {
-            if (\is_array($this->bandwidthPackageId)) {
-                $res['BandwidthPackageId'] = [];
-                $n1 = 0;
-                foreach ($this->bandwidthPackageId as $item1) {
-                    $res['BandwidthPackageId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bandwidthPackageIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthPackageId'])) {
             if (!empty($map['BandwidthPackageId'])) {
-                $model->bandwidthPackageId = [];
-                $n1 = 0;
-                foreach ($map['BandwidthPackageId'] as $item1) {
-                    $model->bandwidthPackageId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->bandwidthPackageId = $map['BandwidthPackageId'];
             }
         }
 

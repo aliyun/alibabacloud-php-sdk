@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\imageOptions;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\imageOptions\imageTags\imageTag;
+use AlibabaCloud\Tea\Model;
 
 class imageTags extends Model
 {
@@ -17,24 +17,17 @@ class imageTags extends Model
         'imageTag' => 'ImageTag',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->imageTag)) {
-            Model::validateArray($this->imageTag);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageTag) {
-            if (\is_array($this->imageTag)) {
-                $res['ImageTag'] = [];
-                $n1 = 0;
-                foreach ($this->imageTag as $item1) {
-                    $res['ImageTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ImageTag'] = [];
+            if (null !== $this->imageTag && \is_array($this->imageTag)) {
+                $n = 0;
+                foreach ($this->imageTag as $item) {
+                    $res['ImageTag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class imageTags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageTags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageTag'])) {
             if (!empty($map['ImageTag'])) {
                 $model->imageTag = [];
-                $n1 = 0;
-                foreach ($map['ImageTag'] as $item1) {
-                    $model->imageTag[$n1] = imageTag::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ImageTag'] as $item) {
+                    $model->imageTag[$n++] = null !== $item ? imageTag::fromMap($item) : $item;
                 }
             }
         }

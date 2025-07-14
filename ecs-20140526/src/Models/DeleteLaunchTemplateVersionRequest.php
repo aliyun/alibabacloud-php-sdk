@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLaunchTemplateVersionRequest extends Model
 {
     /**
+     * @description The version numbers of the launch template.
+     *
+     * This parameter is required.
+     *
+     * @example 2
+     *
      * @var int[]
      */
     public $deleteVersion;
 
     /**
+     * @description The ID of the launch template. For more information, call the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation.
+     *
+     * @example lt-bp1apo0bbbkuy0rj****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description The name of the launch template.
+     *
+     * @example testLaunchTemplateName
+     *
      * @var string
      */
     public $launchTemplateName;
@@ -34,6 +48,12 @@ class DeleteLaunchTemplateVersionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -58,52 +78,32 @@ class DeleteLaunchTemplateVersionRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->deleteVersion)) {
-            Model::validateArray($this->deleteVersion);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deleteVersion) {
-            if (\is_array($this->deleteVersion)) {
-                $res['DeleteVersion'] = [];
-                $n1 = 0;
-                foreach ($this->deleteVersion as $item1) {
-                    $res['DeleteVersion'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DeleteVersion'] = $this->deleteVersion;
         }
-
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
         }
-
         if (null !== $this->launchTemplateName) {
             $res['LaunchTemplateName'] = $this->launchTemplateName;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -111,49 +111,37 @@ class DeleteLaunchTemplateVersionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLaunchTemplateVersionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteVersion'])) {
             if (!empty($map['DeleteVersion'])) {
-                $model->deleteVersion = [];
-                $n1 = 0;
-                foreach ($map['DeleteVersion'] as $item1) {
-                    $model->deleteVersion[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->deleteVersion = $map['DeleteVersion'];
             }
         }
-
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
         }
-
         if (isset($map['LaunchTemplateName'])) {
             $model->launchTemplateName = $map['LaunchTemplateName'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

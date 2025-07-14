@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeForwardTableEntriesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeForwardTableEntriesResponseBody\forwardTableEntries\forwardTableEntry;
+use AlibabaCloud\Tea\Model;
 
 class forwardTableEntries extends Model
 {
@@ -17,24 +17,17 @@ class forwardTableEntries extends Model
         'forwardTableEntry' => 'ForwardTableEntry',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->forwardTableEntry)) {
-            Model::validateArray($this->forwardTableEntry);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->forwardTableEntry) {
-            if (\is_array($this->forwardTableEntry)) {
-                $res['ForwardTableEntry'] = [];
-                $n1 = 0;
-                foreach ($this->forwardTableEntry as $item1) {
-                    $res['ForwardTableEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ForwardTableEntry'] = [];
+            if (null !== $this->forwardTableEntry && \is_array($this->forwardTableEntry)) {
+                $n = 0;
+                foreach ($this->forwardTableEntry as $item) {
+                    $res['ForwardTableEntry'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class forwardTableEntries extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return forwardTableEntries
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForwardTableEntry'])) {
             if (!empty($map['ForwardTableEntry'])) {
                 $model->forwardTableEntry = [];
-                $n1 = 0;
-                foreach ($map['ForwardTableEntry'] as $item1) {
-                    $model->forwardTableEntry[$n1] = forwardTableEntry::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ForwardTableEntry'] as $item) {
+                    $model->forwardTableEntry[$n++] = null !== $item ? forwardTableEntry::fromMap($item) : $item;
                 }
             }
         }

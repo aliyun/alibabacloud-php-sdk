@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeReservedInstancesResponseBody\reservedInstances\reservedInstance\operationLocks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class operationLock extends Model
 {
     /**
+     * @description The reason why the instance is locked.
+     *
+     * @example security
+     *
      * @var string
      */
     public $lockReason;
@@ -16,12 +20,9 @@ class operationLock extends Model
         'lockReason' => 'LockReason',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lockReason) {
@@ -31,11 +32,11 @@ class operationLock extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return operationLock
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

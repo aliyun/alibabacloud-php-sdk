@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMonitorDataResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMonitorDataResponseBody\monitorData\instanceMonitorData;
+use AlibabaCloud\Tea\Model;
 
 class monitorData extends Model
 {
@@ -17,24 +17,17 @@ class monitorData extends Model
         'instanceMonitorData' => 'InstanceMonitorData',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceMonitorData)) {
-            Model::validateArray($this->instanceMonitorData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceMonitorData) {
-            if (\is_array($this->instanceMonitorData)) {
-                $res['InstanceMonitorData'] = [];
-                $n1 = 0;
-                foreach ($this->instanceMonitorData as $item1) {
-                    $res['InstanceMonitorData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['InstanceMonitorData'] = [];
+            if (null !== $this->instanceMonitorData && \is_array($this->instanceMonitorData)) {
+                $n = 0;
+                foreach ($this->instanceMonitorData as $item) {
+                    $res['InstanceMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class monitorData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return monitorData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceMonitorData'])) {
             if (!empty($map['InstanceMonitorData'])) {
                 $model->instanceMonitorData = [];
-                $n1 = 0;
-                foreach ($map['InstanceMonitorData'] as $item1) {
-                    $model->instanceMonitorData[$n1] = instanceMonitorData::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['InstanceMonitorData'] as $item) {
+                    $model->instanceMonitorData[$n++] = null !== $item ? instanceMonitorData::fromMap($item) : $item;
                 }
             }
         }

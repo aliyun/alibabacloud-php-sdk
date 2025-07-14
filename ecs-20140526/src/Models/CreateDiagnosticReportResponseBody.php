@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDiagnosticReportResponseBody extends Model
 {
     /**
+     * @description The unique ID of the diagnostic report.
+     *
+     * @example dr-uf6i0tv2refv8wz*****
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateDiagnosticReportResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateDiagnosticReportResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDiagnosticReportResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

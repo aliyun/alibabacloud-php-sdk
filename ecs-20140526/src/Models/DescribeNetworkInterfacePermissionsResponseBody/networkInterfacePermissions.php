@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfacePermissionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfacePermissionsResponseBody\networkInterfacePermissions\networkInterfacePermission;
+use AlibabaCloud\Tea\Model;
 
 class networkInterfacePermissions extends Model
 {
@@ -17,24 +17,17 @@ class networkInterfacePermissions extends Model
         'networkInterfacePermission' => 'NetworkInterfacePermission',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->networkInterfacePermission)) {
-            Model::validateArray($this->networkInterfacePermission);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->networkInterfacePermission) {
-            if (\is_array($this->networkInterfacePermission)) {
-                $res['NetworkInterfacePermission'] = [];
-                $n1 = 0;
-                foreach ($this->networkInterfacePermission as $item1) {
-                    $res['NetworkInterfacePermission'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['NetworkInterfacePermission'] = [];
+            if (null !== $this->networkInterfacePermission && \is_array($this->networkInterfacePermission)) {
+                $n = 0;
+                foreach ($this->networkInterfacePermission as $item) {
+                    $res['NetworkInterfacePermission'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class networkInterfacePermissions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return networkInterfacePermissions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkInterfacePermission'])) {
             if (!empty($map['NetworkInterfacePermission'])) {
                 $model->networkInterfacePermission = [];
-                $n1 = 0;
-                foreach ($map['NetworkInterfacePermission'] as $item1) {
-                    $model->networkInterfacePermission[$n1] = networkInterfacePermission::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['NetworkInterfacePermission'] as $item) {
+                    $model->networkInterfacePermission[$n++] = null !== $item ? networkInterfacePermission::fromMap($item) : $item;
                 }
             }
         }

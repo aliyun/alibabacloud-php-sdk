@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponseBody\imageComponent\imageComponentSet;
+use AlibabaCloud\Tea\Model;
 
 class imageComponent extends Model
 {
@@ -17,24 +17,17 @@ class imageComponent extends Model
         'imageComponentSet' => 'ImageComponentSet',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->imageComponentSet)) {
-            Model::validateArray($this->imageComponentSet);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageComponentSet) {
-            if (\is_array($this->imageComponentSet)) {
-                $res['ImageComponentSet'] = [];
-                $n1 = 0;
-                foreach ($this->imageComponentSet as $item1) {
-                    $res['ImageComponentSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ImageComponentSet'] = [];
+            if (null !== $this->imageComponentSet && \is_array($this->imageComponentSet)) {
+                $n = 0;
+                foreach ($this->imageComponentSet as $item) {
+                    $res['ImageComponentSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class imageComponent extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageComponent
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageComponentSet'])) {
             if (!empty($map['ImageComponentSet'])) {
                 $model->imageComponentSet = [];
-                $n1 = 0;
-                foreach ($map['ImageComponentSet'] as $item1) {
-                    $model->imageComponentSet[$n1] = imageComponentSet::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ImageComponentSet'] as $item) {
+                    $model->imageComponentSet[$n++] = null !== $item ? imageComponentSet::fromMap($item) : $item;
                 }
             }
         }

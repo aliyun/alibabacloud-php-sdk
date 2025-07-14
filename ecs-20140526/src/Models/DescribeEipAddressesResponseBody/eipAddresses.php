@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress;
+use AlibabaCloud\Tea\Model;
 
 class eipAddresses extends Model
 {
@@ -17,24 +17,17 @@ class eipAddresses extends Model
         'eipAddress' => 'EipAddress',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->eipAddress)) {
-            Model::validateArray($this->eipAddress);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eipAddress) {
-            if (\is_array($this->eipAddress)) {
-                $res['EipAddress'] = [];
-                $n1 = 0;
-                foreach ($this->eipAddress as $item1) {
-                    $res['EipAddress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['EipAddress'] = [];
+            if (null !== $this->eipAddress && \is_array($this->eipAddress)) {
+                $n = 0;
+                foreach ($this->eipAddress as $item) {
+                    $res['EipAddress'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class eipAddresses extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return eipAddresses
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipAddress'])) {
             if (!empty($map['EipAddress'])) {
                 $model->eipAddress = [];
-                $n1 = 0;
-                foreach ($map['EipAddress'] as $item1) {
-                    $model->eipAddress[$n1] = eipAddress::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['EipAddress'] as $item) {
+                    $model->eipAddress[$n++] = null !== $item ? eipAddress::fromMap($item) : $item;
                 }
             }
         }

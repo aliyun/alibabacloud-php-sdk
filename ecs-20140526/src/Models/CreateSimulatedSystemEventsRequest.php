@@ -4,21 +4,49 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSimulatedSystemEventsRequest extends Model
 {
     /**
+     * @description The type of the system event. Valid values:
+     *
+     *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
+     *   SystemFailure.Reboot: The instance is restarted due to a system error.
+     *   InstanceFailure.Reboot: The instance is restarted due to an instance error.
+     *   SystemMaintenance.Stop: The instance is stopped due to system maintenance.
+     *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
+     *   SystemFailure.Redeploy: The instance is redeployed due to a system error.
+     *   SystemFailure.Stop: The instance is stopped due to a system error.
+     *
+     * This parameter is required.
+     *
+     * @example SystemMaintenance.Reboot
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The IDs of the instances. You can specify up to 100 instance IDs.
+     *
+     * This parameter is required.
+     *
+     * @example i-bp1gtjxuuvwj17zr****
+     *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The scheduled start time of the event. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * > For events that occur due to system errors or instance errors, the simulated events of such events enter the `Executing` state when the simulated events are created. The value of `NotBefore` is the time when the simulated events enter the `Executed` state.
+     *
+     * This parameter is required.
+     *
+     * @example 2018-12-01T06:32:31Z
+     *
      * @var string
      */
     public $notBefore;
@@ -34,6 +62,12 @@ class CreateSimulatedSystemEventsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -58,52 +92,32 @@ class CreateSimulatedSystemEventsRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceId)) {
-            Model::validateArray($this->instanceId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
-
         if (null !== $this->instanceId) {
-            if (\is_array($this->instanceId)) {
-                $res['InstanceId'] = [];
-                $n1 = 0;
-                foreach ($this->instanceId as $item1) {
-                    $res['InstanceId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->notBefore) {
             $res['NotBefore'] = $this->notBefore;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -111,49 +125,37 @@ class CreateSimulatedSystemEventsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSimulatedSystemEventsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
-
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
-                $model->instanceId = [];
-                $n1 = 0;
-                foreach ($map['InstanceId'] as $item1) {
-                    $model->instanceId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->instanceId = $map['InstanceId'];
             }
         }
-
         if (isset($map['NotBefore'])) {
             $model->notBefore = $map['NotBefore'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

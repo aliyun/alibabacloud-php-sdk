@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteLaunchTemplateResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class launchTemplateVersionNumbers extends Model
 {
@@ -16,47 +16,29 @@ class launchTemplateVersionNumbers extends Model
         'versionNumbers' => 'versionNumbers',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->versionNumbers)) {
-            Model::validateArray($this->versionNumbers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->versionNumbers) {
-            if (\is_array($this->versionNumbers)) {
-                $res['versionNumbers'] = [];
-                $n1 = 0;
-                foreach ($this->versionNumbers as $item1) {
-                    $res['versionNumbers'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['versionNumbers'] = $this->versionNumbers;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return launchTemplateVersionNumbers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['versionNumbers'])) {
             if (!empty($map['versionNumbers'])) {
-                $model->versionNumbers = [];
-                $n1 = 0;
-                foreach ($map['versionNumbers'] as $item1) {
-                    $model->versionNumbers[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->versionNumbers = $map['versionNumbers'];
             }
         }
 

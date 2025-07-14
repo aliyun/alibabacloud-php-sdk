@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesResponseBody\instanceIdSets;
+use AlibabaCloud\Tea\Model;
 
 class RunInstancesResponseBody extends Model
 {
     /**
+     * @description The instance IDs (`InstanceIdSet`).
+     *
      * @var instanceIdSets
      */
     public $instanceIdSets;
 
     /**
+     * @description The ID of the order. This parameter is returned only when `InstanceChargeType` is set to PrePaid.
+     *
+     * @example 123456****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The transaction price.
+     *
+     * @example 0.165
+     *
      * @var float
      */
     public $tradePrice;
@@ -35,29 +49,20 @@ class RunInstancesResponseBody extends Model
         'tradePrice' => 'TradePrice',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->instanceIdSets) {
-            $this->instanceIdSets->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceIdSets) {
-            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toArray($noStream) : $this->instanceIdSets;
+            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toMap() : null;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
         }
@@ -65,26 +70,23 @@ class RunInstancesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunInstancesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIdSets'])) {
             $model->instanceIdSets = instanceIdSets::fromMap($map['InstanceIdSets']);
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
         }

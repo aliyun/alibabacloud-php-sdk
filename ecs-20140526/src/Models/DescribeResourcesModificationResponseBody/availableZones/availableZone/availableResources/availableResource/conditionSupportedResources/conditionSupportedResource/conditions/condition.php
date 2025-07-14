@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources\availableResource\conditionSupportedResources\conditionSupportedResource\conditions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class condition extends Model
 {
     /**
+     * @description The condition name. Valid value:
+     *
+     * DiskCategory, which indicates a disk category change.
+     *
+     * @example DiskCategory
+     *
      * @var string
      */
     public $key;
@@ -16,12 +22,9 @@ class condition extends Model
         'key' => 'Key',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
@@ -31,11 +34,11 @@ class condition extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return condition
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

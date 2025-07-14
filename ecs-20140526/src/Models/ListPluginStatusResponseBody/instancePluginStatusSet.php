@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusResponseBody\instancePluginStatusSet\instancePluginStatus;
+use AlibabaCloud\Tea\Model;
 
 class instancePluginStatusSet extends Model
 {
@@ -17,24 +17,17 @@ class instancePluginStatusSet extends Model
         'instancePluginStatus' => 'InstancePluginStatus',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instancePluginStatus)) {
-            Model::validateArray($this->instancePluginStatus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instancePluginStatus) {
-            if (\is_array($this->instancePluginStatus)) {
-                $res['InstancePluginStatus'] = [];
-                $n1 = 0;
-                foreach ($this->instancePluginStatus as $item1) {
-                    $res['InstancePluginStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['InstancePluginStatus'] = [];
+            if (null !== $this->instancePluginStatus && \is_array($this->instancePluginStatus)) {
+                $n = 0;
+                foreach ($this->instancePluginStatus as $item) {
+                    $res['InstancePluginStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class instancePluginStatusSet extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instancePluginStatusSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstancePluginStatus'])) {
             if (!empty($map['InstancePluginStatus'])) {
                 $model->instancePluginStatus = [];
-                $n1 = 0;
-                foreach ($map['InstancePluginStatus'] as $item1) {
-                    $model->instancePluginStatus[$n1] = instancePluginStatus::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['InstancePluginStatus'] as $item) {
+                    $model->instancePluginStatus[$n++] = null !== $item ? instancePluginStatus::fromMap($item) : $item;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets\networkInterfaceSet;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets\networkInterfaceSet\ipv6PrefixSets\ipv6PrefixSet;
+use AlibabaCloud\Tea\Model;
 
 class ipv6PrefixSets extends Model
 {
@@ -17,24 +17,17 @@ class ipv6PrefixSets extends Model
         'ipv6PrefixSet' => 'Ipv6PrefixSet',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipv6PrefixSet)) {
-            Model::validateArray($this->ipv6PrefixSet);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv6PrefixSet) {
-            if (\is_array($this->ipv6PrefixSet)) {
-                $res['Ipv6PrefixSet'] = [];
-                $n1 = 0;
-                foreach ($this->ipv6PrefixSet as $item1) {
-                    $res['Ipv6PrefixSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Ipv6PrefixSet'] = [];
+            if (null !== $this->ipv6PrefixSet && \is_array($this->ipv6PrefixSet)) {
+                $n = 0;
+                foreach ($this->ipv6PrefixSet as $item) {
+                    $res['Ipv6PrefixSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class ipv6PrefixSets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipv6PrefixSets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6PrefixSet'])) {
             if (!empty($map['Ipv6PrefixSet'])) {
                 $model->ipv6PrefixSet = [];
-                $n1 = 0;
-                foreach ($map['Ipv6PrefixSet'] as $item1) {
-                    $model->ipv6PrefixSet[$n1] = ipv6PrefixSet::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Ipv6PrefixSet'] as $item) {
+                    $model->ipv6PrefixSet[$n++] = null !== $item ? ipv6PrefixSet::fromMap($item) : $item;
                 }
             }
         }

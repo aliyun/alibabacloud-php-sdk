@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotAdviceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotAdviceResponseBody\availableSpotZones\availableSpotZone;
+use AlibabaCloud\Tea\Model;
 
 class availableSpotZones extends Model
 {
@@ -17,24 +17,17 @@ class availableSpotZones extends Model
         'availableSpotZone' => 'AvailableSpotZone',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->availableSpotZone)) {
-            Model::validateArray($this->availableSpotZone);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->availableSpotZone) {
-            if (\is_array($this->availableSpotZone)) {
-                $res['AvailableSpotZone'] = [];
-                $n1 = 0;
-                foreach ($this->availableSpotZone as $item1) {
-                    $res['AvailableSpotZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['AvailableSpotZone'] = [];
+            if (null !== $this->availableSpotZone && \is_array($this->availableSpotZone)) {
+                $n = 0;
+                foreach ($this->availableSpotZone as $item) {
+                    $res['AvailableSpotZone'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class availableSpotZones extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return availableSpotZones
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableSpotZone'])) {
             if (!empty($map['AvailableSpotZone'])) {
                 $model->availableSpotZone = [];
-                $n1 = 0;
-                foreach ($map['AvailableSpotZone'] as $item1) {
-                    $model->availableSpotZone[$n1] = availableSpotZone::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['AvailableSpotZone'] as $item) {
+                    $model->availableSpotZone[$n++] = null !== $item ? availableSpotZone::fromMap($item) : $item;
                 }
             }
         }

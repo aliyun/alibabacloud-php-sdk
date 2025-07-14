@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVpcsResponseBody\vpcs;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVpcsResponseBody\vpcs\vpc\userCidrs;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVpcsResponseBody\vpcs\vpc\vSwitchIds;
+use AlibabaCloud\Tea\Model;
 
 class vpc extends Model
 {
@@ -78,60 +78,41 @@ class vpc extends Model
         'vpcName' => 'VpcName',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->userCidrs) {
-            $this->userCidrs->validate();
-        }
-        if (null !== $this->vSwitchIds) {
-            $this->vSwitchIds->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
-
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->userCidrs) {
-            $res['UserCidrs'] = null !== $this->userCidrs ? $this->userCidrs->toArray($noStream) : $this->userCidrs;
+            $res['UserCidrs'] = null !== $this->userCidrs ? $this->userCidrs->toMap() : null;
         }
-
         if (null !== $this->VRouterId) {
             $res['VRouterId'] = $this->VRouterId;
         }
-
         if (null !== $this->vSwitchIds) {
-            $res['VSwitchIds'] = null !== $this->vSwitchIds ? $this->vSwitchIds->toArray($noStream) : $this->vSwitchIds;
+            $res['VSwitchIds'] = null !== $this->vSwitchIds ? $this->vSwitchIds->toMap() : null;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
         }
@@ -139,54 +120,44 @@ class vpc extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpc
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
-
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['UserCidrs'])) {
             $model->userCidrs = userCidrs::fromMap($map['UserCidrs']);
         }
-
         if (isset($map['VRouterId'])) {
             $model->VRouterId = $map['VRouterId'];
         }
-
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIds = vSwitchIds::fromMap($map['VSwitchIds']);
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
         }

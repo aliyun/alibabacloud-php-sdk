@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\cpuOptions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class supportedTopologyTypes extends Model
 {
@@ -16,47 +16,29 @@ class supportedTopologyTypes extends Model
         'supportedTopologyType' => 'SupportedTopologyType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->supportedTopologyType)) {
-            Model::validateArray($this->supportedTopologyType);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedTopologyType) {
-            if (\is_array($this->supportedTopologyType)) {
-                $res['SupportedTopologyType'] = [];
-                $n1 = 0;
-                foreach ($this->supportedTopologyType as $item1) {
-                    $res['SupportedTopologyType'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SupportedTopologyType'] = $this->supportedTopologyType;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedTopologyTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedTopologyType'])) {
             if (!empty($map['SupportedTopologyType'])) {
-                $model->supportedTopologyType = [];
-                $n1 = 0;
-                foreach ($map['SupportedTopologyType'] as $item1) {
-                    $model->supportedTopologyType[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->supportedTopologyType = $map['SupportedTopologyType'];
             }
         }
 

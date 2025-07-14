@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotMonitorDataResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotMonitorDataResponseBody\monitorData\dataPoint;
+use AlibabaCloud\Tea\Model;
 
 class monitorData extends Model
 {
@@ -17,24 +17,17 @@ class monitorData extends Model
         'dataPoint' => 'DataPoint',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataPoint)) {
-            Model::validateArray($this->dataPoint);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataPoint) {
-            if (\is_array($this->dataPoint)) {
-                $res['DataPoint'] = [];
-                $n1 = 0;
-                foreach ($this->dataPoint as $item1) {
-                    $res['DataPoint'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DataPoint'] = [];
+            if (null !== $this->dataPoint && \is_array($this->dataPoint)) {
+                $n = 0;
+                foreach ($this->dataPoint as $item) {
+                    $res['DataPoint'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class monitorData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return monitorData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPoint'])) {
             if (!empty($map['DataPoint'])) {
                 $model->dataPoint = [];
-                $n1 = 0;
-                foreach ($map['DataPoint'] as $item1) {
-                    $model->dataPoint[$n1] = dataPoint::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DataPoint'] as $item) {
+                    $model->dataPoint[$n++] = null !== $item ? dataPoint::fromMap($item) : $item;
                 }
             }
         }

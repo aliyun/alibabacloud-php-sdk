@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv4PrefixSets;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ipv4PrefixSet extends Model
 {
     /**
+     * @description The IPv4 prefix of the ENI.
+     *
+     * @example 192.168.**.0/28
+     *
      * @var string
      */
     public $ipv4Prefix;
@@ -16,12 +20,9 @@ class ipv4PrefixSet extends Model
         'ipv4Prefix' => 'Ipv4Prefix',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv4Prefix) {
@@ -31,11 +32,11 @@ class ipv4PrefixSet extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipv4PrefixSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

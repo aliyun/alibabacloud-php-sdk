@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyImageSharePermissionRequest extends Model
 {
     /**
+     * @description The IDs of Alibaba Cloud accounts to which you want to share the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
+     *
+     * @example 1234567890
+     *
      * @var string[]
      */
     public $addAccount;
@@ -19,16 +23,37 @@ class ModifyImageSharePermissionRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the shared custom image.
+     *
+     * >  You can share images encrypted by using CMKs but cannot share images encrypted by using service keys. When you share an image encrypted by using a service key, an error is reported.
+     *
+     * This parameter is required.
+     *
+     * @example m-bp18ygjuqnwhechc****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description Specifies whether to publish or unpublish a community image. Valid values:
+     *
+     *   true: publishes the custom image as a community image.
+     *   false: unpublishes a community image. The unpublish operation takes effect only on community images.
+     *
+     * Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isPublic;
 
     /**
+     * @description > This parameter is in invitational preview and is not publicly available.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $launchPermission;
@@ -44,11 +69,21 @@ class ModifyImageSharePermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of Alibaba Cloud accounts from which you want to unshare the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
+     *
+     * @example 1234567890
+     *
      * @var string[]
      */
     public $removeAccount;
@@ -76,74 +111,41 @@ class ModifyImageSharePermissionRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->addAccount)) {
-            Model::validateArray($this->addAccount);
-        }
-        if (\is_array($this->removeAccount)) {
-            Model::validateArray($this->removeAccount);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addAccount) {
-            if (\is_array($this->addAccount)) {
-                $res['AddAccount'] = [];
-                $n1 = 0;
-                foreach ($this->addAccount as $item1) {
-                    $res['AddAccount'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AddAccount'] = $this->addAccount;
         }
-
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->isPublic) {
             $res['IsPublic'] = $this->isPublic;
         }
-
         if (null !== $this->launchPermission) {
             $res['LaunchPermission'] = $this->launchPermission;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->removeAccount) {
-            if (\is_array($this->removeAccount)) {
-                $res['RemoveAccount'] = [];
-                $n1 = 0;
-                foreach ($this->removeAccount as $item1) {
-                    $res['RemoveAccount'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RemoveAccount'] = $this->removeAccount;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -151,68 +153,48 @@ class ModifyImageSharePermissionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyImageSharePermissionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddAccount'])) {
             if (!empty($map['AddAccount'])) {
-                $model->addAccount = [];
-                $n1 = 0;
-                foreach ($map['AddAccount'] as $item1) {
-                    $model->addAccount[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->addAccount = $map['AddAccount'];
             }
         }
-
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-
         if (isset($map['IsPublic'])) {
             $model->isPublic = $map['IsPublic'];
         }
-
         if (isset($map['LaunchPermission'])) {
             $model->launchPermission = $map['LaunchPermission'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RemoveAccount'])) {
             if (!empty($map['RemoveAccount'])) {
-                $model->removeAccount = [];
-                $n1 = 0;
-                foreach ($map['RemoveAccount'] as $item1) {
-                    $model->removeAccount[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->removeAccount = $map['RemoveAccount'];
             }
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

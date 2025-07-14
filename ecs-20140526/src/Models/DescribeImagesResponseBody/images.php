@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image;
+use AlibabaCloud\Tea\Model;
 
 class images extends Model
 {
@@ -17,24 +17,17 @@ class images extends Model
         'image' => 'Image',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->image)) {
-            Model::validateArray($this->image);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->image) {
-            if (\is_array($this->image)) {
-                $res['Image'] = [];
-                $n1 = 0;
-                foreach ($this->image as $item1) {
-                    $res['Image'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Image'] = [];
+            if (null !== $this->image && \is_array($this->image)) {
+                $n = 0;
+                foreach ($this->image as $item) {
+                    $res['Image'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class images extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return images
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Image'])) {
             if (!empty($map['Image'])) {
                 $model->image = [];
-                $n1 = 0;
-                foreach ($map['Image'] as $item1) {
-                    $model->image[$n1] = image::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Image'] as $item) {
+                    $model->image[$n++] = null !== $item ? image::fromMap($item) : $item;
                 }
             }
         }

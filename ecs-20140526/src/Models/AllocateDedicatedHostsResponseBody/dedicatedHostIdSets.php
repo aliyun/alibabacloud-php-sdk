@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\AllocateDedicatedHostsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dedicatedHostIdSets extends Model
 {
@@ -16,47 +16,29 @@ class dedicatedHostIdSets extends Model
         'dedicatedHostId' => 'DedicatedHostId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dedicatedHostId)) {
-            Model::validateArray($this->dedicatedHostId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dedicatedHostId) {
-            if (\is_array($this->dedicatedHostId)) {
-                $res['DedicatedHostId'] = [];
-                $n1 = 0;
-                foreach ($this->dedicatedHostId as $item1) {
-                    $res['DedicatedHostId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dedicatedHostIdSets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostId'])) {
             if (!empty($map['DedicatedHostId'])) {
-                $model->dedicatedHostId = [];
-                $n1 = 0;
-                foreach ($map['DedicatedHostId'] as $item1) {
-                    $model->dedicatedHostId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->dedicatedHostId = $map['DedicatedHostId'];
             }
         }
 

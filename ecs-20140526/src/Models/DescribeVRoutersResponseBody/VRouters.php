@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVRoutersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVRoutersResponseBody\VRouters\VRouter;
+use AlibabaCloud\Tea\Model;
 
 class VRouters extends Model
 {
@@ -17,24 +17,17 @@ class VRouters extends Model
         'VRouter' => 'VRouter',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->VRouter)) {
-            Model::validateArray($this->VRouter);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->VRouter) {
-            if (\is_array($this->VRouter)) {
-                $res['VRouter'] = [];
-                $n1 = 0;
-                foreach ($this->VRouter as $item1) {
-                    $res['VRouter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['VRouter'] = [];
+            if (null !== $this->VRouter && \is_array($this->VRouter)) {
+                $n = 0;
+                foreach ($this->VRouter as $item) {
+                    $res['VRouter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class VRouters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return VRouters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VRouter'])) {
             if (!empty($map['VRouter'])) {
                 $model->VRouter = [];
-                $n1 = 0;
-                foreach ($map['VRouter'] as $item1) {
-                    $model->VRouter[$n1] = VRouter::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['VRouter'] as $item) {
+                    $model->VRouter[$n++] = null !== $item ? VRouter::fromMap($item) : $item;
                 }
             }
         }

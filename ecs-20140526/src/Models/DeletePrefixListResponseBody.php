@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePrefixListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeletePrefixListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeletePrefixListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePrefixListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

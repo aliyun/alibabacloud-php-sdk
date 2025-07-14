@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPortRangeListRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class removeEntry extends Model
 {
     /**
+     * @description The port range in entry N. Valid values of N: 0 to 200. Take note of the following limits:
+     *
+     *   `PortRange` in different entries cannot be duplicated.
+     *   The value of this parameter cannot be the same as the value of `AddEntry.N.PortRange`.
+     *
+     * @example 80/80
+     *
      * @var string
      */
     public $portRange;
@@ -16,12 +23,9 @@ class removeEntry extends Model
         'portRange' => 'PortRange',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->portRange) {
@@ -31,11 +35,11 @@ class removeEntry extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return removeEntry
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

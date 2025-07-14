@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyReservedInstanceAutoRenewAttributeRequest extends Model
 {
@@ -19,26 +19,53 @@ class ModifyReservedInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The auto-renewal cycle.
+     *
+     * Valid values: 1 and 3.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the auto-renewal duration.
+     *
+     * Valid values: Year and Month.
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The region ID of the reserved instances. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to automatically renew the reserved instances. Valid values:
+     *
+     *   AutoRenewal: automatically renews the reserved instances.
+     *   Normal: manually renews the reserved instances.
+     *
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @description The IDs of the reserved instances.
+     *
      * @var string[]
      */
     public $reservedInstanceId;
@@ -64,56 +91,35 @@ class ModifyReservedInstanceAutoRenewAttributeRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->reservedInstanceId)) {
-            Model::validateArray($this->reservedInstanceId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
         }
-
         if (null !== $this->reservedInstanceId) {
-            if (\is_array($this->reservedInstanceId)) {
-                $res['ReservedInstanceId'] = [];
-                $n1 = 0;
-                foreach ($this->reservedInstanceId as $item1) {
-                    $res['ReservedInstanceId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ReservedInstanceId'] = $this->reservedInstanceId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -121,53 +127,40 @@ class ModifyReservedInstanceAutoRenewAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyReservedInstanceAutoRenewAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
         }
-
         if (isset($map['ReservedInstanceId'])) {
             if (!empty($map['ReservedInstanceId'])) {
-                $model->reservedInstanceId = [];
-                $n1 = 0;
-                foreach ($map['ReservedInstanceId'] as $item1) {
-                    $model->reservedInstanceId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->reservedInstanceId = $map['ReservedInstanceId'];
             }
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusResponseBody\instancePluginStatusSet\instancePluginStatus;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusResponseBody\instancePluginStatusSet\instancePluginStatus\pluginStatusSet\pluginStatus;
+use AlibabaCloud\Tea\Model;
 
 class pluginStatusSet extends Model
 {
@@ -17,24 +17,17 @@ class pluginStatusSet extends Model
         'pluginStatus' => 'PluginStatus',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pluginStatus)) {
-            Model::validateArray($this->pluginStatus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pluginStatus) {
-            if (\is_array($this->pluginStatus)) {
-                $res['PluginStatus'] = [];
-                $n1 = 0;
-                foreach ($this->pluginStatus as $item1) {
-                    $res['PluginStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PluginStatus'] = [];
+            if (null !== $this->pluginStatus && \is_array($this->pluginStatus)) {
+                $n = 0;
+                foreach ($this->pluginStatus as $item) {
+                    $res['PluginStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class pluginStatusSet extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pluginStatusSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PluginStatus'])) {
             if (!empty($map['PluginStatus'])) {
                 $model->pluginStatus = [];
-                $n1 = 0;
-                foreach ($map['PluginStatus'] as $item1) {
-                    $model->pluginStatus[$n1] = pluginStatus::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PluginStatus'] as $item) {
+                    $model->pluginStatus[$n++] = null !== $item ? pluginStatus::fromMap($item) : $item;
                 }
             }
         }

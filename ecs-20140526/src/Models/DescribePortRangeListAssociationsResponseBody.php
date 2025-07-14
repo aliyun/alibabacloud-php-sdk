@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListAssociationsResponseBody\portRangeListAssociations;
+use AlibabaCloud\Tea\Model;
 
 class DescribePortRangeListAssociationsResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If the return value is empty, no more data is returned.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The resources that are associated with the port list.
+     *
      * @var portRangeListAssociations[]
      */
     public $portRangeListAssociations;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
@@ -29,32 +39,23 @@ class DescribePortRangeListAssociationsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->portRangeListAssociations)) {
-            Model::validateArray($this->portRangeListAssociations);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->portRangeListAssociations) {
-            if (\is_array($this->portRangeListAssociations)) {
-                $res['PortRangeListAssociations'] = [];
-                $n1 = 0;
-                foreach ($this->portRangeListAssociations as $item1) {
-                    $res['PortRangeListAssociations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['PortRangeListAssociations'] = [];
+            if (null !== $this->portRangeListAssociations && \is_array($this->portRangeListAssociations)) {
+                $n = 0;
+                foreach ($this->portRangeListAssociations as $item) {
+                    $res['PortRangeListAssociations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,29 +63,26 @@ class DescribePortRangeListAssociationsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePortRangeListAssociationsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['PortRangeListAssociations'])) {
             if (!empty($map['PortRangeListAssociations'])) {
                 $model->portRangeListAssociations = [];
-                $n1 = 0;
-                foreach ($map['PortRangeListAssociations'] as $item1) {
-                    $model->portRangeListAssociations[$n1] = portRangeListAssociations::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['PortRangeListAssociations'] as $item) {
+                    $model->portRangeListAssociations[$n++] = null !== $item ? portRangeListAssociations::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

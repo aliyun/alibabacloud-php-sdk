@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo\rules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rule extends Model
 {
     /**
+     * @description The description of the promotion rule.
+     *
+     * @example Receive a 15% discount on a 1-year subscription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the promotion rule.
+     *
+     * @example 1234567890
+     *
      * @var int
      */
     public $ruleId;
@@ -22,18 +30,14 @@ class rule extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -41,18 +45,17 @@ class rule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
