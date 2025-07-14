@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data\mseGatewayEntryRule\conditions;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data\mseGatewayEntryRule\routes;
+use AlibabaCloud\Tea\Model;
 
 class mseGatewayEntryRule extends Model
 {
     /**
+     * @example AND
+     *
      * @var string
      */
     public $conditionJoiner;
@@ -21,11 +23,15 @@ class mseGatewayEntryRule extends Model
     public $conditions;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $independentPercentageEnable;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $percentage;
@@ -54,76 +60,41 @@ class mseGatewayEntryRule extends Model
         'routes' => 'Routes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->conditions)) {
-            Model::validateArray($this->conditions);
-        }
-        if (\is_array($this->percentageByRoute)) {
-            Model::validateArray($this->percentageByRoute);
-        }
-        if (\is_array($this->routeIds)) {
-            Model::validateArray($this->routeIds);
-        }
-        if (\is_array($this->routes)) {
-            Model::validateArray($this->routes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conditionJoiner) {
             $res['ConditionJoiner'] = $this->conditionJoiner;
         }
-
         if (null !== $this->conditions) {
-            if (\is_array($this->conditions)) {
-                $res['Conditions'] = [];
-                $n1 = 0;
-                foreach ($this->conditions as $item1) {
-                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Conditions'] = [];
+            if (null !== $this->conditions && \is_array($this->conditions)) {
+                $n = 0;
+                foreach ($this->conditions as $item) {
+                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->independentPercentageEnable) {
             $res['IndependentPercentageEnable'] = $this->independentPercentageEnable;
         }
-
         if (null !== $this->percentage) {
             $res['Percentage'] = $this->percentage;
         }
-
         if (null !== $this->percentageByRoute) {
-            if (\is_array($this->percentageByRoute)) {
-                $res['PercentageByRoute'] = [];
-                foreach ($this->percentageByRoute as $key1 => $value1) {
-                    $res['PercentageByRoute'][$key1] = $value1;
-                }
-            }
+            $res['PercentageByRoute'] = $this->percentageByRoute;
         }
-
         if (null !== $this->routeIds) {
-            if (\is_array($this->routeIds)) {
-                $res['RouteIds'] = [];
-                $n1 = 0;
-                foreach ($this->routeIds as $item1) {
-                    $res['RouteIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RouteIds'] = $this->routeIds;
         }
-
         if (null !== $this->routes) {
-            if (\is_array($this->routes)) {
-                $res['Routes'] = [];
-                $n1 = 0;
-                foreach ($this->routes as $item1) {
-                    $res['Routes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Routes'] = [];
+            if (null !== $this->routes && \is_array($this->routes)) {
+                $n = 0;
+                foreach ($this->routes as $item) {
+                    $res['Routes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -131,64 +102,46 @@ class mseGatewayEntryRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mseGatewayEntryRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionJoiner'])) {
             $model->conditionJoiner = $map['ConditionJoiner'];
         }
-
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n1 = 0;
-                foreach ($map['Conditions'] as $item1) {
-                    $model->conditions[$n1] = conditions::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Conditions'] as $item) {
+                    $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['IndependentPercentageEnable'])) {
             $model->independentPercentageEnable = $map['IndependentPercentageEnable'];
         }
-
         if (isset($map['Percentage'])) {
             $model->percentage = $map['Percentage'];
         }
-
         if (isset($map['PercentageByRoute'])) {
-            if (!empty($map['PercentageByRoute'])) {
-                $model->percentageByRoute = [];
-                foreach ($map['PercentageByRoute'] as $key1 => $value1) {
-                    $model->percentageByRoute[$key1] = $value1;
-                }
-            }
+            $model->percentageByRoute = $map['PercentageByRoute'];
         }
-
         if (isset($map['RouteIds'])) {
             if (!empty($map['RouteIds'])) {
-                $model->routeIds = [];
-                $n1 = 0;
-                foreach ($map['RouteIds'] as $item1) {
-                    $model->routeIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->routeIds = $map['RouteIds'];
             }
         }
-
         if (isset($map['Routes'])) {
             if (!empty($map['Routes'])) {
                 $model->routes = [];
-                $n1 = 0;
-                foreach ($map['Routes'] as $item1) {
-                    $model->routes[$n1] = routes::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Routes'] as $item) {
+                    $model->routes[$n++] = null !== $item ? routes::fromMap($item) : $item;
                 }
             }
         }

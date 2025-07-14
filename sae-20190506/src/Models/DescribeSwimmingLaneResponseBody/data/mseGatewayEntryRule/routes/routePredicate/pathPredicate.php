@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data\mseGatewayEntryRule\routes\routePredicate;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pathPredicate extends Model
 {
     /**
+     * @example /Path
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example Header
+     *
      * @var string
      */
     public $type;
@@ -22,18 +26,14 @@ class pathPredicate extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +41,17 @@ class pathPredicate extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pathPredicate
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

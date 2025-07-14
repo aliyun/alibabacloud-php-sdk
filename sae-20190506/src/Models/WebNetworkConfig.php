@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WebNetworkConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $internetAccess;
 
     /**
+     * @example sg-bp18hj1wtxgy3b0***
+     *
      * @var string
      */
     public $securityGroupId;
@@ -28,63 +32,41 @@ class WebNetworkConfig extends Model
         'vSwitchIds' => 'VSwitchIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vSwitchIds)) {
-            Model::validateArray($this->vSwitchIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->internetAccess) {
             $res['InternetAccess'] = $this->internetAccess;
         }
-
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-
         if (null !== $this->vSwitchIds) {
-            if (\is_array($this->vSwitchIds)) {
-                $res['VSwitchIds'] = [];
-                $n1 = 0;
-                foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WebNetworkConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InternetAccess'])) {
             $model->internetAccess = $map['InternetAccess'];
         }
-
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
-                $model->vSwitchIds = [];
-                $n1 = 0;
-                foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->vSwitchIds = $map['VSwitchIds'];
             }
         }
 

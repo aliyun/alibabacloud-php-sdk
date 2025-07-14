@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesResponseBody\data\appEntryRule;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesResponseBody\data\apps;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesResponseBody\data\mseGatewayEntryRule;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -22,31 +22,43 @@ class data extends Model
     public $apps;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $canaryModel;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableRules;
 
     /**
+     * @example 16401
+     *
      * @var int
      */
     public $laneId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $laneName;
 
     /**
+     * @example {"alicloud.service.tag":"g1"}
+     *
      * @var string
      */
     public $laneTag;
@@ -67,116 +79,86 @@ class data extends Model
         'mseGatewayEntryRule' => 'MseGatewayEntryRule',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->appEntryRule) {
-            $this->appEntryRule->validate();
-        }
-        if (\is_array($this->apps)) {
-            Model::validateArray($this->apps);
-        }
-        if (null !== $this->mseGatewayEntryRule) {
-            $this->mseGatewayEntryRule->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appEntryRule) {
-            $res['AppEntryRule'] = null !== $this->appEntryRule ? $this->appEntryRule->toArray($noStream) : $this->appEntryRule;
+            $res['AppEntryRule'] = null !== $this->appEntryRule ? $this->appEntryRule->toMap() : null;
         }
-
         if (null !== $this->apps) {
-            if (\is_array($this->apps)) {
-                $res['Apps'] = [];
-                $n1 = 0;
-                foreach ($this->apps as $item1) {
-                    $res['Apps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Apps'] = [];
+            if (null !== $this->apps && \is_array($this->apps)) {
+                $n = 0;
+                foreach ($this->apps as $item) {
+                    $res['Apps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->canaryModel) {
             $res['CanaryModel'] = $this->canaryModel;
         }
-
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->enableRules) {
             $res['EnableRules'] = $this->enableRules;
         }
-
         if (null !== $this->laneId) {
             $res['LaneId'] = $this->laneId;
         }
-
         if (null !== $this->laneName) {
             $res['LaneName'] = $this->laneName;
         }
-
         if (null !== $this->laneTag) {
             $res['LaneTag'] = $this->laneTag;
         }
-
         if (null !== $this->mseGatewayEntryRule) {
-            $res['MseGatewayEntryRule'] = null !== $this->mseGatewayEntryRule ? $this->mseGatewayEntryRule->toArray($noStream) : $this->mseGatewayEntryRule;
+            $res['MseGatewayEntryRule'] = null !== $this->mseGatewayEntryRule ? $this->mseGatewayEntryRule->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppEntryRule'])) {
             $model->appEntryRule = appEntryRule::fromMap($map['AppEntryRule']);
         }
-
         if (isset($map['Apps'])) {
             if (!empty($map['Apps'])) {
                 $model->apps = [];
-                $n1 = 0;
-                foreach ($map['Apps'] as $item1) {
-                    $model->apps[$n1] = apps::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Apps'] as $item) {
+                    $model->apps[$n++] = null !== $item ? apps::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CanaryModel'])) {
             $model->canaryModel = $map['CanaryModel'];
         }
-
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['EnableRules'])) {
             $model->enableRules = $map['EnableRules'];
         }
-
         if (isset($map['LaneId'])) {
             $model->laneId = $map['LaneId'];
         }
-
         if (isset($map['LaneName'])) {
             $model->laneName = $map['LaneName'];
         }
-
         if (isset($map['LaneTag'])) {
             $model->laneTag = $map['LaneTag'];
         }
-
         if (isset($map['MseGatewayEntryRule'])) {
             $model->mseGatewayEntryRule = mseGatewayEntryRule::fromMap($map['MseGatewayEntryRule']);
         }

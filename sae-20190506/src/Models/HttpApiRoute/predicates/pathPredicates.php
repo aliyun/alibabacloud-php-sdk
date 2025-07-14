@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute\predicates;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pathPredicates extends Model
 {
@@ -19,6 +19,8 @@ class pathPredicates extends Model
     public $path;
 
     /**
+     * @example Prefix/Exact/Regex
+     *
      * @var string
      */
     public $type;
@@ -28,22 +30,17 @@ class pathPredicates extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ignoreCase) {
             $res['IgnoreCase'] = $this->ignoreCase;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +48,20 @@ class pathPredicates extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pathPredicates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoreCase'])) {
             $model->ignoreCase = $map['IgnoreCase'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

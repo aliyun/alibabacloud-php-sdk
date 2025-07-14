@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartWebApplicationRequest extends Model
 {
     /**
+     * @description The namespace ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-beijing:test
+     *
      * @var string
      */
     public $namespaceId;
@@ -16,12 +22,9 @@ class StartWebApplicationRequest extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->namespaceId) {
@@ -31,11 +34,11 @@ class StartWebApplicationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartWebApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

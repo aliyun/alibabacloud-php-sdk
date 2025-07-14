@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class JaegerConfig extends Model
 {
@@ -16,12 +16,9 @@ class JaegerConfig extends Model
         'endpoint' => 'endpoint',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endpoint) {
@@ -31,11 +28,11 @@ class JaegerConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return JaegerConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

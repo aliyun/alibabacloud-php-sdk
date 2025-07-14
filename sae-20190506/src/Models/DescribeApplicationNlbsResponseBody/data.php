@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationNlbsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DataInstancesValue;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The details of the instance.
+     *
      * @var DataInstancesValue[]
      */
     public $instances;
@@ -17,22 +19,16 @@ class data extends Model
         'instances' => 'Instances',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instances)) {
-            Model::validateArray($this->instances);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instances) {
-            if (\is_array($this->instances)) {
-                $res['Instances'] = [];
-                foreach ($this->instances as $key1 => $value1) {
-                    $res['Instances'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+            $res['Instances'] = [];
+            if (null !== $this->instances && \is_array($this->instances)) {
+                foreach ($this->instances as $key => $val) {
+                    $res['Instances'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
         }
@@ -40,21 +36,16 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instances'])) {
-            if (!empty($map['Instances'])) {
-                $model->instances = [];
-                foreach ($map['Instances'] as $key1 => $value1) {
-                    $model->instances[$key1] = DataInstancesValue::fromMap($value1);
-                }
-            }
+            $model->instances = $map['Instances'];
         }
 
         return $model;

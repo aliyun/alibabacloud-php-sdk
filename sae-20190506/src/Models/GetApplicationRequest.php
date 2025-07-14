@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetApplicationRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * @example 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The application name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $namespaceId;
@@ -28,22 +40,17 @@ class GetApplicationRequest extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -51,22 +58,20 @@ class GetApplicationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetApplicationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

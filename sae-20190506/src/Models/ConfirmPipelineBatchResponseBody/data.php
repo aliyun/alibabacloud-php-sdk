@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ConfirmPipelineBatchResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the batch.
+     *
+     * @example e2e-vds-feh-***
+     *
      * @var string
      */
     public $pipelineId;
@@ -16,12 +20,9 @@ class data extends Model
         'pipelineId' => 'PipelineId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pipelineId) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

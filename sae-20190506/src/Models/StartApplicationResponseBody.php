@@ -4,42 +4,82 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StartApplicationResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class StartApplicationResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned. Take note of the following rules:
+     *
+     *   If the call is successful, **ErrorCode** is not returned.
+     *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+     *
+     * @example Null
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned message. Take note of the following rules:
+     *
+     *   If the call is successful, **success** is returned.
+     *   If the call fails, an error code is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 7BD8F4C7-D84C-4D46-9885-8212997E****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the application is started. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The trace ID that is used to query the details of the request.
+     *
+     * @example 0bc3b6e215637275918588187d****
+     *
      * @var string
      */
     public $traceId;
@@ -53,41 +93,29 @@ class StartApplicationResponseBody extends Model
         'traceId' => 'TraceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
         }
@@ -95,38 +123,32 @@ class StartApplicationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartApplicationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
         }

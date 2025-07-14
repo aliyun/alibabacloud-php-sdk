@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsResponseBody\data\realTimeRes;
 use AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsResponseBody\data\summary;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The real-time resource usage.
+     *
      * @var realTimeRes
      */
     public $realTimeRes;
 
     /**
+     * @description The resource usage of the current month.
+     *
      * @var summary
      */
     public $summary;
@@ -24,43 +28,32 @@ class data extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->realTimeRes) {
-            $this->realTimeRes->validate();
-        }
-        if (null !== $this->summary) {
-            $this->summary->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->realTimeRes) {
-            $res['RealTimeRes'] = null !== $this->realTimeRes ? $this->realTimeRes->toArray($noStream) : $this->realTimeRes;
+            $res['RealTimeRes'] = null !== $this->realTimeRes ? $this->realTimeRes->toMap() : null;
         }
-
         if (null !== $this->summary) {
-            $res['Summary'] = null !== $this->summary ? $this->summary->toArray($noStream) : $this->summary;
+            $res['Summary'] = null !== $this->summary ? $this->summary->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RealTimeRes'])) {
             $model->realTimeRes = realTimeRes::fromMap($map['RealTimeRes']);
         }
-
         if (isset($map['Summary'])) {
             $model->summary = summary::fromMap($map['Summary']);
         }

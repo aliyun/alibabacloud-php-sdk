@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class triggerConfig extends Model
 {
     /**
+     * @example master
+     *
      * @var string
      */
     public $branchName;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $tagName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example PUSH
+     *
      * @var string
      */
     public $type;
@@ -28,22 +36,17 @@ class triggerConfig extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->branchName) {
             $res['BranchName'] = $this->branchName;
         }
-
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +54,20 @@ class triggerConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return triggerConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BranchName'])) {
             $model->branchName = $map['BranchName'];
         }
-
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

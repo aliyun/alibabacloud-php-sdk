@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLaneGroupsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLaneGroupsResponseBody\data\apps;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLaneGroupsResponseBody\data\entryApp;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -21,6 +21,8 @@ class data extends Model
     public $apps;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $canaryModel;
@@ -31,36 +33,50 @@ class data extends Model
     public $entryApp;
 
     /**
+     * @example mse_ingresspost-cn-axc49******
+     *
      * @var string
      */
     public $entryAppId;
 
     /**
+     * @example mse-gw
+     *
      * @var string
      */
     public $entryAppType;
 
     /**
+     * @example 2074
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example mse-test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example sae-test
+     *
      * @var string
      */
     public $mseNamespaceId;
 
     /**
+     * @example cn-beijing:test
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $swimVersion;
@@ -78,77 +94,47 @@ class data extends Model
         'swimVersion' => 'SwimVersion',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appIds)) {
-            Model::validateArray($this->appIds);
-        }
-        if (\is_array($this->apps)) {
-            Model::validateArray($this->apps);
-        }
-        if (null !== $this->entryApp) {
-            $this->entryApp->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appIds) {
-            if (\is_array($this->appIds)) {
-                $res['AppIds'] = [];
-                $n1 = 0;
-                foreach ($this->appIds as $item1) {
-                    $res['AppIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AppIds'] = $this->appIds;
         }
-
         if (null !== $this->apps) {
-            if (\is_array($this->apps)) {
-                $res['Apps'] = [];
-                $n1 = 0;
-                foreach ($this->apps as $item1) {
-                    $res['Apps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Apps'] = [];
+            if (null !== $this->apps && \is_array($this->apps)) {
+                $n = 0;
+                foreach ($this->apps as $item) {
+                    $res['Apps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->canaryModel) {
             $res['CanaryModel'] = $this->canaryModel;
         }
-
         if (null !== $this->entryApp) {
-            $res['EntryApp'] = null !== $this->entryApp ? $this->entryApp->toArray($noStream) : $this->entryApp;
+            $res['EntryApp'] = null !== $this->entryApp ? $this->entryApp->toMap() : null;
         }
-
         if (null !== $this->entryAppId) {
             $res['EntryAppId'] = $this->entryAppId;
         }
-
         if (null !== $this->entryAppType) {
             $res['EntryAppType'] = $this->entryAppType;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->mseNamespaceId) {
             $res['MseNamespaceId'] = $this->mseNamespaceId;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
-
         if (null !== $this->swimVersion) {
             $res['SwimVersion'] = $this->swimVersion;
         }
@@ -156,68 +142,52 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIds'])) {
             if (!empty($map['AppIds'])) {
-                $model->appIds = [];
-                $n1 = 0;
-                foreach ($map['AppIds'] as $item1) {
-                    $model->appIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->appIds = $map['AppIds'];
             }
         }
-
         if (isset($map['Apps'])) {
             if (!empty($map['Apps'])) {
                 $model->apps = [];
-                $n1 = 0;
-                foreach ($map['Apps'] as $item1) {
-                    $model->apps[$n1] = apps::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Apps'] as $item) {
+                    $model->apps[$n++] = null !== $item ? apps::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CanaryModel'])) {
             $model->canaryModel = $map['CanaryModel'];
         }
-
         if (isset($map['EntryApp'])) {
             $model->entryApp = entryApp::fromMap($map['EntryApp']);
         }
-
         if (isset($map['EntryAppId'])) {
             $model->entryAppId = $map['EntryAppId'];
         }
-
         if (isset($map['EntryAppType'])) {
             $model->entryAppType = $map['EntryAppType'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['MseNamespaceId'])) {
             $model->mseNamespaceId = $map['MseNamespaceId'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
-
         if (isset($map['SwimVersion'])) {
             $model->swimVersion = $map['SwimVersion'];
         }

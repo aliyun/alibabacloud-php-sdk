@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig\configMapMountDesc;
+use AlibabaCloud\Tea\Model;
 
 class initContainersConfig extends Model
 {
@@ -47,44 +47,32 @@ class initContainersConfig extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->configMapMountDesc)) {
-            Model::validateArray($this->configMapMountDesc);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
-
         if (null !== $this->commandArgs) {
             $res['CommandArgs'] = $this->commandArgs;
         }
-
         if (null !== $this->configMapMountDesc) {
-            if (\is_array($this->configMapMountDesc)) {
-                $res['ConfigMapMountDesc'] = [];
-                $n1 = 0;
-                foreach ($this->configMapMountDesc as $item1) {
-                    $res['ConfigMapMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ConfigMapMountDesc'] = [];
+            if (null !== $this->configMapMountDesc && \is_array($this->configMapMountDesc)) {
+                $n = 0;
+                foreach ($this->configMapMountDesc as $item) {
+                    $res['ConfigMapMountDesc'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
         }
-
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -92,41 +80,35 @@ class initContainersConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return initContainersConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
-
         if (isset($map['CommandArgs'])) {
             $model->commandArgs = $map['CommandArgs'];
         }
-
         if (isset($map['ConfigMapMountDesc'])) {
             if (!empty($map['ConfigMapMountDesc'])) {
                 $model->configMapMountDesc = [];
-                $n1 = 0;
-                foreach ($map['ConfigMapMountDesc'] as $item1) {
-                    $model->configMapMountDesc[$n1] = configMapMountDesc::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ConfigMapMountDesc'] as $item) {
+                    $model->configMapMountDesc[$n++] = null !== $item ? configMapMountDesc::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
         }
-
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

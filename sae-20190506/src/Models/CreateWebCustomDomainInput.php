@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateWebCustomDomainInput extends Model
 {
@@ -14,11 +14,17 @@ class CreateWebCustomDomainInput extends Model
     public $defaultForwardingAppName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
@@ -52,89 +58,62 @@ class CreateWebCustomDomainInput extends Model
         'webWAFConfig' => 'WebWAFConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->routeConfig) {
-            $this->routeConfig->validate();
-        }
-        if (null !== $this->webCertConfig) {
-            $this->webCertConfig->validate();
-        }
-        if (null !== $this->webTLSConfig) {
-            $this->webTLSConfig->validate();
-        }
-        if (null !== $this->webWAFConfig) {
-            $this->webWAFConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->defaultForwardingAppName) {
             $res['DefaultForwardingAppName'] = $this->defaultForwardingAppName;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-
         if (null !== $this->routeConfig) {
-            $res['RouteConfig'] = null !== $this->routeConfig ? $this->routeConfig->toArray($noStream) : $this->routeConfig;
+            $res['RouteConfig'] = null !== $this->routeConfig ? $this->routeConfig->toMap() : null;
         }
-
         if (null !== $this->webCertConfig) {
-            $res['WebCertConfig'] = null !== $this->webCertConfig ? $this->webCertConfig->toArray($noStream) : $this->webCertConfig;
+            $res['WebCertConfig'] = null !== $this->webCertConfig ? $this->webCertConfig->toMap() : null;
         }
-
         if (null !== $this->webTLSConfig) {
-            $res['WebTLSConfig'] = null !== $this->webTLSConfig ? $this->webTLSConfig->toArray($noStream) : $this->webTLSConfig;
+            $res['WebTLSConfig'] = null !== $this->webTLSConfig ? $this->webTLSConfig->toMap() : null;
         }
-
         if (null !== $this->webWAFConfig) {
-            $res['WebWAFConfig'] = null !== $this->webWAFConfig ? $this->webWAFConfig->toArray($noStream) : $this->webWAFConfig;
+            $res['WebWAFConfig'] = null !== $this->webWAFConfig ? $this->webWAFConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateWebCustomDomainInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultForwardingAppName'])) {
             $model->defaultForwardingAppName = $map['DefaultForwardingAppName'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-
         if (isset($map['RouteConfig'])) {
             $model->routeConfig = RouteConfig::fromMap($map['RouteConfig']);
         }
-
         if (isset($map['WebCertConfig'])) {
             $model->webCertConfig = WebCertConfig::fromMap($map['WebCertConfig']);
         }
-
         if (isset($map['WebTLSConfig'])) {
             $model->webTLSConfig = WebTLSConfig::fromMap($map['WebTLSConfig']);
         }
-
         if (isset($map['WebWAFConfig'])) {
             $model->webWAFConfig = WebWAFConfig::fromMap($map['WebWAFConfig']);
         }

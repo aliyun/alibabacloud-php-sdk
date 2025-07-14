@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MetricsCollectConfig extends Model
 {
@@ -14,11 +14,15 @@ class MetricsCollectConfig extends Model
     public $enablePushToUserSLS;
 
     /**
+     * @example my-sls-logstorename
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @example my-sls-project
+     *
      * @var string
      */
     public $projectName;
@@ -28,22 +32,17 @@ class MetricsCollectConfig extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enablePushToUserSLS) {
             $res['EnablePushToUserSLS'] = $this->enablePushToUserSLS;
         }
-
         if (null !== $this->logstoreName) {
             $res['LogstoreName'] = $this->logstoreName;
         }
-
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -51,22 +50,20 @@ class MetricsCollectConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MetricsCollectConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnablePushToUserSLS'])) {
             $model->enablePushToUserSLS = $map['EnablePushToUserSLS'];
         }
-
         if (isset($map['LogstoreName'])) {
             $model->logstoreName = $map['LogstoreName'];
         }
-
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

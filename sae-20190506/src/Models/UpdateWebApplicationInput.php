@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateWebApplicationInput extends Model
 {
     /**
+     * @example sae-app
+     *
      * @var string
      */
     public $description;
@@ -22,40 +24,32 @@ class UpdateWebApplicationInput extends Model
         'webNetworkConfig' => 'WebNetworkConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->webNetworkConfig) {
-            $this->webNetworkConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->webNetworkConfig) {
-            $res['WebNetworkConfig'] = null !== $this->webNetworkConfig ? $this->webNetworkConfig->toArray($noStream) : $this->webNetworkConfig;
+            $res['WebNetworkConfig'] = null !== $this->webNetworkConfig ? $this->webNetworkConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateWebApplicationInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['WebNetworkConfig'])) {
             $model->webNetworkConfig = WebNetworkConfig::fromMap($map['WebNetworkConfig']);
         }

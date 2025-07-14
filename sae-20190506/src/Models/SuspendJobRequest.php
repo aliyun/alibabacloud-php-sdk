@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SuspendJobRequest extends Model
 {
     /**
+     * @description The ID of the job template.
+     *
+     * This parameter is required.
+     *
+     * @example ee1a7a07-abcb-4652-a1d3-2d57f415****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Start or suspend a job template.
+     *
+     *   true: Start a job template.
+     *   false: Suspend a job template.
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $suspend;
@@ -22,18 +37,14 @@ class SuspendJobRequest extends Model
         'suspend' => 'Suspend',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->suspend) {
             $res['Suspend'] = $this->suspend;
         }
@@ -41,18 +52,17 @@ class SuspendJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SuspendJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['Suspend'])) {
             $model->suspend = $map['Suspend'];
         }

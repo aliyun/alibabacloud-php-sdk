@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchStopApplicationsRequest extends Model
 {
     /**
+     * @description The ID of the application that you want to stop.
+     *
+     * > If you want to stop multiple applications at the same time, separate the IDs with commas (,).
+     *
+     * @example ebf491f0-c1a5-45e2-b2c4-710dbe2a****
+     *
      * @var string
      */
     public $appIds;
 
     /**
+     * @description ebf491f0-c1a5-45e2-b2c4-710dbe2a\\*\\*\\*\\*,ebf491f0-c1a5-45e2-b2c4-71025e2a\\*\\*\\*\\*
+     *
+     * This parameter is required.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The application version.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $version;
@@ -28,22 +44,17 @@ class BatchStopApplicationsRequest extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -51,22 +62,20 @@ class BatchStopApplicationsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchStopApplicationsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

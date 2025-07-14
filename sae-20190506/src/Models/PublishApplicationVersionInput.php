@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PublishApplicationVersionInput extends Model
 {
@@ -16,12 +16,9 @@ class PublishApplicationVersionInput extends Model
         'description' => 'description',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
@@ -31,11 +28,11 @@ class PublishApplicationVersionInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PublishApplicationVersionInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateSwimmingLaneGroupRequest extends Model
 {
@@ -14,31 +14,43 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $appIds;
 
     /**
+     * @example mse_ingresspost-cn-axc49******
+     *
      * @var string
      */
     public $entryAppId;
 
     /**
+     * @example mse-gw
+     *
      * @var string
      */
     public $entryAppType;
 
     /**
+     * @example 2047
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example mse-test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example cn-beijing:test
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $swimVersion;
@@ -52,48 +64,29 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         'swimVersion' => 'SwimVersion',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appIds)) {
-            Model::validateArray($this->appIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appIds) {
-            if (\is_array($this->appIds)) {
-                $res['AppIds'] = [];
-                $n1 = 0;
-                foreach ($this->appIds as $item1) {
-                    $res['AppIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AppIds'] = $this->appIds;
         }
-
         if (null !== $this->entryAppId) {
             $res['EntryAppId'] = $this->entryAppId;
         }
-
         if (null !== $this->entryAppType) {
             $res['EntryAppType'] = $this->entryAppType;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
-
         if (null !== $this->swimVersion) {
             $res['SwimVersion'] = $this->swimVersion;
         }
@@ -101,45 +94,34 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateOrUpdateSwimmingLaneGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIds'])) {
             if (!empty($map['AppIds'])) {
-                $model->appIds = [];
-                $n1 = 0;
-                foreach ($map['AppIds'] as $item1) {
-                    $model->appIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->appIds = $map['AppIds'];
             }
         }
-
         if (isset($map['EntryAppId'])) {
             $model->entryAppId = $map['EntryAppId'];
         }
-
         if (isset($map['EntryAppType'])) {
             $model->entryAppType = $map['EntryAppType'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
-
         if (isset($map['SwimVersion'])) {
             $model->swimVersion = $map['SwimVersion'];
         }

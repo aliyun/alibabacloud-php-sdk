@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateWebApplicationTrafficConfigInput extends Model
 {
     /**
+     * @example Anonymous
+     *
      * @var string
      */
     public $authType;
@@ -34,69 +36,44 @@ class UpdateWebApplicationTrafficConfigInput extends Model
         'webAclConfig' => 'WebAclConfig',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->revisionsTrafficWeight)) {
-            Model::validateArray($this->revisionsTrafficWeight);
-        }
-        if (null !== $this->webAclConfig) {
-            $this->webAclConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
         }
-
         if (null !== $this->disableURLInternet) {
             $res['DisableURLInternet'] = $this->disableURLInternet;
         }
-
         if (null !== $this->revisionsTrafficWeight) {
-            if (\is_array($this->revisionsTrafficWeight)) {
-                $res['RevisionsTrafficWeight'] = [];
-                foreach ($this->revisionsTrafficWeight as $key1 => $value1) {
-                    $res['RevisionsTrafficWeight'][$key1] = $value1;
-                }
-            }
+            $res['RevisionsTrafficWeight'] = $this->revisionsTrafficWeight;
         }
-
         if (null !== $this->webAclConfig) {
-            $res['WebAclConfig'] = null !== $this->webAclConfig ? $this->webAclConfig->toArray($noStream) : $this->webAclConfig;
+            $res['WebAclConfig'] = null !== $this->webAclConfig ? $this->webAclConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateWebApplicationTrafficConfigInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
         }
-
         if (isset($map['DisableURLInternet'])) {
             $model->disableURLInternet = $map['DisableURLInternet'];
         }
-
         if (isset($map['RevisionsTrafficWeight'])) {
-            if (!empty($map['RevisionsTrafficWeight'])) {
-                $model->revisionsTrafficWeight = [];
-                foreach ($map['RevisionsTrafficWeight'] as $key1 => $value1) {
-                    $model->revisionsTrafficWeight[$key1] = $value1;
-                }
-            }
+            $model->revisionsTrafficWeight = $map['RevisionsTrafficWeight'];
         }
-
         if (isset($map['WebAclConfig'])) {
             $model->webAclConfig = WebAclConfig::fromMap($map['WebAclConfig']);
         }

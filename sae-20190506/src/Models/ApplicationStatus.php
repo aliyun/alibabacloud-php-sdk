@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ApplicationStatus extends Model
 {
@@ -22,40 +22,32 @@ class ApplicationStatus extends Model
         'scaleConfig' => 'scaleConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->scaleConfig) {
-            $this->scaleConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceCount) {
             $res['instanceCount'] = $this->instanceCount;
         }
-
         if (null !== $this->scaleConfig) {
-            $res['scaleConfig'] = null !== $this->scaleConfig ? $this->scaleConfig->toArray($noStream) : $this->scaleConfig;
+            $res['scaleConfig'] = null !== $this->scaleConfig ? $this->scaleConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ApplicationStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instanceCount'])) {
             $model->instanceCount = $map['instanceCount'];
         }
-
         if (isset($map['scaleConfig'])) {
             $model->scaleConfig = ScaleConfig::fromMap($map['scaleConfig']);
         }

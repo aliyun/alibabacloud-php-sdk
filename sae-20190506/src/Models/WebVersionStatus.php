@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WebVersionStatus extends Model
 {
@@ -22,18 +22,14 @@ class WebVersionStatus extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -41,18 +37,17 @@ class WebVersionStatus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WebVersionStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

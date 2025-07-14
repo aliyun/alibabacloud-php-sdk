@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InstanceExecAuthorizationInputOptions extends Model
 {
@@ -40,40 +40,23 @@ class InstanceExecAuthorizationInputOptions extends Model
         'tty' => 'tty',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->command)) {
-            Model::validateArray($this->command);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->command) {
-            if (\is_array($this->command)) {
-                $res['command'] = [];
-                $n1 = 0;
-                foreach ($this->command as $item1) {
-                    $res['command'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['command'] = $this->command;
         }
-
         if (null !== $this->stderr) {
             $res['stderr'] = $this->stderr;
         }
-
         if (null !== $this->stdin) {
             $res['stdin'] = $this->stdin;
         }
-
         if (null !== $this->stdout) {
             $res['stdout'] = $this->stdout;
         }
-
         if (null !== $this->tty) {
             $res['tty'] = $this->tty;
         }
@@ -81,37 +64,28 @@ class InstanceExecAuthorizationInputOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InstanceExecAuthorizationInputOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['command'])) {
             if (!empty($map['command'])) {
-                $model->command = [];
-                $n1 = 0;
-                foreach ($map['command'] as $item1) {
-                    $model->command[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->command = $map['command'];
             }
         }
-
         if (isset($map['stderr'])) {
             $model->stderr = $map['stderr'];
         }
-
         if (isset($map['stdin'])) {
             $model->stdin = $map['stdin'];
         }
-
         if (isset($map['stdout'])) {
             $model->stdout = $map['stdout'];
         }
-
         if (isset($map['tty'])) {
             $model->tty = $map['tty'];
         }

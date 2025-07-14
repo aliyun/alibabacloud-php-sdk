@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WebOSSConfig extends Model
 {
@@ -16,24 +16,17 @@ class WebOSSConfig extends Model
         'mountPoints' => 'MountPoints',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->mountPoints)) {
-            Model::validateArray($this->mountPoints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mountPoints) {
-            if (\is_array($this->mountPoints)) {
-                $res['MountPoints'] = [];
-                $n1 = 0;
-                foreach ($this->mountPoints as $item1) {
-                    $res['MountPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['MountPoints'] = [];
+            if (null !== $this->mountPoints && \is_array($this->mountPoints)) {
+                $n = 0;
+                foreach ($this->mountPoints as $item) {
+                    $res['MountPoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,21 +34,20 @@ class WebOSSConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WebOSSConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPoints'])) {
             if (!empty($map['MountPoints'])) {
                 $model->mountPoints = [];
-                $n1 = 0;
-                foreach ($map['MountPoints'] as $item1) {
-                    $model->mountPoints[$n1] = WebOSSMountPoint::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['MountPoints'] as $item) {
+                    $model->mountPoints[$n++] = null !== $item ? WebOSSMountPoint::fromMap($item) : $item;
                 }
             }
         }

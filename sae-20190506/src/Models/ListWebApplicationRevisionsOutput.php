@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListWebApplicationRevisionsOutput extends Model
 {
@@ -22,28 +22,20 @@ class ListWebApplicationRevisionsOutput extends Model
         'revisions' => 'Revisions',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->revisions)) {
-            Model::validateArray($this->revisions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->revisions) {
-            if (\is_array($this->revisions)) {
-                $res['Revisions'] = [];
-                $n1 = 0;
-                foreach ($this->revisions as $item1) {
-                    $res['Revisions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Revisions'] = [];
+            if (null !== $this->revisions && \is_array($this->revisions)) {
+                $n = 0;
+                foreach ($this->revisions as $item) {
+                    $res['Revisions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -51,25 +43,23 @@ class ListWebApplicationRevisionsOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListWebApplicationRevisionsOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['Revisions'])) {
             if (!empty($map['Revisions'])) {
                 $model->revisions = [];
-                $n1 = 0;
-                foreach ($map['Revisions'] as $item1) {
-                    $model->revisions[$n1] = Revision::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Revisions'] as $item) {
+                    $model->revisions[$n++] = null !== $item ? Revision::fromMap($item) : $item;
                 }
             }
         }

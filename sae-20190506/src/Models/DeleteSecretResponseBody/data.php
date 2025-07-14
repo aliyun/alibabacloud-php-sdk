@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSecretResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the deleted Secret.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $secretId;
@@ -16,12 +20,9 @@ class data extends Model
         'secretId' => 'SecretId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->secretId) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

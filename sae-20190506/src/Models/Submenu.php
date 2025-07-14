@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\Submenu\items;
+use AlibabaCloud\Tea\Model;
 
 class Submenu extends Model
 {
@@ -35,46 +35,32 @@ class Submenu extends Model
         'submenus' => 'Submenus',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        if (\is_array($this->submenus)) {
-            Model::validateArray($this->submenus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['Items'] = [];
-                $n1 = 0;
-                foreach ($this->items as $item1) {
-                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                $n = 0;
+                foreach ($this->items as $item) {
+                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->submenuDesc) {
             $res['SubmenuDesc'] = $this->submenuDesc;
         }
-
         if (null !== $this->submenuType) {
             $res['SubmenuType'] = $this->submenuType;
         }
-
         if (null !== $this->submenus) {
-            if (\is_array($this->submenus)) {
-                $res['Submenus'] = [];
-                $n1 = 0;
-                foreach ($this->submenus as $item1) {
-                    $res['Submenus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Submenus'] = [];
+            if (null !== $this->submenus && \is_array($this->submenus)) {
+                $n = 0;
+                foreach ($this->submenus as $item) {
+                    $res['Submenus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -82,40 +68,35 @@ class Submenu extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Submenu
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1 = 0;
-                foreach ($map['Items'] as $item1) {
-                    $model->items[$n1] = items::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Items'] as $item) {
+                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SubmenuDesc'])) {
             $model->submenuDesc = $map['SubmenuDesc'];
         }
-
         if (isset($map['SubmenuType'])) {
             $model->submenuType = $map['SubmenuType'];
         }
-
         if (isset($map['Submenus'])) {
             if (!empty($map['Submenus'])) {
                 $model->submenus = [];
-                $n1 = 0;
-                foreach ($map['Submenus'] as $item1) {
-                    $model->submenus[$n1] = self::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Submenus'] as $item) {
+                    $model->submenus[$n++] = null !== $item ? self::fromMap($item) : $item;
                 }
             }
         }

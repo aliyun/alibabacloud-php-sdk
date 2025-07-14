@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeChangeOrderRequest extends Model
 {
     /**
+     * @description The ID of the change order. You can call the [ListChangeOrders](https://help.aliyun.com/document_detail/126615.html) operation to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 76fa5c0-9ebb-4bb4-b383-1f885447****
+     *
      * @var string
      */
     public $changeOrderId;
@@ -16,12 +22,9 @@ class DescribeChangeOrderRequest extends Model
         'changeOrderId' => 'ChangeOrderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -31,11 +34,11 @@ class DescribeChangeOrderRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeChangeOrderRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

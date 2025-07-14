@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GRPCAction extends Model
 {
@@ -22,18 +22,14 @@ class GRPCAction extends Model
         'service' => 'service',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
-
         if (null !== $this->service) {
             $res['service'] = $this->service;
         }
@@ -41,18 +37,17 @@ class GRPCAction extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GRPCAction
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
-
         if (isset($map['service'])) {
             $model->service = $map['service'];
         }

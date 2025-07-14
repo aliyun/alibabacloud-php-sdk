@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute\policies\fallback;
 use AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute\policies\retry;
 use AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute\policies\timeout;
+use AlibabaCloud\Tea\Model;
 
 class policies extends Model
 {
@@ -31,54 +31,38 @@ class policies extends Model
         'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->fallback) {
-            $this->fallback->validate();
-        }
-        if (null !== $this->retry) {
-            $this->retry->validate();
-        }
-        if (null !== $this->timeout) {
-            $this->timeout->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fallback) {
-            $res['Fallback'] = null !== $this->fallback ? $this->fallback->toArray($noStream) : $this->fallback;
+            $res['Fallback'] = null !== $this->fallback ? $this->fallback->toMap() : null;
         }
-
         if (null !== $this->retry) {
-            $res['Retry'] = null !== $this->retry ? $this->retry->toArray($noStream) : $this->retry;
+            $res['Retry'] = null !== $this->retry ? $this->retry->toMap() : null;
         }
-
         if (null !== $this->timeout) {
-            $res['Timeout'] = null !== $this->timeout ? $this->timeout->toArray($noStream) : $this->timeout;
+            $res['Timeout'] = null !== $this->timeout ? $this->timeout->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return policies
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fallback'])) {
             $model->fallback = fallback::fromMap($map['Fallback']);
         }
-
         if (isset($map['Retry'])) {
             $model->retry = retry::fromMap($map['Retry']);
         }
-
         if (isset($map['Timeout'])) {
             $model->timeout = timeout::fromMap($map['Timeout']);
         }

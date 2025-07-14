@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeWebAppStaticsOutput extends Model
 {
@@ -22,28 +22,20 @@ class DescribeWebAppStaticsOutput extends Model
         'webAppStatics' => 'WebAppStatics',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->webAppStatics)) {
-            Model::validateArray($this->webAppStatics);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
-
         if (null !== $this->webAppStatics) {
-            if (\is_array($this->webAppStatics)) {
-                $res['WebAppStatics'] = [];
-                $n1 = 0;
-                foreach ($this->webAppStatics as $item1) {
-                    $res['WebAppStatics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['WebAppStatics'] = [];
+            if (null !== $this->webAppStatics && \is_array($this->webAppStatics)) {
+                $n = 0;
+                foreach ($this->webAppStatics as $item) {
+                    $res['WebAppStatics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -51,25 +43,23 @@ class DescribeWebAppStaticsOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeWebAppStaticsOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
-
         if (isset($map['WebAppStatics'])) {
             if (!empty($map['WebAppStatics'])) {
                 $model->webAppStatics = [];
-                $n1 = 0;
-                foreach ($map['WebAppStatics'] as $item1) {
-                    $model->webAppStatics[$n1] = WebStaticsInfo::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['WebAppStatics'] as $item) {
+                    $model->webAppStatics[$n++] = null !== $item ? WebStaticsInfo::fromMap($item) : $item;
                 }
             }
         }

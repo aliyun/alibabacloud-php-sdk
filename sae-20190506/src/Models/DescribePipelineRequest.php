@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePipelineRequest extends Model
 {
     /**
+     * @description The ID of the batch. You can call the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 917660ba-5092-44ca-b8e0-80012c96****
+     *
      * @var string
      */
     public $pipelineId;
@@ -16,12 +22,9 @@ class DescribePipelineRequest extends Model
         'pipelineId' => 'PipelineId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pipelineId) {
@@ -31,11 +34,11 @@ class DescribePipelineRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePipelineRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

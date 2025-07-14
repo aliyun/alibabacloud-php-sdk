@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data\mseGatewayEntryRule;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data\mseGatewayEntryRule\routes\routePredicate;
+use AlibabaCloud\Tea\Model;
 
 class routes extends Model
 {
     /**
+     * @example 9504
+     *
      * @var int
      */
     public $routeId;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $routeName;
@@ -29,48 +33,38 @@ class routes extends Model
         'routePredicate' => 'RoutePredicate',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->routePredicate) {
-            $this->routePredicate->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->routeId) {
             $res['RouteId'] = $this->routeId;
         }
-
         if (null !== $this->routeName) {
             $res['RouteName'] = $this->routeName;
         }
-
         if (null !== $this->routePredicate) {
-            $res['RoutePredicate'] = null !== $this->routePredicate ? $this->routePredicate->toArray($noStream) : $this->routePredicate;
+            $res['RoutePredicate'] = null !== $this->routePredicate ? $this->routePredicate->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return routes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteId'])) {
             $model->routeId = $map['RouteId'];
         }
-
         if (isset($map['RouteName'])) {
             $model->routeName = $map['RouteName'];
         }
-
         if (isset($map['RoutePredicate'])) {
             $model->routePredicate = routePredicate::fromMap($map['RoutePredicate']);
         }

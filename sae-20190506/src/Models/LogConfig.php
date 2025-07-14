@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LogConfig extends Model
 {
@@ -46,34 +46,26 @@ class LogConfig extends Model
         'pushToUserSLS' => 'pushToUserSLS',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableInstanceMetrics) {
             $res['enableInstanceMetrics'] = $this->enableInstanceMetrics;
         }
-
         if (null !== $this->enableRequestMetrics) {
             $res['enableRequestMetrics'] = $this->enableRequestMetrics;
         }
-
         if (null !== $this->logBeginRule) {
             $res['logBeginRule'] = $this->logBeginRule;
         }
-
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
-
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
-
         if (null !== $this->pushToUserSLS) {
             $res['pushToUserSLS'] = $this->pushToUserSLS;
         }
@@ -81,34 +73,29 @@ class LogConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LogConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enableInstanceMetrics'])) {
             $model->enableInstanceMetrics = $map['enableInstanceMetrics'];
         }
-
         if (isset($map['enableRequestMetrics'])) {
             $model->enableRequestMetrics = $map['enableRequestMetrics'];
         }
-
         if (isset($map['logBeginRule'])) {
             $model->logBeginRule = $map['logBeginRule'];
         }
-
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
-
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
-
         if (isset($map['pushToUserSLS'])) {
             $model->pushToUserSLS = $map['pushToUserSLS'];
         }

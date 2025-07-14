@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\PriceEstimateOutput\items;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class steps extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $begin;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @example 0.0001
+     *
      * @var float
      */
     public $price;
@@ -29,6 +35,8 @@ class steps extends Model
     public $regionIds;
 
     /**
+     * @example 核*秒
+     *
      * @var string
      */
     public $unit;
@@ -40,40 +48,23 @@ class steps extends Model
         'unit' => 'Unit',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->regionIds)) {
-            Model::validateArray($this->regionIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->begin) {
             $res['Begin'] = $this->begin;
         }
-
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
-
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
-
         if (null !== $this->regionIds) {
-            if (\is_array($this->regionIds)) {
-                $res['RegionIds'] = [];
-                $n1 = 0;
-                foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RegionIds'] = $this->regionIds;
         }
-
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
@@ -81,37 +72,28 @@ class steps extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return steps
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Begin'])) {
             $model->begin = $map['Begin'];
         }
-
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
-
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }
-
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
-                $model->regionIds = [];
-                $n1 = 0;
-                foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->regionIds = $map['RegionIds'];
             }
         }
-
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }

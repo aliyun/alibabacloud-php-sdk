@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\BatchStartApplicationsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
+     * @example 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+     *
      * @var string
      */
     public $changeOrderId;
@@ -16,12 +25,9 @@ class data extends Model
         'changeOrderId' => 'ChangeOrderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -31,11 +37,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

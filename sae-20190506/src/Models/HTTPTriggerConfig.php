@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class HTTPTriggerConfig extends Model
 {
@@ -40,33 +40,23 @@ class HTTPTriggerConfig extends Model
         'safeMode' => 'safeMode',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->aclConfig) {
-            $this->aclConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclConfig) {
-            $res['aclConfig'] = null !== $this->aclConfig ? $this->aclConfig->toArray($noStream) : $this->aclConfig;
+            $res['aclConfig'] = null !== $this->aclConfig ? $this->aclConfig->toMap() : null;
         }
-
         if (null !== $this->authConfig) {
             $res['authConfig'] = $this->authConfig;
         }
-
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
         }
-
         if (null !== $this->disableURLInternet) {
             $res['disableURLInternet'] = $this->disableURLInternet;
         }
-
         if (null !== $this->safeMode) {
             $res['safeMode'] = $this->safeMode;
         }
@@ -74,30 +64,26 @@ class HTTPTriggerConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HTTPTriggerConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aclConfig'])) {
             $model->aclConfig = AclConfig::fromMap($map['aclConfig']);
         }
-
         if (isset($map['authConfig'])) {
             $model->authConfig = $map['authConfig'];
         }
-
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
         }
-
         if (isset($map['disableURLInternet'])) {
             $model->disableURLInternet = $map['disableURLInternet'];
         }
-
         if (isset($map['safeMode'])) {
             $model->safeMode = $map['safeMode'];
         }

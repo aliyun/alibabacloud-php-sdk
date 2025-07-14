@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListSwimmingLaneGroupTagsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example {"version":"1.0.0","owner":"team-a"}
+     *
      * @var string
      */
     public $metadata;
 
     /**
+     * @example {"alicloud.service.tag":"g1"}
+     *
      * @var string
      */
     public $tag;
@@ -22,18 +26,14 @@ class data extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
-
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -41,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
-
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }

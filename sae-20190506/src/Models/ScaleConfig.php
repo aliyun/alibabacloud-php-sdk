@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ScaleConfig extends Model
 {
@@ -34,26 +34,20 @@ class ScaleConfig extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alwaysAllocateCPU) {
             $res['alwaysAllocateCPU'] = $this->alwaysAllocateCPU;
         }
-
         if (null !== $this->maximumInstanceCount) {
             $res['maximumInstanceCount'] = $this->maximumInstanceCount;
         }
-
         if (null !== $this->minimumInstanceCount) {
             $res['minimumInstanceCount'] = $this->minimumInstanceCount;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -61,26 +55,23 @@ class ScaleConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ScaleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alwaysAllocateCPU'])) {
             $model->alwaysAllocateCPU = $map['alwaysAllocateCPU'];
         }
-
         if (isset($map['maximumInstanceCount'])) {
             $model->maximumInstanceCount = $map['maximumInstanceCount'];
         }
-
         if (isset($map['minimumInstanceCount'])) {
             $model->minimumInstanceCount = $map['minimumInstanceCount'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
