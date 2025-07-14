@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SaveContactBlockListRequest extends Model
 {
     /**
+     * @example []
+     *
      * @var string[]
      */
     public $contactBlockListList;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $contactBlockListsJson;
 
     /**
+     * @example c3c92de8-e4bd-4db4-a962-50f8acce40bc
+     *
      * @var string
      */
     public $instanceId;
@@ -28,31 +34,17 @@ class SaveContactBlockListRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contactBlockListList)) {
-            Model::validateArray($this->contactBlockListList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactBlockListList) {
-            if (\is_array($this->contactBlockListList)) {
-                $res['ContactBlockListList'] = [];
-                $n1 = 0;
-                foreach ($this->contactBlockListList as $item1) {
-                    $res['ContactBlockListList'][$n1++] = $item1;
-                }
-            }
+            $res['ContactBlockListList'] = $this->contactBlockListList;
         }
-
         if (null !== $this->contactBlockListsJson) {
             $res['ContactBlockListsJson'] = $this->contactBlockListsJson;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,28 +52,22 @@ class SaveContactBlockListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SaveContactBlockListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactBlockListList'])) {
             if (!empty($map['ContactBlockListList'])) {
-                $model->contactBlockListList = [];
-                $n1 = 0;
-                foreach ($map['ContactBlockListList'] as $item1) {
-                    $model->contactBlockListList[$n1++] = $item1;
-                }
+                $model->contactBlockListList = $map['ContactBlockListList'];
             }
         }
-
         if (isset($map['ContactBlockListsJson'])) {
             $model->contactBlockListsJson = $map['ContactBlockListsJson'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAgentProfileTemplateResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example default-survey
+     *
      * @var string
      */
     public $agentProfileTemplateId;
 
     /**
+     * @example 1720766491000
+     *
      * @var string
      */
     public $createTime;
@@ -34,6 +38,8 @@ class data extends Model
     public $promptSchema;
 
     /**
+     * @example 1720766491000
+     *
      * @var string
      */
     public $updateTime;
@@ -46,34 +52,26 @@ class data extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentProfileTemplateId) {
             $res['AgentProfileTemplateId'] = $this->agentProfileTemplateId;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->promptSchema) {
             $res['PromptSchema'] = $this->promptSchema;
         }
-
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -81,34 +79,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentProfileTemplateId'])) {
             $model->agentProfileTemplateId = $map['AgentProfileTemplateId'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['PromptSchema'])) {
             $model->promptSchema = $map['PromptSchema'];
         }
-
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

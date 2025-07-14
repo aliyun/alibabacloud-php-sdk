@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteOutboundCallNumberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 33014787-cc13-49d3-ab2f-a98aa8f15fbb
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ffa367e0-58f3-43b6-9615-c63db99c5add
+     *
      * @var string
      */
     public $outboundCallNumberId;
@@ -22,18 +30,14 @@ class DeleteOutboundCallNumberRequest extends Model
         'outboundCallNumberId' => 'OutboundCallNumberId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->outboundCallNumberId) {
             $res['OutboundCallNumberId'] = $this->outboundCallNumberId;
         }
@@ -41,18 +45,17 @@ class DeleteOutboundCallNumberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteOutboundCallNumberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OutboundCallNumberId'])) {
             $model->outboundCallNumberId = $map['OutboundCallNumberId'];
         }

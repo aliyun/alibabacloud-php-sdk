@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetBaseStrategyPeriodRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 024f8cf0-c842-4c01-b74b-c8667e4579c7
+     *
      * @var string
      */
     public $entryId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $strategyLevel;
@@ -22,18 +28,14 @@ class GetBaseStrategyPeriodRequest extends Model
         'strategyLevel' => 'StrategyLevel',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
-
         if (null !== $this->strategyLevel) {
             $res['StrategyLevel'] = $this->strategyLevel;
         }
@@ -41,18 +43,17 @@ class GetBaseStrategyPeriodRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetBaseStrategyPeriodRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }
-
         if (isset($map['StrategyLevel'])) {
             $model->strategyLevel = $map['StrategyLevel'];
         }

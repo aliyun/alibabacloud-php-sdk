@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateNumberDistrictInfoDownloadUrlRequest extends Model
 {
     /**
+     * @example KZpaNWMgXEfneopGBMGN9fH35b62NJjN
+     *
      * @var string
      */
     public $versionId;
@@ -16,12 +18,9 @@ class CreateNumberDistrictInfoDownloadUrlRequest extends Model
         'versionId' => 'VersionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->versionId) {
@@ -31,11 +30,11 @@ class CreateNumberDistrictInfoDownloadUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateNumberDistrictInfoDownloadUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

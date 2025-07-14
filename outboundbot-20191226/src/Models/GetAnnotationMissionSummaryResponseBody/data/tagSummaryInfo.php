@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionSummaryResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionSummaryResponseBody\data\tagSummaryInfo\tagSummaryInfoDetailList;
+use AlibabaCloud\Tea\Model;
 
 class tagSummaryInfo extends Model
 {
@@ -17,23 +17,17 @@ class tagSummaryInfo extends Model
         'tagSummaryInfoDetailList' => 'TagSummaryInfoDetailList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tagSummaryInfoDetailList)) {
-            Model::validateArray($this->tagSummaryInfoDetailList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagSummaryInfoDetailList) {
-            if (\is_array($this->tagSummaryInfoDetailList)) {
-                $res['TagSummaryInfoDetailList'] = [];
-                $n1 = 0;
-                foreach ($this->tagSummaryInfoDetailList as $item1) {
-                    $res['TagSummaryInfoDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TagSummaryInfoDetailList'] = [];
+            if (null !== $this->tagSummaryInfoDetailList && \is_array($this->tagSummaryInfoDetailList)) {
+                $n = 0;
+                foreach ($this->tagSummaryInfoDetailList as $item) {
+                    $res['TagSummaryInfoDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class tagSummaryInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagSummaryInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagSummaryInfoDetailList'])) {
             if (!empty($map['TagSummaryInfoDetailList'])) {
                 $model->tagSummaryInfoDetailList = [];
-                $n1 = 0;
-                foreach ($map['TagSummaryInfoDetailList'] as $item1) {
-                    $model->tagSummaryInfoDetailList[$n1++] = tagSummaryInfoDetailList::fromMap($item1);
+                $n = 0;
+                foreach ($map['TagSummaryInfoDetailList'] as $item) {
+                    $model->tagSummaryInfoDetailList[$n++] = null !== $item ? tagSummaryInfoDetailList::fromMap($item) : $item;
                 }
             }
         }

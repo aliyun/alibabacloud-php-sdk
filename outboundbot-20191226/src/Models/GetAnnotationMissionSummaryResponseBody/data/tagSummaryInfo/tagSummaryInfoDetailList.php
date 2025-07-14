@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionSummaryResponseBody\data\tagSummaryInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagSummaryInfoDetailList extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $count;
@@ -22,18 +24,14 @@ class tagSummaryInfoDetailList extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,18 +39,17 @@ class tagSummaryInfoDetailList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagSummaryInfoDetailList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

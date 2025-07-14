@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsResponseBody\jobs\list_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagHits extends Model
 {
@@ -22,18 +22,14 @@ class tagHits extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagGroup) {
             $res['TagGroup'] = $this->tagGroup;
         }
-
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -41,18 +37,17 @@ class tagHits extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagHits
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagGroup'])) {
             $model->tagGroup = $map['TagGroup'];
         }
-
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

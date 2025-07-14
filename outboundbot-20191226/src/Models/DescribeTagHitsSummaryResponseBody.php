@@ -4,33 +4,43 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeTagHitsSummaryResponseBody\tagGroups;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeTagHitsSummaryResponseBody\tagHitsList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTagHitsSummaryResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 5391EB13-A0E7-402D-A407-B99D4ABAF22A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -54,56 +64,41 @@ class DescribeTagHitsSummaryResponseBody extends Model
         'tagHitsList' => 'TagHitsList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tagGroups)) {
-            Model::validateArray($this->tagGroups);
-        }
-        if (\is_array($this->tagHitsList)) {
-            Model::validateArray($this->tagHitsList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->tagGroups) {
-            if (\is_array($this->tagGroups)) {
-                $res['TagGroups'] = [];
-                $n1 = 0;
-                foreach ($this->tagGroups as $item1) {
-                    $res['TagGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TagGroups'] = [];
+            if (null !== $this->tagGroups && \is_array($this->tagGroups)) {
+                $n = 0;
+                foreach ($this->tagGroups as $item) {
+                    $res['TagGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->tagHitsList) {
-            if (\is_array($this->tagHitsList)) {
-                $res['TagHitsList'] = [];
-                $n1 = 0;
-                foreach ($this->tagHitsList as $item1) {
-                    $res['TagHitsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TagHitsList'] = [];
+            if (null !== $this->tagHitsList && \is_array($this->tagHitsList)) {
+                $n = 0;
+                foreach ($this->tagHitsList as $item) {
+                    $res['TagHitsList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -111,50 +106,44 @@ class DescribeTagHitsSummaryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTagHitsSummaryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['TagGroups'])) {
             if (!empty($map['TagGroups'])) {
                 $model->tagGroups = [];
-                $n1 = 0;
-                foreach ($map['TagGroups'] as $item1) {
-                    $model->tagGroups[$n1++] = tagGroups::fromMap($item1);
+                $n = 0;
+                foreach ($map['TagGroups'] as $item) {
+                    $model->tagGroups[$n++] = null !== $item ? tagGroups::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TagHitsList'])) {
             if (!empty($map['TagHitsList'])) {
                 $model->tagHitsList = [];
-                $n1 = 0;
-                foreach ($map['TagHitsList'] as $item1) {
-                    $model->tagHitsList[$n1++] = tagHitsList::fromMap($item1);
+                $n = 0;
+                foreach ($map['TagHitsList'] as $item) {
+                    $model->tagHitsList[$n++] = null !== $item ? tagHitsList::fromMap($item) : $item;
                 }
             }
         }

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobResponseBody\job;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class summary extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example score
+     *
      * @var string
      */
     public $summaryName;
@@ -28,22 +34,17 @@ class summary extends Model
         'summaryName' => 'SummaryName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->summaryName) {
             $res['SummaryName'] = $this->summaryName;
         }
@@ -51,22 +52,20 @@ class summary extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return summary
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['SummaryName'])) {
             $model->summaryName = $map['SummaryName'];
         }

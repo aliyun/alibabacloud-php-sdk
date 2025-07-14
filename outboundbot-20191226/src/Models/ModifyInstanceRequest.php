@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceRequest extends Model
 {
     /**
+     * @example ["95187"]
+     *
      * @var string[]
      */
     public $callingNumber;
@@ -19,6 +21,10 @@ class ModifyInstanceRequest extends Model
     public $instanceDescription;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +35,10 @@ class ModifyInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $maxConcurrentConversation;
@@ -40,39 +50,23 @@ class ModifyInstanceRequest extends Model
         'maxConcurrentConversation' => 'MaxConcurrentConversation',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->callingNumber)) {
-            Model::validateArray($this->callingNumber);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callingNumber) {
-            if (\is_array($this->callingNumber)) {
-                $res['CallingNumber'] = [];
-                $n1 = 0;
-                foreach ($this->callingNumber as $item1) {
-                    $res['CallingNumber'][$n1++] = $item1;
-                }
-            }
+            $res['CallingNumber'] = $this->callingNumber;
         }
-
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-
         if (null !== $this->maxConcurrentConversation) {
             $res['MaxConcurrentConversation'] = $this->maxConcurrentConversation;
         }
@@ -80,36 +74,28 @@ class ModifyInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallingNumber'])) {
             if (!empty($map['CallingNumber'])) {
-                $model->callingNumber = [];
-                $n1 = 0;
-                foreach ($map['CallingNumber'] as $item1) {
-                    $model->callingNumber[$n1++] = $item1;
-                }
+                $model->callingNumber = $map['CallingNumber'];
             }
         }
-
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-
         if (isset($map['MaxConcurrentConversation'])) {
             $model->maxConcurrentConversation = $map['MaxConcurrentConversation'];
         }

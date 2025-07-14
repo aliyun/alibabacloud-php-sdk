@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentUserSayResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userSays extends Model
 {
@@ -14,21 +14,29 @@ class userSays extends Model
     public $content;
 
     /**
+     * @example 2025-04-21 14:16:05.+0800
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 10717802
+     *
      * @var int
      */
     public $intentId;
 
     /**
+     * @example 2025-04-21 14:16:05.+0800
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 17448458
+     *
      * @var string
      */
     public $userSayId;
@@ -40,30 +48,23 @@ class userSays extends Model
         'userSayId' => 'UserSayId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
         }
-
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
-
         if (null !== $this->userSayId) {
             $res['UserSayId'] = $this->userSayId;
         }
@@ -71,30 +72,26 @@ class userSays extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userSays
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
         }
-
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
-
         if (isset($map['UserSayId'])) {
             $model->userSayId = $map['UserSayId'];
         }

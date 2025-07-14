@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TerminateCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1528189846043
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 174952ab-9825-4cc9-a5e2-de82d7fa4cdd
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +30,14 @@ class TerminateCallRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +45,17 @@ class TerminateCallRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TerminateCallRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

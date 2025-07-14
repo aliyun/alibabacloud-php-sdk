@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryScriptsByStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 361c8a53-0e29-42f3-8aa7-c7752d010399
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $statusList;
@@ -34,69 +48,47 @@ class QueryScriptsByStatusRequest extends Model
         'statusList' => 'StatusList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->statusList)) {
-            Model::validateArray($this->statusList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->statusList) {
-            if (\is_array($this->statusList)) {
-                $res['StatusList'] = [];
-                $n1 = 0;
-                foreach ($this->statusList as $item1) {
-                    $res['StatusList'][$n1++] = $item1;
-                }
-            }
+            $res['StatusList'] = $this->statusList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryScriptsByStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
-                $model->statusList = [];
-                $n1 = 0;
-                foreach ($map['StatusList'] as $item1) {
-                    $model->statusList[$n1++] = $item1;
-                }
+                $model->statusList = $map['StatusList'];
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAgentProfilesRequest extends Model
 {
@@ -14,6 +14,8 @@ class DeleteAgentProfilesRequest extends Model
     public $agentProfileIds;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $appIp;
@@ -22,27 +24,14 @@ class DeleteAgentProfilesRequest extends Model
         'appIp' => 'AppIp',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->agentProfileIds)) {
-            Model::validateArray($this->agentProfileIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentProfileIds) {
-            if (\is_array($this->agentProfileIds)) {
-                $res['AgentProfileIds'] = [];
-                $n1 = 0;
-                foreach ($this->agentProfileIds as $item1) {
-                    $res['AgentProfileIds'][$n1++] = $item1;
-                }
-            }
+            $res['AgentProfileIds'] = $this->agentProfileIds;
         }
-
         if (null !== $this->appIp) {
             $res['AppIp'] = $this->appIp;
         }
@@ -50,24 +39,19 @@ class DeleteAgentProfilesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAgentProfilesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentProfileIds'])) {
             if (!empty($map['AgentProfileIds'])) {
-                $model->agentProfileIds = [];
-                $n1 = 0;
-                foreach ($map['AgentProfileIds'] as $item1) {
-                    $model->agentProfileIds[$n1++] = $item1;
-                }
+                $model->agentProfileIds = $map['AgentProfileIds'];
             }
         }
-
         if (isset($map['AppIp'])) {
             $model->appIp = $map['AppIp'];
         }

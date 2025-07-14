@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeTenantBindNumberResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @example e2d7a184-7d6c-45d4-ac24-34ab48f54669
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isBinding;
@@ -28,22 +34,17 @@ class list_ extends Model
         'isBinding' => 'IsBinding',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-
         if (null !== $this->isBinding) {
             $res['IsBinding'] = $this->isBinding;
         }
@@ -51,22 +52,20 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-
         if (isset($map['IsBinding'])) {
             $model->isBinding = $map['IsBinding'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListSchedulerInstancesRequest extends Model
 {
     /**
+     * @example 1092143545442862
+     *
      * @var int
      */
     public $instanceOwnerId;
@@ -16,12 +18,9 @@ class ListSchedulerInstancesRequest extends Model
         'instanceOwnerId' => 'InstanceOwnerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceOwnerId) {
@@ -31,11 +30,11 @@ class ListSchedulerInstancesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSchedulerInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

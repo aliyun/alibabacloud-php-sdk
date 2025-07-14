@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobGroupResponseBody\jobGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class flashSmsExtras extends Model
 {
@@ -22,18 +22,14 @@ class flashSmsExtras extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -41,18 +37,17 @@ class flashSmsExtras extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return flashSmsExtras
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentionsResponseBody\data\intentList\slot;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
+     * @example 17448458
+     *
      * @var string
      */
     public $userSayId;
@@ -22,18 +24,14 @@ class tags extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userSayId) {
             $res['UserSayId'] = $this->userSayId;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +39,17 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserSayId'])) {
             $model->userSayId = $map['UserSayId'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

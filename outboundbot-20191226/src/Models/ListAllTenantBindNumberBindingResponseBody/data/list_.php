@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListAllTenantBindNumberBindingResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -14,6 +14,8 @@ class list_ extends Model
     public $billingType;
 
     /**
+     * @example b5bfb844-ce85-4779-bc8f-161fba46aa07
+     *
      * @var string
      */
     public $bindingId;
@@ -24,11 +26,15 @@ class list_ extends Model
     public $instanceNameList;
 
     /**
+     * @example 15005059355
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example {\\"rateLimitPeriod\\":\\"1\\",\\"rateLimitCount\\":\\"1\\"}
+     *
      * @var string
      */
     public $serializedParams;
@@ -46,43 +52,26 @@ class list_ extends Model
         'trunkName' => 'TrunkName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceNameList)) {
-            Model::validateArray($this->instanceNameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->billingType) {
             $res['BillingType'] = $this->billingType;
         }
-
         if (null !== $this->bindingId) {
             $res['BindingId'] = $this->bindingId;
         }
-
         if (null !== $this->instanceNameList) {
-            if (\is_array($this->instanceNameList)) {
-                $res['InstanceNameList'] = [];
-                $n1 = 0;
-                foreach ($this->instanceNameList as $item1) {
-                    $res['InstanceNameList'][$n1++] = $item1;
-                }
-            }
+            $res['InstanceNameList'] = $this->instanceNameList;
         }
-
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
-
         if (null !== $this->serializedParams) {
             $res['SerializedParams'] = $this->serializedParams;
         }
-
         if (null !== $this->trunkName) {
             $res['TrunkName'] = $this->trunkName;
         }
@@ -90,40 +79,31 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillingType'])) {
             $model->billingType = $map['BillingType'];
         }
-
         if (isset($map['BindingId'])) {
             $model->bindingId = $map['BindingId'];
         }
-
         if (isset($map['InstanceNameList'])) {
             if (!empty($map['InstanceNameList'])) {
-                $model->instanceNameList = [];
-                $n1 = 0;
-                foreach ($map['InstanceNameList'] as $item1) {
-                    $model->instanceNameList[$n1++] = $item1;
-                }
+                $model->instanceNameList = $map['InstanceNameList'];
             }
         }
-
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
-
         if (isset($map['SerializedParams'])) {
             $model->serializedParams = $map['SerializedParams'];
         }
-
         if (isset($map['TrunkName'])) {
             $model->trunkName = $map['TrunkName'];
         }

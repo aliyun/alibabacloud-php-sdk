@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListJobsResponseBody\jobs;
+use AlibabaCloud\Tea\Model;
 
 class ListJobsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -25,16 +29,22 @@ class ListJobsResponseBody extends Model
     public $jobs;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -47,43 +57,32 @@ class ListJobsResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobs)) {
-            Model::validateArray($this->jobs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->jobs) {
-            if (\is_array($this->jobs)) {
-                $res['Jobs'] = [];
-                $n1 = 0;
-                foreach ($this->jobs as $item1) {
-                    $res['Jobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Jobs'] = [];
+            if (null !== $this->jobs && \is_array($this->jobs)) {
+                $n = 0;
+                foreach ($this->jobs as $item) {
+                    $res['Jobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -91,40 +90,35 @@ class ListJobsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListJobsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
-                $n1 = 0;
-                foreach ($map['Jobs'] as $item1) {
-                    $model->jobs[$n1++] = jobs::fromMap($item1);
+                $n = 0;
+                foreach ($map['Jobs'] as $item) {
+                    $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

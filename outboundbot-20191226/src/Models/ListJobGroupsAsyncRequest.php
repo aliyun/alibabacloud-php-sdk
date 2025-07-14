@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListJobGroupsAsyncRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 6243d904-939d-42ce-a8e4-886a139e77a3
+     *
      * @var string
      */
     public $asyncTaskId;
@@ -16,12 +20,9 @@ class ListJobGroupsAsyncRequest extends Model
         'asyncTaskId' => 'AsyncTaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->asyncTaskId) {
@@ -31,11 +32,11 @@ class ListJobGroupsAsyncRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListJobGroupsAsyncRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

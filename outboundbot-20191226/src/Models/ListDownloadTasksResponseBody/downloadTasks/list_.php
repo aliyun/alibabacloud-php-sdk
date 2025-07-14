@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListDownloadTasksResponseBody\downloadTasks;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListDownloadTasksResponseBody\downloadTasks\list_\downloadTaskFiles;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -15,16 +15,22 @@ class list_ extends Model
     public $downloadTaskFiles;
 
     /**
+     * @example 1646792941
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example Empty
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 6b0e547e-501c-480a-812f-d27e28e74f9a
+     *
      * @var string
      */
     public $taskId;
@@ -41,39 +47,29 @@ class list_ extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->downloadTaskFiles)) {
-            Model::validateArray($this->downloadTaskFiles);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->downloadTaskFiles) {
-            if (\is_array($this->downloadTaskFiles)) {
-                $res['DownloadTaskFiles'] = [];
-                $n1 = 0;
-                foreach ($this->downloadTaskFiles as $item1) {
-                    $res['DownloadTaskFiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DownloadTaskFiles'] = [];
+            if (null !== $this->downloadTaskFiles && \is_array($this->downloadTaskFiles)) {
+                $n = 0;
+                foreach ($this->downloadTaskFiles as $item) {
+                    $res['DownloadTaskFiles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -81,36 +77,32 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadTaskFiles'])) {
             if (!empty($map['DownloadTaskFiles'])) {
                 $model->downloadTaskFiles = [];
-                $n1 = 0;
-                foreach ($map['DownloadTaskFiles'] as $item1) {
-                    $model->downloadTaskFiles[$n1++] = downloadTaskFiles::fromMap($item1);
+                $n = 0;
+                foreach ($map['DownloadTaskFiles'] as $item) {
+                    $model->downloadTaskFiles[$n++] = null !== $item ? downloadTaskFiles::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

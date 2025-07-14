@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDialogueNodeStatisticsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example aeff669b-388f-4619-82af-81e177df5628
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example a3c670d1-01bf-491d-b9aa-759b1a82f47c
+     *
      * @var string
      */
     public $jobGroupId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $limit;
@@ -28,22 +40,17 @@ class DescribeDialogueNodeStatisticsRequest extends Model
         'limit' => 'Limit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
-
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
@@ -51,22 +58,20 @@ class DescribeDialogueNodeStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDialogueNodeStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
-
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }

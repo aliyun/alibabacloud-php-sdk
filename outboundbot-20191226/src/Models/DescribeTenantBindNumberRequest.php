@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTenantBindNumberRequest extends Model
 {
     /**
+     * @example 95187
+     *
      * @var string
      */
     public $number;
@@ -16,12 +18,9 @@ class DescribeTenantBindNumberRequest extends Model
         'number' => 'Number',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->number) {
@@ -31,11 +30,11 @@ class DescribeTenantBindNumberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTenantBindNumberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

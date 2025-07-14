@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBatchJobsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBatchJobsResponseBody\jobGroup\strategy;
+use AlibabaCloud\Tea\Model;
 
 class jobGroup extends Model
 {
@@ -15,11 +15,15 @@ class jobGroup extends Model
     public $callingNumbers;
 
     /**
+     * @example 1579068424000
+     *
      * @var int
      */
     public $creationTime;
 
     /**
+     * @example 52e80b02-0126-4556-a1e6-ef5b3747ed53/a9a3ddc7-d7d7-48cd-82b5-b31bb5510e71_2a66f8ad-dfbb-4980-9b84-439171295a11.xlsx
+     *
      * @var string
      */
     public $jobFilePath;
@@ -30,6 +34,8 @@ class jobGroup extends Model
     public $jobGroupDescription;
 
     /**
+     * @example 5a7e8b09-baf9-4cab-b540-c971f47a7146
+     *
      * @var string
      */
     public $jobGroupId;
@@ -40,6 +46,8 @@ class jobGroup extends Model
     public $jobGroupName;
 
     /**
+     * @example 6cea9bed-63e6-439e-ae4c-b3333efff53d
+     *
      * @var string
      */
     public $scenarioId;
@@ -59,103 +67,70 @@ class jobGroup extends Model
         'strategy' => 'Strategy',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->callingNumbers)) {
-            Model::validateArray($this->callingNumbers);
-        }
-        if (null !== $this->strategy) {
-            $this->strategy->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callingNumbers) {
-            if (\is_array($this->callingNumbers)) {
-                $res['CallingNumbers'] = [];
-                $n1 = 0;
-                foreach ($this->callingNumbers as $item1) {
-                    $res['CallingNumbers'][$n1++] = $item1;
-                }
-            }
+            $res['CallingNumbers'] = $this->callingNumbers;
         }
-
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-
         if (null !== $this->jobFilePath) {
             $res['JobFilePath'] = $this->jobFilePath;
         }
-
         if (null !== $this->jobGroupDescription) {
             $res['JobGroupDescription'] = $this->jobGroupDescription;
         }
-
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
-
         if (null !== $this->jobGroupName) {
             $res['JobGroupName'] = $this->jobGroupName;
         }
-
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
         }
-
         if (null !== $this->strategy) {
-            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toArray($noStream) : $this->strategy;
+            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return jobGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallingNumbers'])) {
             if (!empty($map['CallingNumbers'])) {
-                $model->callingNumbers = [];
-                $n1 = 0;
-                foreach ($map['CallingNumbers'] as $item1) {
-                    $model->callingNumbers[$n1++] = $item1;
-                }
+                $model->callingNumbers = $map['CallingNumbers'];
             }
         }
-
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-
         if (isset($map['JobFilePath'])) {
             $model->jobFilePath = $map['JobFilePath'];
         }
-
         if (isset($map['JobGroupDescription'])) {
             $model->jobGroupDescription = $map['JobGroupDescription'];
         }
-
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
-
         if (isset($map['JobGroupName'])) {
             $model->jobGroupName = $map['JobGroupName'];
         }
-
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
         }
-
         if (isset($map['Strategy'])) {
             $model->strategy = strategy::fromMap($map['Strategy']);
         }

@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTaskByUuidRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 024f8cf0-c842-4c01-b74b-c8667e4579c7
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 15160071061
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withConversations;
@@ -28,22 +38,17 @@ class GetTaskByUuidRequest extends Model
         'withConversations' => 'WithConversations',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->withConversations) {
             $res['WithConversations'] = $this->withConversations;
         }
@@ -51,22 +56,20 @@ class GetTaskByUuidRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTaskByUuidRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['WithConversations'])) {
             $model->withConversations = $map['WithConversations'];
         }

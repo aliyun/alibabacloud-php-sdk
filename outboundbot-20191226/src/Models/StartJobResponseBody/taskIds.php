@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\StartJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class taskIds extends Model
 {
     /**
+     * @example c93cdd1c-f9b5-4758-be43-7a237a7eaa1d
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 62229628-45d8-41bd-a80f-6e4c0a39f79b
+     *
      * @var string
      */
     public $value;
@@ -22,18 +26,14 @@ class taskIds extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +41,17 @@ class taskIds extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

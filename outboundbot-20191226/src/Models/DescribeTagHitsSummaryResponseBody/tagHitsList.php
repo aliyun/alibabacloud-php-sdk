@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeTagHitsSummaryResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagHitsList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $hitCount;
@@ -28,22 +30,17 @@ class tagHitsList extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hitCount) {
             $res['HitCount'] = $this->hitCount;
         }
-
         if (null !== $this->tagGroup) {
             $res['TagGroup'] = $this->tagGroup;
         }
-
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -51,22 +48,20 @@ class tagHitsList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagHitsList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitCount'])) {
             $model->hitCount = $map['HitCount'];
         }
-
         if (isset($map['TagGroup'])) {
             $model->tagGroup = $map['TagGroup'];
         }
-
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

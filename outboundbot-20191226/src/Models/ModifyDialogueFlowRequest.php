@@ -4,31 +4,47 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDialogueFlowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dialogueFlowDefinition;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 390515b5-6115-4ccf-83e2-52d5bfaf2ddf
+     *
      * @var string
      */
     public $dialogueFlowId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example da37319b-6c83-4268-9f19-814aed62e401
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDrafted;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example b0f35dd1-0337-402e-9c4f-3a6c2426950a
+     *
      * @var string
      */
     public $scriptId;
@@ -40,30 +56,23 @@ class ModifyDialogueFlowRequest extends Model
         'scriptId' => 'ScriptId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dialogueFlowDefinition) {
             $res['DialogueFlowDefinition'] = $this->dialogueFlowDefinition;
         }
-
         if (null !== $this->dialogueFlowId) {
             $res['DialogueFlowId'] = $this->dialogueFlowId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->isDrafted) {
             $res['IsDrafted'] = $this->isDrafted;
         }
-
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
@@ -71,30 +80,26 @@ class ModifyDialogueFlowRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDialogueFlowRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DialogueFlowDefinition'])) {
             $model->dialogueFlowDefinition = $map['DialogueFlowDefinition'];
         }
-
         if (isset($map['DialogueFlowId'])) {
             $model->dialogueFlowId = $map['DialogueFlowId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['IsDrafted'])) {
             $model->isDrafted = $map['IsDrafted'];
         }
-
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentionsResponseBody\data\intentList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ruleCheck extends Model
 {
@@ -14,6 +14,8 @@ class ruleCheck extends Model
     public $error;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $strict;
@@ -34,84 +36,49 @@ class ruleCheck extends Model
         'warning' => 'Warning',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->error)) {
-            Model::validateArray($this->error);
-        }
-        if (\is_array($this->warning)) {
-            Model::validateArray($this->warning);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->error) {
-            if (\is_array($this->error)) {
-                $res['Error'] = [];
-                $n1 = 0;
-                foreach ($this->error as $item1) {
-                    $res['Error'][$n1++] = $item1;
-                }
-            }
+            $res['Error'] = $this->error;
         }
-
         if (null !== $this->strict) {
             $res['Strict'] = $this->strict;
         }
-
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-
         if (null !== $this->warning) {
-            if (\is_array($this->warning)) {
-                $res['Warning'] = [];
-                $n1 = 0;
-                foreach ($this->warning as $item1) {
-                    $res['Warning'][$n1++] = $item1;
-                }
-            }
+            $res['Warning'] = $this->warning;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleCheck
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Error'])) {
             if (!empty($map['Error'])) {
-                $model->error = [];
-                $n1 = 0;
-                foreach ($map['Error'] as $item1) {
-                    $model->error[$n1++] = $item1;
-                }
+                $model->error = $map['Error'];
             }
         }
-
         if (isset($map['Strict'])) {
             $model->strict = $map['Strict'];
         }
-
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
-
         if (isset($map['Warning'])) {
             if (!empty($map['Warning'])) {
-                $model->warning = [];
-                $n1 = 0;
-                foreach ($map['Warning'] as $item1) {
-                    $model->warning[$n1++] = $item1;
-                }
+                $model->warning = $map['Warning'];
             }
         }
 

@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SaveEffectiveDaysRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $effectiveDays;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example e90b5b8e-c8b4-4182-b28d-a5aa81685e49
+     *
      * @var string
      */
     public $entryId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $strategyLevel;
@@ -28,22 +36,17 @@ class SaveEffectiveDaysRequest extends Model
         'strategyLevel' => 'StrategyLevel',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->effectiveDays) {
             $res['EffectiveDays'] = $this->effectiveDays;
         }
-
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
-
         if (null !== $this->strategyLevel) {
             $res['StrategyLevel'] = $this->strategyLevel;
         }
@@ -51,22 +54,20 @@ class SaveEffectiveDaysRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SaveEffectiveDaysRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectiveDays'])) {
             $model->effectiveDays = $map['EffectiveDays'];
         }
-
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }
-
         if (isset($map['StrategyLevel'])) {
             $model->strategyLevel = $map['StrategyLevel'];
         }

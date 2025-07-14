@@ -4,25 +4,31 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs\list_;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs\list_\latestTask\contact;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs\list_\latestTask\dialExceptionCodes;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs\list_\latestTask\extras;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs\list_\latestTask\tagHits;
+use AlibabaCloud\Tea\Model;
 
 class latestTask extends Model
 {
     /**
+     * @example 40000
+     *
      * @var int
      */
     public $callDuration;
 
     /**
+     * @example 40
+     *
      * @var string
      */
     public $callDurationDisplay;
 
     /**
+     * @example 1615363297000
+     *
      * @var int
      */
     public $callTime;
@@ -43,26 +49,36 @@ class latestTask extends Model
     public $extras;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasAnswered;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hasHangUpByRejection;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasLastPlaybackCompleted;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasReachedEndOfFlow;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $status;
@@ -78,6 +94,8 @@ class latestTask extends Model
     public $tagHits;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $taskEndReason;
@@ -98,96 +116,68 @@ class latestTask extends Model
         'taskEndReason' => 'TaskEndReason',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->contact) {
-            $this->contact->validate();
-        }
-        if (\is_array($this->dialExceptionCodes)) {
-            Model::validateArray($this->dialExceptionCodes);
-        }
-        if (\is_array($this->extras)) {
-            Model::validateArray($this->extras);
-        }
-        if (\is_array($this->tagHits)) {
-            Model::validateArray($this->tagHits);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callDuration) {
             $res['CallDuration'] = $this->callDuration;
         }
-
         if (null !== $this->callDurationDisplay) {
             $res['CallDurationDisplay'] = $this->callDurationDisplay;
         }
-
         if (null !== $this->callTime) {
             $res['CallTime'] = $this->callTime;
         }
-
         if (null !== $this->contact) {
-            $res['Contact'] = null !== $this->contact ? $this->contact->toArray($noStream) : $this->contact;
+            $res['Contact'] = null !== $this->contact ? $this->contact->toMap() : null;
         }
-
         if (null !== $this->dialExceptionCodes) {
-            if (\is_array($this->dialExceptionCodes)) {
-                $res['DialExceptionCodes'] = [];
-                $n1 = 0;
-                foreach ($this->dialExceptionCodes as $item1) {
-                    $res['DialExceptionCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DialExceptionCodes'] = [];
+            if (null !== $this->dialExceptionCodes && \is_array($this->dialExceptionCodes)) {
+                $n = 0;
+                foreach ($this->dialExceptionCodes as $item) {
+                    $res['DialExceptionCodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->extras) {
-            if (\is_array($this->extras)) {
-                $res['Extras'] = [];
-                $n1 = 0;
-                foreach ($this->extras as $item1) {
-                    $res['Extras'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Extras'] = [];
+            if (null !== $this->extras && \is_array($this->extras)) {
+                $n = 0;
+                foreach ($this->extras as $item) {
+                    $res['Extras'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->hasAnswered) {
             $res['HasAnswered'] = $this->hasAnswered;
         }
-
         if (null !== $this->hasHangUpByRejection) {
             $res['HasHangUpByRejection'] = $this->hasHangUpByRejection;
         }
-
         if (null !== $this->hasLastPlaybackCompleted) {
             $res['HasLastPlaybackCompleted'] = $this->hasLastPlaybackCompleted;
         }
-
         if (null !== $this->hasReachedEndOfFlow) {
             $res['HasReachedEndOfFlow'] = $this->hasReachedEndOfFlow;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->statusName) {
             $res['StatusName'] = $this->statusName;
         }
-
         if (null !== $this->tagHits) {
-            if (\is_array($this->tagHits)) {
-                $res['TagHits'] = [];
-                $n1 = 0;
-                foreach ($this->tagHits as $item1) {
-                    $res['TagHits'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TagHits'] = [];
+            if (null !== $this->tagHits && \is_array($this->tagHits)) {
+                $n = 0;
+                foreach ($this->tagHits as $item) {
+                    $res['TagHits'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->taskEndReason) {
             $res['TaskEndReason'] = $this->taskEndReason;
         }
@@ -195,84 +185,71 @@ class latestTask extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return latestTask
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallDuration'])) {
             $model->callDuration = $map['CallDuration'];
         }
-
         if (isset($map['CallDurationDisplay'])) {
             $model->callDurationDisplay = $map['CallDurationDisplay'];
         }
-
         if (isset($map['CallTime'])) {
             $model->callTime = $map['CallTime'];
         }
-
         if (isset($map['Contact'])) {
             $model->contact = contact::fromMap($map['Contact']);
         }
-
         if (isset($map['DialExceptionCodes'])) {
             if (!empty($map['DialExceptionCodes'])) {
                 $model->dialExceptionCodes = [];
-                $n1 = 0;
-                foreach ($map['DialExceptionCodes'] as $item1) {
-                    $model->dialExceptionCodes[$n1++] = dialExceptionCodes::fromMap($item1);
+                $n = 0;
+                foreach ($map['DialExceptionCodes'] as $item) {
+                    $model->dialExceptionCodes[$n++] = null !== $item ? dialExceptionCodes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Extras'])) {
             if (!empty($map['Extras'])) {
                 $model->extras = [];
-                $n1 = 0;
-                foreach ($map['Extras'] as $item1) {
-                    $model->extras[$n1++] = extras::fromMap($item1);
+                $n = 0;
+                foreach ($map['Extras'] as $item) {
+                    $model->extras[$n++] = null !== $item ? extras::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['HasAnswered'])) {
             $model->hasAnswered = $map['HasAnswered'];
         }
-
         if (isset($map['HasHangUpByRejection'])) {
             $model->hasHangUpByRejection = $map['HasHangUpByRejection'];
         }
-
         if (isset($map['HasLastPlaybackCompleted'])) {
             $model->hasLastPlaybackCompleted = $map['HasLastPlaybackCompleted'];
         }
-
         if (isset($map['HasReachedEndOfFlow'])) {
             $model->hasReachedEndOfFlow = $map['HasReachedEndOfFlow'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['StatusName'])) {
             $model->statusName = $map['StatusName'];
         }
-
         if (isset($map['TagHits'])) {
             if (!empty($map['TagHits'])) {
                 $model->tagHits = [];
-                $n1 = 0;
-                foreach ($map['TagHits'] as $item1) {
-                    $model->tagHits[$n1++] = tagHits::fromMap($item1);
+                $n = 0;
+                foreach ($map['TagHits'] as $item) {
+                    $model->tagHits[$n++] = null !== $item ? tagHits::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TaskEndReason'])) {
             $model->taskEndReason = $map['TaskEndReason'];
         }

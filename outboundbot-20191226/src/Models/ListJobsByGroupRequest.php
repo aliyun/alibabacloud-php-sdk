@@ -4,36 +4,56 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListJobsByGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example NoAnswer
+     *
      * @var string
      */
     public $jobFailureReason;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example de48407d-309e-451a-81ec-6fb11f8fdbf3
+     *
      * @var string
      */
     public $jobGroupId;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $jobStatus;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -46,34 +66,26 @@ class ListJobsByGroupRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->jobFailureReason) {
             $res['JobFailureReason'] = $this->jobFailureReason;
         }
-
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
-
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -81,34 +93,29 @@ class ListJobsByGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListJobsByGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['JobFailureReason'])) {
             $model->jobFailureReason = $map['JobFailureReason'];
         }
-
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
-
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

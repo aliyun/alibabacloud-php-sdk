@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAnnotationMissionSummaryRequest extends Model
 {
     /**
+     * @example 50e53ac8-24a4-46d5-b174-ee88867f4780
+     *
      * @var string
      */
     public $annotationMissionId;
@@ -16,12 +18,9 @@ class GetAnnotationMissionSummaryRequest extends Model
         'annotationMissionId' => 'AnnotationMissionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->annotationMissionId) {
@@ -31,11 +30,11 @@ class GetAnnotationMissionSummaryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAnnotationMissionSummaryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

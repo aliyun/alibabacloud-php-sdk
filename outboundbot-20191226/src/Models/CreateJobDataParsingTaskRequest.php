@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateJobDataParsingTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example b3865dc3-40fa-4afd-9fe4-dc7cda305a24
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jobFilePath;
@@ -22,18 +28,14 @@ class CreateJobDataParsingTaskRequest extends Model
         'jobFilePath' => 'JobFilePath',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->jobFilePath) {
             $res['JobFilePath'] = $this->jobFilePath;
         }
@@ -41,18 +43,17 @@ class CreateJobDataParsingTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateJobDataParsingTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['JobFilePath'])) {
             $model->jobFilePath = $map['JobFilePath'];
         }

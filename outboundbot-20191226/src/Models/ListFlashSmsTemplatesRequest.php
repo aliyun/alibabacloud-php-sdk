@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListFlashSmsTemplatesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example fe542524-9585-4cc7-be54-c8782ed7f60e
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 361c8a53-0e29-42f3-8aa7-c7752d010399
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example Uincall
+     *
      * @var string
      */
     public $providerId;
@@ -28,22 +40,17 @@ class ListFlashSmsTemplatesRequest extends Model
         'providerId' => 'ProviderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->providerId) {
             $res['ProviderId'] = $this->providerId;
         }
@@ -51,22 +58,20 @@ class ListFlashSmsTemplatesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFlashSmsTemplatesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['ProviderId'])) {
             $model->providerId = $map['ProviderId'];
         }

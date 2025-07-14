@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteScriptWaveformRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $scriptId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $scriptWaveformId;
@@ -28,22 +34,17 @@ class DeleteScriptWaveformRequest extends Model
         'scriptWaveformId' => 'ScriptWaveformId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
-
         if (null !== $this->scriptWaveformId) {
             $res['ScriptWaveformId'] = $this->scriptWaveformId;
         }
@@ -51,22 +52,20 @@ class DeleteScriptWaveformRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteScriptWaveformRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }
-
         if (isset($map['ScriptWaveformId'])) {
             $model->scriptWaveformId = $map['ScriptWaveformId'];
         }

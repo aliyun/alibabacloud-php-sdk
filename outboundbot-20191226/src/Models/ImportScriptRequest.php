@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImportScriptRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -19,6 +21,8 @@ class ImportScriptRequest extends Model
     public $nluEngine;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $signatureUrl;
@@ -28,22 +32,17 @@ class ImportScriptRequest extends Model
         'signatureUrl' => 'SignatureUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->nluEngine) {
             $res['NluEngine'] = $this->nluEngine;
         }
-
         if (null !== $this->signatureUrl) {
             $res['SignatureUrl'] = $this->signatureUrl;
         }
@@ -51,22 +50,20 @@ class ImportScriptRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImportScriptRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NluEngine'])) {
             $model->nluEngine = $map['NluEngine'];
         }
-
         if (isset($map['SignatureUrl'])) {
             $model->signatureUrl = $map['SignatureUrl'];
         }

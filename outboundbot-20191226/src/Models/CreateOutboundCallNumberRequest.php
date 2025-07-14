@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateOutboundCallNumberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 174952ab-9825-4cc9-a5e2-de82d7fa4cdd
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 95187
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $rateLimitCount;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 120
+     *
      * @var int
      */
     public $rateLimitPeriod;
@@ -34,26 +50,20 @@ class CreateOutboundCallNumberRequest extends Model
         'rateLimitPeriod' => 'RateLimitPeriod',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
-
         if (null !== $this->rateLimitCount) {
             $res['RateLimitCount'] = $this->rateLimitCount;
         }
-
         if (null !== $this->rateLimitPeriod) {
             $res['RateLimitPeriod'] = $this->rateLimitPeriod;
         }
@@ -61,26 +71,23 @@ class CreateOutboundCallNumberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateOutboundCallNumberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
-
         if (isset($map['RateLimitCount'])) {
             $model->rateLimitCount = $map['RateLimitCount'];
         }
-
         if (isset($map['RateLimitPeriod'])) {
             $model->rateLimitPeriod = $map['RateLimitPeriod'];
         }

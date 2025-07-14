@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGroupExecutingInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example c46001bc-3ead-4bfd-9a69-4b5b66a4a3f4
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 3640dda7-e5b1-4b3e-9ccf-da4fc5402e11
+     *
      * @var string
      */
     public $jobGroupId;
@@ -22,18 +30,14 @@ class DescribeGroupExecutingInfoRequest extends Model
         'jobGroupId' => 'JobGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
@@ -41,18 +45,17 @@ class DescribeGroupExecutingInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGroupExecutingInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }

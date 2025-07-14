@@ -4,14 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionSummaryResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionSummaryResponseBody\data\asrSummaryInfo;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionSummaryResponseBody\data\intentSummaryInfo;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetAnnotationMissionSummaryResponseBody\data\tagSummaryInfo;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example b3f2c931-5180-43ca-b4aa-2baee2d73c8b
+     *
      * @var string
      */
     public $annotationMissionId;
@@ -27,11 +29,15 @@ class data extends Model
     public $intentSummaryInfo;
 
     /**
+     * @example You are not authorized to perform this action. CDR:View privileges are required.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -49,78 +55,56 @@ class data extends Model
         'tagSummaryInfo' => 'TagSummaryInfo',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->asrSummaryInfo) {
-            $this->asrSummaryInfo->validate();
-        }
-        if (null !== $this->intentSummaryInfo) {
-            $this->intentSummaryInfo->validate();
-        }
-        if (null !== $this->tagSummaryInfo) {
-            $this->tagSummaryInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->annotationMissionId) {
             $res['AnnotationMissionId'] = $this->annotationMissionId;
         }
-
         if (null !== $this->asrSummaryInfo) {
-            $res['AsrSummaryInfo'] = null !== $this->asrSummaryInfo ? $this->asrSummaryInfo->toArray($noStream) : $this->asrSummaryInfo;
+            $res['AsrSummaryInfo'] = null !== $this->asrSummaryInfo ? $this->asrSummaryInfo->toMap() : null;
         }
-
         if (null !== $this->intentSummaryInfo) {
-            $res['IntentSummaryInfo'] = null !== $this->intentSummaryInfo ? $this->intentSummaryInfo->toArray($noStream) : $this->intentSummaryInfo;
+            $res['IntentSummaryInfo'] = null !== $this->intentSummaryInfo ? $this->intentSummaryInfo->toMap() : null;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->tagSummaryInfo) {
-            $res['TagSummaryInfo'] = null !== $this->tagSummaryInfo ? $this->tagSummaryInfo->toArray($noStream) : $this->tagSummaryInfo;
+            $res['TagSummaryInfo'] = null !== $this->tagSummaryInfo ? $this->tagSummaryInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnnotationMissionId'])) {
             $model->annotationMissionId = $map['AnnotationMissionId'];
         }
-
         if (isset($map['AsrSummaryInfo'])) {
             $model->asrSummaryInfo = asrSummaryInfo::fromMap($map['AsrSummaryInfo']);
         }
-
         if (isset($map['IntentSummaryInfo'])) {
             $model->intentSummaryInfo = intentSummaryInfo::fromMap($map['IntentSummaryInfo']);
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['TagSummaryInfo'])) {
             $model->tagSummaryInfo = tagSummaryInfo::fromMap($map['TagSummaryInfo']);
         }

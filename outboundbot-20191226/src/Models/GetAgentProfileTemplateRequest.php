@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAgentProfileTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example default-survey
+     *
      * @var string
      */
     public $agentProfileTemplateId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $appIp;
@@ -22,18 +28,14 @@ class GetAgentProfileTemplateRequest extends Model
         'appIp' => 'AppIp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentProfileTemplateId) {
             $res['AgentProfileTemplateId'] = $this->agentProfileTemplateId;
         }
-
         if (null !== $this->appIp) {
             $res['AppIp'] = $this->appIp;
         }
@@ -41,18 +43,17 @@ class GetAgentProfileTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAgentProfileTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentProfileTemplateId'])) {
             $model->agentProfileTemplateId = $map['AgentProfileTemplateId'];
         }
-
         if (isset($map['AppIp'])) {
             $model->appIp = $map['AppIp'];
         }

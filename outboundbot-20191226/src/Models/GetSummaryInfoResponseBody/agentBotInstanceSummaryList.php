@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetSummaryInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class agentBotInstanceSummaryList extends Model
 {
     /**
+     * @example 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalCallCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCallTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $usedRecordingStorageSpace;
@@ -34,26 +42,20 @@ class agentBotInstanceSummaryList extends Model
         'usedRecordingStorageSpace' => 'UsedRecordingStorageSpace',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->totalCallCount) {
             $res['TotalCallCount'] = $this->totalCallCount;
         }
-
         if (null !== $this->totalCallTime) {
             $res['TotalCallTime'] = $this->totalCallTime;
         }
-
         if (null !== $this->usedRecordingStorageSpace) {
             $res['UsedRecordingStorageSpace'] = $this->usedRecordingStorageSpace;
         }
@@ -61,26 +63,23 @@ class agentBotInstanceSummaryList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return agentBotInstanceSummaryList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['TotalCallCount'])) {
             $model->totalCallCount = $map['TotalCallCount'];
         }
-
         if (isset($map['TotalCallTime'])) {
             $model->totalCallTime = $map['TotalCallTime'];
         }
-
         if (isset($map['UsedRecordingStorageSpace'])) {
             $model->usedRecordingStorageSpace = $map['UsedRecordingStorageSpace'];
         }

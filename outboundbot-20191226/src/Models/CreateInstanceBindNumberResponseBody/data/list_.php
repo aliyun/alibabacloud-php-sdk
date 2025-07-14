@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateInstanceBindNumberResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @example 96b847ad-2683-4794-b7b4-7ef094fb81f6
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -22,18 +26,14 @@ class list_ extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -41,18 +41,17 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
