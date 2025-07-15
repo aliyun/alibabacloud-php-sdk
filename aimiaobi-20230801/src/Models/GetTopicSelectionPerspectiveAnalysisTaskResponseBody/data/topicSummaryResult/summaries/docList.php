@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data\topicSummaryResult\summaries;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class docList extends Model
 {
@@ -19,6 +19,8 @@ class docList extends Model
     public $title;
 
     /**
+     * @example http://www.example.com
+     *
      * @var string
      */
     public $url;
@@ -28,22 +30,17 @@ class docList extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -51,22 +48,20 @@ class docList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return docList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

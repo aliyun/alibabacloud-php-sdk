@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadBookRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class docs extends Model
 {
@@ -14,6 +14,8 @@ class docs extends Model
     public $docName;
 
     /**
+     * @example http://xxx/ccc.pdf
+     *
      * @var string
      */
     public $fileUrl;
@@ -22,18 +24,14 @@ class docs extends Model
         'fileUrl' => 'FileUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
         }
-
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -41,18 +39,17 @@ class docs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return docs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
         }
-
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }

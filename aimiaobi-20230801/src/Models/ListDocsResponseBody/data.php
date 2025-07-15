@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @example 2024-01-04 11:46:07
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $docId;
@@ -29,11 +35,15 @@ class data extends Model
     public $docName;
 
     /**
+     * @example pdf
+     *
      * @var string
      */
     public $docType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
@@ -52,38 +62,29 @@ class data extends Model
         'statusMessage' => 'StatusMessage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
-
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
         }
-
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->statusMessage) {
             $res['StatusMessage'] = $this->statusMessage;
         }
@@ -91,38 +92,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
-
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
         }
-
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['StatusMessage'])) {
             $model->statusMessage = $map['StatusMessage'];
         }

@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UploadDocShrinkRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $docsShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-yigtrrjl377rcbab
+     *
      * @var string
      */
     public $workspaceId;
@@ -28,22 +36,17 @@ class UploadDocShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
-
         if (null !== $this->docsShrink) {
             $res['Docs'] = $this->docsShrink;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -51,22 +54,20 @@ class UploadDocShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadDocShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
-
         if (isset($map['Docs'])) {
             $model->docsShrink = $map['Docs'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

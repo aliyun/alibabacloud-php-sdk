@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitSmartAuditShrinkRequest extends Model
 {
@@ -19,6 +19,8 @@ class SubmitSmartAuditShrinkRequest extends Model
     public $text;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -28,22 +30,17 @@ class SubmitSmartAuditShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->subCodesShrink) {
             $res['SubCodes'] = $this->subCodesShrink;
         }
-
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -51,22 +48,20 @@ class SubmitSmartAuditShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitSmartAuditShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubCodes'])) {
             $model->subCodesShrink = $map['SubCodes'];
         }
-
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

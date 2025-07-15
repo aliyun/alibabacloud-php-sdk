@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InsertInterveneGlobalReplyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxx_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -22,18 +26,14 @@ class InsertInterveneGlobalReplyShrinkRequest extends Model
         'replyMessagListShrink' => 'ReplyMessagList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->replyMessagListShrink) {
             $res['ReplyMessagList'] = $this->replyMessagListShrink;
         }
@@ -41,18 +41,17 @@ class InsertInterveneGlobalReplyShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InsertInterveneGlobalReplyShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['ReplyMessagList'])) {
             $model->replyMessagListShrink = $map['ReplyMessagList'];
         }

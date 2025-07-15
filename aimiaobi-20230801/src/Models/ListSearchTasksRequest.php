@@ -4,26 +4,36 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListSearchTasksRequest extends Model
 {
     /**
+     * @example 24
+     *
      * @var int[]
      */
     public $dialogueTypes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-xx
+     *
      * @var string
      */
     public $workspaceId;
@@ -34,36 +44,20 @@ class ListSearchTasksRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dialogueTypes)) {
-            Model::validateArray($this->dialogueTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dialogueTypes) {
-            if (\is_array($this->dialogueTypes)) {
-                $res['DialogueTypes'] = [];
-                $n1 = 0;
-                foreach ($this->dialogueTypes as $item1) {
-                    $res['DialogueTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DialogueTypes'] = $this->dialogueTypes;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -71,33 +65,25 @@ class ListSearchTasksRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSearchTasksRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DialogueTypes'])) {
             if (!empty($map['DialogueTypes'])) {
-                $model->dialogueTypes = [];
-                $n1 = 0;
-                foreach ($map['DialogueTypes'] as $item1) {
-                    $model->dialogueTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->dialogueTypes = $map['DialogueTypes'];
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

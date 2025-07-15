@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocBrainmapResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class header extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example task-failed
+     *
      * @var string
      */
     public $event;
@@ -29,16 +35,22 @@ class header extends Model
     public $eventInfo;
 
     /**
+     * @example 07181f55-2311-48af-8048-132a77dee020
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 161816
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 6427cdf4-2ffe-4d05-b0ef-c4adceea90f4
+     *
      * @var string
      */
     public $traceId;
@@ -52,38 +64,29 @@ class header extends Model
         'traceId' => 'TraceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
-
         if (null !== $this->eventInfo) {
             $res['EventInfo'] = $this->eventInfo;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
         }
@@ -91,38 +94,32 @@ class header extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return header
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
-
         if (isset($map['EventInfo'])) {
             $model->eventInfo = $map['EventInfo'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
         }

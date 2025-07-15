@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\data\summary;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class summaries extends Model
 {
     /**
+     * @example 摘要
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @example 标题
+     *
      * @var string
      */
     public $title;
@@ -22,18 +26,14 @@ class summaries extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -41,18 +41,17 @@ class summaries extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return summaries
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

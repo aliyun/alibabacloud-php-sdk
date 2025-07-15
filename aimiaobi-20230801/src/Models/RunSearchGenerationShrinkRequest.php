@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunSearchGenerationShrinkRequest extends Model
 {
@@ -14,31 +14,45 @@ class RunSearchGenerationShrinkRequest extends Model
     public $agentContextShrink;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $chatConfigShrink;
 
     /**
+     * @example qwen-max-latest
+     *
      * @var string
      */
     public $modelId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $originalSessionId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @example 7AA2AE16-D873-5C5F-9708-15396C382EB1
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-xxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -52,38 +66,29 @@ class RunSearchGenerationShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentContextShrink) {
             $res['AgentContext'] = $this->agentContextShrink;
         }
-
         if (null !== $this->chatConfigShrink) {
             $res['ChatConfig'] = $this->chatConfigShrink;
         }
-
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-
         if (null !== $this->originalSessionId) {
             $res['OriginalSessionId'] = $this->originalSessionId;
         }
-
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -91,38 +96,32 @@ class RunSearchGenerationShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunSearchGenerationShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentContext'])) {
             $model->agentContextShrink = $map['AgentContext'];
         }
-
         if (isset($map['ChatConfig'])) {
             $model->chatConfigShrink = $map['ChatConfig'];
         }
-
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-
         if (isset($map['OriginalSessionId'])) {
             $model->originalSessionId = $map['OriginalSessionId'];
         }
-
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

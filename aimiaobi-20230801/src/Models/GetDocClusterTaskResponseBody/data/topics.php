@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class topics extends Model
 {
@@ -14,11 +14,15 @@ class topics extends Model
     public $docIds;
 
     /**
+     * @example 聚类主题摘要
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @example 聚类主题名
+     *
      * @var string
      */
     public $title;
@@ -28,32 +32,17 @@ class topics extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->docIds)) {
-            Model::validateArray($this->docIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docIds) {
-            if (\is_array($this->docIds)) {
-                $res['DocIds'] = [];
-                $n1 = 0;
-                foreach ($this->docIds as $item1) {
-                    $res['DocIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DocIds'] = $this->docIds;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -61,29 +50,22 @@ class topics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return topics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocIds'])) {
             if (!empty($map['DocIds'])) {
-                $model->docIds = [];
-                $n1 = 0;
-                foreach ($map['DocIds'] as $item1) {
-                    $model->docIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->docIds = $map['DocIds'];
             }
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

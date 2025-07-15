@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitAuditTaskRequest extends Model
 {
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $articleId;
@@ -29,6 +31,8 @@ class SubmitAuditTaskRequest extends Model
     public $title;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -40,30 +44,23 @@ class SubmitAuditTaskRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->articleId) {
             $res['ArticleId'] = $this->articleId;
         }
-
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->htmlContent) {
             $res['HtmlContent'] = $this->htmlContent;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -71,30 +68,26 @@ class SubmitAuditTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitAuditTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArticleId'])) {
             $model->articleId = $map['ArticleId'];
         }
-
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['HtmlContent'])) {
             $model->htmlContent = $map['HtmlContent'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

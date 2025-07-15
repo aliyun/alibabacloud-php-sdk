@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineRequest\timelines;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clips extends Model
 {
@@ -46,34 +46,26 @@ class clips extends Model
         'videoName' => 'VideoName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clipId) {
             $res['ClipId'] = $this->clipId;
         }
-
         if (null !== $this->contentInner) {
             $res['ContentInner'] = $this->contentInner;
         }
-
         if (null !== $this->in) {
             $res['In'] = $this->in;
         }
-
         if (null !== $this->out) {
             $res['Out'] = $this->out;
         }
-
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
         }
-
         if (null !== $this->videoName) {
             $res['VideoName'] = $this->videoName;
         }
@@ -81,34 +73,29 @@ class clips extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clips
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClipId'])) {
             $model->clipId = $map['ClipId'];
         }
-
         if (isset($map['ContentInner'])) {
             $model->contentInner = $map['ContentInner'];
         }
-
         if (isset($map['In'])) {
             $model->in = $map['In'];
         }
-
         if (isset($map['Out'])) {
             $model->out = $map['Out'];
         }
-
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
         }
-
         if (isset($map['VideoName'])) {
             $model->videoName = $map['VideoName'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneRulesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneRulesResponseBody\data\interveneRuleList\answerConfig;
+use AlibabaCloud\Tea\Model;
 
 class interveneRuleList extends Model
 {
@@ -15,16 +15,22 @@ class interveneRuleList extends Model
     public $answerConfig;
 
     /**
+     * @example 2023-06-05 15:17:01
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2023-04-03 02:42:01
+     *
      * @var string
      */
     public $effectTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $interveneType;
@@ -35,11 +41,15 @@ class interveneRuleList extends Model
     public $namespaceList;
 
     /**
+     * @example mr-iuo9pi9w555phfbb
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example ruletest
+     *
      * @var string
      */
     public $ruleName;
@@ -53,58 +63,35 @@ class interveneRuleList extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->answerConfig)) {
-            Model::validateArray($this->answerConfig);
-        }
-        if (\is_array($this->namespaceList)) {
-            Model::validateArray($this->namespaceList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->answerConfig) {
-            if (\is_array($this->answerConfig)) {
-                $res['AnswerConfig'] = [];
-                $n1 = 0;
-                foreach ($this->answerConfig as $item1) {
-                    $res['AnswerConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['AnswerConfig'] = [];
+            if (null !== $this->answerConfig && \is_array($this->answerConfig)) {
+                $n = 0;
+                foreach ($this->answerConfig as $item) {
+                    $res['AnswerConfig'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->effectTime) {
             $res['EffectTime'] = $this->effectTime;
         }
-
         if (null !== $this->interveneType) {
             $res['InterveneType'] = $this->interveneType;
         }
-
         if (null !== $this->namespaceList) {
-            if (\is_array($this->namespaceList)) {
-                $res['NamespaceList'] = [];
-                $n1 = 0;
-                foreach ($this->namespaceList as $item1) {
-                    $res['NamespaceList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NamespaceList'] = $this->namespaceList;
         }
-
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -112,52 +99,40 @@ class interveneRuleList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return interveneRuleList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerConfig'])) {
             if (!empty($map['AnswerConfig'])) {
                 $model->answerConfig = [];
-                $n1 = 0;
-                foreach ($map['AnswerConfig'] as $item1) {
-                    $model->answerConfig[$n1] = answerConfig::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['AnswerConfig'] as $item) {
+                    $model->answerConfig[$n++] = null !== $item ? answerConfig::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['EffectTime'])) {
             $model->effectTime = $map['EffectTime'];
         }
-
         if (isset($map['InterveneType'])) {
             $model->interveneType = $map['InterveneType'];
         }
-
         if (isset($map['NamespaceList'])) {
             if (!empty($map['NamespaceList'])) {
-                $model->namespaceList = [];
-                $n1 = 0;
-                foreach ($map['NamespaceList'] as $item1) {
-                    $model->namespaceList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->namespaceList = $map['NamespaceList'];
             }
         }
-
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

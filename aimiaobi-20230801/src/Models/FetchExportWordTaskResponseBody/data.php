@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchExportWordTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example http://xxx/xxx.xls
+     *
      * @var string
      */
     public $fileUrl;
@@ -22,18 +24,14 @@ class data extends Model
         'taskStats' => 'TaskStats',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-
         if (null !== $this->taskStats) {
             $res['TaskStats'] = $this->taskStats;
         }
@@ -41,18 +39,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-
         if (isset($map['TaskStats'])) {
             $model->taskStats = $map['TaskStats'];
         }

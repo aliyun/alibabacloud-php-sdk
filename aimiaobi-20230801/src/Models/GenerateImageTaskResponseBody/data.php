@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateImageTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateImageTaskResponseBody\data\taskList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,24 +17,17 @@ class data extends Model
         'taskList' => 'TaskList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->taskList)) {
-            Model::validateArray($this->taskList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskList) {
-            if (\is_array($this->taskList)) {
-                $res['TaskList'] = [];
-                $n1 = 0;
-                foreach ($this->taskList as $item1) {
-                    $res['TaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TaskList'] = [];
+            if (null !== $this->taskList && \is_array($this->taskList)) {
+                $n = 0;
+                foreach ($this->taskList as $item) {
+                    $res['TaskList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskList'])) {
             if (!empty($map['TaskList'])) {
                 $model->taskList = [];
-                $n1 = 0;
-                foreach ($map['TaskList'] as $item1) {
-                    $model->taskList[$n1] = taskList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TaskList'] as $item) {
+                    $model->taskList[$n++] = null !== $item ? taskList::fromMap($item) : $item;
                 }
             }
         }

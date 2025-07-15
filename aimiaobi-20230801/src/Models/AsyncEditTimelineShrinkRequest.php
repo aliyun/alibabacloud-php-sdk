@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AsyncEditTimelineShrinkRequest extends Model
 {
@@ -14,16 +14,26 @@ class AsyncEditTimelineShrinkRequest extends Model
     public $autoClips;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 0dbf1055f8a2475d99904c3b76a0ffba
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $timelinesShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-az2gglkjauwnnhpq
+     *
      * @var string
      */
     public $workspaceId;
@@ -34,26 +44,20 @@ class AsyncEditTimelineShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoClips) {
             $res['AutoClips'] = $this->autoClips;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->timelinesShrink) {
             $res['Timelines'] = $this->timelinesShrink;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -61,26 +65,23 @@ class AsyncEditTimelineShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AsyncEditTimelineShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoClips'])) {
             $model->autoClips = $map['AutoClips'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Timelines'])) {
             $model->timelinesShrink = $map['Timelines'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotTopicsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotTopicsResponseBody\data\structureSummary\docList;
+use AlibabaCloud\Tea\Model;
 
 class structureSummary extends Model
 {
@@ -15,11 +15,15 @@ class structureSummary extends Model
     public $docList;
 
     /**
+     * @example 摘要
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @example 标题
+     *
      * @var string
      */
     public $title;
@@ -29,32 +33,23 @@ class structureSummary extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->docList)) {
-            Model::validateArray($this->docList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docList) {
-            if (\is_array($this->docList)) {
-                $res['DocList'] = [];
-                $n1 = 0;
-                foreach ($this->docList as $item1) {
-                    $res['DocList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DocList'] = [];
+            if (null !== $this->docList && \is_array($this->docList)) {
+                $n = 0;
+                foreach ($this->docList as $item) {
+                    $res['DocList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -62,29 +57,26 @@ class structureSummary extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return structureSummary
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocList'])) {
             if (!empty($map['DocList'])) {
                 $model->docList = [];
-                $n1 = 0;
-                foreach ($map['DocList'] as $item1) {
-                    $model->docList[$n1] = docList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DocList'] as $item) {
+                    $model->docList[$n++] = null !== $item ? docList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

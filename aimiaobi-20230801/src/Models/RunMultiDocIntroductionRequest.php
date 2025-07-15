@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunMultiDocIntroductionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $docIds;
@@ -24,6 +26,10 @@ class RunMultiDocIntroductionRequest extends Model
     public $modelName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 75bf82fa-b71b-45d7-ae40-0b00e496cd9e
+     *
      * @var string
      */
     public $sessionId;
@@ -34,6 +40,10 @@ class RunMultiDocIntroductionRequest extends Model
     public $summaryPrompt;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2setzb9x4ewsd
+     *
      * @var string
      */
     public $workspaceId;
@@ -46,44 +56,26 @@ class RunMultiDocIntroductionRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->docIds)) {
-            Model::validateArray($this->docIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docIds) {
-            if (\is_array($this->docIds)) {
-                $res['DocIds'] = [];
-                $n1 = 0;
-                foreach ($this->docIds as $item1) {
-                    $res['DocIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DocIds'] = $this->docIds;
         }
-
         if (null !== $this->keyPointPrompt) {
             $res['KeyPointPrompt'] = $this->keyPointPrompt;
         }
-
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-
         if (null !== $this->summaryPrompt) {
             $res['SummaryPrompt'] = $this->summaryPrompt;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -91,41 +83,31 @@ class RunMultiDocIntroductionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunMultiDocIntroductionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocIds'])) {
             if (!empty($map['DocIds'])) {
-                $model->docIds = [];
-                $n1 = 0;
-                foreach ($map['DocIds'] as $item1) {
-                    $model->docIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->docIds = $map['DocIds'];
             }
         }
-
         if (isset($map['KeyPointPrompt'])) {
             $model->keyPointPrompt = $map['KeyPointPrompt'];
         }
-
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-
         if (isset($map['SummaryPrompt'])) {
             $model->summaryPrompt = $map['SummaryPrompt'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

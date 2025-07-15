@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\newsElementResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\newsElementResult\newsElementArticleList\article;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\newsElementResult\newsElementArticleList\newsElementList;
+use AlibabaCloud\Tea\Model;
 
 class newsElementArticleList extends Model
 {
@@ -21,6 +21,8 @@ class newsElementArticleList extends Model
     public $newsElementList;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $textGenerate;
@@ -30,35 +32,23 @@ class newsElementArticleList extends Model
         'textGenerate' => 'TextGenerate',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->article) {
-            $this->article->validate();
-        }
-        if (\is_array($this->newsElementList)) {
-            Model::validateArray($this->newsElementList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->article) {
-            $res['Article'] = null !== $this->article ? $this->article->toArray($noStream) : $this->article;
+            $res['Article'] = null !== $this->article ? $this->article->toMap() : null;
         }
-
         if (null !== $this->newsElementList) {
-            if (\is_array($this->newsElementList)) {
-                $res['NewsElementList'] = [];
-                $n1 = 0;
-                foreach ($this->newsElementList as $item1) {
-                    $res['NewsElementList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['NewsElementList'] = [];
+            if (null !== $this->newsElementList && \is_array($this->newsElementList)) {
+                $n = 0;
+                foreach ($this->newsElementList as $item) {
+                    $res['NewsElementList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->textGenerate) {
             $res['TextGenerate'] = $this->textGenerate;
         }
@@ -66,29 +56,26 @@ class newsElementArticleList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return newsElementArticleList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Article'])) {
             $model->article = article::fromMap($map['Article']);
         }
-
         if (isset($map['NewsElementList'])) {
             if (!empty($map['NewsElementList'])) {
                 $model->newsElementList = [];
-                $n1 = 0;
-                foreach ($map['NewsElementList'] as $item1) {
-                    $model->newsElementList[$n1] = newsElementList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['NewsElementList'] as $item) {
+                    $model->newsElementList[$n++] = null !== $item ? newsElementList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TextGenerate'])) {
             $model->textGenerate = $map['TextGenerate'];
         }

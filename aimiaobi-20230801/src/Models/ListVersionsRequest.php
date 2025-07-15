@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListVersionsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 33a2658aaabf4c24b45d50e575125311_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
@@ -16,12 +20,9 @@ class ListVersionsRequest extends Model
         'agentKey' => 'AgentKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
@@ -31,11 +32,11 @@ class ListVersionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListVersionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

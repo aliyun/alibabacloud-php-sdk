@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class consoleConfig extends Model
 {
     /**
+     * @example xx
+     *
      * @var string
      */
     public $tipContent;
@@ -22,18 +24,14 @@ class consoleConfig extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tipContent) {
             $res['TipContent'] = $this->tipContent;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -41,18 +39,17 @@ class consoleConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return consoleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TipContent'])) {
             $model->tipContent = $map['TipContent'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

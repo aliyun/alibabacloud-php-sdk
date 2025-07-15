@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomSourceTopicAnalysisTaskResponseBody\data\clusterResults;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clusterNews extends Model
 {
@@ -14,6 +14,8 @@ class clusterNews extends Model
     public $title;
 
     /**
+     * @example http://www.example.com/xxx.html
+     *
      * @var string
      */
     public $url;
@@ -22,18 +24,14 @@ class clusterNews extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -41,18 +39,17 @@ class clusterNews extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clusterNews
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

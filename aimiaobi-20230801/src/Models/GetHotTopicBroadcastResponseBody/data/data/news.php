@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\data\news\comments;
+use AlibabaCloud\Tea\Model;
 
 class news extends Model
 {
@@ -15,6 +15,8 @@ class news extends Model
     public $analysisCategory;
 
     /**
+     * @example 聚合后热点名称
+     *
      * @var string
      */
     public $analysisTopic;
@@ -40,6 +42,8 @@ class news extends Model
     public $content;
 
     /**
+     * @example 2024-06-13 08:45:05
+     *
      * @var string
      */
     public $createTime;
@@ -50,11 +54,15 @@ class news extends Model
     public $domain;
 
     /**
+     * @example 2024111110
+     *
      * @var string
      */
     public $dt;
 
     /**
+     * @example 原始热点名称
+     *
      * @var string
      */
     public $hotTopic;
@@ -65,16 +73,24 @@ class news extends Model
     public $imgList;
 
     /**
+     * @description logo
+     *
+     * @example https://www.example.com/a.png
+     *
      * @var string
      */
     public $logo;
 
     /**
+     * @example 2024-10-10 12:12:00
+     *
      * @var string
      */
     public $pubTime;
 
     /**
+     * @example 摘要
+     *
      * @var string
      */
     public $summary;
@@ -85,16 +101,22 @@ class news extends Model
     public $title;
 
     /**
+     * @example http://www.example.com/a.png
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 主键ID
+     *
      * @var string
      */
     public $uuid;
 
     /**
+     * @example 网站
+     *
      * @var string
      */
     public $website;
@@ -119,112 +141,68 @@ class news extends Model
         'website' => 'Website',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->category)) {
-            Model::validateArray($this->category);
-        }
-        if (\is_array($this->comments)) {
-            Model::validateArray($this->comments);
-        }
-        if (\is_array($this->imgList)) {
-            Model::validateArray($this->imgList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->analysisCategory) {
             $res['AnalysisCategory'] = $this->analysisCategory;
         }
-
         if (null !== $this->analysisTopic) {
             $res['AnalysisTopic'] = $this->analysisTopic;
         }
-
         if (null !== $this->author) {
             $res['Author'] = $this->author;
         }
-
         if (null !== $this->category) {
-            if (\is_array($this->category)) {
-                $res['Category'] = [];
-                $n1 = 0;
-                foreach ($this->category as $item1) {
-                    $res['Category'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Category'] = $this->category;
         }
-
         if (null !== $this->comments) {
-            if (\is_array($this->comments)) {
-                $res['Comments'] = [];
-                $n1 = 0;
-                foreach ($this->comments as $item1) {
-                    $res['Comments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Comments'] = [];
+            if (null !== $this->comments && \is_array($this->comments)) {
+                $n = 0;
+                foreach ($this->comments as $item) {
+                    $res['Comments'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->dt) {
             $res['Dt'] = $this->dt;
         }
-
         if (null !== $this->hotTopic) {
             $res['HotTopic'] = $this->hotTopic;
         }
-
         if (null !== $this->imgList) {
-            if (\is_array($this->imgList)) {
-                $res['ImgList'] = [];
-                $n1 = 0;
-                foreach ($this->imgList as $item1) {
-                    $res['ImgList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ImgList'] = $this->imgList;
         }
-
         if (null !== $this->logo) {
             $res['Logo'] = $this->logo;
         }
-
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
-
         if (null !== $this->website) {
             $res['Website'] = $this->website;
         }
@@ -232,103 +210,75 @@ class news extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return news
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnalysisCategory'])) {
             $model->analysisCategory = $map['AnalysisCategory'];
         }
-
         if (isset($map['AnalysisTopic'])) {
             $model->analysisTopic = $map['AnalysisTopic'];
         }
-
         if (isset($map['Author'])) {
             $model->author = $map['Author'];
         }
-
         if (isset($map['Category'])) {
             if (!empty($map['Category'])) {
-                $model->category = [];
-                $n1 = 0;
-                foreach ($map['Category'] as $item1) {
-                    $model->category[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->category = $map['Category'];
             }
         }
-
         if (isset($map['Comments'])) {
             if (!empty($map['Comments'])) {
                 $model->comments = [];
-                $n1 = 0;
-                foreach ($map['Comments'] as $item1) {
-                    $model->comments[$n1] = comments::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Comments'] as $item) {
+                    $model->comments[$n++] = null !== $item ? comments::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['Dt'])) {
             $model->dt = $map['Dt'];
         }
-
         if (isset($map['HotTopic'])) {
             $model->hotTopic = $map['HotTopic'];
         }
-
         if (isset($map['ImgList'])) {
             if (!empty($map['ImgList'])) {
-                $model->imgList = [];
-                $n1 = 0;
-                foreach ($map['ImgList'] as $item1) {
-                    $model->imgList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->imgList = $map['ImgList'];
             }
         }
-
         if (isset($map['Logo'])) {
             $model->logo = $map['Logo'];
         }
-
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
-
         if (isset($map['Website'])) {
             $model->website = $map['Website'];
         }

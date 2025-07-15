@@ -4,31 +4,43 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDatasetDocumentRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $datasetId;
 
     /**
+     * @example 数据集名称
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $docId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $docUuid;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -40,30 +52,23 @@ class GetDatasetDocumentRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
-
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
-
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -71,30 +76,26 @@ class GetDatasetDocumentRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDatasetDocumentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
-
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
-
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

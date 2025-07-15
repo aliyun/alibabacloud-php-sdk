@@ -4,26 +4,38 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateGeneratedContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example 正文
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example 正文
+     *
      * @var string
      */
     public $contentText;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 36
+     *
      * @var int
      */
     public $id;
@@ -34,11 +46,15 @@ class UpdateGeneratedContentRequest extends Model
     public $keywords;
 
     /**
+     * @example 创作xx文章
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @example 评论类文章
+     *
      * @var string
      */
     public $title;
@@ -52,48 +68,29 @@ class UpdateGeneratedContentRequest extends Model
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keywords)) {
-            Model::validateArray($this->keywords);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->contentText) {
             $res['ContentText'] = $this->contentText;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->keywords) {
-            if (\is_array($this->keywords)) {
-                $res['Keywords'] = [];
-                $n1 = 0;
-                foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Keywords'] = $this->keywords;
         }
-
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -101,45 +98,34 @@ class UpdateGeneratedContentRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateGeneratedContentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['ContentText'])) {
             $model->contentText = $map['ContentText'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
-                $model->keywords = [];
-                $n1 = 0;
-                foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->keywords = $map['Keywords'];
             }
         }
-
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

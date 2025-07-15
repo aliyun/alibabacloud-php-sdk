@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class searchSources extends Model
 {
@@ -14,6 +14,8 @@ class searchSources extends Model
     public $label;
 
     /**
+     * @example SystemSearch
+     *
      * @var string
      */
     public $value;
@@ -22,18 +24,14 @@ class searchSources extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +39,17 @@ class searchSources extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return searchSources
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

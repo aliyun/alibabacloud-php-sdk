@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class contents extends Model
 {
@@ -22,18 +22,14 @@ class contents extends Model
         'text' => 'Text',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->extraInfo) {
             $res['ExtraInfo'] = $this->extraInfo;
         }
-
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -41,18 +37,17 @@ class contents extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return contents
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = $map['ExtraInfo'];
         }
-
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

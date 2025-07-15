@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\editingConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\editingConfig\speechConfig\asrConfig;
+use AlibabaCloud\Tea\Model;
 
 class speechConfig extends Model
 {
@@ -15,6 +15,8 @@ class speechConfig extends Model
     public $asrConfig;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $speechRate;
@@ -30,6 +32,8 @@ class speechConfig extends Model
     public $voice;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $volume;
@@ -41,33 +45,23 @@ class speechConfig extends Model
         'volume' => 'Volume',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->asrConfig) {
-            $this->asrConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->asrConfig) {
-            $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toArray($noStream) : $this->asrConfig;
+            $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toMap() : null;
         }
-
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
         }
-
         if (null !== $this->style) {
             $res['Style'] = $this->style;
         }
-
         if (null !== $this->voice) {
             $res['Voice'] = $this->voice;
         }
-
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
         }
@@ -75,30 +69,26 @@ class speechConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return speechConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsrConfig'])) {
             $model->asrConfig = asrConfig::fromMap($map['AsrConfig']);
         }
-
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];
         }
-
         if (isset($map['Style'])) {
             $model->style = $map['Style'];
         }
-
         if (isset($map['Voice'])) {
             $model->voice = $map['Voice'];
         }
-
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
         }

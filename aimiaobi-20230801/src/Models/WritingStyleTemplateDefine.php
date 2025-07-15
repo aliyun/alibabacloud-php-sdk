@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\WritingStyleTemplateDefine\example;
+use AlibabaCloud\Tea\Model;
 
 class WritingStyleTemplateDefine extends Model
 {
@@ -23,38 +23,26 @@ class WritingStyleTemplateDefine extends Model
         'fields' => 'Fields',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->example)) {
-            Model::validateArray($this->example);
-        }
-        if (\is_array($this->fields)) {
-            Model::validateArray($this->fields);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->example) {
-            if (\is_array($this->example)) {
-                $res['Example'] = [];
-                $n1 = 0;
-                foreach ($this->example as $item1) {
-                    $res['Example'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Example'] = [];
+            if (null !== $this->example && \is_array($this->example)) {
+                $n = 0;
+                foreach ($this->example as $item) {
+                    $res['Example'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->fields) {
-            if (\is_array($this->fields)) {
-                $res['Fields'] = [];
-                $n1 = 0;
-                foreach ($this->fields as $item1) {
-                    $res['Fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Fields'] = [];
+            if (null !== $this->fields && \is_array($this->fields)) {
+                $n = 0;
+                foreach ($this->fields as $item) {
+                    $res['Fields'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -62,32 +50,29 @@ class WritingStyleTemplateDefine extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WritingStyleTemplateDefine
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Example'])) {
             if (!empty($map['Example'])) {
                 $model->example = [];
-                $n1 = 0;
-                foreach ($map['Example'] as $item1) {
-                    $model->example[$n1] = example::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Example'] as $item) {
+                    $model->example[$n++] = null !== $item ? example::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n1 = 0;
-                foreach ($map['Fields'] as $item1) {
-                    $model->fields[$n1] = WritingStyleTemplateField::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Fields'] as $item) {
+                    $model->fields[$n++] = null !== $item ? WritingStyleTemplateField::fromMap($item) : $item;
                 }
             }
         }

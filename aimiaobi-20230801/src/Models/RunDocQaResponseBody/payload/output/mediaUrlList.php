@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaResponseBody\payload\output;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaResponseBody\payload\output\mediaUrlList\clipInfos;
+use AlibabaCloud\Tea\Model;
 
 class mediaUrlList extends Model
 {
@@ -15,11 +15,15 @@ class mediaUrlList extends Model
     public $clipInfos;
 
     /**
+     * @example https://gw.alicdn.com/imgextra/i3/2775676850/O1CN01kdeffE20TM0E7wvpq_!!2775676850.jpg_q60.jpg
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
@@ -29,32 +33,23 @@ class mediaUrlList extends Model
         'mediaType' => 'MediaType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->clipInfos)) {
-            Model::validateArray($this->clipInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clipInfos) {
-            if (\is_array($this->clipInfos)) {
-                $res['ClipInfos'] = [];
-                $n1 = 0;
-                foreach ($this->clipInfos as $item1) {
-                    $res['ClipInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ClipInfos'] = [];
+            if (null !== $this->clipInfos && \is_array($this->clipInfos)) {
+                $n = 0;
+                foreach ($this->clipInfos as $item) {
+                    $res['ClipInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
@@ -62,29 +57,26 @@ class mediaUrlList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mediaUrlList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClipInfos'])) {
             if (!empty($map['ClipInfos'])) {
                 $model->clipInfos = [];
-                $n1 = 0;
-                foreach ($map['ClipInfos'] as $item1) {
-                    $model->clipInfos[$n1] = clipInfos::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ClipInfos'] as $item) {
+                    $model->clipInfos[$n++] = null !== $item ? clipInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }

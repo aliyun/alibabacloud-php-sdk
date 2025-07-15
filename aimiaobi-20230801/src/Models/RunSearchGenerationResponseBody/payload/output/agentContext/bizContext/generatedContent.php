@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\excerptResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\imageSearchResult;
@@ -13,6 +12,7 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\p
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\textSearchResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\timelineResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\videoSearchResult;
+use AlibabaCloud\Tea\Model;
 
 class generatedContent extends Model
 {
@@ -66,109 +66,68 @@ class generatedContent extends Model
         'videoSearchResult' => 'VideoSearchResult',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->clusterTopicResult) {
-            $this->clusterTopicResult->validate();
-        }
-        if (null !== $this->excerptResult) {
-            $this->excerptResult->validate();
-        }
-        if (null !== $this->imageSearchResult) {
-            $this->imageSearchResult->validate();
-        }
-        if (null !== $this->newsElementResult) {
-            $this->newsElementResult->validate();
-        }
-        if (null !== $this->textGenerateResult) {
-            $this->textGenerateResult->validate();
-        }
-        if (null !== $this->textSearchResult) {
-            $this->textSearchResult->validate();
-        }
-        if (null !== $this->timelineResult) {
-            $this->timelineResult->validate();
-        }
-        if (null !== $this->videoSearchResult) {
-            $this->videoSearchResult->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterTopicResult) {
-            $res['ClusterTopicResult'] = null !== $this->clusterTopicResult ? $this->clusterTopicResult->toArray($noStream) : $this->clusterTopicResult;
+            $res['ClusterTopicResult'] = null !== $this->clusterTopicResult ? $this->clusterTopicResult->toMap() : null;
         }
-
         if (null !== $this->excerptResult) {
-            $res['ExcerptResult'] = null !== $this->excerptResult ? $this->excerptResult->toArray($noStream) : $this->excerptResult;
+            $res['ExcerptResult'] = null !== $this->excerptResult ? $this->excerptResult->toMap() : null;
         }
-
         if (null !== $this->imageSearchResult) {
-            $res['ImageSearchResult'] = null !== $this->imageSearchResult ? $this->imageSearchResult->toArray($noStream) : $this->imageSearchResult;
+            $res['ImageSearchResult'] = null !== $this->imageSearchResult ? $this->imageSearchResult->toMap() : null;
         }
-
         if (null !== $this->newsElementResult) {
-            $res['NewsElementResult'] = null !== $this->newsElementResult ? $this->newsElementResult->toArray($noStream) : $this->newsElementResult;
+            $res['NewsElementResult'] = null !== $this->newsElementResult ? $this->newsElementResult->toMap() : null;
         }
-
         if (null !== $this->textGenerateResult) {
-            $res['TextGenerateResult'] = null !== $this->textGenerateResult ? $this->textGenerateResult->toArray($noStream) : $this->textGenerateResult;
+            $res['TextGenerateResult'] = null !== $this->textGenerateResult ? $this->textGenerateResult->toMap() : null;
         }
-
         if (null !== $this->textSearchResult) {
-            $res['TextSearchResult'] = null !== $this->textSearchResult ? $this->textSearchResult->toArray($noStream) : $this->textSearchResult;
+            $res['TextSearchResult'] = null !== $this->textSearchResult ? $this->textSearchResult->toMap() : null;
         }
-
         if (null !== $this->timelineResult) {
-            $res['TimelineResult'] = null !== $this->timelineResult ? $this->timelineResult->toArray($noStream) : $this->timelineResult;
+            $res['TimelineResult'] = null !== $this->timelineResult ? $this->timelineResult->toMap() : null;
         }
-
         if (null !== $this->videoSearchResult) {
-            $res['VideoSearchResult'] = null !== $this->videoSearchResult ? $this->videoSearchResult->toArray($noStream) : $this->videoSearchResult;
+            $res['VideoSearchResult'] = null !== $this->videoSearchResult ? $this->videoSearchResult->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return generatedContent
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterTopicResult'])) {
             $model->clusterTopicResult = clusterTopicResult::fromMap($map['ClusterTopicResult']);
         }
-
         if (isset($map['ExcerptResult'])) {
             $model->excerptResult = excerptResult::fromMap($map['ExcerptResult']);
         }
-
         if (isset($map['ImageSearchResult'])) {
             $model->imageSearchResult = imageSearchResult::fromMap($map['ImageSearchResult']);
         }
-
         if (isset($map['NewsElementResult'])) {
             $model->newsElementResult = newsElementResult::fromMap($map['NewsElementResult']);
         }
-
         if (isset($map['TextGenerateResult'])) {
             $model->textGenerateResult = textGenerateResult::fromMap($map['TextGenerateResult']);
         }
-
         if (isset($map['TextSearchResult'])) {
             $model->textSearchResult = textSearchResult::fromMap($map['TextSearchResult']);
         }
-
         if (isset($map['TimelineResult'])) {
             $model->timelineResult = timelineResult::fromMap($map['TimelineResult']);
         }
-
         if (isset($map['VideoSearchResult'])) {
             $model->videoSearchResult = videoSearchResult::fromMap($map['VideoSearchResult']);
         }

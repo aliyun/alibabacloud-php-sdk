@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest\documents;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class comments extends Model
 {
@@ -22,18 +22,14 @@ class comments extends Model
         'username' => 'Username',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -41,18 +37,17 @@ class comments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return comments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

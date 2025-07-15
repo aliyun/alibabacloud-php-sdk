@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest\interveneRuleConfig;
+use AlibabaCloud\Tea\Model;
 
 class InsertInterveneRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -23,40 +27,32 @@ class InsertInterveneRuleRequest extends Model
         'interveneRuleConfig' => 'InterveneRuleConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->interveneRuleConfig) {
-            $this->interveneRuleConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->interveneRuleConfig) {
-            $res['InterveneRuleConfig'] = null !== $this->interveneRuleConfig ? $this->interveneRuleConfig->toArray($noStream) : $this->interveneRuleConfig;
+            $res['InterveneRuleConfig'] = null !== $this->interveneRuleConfig ? $this->interveneRuleConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InsertInterveneRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['InterveneRuleConfig'])) {
             $model->interveneRuleConfig = interveneRuleConfig::fromMap($map['InterveneRuleConfig']);
         }

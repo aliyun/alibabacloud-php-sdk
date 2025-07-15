@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFileContentLengthResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $wordNum;
@@ -16,12 +18,9 @@ class data extends Model
         'wordNum' => 'WordNum',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->wordNum) {
@@ -31,11 +30,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FetchImageTaskShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example e1be065b-adc3-435e-bd01-1c18c5ed75d3
+     *
      * @var string
      */
     public $articleTaskId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ["9d8c9185-3f75-4a20-aca1-c5bb53dd97b3"]
+     *
      * @var string
      */
     public $taskIdListShrink;
@@ -28,22 +40,17 @@ class FetchImageTaskShrinkRequest extends Model
         'taskIdListShrink' => 'TaskIdList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->articleTaskId) {
             $res['ArticleTaskId'] = $this->articleTaskId;
         }
-
         if (null !== $this->taskIdListShrink) {
             $res['TaskIdList'] = $this->taskIdListShrink;
         }
@@ -51,22 +58,20 @@ class FetchImageTaskShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FetchImageTaskShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['ArticleTaskId'])) {
             $model->articleTaskId = $map['ArticleTaskId'];
         }
-
         if (isset($map['TaskIdList'])) {
             $model->taskIdListShrink = $map['TaskIdList'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateMaterialDocumentShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
@@ -24,11 +28,17 @@ class UpdateMaterialDocumentShrinkRequest extends Model
     public $docKeywordsShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example image
+     *
      * @var string
      */
     public $docType;
 
     /**
+     * @example http://xxxxx/xxx
+     *
      * @var string
      */
     public $externalUrl;
@@ -39,11 +49,17 @@ class UpdateMaterialDocumentShrinkRequest extends Model
     public $htmlContent;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 44
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 2023-04-11 06:14:07
+     *
      * @var string
      */
     public $pubTime;
@@ -54,11 +70,15 @@ class UpdateMaterialDocumentShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $shareAttr;
 
     /**
+     * @example UserUpload
+     *
      * @var string
      */
     public $srcFrom;
@@ -79,6 +99,8 @@ class UpdateMaterialDocumentShrinkRequest extends Model
     public $title;
 
     /**
+     * @example http://xxxxx/xxx
+     *
      * @var string
      */
     public $url;
@@ -100,70 +122,53 @@ class UpdateMaterialDocumentShrinkRequest extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->author) {
             $res['Author'] = $this->author;
         }
-
         if (null !== $this->docKeywordsShrink) {
             $res['DocKeywords'] = $this->docKeywordsShrink;
         }
-
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
-
         if (null !== $this->externalUrl) {
             $res['ExternalUrl'] = $this->externalUrl;
         }
-
         if (null !== $this->htmlContent) {
             $res['HtmlContent'] = $this->htmlContent;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->shareAttr) {
             $res['ShareAttr'] = $this->shareAttr;
         }
-
         if (null !== $this->srcFrom) {
             $res['SrcFrom'] = $this->srcFrom;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->textContent) {
             $res['TextContent'] = $this->textContent;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -171,70 +176,56 @@ class UpdateMaterialDocumentShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateMaterialDocumentShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['Author'])) {
             $model->author = $map['Author'];
         }
-
         if (isset($map['DocKeywords'])) {
             $model->docKeywordsShrink = $map['DocKeywords'];
         }
-
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
-
         if (isset($map['ExternalUrl'])) {
             $model->externalUrl = $map['ExternalUrl'];
         }
-
         if (isset($map['HtmlContent'])) {
             $model->htmlContent = $map['HtmlContent'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ShareAttr'])) {
             $model->shareAttr = $map['ShareAttr'];
         }
-
         if (isset($map['SrcFrom'])) {
             $model->srcFrom = $map['SrcFrom'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['TextContent'])) {
             $model->textContent = $map['TextContent'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

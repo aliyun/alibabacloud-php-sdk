@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitSmartAuditRequest extends Model
 {
@@ -19,6 +19,8 @@ class SubmitSmartAuditRequest extends Model
     public $text;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -28,32 +30,17 @@ class SubmitSmartAuditRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->subCodes)) {
-            Model::validateArray($this->subCodes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->subCodes) {
-            if (\is_array($this->subCodes)) {
-                $res['SubCodes'] = [];
-                $n1 = 0;
-                foreach ($this->subCodes as $item1) {
-                    $res['SubCodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SubCodes'] = $this->subCodes;
         }
-
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -61,29 +48,22 @@ class SubmitSmartAuditRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitSmartAuditRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubCodes'])) {
             if (!empty($map['SubCodes'])) {
-                $model->subCodes = [];
-                $n1 = 0;
-                foreach ($map['SubCodes'] as $item1) {
-                    $model->subCodes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->subCodes = $map['SubCodes'];
             }
         }
-
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

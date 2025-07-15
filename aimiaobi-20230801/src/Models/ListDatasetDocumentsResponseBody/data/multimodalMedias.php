@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetDocumentsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class multimodalMedias extends Model
 {
     /**
+     * @example 图片或视频文件地址
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example 多模态数据唯一标识
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example 多模态数据类型
+     *
      * @var string
      */
     public $mediaType;
@@ -28,22 +34,17 @@ class multimodalMedias extends Model
         'mediaType' => 'MediaType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
-
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
@@ -51,22 +52,20 @@ class multimodalMedias extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return multimodalMedias
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
-
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }

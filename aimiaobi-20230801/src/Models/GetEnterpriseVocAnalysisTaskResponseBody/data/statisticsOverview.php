@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\statisticsOverview\filterDimensionStatistics;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\statisticsOverview\tagDimensionStatistics;
+use AlibabaCloud\Tea\Model;
 
 class statisticsOverview extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $count;
@@ -30,51 +32,38 @@ class statisticsOverview extends Model
         'tagDimensionStatistics' => 'TagDimensionStatistics',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->filterDimensionStatistics) {
-            $this->filterDimensionStatistics->validate();
-        }
-        if (null !== $this->tagDimensionStatistics) {
-            $this->tagDimensionStatistics->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->filterDimensionStatistics) {
-            $res['FilterDimensionStatistics'] = null !== $this->filterDimensionStatistics ? $this->filterDimensionStatistics->toArray($noStream) : $this->filterDimensionStatistics;
+            $res['FilterDimensionStatistics'] = null !== $this->filterDimensionStatistics ? $this->filterDimensionStatistics->toMap() : null;
         }
-
         if (null !== $this->tagDimensionStatistics) {
-            $res['TagDimensionStatistics'] = null !== $this->tagDimensionStatistics ? $this->tagDimensionStatistics->toArray($noStream) : $this->tagDimensionStatistics;
+            $res['TagDimensionStatistics'] = null !== $this->tagDimensionStatistics ? $this->tagDimensionStatistics->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return statisticsOverview
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['FilterDimensionStatistics'])) {
             $model->filterDimensionStatistics = filterDimensionStatistics::fromMap($map['FilterDimensionStatistics']);
         }
-
         if (isset($map['TagDimensionStatistics'])) {
             $model->tagDimensionStatistics = tagDimensionStatistics::fromMap($map['TagDimensionStatistics']);
         }

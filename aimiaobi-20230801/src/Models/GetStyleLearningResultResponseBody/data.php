@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetStyleLearningResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetStyleLearningResultResponseBody\data\contentList;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetStyleLearningResultResponseBody\data\materialInfoList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example AIGC 生成的内容
+     *
      * @var string
      */
     public $aigcResult;
@@ -26,6 +28,8 @@ class data extends Model
     public $customTextIdList;
 
     /**
+     * @example 33
+     *
      * @var int
      */
     public $id;
@@ -41,16 +45,22 @@ class data extends Model
     public $materialInfoList;
 
     /**
+     * @example 用户修订后内容
+     *
      * @var string
      */
     public $rewriteResult;
 
     /**
+     * @example 文体风格名称
+     *
      * @var string
      */
     public $styleName;
 
     /**
+     * @example 3f7045e099474ba28ceca1b4eb6d6e21
+     *
      * @var string
      */
     public $taskId;
@@ -66,86 +76,47 @@ class data extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contentList)) {
-            Model::validateArray($this->contentList);
-        }
-        if (\is_array($this->customTextIdList)) {
-            Model::validateArray($this->customTextIdList);
-        }
-        if (\is_array($this->materialIdList)) {
-            Model::validateArray($this->materialIdList);
-        }
-        if (\is_array($this->materialInfoList)) {
-            Model::validateArray($this->materialInfoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aigcResult) {
             $res['AigcResult'] = $this->aigcResult;
         }
-
         if (null !== $this->contentList) {
-            if (\is_array($this->contentList)) {
-                $res['ContentList'] = [];
-                $n1 = 0;
-                foreach ($this->contentList as $item1) {
-                    $res['ContentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ContentList'] = [];
+            if (null !== $this->contentList && \is_array($this->contentList)) {
+                $n = 0;
+                foreach ($this->contentList as $item) {
+                    $res['ContentList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->customTextIdList) {
-            if (\is_array($this->customTextIdList)) {
-                $res['CustomTextIdList'] = [];
-                $n1 = 0;
-                foreach ($this->customTextIdList as $item1) {
-                    $res['CustomTextIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['CustomTextIdList'] = $this->customTextIdList;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->materialIdList) {
-            if (\is_array($this->materialIdList)) {
-                $res['MaterialIdList'] = [];
-                $n1 = 0;
-                foreach ($this->materialIdList as $item1) {
-                    $res['MaterialIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['MaterialIdList'] = $this->materialIdList;
         }
-
         if (null !== $this->materialInfoList) {
-            if (\is_array($this->materialInfoList)) {
-                $res['MaterialInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->materialInfoList as $item1) {
-                    $res['MaterialInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['MaterialInfoList'] = [];
+            if (null !== $this->materialInfoList && \is_array($this->materialInfoList)) {
+                $n = 0;
+                foreach ($this->materialInfoList as $item) {
+                    $res['MaterialInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->rewriteResult) {
             $res['RewriteResult'] = $this->rewriteResult;
         }
-
         if (null !== $this->styleName) {
             $res['StyleName'] = $this->styleName;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -153,74 +124,54 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AigcResult'])) {
             $model->aigcResult = $map['AigcResult'];
         }
-
         if (isset($map['ContentList'])) {
             if (!empty($map['ContentList'])) {
                 $model->contentList = [];
-                $n1 = 0;
-                foreach ($map['ContentList'] as $item1) {
-                    $model->contentList[$n1] = contentList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ContentList'] as $item) {
+                    $model->contentList[$n++] = null !== $item ? contentList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CustomTextIdList'])) {
             if (!empty($map['CustomTextIdList'])) {
-                $model->customTextIdList = [];
-                $n1 = 0;
-                foreach ($map['CustomTextIdList'] as $item1) {
-                    $model->customTextIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->customTextIdList = $map['CustomTextIdList'];
             }
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['MaterialIdList'])) {
             if (!empty($map['MaterialIdList'])) {
-                $model->materialIdList = [];
-                $n1 = 0;
-                foreach ($map['MaterialIdList'] as $item1) {
-                    $model->materialIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->materialIdList = $map['MaterialIdList'];
             }
         }
-
         if (isset($map['MaterialInfoList'])) {
             if (!empty($map['MaterialInfoList'])) {
                 $model->materialInfoList = [];
-                $n1 = 0;
-                foreach ($map['MaterialInfoList'] as $item1) {
-                    $model->materialInfoList[$n1] = materialInfoList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['MaterialInfoList'] as $item) {
+                    $model->materialInfoList[$n++] = null !== $item ? materialInfoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RewriteResult'])) {
             $model->rewriteResult = $map['RewriteResult'];
         }
-
         if (isset($map['StyleName'])) {
             $model->styleName = $map['StyleName'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

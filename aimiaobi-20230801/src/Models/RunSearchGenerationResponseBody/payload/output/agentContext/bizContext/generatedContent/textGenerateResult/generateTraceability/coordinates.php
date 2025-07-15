@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\textGenerateResult\generateTraceability;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\textGenerateResult\generateTraceability\coordinates\generateCoordinate;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\textGenerateResult\generateTraceability\coordinates\newsCoordinate;
+use AlibabaCloud\Tea\Model;
 
 class coordinates extends Model
 {
@@ -24,43 +24,32 @@ class coordinates extends Model
         'newsCoordinate' => 'NewsCoordinate',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->generateCoordinate) {
-            $this->generateCoordinate->validate();
-        }
-        if (null !== $this->newsCoordinate) {
-            $this->newsCoordinate->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->generateCoordinate) {
-            $res['GenerateCoordinate'] = null !== $this->generateCoordinate ? $this->generateCoordinate->toArray($noStream) : $this->generateCoordinate;
+            $res['GenerateCoordinate'] = null !== $this->generateCoordinate ? $this->generateCoordinate->toMap() : null;
         }
-
         if (null !== $this->newsCoordinate) {
-            $res['NewsCoordinate'] = null !== $this->newsCoordinate ? $this->newsCoordinate->toArray($noStream) : $this->newsCoordinate;
+            $res['NewsCoordinate'] = null !== $this->newsCoordinate ? $this->newsCoordinate->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return coordinates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GenerateCoordinate'])) {
             $model->generateCoordinate = generateCoordinate::fromMap($map['GenerateCoordinate']);
         }
-
         if (isset($map['NewsCoordinate'])) {
             $model->newsCoordinate = newsCoordinate::fromMap($map['NewsCoordinate']);
         }

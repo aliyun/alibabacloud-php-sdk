@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExportIntervenesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example fed6555ec9e24b92aeecc34be484b887_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -16,12 +20,9 @@ class ExportIntervenesRequest extends Model
         'agentKey' => 'AgentKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
@@ -31,11 +32,11 @@ class ExportIntervenesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExportIntervenesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

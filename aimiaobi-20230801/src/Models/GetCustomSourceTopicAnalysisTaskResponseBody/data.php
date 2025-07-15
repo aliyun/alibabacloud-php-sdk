@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomSourceTopicAnalysisTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomSourceTopicAnalysisTaskResponseBody\data\clusterResults;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $clusterCount;
@@ -20,21 +22,29 @@ class data extends Model
     public $clusterResults;
 
     /**
+     * @example 错误信息
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $maxClusteredTopicNewsSize;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $parsedNewsSize;
 
     /**
+     * @example SUCCESSED
+     *
      * @var string
      */
     public $status;
@@ -59,117 +69,82 @@ class data extends Model
         'usages' => 'usages',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->clusterResults)) {
-            Model::validateArray($this->clusterResults);
-        }
-        if (\is_array($this->usages)) {
-            Model::validateArray($this->usages);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterCount) {
             $res['ClusterCount'] = $this->clusterCount;
         }
-
         if (null !== $this->clusterResults) {
-            if (\is_array($this->clusterResults)) {
-                $res['ClusterResults'] = [];
-                $n1 = 0;
-                foreach ($this->clusterResults as $item1) {
-                    $res['ClusterResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['ClusterResults'] = [];
+            if (null !== $this->clusterResults && \is_array($this->clusterResults)) {
+                $n = 0;
+                foreach ($this->clusterResults as $item) {
+                    $res['ClusterResults'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->maxClusteredTopicNewsSize) {
             $res['MaxClusteredTopicNewsSize'] = $this->maxClusteredTopicNewsSize;
         }
-
         if (null !== $this->parsedNewsSize) {
             $res['ParsedNewsSize'] = $this->parsedNewsSize;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->rt) {
             $res['rt'] = $this->rt;
         }
-
         if (null !== $this->usages) {
-            if (\is_array($this->usages)) {
-                $res['usages'] = [];
-                foreach ($this->usages as $key1 => $value1) {
-                    $res['usages'][$key1] = $value1;
-                }
-            }
+            $res['usages'] = $this->usages;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterCount'])) {
             $model->clusterCount = $map['ClusterCount'];
         }
-
         if (isset($map['ClusterResults'])) {
             if (!empty($map['ClusterResults'])) {
                 $model->clusterResults = [];
-                $n1 = 0;
-                foreach ($map['ClusterResults'] as $item1) {
-                    $model->clusterResults[$n1] = clusterResults::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['ClusterResults'] as $item) {
+                    $model->clusterResults[$n++] = null !== $item ? clusterResults::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['MaxClusteredTopicNewsSize'])) {
             $model->maxClusteredTopicNewsSize = $map['MaxClusteredTopicNewsSize'];
         }
-
         if (isset($map['ParsedNewsSize'])) {
             $model->parsedNewsSize = $map['ParsedNewsSize'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['rt'])) {
             $model->rt = $map['rt'];
         }
-
         if (isset($map['usages'])) {
-            if (!empty($map['usages'])) {
-                $model->usages = [];
-                foreach ($map['usages'] as $key1 => $value1) {
-                    $model->usages[$key1] = $value1;
-                }
-            }
+            $model->usages = $map['usages'];
         }
 
         return $model;

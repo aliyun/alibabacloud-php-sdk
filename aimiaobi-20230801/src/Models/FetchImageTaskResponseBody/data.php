@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskResponseBody\data\taskInfoList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,24 +17,17 @@ class data extends Model
         'taskInfoList' => 'TaskInfoList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->taskInfoList)) {
-            Model::validateArray($this->taskInfoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskInfoList) {
-            if (\is_array($this->taskInfoList)) {
-                $res['TaskInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->taskInfoList as $item1) {
-                    $res['TaskInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TaskInfoList'] = [];
+            if (null !== $this->taskInfoList && \is_array($this->taskInfoList)) {
+                $n = 0;
+                foreach ($this->taskInfoList as $item) {
+                    $res['TaskInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskInfoList'])) {
             if (!empty($map['TaskInfoList'])) {
                 $model->taskInfoList = [];
-                $n1 = 0;
-                foreach ($map['TaskInfoList'] as $item1) {
-                    $model->taskInfoList[$n1] = taskInfoList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TaskInfoList'] as $item) {
+                    $model->taskInfoList[$n++] = null !== $item ? taskInfoList::fromMap($item) : $item;
                 }
             }
         }

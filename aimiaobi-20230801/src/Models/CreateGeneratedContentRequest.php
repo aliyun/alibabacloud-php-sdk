@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateGeneratedContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxx_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example government
+     *
      * @var string
      */
     public $contentDomain;
@@ -39,16 +47,24 @@ class CreateGeneratedContentRequest extends Model
     public $prompt;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $uuid;
@@ -64,56 +80,35 @@ class CreateGeneratedContentRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keywords)) {
-            Model::validateArray($this->keywords);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->contentDomain) {
             $res['ContentDomain'] = $this->contentDomain;
         }
-
         if (null !== $this->contentText) {
             $res['ContentText'] = $this->contentText;
         }
-
         if (null !== $this->keywords) {
-            if (\is_array($this->keywords)) {
-                $res['Keywords'] = [];
-                $n1 = 0;
-                foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Keywords'] = $this->keywords;
         }
-
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -121,53 +116,40 @@ class CreateGeneratedContentRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateGeneratedContentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['ContentDomain'])) {
             $model->contentDomain = $map['ContentDomain'];
         }
-
         if (isset($map['ContentText'])) {
             $model->contentText = $map['ContentText'];
         }
-
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
-                $model->keywords = [];
-                $n1 = 0;
-                foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->keywords = $map['Keywords'];
             }
         }
-
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

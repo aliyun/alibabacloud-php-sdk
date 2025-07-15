@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDocsShrinkRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $categoryId;
@@ -19,21 +21,29 @@ class ListDocsShrinkRequest extends Model
     public $docName;
 
     /**
+     * @example pdf
+     *
      * @var string
      */
     public $docType;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 52a33dc83779f63641e16f5146cd7125
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $skip;
@@ -44,6 +54,10 @@ class ListDocsShrinkRequest extends Model
     public $statusesShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2setzb9x4ewsd
+     *
      * @var string
      */
     public $workspaceId;
@@ -58,42 +72,32 @@ class ListDocsShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
-
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
         }
-
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->skip) {
             $res['Skip'] = $this->skip;
         }
-
         if (null !== $this->statusesShrink) {
             $res['Statuses'] = $this->statusesShrink;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -101,42 +105,35 @@ class ListDocsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDocsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
-
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
         }
-
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['Skip'])) {
             $model->skip = $map['Skip'];
         }
-
         if (isset($map['Statuses'])) {
             $model->statusesShrink = $map['Statuses'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

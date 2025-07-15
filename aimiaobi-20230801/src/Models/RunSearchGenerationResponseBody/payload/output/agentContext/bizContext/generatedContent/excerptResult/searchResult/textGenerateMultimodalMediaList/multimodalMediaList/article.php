@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\excerptResult\searchResult\textGenerateMultimodalMediaList\multimodalMediaList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class article extends Model
 {
     /**
+     * @example xx
+     *
      * @var string
      */
     public $docId;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $docUuid;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $searchSourceName;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $url;
@@ -40,30 +50,23 @@ class article extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
-
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
         }
-
         if (null !== $this->searchSourceName) {
             $res['SearchSourceName'] = $this->searchSourceName;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -71,30 +74,26 @@ class article extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return article
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
-
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
         }
-
         if (isset($map['SearchSourceName'])) {
             $model->searchSourceName = $map['SearchSourceName'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesResponseBody\data\chatConfig;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,41 +15,57 @@ class data extends Model
     public $chatConfig;
 
     /**
+     * @example 2024-11-25 13:33:01
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 24
+     *
      * @var int
      */
     public $dialogueType;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $goodText;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $originSessionId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @example thumbsUp
+     *
      * @var string
      */
     public $rating;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $responseBodyStr;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $sessionId;
@@ -60,11 +76,15 @@ class data extends Model
     public $tags;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $text;
@@ -83,71 +103,44 @@ class data extends Model
         'text' => 'Text',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->chatConfig) {
-            $this->chatConfig->validate();
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->chatConfig) {
-            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toArray($noStream) : $this->chatConfig;
+            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toMap() : null;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->dialogueType) {
             $res['DialogueType'] = $this->dialogueType;
         }
-
         if (null !== $this->goodText) {
             $res['GoodText'] = $this->goodText;
         }
-
         if (null !== $this->originSessionId) {
             $res['OriginSessionId'] = $this->originSessionId;
         }
-
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
-
         if (null !== $this->rating) {
             $res['Rating'] = $this->rating;
         }
-
         if (null !== $this->responseBodyStr) {
             $res['ResponseBodyStr'] = $this->responseBodyStr;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Tags'] = $this->tags;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -155,65 +148,49 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChatConfig'])) {
             $model->chatConfig = chatConfig::fromMap($map['ChatConfig']);
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DialogueType'])) {
             $model->dialogueType = $map['DialogueType'];
         }
-
         if (isset($map['GoodText'])) {
             $model->goodText = $map['GoodText'];
         }
-
         if (isset($map['OriginSessionId'])) {
             $model->originSessionId = $map['OriginSessionId'];
         }
-
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
-
         if (isset($map['Rating'])) {
             $model->rating = $map['Rating'];
         }
-
         if (isset($map['ResponseBodyStr'])) {
             $model->responseBodyStr = $map['ResponseBodyStr'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->tags = $map['Tags'];
             }
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

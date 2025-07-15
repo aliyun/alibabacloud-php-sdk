@@ -4,27 +4,35 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\newsElementResult\newsElementArticleList;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\newsElementResult\newsElementArticleList\newsElementList\event;
+use AlibabaCloud\Tea\Model;
 
 class newsElementList extends Model
 {
     /**
+     * @example task-started
+     *
      * @var event
      */
     public $event;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $people;
 
     /**
+     * @example 时间
+     *
      * @var string
      */
     public $time;
@@ -35,29 +43,20 @@ class newsElementList extends Model
         'time' => 'Time',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->event) {
-            $this->event->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->event) {
-            $res['Event'] = null !== $this->event ? $this->event->toArray($noStream) : $this->event;
+            $res['Event'] = null !== $this->event ? $this->event->toMap() : null;
         }
-
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
-
         if (null !== $this->people) {
             $res['People'] = $this->people;
         }
-
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -65,26 +64,23 @@ class newsElementList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return newsElementList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Event'])) {
             $model->event = event::fromMap($map['Event']);
         }
-
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
-
         if (isset($map['People'])) {
             $model->people = $map['People'];
         }
-
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

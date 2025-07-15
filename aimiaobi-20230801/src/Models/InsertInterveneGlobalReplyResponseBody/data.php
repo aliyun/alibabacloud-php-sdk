@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,6 +19,8 @@ class data extends Model
     public $failIdList;
 
     /**
+     * @example 4829
+     *
      * @var string
      */
     public $taskId;
@@ -28,32 +30,17 @@ class data extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failIdList)) {
-            Model::validateArray($this->failIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->failIdList) {
-            if (\is_array($this->failIdList)) {
-                $res['FailIdList'] = [];
-                $n1 = 0;
-                foreach ($this->failIdList as $item1) {
-                    $res['FailIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['FailIdList'] = $this->failIdList;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -61,29 +48,22 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['FailIdList'])) {
             if (!empty($map['FailIdList'])) {
-                $model->failIdList = [];
-                $n1 = 0;
-                foreach ($map['FailIdList'] as $item1) {
-                    $model->failIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->failIdList = $map['FailIdList'];
             }
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

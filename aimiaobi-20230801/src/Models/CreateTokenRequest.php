@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2daaa2e0c209xb26acb97009ea77bd4b_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -16,12 +20,9 @@ class CreateTokenRequest extends Model
         'agentKey' => 'AgentKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
@@ -31,11 +32,11 @@ class CreateTokenRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateTokenRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

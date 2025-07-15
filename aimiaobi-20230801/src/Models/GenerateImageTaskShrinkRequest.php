@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateImageTaskShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example e1be065b-adc3-435e-bd01-1c18c5ed75d3
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example e1be065b-adc3-435e-bd01-1c18c5ed75d3
+     *
      * @var string
      */
     public $articleTaskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $paragraphListShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1024*1024
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example <auto>
+     *
      * @var string
      */
     public $style;
@@ -40,30 +58,23 @@ class GenerateImageTaskShrinkRequest extends Model
         'style' => 'Style',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->articleTaskId) {
             $res['ArticleTaskId'] = $this->articleTaskId;
         }
-
         if (null !== $this->paragraphListShrink) {
             $res['ParagraphList'] = $this->paragraphListShrink;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->style) {
             $res['Style'] = $this->style;
         }
@@ -71,30 +82,26 @@ class GenerateImageTaskShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateImageTaskShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['ArticleTaskId'])) {
             $model->articleTaskId = $map['ArticleTaskId'];
         }
-
         if (isset($map['ParagraphList'])) {
             $model->paragraphListShrink = $map['ParagraphList'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['Style'])) {
             $model->style = $map['Style'];
         }

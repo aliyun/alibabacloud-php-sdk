@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig;
+use AlibabaCloud\Tea\Model;
 
 class SubmitCustomHotTopicBroadcastJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var hotTopicBroadcastConfig
      */
     public $hotTopicBroadcastConfig;
 
     /**
+     * @example 热点版本
+     *
      * @var string
      */
     public $hotTopicVersion;
@@ -25,6 +29,10 @@ class SubmitCustomHotTopicBroadcastJobRequest extends Model
     public $topics;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -35,39 +43,20 @@ class SubmitCustomHotTopicBroadcastJobRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->hotTopicBroadcastConfig) {
-            $this->hotTopicBroadcastConfig->validate();
-        }
-        if (\is_array($this->topics)) {
-            Model::validateArray($this->topics);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hotTopicBroadcastConfig) {
-            $res['HotTopicBroadcastConfig'] = null !== $this->hotTopicBroadcastConfig ? $this->hotTopicBroadcastConfig->toArray($noStream) : $this->hotTopicBroadcastConfig;
+            $res['HotTopicBroadcastConfig'] = null !== $this->hotTopicBroadcastConfig ? $this->hotTopicBroadcastConfig->toMap() : null;
         }
-
         if (null !== $this->hotTopicVersion) {
             $res['HotTopicVersion'] = $this->hotTopicVersion;
         }
-
         if (null !== $this->topics) {
-            if (\is_array($this->topics)) {
-                $res['Topics'] = [];
-                $n1 = 0;
-                foreach ($this->topics as $item1) {
-                    $res['Topics'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Topics'] = $this->topics;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -75,33 +64,25 @@ class SubmitCustomHotTopicBroadcastJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitCustomHotTopicBroadcastJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotTopicBroadcastConfig'])) {
             $model->hotTopicBroadcastConfig = hotTopicBroadcastConfig::fromMap($map['HotTopicBroadcastConfig']);
         }
-
         if (isset($map['HotTopicVersion'])) {
             $model->hotTopicVersion = $map['HotTopicVersion'];
         }
-
         if (isset($map['Topics'])) {
             if (!empty($map['Topics'])) {
-                $model->topics = [];
-                $n1 = 0;
-                foreach ($map['Topics'] as $item1) {
-                    $model->topics[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->topics = $map['Topics'];
             }
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

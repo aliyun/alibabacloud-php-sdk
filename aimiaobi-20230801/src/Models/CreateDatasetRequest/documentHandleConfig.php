@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class documentHandleConfig extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disableHandleMultimodalMedia;
@@ -16,12 +18,9 @@ class documentHandleConfig extends Model
         'disableHandleMultimodalMedia' => 'DisableHandleMultimodalMedia',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->disableHandleMultimodalMedia) {
@@ -31,11 +30,11 @@ class documentHandleConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return documentHandleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

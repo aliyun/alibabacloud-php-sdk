@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSummaryGenerateResponseBody\payload;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
     /**
+     * @example 这是测试输出
+     *
      * @var string
      */
     public $text;
@@ -16,12 +18,9 @@ class output extends Model
         'text' => 'Text',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->text) {
@@ -31,11 +30,11 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

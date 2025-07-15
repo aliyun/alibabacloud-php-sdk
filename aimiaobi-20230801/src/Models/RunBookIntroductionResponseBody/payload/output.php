@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionResponseBody\payload;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -22,18 +22,14 @@ class output extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keyPoint) {
             $res['KeyPoint'] = $this->keyPoint;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -41,18 +37,17 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyPoint'])) {
             $model->keyPoint = $map['KeyPoint'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

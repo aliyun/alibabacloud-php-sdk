@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponseBody\data\videoInfos;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 3f7045e099474ba28ceca1b4eb6d6e21
+     *
      * @var string
      */
     public $taskId;
@@ -23,28 +25,20 @@ class data extends Model
         'videoInfos' => 'VideoInfos',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->videoInfos)) {
-            Model::validateArray($this->videoInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->videoInfos) {
-            if (\is_array($this->videoInfos)) {
-                $res['VideoInfos'] = [];
-                $n1 = 0;
-                foreach ($this->videoInfos as $item1) {
-                    $res['VideoInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['VideoInfos'] = [];
+            if (null !== $this->videoInfos && \is_array($this->videoInfos)) {
+                $n = 0;
+                foreach ($this->videoInfos as $item) {
+                    $res['VideoInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['VideoInfos'])) {
             if (!empty($map['VideoInfos'])) {
                 $model->videoInfos = [];
-                $n1 = 0;
-                foreach ($map['VideoInfos'] as $item1) {
-                    $model->videoInfos[$n1] = videoInfos::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['VideoInfos'] as $item) {
+                    $model->videoInfos[$n++] = null !== $item ? videoInfos::fromMap($item) : $item;
                 }
             }
         }

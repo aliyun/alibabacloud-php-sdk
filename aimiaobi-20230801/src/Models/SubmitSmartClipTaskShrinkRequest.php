@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitSmartClipTaskShrinkRequest extends Model
 {
@@ -19,6 +19,8 @@ class SubmitSmartClipTaskShrinkRequest extends Model
     public $extendParam;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputConfigShrink;
@@ -29,6 +31,8 @@ class SubmitSmartClipTaskShrinkRequest extends Model
     public $outputConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;
@@ -40,30 +44,23 @@ class SubmitSmartClipTaskShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->editingConfigShrink) {
             $res['EditingConfig'] = $this->editingConfigShrink;
         }
-
         if (null !== $this->extendParam) {
             $res['ExtendParam'] = $this->extendParam;
         }
-
         if (null !== $this->inputConfigShrink) {
             $res['InputConfig'] = $this->inputConfigShrink;
         }
-
         if (null !== $this->outputConfigShrink) {
             $res['OutputConfig'] = $this->outputConfigShrink;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -71,30 +68,26 @@ class SubmitSmartClipTaskShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitSmartClipTaskShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EditingConfig'])) {
             $model->editingConfigShrink = $map['EditingConfig'];
         }
-
         if (isset($map['ExtendParam'])) {
             $model->extendParam = $map['ExtendParam'];
         }
-
         if (isset($map['InputConfig'])) {
             $model->inputConfigShrink = $map['InputConfig'];
         }
-
         if (isset($map['OutputConfig'])) {
             $model->outputConfigShrink = $map['OutputConfig'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

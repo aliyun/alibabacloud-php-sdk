@@ -4,26 +4,38 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunTranslateGenerationShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example toEnglish
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $referenceDataShrink;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-xxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -34,26 +46,20 @@ class RunTranslateGenerationShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
-
         if (null !== $this->referenceDataShrink) {
             $res['ReferenceData'] = $this->referenceDataShrink;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -61,26 +67,23 @@ class RunTranslateGenerationShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunTranslateGenerationShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
-
         if (isset($map['ReferenceData'])) {
             $model->referenceDataShrink = $map['ReferenceData'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponseBody\data\userConfigDataSourceList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalDocSize;
@@ -23,28 +25,20 @@ class data extends Model
         'userConfigDataSourceList' => 'UserConfigDataSourceList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->userConfigDataSourceList)) {
-            Model::validateArray($this->userConfigDataSourceList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->totalDocSize) {
             $res['TotalDocSize'] = $this->totalDocSize;
         }
-
         if (null !== $this->userConfigDataSourceList) {
-            if (\is_array($this->userConfigDataSourceList)) {
-                $res['UserConfigDataSourceList'] = [];
-                $n1 = 0;
-                foreach ($this->userConfigDataSourceList as $item1) {
-                    $res['UserConfigDataSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['UserConfigDataSourceList'] = [];
+            if (null !== $this->userConfigDataSourceList && \is_array($this->userConfigDataSourceList)) {
+                $n = 0;
+                foreach ($this->userConfigDataSourceList as $item) {
+                    $res['UserConfigDataSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -52,25 +46,23 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalDocSize'])) {
             $model->totalDocSize = $map['TotalDocSize'];
         }
-
         if (isset($map['UserConfigDataSourceList'])) {
             if (!empty($map['UserConfigDataSourceList'])) {
                 $model->userConfigDataSourceList = [];
-                $n1 = 0;
-                foreach ($map['UserConfigDataSourceList'] as $item1) {
-                    $model->userConfigDataSourceList[$n1] = userConfigDataSourceList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['UserConfigDataSourceList'] as $item) {
+                    $model->userConfigDataSourceList[$n++] = null !== $item ? userConfigDataSourceList::fromMap($item) : $item;
                 }
             }
         }

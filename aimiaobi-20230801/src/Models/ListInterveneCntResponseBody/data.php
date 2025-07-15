@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneCntResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,16 +19,22 @@ class data extends Model
     public $code;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageCnt;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -40,40 +46,23 @@ class data extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cntList)) {
-            Model::validateArray($this->cntList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cntList) {
-            if (\is_array($this->cntList)) {
-                $res['CntList'] = [];
-                $n1 = 0;
-                foreach ($this->cntList as $item1) {
-                    $res['CntList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['CntList'] = $this->cntList;
         }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->pageCnt) {
             $res['PageCnt'] = $this->pageCnt;
         }
-
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -81,37 +70,28 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CntList'])) {
             if (!empty($map['CntList'])) {
-                $model->cntList = [];
-                $n1 = 0;
-                foreach ($map['CntList'] as $item1) {
-                    $model->cntList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->cntList = $map['CntList'];
             }
         }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['PageCnt'])) {
             $model->pageCnt = $map['PageCnt'];
         }
-
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

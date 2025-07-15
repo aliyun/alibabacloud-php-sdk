@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class thirdSearchConfig extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $datasetQuota;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $datasetUsedQuota;
@@ -22,18 +26,14 @@ class thirdSearchConfig extends Model
         'datasetUsedQuota' => 'DatasetUsedQuota',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->datasetQuota) {
             $res['DatasetQuota'] = $this->datasetQuota;
         }
-
         if (null !== $this->datasetUsedQuota) {
             $res['DatasetUsedQuota'] = $this->datasetUsedQuota;
         }
@@ -41,18 +41,17 @@ class thirdSearchConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return thirdSearchConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetQuota'])) {
             $model->datasetQuota = $map['DatasetQuota'];
         }
-
         if (isset($map['DatasetUsedQuota'])) {
             $model->datasetUsedQuota = $map['DatasetUsedQuota'];
         }

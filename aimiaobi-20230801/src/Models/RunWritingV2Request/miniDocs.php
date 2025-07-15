@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingV2Request;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class miniDocs extends Model
 {
@@ -19,6 +19,8 @@ class miniDocs extends Model
     public $index;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $star;
@@ -28,22 +30,17 @@ class miniDocs extends Model
         'star' => 'Star',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
-
         if (null !== $this->star) {
             $res['Star'] = $this->star;
         }
@@ -51,22 +48,20 @@ class miniDocs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return miniDocs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
-
         if (isset($map['Star'])) {
             $model->star = $map['Star'];
         }

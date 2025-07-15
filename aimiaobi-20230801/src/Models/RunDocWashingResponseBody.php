@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocWashingResponseBody\header;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocWashingResponseBody\payload;
+use AlibabaCloud\Tea\Model;
 
 class RunDocWashingResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $end;
@@ -26,6 +28,10 @@ class RunDocWashingResponseBody extends Model
     public $payload;
 
     /**
+     * @description Id of the request
+     *
+     * @example 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+     *
      * @var string
      */
     public $requestId;
@@ -36,32 +42,20 @@ class RunDocWashingResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->header) {
-            $this->header->validate();
-        }
-        if (null !== $this->payload) {
-            $this->payload->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
-
         if (null !== $this->header) {
-            $res['Header'] = null !== $this->header ? $this->header->toArray($noStream) : $this->header;
+            $res['Header'] = null !== $this->header ? $this->header->toMap() : null;
         }
-
         if (null !== $this->payload) {
-            $res['Payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
+            $res['Payload'] = null !== $this->payload ? $this->payload->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -69,26 +63,23 @@ class RunDocWashingResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunDocWashingResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
-
         if (isset($map['Header'])) {
             $model->header = header::fromMap($map['Header']);
         }
-
         if (isset($map['Payload'])) {
             $model->payload = payload::fromMap($map['Payload']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

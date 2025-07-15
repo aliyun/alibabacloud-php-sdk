@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesRequest\chatConfig\searchParam;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class searchSources extends Model
 {
     /**
+     * @example SystemSearch
+     *
      * @var string
      */
     public $code;
@@ -28,22 +30,17 @@ class searchSources extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -51,22 +48,20 @@ class searchSources extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return searchSources
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -17,29 +17,23 @@ class output extends Model
         'agentContext' => 'AgentContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->agentContext) {
-            $this->agentContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentContext) {
-            $res['AgentContext'] = null !== $this->agentContext ? $this->agentContext->toArray($noStream) : $this->agentContext;
+            $res['AgentContext'] = null !== $this->agentContext ? $this->agentContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

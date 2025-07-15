@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AsyncUploadVideoShrinkRequest extends Model
 {
@@ -14,11 +14,17 @@ class AsyncUploadVideoShrinkRequest extends Model
     public $anlysisPrompt;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceVideosShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-xxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -28,22 +34,17 @@ class AsyncUploadVideoShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->anlysisPrompt) {
             $res['AnlysisPrompt'] = $this->anlysisPrompt;
         }
-
         if (null !== $this->sourceVideosShrink) {
             $res['SourceVideos'] = $this->sourceVideosShrink;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -51,22 +52,20 @@ class AsyncUploadVideoShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AsyncUploadVideoShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnlysisPrompt'])) {
             $model->anlysisPrompt = $map['AnlysisPrompt'];
         }
-
         if (isset($map['SourceVideos'])) {
             $model->sourceVideosShrink = $map['SourceVideos'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

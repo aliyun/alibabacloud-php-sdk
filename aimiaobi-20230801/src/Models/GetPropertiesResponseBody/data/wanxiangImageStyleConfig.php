@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class wanxiangImageStyleConfig extends Model
 {
@@ -14,11 +14,15 @@ class wanxiangImageStyleConfig extends Model
     public $name;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i4/O1CN01RzKicz1W0YWzYkWcK_!!6000000002726-2-tps-132-104.png
+     *
      * @var string
      */
     public $pic;
 
     /**
+     * @example <auto>
+     *
      * @var string
      */
     public $value;
@@ -28,22 +32,17 @@ class wanxiangImageStyleConfig extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->pic) {
             $res['Pic'] = $this->pic;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +50,20 @@ class wanxiangImageStyleConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return wanxiangImageStyleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Pic'])) {
             $model->pic = $map['Pic'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

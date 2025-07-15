@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SaveStyleLearningResultShrinkRequest extends Model
 {
     /**
+     * @example xxxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -39,6 +41,8 @@ class SaveStyleLearningResultShrinkRequest extends Model
     public $styleName;
 
     /**
+     * @example 3f7045e099474ba28ceca1b4eb6d6e21
+     *
      * @var string
      */
     public $taskId;
@@ -52,38 +56,29 @@ class SaveStyleLearningResultShrinkRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->aigcResult) {
             $res['AigcResult'] = $this->aigcResult;
         }
-
         if (null !== $this->customTextIdListShrink) {
             $res['CustomTextIdList'] = $this->customTextIdListShrink;
         }
-
         if (null !== $this->materialIdListShrink) {
             $res['MaterialIdList'] = $this->materialIdListShrink;
         }
-
         if (null !== $this->rewriteResult) {
             $res['RewriteResult'] = $this->rewriteResult;
         }
-
         if (null !== $this->styleName) {
             $res['StyleName'] = $this->styleName;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -91,38 +86,32 @@ class SaveStyleLearningResultShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SaveStyleLearningResultShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['AigcResult'])) {
             $model->aigcResult = $map['AigcResult'];
         }
-
         if (isset($map['CustomTextIdList'])) {
             $model->customTextIdListShrink = $map['CustomTextIdList'];
         }
-
         if (isset($map['MaterialIdList'])) {
             $model->materialIdListShrink = $map['MaterialIdList'];
         }
-
         if (isset($map['RewriteResult'])) {
             $model->rewriteResult = $map['RewriteResult'];
         }
-
         if (isset($map['StyleName'])) {
             $model->styleName = $map['StyleName'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

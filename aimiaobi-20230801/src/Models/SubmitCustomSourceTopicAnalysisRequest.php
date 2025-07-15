@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisRequest\news;
+use AlibabaCloud\Tea\Model;
 
 class SubmitCustomSourceTopicAnalysisRequest extends Model
 {
@@ -15,16 +15,22 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
     public $analysisTypes;
 
     /**
+     * @example json
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example http://www.example.com/xxx.json
+     *
      * @var string
      */
     public $fileUrl;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxTopicSize;
@@ -35,6 +41,10 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
     public $news;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-xx
+     *
      * @var string
      */
     public $workspaceId;
@@ -47,54 +57,32 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->analysisTypes)) {
-            Model::validateArray($this->analysisTypes);
-        }
-        if (\is_array($this->news)) {
-            Model::validateArray($this->news);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->analysisTypes) {
-            if (\is_array($this->analysisTypes)) {
-                $res['AnalysisTypes'] = [];
-                $n1 = 0;
-                foreach ($this->analysisTypes as $item1) {
-                    $res['AnalysisTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AnalysisTypes'] = $this->analysisTypes;
         }
-
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
-
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-
         if (null !== $this->maxTopicSize) {
             $res['MaxTopicSize'] = $this->maxTopicSize;
         }
-
         if (null !== $this->news) {
-            if (\is_array($this->news)) {
-                $res['News'] = [];
-                $n1 = 0;
-                foreach ($this->news as $item1) {
-                    $res['News'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['News'] = [];
+            if (null !== $this->news && \is_array($this->news)) {
+                $n = 0;
+                foreach ($this->news as $item) {
+                    $res['News'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -102,48 +90,37 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitCustomSourceTopicAnalysisRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnalysisTypes'])) {
             if (!empty($map['AnalysisTypes'])) {
-                $model->analysisTypes = [];
-                $n1 = 0;
-                foreach ($map['AnalysisTypes'] as $item1) {
-                    $model->analysisTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->analysisTypes = $map['AnalysisTypes'];
             }
         }
-
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
-
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-
         if (isset($map['MaxTopicSize'])) {
             $model->maxTopicSize = $map['MaxTopicSize'];
         }
-
         if (isset($map['News'])) {
             if (!empty($map['News'])) {
                 $model->news = [];
-                $n1 = 0;
-                foreach ($map['News'] as $item1) {
-                    $model->news[$n1] = news::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['News'] as $item) {
+                    $model->news[$n++] = null !== $item ? news::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

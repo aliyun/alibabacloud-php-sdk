@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class referenceData extends Model
 {
@@ -16,47 +16,29 @@ class referenceData extends Model
         'miniDoc' => 'MiniDoc',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->miniDoc)) {
-            Model::validateArray($this->miniDoc);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->miniDoc) {
-            if (\is_array($this->miniDoc)) {
-                $res['MiniDoc'] = [];
-                $n1 = 0;
-                foreach ($this->miniDoc as $item1) {
-                    $res['MiniDoc'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['MiniDoc'] = $this->miniDoc;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return referenceData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MiniDoc'])) {
             if (!empty($map['MiniDoc'])) {
-                $model->miniDoc = [];
-                $n1 = 0;
-                foreach ($map['MiniDoc'] as $item1) {
-                    $model->miniDoc[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->miniDoc = $map['MiniDoc'];
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tokenCalculate extends Model
 {
@@ -40,30 +40,23 @@ class tokenCalculate extends Model
         'totalTokens' => 'TotalTokens',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->firstTokenTime) {
             $res['FirstTokenTime'] = $this->firstTokenTime;
         }
-
         if (null !== $this->outputAvgTime) {
             $res['OutputAvgTime'] = $this->outputAvgTime;
         }
-
         if (null !== $this->searchTime) {
             $res['SearchTime'] = $this->searchTime;
         }
-
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
-
         if (null !== $this->totalTokens) {
             $res['TotalTokens'] = $this->totalTokens;
         }
@@ -71,30 +64,26 @@ class tokenCalculate extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tokenCalculate
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirstTokenTime'])) {
             $model->firstTokenTime = $map['FirstTokenTime'];
         }
-
         if (isset($map['OutputAvgTime'])) {
             $model->outputAvgTime = $map['OutputAvgTime'];
         }
-
         if (isset($map['SearchTime'])) {
             $model->searchTime = $map['SearchTime'];
         }
-
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
-
         if (isset($map['TotalTokens'])) {
             $model->totalTokens = $map['TotalTokens'];
         }

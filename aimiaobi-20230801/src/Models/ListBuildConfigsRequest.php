@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListBuildConfigsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
@@ -19,6 +23,8 @@ class ListBuildConfigsRequest extends Model
     public $regionId;
 
     /**
+     * @example media
+     *
      * @var string
      */
     public $type;
@@ -28,22 +34,17 @@ class ListBuildConfigsRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +52,20 @@ class ListBuildConfigsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListBuildConfigsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

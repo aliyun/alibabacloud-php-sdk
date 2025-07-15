@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class conversationContexts extends Model
 {
@@ -14,6 +14,8 @@ class conversationContexts extends Model
     public $content;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $role;
@@ -22,18 +24,14 @@ class conversationContexts extends Model
         'role' => 'Role',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -41,18 +39,17 @@ class conversationContexts extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return conversationContexts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody\data\customViewPointsResult\attitudes;
+use AlibabaCloud\Tea\Model;
 
 class customViewPointsResult extends Model
 {
@@ -15,6 +15,8 @@ class customViewPointsResult extends Model
     public $attitudes;
 
     /**
+     * @example 热点主题事件
+     *
      * @var string
      */
     public $topic;
@@ -23,28 +25,20 @@ class customViewPointsResult extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->attitudes)) {
-            Model::validateArray($this->attitudes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attitudes) {
-            if (\is_array($this->attitudes)) {
-                $res['Attitudes'] = [];
-                $n1 = 0;
-                foreach ($this->attitudes as $item1) {
-                    $res['Attitudes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Attitudes'] = [];
+            if (null !== $this->attitudes && \is_array($this->attitudes)) {
+                $n = 0;
+                foreach ($this->attitudes as $item) {
+                    $res['Attitudes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -52,25 +46,23 @@ class customViewPointsResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customViewPointsResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attitudes'])) {
             if (!empty($map['Attitudes'])) {
                 $model->attitudes = [];
-                $n1 = 0;
-                foreach ($map['Attitudes'] as $item1) {
-                    $model->attitudes[$n1] = attitudes::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Attitudes'] as $item) {
+                    $model->attitudes[$n++] = null !== $item ? attitudes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

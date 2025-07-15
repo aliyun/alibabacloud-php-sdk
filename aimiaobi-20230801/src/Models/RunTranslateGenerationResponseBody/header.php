@@ -4,36 +4,48 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class header extends Model
 {
     /**
+     * @example AccessForbid
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example task-failed
+     *
      * @var string
      */
     public $event;
 
     /**
+     * @example 91C2B2B8-7D12-4A8D-A724-1E576D30C096
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 3f7045e099474ba28ceca1b4eb6d6e21
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 0abb781d17146157564845243e20b5
+     *
      * @var string
      */
     public $traceId;
@@ -46,34 +58,26 @@ class header extends Model
         'traceId' => 'TraceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
         }
@@ -81,34 +85,29 @@ class header extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return header
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
         }

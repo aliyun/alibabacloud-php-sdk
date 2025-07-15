@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetHotTopicBroadcastShrinkRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $calcTotalToken;
 
     /**
+     * @example 分类筛选
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $current;
 
     /**
+     * @example 2024-10-11_13
+     *
      * @var string
      */
     public $hotTopicVersion;
@@ -44,6 +52,8 @@ class GetHotTopicBroadcastShrinkRequest extends Model
     public $query;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $size;
@@ -59,11 +69,17 @@ class GetHotTopicBroadcastShrinkRequest extends Model
     public $stepForNewsBroadcastContentConfigShrink;
 
     /**
+     * @example ["主题1","主题2"]
+     *
      * @var string
      */
     public $topicsShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
@@ -82,58 +98,44 @@ class GetHotTopicBroadcastShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->calcTotalToken) {
             $res['CalcTotalToken'] = $this->calcTotalToken;
         }
-
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->current) {
             $res['Current'] = $this->current;
         }
-
         if (null !== $this->hotTopicVersion) {
             $res['HotTopicVersion'] = $this->hotTopicVersion;
         }
-
         if (null !== $this->locationQuery) {
             $res['LocationQuery'] = $this->locationQuery;
         }
-
         if (null !== $this->locationsShrink) {
             $res['Locations'] = $this->locationsShrink;
         }
-
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->stepForCustomSummaryStyleConfigShrink) {
             $res['StepForCustomSummaryStyleConfig'] = $this->stepForCustomSummaryStyleConfigShrink;
         }
-
         if (null !== $this->stepForNewsBroadcastContentConfigShrink) {
             $res['StepForNewsBroadcastContentConfig'] = $this->stepForNewsBroadcastContentConfigShrink;
         }
-
         if (null !== $this->topicsShrink) {
             $res['Topics'] = $this->topicsShrink;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -141,58 +143,47 @@ class GetHotTopicBroadcastShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetHotTopicBroadcastShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalcTotalToken'])) {
             $model->calcTotalToken = $map['CalcTotalToken'];
         }
-
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
         }
-
         if (isset($map['HotTopicVersion'])) {
             $model->hotTopicVersion = $map['HotTopicVersion'];
         }
-
         if (isset($map['LocationQuery'])) {
             $model->locationQuery = $map['LocationQuery'];
         }
-
         if (isset($map['Locations'])) {
             $model->locationsShrink = $map['Locations'];
         }
-
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['StepForCustomSummaryStyleConfig'])) {
             $model->stepForCustomSummaryStyleConfigShrink = $map['StepForCustomSummaryStyleConfig'];
         }
-
         if (isset($map['StepForNewsBroadcastContentConfig'])) {
             $model->stepForNewsBroadcastContentConfigShrink = $map['StepForNewsBroadcastContentConfig'];
         }
-
         if (isset($map['Topics'])) {
             $model->topicsShrink = $map['Topics'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
