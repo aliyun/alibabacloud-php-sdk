@@ -17,9 +17,7 @@ class describeUpBpsPeakOfLines extends Model
         'describeUpBpsPeakOfLine' => 'DescribeUpBpsPeakOfLine',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class describeUpBpsPeakOfLines extends Model
         if (isset($map['DescribeUpBpsPeakOfLine'])) {
             if (!empty($map['DescribeUpBpsPeakOfLine'])) {
                 $model->describeUpBpsPeakOfLine = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['DescribeUpBpsPeakOfLine'] as $item) {
                     $model->describeUpBpsPeakOfLine[$n++] = null !== $item ? describeUpBpsPeakOfLine::fromMap($item) : $item;
                 }

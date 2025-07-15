@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainCertificateInfoResponseBody extends Model
 {
     /**
+     * @description The certificate information.
+     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5C1E43DC-9E51-4771-82C0-7D5ECEB547A1
+     *
      * @var string
      */
     public $requestId;
@@ -23,9 +29,7 @@ class DescribeLiveDomainCertificateInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

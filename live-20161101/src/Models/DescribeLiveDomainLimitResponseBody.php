@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainLimitResponseBody extends Model
 {
     /**
+     * @description The limits.
+     *
      * @var liveDomainLimitList
      */
     public $liveDomainLimitList;
 
     /**
+     * @description The request ID.
+     *
+     * @example A3136B58-5876-4168-83CA-B562781981A0
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'liveDomainLimitList' => 'LiveDomainLimitList',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

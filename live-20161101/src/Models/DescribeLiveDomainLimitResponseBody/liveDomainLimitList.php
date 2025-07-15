@@ -17,9 +17,7 @@ class liveDomainLimitList extends Model
         'liveDomainLimit' => 'LiveDomainLimit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveDomainLimitList extends Model
         if (isset($map['LiveDomainLimit'])) {
             if (!empty($map['LiveDomainLimit'])) {
                 $model->liveDomainLimit = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['LiveDomainLimit'] as $item) {
                     $model->liveDomainLimit[$n++] = null !== $item ? liveDomainLimit::fromMap($item) : $item;
                 }

@@ -10,34 +10,46 @@ use AlibabaCloud\Tea\Model;
 class streamInfo extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The streaming URLs.
+     *
      * @var streams
      */
     public $streams;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
         'streamName' => 'StreamName',
-        'streams'    => 'Streams',
+        'streams' => 'Streams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

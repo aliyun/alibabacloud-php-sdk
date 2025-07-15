@@ -17,9 +17,7 @@ class content extends Model
         'config' => 'Config',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class content extends Model
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
                 $model->config = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Config'] as $item) {
                     $model->config[$n++] = null !== $item ? config::fromMap($item) : $item;
                 }

@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class commonConfig extends Model
 {
     /**
+     * @description The ID of the channel that is bound to the video resource.
+     *
+     * @example RV01
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description The ID of the video resource.
+     *
+     * @example asdfasdfasdfasdfa****
+     *
      * @var string
      */
     public $videoResourceId;
     protected $_name = [
-        'channelId'       => 'ChannelId',
+        'channelId' => 'ChannelId',
         'videoResourceId' => 'VideoResourceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

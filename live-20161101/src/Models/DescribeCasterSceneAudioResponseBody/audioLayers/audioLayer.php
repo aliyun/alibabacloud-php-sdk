@@ -9,28 +9,42 @@ use AlibabaCloud\Tea\Model;
 class audioLayer extends Model
 {
     /**
+     * @description The fixed delay of the audio layer. Unit: milliseconds.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $fixedDelayDuration;
 
     /**
+     * @description The sound channel type of the audio layer. Valid values:
+     *
+     *   **left**: the left channel
+     *   **right**: the right channel
+     *   **all** (default): both the left and right channels
+     *
+     * @example all
+     *
      * @var string
      */
     public $validChannel;
 
     /**
+     * @description The volume of the audio layer.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $volumeRate;
     protected $_name = [
         'fixedDelayDuration' => 'FixedDelayDuration',
-        'validChannel'       => 'ValidChannel',
-        'volumeRate'         => 'VolumeRate',
+        'validChannel' => 'ValidChannel',
+        'volumeRate' => 'VolumeRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

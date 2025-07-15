@@ -9,21 +9,48 @@ use AlibabaCloud\Tea\Model;
 class AddLiveRecordNotifyConfigRequest extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Specifies whether to enable callbacks for recording status. Valid values:
+     *
+     *   true: enables callbacks for recording status. If you set this parameter to **true**, an example of recording status callback is returned.
+     *   false (default): disables callbacks for recording status.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $needStatusNotify;
 
     /**
+     * @description The callback URL that is used to receive notifications about recording events and status.
+     *
+     * >  The URL must start with `http://` or `https://`. For more information, see [Callbacks for live stream recording](https://help.aliyun.com/document_detail/55016.html).
+     *
+     * This parameter is required.
+     *
+     * @example http://demo.aliyundoc.com/examplecallback.action
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @description The callback URL for on-demand recordings.
+     *
+     * >  The URL must start with `http://` or `https://`. For more information, see [On-demand recording](https://help.aliyun.com/document_detail/85910.html).
+     *
+     * @example http://learn.aliyundoc.com/ondemandcallback.action
+     *
      * @var string
      */
     public $onDemandUrl;
@@ -38,17 +65,15 @@ class AddLiveRecordNotifyConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'       => 'DomainName',
+        'domainName' => 'DomainName',
         'needStatusNotify' => 'NeedStatusNotify',
-        'notifyUrl'        => 'NotifyUrl',
-        'onDemandUrl'      => 'OnDemandUrl',
-        'ownerId'          => 'OwnerId',
-        'securityToken'    => 'SecurityToken',
+        'notifyUrl' => 'NotifyUrl',
+        'onDemandUrl' => 'OnDemandUrl',
+        'ownerId' => 'OwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class itemIds extends Model
         'itemId' => 'ItemId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

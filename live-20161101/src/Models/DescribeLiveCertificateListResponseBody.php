@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveCertificateListResponseBody extends Model
 {
     /**
+     * @description The details.
+     *
      * @var certificateListModel
      */
     public $certificateListModel;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'certificateListModel' => 'CertificateListModel',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

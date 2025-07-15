@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example BC1E78D3-FA8B-4457-DEE2-6093E1232254
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class DeleteCustomTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

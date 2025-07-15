@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveAppSnapshotConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name in the ingest URL. Otherwise, the configuration does not take effect. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -28,15 +40,13 @@ class DeleteLiveAppSnapshotConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

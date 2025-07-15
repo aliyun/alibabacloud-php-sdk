@@ -10,34 +10,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveProducerUsageDataResponseBody extends Model
 {
     /**
+     * @description The production studio usage data.
+     *
      * @var billProducerData
      */
     public $billProducerData;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
+     * @example 2018-09-30T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C370DAF1-C838-4288-A1A0-9A87633D248E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start of the time range for which the data was queried.
+     *
+     * @example 2018-10-31T15:59:59Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'billProducerData' => 'BillProducerData',
-        'endTime'          => 'EndTime',
-        'requestId'        => 'RequestId',
-        'startTime'        => 'StartTime',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

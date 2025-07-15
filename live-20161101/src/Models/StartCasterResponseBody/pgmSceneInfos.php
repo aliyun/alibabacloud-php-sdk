@@ -17,9 +17,7 @@ class pgmSceneInfos extends Model
         'sceneInfo' => 'SceneInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class pgmSceneInfos extends Model
         if (isset($map['SceneInfo'])) {
             if (!empty($map['SceneInfo'])) {
                 $model->sceneInfo = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['SceneInfo'] as $item) {
                     $model->sceneInfo[$n++] = null !== $item ? sceneInfo::fromMap($item) : $item;
                 }

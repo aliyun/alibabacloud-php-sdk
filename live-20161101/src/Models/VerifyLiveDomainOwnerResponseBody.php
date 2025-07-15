@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class VerifyLiveDomainOwnerResponseBody extends Model
 {
     /**
+     * @description The verification information.
+     *
+     * @example verify_dffeb6610035dcb77b413******
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1BA6D7CE-55F1-5926-8764-F8663473AD0D
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

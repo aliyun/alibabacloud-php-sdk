@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AddCasterComponentResponseBody extends Model
 {
     /**
+     * @description The component ID. The value can be used as the value of a request parameter to query, modify, or delete a production studio.
+     *
+     * @example 21926b36-7dd2-4fde-ae25-51b5bc8e****
+     *
      * @var string
      */
     public $componentId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'componentId' => 'ComponentId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

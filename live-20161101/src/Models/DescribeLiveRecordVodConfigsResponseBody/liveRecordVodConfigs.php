@@ -17,9 +17,7 @@ class liveRecordVodConfigs extends Model
         'liveRecordVodConfig' => 'LiveRecordVodConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveRecordVodConfigs extends Model
         if (isset($map['LiveRecordVodConfig'])) {
             if (!empty($map['LiveRecordVodConfig'])) {
                 $model->liveRecordVodConfig = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['LiveRecordVodConfig'] as $item) {
                     $model->liveRecordVodConfig[$n++] = null !== $item ? liveRecordVodConfig::fromMap($item) : $item;
                 }

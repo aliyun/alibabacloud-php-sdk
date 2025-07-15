@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class PublishLiveStagingConfigToProductionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class PublishLiveStagingConfigToProductionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

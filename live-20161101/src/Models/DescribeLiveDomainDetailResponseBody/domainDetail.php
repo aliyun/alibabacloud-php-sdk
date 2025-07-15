@@ -9,82 +9,154 @@ use AlibabaCloud\Tea\Model;
 class domainDetail extends Model
 {
     /**
+     * @description The name of the certificate.
+     *
+     * @example liveCert****
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The CNAME that is assigned to the domain name. You must add a CNAME record in the system of your Domain Name System (DNS) service provider to map the domain name to the CNAME.
+     *
+     * >  A time-to-live (TTL) value is specified in the CNAME record of a domain name to indicate how long the CNAME record can be cached on the DNS resolver. If you modify the CNAME record of the domain name, the new settings take effect after the cache expires, which takes about 10 minutes. For more information, see [CNAME resolution](https://help.aliyun.com/document_detail/362010.html).
+     *
+     * @example learn.developer.aliyundoc.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description The description of the domain name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The streaming domain or ingest domain.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **online**: The domain name is enabled.
+     *   **offline**: The domain name is disabled.
+     *   **configuring**: The domain is being configured.
+     *
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @description The time when the domain name was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-07-27T06:51:25Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description The time when the domain name was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-08-07T06:51Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   **liveVideo**: streaming domain
+     *   **liveEdge**: ingest domain
+     *
+     * @example liveVideo
+     *
      * @var string
      */
     public $liveDomainType;
 
     /**
+     * @description The ID of the region where the domain name resides.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2ogvt4nwmi7i
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description Indicates whether the SSL certificate is enabled. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * @example on
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @description The public key of the certificate.
+     *
+     * @example Public Key
+     *
      * @var string
      */
     public $SSLPub;
 
     /**
+     * @description The acceleration region. Valid values:
+     *
+     *   **domestic**: regions in the Chinese mainland.
+     *   **overseas**: regions outside the Chinese mainland.
+     *   **global**: regions in and outside the Chinese mainland.
+     *
+     * @example domestic
+     *
      * @var string
      */
     public $scope;
     protected $_name = [
-        'certName'       => 'CertName',
-        'cname'          => 'Cname',
-        'description'    => 'Description',
-        'domainName'     => 'DomainName',
-        'domainStatus'   => 'DomainStatus',
-        'gmtCreated'     => 'GmtCreated',
-        'gmtModified'    => 'GmtModified',
+        'certName' => 'CertName',
+        'cname' => 'Cname',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
+        'domainStatus' => 'DomainStatus',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
         'liveDomainType' => 'LiveDomainType',
-        'region'         => 'Region',
-        'SSLProtocol'    => 'SSLProtocol',
-        'SSLPub'         => 'SSLPub',
-        'scope'          => 'Scope',
+        'region' => 'Region',
+        'resourceGroupId' => 'ResourceGroupId',
+        'SSLProtocol' => 'SSLProtocol',
+        'SSLPub' => 'SSLPub',
+        'scope' => 'Scope',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,6 +187,9 @@ class domainDetail extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->SSLProtocol) {
             $res['SSLProtocol'] = $this->SSLProtocol;
@@ -163,6 +238,9 @@ class domainDetail extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SSLProtocol'])) {
             $model->SSLProtocol = $map['SSLProtocol'];

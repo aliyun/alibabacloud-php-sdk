@@ -9,21 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsPublishListRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ingest domain or main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The time range specified by the StartTime and EndTime parameters cannot exceed 30 days.
+     *
+     * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The sorting method. Valid values:
+     *
+     *   **stream_name_desc**: sorts the entries in descending order by stream name.
+     *   **stream_name_asc**: sorts the entries in ascending order by stream name.
+     *   **publish_time_desc**: sorts the entries in descending order by stream ingest time.
+     *   **publish_time_asc** (default): sorts the entries in ascending order by stream ingest time.
+     *
+     * @example publish_time_desc
+     *
      * @var string
      */
     public $orderBy;
@@ -34,16 +61,31 @@ class DescribeLiveStreamsPublishListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 3000**. Default value: **2000**.
+     *
+     * @example 1500
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The mode in which stream names are matched. Valid values:
+     *
+     *   **fuzzy** (default): fuzzy match
+     *   **strict**: exact match
+     *
+     * @example fuzzy
+     *
      * @var string
      */
     public $queryType;
@@ -51,34 +93,58 @@ class DescribeLiveStreamsPublishListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-21T08:00:00Z
+     *
+     * @var string
+     */
     public $startTime;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The type of the streams to query. Valid values:
+     *
+     *   An empty value****: source streams
+     *   **all**: all streams
+     *   **trans**: transcoded streams
+     *
+     * @example all
+     *
      * @var string
      */
     public $streamType;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'orderBy'    => 'OrderBy',
-        'ownerId'    => 'OwnerId',
+        'endTime' => 'EndTime',
+        'orderBy' => 'OrderBy',
+        'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queryType'  => 'QueryType',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
         'streamName' => 'StreamName',
         'streamType' => 'StreamType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,6 +172,9 @@ class DescribeLiveStreamsPublishListRequest extends Model
         }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -151,6 +220,9 @@ class DescribeLiveStreamsPublishListRequest extends Model
         }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

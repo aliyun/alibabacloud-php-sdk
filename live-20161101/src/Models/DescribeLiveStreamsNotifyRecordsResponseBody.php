@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsNotifyRecordsResponseBody extends Model
 {
     /**
+     * @description The stream ingest callback records.
+     *
      * @var notifyRecordsInfo
      */
     public $notifyRecordsInfo;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example F675E4B4-125D-1533-901B-11A724644285
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries that meet the specified conditions.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
         'notifyRecordsInfo' => 'NotifyRecordsInfo',
-        'pageNum'           => 'PageNum',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
-        'totalNum'          => 'TotalNum',
-        'totalPage'         => 'TotalPage',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

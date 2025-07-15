@@ -10,32 +10,57 @@ use AlibabaCloud\Tea\Model;
 class recordConfig extends Model
 {
     /**
+     * @description On-demand recording. Values:
+     * - 0: Off.
+     * - 1: Via HTTP callback.
+     * - 2: Parse streaming parameters for on-demand recording.
+     * - 7: Default to not record.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $onDemand;
+
+    /**
+     * @description The OSS bucket for storage.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The Object Storage Service (OSS) endpoint.
+     *
+     * @example oss-cn-shanghai.aliyundoc.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The recording configuration.
+     *
      * @var recordFormat
      */
     public $recordFormat;
     protected $_name = [
-        'ossBucket'    => 'OssBucket',
-        'ossEndpoint'  => 'OssEndpoint',
+        'onDemand' => 'OnDemand',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
         'recordFormat' => 'RecordFormat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->onDemand) {
+            $res['OnDemand'] = $this->onDemand;
+        }
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
@@ -57,6 +82,9 @@ class recordConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OnDemand'])) {
+            $model->onDemand = $map['OnDemand'];
+        }
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }

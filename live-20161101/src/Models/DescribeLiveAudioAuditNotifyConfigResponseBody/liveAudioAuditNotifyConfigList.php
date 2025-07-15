@@ -17,9 +17,7 @@ class liveAudioAuditNotifyConfigList extends Model
         'liveAudioAuditNotifyConfig' => 'LiveAudioAuditNotifyConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveAudioAuditNotifyConfigList extends Model
         if (isset($map['LiveAudioAuditNotifyConfig'])) {
             if (!empty($map['LiveAudioAuditNotifyConfig'])) {
                 $model->liveAudioAuditNotifyConfig = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['LiveAudioAuditNotifyConfig'] as $item) {
                     $model->liveAudioAuditNotifyConfig[$n++] = null !== $item ? liveAudioAuditNotifyConfig::fromMap($item) : $item;
                 }

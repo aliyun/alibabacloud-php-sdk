@@ -9,34 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeRTSNativeSDKVvDataShrinkRequest extends Model
 {
     /**
+     * @description The time granularity. Valid values: 300, 3600, 14400, 28800, and 86400. Unit: seconds. The default value is 300. If you specify an invalid value or do not specify this parameter, the default value is used.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The array of domain names.
+     *
      * @var string
      */
     public $domainNameListShrink;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2021-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'         => 'DataInterval',
+        'dataInterval' => 'DataInterval',
         'domainNameListShrink' => 'DomainNameList',
-        'endTime'              => 'EndTime',
-        'startTime'            => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

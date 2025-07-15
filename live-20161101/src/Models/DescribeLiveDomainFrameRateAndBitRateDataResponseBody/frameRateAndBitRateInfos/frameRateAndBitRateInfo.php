@@ -9,34 +9,48 @@ use AlibabaCloud\Tea\Model;
 class frameRateAndBitRateInfo extends Model
 {
     /**
+     * @description The audio frame rate of the live stream. Unit: FPS.
+     *
+     * @example 42.9
+     *
      * @var float
      */
     public $audioFrameRate;
 
     /**
+     * @description The bitrate of the live stream. Unit: bit/s.
+     *
+     * @example 30693.96
+     *
      * @var float
      */
     public $bitRate;
 
     /**
+     * @description The URL of the live stream.
+     *
+     * @example rtmp://demo.aliyundoc.com/test/liveStream****_3_4
+     *
      * @var string
      */
     public $streamUrl;
 
     /**
+     * @description The video frame rate of the live stream. Unit: frames per second (FPS).
+     *
+     * @example 24.9
+     *
      * @var float
      */
     public $videoFrameRate;
     protected $_name = [
         'audioFrameRate' => 'AudioFrameRate',
-        'bitRate'        => 'BitRate',
-        'streamUrl'      => 'StreamUrl',
+        'bitRate' => 'BitRate',
+        'streamUrl' => 'StreamUrl',
         'videoFrameRate' => 'VideoFrameRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

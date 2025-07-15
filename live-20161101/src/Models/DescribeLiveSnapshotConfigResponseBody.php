@@ -10,52 +10,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveSnapshotConfigResponseBody extends Model
 {
     /**
+     * @description The snapshot configurations.
+     *
      * @var liveStreamSnapshotConfigList
      */
     public $liveStreamSnapshotConfigList;
 
     /**
+     * @description The sort order.
+     *
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The page number.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example A3136B58-5876-4168-83CA-B562781981A0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries that meet the specified conditions.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
         'liveStreamSnapshotConfigList' => 'LiveStreamSnapshotConfigList',
-        'order'                        => 'Order',
-        'pageNum'                      => 'PageNum',
-        'pageSize'                     => 'PageSize',
-        'requestId'                    => 'RequestId',
-        'totalNum'                     => 'TotalNum',
-        'totalPage'                    => 'TotalPage',
+        'order' => 'Order',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

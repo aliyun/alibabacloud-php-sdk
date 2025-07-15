@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SetSnapshotCallbackAuthRequest extends Model
 {
     /**
+     * @description The custom key that is used for callback authentication.
+     *
+     * This parameter is required.
+     *
+     * @example yourkey
+     *
      * @var string
      */
     public $callbackAuthKey;
 
     /**
+     * @description Specifies whether to enable callback authentication. Valid values:
+     *
+     *   **yes**: enables callback authentication.
+     *   **no**: disables callback authentication.
+     *
+     * This parameter is required.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $callbackReqAuth;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -27,16 +48,20 @@ class SetSnapshotCallbackAuthRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'callbackAuthKey' => 'CallbackAuthKey',
         'callbackReqAuth' => 'CallbackReqAuth',
-        'domainName'      => 'DomainName',
-        'ownerId'         => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -52,6 +77,9 @@ class SetSnapshotCallbackAuthRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +104,9 @@ class SetSnapshotCallbackAuthRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

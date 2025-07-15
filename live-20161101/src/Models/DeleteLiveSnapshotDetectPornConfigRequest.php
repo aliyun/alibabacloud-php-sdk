@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveSnapshotDetectPornConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. You can call the [DescribeLiveSnapshotDetectPornConfig](https://help.aliyun.com/document_detail/2847918.html) operation to query the application name.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -28,15 +40,13 @@ class DeleteLiveSnapshotDetectPornConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

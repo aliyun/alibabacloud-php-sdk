@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class playConfig extends Model
 {
     /**
+     * @description The volume. Valid values: 0 to 1. The value is rounded to two decimal places.
+     *
+     * @example 0.50
+     *
      * @var float
      */
     public $volumeRate;
@@ -16,9 +20,7 @@ class playConfig extends Model
         'volumeRate' => 'VolumeRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

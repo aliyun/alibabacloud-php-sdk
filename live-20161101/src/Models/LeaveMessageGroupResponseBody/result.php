@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the user left the message group. Valid values:
+     *
+     *   true: The user left the message group.
+     *   false: The user failed to leave the message group.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -16,9 +23,7 @@ class result extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

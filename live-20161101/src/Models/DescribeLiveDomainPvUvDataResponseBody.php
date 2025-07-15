@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainPvUvDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the entries returned. Unit: seconds. Default value: 3600.
+     *
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2018-03-20T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The data of PVs and UVs.
+     *
      * @var pvUvDataInfos
      */
     public $pvUvDataInfos;
 
     /**
+     * @description The request ID.
+     *
+     * @example E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2018-03-17T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'  => 'DataInterval',
-        'domainName'    => 'DomainName',
-        'endTime'       => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
         'pvUvDataInfos' => 'PvUvDataInfos',
-        'requestId'     => 'RequestId',
-        'startTime'     => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

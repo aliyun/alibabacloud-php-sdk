@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class StartPlaylistResponseBody extends Model
 {
     /**
+     * @description The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to stop playing the episode list.
+     *
+     * @example 445409ec-7eaa-461d-8f29-4bec2eb9****
+     *
      * @var string
      */
     public $programId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5c6a2a0d-f228-4a64-af62-20e91b96****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the live stream.
+     *
      * @var streamInfo
      */
     public $streamInfo;
     protected $_name = [
-        'programId'  => 'ProgramId',
-        'requestId'  => 'RequestId',
+        'programId' => 'ProgramId',
+        'requestId' => 'RequestId',
         'streamInfo' => 'StreamInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

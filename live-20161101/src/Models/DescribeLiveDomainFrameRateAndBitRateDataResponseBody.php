@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainFrameRateAndBitRateDataResponseBody extends Model
 {
     /**
+     * @description The frame rates and bitrates of the live streams that were queried.
+     *
      * @var frameRateAndBitRateInfos
      */
     public $frameRateAndBitRateInfos;
 
     /**
+     * @description The request ID.
+     *
+     * @example C3F2C2C4-59BB-4B62-81FF-345BE557E3E3
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'frameRateAndBitRateInfos' => 'FrameRateAndBitRateInfos',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

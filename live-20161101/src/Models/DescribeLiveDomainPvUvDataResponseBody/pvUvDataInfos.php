@@ -17,9 +17,7 @@ class pvUvDataInfos extends Model
         'pvUvDataInfo' => 'PvUvDataInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class pvUvDataInfos extends Model
         if (isset($map['PvUvDataInfo'])) {
             if (!empty($map['PvUvDataInfo'])) {
                 $model->pvUvDataInfo = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PvUvDataInfo'] as $item) {
                     $model->pvUvDataInfo[$n++] = null !== $item ? pvUvDataInfo::fromMap($item) : $item;
                 }

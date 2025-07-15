@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagLiveResourcesResponseBody extends Model
 {
     /**
+     * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +18,7 @@ class TagLiveResourcesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

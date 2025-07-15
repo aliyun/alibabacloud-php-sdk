@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainPvUvDataRequest extends Model
 {
     /**
+     * @description The streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time must be in UTC.
+     *
+     * @example 2018-03-20T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -26,17 +36,25 @@ class DescribeLiveDomainPvUvDataRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time must be in UTC.
+     *
+     * @example 2018-03-17T16:00:00Z
+     *
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -49,6 +67,9 @@ class DescribeLiveDomainPvUvDataRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -73,6 +94,9 @@ class DescribeLiveDomainPvUvDataRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

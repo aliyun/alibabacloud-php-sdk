@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsNotifyUrlConfigResponseBody extends Model
 {
     /**
+     * @description The callback configuration.
+     *
      * @var liveStreamsNotifyConfig
      */
     public $liveStreamsNotifyConfig;
 
     /**
+     * @description The request ID.
+     *
+     * @example 40A4F36D-A7CC-473A-88E7-154F92242566
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'liveStreamsNotifyConfig' => 'LiveStreamsNotifyConfig',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

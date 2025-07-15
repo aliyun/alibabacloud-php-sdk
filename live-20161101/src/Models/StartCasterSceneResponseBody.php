@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StartCasterSceneResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CF60DB6A-7FD6-426E-9288-122CC1A52FA7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The streaming URL of the scene. It is used for playback, but not for stream relay.
+     *
+     * @example http://live/caster/example.org
+     *
      * @var string
      */
     public $streamUrl;
@@ -22,9 +30,7 @@ class StartCasterSceneResponseBody extends Model
         'streamUrl' => 'StreamUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

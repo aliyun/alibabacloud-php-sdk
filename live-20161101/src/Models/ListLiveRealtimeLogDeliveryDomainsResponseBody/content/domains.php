@@ -9,22 +9,31 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The status of real-time log delivery. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *
+     * @example online
+     *
      * @var string
      */
     public $status;
     protected $_name = [
         'domainName' => 'DomainName',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

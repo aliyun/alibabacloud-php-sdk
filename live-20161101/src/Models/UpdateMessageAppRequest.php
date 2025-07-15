@@ -9,34 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UpdateMessageAppRequest extends Model
 {
     /**
+     * @description The configurations of the application.
+     *
      * @var string[]
      */
     public $appConfig;
 
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the interactive messaging application.
+     *
+     * @example testApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The extended field.
+     *
      * @var string[]
      */
     public $extension;
     protected $_name = [
         'appConfig' => 'AppConfig',
-        'appId'     => 'AppId',
-        'appName'   => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'extension' => 'Extension',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

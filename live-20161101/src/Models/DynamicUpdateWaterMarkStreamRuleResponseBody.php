@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DynamicUpdateWaterMarkStreamRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example BE9407FF-F897-4DBD-338D-98A750AD805F
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class DynamicUpdateWaterMarkStreamRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,28 +9,42 @@ use AlibabaCloud\Tea\Model;
 class ListMessageGroupUserByIdRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the message group.
+     *
+     * This parameter is required.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The list of users.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $userIdList;
     protected $_name = [
-        'appId'      => 'AppId',
-        'groupId'    => 'GroupId',
+        'appId' => 'AppId',
+        'groupId' => 'GroupId',
         'userIdList' => 'UserIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

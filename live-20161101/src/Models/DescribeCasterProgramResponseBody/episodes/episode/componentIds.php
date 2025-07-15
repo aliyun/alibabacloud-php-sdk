@@ -16,9 +16,7 @@ class componentIds extends Model
         'componentId' => 'ComponentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

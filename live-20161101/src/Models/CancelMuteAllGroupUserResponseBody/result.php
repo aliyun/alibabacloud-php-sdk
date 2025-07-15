@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the cancellation was successful, with values:
+     * - true: Success.
+     * - false: Not successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -16,9 +22,7 @@ class result extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

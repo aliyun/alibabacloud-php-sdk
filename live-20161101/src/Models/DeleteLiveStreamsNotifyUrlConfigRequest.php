@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveStreamsNotifyUrlConfigRequest extends Model
 {
     /**
+     * @description The ingest domain.
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -17,14 +23,18 @@ class DeleteLiveStreamsNotifyUrlConfigRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -34,6 +44,9 @@ class DeleteLiveStreamsNotifyUrlConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class DeleteLiveStreamsNotifyUrlConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

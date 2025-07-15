@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class HotLiveRtcStreamResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 16BFE188-B193-4C3C-ADC5-79A7E31486EA
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class HotLiveRtcStreamResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

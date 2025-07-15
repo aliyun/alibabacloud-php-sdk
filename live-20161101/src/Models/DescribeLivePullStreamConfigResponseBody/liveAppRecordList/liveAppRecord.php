@@ -9,52 +9,78 @@ use AlibabaCloud\Tea\Model;
 class liveAppRecord extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range for which the configurations were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2016-05-20T01:33:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The origin server of the live stream.
+     *
+     * @example guide.aliyundoc.com
+     *
      * @var string
      */
     public $sourceUrl;
 
     /**
+     * @description The live stream origin server that you are using.
+     *
+     * @example guide.aliyundoc.com
+     *
      * @var string
      */
     public $sourceUsing;
 
     /**
+     * @description The beginning of the time range for which the configurations were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2016-05-15T01:30:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'     => 'AppName',
-        'domainName'  => 'DomainName',
-        'endTime'     => 'EndTime',
-        'sourceUrl'   => 'SourceUrl',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'sourceUrl' => 'SourceUrl',
         'sourceUsing' => 'SourceUsing',
-        'startTime'   => 'StartTime',
-        'streamName'  => 'StreamName',
+        'startTime' => 'StartTime',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

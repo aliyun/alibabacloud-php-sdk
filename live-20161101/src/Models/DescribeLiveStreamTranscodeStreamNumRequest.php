@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamTranscodeStreamNumRequest extends Model
 {
     /**
+     * @description The streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -17,14 +23,36 @@ class DescribeLiveStreamTranscodeStreamNumRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The grouping method.
+     *
+     *   Domain name (default)
+     *   Template
+     *
+     * Valid values:
+     *
+     *   domain
+     *   template
+     *
+     * @example domain
+     *
+     * @var string
+     */
+    public $splitType;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'splitType' => 'SplitType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -34,6 +62,12 @@ class DescribeLiveStreamTranscodeStreamNumRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->splitType) {
+            $res['SplitType'] = $this->splitType;
         }
 
         return $res;
@@ -52,6 +86,12 @@ class DescribeLiveStreamTranscodeStreamNumRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SplitType'])) {
+            $model->splitType = $map['SplitType'];
         }
 
         return $model;

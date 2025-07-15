@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyLiveDomainSchdmByPropertyRequest extends Model
 {
     /**
+     * @description The domain name for which you want to modify the acceleration region.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,18 +25,32 @@ class ModifyLiveDomainSchdmByPropertyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The acceleration region that you want to set. {"coverage":"overseas"} specifies regions outside the Chinese mainland. Valid values of coverage:
+     *
+     *   domestic: regions in the Chinese mainland.
+     *   overseas: regions outside the Chinese mainland.
+     *   global: regions in and outside the Chinese mainland.
+     *
+     * This parameter is required.
+     *
+     * @example {"coverage":"global"}
+     *
      * @var string
      */
     public $property;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
-        'property'   => 'Property',
+        'ownerId' => 'OwnerId',
+        'property' => 'Property',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -43,6 +63,9 @@ class ModifyLiveDomainSchdmByPropertyRequest extends Model
         }
         if (null !== $this->property) {
             $res['Property'] = $this->property;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +87,9 @@ class ModifyLiveDomainSchdmByPropertyRequest extends Model
         }
         if (isset($map['Property'])) {
             $model->property = $map['Property'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

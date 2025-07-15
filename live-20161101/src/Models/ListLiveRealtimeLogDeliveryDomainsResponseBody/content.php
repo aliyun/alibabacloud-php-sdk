@@ -17,9 +17,7 @@ class content extends Model
         'domains' => 'Domains',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class content extends Model
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Domains'] as $item) {
                     $model->domains[$n++] = null !== $item ? domains::fromMap($item) : $item;
                 }

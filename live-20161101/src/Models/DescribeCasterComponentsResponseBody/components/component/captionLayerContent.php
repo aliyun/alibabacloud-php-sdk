@@ -9,94 +9,179 @@ use AlibabaCloud\Tea\Model;
 class captionLayerContent extends Model
 {
     /**
+     * @description The color of the text border.
+     *
+     * Valid values: **0x000000 to 0xffffff**. If the value of this parameter is "", this parameter does not take effect.
+     *
+     * @example 0x000000
+     *
      * @var string
      */
     public $borderColor;
 
     /**
+     * @description The normalized value of the width of the text border. The value of this parameter equals the border width divided by the font size.
+     *
+     * The maximum width of the text border is **16**, even if the border width calculated based on this parameter is greater than **16**.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $borderWidthNormalized;
 
     /**
+     * @description The color of the text. Valid values: **0x000000 to 0xffffff**.
+     *
+     * @example 0x000000
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @description The font of the text, which is specified by the system. Valid values:
+     *
+     *   **KaiTi**
+     *   **AlibabaPuHuiTi-Regular**
+     *   **AlibabaPuHuiTi-Bold**
+     *   **NAlibabaPuHuiTi-Light**
+     *   **NotoSansHans-Regular**
+     *   **NotoSansHans-Bold**
+     *   **NotoSansHans-Light**
+     ****
+     * @example KaiTi
+     *
      * @var string
      */
     public $fontName;
 
     /**
+     * @description The line spacing, which indicates the interval between every two lines.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $lineSpaceNormalized;
 
     /**
+     * @description The location ID of the component. If the value of the ComponentType parameter is caption, the LocationId parameter indicates the channel ID of the video source that is referenced by the component.
+     *
+     * @example RV01
+     *
      * @var string
      */
     public $locationId;
 
     /**
+     * @description The offset between the presentation timestamps (PTS) of the subtitles and the audio.
+     *
+     * Valid values: **-10000 to 10000**. Default value: **0**.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ptsOffset;
 
     /**
+     * @description Indicates whether the source language of the subtitles is displayed. Valid values:
+     *
+     *   **true**: The source language is displayed.
+     *   **false**: The source language is not displayed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $showSourceLan;
 
     /**
+     * @description The normalized value of the font size of the subtitles. The value of this parameter equals the font size divided by the output height.``
+     *
+     * The maximum font size of the subtitles is **1,024**, even if the font size calculated based on this parameter is greater than **1,024**. If the value of this parameter is **-1**, this parameter does not take effect.
+     *
+     * @example 0.1
+     *
      * @var float
      */
     public $sizeNormalized;
 
     /**
+     * @description The source language of the audio in the video source. Valid values:
+     *
+     *   **en**: English
+     *   **cn**: Chinese
+     *   **es**: Spanish
+     *   **ru**: Russian
+     *
+     * @example cn
+     *
      * @var string
      */
     public $sourceLan;
 
     /**
+     * @description The target language of the audio in the video source. Valid values:
+     *
+     *   **en**: English
+     *   **cn**: Chinese
+     *   **es**: Spanish
+     *   **ru**: Russian
+     *
+     * @example cn
+     *
      * @var string
      */
     public $targetLan;
 
     /**
+     * @description The maximum number of words displayed in each line.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $wordCountPerLine;
 
     /**
+     * @description The word spacing, which indicates the interval between every two words.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $wordSpaceNormalized;
 
     /**
+     * @description The number of words displayed on the component. The value of this parameter can be specified based on the font size.
+     *
+     * Valid values: **10 to 50**.
+     *
+     * @example 35
+     *
      * @var int
      */
     public $wordsCount;
     protected $_name = [
-        'borderColor'           => 'BorderColor',
+        'borderColor' => 'BorderColor',
         'borderWidthNormalized' => 'BorderWidthNormalized',
-        'color'                 => 'Color',
-        'fontName'              => 'FontName',
-        'lineSpaceNormalized'   => 'LineSpaceNormalized',
-        'locationId'            => 'LocationId',
-        'ptsOffset'             => 'PtsOffset',
-        'showSourceLan'         => 'ShowSourceLan',
-        'sizeNormalized'        => 'SizeNormalized',
-        'sourceLan'             => 'SourceLan',
-        'targetLan'             => 'TargetLan',
-        'wordCountPerLine'      => 'WordCountPerLine',
-        'wordSpaceNormalized'   => 'WordSpaceNormalized',
-        'wordsCount'            => 'WordsCount',
+        'color' => 'Color',
+        'fontName' => 'FontName',
+        'lineSpaceNormalized' => 'LineSpaceNormalized',
+        'locationId' => 'LocationId',
+        'ptsOffset' => 'PtsOffset',
+        'showSourceLan' => 'ShowSourceLan',
+        'sizeNormalized' => 'SizeNormalized',
+        'sourceLan' => 'SourceLan',
+        'targetLan' => 'TargetLan',
+        'wordCountPerLine' => 'WordCountPerLine',
+        'wordSpaceNormalized' => 'WordSpaceNormalized',
+        'wordsCount' => 'WordsCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

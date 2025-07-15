@@ -17,9 +17,7 @@ class topDomains extends Model
         'topDomain' => 'TopDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class topDomains extends Model
         if (isset($map['TopDomain'])) {
             if (!empty($map['TopDomain'])) {
                 $model->topDomain = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['TopDomain'] as $item) {
                     $model->topDomain[$n++] = null !== $item ? topDomain::fromMap($item) : $item;
                 }

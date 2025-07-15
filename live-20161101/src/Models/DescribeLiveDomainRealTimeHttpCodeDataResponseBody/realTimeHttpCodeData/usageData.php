@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2015-11-30T05:39:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The proportions of HTTP status codes.
+     *
      * @var value
      */
     public $value;
     protected $_name = [
         'timeStamp' => 'TimeStamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainLogRequest extends Model
 {
     /**
+     * @description The streaming domain or ingest domain.
+     *
+     * You can specify only one domain name.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query data. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * The end time must be later than the start time. The maximum time range that can be specified is 31 days.
+     *
+     * @example 2016-10-20T05:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,11 +38,25 @@ class DescribeLiveDomainLogRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
+     * >  If you do not specify the PageNumber parameter, the data on the first page is returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     *   Valid values: integers from **1 to 1000**.
+     *   Default value: **300**.
+     *   Maximum value: **1000**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -36,19 +64,27 @@ class DescribeLiveDomainLogRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2016-10-20T04:00:00Z
+     *
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -67,6 +103,9 @@ class DescribeLiveDomainLogRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -97,6 +136,9 @@ class DescribeLiveDomainLogRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

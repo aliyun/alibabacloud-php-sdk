@@ -11,46 +11,64 @@ use AlibabaCloud\Tea\Model;
 class inputList extends Model
 {
     /**
+     * @description The index.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The URL of the input stream.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $inputUrl;
 
     /**
+     * @description The layout information.
+     *
      * @var layoutConfig
      */
     public $layoutConfig;
 
     /**
+     * @description The layout ID, which must start from 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $layoutId;
 
     /**
+     * @description The playback configurations.
+     *
      * @var playConfig
      */
     public $playConfig;
 
     /**
+     * @description The display name of the monitored stream.
+     *
+     * @example monitorStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'index'        => 'Index',
-        'inputUrl'     => 'InputUrl',
+        'index' => 'Index',
+        'inputUrl' => 'InputUrl',
         'layoutConfig' => 'LayoutConfig',
-        'layoutId'     => 'LayoutId',
-        'playConfig'   => 'PlayConfig',
-        'streamName'   => 'StreamName',
+        'layoutId' => 'LayoutId',
+        'playConfig' => 'PlayConfig',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

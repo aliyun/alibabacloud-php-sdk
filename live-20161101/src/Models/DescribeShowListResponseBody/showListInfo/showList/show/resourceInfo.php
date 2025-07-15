@@ -9,34 +9,46 @@ use AlibabaCloud\Tea\Model;
 class resourceInfo extends Model
 {
     /**
+     * @description The custom type label.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $liveInputType;
 
     /**
+     * @description The ID of the video-on-demand (VOD) file.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf93880e****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example vod
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The URL of the resource.
+     *
      * @var string
      */
     public $resourceUrl;
     protected $_name = [
         'liveInputType' => 'LiveInputType',
-        'resourceId'    => 'ResourceId',
-        'resourceType'  => 'ResourceType',
-        'resourceUrl'   => 'ResourceUrl',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'resourceUrl' => 'ResourceUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

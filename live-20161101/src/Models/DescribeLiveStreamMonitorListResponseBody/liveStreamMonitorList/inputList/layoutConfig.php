@@ -9,34 +9,49 @@ use AlibabaCloud\Tea\Model;
 class layoutConfig extends Model
 {
     /**
+     * @description The fill type. Set this value to none.
+     *
+     * @example none
+     *
      * @var string
      */
     public $fillMode;
 
     /**
+     * @description The position of the layer, in the format of [unk][x,y][unk]. The values of x and y need to be normalized.
+     *
      * @var float[]
      */
     public $positionNormalized;
 
     /**
+     * @description The reference position of the element. Valid values:
+     *
+     *   topLeft
+     *   topRight
+     *   bottomLeft
+     *   bottomRight
+     *
+     * @example topLeft
+     *
      * @var string
      */
     public $positionRefer;
 
     /**
+     * @description The size of the layer. Unit: bytes.
+     *
      * @var float[]
      */
     public $sizeNormalized;
     protected $_name = [
-        'fillMode'           => 'FillMode',
+        'fillMode' => 'FillMode',
         'positionNormalized' => 'PositionNormalized',
-        'positionRefer'      => 'PositionRefer',
-        'sizeNormalized'     => 'SizeNormalized',
+        'positionRefer' => 'PositionRefer',
+        'sizeNormalized' => 'SizeNormalized',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

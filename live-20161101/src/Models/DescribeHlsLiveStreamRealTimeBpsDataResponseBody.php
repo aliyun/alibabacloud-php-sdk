@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 17C16B18-D3EA-4809-9CC3-8A2CBE14BC7B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The timestamp for which the data was queried.
+     *
+     * @example 2018-08-08T00:00:00Z
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @description The usage data.
+     *
      * @var usageData[]
      */
     public $usageData;
     protected $_name = [
         'requestId' => 'RequestId',
-        'time'      => 'Time',
+        'time' => 'Time',
         'usageData' => 'UsageData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -72,7 +80,7 @@ class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends Model
         if (isset($map['UsageData'])) {
             if (!empty($map['UsageData'])) {
                 $model->usageData = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['UsageData'] as $item) {
                     $model->usageData[$n++] = null !== $item ? usageData::fromMap($item) : $item;
                 }

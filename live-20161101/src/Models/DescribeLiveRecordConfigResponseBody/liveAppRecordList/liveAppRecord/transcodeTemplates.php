@@ -16,9 +16,7 @@ class transcodeTemplates extends Model
         'templates' => 'Templates',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

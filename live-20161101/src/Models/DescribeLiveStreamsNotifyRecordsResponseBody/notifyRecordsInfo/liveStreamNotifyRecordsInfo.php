@@ -9,64 +9,104 @@ use AlibabaCloud\Tea\Model;
 class liveStreamNotifyRecordsInfo extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The result of the request. If success is returned, the request is successful. If an error message is returned, the request failed.
+     *
+     * @example success
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ingest domain.
+     *
+     * @example push.example1.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The callback content.
+     *
+     * @example {\\"action\\":\\"publish_done\\",\\"app\\":\\"push.example1.com\\"}
+     *
      * @var string
      */
     public $notifyContent;
 
     /**
+     * @description The callback result. Valid values:
+     *
+     *   success
+     *   failed
+     *
+     * @example success
+     *
      * @var string
      */
     public $notifyResult;
 
     /**
+     * @description The time when the callback was invoked. The time is displayed in UTC.
+     *
+     * @example 2022-10-19T19:09:28Z
+     *
      * @var string
      */
     public $notifyTime;
 
     /**
+     * @description The event. Valid values:
+     *
+     *   publish: The stream ingest starts.
+     *   publish_done: The stream ingest is interrupted.
+     *
+     * @example publish_done
+     *
      * @var string
      */
     public $notifyType;
 
     /**
+     * @description The callback URL.
+     *
+     * @example http://xx.xx.xx.xx/callbacks
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example stream
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'       => 'AppName',
-        'description'   => 'Description',
-        'domainName'    => 'DomainName',
+        'appName' => 'AppName',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
         'notifyContent' => 'NotifyContent',
-        'notifyResult'  => 'NotifyResult',
-        'notifyTime'    => 'NotifyTime',
-        'notifyType'    => 'NotifyType',
-        'notifyUrl'     => 'NotifyUrl',
-        'streamName'    => 'StreamName',
+        'notifyResult' => 'NotifyResult',
+        'notifyTime' => 'NotifyTime',
+        'notifyType' => 'NotifyType',
+        'notifyUrl' => 'NotifyUrl',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

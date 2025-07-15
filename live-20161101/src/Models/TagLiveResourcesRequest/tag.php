@@ -9,22 +9,26 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example env
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example product
+     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class watermarkList extends Model
         'watermark' => 'Watermark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class watermarkList extends Model
         if (isset($map['Watermark'])) {
             if (!empty($map['Watermark'])) {
                 $model->watermark = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Watermark'] as $item) {
                     $model->watermark[$n++] = null !== $item ? watermark::fromMap($item) : $item;
                 }

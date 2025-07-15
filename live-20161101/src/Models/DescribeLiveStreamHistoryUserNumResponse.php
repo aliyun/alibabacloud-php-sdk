@@ -23,17 +23,12 @@ class DescribeLiveStreamHistoryUserNumResponse extends Model
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
-    public function validate()
-    {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
-    }
+    public function validate() {}
 
     public function toMap()
     {

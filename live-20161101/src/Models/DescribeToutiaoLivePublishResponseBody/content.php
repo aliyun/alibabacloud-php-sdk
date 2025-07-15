@@ -9,64 +9,98 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The bitrate. Unit: bit/s.
+     *
+     * @example 261587
+     *
      * @var float
      */
     public $bitrate;
 
     /**
+     * @description The bitrate difference.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $bwDiff;
 
     /**
+     * @description The name of the content delivery network (CDN) service.
+     *
+     * @example ali
+     *
      * @var string
      */
     public $cdnName;
 
     /**
+     * @description The ingest domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The number of dropped frames.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $flr;
 
     /**
+     * @description The frame rate.
+     *
+     * @example 74.4
+     *
      * @var float
      */
     public $fps;
 
     /**
+     * @description The name of the ingested stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The timestamp.
+     *
+     * @example 1624358970
+     *
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'app'        => 'App',
-        'bitrate'    => 'Bitrate',
-        'bwDiff'     => 'BwDiff',
-        'cdnName'    => 'CdnName',
-        'domain'     => 'Domain',
-        'flr'        => 'Flr',
-        'fps'        => 'Fps',
+        'app' => 'App',
+        'bitrate' => 'Bitrate',
+        'bwDiff' => 'BwDiff',
+        'cdnName' => 'CdnName',
+        'domain' => 'Domain',
+        'flr' => 'Flr',
+        'fps' => 'Fps',
         'streamName' => 'StreamName',
-        'timestamp'  => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

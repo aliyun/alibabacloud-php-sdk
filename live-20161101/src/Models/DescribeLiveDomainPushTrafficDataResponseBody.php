@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainPushTrafficDataResponseBody extends Model
 {
     /**
+     * @description The time granularity.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The ingest domain.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range during which the data was queried.
+     *
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which the data was queried.
+     *
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The traffic data that was collected at each interval.
+     *
      * @var trafficDataPerInterval
      */
     public $trafficDataPerInterval;
     protected $_name = [
-        'dataInterval'           => 'DataInterval',
-        'domainName'             => 'DomainName',
-        'endTime'                => 'EndTime',
-        'requestId'              => 'RequestId',
-        'startTime'              => 'StartTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'trafficDataPerInterval' => 'TrafficDataPerInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

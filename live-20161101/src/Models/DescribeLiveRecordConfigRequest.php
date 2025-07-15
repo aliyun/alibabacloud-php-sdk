@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRecordConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The name of the main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The order in which the entries are sorted based on creation time. Valid values:
+     *
+     *   **asc** (default): ascending order
+     *   **desc**: descending order
+     *
+     * @example asc
+     *
      * @var string
      */
     public $order;
@@ -29,11 +46,19 @@ class DescribeLiveRecordConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Valid values: **5 to 30**. Default value: **10**.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
@@ -44,23 +69,25 @@ class DescribeLiveRecordConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
-        'order'         => 'Order',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'order' => 'Order',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'streamName'    => 'StreamName',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

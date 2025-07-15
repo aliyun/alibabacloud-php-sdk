@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveAudioAuditConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -26,17 +36,25 @@ class DescribeLiveAudioAuditConfigRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
+     * @var string
+     */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -49,6 +67,9 @@ class DescribeLiveAudioAuditConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -73,6 +94,9 @@ class DescribeLiveAudioAuditConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

@@ -9,40 +9,58 @@ use AlibabaCloud\Tea\Model;
 class recordFormat extends Model
 {
     /**
+     * @description The duration of a recording file. Unit: seconds.
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $cycleDuration;
 
     /**
+     * @description The format of recording files.
+     *
+     * @example M3U8
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The naming format of a recording file.
+     *
+     * @example record/{liveApp****}/{liveStream****}
+     *
      * @var string
      */
     public $ossObjectPrefix;
 
     /**
+     * @description The duration of a segment file. Unit: seconds.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $sliceDuration;
 
     /**
+     * @description The naming format of a segment file.
+     *
+     * @example record/{liveApp****}/{liveStream****}/{UnixTimestamp}
+     *
      * @var string
      */
     public $sliceOssObjectPrefix;
     protected $_name = [
-        'cycleDuration'        => 'CycleDuration',
-        'format'               => 'Format',
-        'ossObjectPrefix'      => 'OssObjectPrefix',
-        'sliceDuration'        => 'SliceDuration',
+        'cycleDuration' => 'CycleDuration',
+        'format' => 'Format',
+        'ossObjectPrefix' => 'OssObjectPrefix',
+        'sliceDuration' => 'SliceDuration',
         'sliceOssObjectPrefix' => 'SliceOssObjectPrefix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

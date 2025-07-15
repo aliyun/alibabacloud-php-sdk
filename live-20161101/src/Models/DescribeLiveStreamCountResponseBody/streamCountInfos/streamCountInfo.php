@@ -10,34 +10,49 @@ use AlibabaCloud\Tea\Model;
 class streamCountInfo extends Model
 {
     /**
+     * @description The number of online streams.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The maximum allowed number of concurrently ingested streams. This parameter is available only to users in the whitelist.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The information about the live streams.
+     *
      * @var streamCountDetails
      */
     public $streamCountDetails;
 
     /**
+     * @description The type of the live stream. Valid values:
+     *
+     *   **raw**: source streams
+     *   **trans**: transcoded streams
+     *
+     * @example raw
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'count'              => 'Count',
-        'limit'              => 'Limit',
+        'count' => 'Count',
+        'limit' => 'Limit',
         'streamCountDetails' => 'StreamCountDetails',
-        'type'               => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

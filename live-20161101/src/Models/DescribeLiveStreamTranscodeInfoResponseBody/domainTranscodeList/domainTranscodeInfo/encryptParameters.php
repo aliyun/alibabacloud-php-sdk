@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class encryptParameters extends Model
 {
     /**
+     * @description The type of encryption. Fixed value: **aliyun**.
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $encryptType;
 
     /**
+     * @description The rotation period of the CMK. Valid values: **60 to 3600**. Unit: seconds.
+     *
+     * @example 3600
+     *
      * @var string
      */
     public $kmsKeyExpireInterval;
 
     /**
+     * @description The ID of the customer master key (CMK) in Key Management Service (KMS).
+     *
+     * @example afce5722-81d2-43c3-9930-7601da11****
+     *
      * @var string
      */
     public $kmsKeyID;
     protected $_name = [
-        'encryptType'          => 'EncryptType',
+        'encryptType' => 'EncryptType',
         'kmsKeyExpireInterval' => 'KmsKeyExpireInterval',
-        'kmsKeyID'             => 'KmsKeyID',
+        'kmsKeyID' => 'KmsKeyID',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

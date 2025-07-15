@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DeleteMixStreamRequest extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the stream mixing task. If the task was created by calling the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation, check the value of the response parameter MixStreamId to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 749b7594-86d6-37b1-513b-e1e19845****
+     *
      * @var string
      */
     public $mixStreamId;
@@ -31,18 +47,26 @@ class DeleteMixStreamRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The name of the output stream.
+     *
+     * @example liveStream****
+     *
+     * @var string
+     */
     public $streamName;
     protected $_name = [
-        'appName'     => 'AppName',
-        'domainName'  => 'DomainName',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
         'mixStreamId' => 'MixStreamId',
-        'ownerId'     => 'OwnerId',
-        'streamName'  => 'StreamName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,6 +82,9 @@ class DeleteMixStreamRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -85,6 +112,9 @@ class DeleteMixStreamRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

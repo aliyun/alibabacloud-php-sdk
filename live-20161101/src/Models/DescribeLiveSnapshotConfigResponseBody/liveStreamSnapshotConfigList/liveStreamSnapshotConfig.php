@@ -9,64 +9,98 @@ use AlibabaCloud\Tea\Model;
 class liveStreamSnapshotConfig extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The callback URL that is used to receive notifications about snapshot capture.
+     *
+     * @example https://learn.aliyundoc.com
+     *
      * @var string
      */
     public $callback;
 
     /**
+     * @description The time when the configuration was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2016-05-20T01:33:38Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the Object Storage Service (OSS) bucket.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
+     * @example cn-oss-****.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The naming format of snapshots that are stored in the overwrite mode, which means that a new snapshot overwrites the previous snapshot.
+     *
+     * @example {liveApp****}/{liveStream****}.jpg
+     *
      * @var string
      */
     public $overwriteOssObject;
 
     /**
+     * @description The naming format of snapshots that are stored in sequence, which means that a new snapshot does not overwrite the previous snapshot.
+     *
+     * @example snapshot/{liveApp****}/{liveStream****}/{UnixTimestamp}.jpg
+     *
      * @var string
      */
     public $sequenceOssObject;
 
     /**
+     * @description The interval at which snapshots are captured. Unit: seconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $timeInterval;
     protected $_name = [
-        'appName'            => 'AppName',
-        'callback'           => 'Callback',
-        'createTime'         => 'CreateTime',
-        'domainName'         => 'DomainName',
-        'ossBucket'          => 'OssBucket',
-        'ossEndpoint'        => 'OssEndpoint',
+        'appName' => 'AppName',
+        'callback' => 'Callback',
+        'createTime' => 'CreateTime',
+        'domainName' => 'DomainName',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
         'overwriteOssObject' => 'OverwriteOssObject',
-        'sequenceOssObject'  => 'SequenceOssObject',
-        'timeInterval'       => 'TimeInterval',
+        'sequenceOssObject' => 'SequenceOssObject',
+        'timeInterval' => 'TimeInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

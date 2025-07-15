@@ -17,9 +17,7 @@ class liveSnapshotDetectPornConfigList extends Model
         'liveSnapshotDetectPornConfig' => 'LiveSnapshotDetectPornConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveSnapshotDetectPornConfigList extends Model
         if (isset($map['LiveSnapshotDetectPornConfig'])) {
             if (!empty($map['LiveSnapshotDetectPornConfig'])) {
                 $model->liveSnapshotDetectPornConfig = [];
-                $n                                   = 0;
+                $n = 0;
                 foreach ($map['LiveSnapshotDetectPornConfig'] as $item) {
                     $model->liveSnapshotDetectPornConfig[$n++] = null !== $item ? liveSnapshotDetectPornConfig::fromMap($item) : $item;
                 }

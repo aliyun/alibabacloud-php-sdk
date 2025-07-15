@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveShiftConfigsResponseBody extends Model
 {
     /**
+     * @description The time shifting configurations.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B49E6DDA-F413-422B-B58E-2FA23F286726
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

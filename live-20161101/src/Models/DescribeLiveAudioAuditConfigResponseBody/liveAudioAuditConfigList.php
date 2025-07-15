@@ -17,9 +17,7 @@ class liveAudioAuditConfigList extends Model
         'liveAudioAuditConfig' => 'LiveAudioAuditConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveAudioAuditConfigList extends Model
         if (isset($map['LiveAudioAuditConfig'])) {
             if (!empty($map['LiveAudioAuditConfig'])) {
                 $model->liveAudioAuditConfig = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['LiveAudioAuditConfig'] as $item) {
                     $model->liveAudioAuditConfig[$n++] = null !== $item ? liveAudioAuditConfig::fromMap($item) : $item;
                 }

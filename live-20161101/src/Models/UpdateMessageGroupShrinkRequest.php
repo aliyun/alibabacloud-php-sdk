@@ -9,28 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateMessageGroupShrinkRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The extended field.
+     *
      * @var string
      */
     public $extensionShrink;
 
     /**
+     * @description The ID of the message group.
+     *
+     * This parameter is required.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
     protected $_name = [
-        'appId'           => 'AppId',
+        'appId' => 'AppId',
         'extensionShrink' => 'Extension',
-        'groupId'         => 'GroupId',
+        'groupId' => 'GroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

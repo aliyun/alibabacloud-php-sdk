@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class pageInfos extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'pageIndex' => 'PageIndex',
-        'pageSize'  => 'PageSize',
-        'total'     => 'Total',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

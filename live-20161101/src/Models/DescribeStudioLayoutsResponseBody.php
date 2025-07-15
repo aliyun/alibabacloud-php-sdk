@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeStudioLayoutsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5c6a2a0d-f228-4a64-af62-20e91b9676b3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The layout information.
+     *
      * @var studioLayouts[]
      */
     public $studioLayouts;
 
     /**
+     * @description The total number of layouts.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'studioLayouts' => 'StudioLayouts',
-        'total'         => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -69,7 +77,7 @@ class DescribeStudioLayoutsResponseBody extends Model
         if (isset($map['StudioLayouts'])) {
             if (!empty($map['StudioLayouts'])) {
                 $model->studioLayouts = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['StudioLayouts'] as $item) {
                     $model->studioLayouts[$n++] = null !== $item ? studioLayouts::fromMap($item) : $item;
                 }

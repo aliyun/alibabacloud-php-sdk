@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsOnlineListResponseBody extends Model
 {
     /**
+     * @description The information about the live streams that are being ingested.
+     *
      * @var onlineInfo
      */
     public $onlineInfo;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5c6a2a0df228-4a64- af62-20e91b9676b3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of streams that meet the specified conditions.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
         'onlineInfo' => 'OnlineInfo',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'totalNum'   => 'TotalNum',
-        'totalPage'  => 'TotalPage',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,46 +9,75 @@ use AlibabaCloud\Tea\Model;
 class programList extends Model
 {
     /**
+     * @description The ID of the production studio to which the episode list belongs. You can use the ID as a request parameter in the API operation that is used to add a layout to the virtual studio, delete a layout in the virtual studio, modify a layout of the virtual studio, or query layouts of the virtual studio.
+     *
+     * @example casdfasdfasfdasdflkasjdflaj****
+     *
      * @var string
      */
     public $casterId;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the episode list.
+     *
+     * @example c09f3d63-eacf-4fbf-bd48-a07a6ba7****
+     *
      * @var string
      */
     public $programId;
 
     /**
+     * @description The name of the episode list.
+     *
+     * @example playlist1
+     *
      * @var string
      */
     public $programName;
 
     /**
+     * @description The number of playbacks after the first playback is complete. Valid values:
+     *
+     *   **0** (default): specifies that the episode list is played only once.
+     *   **-1**: specifies that the episode list is played in loop mode.
+     *   Positive integer: specifies the number of times the episode list repeats after the first playback is complete.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $repeatNumber;
 
     /**
+     * @description The status of the episode list. Valid values:
+     *
+     *   **0**: stopped
+     *   **1**: running
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'casterId'     => 'CasterId',
-        'domainName'   => 'DomainName',
-        'programId'    => 'ProgramId',
-        'programName'  => 'ProgramName',
+        'casterId' => 'CasterId',
+        'domainName' => 'DomainName',
+        'programId' => 'ProgramId',
+        'programName' => 'ProgramName',
         'repeatNumber' => 'RepeatNumber',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

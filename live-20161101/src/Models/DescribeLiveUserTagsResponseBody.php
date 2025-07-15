@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveUserTagsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6B0256B6-2442-5BEF-B8D6-A0C28A801DFC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tags'      => 'Tags',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -60,7 +64,7 @@ class DescribeLiveUserTagsResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class playTimeData extends Model
 {
     /**
+     * @description The average playback duration within the period of time.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $playTime;
 
     /**
+     * @description The average stuttering duration within the period of time.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $stallTime;
 
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'playTime'  => 'PlayTime',
+        'playTime' => 'PlayTime',
         'stallTime' => 'StallTime',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

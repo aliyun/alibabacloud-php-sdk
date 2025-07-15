@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsNotifyRecordsRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+     *
+     * @example app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ingest domain.
+     *
+     * This parameter is required.
+     *
+     * @example push.example1.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-10T09:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,11 +45,19 @@ class DescribeLiveStreamsNotifyRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Maximum value: 500. Valid values: integers from 1 to 500.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -41,32 +65,55 @@ class DescribeLiveStreamsNotifyRecordsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  The start time must be in the last seven days.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-10T08:00:00Z
+     *
+     * @var string
+     */
     public $startTime;
 
     /**
+     * @description Specifies whether to return the records of successful or failed callbacks. Valid values:
+     *
+     *   success
+     *   failed
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+     *
+     * @example stream
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,6 +135,9 @@ class DescribeLiveStreamsNotifyRecordsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -127,6 +177,9 @@ class DescribeLiveStreamsNotifyRecordsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

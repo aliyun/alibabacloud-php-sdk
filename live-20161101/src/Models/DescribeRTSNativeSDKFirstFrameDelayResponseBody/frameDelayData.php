@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class frameDelayData extends Model
 {
     /**
+     * @description The average latency of first frames within the period of time.
+     *
+     * @example 400
+     *
      * @var string
      */
     public $frameDelay;
 
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
         'frameDelay' => 'FrameDelay',
-        'timeStamp'  => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterComponentsResponseBody extends Model
 {
     /**
+     * @description The components.
+     *
      * @var components
      */
     public $components;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3be7ade8-d907-483c-b24a-0dad45******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'components' => 'Components',
-        'requestId'  => 'RequestId',
-        'total'      => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

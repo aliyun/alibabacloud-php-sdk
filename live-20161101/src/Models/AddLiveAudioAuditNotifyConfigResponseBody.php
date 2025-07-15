@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddLiveAudioAuditNotifyConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7BF95F2A-3B24-4CDE-9346-7F6FA86697A1
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class AddLiveAudioAuditNotifyConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

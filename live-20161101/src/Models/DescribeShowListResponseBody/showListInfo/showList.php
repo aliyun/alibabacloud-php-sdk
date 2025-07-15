@@ -17,9 +17,7 @@ class showList extends Model
         'show' => 'Show',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class showList extends Model
         if (isset($map['Show'])) {
             if (!empty($map['Show'])) {
                 $model->show = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Show'] as $item) {
                     $model->show[$n++] = null !== $item ? show::fromMap($item) : $item;
                 }

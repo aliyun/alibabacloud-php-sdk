@@ -9,22 +9,32 @@ use AlibabaCloud\Tea\Model;
 class liveDomainModel extends Model
 {
     /**
+     * @description The domain name to which the queried domain name is mapped.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The type of the queried domain name. Valid values:
+     *
+     *   **vhost**: main streaming domain
+     *   **publish**: ingest domain
+     *   **play**: sub-streaming domain
+     *
+     * @example play
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'domainName' => 'DomainName',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

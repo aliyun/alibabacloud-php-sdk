@@ -9,40 +9,60 @@ use AlibabaCloud\Tea\Model;
 class channel extends Model
 {
     /**
+     * @description The ID of the channel.
+     *
+     * The layout references the channel ID when the channel is enabled. You can specify up to one video resource for the channel. The value of this parameter must be in the RV[Number] format, such as RV01 and RV12.
+     *
+     * @example RV01
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description The face retouching effect. Valid values: 0 (all effects), 1 (skin smoothing), 2 (skin whitening), 3 (dark circles removal), and 4 (nasolabial folds removal).
+     *
+     * @example 0
+     *
      * @var string
      */
     public $faceBeauty;
 
     /**
+     * @description The ID of the video resource.
+     *
+     * @example 87642866-281E-4AEA-9582-B124879****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The URL in the Real-Time Messaging Protocol (RTMP) format.
+     *
+     * @example rtmp://demo.aliyundoc.com/caster/rtmperf?auth_key=****
+     *
      * @var string
      */
     public $rtmpUrl;
 
     /**
+     * @description The URL of the output content in the channel.
+     *
+     * @example http://demo.aliyundoc.com/caster/streamwsx.flv?auth_key=YYYYY
+     *
      * @var string
      */
     public $streamUrl;
     protected $_name = [
-        'channelId'  => 'ChannelId',
+        'channelId' => 'ChannelId',
         'faceBeauty' => 'FaceBeauty',
         'resourceId' => 'ResourceId',
-        'rtmpUrl'    => 'RtmpUrl',
-        'streamUrl'  => 'StreamUrl',
+        'rtmpUrl' => 'RtmpUrl',
+        'streamUrl' => 'StreamUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

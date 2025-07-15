@@ -10,28 +10,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterLayoutsResponseBody extends Model
 {
     /**
+     * @description The layouts.
+     *
      * @var layouts
      */
     public $layouts;
 
     /**
+     * @description The request ID.
+     *
+     * @example The normalized value of the width of the video layer image.
+     *
+     *   If the FillMode parameter of the video layer is set to none, the height of the video image is scaled based on this parameter. The default value is **0**, which indicates that the video image is displayed in the original size.
+     *   If the FillMode parameter of the video layer is set to fit, the value of the parameter is greater than **0**.
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'layouts'   => 'Layouts',
+        'layouts' => 'Layouts',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class audioLayers extends Model
         'audioLayer' => 'AudioLayer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class audioLayers extends Model
         if (isset($map['AudioLayer'])) {
             if (!empty($map['AudioLayer'])) {
                 $model->audioLayer = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['AudioLayer'] as $item) {
                     $model->audioLayer[$n++] = null !== $item ? audioLayer::fromMap($item) : $item;
                 }

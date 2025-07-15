@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class liveStreamRtmpDelayConfig extends Model
 {
     /**
+     * @description The playback latency. Unit: seconds.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $delay;
 
     /**
+     * @description The latency level. Valid values:
+     *
+     *   **short**: The latency is less than or equal to 4 seconds.
+     *   **medium**: The latency is greater than 4 seconds, and less than or equal to 8 seconds.
+     *   **long**: The latency is greater than 8 seconds.
+     *
+     * @example short
+     *
      * @var string
      */
     public $level;
@@ -22,9 +34,7 @@ class liveStreamRtmpDelayConfig extends Model
         'level' => 'Level',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

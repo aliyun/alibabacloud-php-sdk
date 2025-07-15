@@ -17,9 +17,7 @@ class liveDomainModels extends Model
         'liveDomainModel' => 'LiveDomainModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveDomainModels extends Model
         if (isset($map['LiveDomainModel'])) {
             if (!empty($map['LiveDomainModel'])) {
                 $model->liveDomainModel = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['LiveDomainModel'] as $item) {
                     $model->liveDomainModel[$n++] = null !== $item ? liveDomainModel::fromMap($item) : $item;
                 }

@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class successItems extends Model
 {
     /**
+     * @description The ID of the episode.
+     *
+     * @example c09f3d63-eacf-4fbf-bd48-a07a6ba7****
+     *
      * @var string
      */
     public $itemId;
 
     /**
+     * @description The name of the episode.
+     *
+     * @example item2
+     *
      * @var string
      */
     public $itemName;
     protected $_name = [
-        'itemId'   => 'ItemId',
+        'itemId' => 'ItemId',
         'itemName' => 'ItemName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

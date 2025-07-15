@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The storage used for time shifting. Unit: bytes.
+     *
+     * @example 1664165660
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2021-03-03T00:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The type of time shifting. Examples: HLS_D1 and HLS_D7.
+     *
+     * @example HLS_D7
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'size'      => 'Size',
+        'size' => 'Size',
         'timeStamp' => 'TimeStamp',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

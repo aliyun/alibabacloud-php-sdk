@@ -9,34 +9,48 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The traffic over HTTP. Unit: bytes.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $httpTrafficValue;
 
     /**
+     * @description The traffic over HTTPS. Unit: bytes.
+     *
+     * @example 454680793
+     *
      * @var string
      */
     public $httpsTrafficValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2017-12-10T15:00:05Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total traffic. Unit: bytes.
+     *
+     * @example 454680793
+     *
      * @var string
      */
     public $trafficValue;
     protected $_name = [
-        'httpTrafficValue'  => 'HttpTrafficValue',
+        'httpTrafficValue' => 'HttpTrafficValue',
         'httpsTrafficValue' => 'HttpsTrafficValue',
-        'timeStamp'         => 'TimeStamp',
-        'trafficValue'      => 'TrafficValue',
+        'timeStamp' => 'TimeStamp',
+        'trafficValue' => 'TrafficValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

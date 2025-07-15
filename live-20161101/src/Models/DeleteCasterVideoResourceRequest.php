@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteCasterVideoResourceRequest extends Model
 {
     /**
+     * @description The ID of the production studio.
+     *
+     *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) operation, check the value of the response parameter CasterId to obtain the ID.
+     *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+     *
+     * >  You can find the ID of the production studio in the Instance ID/Name column.
+     *
+     * This parameter is required.
+     *
+     * @example 80787064-1c94-4dc1-85ce-9409960a****
+     *
      * @var string
      */
     public $casterId;
@@ -21,16 +32,26 @@ class DeleteCasterVideoResourceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The resource ID. If the input source was added by calling the AddCasterVideoResource operation, check the value of the response parameter ResourceId to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 05ab713c-676e-49c0-96ce-cc408da1****
+     *
+     * @var string
+     */
     public $resourceId;
     protected $_name = [
-        'casterId'   => 'CasterId',
-        'ownerId'    => 'OwnerId',
+        'casterId' => 'CasterId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceId' => 'ResourceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -40,6 +61,9 @@ class DeleteCasterVideoResourceRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -61,6 +85,9 @@ class DeleteCasterVideoResourceRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

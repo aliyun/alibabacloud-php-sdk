@@ -9,82 +9,150 @@ use AlibabaCloud\Tea\Model;
 class watermark extends Model
 {
     /**
+     * @description The description of the watermark.
+     *
+     * @example my watermark
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The height of the watermark. Unit: pixels.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @description The name of the watermark.
+     *
+     * @example livewatermark****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The position of the watermark.
+     *
+     *   TopLeft: the upper-left corner.
+     *   TopRight: the upper-right corner.
+     *   BottomLeft: the lower-left corner.
+     *   BottomRight: the lower-right corner.
+     *
+     * @example TopRight
+     *
      * @var string
      */
     public $offsetCorner;
 
     /**
+     * @description The URL of the watermark image.
+     *
+     * @example http://example.com
+     *
      * @var string
      */
     public $pictureUrl;
 
     /**
+     * @description The height of the background video. Unit: pixels.
+     *
+     * @example 1080
+     *
      * @var int
      */
     public $refHeight;
 
     /**
+     * @description The width of the background video. Unit: pixels.
+     *
+     * @example 1920
+     *
      * @var int
      */
     public $refWidth;
 
     /**
+     * @description The number of watermark rules configured for the domain name.
+     *
+     * @example 12
+     *
+     * @var int
+     */
+    public $ruleCount;
+
+    /**
+     * @description The ID of the watermark template.
+     *
+     * @example 445409ec-7eaa-4 61d-8f29-4bec2eb9 ****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The transparency of the watermark. A smaller value indicates a more transparent watermark. Valid values: 0 to 255.
+     *
+     * @example 255
+     *
      * @var int
      */
     public $transparency;
 
     /**
+     * @description The watermark type.
+     *
+     *   0: image. Only image watermarks are supported.
+     *   1: text.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @description The offset of the watermark along the x-axis. Unit: pixels.
+     *
+     * >  The value of the RefWidth parameter is used as the reference. If the OffsetCorner parameter is set to TopLeft, the value of the XOffset parameter indicates the x-axis offset of the upper-left corner of the watermark relative to that of the background video. The directions from the coordinate axes to the center of the background video are positive. In other words, the x-axis is positive toward the right.
+     *
+     * @example 50.0
+     *
      * @var float
      */
     public $XOffset;
 
     /**
+     * @description The offset of the watermark along the y-axis. Unit: pixels.
+     *
+     * >  The value of the RefHeight parameter is used as the reference. If the OffsetCorner parameter is set to TopLeft, the value of the YOffset parameter indicates the y-axis offset of the upper-left corner of the watermark relative to that of the background video. The directions from the coordinate axes to the center of the background video are positive. In other words, the y-axis is positive downward.
+     *
+     * @example 100.0
+     *
      * @var float
      */
     public $YOffset;
     protected $_name = [
-        'description'  => 'Description',
-        'height'       => 'Height',
-        'name'         => 'Name',
+        'description' => 'Description',
+        'height' => 'Height',
+        'name' => 'Name',
         'offsetCorner' => 'OffsetCorner',
-        'pictureUrl'   => 'PictureUrl',
-        'refHeight'    => 'RefHeight',
-        'refWidth'     => 'RefWidth',
-        'templateId'   => 'TemplateId',
+        'pictureUrl' => 'PictureUrl',
+        'refHeight' => 'RefHeight',
+        'refWidth' => 'RefWidth',
+        'ruleCount' => 'RuleCount',
+        'templateId' => 'TemplateId',
         'transparency' => 'Transparency',
-        'type'         => 'Type',
-        'XOffset'      => 'XOffset',
-        'YOffset'      => 'YOffset',
+        'type' => 'Type',
+        'XOffset' => 'XOffset',
+        'YOffset' => 'YOffset',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,6 +177,9 @@ class watermark extends Model
         }
         if (null !== $this->refWidth) {
             $res['RefWidth'] = $this->refWidth;
+        }
+        if (null !== $this->ruleCount) {
+            $res['RuleCount'] = $this->ruleCount;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -157,6 +228,9 @@ class watermark extends Model
         }
         if (isset($map['RefWidth'])) {
             $model->refWidth = $map['RefWidth'];
+        }
+        if (isset($map['RuleCount'])) {
+            $model->ruleCount = $map['RuleCount'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

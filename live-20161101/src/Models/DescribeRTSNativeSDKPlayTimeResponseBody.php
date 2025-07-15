@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeRTSNativeSDKPlayTimeResponseBody extends Model
 {
     /**
+     * @description The time granularity.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The end of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The average playback duration and average stuttering duration at each interval. Unit: milliseconds.
+     *
      * @var playTimeData[]
      */
     public $playTimeData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7BF95F2A-3B24-4CDE-9346-7F6FA86697A1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'dataInterval' => 'DataInterval',
-        'endTime'      => 'EndTime',
+        'endTime' => 'EndTime',
         'playTimeData' => 'PlayTimeData',
-        'requestId'    => 'RequestId',
-        'startTime'    => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +106,7 @@ class DescribeRTSNativeSDKPlayTimeResponseBody extends Model
         if (isset($map['PlayTimeData'])) {
             if (!empty($map['PlayTimeData'])) {
                 $model->playTimeData = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PlayTimeData'] as $item) {
                     $model->playTimeData[$n++] = null !== $item ? playTimeData::fromMap($item) : $item;
                 }

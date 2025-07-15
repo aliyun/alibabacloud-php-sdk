@@ -9,34 +9,51 @@ use AlibabaCloud\Tea\Model;
 class QuerySnapshotCallbackAuthResponseBody extends Model
 {
     /**
+     * @description The callback authentication key.
+     *
+     * @example yourkey
+     *
      * @var string
      */
     public $callbackAuthKey;
 
     /**
+     * @description Indicates whether callback authentication is enabled. Valid values:
+     *
+     *   **yes**: Callback authentication is enabled.
+     *   **no**: Callback authentication is disabled.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $callbackReqAuth;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD5
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'callbackAuthKey' => 'CallbackAuthKey',
         'callbackReqAuth' => 'CallbackReqAuth',
-        'domainName'      => 'DomainName',
-        'requestId'       => 'RequestId',
+        'domainName' => 'DomainName',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

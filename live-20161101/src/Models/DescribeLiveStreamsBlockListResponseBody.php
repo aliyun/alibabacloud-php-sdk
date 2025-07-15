@@ -10,52 +10,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsBlockListResponseBody extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9D855EC8-CF71-4615-B164-F7DFCB23B41D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The complete URL of each live stream.
+     *
      * @var streamUrls
      */
     public $streamUrls;
 
     /**
+     * @description The total number of live stream URLs that meet the specified conditions.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of returned pages.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
         'domainName' => 'DomainName',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'streamUrls' => 'StreamUrls',
-        'totalNum'   => 'TotalNum',
-        'totalPage'  => 'TotalPage',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

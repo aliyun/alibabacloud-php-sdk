@@ -11,16 +11,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterSceneAudioResponseBody extends Model
 {
     /**
+     * @description The configurations of the audio layers.
+     *
      * @var audioLayers
      */
     public $audioLayers;
 
     /**
+     * @description The ID of the production studio. You can specify the ID in a request to start a scene in the production studio.
+     *
+     * @example 97df6b7f-3490-47d2-ac50-88338765****
+     *
      * @var string
      */
     public $casterId;
 
     /**
+     * @description The audio mode. By default, the audio follows video (AFV) mode is used. Valid values:
+     *
+     *   **0**: the audio mixing mode
+     *   **1**: the AFV mode
+     *
+     * @example 1
+     *
      * @var int
      */
     public $followEnable;
@@ -31,20 +44,22 @@ class DescribeCasterSceneAudioResponseBody extends Model
     public $mixList;
 
     /**
+     * @description The request ID.
+     *
+     * @example 98745637-3490-47d2-ac50-883387567098
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'audioLayers'  => 'AudioLayers',
-        'casterId'     => 'CasterId',
+        'audioLayers' => 'AudioLayers',
+        'casterId' => 'CasterId',
         'followEnable' => 'FollowEnable',
-        'mixList'      => 'MixList',
-        'requestId'    => 'RequestId',
+        'mixList' => 'MixList',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

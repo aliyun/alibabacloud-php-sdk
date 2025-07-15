@@ -10,58 +10,86 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataResponseBody extends Model
 {
     /**
+     * @description The billable region where the resource usage data was generated.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description The time interval between the returned entries. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range for which the resource usage data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-10T21:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B955107D-E658-4E77-B913-E0AC3D31693E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which the resource usage data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-10T20:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The type of the resource usage data.
+     *
+     * @example all
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The resource usage data that was collected for each time interval.
+     *
      * @var usageDataPerInterval
      */
     public $usageDataPerInterval;
     protected $_name = [
-        'area'                 => 'Area',
-        'dataInterval'         => 'DataInterval',
-        'domainName'           => 'DomainName',
-        'endTime'              => 'EndTime',
-        'requestId'            => 'RequestId',
-        'startTime'            => 'StartTime',
-        'type'                 => 'Type',
+        'area' => 'Area',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
         'usageDataPerInterval' => 'UsageDataPerInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

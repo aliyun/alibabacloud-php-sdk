@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class functionArg extends Model
 {
     /**
+     * @description The name of the attribute.
+     *
+     * @example domain_name
+     *
      * @var string
      */
     public $argName;
 
     /**
+     * @description The attribute value.
+     *
+     * @example developer.aliyundoc.com
+     *
      * @var string
      */
     public $argValue;
     protected $_name = [
-        'argName'  => 'ArgName',
+        'argName' => 'ArgName',
         'argValue' => 'ArgValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

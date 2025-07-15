@@ -9,28 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ListMessageAppRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1. Valid values: 1 to 100000.
+     *
+     * This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of applications to return on each page. Default value: 20. Valid values: 1 to 50.
+     *
+     * This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   0: ascending order by time
+     *   1: descending order by time
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sortType;
     protected $_name = [
-        'pageNum'  => 'PageNum',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'sortType' => 'SortType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

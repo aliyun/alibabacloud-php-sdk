@@ -9,40 +9,79 @@ use AlibabaCloud\Tea\Model;
 class SendMessageToGroupRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The message body. The value is a JSON string.
+     *
+     * This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the message group.
+     *
+     * This parameter is required.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the user who performed the operation.
+     *
+     * This parameter is required.
+     *
+     * @example de1**a0
+     *
      * @var string
      */
     public $operatorUserId;
 
     /**
+     * @description Specifies whether the message requires Alibaba Cloud content moderation. Valid values:
+     *
+     * - **true**: does not require content moderation.
+     * - **false**: requires content moderation. This is the default value.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $skipAudit;
+
+    /**
+     * @description The type of the message. A value that is less than or equal to 10000 specifies a system message. A value that is greater than 10000 specifies a custom message.
+     *
+     * @example 12000
+     *
      * @var int
      */
     public $type;
     protected $_name = [
-        'appId'          => 'AppId',
-        'data'           => 'Data',
-        'groupId'        => 'GroupId',
+        'appId' => 'AppId',
+        'data' => 'Data',
+        'groupId' => 'GroupId',
         'operatorUserId' => 'OperatorUserId',
-        'type'           => 'Type',
+        'skipAudit' => 'SkipAudit',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,6 +97,9 @@ class SendMessageToGroupRequest extends Model
         }
         if (null !== $this->operatorUserId) {
             $res['OperatorUserId'] = $this->operatorUserId;
+        }
+        if (null !== $this->skipAudit) {
+            $res['SkipAudit'] = $this->skipAudit;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -85,6 +127,9 @@ class SendMessageToGroupRequest extends Model
         }
         if (isset($map['OperatorUserId'])) {
             $model->operatorUserId = $map['OperatorUserId'];
+        }
+        if (isset($map['SkipAudit'])) {
+            $model->skipAudit = $map['SkipAudit'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class infos extends Model
 {
     /**
+     * @description The bandwidth. Unit: bit/s.
+     *
+     * @example 11440.88
+     *
      * @var float
      */
     public $downFlow;
 
     /**
+     * @description The number of online users.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $online;
 
     /**
+     * @description The bitrate.
+     *
+     * @example 1028
+     *
      * @var string
      */
     public $rate;
     protected $_name = [
         'downFlow' => 'DownFlow',
-        'online'   => 'Online',
-        'rate'     => 'Rate',
+        'online' => 'Online',
+        'rate' => 'Rate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainStreamTranscodeDataResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The transcoding usage data returned at each interval.
+     *
      * @var transcodeDataList
      */
     public $transcodeDataList;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'transcodeDataList' => 'TranscodeDataList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

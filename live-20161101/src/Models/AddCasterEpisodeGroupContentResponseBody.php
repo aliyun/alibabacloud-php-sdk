@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeGroupContentResponseBody extends Model
 {
     /**
+     * @description The IDs of the episodes.
+     *
      * @var itemIds
      */
     public $itemIds;
 
     /**
+     * @description The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to create or add episodes, remove episodes, query episodes, edit an episode list, delete an episode list, query the information about an episode list, start playing an episode list, or stop playing an episode list.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68X****
+     *
      * @var string
      */
     public $programId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'itemIds'   => 'ItemIds',
+        'itemIds' => 'ItemIds',
         'programId' => 'ProgramId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

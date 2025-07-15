@@ -10,34 +10,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainOnlineUserNumResponseBody extends Model
 {
     /**
+     * @description The information about the streams.
+     *
      * @var onlineUserInfo
      */
     public $onlineUserInfo;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3A3A8C3D-F8B2-4FBF-9319-771A11B855FA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of streams.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $streamCount;
 
     /**
+     * @description The total number of online users at the specified point in time for all the live streams under the main streaming domain.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $userCount;
     protected $_name = [
         'onlineUserInfo' => 'OnlineUserInfo',
-        'requestId'      => 'RequestId',
-        'streamCount'    => 'StreamCount',
-        'userCount'      => 'UserCount',
+        'requestId' => 'RequestId',
+        'streamCount' => 'StreamCount',
+        'userCount' => 'UserCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

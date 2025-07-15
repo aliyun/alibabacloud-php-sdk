@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 94E3559F-7B6A-4A5E-AFFD-44E2A208A249
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class DeleteLiveDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

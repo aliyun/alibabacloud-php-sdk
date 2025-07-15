@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class liveAudioAuditConfig extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The business type. You can specify a model. The default value is the domain name.
+     *
+     * @example example.edu
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The moderation scenarios.
+     *
      * @var scenes
      */
     public $scenes;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
-        'bizType'    => 'BizType',
+        'appName' => 'AppName',
+        'bizType' => 'BizType',
         'domainName' => 'DomainName',
-        'scenes'     => 'Scenes',
+        'scenes' => 'Scenes',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

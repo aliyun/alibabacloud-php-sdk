@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveAudioAuditNotifyConfigResponseBody extends Model
 {
     /**
+     * @description The configuration of callbacks for audio moderation results.
+     *
      * @var liveAudioAuditNotifyConfigList
      */
     public $liveAudioAuditNotifyConfigList;
 
     /**
+     * @description The request ID.
+     *
+     * @example B908FF89-B03C-4831-B55B-48D2A******
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'liveAudioAuditNotifyConfigList' => 'LiveAudioAuditNotifyConfigList',
-        'requestId'                      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

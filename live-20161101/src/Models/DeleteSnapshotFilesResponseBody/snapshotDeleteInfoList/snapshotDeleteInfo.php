@@ -9,22 +9,31 @@ use AlibabaCloud\Tea\Model;
 class snapshotDeleteInfo extends Model
 {
     /**
+     * @description The timestamp when the snapshot was captured. Unit: milliseconds.
+     *
+     * @example 1653641526637
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The processing result of the snapshot. Valid values:
+     *
+     *   **OK**: The snapshot was deleted.
+     *   **FileNotFound**: The snapshot was not found.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'message'         => 'Message',
+        'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

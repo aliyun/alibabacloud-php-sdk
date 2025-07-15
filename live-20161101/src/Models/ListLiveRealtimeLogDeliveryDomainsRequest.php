@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRealtimeLogDeliveryDomainsRequest extends Model
 {
     /**
+     * @description The name of the Logstore to which log entries are delivered.
+     *
+     * This parameter is required.
+     *
+     * @example logstore_example
+     *
      * @var string
      */
     public $logstore;
@@ -19,24 +25,40 @@ class ListLiveRealtimeLogDeliveryDomainsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the Log Service project that is used for real-time log delivery.
+     *
+     * This parameter is required.
+     *
+     * @example project_example
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The ID of the region where the Log Service project is deployed.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'logstore' => 'Logstore',
-        'ownerId'  => 'OwnerId',
-        'project'  => 'Project',
-        'region'   => 'Region',
+        'ownerId' => 'OwnerId',
+        'project' => 'Project',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -52,6 +74,9 @@ class ListLiveRealtimeLogDeliveryDomainsRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +101,9 @@ class ListLiveRealtimeLogDeliveryDomainsRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

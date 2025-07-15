@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeRTSNativeSDKFirstFrameDelayResponseBody extends Model
 {
     /**
+     * @description The time granularity.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The end of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The average latency of first frames at each interval. Unit: milliseconds.
+     *
      * @var frameDelayData[]
      */
     public $frameDelayData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'   => 'DataInterval',
-        'endTime'        => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'endTime' => 'EndTime',
         'frameDelayData' => 'FrameDelayData',
-        'requestId'      => 'RequestId',
-        'startTime'      => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +106,7 @@ class DescribeRTSNativeSDKFirstFrameDelayResponseBody extends Model
         if (isset($map['FrameDelayData'])) {
             if (!empty($map['FrameDelayData'])) {
                 $model->frameDelayData = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['FrameDelayData'] as $item) {
                     $model->frameDelayData[$n++] = null !== $item ? frameDelayData::fromMap($item) : $item;
                 }

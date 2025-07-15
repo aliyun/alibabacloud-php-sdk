@@ -11,22 +11,24 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The episodes that failed to be added.
+     *
      * @var failedItems[]
      */
     public $failedItems;
 
     /**
+     * @description The episodes that were added.
+     *
      * @var successItems[]
      */
     public $successItems;
     protected $_name = [
-        'failedItems'  => 'FailedItems',
+        'failedItems' => 'FailedItems',
         'successItems' => 'SuccessItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +66,7 @@ class items extends Model
         if (isset($map['FailedItems'])) {
             if (!empty($map['FailedItems'])) {
                 $model->failedItems = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FailedItems'] as $item) {
                     $model->failedItems[$n++] = null !== $item ? failedItems::fromMap($item) : $item;
                 }
@@ -73,7 +75,7 @@ class items extends Model
         if (isset($map['SuccessItems'])) {
             if (!empty($map['SuccessItems'])) {
                 $model->successItems = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['SuccessItems'] as $item) {
                     $model->successItems[$n++] = null !== $item ? successItems::fromMap($item) : $item;
                 }

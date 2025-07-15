@@ -17,9 +17,7 @@ class bpsDataPerInterval extends Model
         'dataModule' => 'DataModule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class bpsDataPerInterval extends Model
         if (isset($map['DataModule'])) {
             if (!empty($map['DataModule'])) {
                 $model->dataModule = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['DataModule'] as $item) {
                     $model->dataModule[$n++] = null !== $item ? dataModule::fromMap($item) : $item;
                 }

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveCertificateDetailRequest extends Model
 {
     /**
+     * @description The name of the certificate.
+     *
+     * This parameter is required.
+     *
+     * @example Cert-****
+     *
      * @var string
      */
     public $certName;
@@ -23,14 +29,12 @@ class DescribeLiveCertificateDetailRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'certName'      => 'CertName',
-        'ownerId'       => 'OwnerId',
+        'certName' => 'CertName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

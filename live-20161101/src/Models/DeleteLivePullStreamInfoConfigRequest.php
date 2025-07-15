@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteLivePullStreamInfoConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. You can call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.htmll) operation to query the application name.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -26,17 +38,27 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The name of the live stream. You can call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.htmll) operation to query the stream name.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
+     * @var string
+     */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -49,6 +71,9 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -73,6 +98,9 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

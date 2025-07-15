@@ -17,9 +17,7 @@ class components extends Model
         'component' => 'Component',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class components extends Model
         if (isset($map['Component'])) {
             if (!empty($map['Component'])) {
                 $model->component = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Component'] as $item) {
                     $model->component[$n++] = null !== $item ? component::fromMap($item) : $item;
                 }

@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRecordVodConfigsResponseBody extends Model
 {
     /**
+     * @description The configurations.
+     *
      * @var liveRecordVodConfigs
      */
     public $liveRecordVodConfigs;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5056369B-D337-499E-B8B7-B761BD37B08A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $total;
     protected $_name = [
         'liveRecordVodConfigs' => 'LiveRecordVodConfigs',
-        'pageNum'              => 'PageNum',
-        'pageSize'             => 'PageSize',
-        'requestId'            => 'RequestId',
-        'total'                => 'Total',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

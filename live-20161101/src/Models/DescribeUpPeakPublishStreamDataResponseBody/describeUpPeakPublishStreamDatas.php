@@ -17,9 +17,7 @@ class describeUpPeakPublishStreamDatas extends Model
         'describeUpPeakPublishStreamData' => 'DescribeUpPeakPublishStreamData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class describeUpPeakPublishStreamDatas extends Model
         if (isset($map['DescribeUpPeakPublishStreamData'])) {
             if (!empty($map['DescribeUpPeakPublishStreamData'])) {
                 $model->describeUpPeakPublishStreamData = [];
-                $n                                      = 0;
+                $n = 0;
                 foreach ($map['DescribeUpPeakPublishStreamData'] as $item) {
                     $model->describeUpPeakPublishStreamData[$n++] = null !== $item ? describeUpPeakPublishStreamData::fromMap($item) : $item;
                 }

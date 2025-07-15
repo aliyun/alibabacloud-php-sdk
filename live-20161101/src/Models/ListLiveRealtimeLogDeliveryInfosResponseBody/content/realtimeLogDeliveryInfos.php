@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class realtimeLogDeliveryInfos extends Model
 {
     /**
+     * @description The name of the Logstore to which log entries are delivered.
+     *
+     * @example logstore_example
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description The name of the Log Service project that is used for real-time log delivery.
+     *
+     * @example project_example
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The ID of the region where the Log Service project is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
     protected $_name = [
         'logstore' => 'Logstore',
-        'project'  => 'Project',
-        'region'   => 'Region',
+        'project' => 'Project',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

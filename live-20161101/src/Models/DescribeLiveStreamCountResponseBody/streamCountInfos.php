@@ -17,9 +17,7 @@ class streamCountInfos extends Model
         'streamCountInfo' => 'StreamCountInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class streamCountInfos extends Model
         if (isset($map['StreamCountInfo'])) {
             if (!empty($map['StreamCountInfo'])) {
                 $model->streamCountInfo = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['StreamCountInfo'] as $item) {
                     $model->streamCountInfo[$n++] = null !== $item ? streamCountInfo::fromMap($item) : $item;
                 }

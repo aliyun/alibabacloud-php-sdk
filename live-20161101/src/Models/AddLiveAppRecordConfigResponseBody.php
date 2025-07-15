@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddLiveAppRecordConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class AddLiveAppRecordConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class pvUvDataInfo extends Model
 {
     /**
+     * @description The number of PVs.
+     *
+     * @example 3036
+     *
      * @var string
      */
     public $PV;
 
     /**
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2018-03-19T16:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The number of UVs.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $UV;
     protected $_name = [
-        'PV'        => 'PV',
+        'PV' => 'PV',
         'timeStamp' => 'TimeStamp',
-        'UV'        => 'UV',
+        'UV' => 'UV',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

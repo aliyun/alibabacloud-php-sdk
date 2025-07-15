@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveSnapshotNotifyConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A3136B58-5876-5A93-83CA-B562781981A0
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class UpdateLiveSnapshotNotifyConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

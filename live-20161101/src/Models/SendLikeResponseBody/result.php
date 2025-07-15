@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The number of likes.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $likeCount;
@@ -16,9 +20,7 @@ class result extends Model
         'likeCount' => 'LikeCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

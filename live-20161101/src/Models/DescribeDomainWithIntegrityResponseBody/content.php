@@ -9,28 +9,34 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The column names.
+     *
      * @var string[]
      */
     public $columns;
 
     /**
+     * @description The table name.
+     *
+     * @example 1637825700000
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The subpoints.
+     *
      * @var string[]
      */
     public $points;
     protected $_name = [
         'columns' => 'Columns',
-        'name'    => 'Name',
-        'points'  => 'Points',
+        'name' => 'Name',
+        'points' => 'Points',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

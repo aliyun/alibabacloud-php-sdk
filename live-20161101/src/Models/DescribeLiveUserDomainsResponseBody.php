@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveUserDomainsResponseBody extends Model
 {
     /**
+     * @description The domain names.
+     *
      * @var domains
      */
     public $domains;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E4EBD2BF-5EB0-4476-8829-9D94E1B15267
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'domains'    => 'Domains',
+        'domains' => 'Domains',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

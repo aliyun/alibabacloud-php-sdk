@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterChannelsResponseBody extends Model
 {
     /**
+     * @description The channels.
+     *
      * @var channels
      */
     public $channels;
 
     /**
+     * @description The request ID.
+     *
+     * @example 83C52866-281E-4AEA-9582-B124********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of channels.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'channels'  => 'Channels',
+        'channels' => 'Channels',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

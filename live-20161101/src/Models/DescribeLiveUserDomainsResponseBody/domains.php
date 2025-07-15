@@ -17,9 +17,7 @@ class domains extends Model
         'pageData' => 'PageData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class domains extends Model
         if (isset($map['PageData'])) {
             if (!empty($map['PageData'])) {
                 $model->pageData = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['PageData'] as $item) {
                     $model->pageData[$n++] = null !== $item ? pageData::fromMap($item) : $item;
                 }

@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class functionArgs extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example auth_type
+     *
      * @var string
      */
     public $argName;
 
     /**
+     * @description The configured value.
+     *
+     * @example req_auth
+     *
      * @var string
      */
     public $argValue;
     protected $_name = [
-        'argName'  => 'ArgName',
+        'argName' => 'ArgName',
         'argValue' => 'ArgValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

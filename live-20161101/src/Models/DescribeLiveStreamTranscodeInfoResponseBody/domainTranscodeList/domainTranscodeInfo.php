@@ -11,46 +11,81 @@ use AlibabaCloud\Tea\Model;
 class domainTranscodeInfo extends Model
 {
     /**
+     * @description The custom transcoding configuration.
+     *
      * @var customTranscodeParameters
      */
     public $customTranscodeParameters;
 
     /**
+     * @description The encryption settings.
+     *
      * @var encryptParameters
      */
     public $encryptParameters;
 
     /**
+     * @description Indicates whether forcible transcoding is used. Valid values:
+     *
+     *   **true**: Delayed transcoding is used.
+     *   **false**: Forcible transcoding is used.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isLazy;
 
     /**
+     * @description The application name.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $transcodeApp;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $transcodeName;
 
     /**
+     * @description The transcoding template ID. Valid values:
+     *
+     *   **Standard transcoding**:
+     *
+     *   **lld**: low definition
+     *   **lsd**: standard definition
+     *   **lhd**: high definition
+     *   **lud**: ultra-high definition
+     *
+     *   **Narrowband HD™ transcoding**:
+     *
+     *   **ld**: low definition
+     *   **sd**: standard definition
+     *   **hd**: high definition
+     *   **ud**: ultra-high definition
+     *
+     * @example lld
+     *
      * @var string
      */
     public $transcodeTemplate;
     protected $_name = [
         'customTranscodeParameters' => 'CustomTranscodeParameters',
-        'encryptParameters'         => 'EncryptParameters',
-        'isLazy'                    => 'IsLazy',
-        'transcodeApp'              => 'TranscodeApp',
-        'transcodeName'             => 'TranscodeName',
-        'transcodeTemplate'         => 'TranscodeTemplate',
+        'encryptParameters' => 'EncryptParameters',
+        'isLazy' => 'IsLazy',
+        'transcodeApp' => 'TranscodeApp',
+        'transcodeName' => 'TranscodeName',
+        'transcodeTemplate' => 'TranscodeTemplate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

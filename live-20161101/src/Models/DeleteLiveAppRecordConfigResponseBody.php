@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveAppRecordConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 6EBD1AC4-C34D-4AE1-963E-B688A228BE31
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class DeleteLiveAppRecordConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class describeUpPeakTraffics extends Model
         'describeUpPeakTraffic' => 'DescribeUpPeakTraffic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class describeUpPeakTraffics extends Model
         if (isset($map['DescribeUpPeakTraffic'])) {
             if (!empty($map['DescribeUpPeakTraffic'])) {
                 $model->describeUpPeakTraffic = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['DescribeUpPeakTraffic'] as $item) {
                     $model->describeUpPeakTraffic[$n++] = null !== $item ? describeUpPeakTraffic::fromMap($item) : $item;
                 }

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the update is successful. Valid values:
+     *
+     *   true: The update is successful.
+     *   false: The update failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -16,9 +23,7 @@ class result extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

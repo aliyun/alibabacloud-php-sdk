@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class SetLiveDomainStagingConfigRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * This parameter is required.
+     *
+     * @example developer.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The list of features. You must specify the ConfigId field when you want to modify the configurations. For more information, see **Features specified by the Functions parameter**.
+     *
+     * This parameter is required.
+     *
+     * @example [{"functionArgs":[{"argName":"enable","argValue":"on"},{"argName":"pri","argValue":"1"},{"argName":"rule","argValue":"xxx"}],"functionName":"edge_function"}]
+     *
      * @var string
      */
     public $functions;
@@ -22,15 +34,19 @@ class SetLiveDomainStagingConfigRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'functions'  => 'Functions',
-        'ownerId'    => 'OwnerId',
+        'functions' => 'Functions',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -43,6 +59,9 @@ class SetLiveDomainStagingConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +83,9 @@ class SetLiveDomainStagingConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

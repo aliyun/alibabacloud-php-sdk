@@ -11,28 +11,34 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
+     * @description The total number of entries returned on the current page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $logCount;
 
     /**
+     * @description Details about the logs.
+     *
      * @var logInfos
      */
     public $logInfos;
 
     /**
+     * @description The page information.
+     *
      * @var pageInfos
      */
     public $pageInfos;
     protected $_name = [
-        'logCount'  => 'LogCount',
-        'logInfos'  => 'LogInfos',
+        'logCount' => 'LogCount',
+        'logInfos' => 'LogInfos',
         'pageInfos' => 'PageInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

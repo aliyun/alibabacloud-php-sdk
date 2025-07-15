@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveCertificateListRequest extends Model
 {
     /**
+     * @description The ingest domain or streaming domain. Separate multiple domain names with commas (,).
+     *
+     * @example demo.aliyundoc.com,example.com
+     *
      * @var string
      */
     public $domainName;
@@ -23,14 +27,12 @@ class DescribeLiveCertificateListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

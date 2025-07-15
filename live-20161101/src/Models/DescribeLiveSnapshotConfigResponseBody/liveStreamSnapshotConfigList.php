@@ -17,9 +17,7 @@ class liveStreamSnapshotConfigList extends Model
         'liveStreamSnapshotConfig' => 'LiveStreamSnapshotConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveStreamSnapshotConfigList extends Model
         if (isset($map['LiveStreamSnapshotConfig'])) {
             if (!empty($map['LiveStreamSnapshotConfig'])) {
                 $model->liveStreamSnapshotConfig = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['LiveStreamSnapshotConfig'] as $item) {
                     $model->liveStreamSnapshotConfig[$n++] = null !== $item ? liveStreamSnapshotConfig::fromMap($item) : $item;
                 }

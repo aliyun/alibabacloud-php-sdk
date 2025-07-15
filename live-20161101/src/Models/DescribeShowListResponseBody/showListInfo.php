@@ -10,50 +10,87 @@ use AlibabaCloud\Tea\Model;
 class showListInfo extends Model
 {
     /**
+     * @description The background of the episode list.
+     *
+     * @example {\\"MaterialId\\":\\"a2b8e671-2fe5-4642-a2ec-bf93880e****\\",\\"resourceType\\":\\"VOD\\"}
+     *
+     * @var string
+     */
+    public $background;
+
+    /**
+     * @description The ID of the episode that is playing.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf93880e****
+     *
      * @var string
      */
     public $currentShowId;
 
     /**
+     * @description The episode of the highest priority.
+     *
+     * > You can configure this parameter only before the episode list starts playing.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf93880e****
+     *
      * @var string
      */
     public $highPriorityShowId;
 
     /**
+     * @description The time at which the episode of the highest priority is played. Format: yyyy-MM-dd\\"T\\"HH:mm:ss.
+     *
+     * > You can configure this parameter only before the episode list starts playing. After you configure this parameter, when the specified point in time is reached, any episode that is playing stops and the episode of the highest priority in the episode list starts to play.
+     *
+     * @example 2021-11-23T12:30:00
+     *
      * @var string
      */
     public $highPriorityShowStartTime;
 
     /**
+     * @description The episodes in the episode list.
+     *
      * @var showList
      */
     public $showList;
 
     /**
+     * @description The number of additional times the episode list is played by default. The value is 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $showListRepeatTimes;
 
     /**
+     * @description The number of additional times the episode list is played.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalShowListRepeatTimes;
     protected $_name = [
-        'currentShowId'             => 'CurrentShowId',
-        'highPriorityShowId'        => 'HighPriorityShowId',
+        'background' => 'Background',
+        'currentShowId' => 'CurrentShowId',
+        'highPriorityShowId' => 'HighPriorityShowId',
         'highPriorityShowStartTime' => 'HighPriorityShowStartTime',
-        'showList'                  => 'ShowList',
-        'showListRepeatTimes'       => 'ShowListRepeatTimes',
-        'totalShowListRepeatTimes'  => 'TotalShowListRepeatTimes',
+        'showList' => 'ShowList',
+        'showListRepeatTimes' => 'ShowListRepeatTimes',
+        'totalShowListRepeatTimes' => 'TotalShowListRepeatTimes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->background) {
+            $res['Background'] = $this->background;
+        }
         if (null !== $this->currentShowId) {
             $res['CurrentShowId'] = $this->currentShowId;
         }
@@ -84,6 +121,9 @@ class showListInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Background'])) {
+            $model->background = $map['Background'];
+        }
         if (isset($map['CurrentShowId'])) {
             $model->currentShowId = $map['CurrentShowId'];
         }

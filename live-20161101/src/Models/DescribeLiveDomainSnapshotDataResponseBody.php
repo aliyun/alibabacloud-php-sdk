@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainSnapshotDataResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B955107D-E658-4E77-B913-E0AC3D31693F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The daily statistics on the number of snapshots.
+     *
      * @var snapshotDataInfos
      */
     public $snapshotDataInfos;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'snapshotDataInfos' => 'SnapshotDataInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

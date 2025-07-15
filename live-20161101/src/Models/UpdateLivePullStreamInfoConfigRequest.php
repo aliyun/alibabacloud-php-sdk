@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateLivePullStreamInfoConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The domain name used for stream pulling. It is the main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The time when stream pulling ends.
+     *
+     * The time range specified by the StartTime and EndTime parameters cannot exceed seven days. The time specified by the EndTime parameter must be later than the current time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -31,30 +51,52 @@ class UpdateLivePullStreamInfoConfigRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The complete URL of the origin server of the live stream. You can specify multiple URLs by separating them with semicolons (;).
+     *
+     * This parameter is required.
+     *
+     * @var string
+     */
     public $sourceUrl;
 
     /**
+     * @description The time when stream pulling starts.
+     *
+     * The time range specified by the StartTime and EndTime parameters cannot exceed seven days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-21T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the live stream.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
-        'sourceUrl'  => 'SourceUrl',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'sourceUrl' => 'SourceUrl',
+        'startTime' => 'StartTime',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -70,6 +112,9 @@ class UpdateLivePullStreamInfoConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sourceUrl) {
             $res['SourceUrl'] = $this->sourceUrl;
@@ -103,6 +148,9 @@ class UpdateLivePullStreamInfoConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SourceUrl'])) {
             $model->sourceUrl = $map['SourceUrl'];

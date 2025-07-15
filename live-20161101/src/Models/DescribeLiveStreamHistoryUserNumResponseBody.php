@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamHistoryUserNumResponseBody extends Model
 {
     /**
+     * @description The number of historical online users for the live stream.
+     *
      * @var liveStreamUserNumInfos
      */
     public $liveStreamUserNumInfos;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F5FF8
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'liveStreamUserNumInfos' => 'LiveStreamUserNumInfos',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

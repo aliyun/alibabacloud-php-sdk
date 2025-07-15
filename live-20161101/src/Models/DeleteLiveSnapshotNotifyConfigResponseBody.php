@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveSnapshotNotifyConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 32A96B9A-F203-4EC5-8E43-CB92E68F4I79E
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class DeleteLiveSnapshotNotifyConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

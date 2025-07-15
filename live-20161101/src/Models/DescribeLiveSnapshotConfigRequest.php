@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveSnapshotConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   **asc** (default): ascending order
+     *   **desc**: descending order
+     *
+     * @example asc
+     *
      * @var string
      */
     public $order;
@@ -29,11 +46,19 @@ class DescribeLiveSnapshotConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Valid values: **5 to 30**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -43,18 +68,16 @@ class DescribeLiveSnapshotConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
-        'order'         => 'Order',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'order' => 'Order',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

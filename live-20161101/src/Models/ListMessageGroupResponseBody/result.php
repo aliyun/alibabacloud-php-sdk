@@ -10,28 +10,39 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The list of message groups.
+     *
      * @var groupList[]
      */
     public $groupList;
 
     /**
+     * @description Indicates whether the current page is followed by another page. Valid values:
+     *
+     *   true: The current page is followed by another page.
+     *   false: The current page is not followed by another page.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hasMore;
 
     /**
+     * @description The total number of message groups.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'groupList' => 'GroupList',
-        'hasMore'   => 'HasMore',
-        'total'     => 'Total',
+        'hasMore' => 'HasMore',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +77,7 @@ class result extends Model
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
                 $model->groupList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['GroupList'] as $item) {
                     $model->groupList[$n++] = null !== $item ? groupList::fromMap($item) : $item;
                 }

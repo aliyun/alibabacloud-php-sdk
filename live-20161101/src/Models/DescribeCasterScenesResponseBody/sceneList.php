@@ -17,9 +17,7 @@ class sceneList extends Model
         'scene' => 'Scene',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class sceneList extends Model
         if (isset($map['Scene'])) {
             if (!empty($map['Scene'])) {
                 $model->scene = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Scene'] as $item) {
                     $model->scene[$n++] = null !== $item ? scene::fromMap($item) : $item;
                 }

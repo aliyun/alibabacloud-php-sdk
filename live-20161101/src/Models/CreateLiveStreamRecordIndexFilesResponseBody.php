@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveStreamRecordIndexFilesResponseBody extends Model
 {
     /**
+     * @description The recording configuration.
+     *
      * @var recordInfo
      */
     public $recordInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 550439A3-F8EC-4CA2-BB62-B9DB43EEEF30
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'recordInfo' => 'RecordInfo',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

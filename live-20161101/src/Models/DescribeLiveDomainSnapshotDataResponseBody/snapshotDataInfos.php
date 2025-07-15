@@ -17,9 +17,7 @@ class snapshotDataInfos extends Model
         'snapshotDataInfo' => 'SnapshotDataInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class snapshotDataInfos extends Model
         if (isset($map['SnapshotDataInfo'])) {
             if (!empty($map['SnapshotDataInfo'])) {
                 $model->snapshotDataInfo = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['SnapshotDataInfo'] as $item) {
                     $model->snapshotDataInfo[$n++] = null !== $item ? snapshotDataInfo::fromMap($item) : $item;
                 }

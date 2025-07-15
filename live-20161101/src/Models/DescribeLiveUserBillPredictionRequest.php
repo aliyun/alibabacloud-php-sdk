@@ -9,16 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveUserBillPredictionRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $area;
-
-    /**
-     * @var string
-     */
-    public $dimension;
-
-    /**
+     * @description The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2015-12-01T05:45:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -31,33 +25,36 @@ class DescribeLiveUserBillPredictionRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd**THH:mm:ssZ* format. The time must be in UTC.
+     *
+     * @example 2015-12-01T05:40:00Z
+     *
+     * @var string
+     */
     public $startTime;
     protected $_name = [
-        'area'      => 'Area',
-        'dimension' => 'Dimension',
-        'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->area) {
-            $res['Area'] = $this->area;
-        }
-        if (null !== $this->dimension) {
-            $res['Dimension'] = $this->dimension;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -74,17 +71,14 @@ class DescribeLiveUserBillPredictionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Area'])) {
-            $model->area = $map['Area'];
-        }
-        if (isset($map['Dimension'])) {
-            $model->dimension = $map['Dimension'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

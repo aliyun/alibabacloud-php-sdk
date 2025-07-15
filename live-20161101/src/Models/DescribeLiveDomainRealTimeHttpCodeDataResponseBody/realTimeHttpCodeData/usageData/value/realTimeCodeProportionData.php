@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class realTimeCodeProportionData extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The number of times the HTTP status code was returned.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The proportion of the HTTP status code.
+     *
+     * @example 66.046511627907
+     *
      * @var string
      */
     public $proportion;
     protected $_name = [
-        'code'       => 'Code',
-        'count'      => 'Count',
+        'code' => 'Code',
+        'count' => 'Count',
         'proportion' => 'Proportion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

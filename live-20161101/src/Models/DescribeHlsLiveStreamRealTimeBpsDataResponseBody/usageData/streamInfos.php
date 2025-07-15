@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class streamInfos extends Model
 {
     /**
+     * @description The statistics on the HLS stream.
+     *
      * @var infos[]
      */
     public $infos;
 
     /**
+     * @description The name of the stream.
+     *
+     * @example /live/sport.m3u8
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'infos'      => 'Infos',
+        'infos' => 'Infos',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -57,7 +61,7 @@ class streamInfos extends Model
         if (isset($map['Infos'])) {
             if (!empty($map['Infos'])) {
                 $model->infos = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Infos'] as $item) {
                     $model->infos[$n++] = null !== $item ? infos::fromMap($item) : $item;
                 }

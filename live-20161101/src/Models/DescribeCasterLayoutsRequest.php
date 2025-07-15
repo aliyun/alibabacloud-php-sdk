@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterLayoutsRequest extends Model
 {
     /**
+     * @description The ID of the production studio.
+     *
+     *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
+     *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+     *
+     * >  You can find the ID of the production studio in the Instance ID/Name column.
+     *
+     * This parameter is required.
+     *
+     * @example LIVEPRODUCER_POST-cn-0pp1czt****
+     *
      * @var string
      */
     public $casterId;
 
     /**
+     * @description The ID of the layout.
+     *
+     * If you do not specify a layout ID, all layouts of the production studio are queried.
+     *
+     * @example 72d2ec7a-4cd7-4a01-974b-7cd53947****
+     *
      * @var string
      */
     public $layoutId;
@@ -22,15 +39,19 @@ class DescribeCasterLayoutsRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'casterId' => 'CasterId',
         'layoutId' => 'LayoutId',
-        'ownerId'  => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -43,6 +64,9 @@ class DescribeCasterLayoutsRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +88,9 @@ class DescribeCasterLayoutsRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

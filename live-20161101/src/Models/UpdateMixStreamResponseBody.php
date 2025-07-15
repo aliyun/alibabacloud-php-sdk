@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateMixStreamResponseBody extends Model
 {
     /**
+     * @description The ID of the stream mixing task. You can specify this parameter in a request to delete the stream mixing task or query stream mixing tasks.
+     *
+     * @example 5b2a046e-74d7-385e-d2d7-8a5b87e4****
+     *
      * @var string
      */
     public $mixStreamId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1A8CDDFF-0121-4ABB-DA60-AEF095A8W34F
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'mixStreamId' => 'MixStreamId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

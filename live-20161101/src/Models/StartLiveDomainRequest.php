@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class StartLiveDomainRequest extends Model
 {
     /**
+     * @description The ingest domain or streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -23,14 +29,12 @@ class StartLiveDomainRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

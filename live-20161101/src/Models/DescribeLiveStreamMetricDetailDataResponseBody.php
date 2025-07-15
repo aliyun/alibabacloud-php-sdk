@@ -10,52 +10,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamMetricDetailDataResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
+     * @example 2015-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The token that determines the start point of the next query. This parameter is returned if more data results are available.
+     *
+     * @example UjsM9x3aVcJi9a0-ArwJUTTC67C***37C0=
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @description The number of rows returned.
+     *
+     * @example 5000
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B955107D-E658-4E77-B913-E0AC3D31693E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The data array returned.
+     *
      * @var streamDetailData
      */
     public $streamDetailData;
     protected $_name = [
-        'domainName'       => 'DomainName',
-        'endTime'          => 'EndTime',
-        'nextPageToken'    => 'NextPageToken',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
-        'startTime'        => 'StartTime',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'nextPageToken' => 'NextPageToken',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'streamDetailData' => 'StreamDetailData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

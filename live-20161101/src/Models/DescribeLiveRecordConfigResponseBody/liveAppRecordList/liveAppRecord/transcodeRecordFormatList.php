@@ -17,9 +17,7 @@ class transcodeRecordFormatList extends Model
         'recordFormat' => 'RecordFormat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class transcodeRecordFormatList extends Model
         if (isset($map['RecordFormat'])) {
             if (!empty($map['RecordFormat'])) {
                 $model->recordFormat = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['RecordFormat'] as $item) {
                     $model->recordFormat[$n++] = null !== $item ? recordFormat::fromMap($item) : $item;
                 }

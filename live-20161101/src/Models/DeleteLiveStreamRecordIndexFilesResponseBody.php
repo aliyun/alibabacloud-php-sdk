@@ -10,34 +10,46 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveStreamRecordIndexFilesResponseBody extends Model
 {
     /**
+     * @description The status code. A return value of 500 indicates an error. For details, see the Error codes section of this topic.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The status description. A return value of 500 indicates an error. For details, see the Error codes section of this topic.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The deletion information.
+     *
      * @var recordDeleteInfoList
      */
     public $recordDeleteInfoList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 939D19EE-59A0-18E9-B458-*****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'                 => 'Code',
-        'message'              => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'recordDeleteInfoList' => 'RecordDeleteInfoList',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

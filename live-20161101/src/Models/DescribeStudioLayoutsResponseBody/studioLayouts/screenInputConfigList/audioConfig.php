@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class audioConfig extends Model
 {
     /**
+     * @description The corresponding channel.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $validChannel;
 
     /**
+     * @description The volume.
+     *
+     * @example 1.0
+     *
      * @var float
      */
     public $volumeRate;
     protected $_name = [
         'validChannel' => 'ValidChannel',
-        'volumeRate'   => 'VolumeRate',
+        'volumeRate' => 'VolumeRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

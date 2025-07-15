@@ -17,9 +17,7 @@ class casterStreams extends Model
         'casterStream' => 'CasterStream',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class casterStreams extends Model
         if (isset($map['CasterStream'])) {
             if (!empty($map['CasterStream'])) {
                 $model->casterStream = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CasterStream'] as $item) {
                     $model->casterStream[$n++] = null !== $item ? casterStream::fromMap($item) : $item;
                 }

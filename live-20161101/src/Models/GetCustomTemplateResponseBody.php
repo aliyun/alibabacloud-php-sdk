@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class GetCustomTemplateResponseBody extends Model
 {
     /**
+     * @description The configurations of the template.
+     *
+     * @example {height:1080,scale:[16:9],gop:60,bframes:30,cdesc:h264}
+     *
      * @var string
      */
     public $customTemplate;
 
     /**
+     * @description The request ID.
+     *
+     * @example BC1E78D3-FA8B-4457-DEE2-6093E1232254
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the template.
+     *
+     * @example TestTemplate
+     *
      * @var string
      */
     public $template;
     protected $_name = [
         'customTemplate' => 'CustomTemplate',
-        'requestId'      => 'RequestId',
-        'template'       => 'Template',
+        'requestId' => 'RequestId',
+        'template' => 'Template',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

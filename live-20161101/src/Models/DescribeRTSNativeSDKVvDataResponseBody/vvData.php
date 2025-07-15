@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class vvData extends Model
 {
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The number of successful playbacks within the period of time.
+     *
+     * @example 99
+     *
      * @var string
      */
     public $vvSuccess;
 
     /**
+     * @description The total number of playbacks within the period of time.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $vvTotal;
     protected $_name = [
         'timeStamp' => 'TimeStamp',
         'vvSuccess' => 'VvSuccess',
-        'vvTotal'   => 'VvTotal',
+        'vvTotal' => 'VvTotal',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0D715397-2E66-4AE1-694h-C546628AD145
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class CreateCustomTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

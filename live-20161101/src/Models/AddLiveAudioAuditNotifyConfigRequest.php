@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class AddLiveAudioAuditNotifyConfigRequest extends Model
 {
     /**
+     * @description The callback URL. This URL is used to receive callback notifications about violations in audio.
+     *
+     * @example https://demo.aliyundoc.com/callback
+     *
      * @var string
      */
     public $callback;
 
     /**
+     * @description The callback template. Valid values:
+     *
+     *   **{DomainName}**: the streaming domain.
+     *   **{AppName}**: the name of the application to which the live stream belongs.
+     *   **{StreamName}**: the name of the live stream.
+     *   **{Timestamp}**: the time when the callback is returned. The value of this field is a UNIX timestamp. Unit: seconds.
+     *   **{Result}**: the moderation results.
+     *
+     * @example {"domain":{DomainName},"app":{AppName},"stream":{StreamName},"timestamp":{Timestamp},"result":{Result}}
+     *
      * @var string
      */
     public $callbackTemplate;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -27,16 +47,20 @@ class AddLiveAudioAuditNotifyConfigRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'callback'         => 'Callback',
+        'callback' => 'Callback',
         'callbackTemplate' => 'CallbackTemplate',
-        'domainName'       => 'DomainName',
-        'ownerId'          => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -52,6 +76,9 @@ class AddLiveAudioAuditNotifyConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +103,9 @@ class AddLiveAudioAuditNotifyConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

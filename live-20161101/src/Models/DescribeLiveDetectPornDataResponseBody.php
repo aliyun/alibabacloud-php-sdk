@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDetectPornDataResponseBody extends Model
 {
     /**
+     * @description The bandwidth data returned at each interval.
+     *
      * @var detectPornData
      */
     public $detectPornData;
 
     /**
+     * @description The request ID.
+     *
+     * @example B955107D-E658-4E77-B913-E0AC3D31693E
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'detectPornData' => 'DetectPornData',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,46 +9,79 @@ use AlibabaCloud\Tea\Model;
 class ListMessageRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the message group.
+     *
+     * This parameter is required.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of the page to return. Default value: 1. Valid values: 1 to 100000.
+     *
+     * This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. Valid values: 1 to 50.
+     *
+     * This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   0: ascending order by time
+     *   1: descending order by time
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sortType;
 
     /**
+     * @description The type of the custom message. Valid values: integers greater than 10000.
+     *
+     * @example 10002
+     *
      * @var int
      */
     public $type;
     protected $_name = [
-        'appId'    => 'AppId',
-        'groupId'  => 'GroupId',
-        'pageNum'  => 'PageNum',
+        'appId' => 'AppId',
+        'groupId' => 'GroupId',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'sortType' => 'SortType',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

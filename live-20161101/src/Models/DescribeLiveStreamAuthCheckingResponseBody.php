@@ -9,28 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamAuthCheckingResponseBody extends Model
 {
     /**
+     * @description The error message for failed authentication.
+     *
+     * @example INVALID AUTH_KEY
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16F08B4E-14FD-5D72-AB2F-BAFA4C4D57F1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the signed URL is valid. Valid values:
+     *
+     *   pass: valid.
+     *   false: invalid.
+     *
+     * @example pass
+     *
      * @var string
      */
     public $status;
     protected $_name = [
         'description' => 'Description',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

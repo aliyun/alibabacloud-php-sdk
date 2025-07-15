@@ -15,35 +15,54 @@ class TagLiveResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The type of the resources. Set the value to **DOMAIN**.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'resourceId'   => 'ResourceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -75,6 +94,9 @@ class TagLiveResourcesRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
@@ -86,7 +108,7 @@ class TagLiveResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

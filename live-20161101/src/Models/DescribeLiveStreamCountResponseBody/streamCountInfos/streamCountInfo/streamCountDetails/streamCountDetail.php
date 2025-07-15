@@ -9,28 +9,41 @@ use AlibabaCloud\Tea\Model;
 class streamCountDetail extends Model
 {
     /**
+     * @description The number of online streams.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The video codec. Valid values:
+     *
+     *   **h264**
+     *   **h265**
+     *
+     * @example h264
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The video bitrate. This parameter is returned only for transcoded streams.
+     *
+     * @example 390
+     *
      * @var int
      */
     public $videoDataRate;
     protected $_name = [
-        'count'         => 'Count',
-        'format'        => 'Format',
+        'count' => 'Count',
+        'format' => 'Format',
         'videoDataRate' => 'VideoDataRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

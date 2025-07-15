@@ -9,40 +9,56 @@ use AlibabaCloud\Tea\Model;
 class frameRateAndBitRateInfo extends Model
 {
     /**
+     * @description The audio frame rate of the live stream. Unit: FPS.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $audioFrameRate;
 
     /**
+     * @description The bitrate of the live stream. Unit: bit/s.
+     *
+     * @example 600
+     *
      * @var float
      */
     public $bitRate;
 
     /**
+     * @description The URL of the live stream.
+     *
      * @var string
      */
     public $streamUrl;
 
     /**
+     * @description The time when the data was collected. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2016-09-13T16:04:00Z
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @description The video frame rate of the live stream. Unit: frames per second (FPS).
+     *
+     * @example 30
+     *
      * @var float
      */
     public $videoFrameRate;
     protected $_name = [
         'audioFrameRate' => 'AudioFrameRate',
-        'bitRate'        => 'BitRate',
-        'streamUrl'      => 'StreamUrl',
-        'time'           => 'Time',
+        'bitRate' => 'BitRate',
+        'streamUrl' => 'StreamUrl',
+        'time' => 'Time',
         'videoFrameRate' => 'VideoFrameRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

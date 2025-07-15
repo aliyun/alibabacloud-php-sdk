@@ -9,58 +9,116 @@ use AlibabaCloud\Tea\Model;
 class liveRecordVodConfig extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description Indicates whether automatic merging is enabled. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * @example ON
+     *
      * @var string
      */
     public $autoCompose;
 
     /**
+     * @description The ID of the transcoding template group that was used to automatically merge the VOD files created from the live streams.
+     *
+     * >  This parameter is returned if the value of the AutoCompose parameter is ON.
+     *
+     * @example dadfcaadde****
+     *
      * @var string
      */
     public $composeVodTranscodeGroupId;
 
     /**
+     * @description The time when the live stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-01T17:37:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The recording cycle. Unit: seconds. Default value: **3600**. Valid values: **300 to 21600**.
+     *
+     * @example 360
+     *
      * @var int
      */
     public $cycleDuration;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Indicates whether on-demand recording is enabled. Valid values:
+     *
+     *   **0** (default): On-demand recording is disabled.
+     *   **1**: On-demand recording is enabled by using the HTTP callback method.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $onDemand;
+
+    /**
+     * @description The storage location.
+     *
+     * @example ****-tjptr2vatm.oss-cn-shanghai.aliyuncs.com
+     *
+     * @var string
+     */
+    public $storageLocation;
+
+    /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The ID of the transcoding template group in ApsaraVideo VOD.
+     *
+     * @example e2d796d3bb5fd8049d32bff62f94****
+     *
      * @var string
      */
     public $vodTranscodeGroupId;
     protected $_name = [
-        'appName'                    => 'AppName',
-        'autoCompose'                => 'AutoCompose',
+        'appName' => 'AppName',
+        'autoCompose' => 'AutoCompose',
         'composeVodTranscodeGroupId' => 'ComposeVodTranscodeGroupId',
-        'createTime'                 => 'CreateTime',
-        'cycleDuration'              => 'CycleDuration',
-        'domainName'                 => 'DomainName',
-        'streamName'                 => 'StreamName',
-        'vodTranscodeGroupId'        => 'VodTranscodeGroupId',
+        'createTime' => 'CreateTime',
+        'cycleDuration' => 'CycleDuration',
+        'domainName' => 'DomainName',
+        'onDemand' => 'OnDemand',
+        'storageLocation' => 'StorageLocation',
+        'streamName' => 'StreamName',
+        'vodTranscodeGroupId' => 'VodTranscodeGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,6 +140,12 @@ class liveRecordVodConfig extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->onDemand) {
+            $res['OnDemand'] = $this->onDemand;
+        }
+        if (null !== $this->storageLocation) {
+            $res['StorageLocation'] = $this->storageLocation;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -118,6 +182,12 @@ class liveRecordVodConfig extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['OnDemand'])) {
+            $model->onDemand = $map['OnDemand'];
+        }
+        if (isset($map['StorageLocation'])) {
+            $model->storageLocation = $map['StorageLocation'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

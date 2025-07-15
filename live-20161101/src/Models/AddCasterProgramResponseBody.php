@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class AddCasterProgramResponseBody extends Model
 {
     /**
+     * @description The IDs of the episodes. The episode IDs are listed in the same order as specified by the variable N.
+     *
      * @var episodeIds
      */
     public $episodeIds;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'episodeIds' => 'EpisodeIds',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

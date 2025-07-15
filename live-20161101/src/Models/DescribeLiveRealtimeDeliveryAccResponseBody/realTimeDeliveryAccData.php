@@ -17,9 +17,7 @@ class realTimeDeliveryAccData extends Model
         'accData' => 'AccData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class realTimeDeliveryAccData extends Model
         if (isset($map['AccData'])) {
             if (!empty($map['AccData'])) {
                 $model->accData = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['AccData'] as $item) {
                     $model->accData[$n++] = null !== $item ? accData::fromMap($item) : $item;
                 }

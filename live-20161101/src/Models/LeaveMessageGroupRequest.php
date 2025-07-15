@@ -9,40 +9,71 @@ use AlibabaCloud\Tea\Model;
 class LeaveMessageGroupRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Specifies whether to broadcast statistical messages. If you set the value to true, statistical messages of the message group are broadcasted after the users join the message group. The client can receive and process these messages. Valid values:
+     *
+     *   true: broadcasts statistical messages.
+     *   false: does not broadcast statistical messages.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $broadCastStatistics;
 
     /**
+     * @description The mode in which system messages are broadcasted. Valid values:
+     *
+     *   0: specifies that system messages are not broadcasted. This is the default value.
+     *   1: specifies that system messages are broadcasted to specified users.
+     *   2: specifies that system messages are broadcasted to the message group.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $broadCastType;
 
     /**
+     * @description The ID of the message group.
+     *
+     * This parameter is required.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the user. Each user has a unique ID in the application.
+     *
+     * This parameter is required.
+     *
+     * @example de1**a0
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'               => 'AppId',
+        'appId' => 'AppId',
         'broadCastStatistics' => 'BroadCastStatistics',
-        'broadCastType'       => 'BroadCastType',
-        'groupId'             => 'GroupId',
-        'userId'              => 'UserId',
+        'broadCastType' => 'BroadCastType',
+        'groupId' => 'GroupId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

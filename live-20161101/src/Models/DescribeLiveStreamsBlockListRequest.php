@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsBlockListRequest extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,11 +25,19 @@ class DescribeLiveStreamsBlockListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 3000. Default value: 2000.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -33,16 +47,14 @@ class DescribeLiveStreamsBlockListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

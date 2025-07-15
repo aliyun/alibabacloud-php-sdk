@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDetectPornDataRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The main streaming domain to query.
+     *
+     *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
+     *   If you do not specify this parameter, the data of all domain names within your Alibaba Cloud account is returned.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2017-12-10T09:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description Specifies whether a quota of free image scanning is available. Valid values:
+     *
+     *   **free**: specifies that a quota of free image scanning is available.
+     *   **charge**: specifies that a quota of free image scanning is not available and fees are charged.
+     *
+     * @example free
+     *
      * @var string
      */
     public $fee;
@@ -34,6 +56,10 @@ class DescribeLiveDetectPornDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the domain name resides.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
@@ -41,38 +67,72 @@ class DescribeLiveDetectPornDataRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The moderation scenario. Valid values:
+     *
+     *   **porn**: pornography detection. This is the default value.
+     *   **terrorism**: terrorism detection
+     *   **ad**: ad violation detection
+     *   **live**: undesirable scene detection
+     *   **logo**: logo detection
+     *
+     * @example porn
+     *
+     * @var string
+     */
     public $scene;
 
     /**
+     * @description The fields based on which data is grouped. Separate multiple fields with commas (,).
+     *
+     * > If you leave the **SplitBy** parameter empty, only the **TimeStamp** and **Count** parameters are returned.
+     *
+     * @example liveApp****,liveStream****
+     *
      * @var string
      */
     public $splitBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * >
+     *
+     *   You can query data in the last 90 days.
+     *
+     *   The minimum data granularity is 5 minutes. If you do not specify this parameter, data in the last 24 hours is queried.
+     *
+     * @example 2017-12-10T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $stream;
     protected $_name = [
-        'app'        => 'App',
+        'app' => 'App',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'fee'        => 'Fee',
-        'ownerId'    => 'OwnerId',
-        'region'     => 'Region',
-        'scene'      => 'Scene',
-        'splitBy'    => 'SplitBy',
-        'startTime'  => 'StartTime',
-        'stream'     => 'Stream',
+        'endTime' => 'EndTime',
+        'fee' => 'Fee',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'scene' => 'Scene',
+        'splitBy' => 'SplitBy',
+        'startTime' => 'StartTime',
+        'stream' => 'Stream',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,6 +154,9 @@ class DescribeLiveDetectPornDataRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -136,6 +199,9 @@ class DescribeLiveDetectPornDataRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];

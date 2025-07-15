@@ -9,46 +9,66 @@ use AlibabaCloud\Tea\Model;
 class groupList extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the message group was created. The time is displayed in UTC.
+     *
+     * @example 1502280113
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the creator.
+     *
+     * @example as****hs
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The extended field.
+     *
      * @var string[]
      */
     public $extension;
 
     /**
+     * @description The ID of the message group.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The status of the message group. The default value is **1**, which indicates that the status of the message group is normal.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'appId'      => 'AppId',
+        'appId' => 'AppId',
         'createTime' => 'CreateTime',
-        'creatorId'  => 'CreatorId',
-        'extension'  => 'Extension',
-        'groupId'    => 'GroupId',
-        'status'     => 'Status',
+        'creatorId' => 'CreatorId',
+        'extension' => 'Extension',
+        'groupId' => 'GroupId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

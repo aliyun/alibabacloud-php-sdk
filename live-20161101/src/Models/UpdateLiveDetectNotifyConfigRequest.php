@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveDetectNotifyConfigRequest extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The callback URL that is used to receive callback notifications about violations, such as pornographic content, detected in live streams.
+     *
+     * This parameter is required.
+     *
+     * @example http://guide.aliyundoc.com/examplecallback.action
+     *
      * @var string
      */
     public $notifyUrl;
@@ -28,15 +40,13 @@ class UpdateLiveDetectNotifyConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'notifyUrl'     => 'NotifyUrl',
-        'ownerId'       => 'OwnerId',
+        'domainName' => 'DomainName',
+        'notifyUrl' => 'NotifyUrl',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

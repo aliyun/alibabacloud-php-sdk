@@ -16,21 +16,32 @@ class GetAllCustomTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The ID of the user.
+     *
+     * @example 25346073170691****
+     *
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'ownerId' => 'OwnerId',
-        'userId'  => 'UserId',
+        'regionId' => 'RegionId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -49,6 +60,9 @@ class GetAllCustomTemplatesRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

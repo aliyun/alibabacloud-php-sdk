@@ -9,21 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
 {
     /**
+     * @description The streaming domain.
+     *
+     * Separate multiple domain names with commas (,).
+     *
+     * This parameter is required.
+     *
+     * @example example.com,example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * >  If you specify neither the StartTime parameter nor the EndTime parameter, the data of the last **1** hour is returned.
+     *
+     * @example 2015-11-30T05:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The name of the Internet service provider (ISP).
+     *
+     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to query a list of available ISPs.
+     *
+     * @example alibaba
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @description The name of the region.
+     *
+     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to query a list of available regions.
+     *
+     * @example tianjin
+     *
      * @var string
      */
     public $locationNameEn;
@@ -36,19 +62,29 @@ class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * >  If you specify neither the StartTime parameter nor the EndTime parameter, the data of the last **1** hour is returned.
+     *
+     * @example 2015-11-30T05:39:00Z
+     *
+     * @var string
+     */
     public $startTime;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'endTime'        => 'EndTime',
-        'ispNameEn'      => 'IspNameEn',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'ispNameEn' => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
-        'startTime'      => 'StartTime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -67,6 +103,9 @@ class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -97,6 +136,9 @@ class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteMessageAppRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application that you want to delete. You can specify only one ID.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
@@ -16,9 +22,7 @@ class DeleteMessageAppRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class frameRateAndBitRateInfos extends Model
         'frameRateAndBitRateInfo' => 'FrameRateAndBitRateInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class frameRateAndBitRateInfos extends Model
         if (isset($map['FrameRateAndBitRateInfo'])) {
             if (!empty($map['FrameRateAndBitRateInfo'])) {
                 $model->frameRateAndBitRateInfo = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['FrameRateAndBitRateInfo'] as $item) {
                     $model->frameRateAndBitRateInfo[$n++] = null !== $item ? frameRateAndBitRateInfo::fromMap($item) : $item;
                 }

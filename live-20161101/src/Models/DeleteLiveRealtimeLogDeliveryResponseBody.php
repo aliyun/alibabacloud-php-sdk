@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveRealtimeLogDeliveryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class DeleteLiveRealtimeLogDeliveryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

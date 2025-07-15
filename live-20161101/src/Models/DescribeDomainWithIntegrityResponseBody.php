@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainWithIntegrityResponseBody extends Model
 {
     /**
+     * @description The verification information.
+     *
      * @var content[]
      */
     public $content;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -57,7 +61,7 @@ class DescribeDomainWithIntegrityResponseBody extends Model
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Content'] as $item) {
                     $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
                 }

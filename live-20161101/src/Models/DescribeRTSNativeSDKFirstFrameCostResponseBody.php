@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeRTSNativeSDKFirstFrameCostResponseBody extends Model
 {
     /**
+     * @description The time granularity.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The end of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The average latency of first frames at each interval. Unit: milliseconds.
+     *
      * @var firstFrameCostData[]
      */
     public $firstFrameCostData;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BC858082-736F-4A25-867B-E5B67C85ACF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'       => 'DataInterval',
-        'endTime'            => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'endTime' => 'EndTime',
         'firstFrameCostData' => 'FirstFrameCostData',
-        'requestId'          => 'RequestId',
-        'startTime'          => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +106,7 @@ class DescribeRTSNativeSDKFirstFrameCostResponseBody extends Model
         if (isset($map['FirstFrameCostData'])) {
             if (!empty($map['FirstFrameCostData'])) {
                 $model->firstFrameCostData = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['FirstFrameCostData'] as $item) {
                     $model->firstFrameCostData[$n++] = null !== $item ? firstFrameCostData::fromMap($item) : $item;
                 }

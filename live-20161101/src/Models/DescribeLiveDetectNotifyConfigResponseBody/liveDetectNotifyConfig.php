@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class liveDetectNotifyConfig extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The callback URL.
+     *
+     * @example http://aliyundoc.com
+     *
      * @var string
      */
     public $notifyUrl;
     protected $_name = [
         'domainName' => 'DomainName',
-        'notifyUrl'  => 'NotifyUrl',
+        'notifyUrl' => 'NotifyUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

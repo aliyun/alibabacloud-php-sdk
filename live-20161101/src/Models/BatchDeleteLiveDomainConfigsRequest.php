@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteLiveDomainConfigsRequest extends Model
 {
     /**
+     * @description The ingest domain or streaming domain. Separate multiple domain names with commas (,).
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com,example.aliyundoc.com,example.com
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @description The names of the features. Separate multiple features with commas (,). For more information, see **Features specified by the Functions parameter**.
+     *
+     * This parameter is required.
+     *
+     * @example referer_white_list_set,ip_black_list_set
+     *
      * @var string
      */
     public $functionNames;
@@ -33,16 +45,14 @@ class BatchDeleteLiveDomainConfigsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainNames'   => 'DomainNames',
+        'domainNames' => 'DomainNames',
         'functionNames' => 'FunctionNames',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

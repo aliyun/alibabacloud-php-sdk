@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class outputUrls extends Model
 {
     /**
+     * @description The output URL in the Flash Video (FLV) format.
+     *
+     * @example http://demo.aliyundoc.com/monitor/445409ec-7eaa-461d-8f29-4bec2eb9****.flv
+     *
      * @var string
      */
     public $flvUrl;
 
     /**
+     * @description The output URL in the Real-Time Messaging Protocol (RTMP) format.
+     *
+     * @example rtmp://demo.aliyundoc.com/monitor/445409ec-7eaa-461d-8f29-4bec2eb9****
+     *
      * @var string
      */
     public $rtmpUrl;
     protected $_name = [
-        'flvUrl'  => 'FlvUrl',
+        'flvUrl' => 'FlvUrl',
         'rtmpUrl' => 'RtmpUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

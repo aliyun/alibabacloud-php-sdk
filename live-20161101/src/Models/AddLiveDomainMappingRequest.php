@@ -14,11 +14,23 @@ class AddLiveDomainMappingRequest extends Model
     public $ownerId;
 
     /**
+     * @description The streaming domain. The type of the domain name is **liveVideo**.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $pullDomain;
 
     /**
+     * @description The ingest domain. The type of the domain name is **liveEdge**.
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $pushDomain;
@@ -28,15 +40,13 @@ class AddLiveDomainMappingRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'pullDomain'    => 'PullDomain',
-        'pushDomain'    => 'PushDomain',
+        'ownerId' => 'OwnerId',
+        'pullDomain' => 'PullDomain',
+        'pushDomain' => 'PushDomain',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

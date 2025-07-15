@@ -17,9 +17,7 @@ class liveAppRecordList extends Model
         'liveAppRecord' => 'LiveAppRecord',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveAppRecordList extends Model
         if (isset($map['LiveAppRecord'])) {
             if (!empty($map['LiveAppRecord'])) {
                 $model->liveAppRecord = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['LiveAppRecord'] as $item) {
                     $model->liveAppRecord[$n++] = null !== $item ? liveAppRecord::fromMap($item) : $item;
                 }

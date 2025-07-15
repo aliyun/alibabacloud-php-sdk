@@ -9,31 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveVerifyContentResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The verification content.
+     *
+     * @example verify_dffeb6610035dcb77b413******
+     *
      * @var string
      */
     public $content;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'content' => 'Content',
         'requestId' => 'RequestId',
-        'content'   => 'Content',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +53,11 @@ class DescribeLiveVerifyContentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

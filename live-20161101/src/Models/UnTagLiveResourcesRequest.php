@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnTagLiveResourcesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $all;
@@ -19,30 +21,44 @@ class UnTagLiveResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example DOMAIN
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example env
+     *
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'All',
-        'ownerId'      => 'OwnerId',
-        'resourceId'   => 'ResourceId',
+        'all' => 'All',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -52,6 +68,9 @@ class UnTagLiveResourcesRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -79,6 +98,9 @@ class UnTagLiveResourcesRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {

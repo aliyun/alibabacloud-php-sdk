@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
+     * @description The transcoding template. A value of origin indicates that the stream is a source stream.
+     *
+     * @example origin
+     *
      * @var string
      */
     public $transcodeTemplate;
 
     /**
+     * @description The number of online users for the stream, which can be a source stream or transcoded stream.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $userNumber;
     protected $_name = [
         'transcodeTemplate' => 'TranscodeTemplate',
-        'userNumber'        => 'UserNumber',
+        'userNumber' => 'UserNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

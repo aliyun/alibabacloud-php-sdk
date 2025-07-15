@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainRealTimeHttpCodeDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the entries returned. Unit: seconds Default value: 60.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The streaming domain.
+     *
+     * @example example.com,example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-11-30T05:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The proportions of HTTP status codes at each time interval.
+     *
      * @var realTimeHttpCodeData
      */
     public $realTimeHttpCodeData;
 
     /**
+     * @description The request ID.
+     *
+     * @example BC858082-736F-4A25-867B-E5B67C85ACF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-11-30T05:33:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'         => 'DataInterval',
-        'domainName'           => 'DomainName',
-        'endTime'              => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
         'realTimeHttpCodeData' => 'RealTimeHttpCodeData',
-        'requestId'            => 'RequestId',
-        'startTime'            => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

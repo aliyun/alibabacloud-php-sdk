@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsPublishListResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The information about the stream ingest records.
+     *
      * @var publishInfo
      */
     public $publishInfo;
 
     /**
+     * @description The request ID.
+     *
+     * @example 40A4F36D-A7CC-473A-88E7-154F92242566
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries that meet the specified conditions.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'publishInfo' => 'PublishInfo',
-        'requestId'   => 'RequestId',
-        'totalNum'    => 'TotalNum',
-        'totalPage'   => 'TotalPage',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

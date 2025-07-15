@@ -11,28 +11,34 @@ use AlibabaCloud\Tea\Model;
 class StartCasterResponseBody extends Model
 {
     /**
+     * @description The PGM scenes.
+     *
      * @var pgmSceneInfos
      */
     public $pgmSceneInfos;
 
     /**
+     * @description The PVW scenes.
+     *
      * @var pvwSceneInfos
      */
     public $pvwSceneInfos;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6EBD1AC4-C34D-4AE1-963E-B688A228BE31
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'pgmSceneInfos' => 'PgmSceneInfos',
         'pvwSceneInfos' => 'PvwSceneInfos',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

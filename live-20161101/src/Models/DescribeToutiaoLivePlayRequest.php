@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeToutiaoLivePlayRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. The time span cannot be greater than 10 hours. If you do not configure StartTime and EndTime, the data within the previous hour is queried. Specify the time in the ISO 8601 standard. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-10-10T20:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -31,24 +49,40 @@ class DescribeToutiaoLivePlayRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-10-10T20:00:00Z
+     *
+     * @var string
+     */
     public $startTime;
 
     /**
+     * @description The name of the live stream.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $stream;
     protected $_name = [
-        'app'       => 'App',
-        'domain'    => 'Domain',
-        'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
+        'app' => 'App',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'startTime' => 'StartTime',
-        'stream'    => 'Stream',
+        'stream' => 'Stream',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,6 +98,9 @@ class DescribeToutiaoLivePlayRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -94,6 +131,9 @@ class DescribeToutiaoLivePlayRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

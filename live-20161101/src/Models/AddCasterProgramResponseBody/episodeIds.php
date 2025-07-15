@@ -17,9 +17,7 @@ class episodeIds extends Model
         'episodeId' => 'EpisodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class episodeIds extends Model
         if (isset($map['EpisodeId'])) {
             if (!empty($map['EpisodeId'])) {
                 $model->episodeId = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['EpisodeId'] as $item) {
                     $model->episodeId[$n++] = null !== $item ? episodeId::fromMap($item) : $item;
                 }

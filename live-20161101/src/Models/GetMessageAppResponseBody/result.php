@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configurations of the application.
+     *
      * @var string[]
      */
     public $appConfig;
 
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the interactive messaging application.
+     *
+     * @example testApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The time when the interactive messaging application was created. The time is displayed in UTC.
+     *
+     * @example 502280113
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The extended field.
+     *
      * @var string[]
      */
     public $extension;
 
     /**
+     * @description The status of the interactive message application. A value of 1 indicates that the application is normal.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'appConfig'  => 'AppConfig',
-        'appId'      => 'AppId',
-        'appName'    => 'AppName',
+        'appConfig' => 'AppConfig',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'createTime' => 'CreateTime',
-        'extension'  => 'Extension',
-        'status'     => 'Status',
+        'extension' => 'Extension',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CopyCasterResponseBody extends Model
 {
     /**
+     * @description The ID of the new production studio.
+     *
+     * @example 1909f043-e3d3-49e9-82d6-4329ec4a****
+     *
      * @var string
      */
     public $casterId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'casterId'  => 'CasterId',
+        'casterId' => 'CasterId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

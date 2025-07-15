@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteMessageAppResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-****-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result
      */
     public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

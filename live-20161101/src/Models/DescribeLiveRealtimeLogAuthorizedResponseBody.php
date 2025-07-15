@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRealtimeLogAuthorizedResponseBody extends Model
 {
     /**
+     * @description The authorization status. **true**: authorized **false**: not authorized
+     *
+     * @example true
+     *
      * @var string
      */
     public $authorizedStatus;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5c6a2a0df228-4a64- af62-20e91b******
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'authorizedStatus' => 'AuthorizedStatus',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

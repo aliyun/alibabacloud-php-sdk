@@ -10,34 +10,46 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotFilesResponseBody extends Model
 {
     /**
+     * @description The number of snapshots that failed to be deleted.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $failureCount;
 
     /**
+     * @description The request ID.
+     *
+     * @example 90F60327-ABEC-5A93-BF1F-****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the snapshots.
+     *
      * @var snapshotDeleteInfoList
      */
     public $snapshotDeleteInfoList;
 
     /**
+     * @description The number of successful screenshot deletions.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $successCount;
     protected $_name = [
-        'failureCount'           => 'FailureCount',
-        'requestId'              => 'RequestId',
+        'failureCount' => 'FailureCount',
+        'requestId' => 'RequestId',
         'snapshotDeleteInfoList' => 'SnapshotDeleteInfoList',
-        'successCount'           => 'SuccessCount',
+        'successCount' => 'SuccessCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

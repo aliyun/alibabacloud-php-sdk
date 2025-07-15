@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The bandwidth. Unit: bit/s.
+     *
+     * @example 11288111
+     *
      * @var string
      */
     public $bpsValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'bpsValue'  => 'BpsValue',
+        'bpsValue' => 'BpsValue',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

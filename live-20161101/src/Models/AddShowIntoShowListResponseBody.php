@@ -9,34 +9,48 @@ use AlibabaCloud\Tea\Model;
 class AddShowIntoShowListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 987DA143-A39C-5B5D-AF5B-3B07944A0036
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the episode.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf93880e****
+     *
      * @var string
      */
     public $showId;
 
     /**
+     * @description The list of resources that failed to be added and the reason for failure.
+     *
+     * @example failedList[Show1, Show2...]
+     *
      * @var string
      */
     public $failedList;
 
     /**
+     * @description The IDs of the episodes that were added.
+     *
+     * @example f1933f16-5467-4308-b3a9-e8d451a90999,547436b8-c839-4469-a2c0-704c1ce5ce00
+     *
      * @var string
      */
     public $successfulShowIds;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'showId'            => 'ShowId',
-        'failedList'        => 'failedList',
+        'requestId' => 'RequestId',
+        'showId' => 'ShowId',
+        'failedList' => 'failedList',
         'successfulShowIds' => 'successfulShowIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

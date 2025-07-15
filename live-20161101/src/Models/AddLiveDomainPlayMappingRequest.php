@@ -14,23 +14,39 @@ class AddLiveDomainPlayMappingRequest extends Model
     public $ownerId;
 
     /**
+     * @description The sub-streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $pullDomain;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'playDomain' => 'PlayDomain',
         'pullDomain' => 'PullDomain',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -43,6 +59,9 @@ class AddLiveDomainPlayMappingRequest extends Model
         }
         if (null !== $this->pullDomain) {
             $res['PullDomain'] = $this->pullDomain;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +83,9 @@ class AddLiveDomainPlayMappingRequest extends Model
         }
         if (isset($map['PullDomain'])) {
             $model->pullDomain = $map['PullDomain'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

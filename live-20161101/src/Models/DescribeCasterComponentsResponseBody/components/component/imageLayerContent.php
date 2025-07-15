@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class imageLayerContent extends Model
 {
     /**
+     * @description The ID of the material from the media library.
+     *
+     * @example 6cf724c6ebfd4a59b5b3cec6f10d****
+     *
      * @var string
      */
     public $materialId;
@@ -16,9 +20,7 @@ class imageLayerContent extends Model
         'materialId' => 'MaterialId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

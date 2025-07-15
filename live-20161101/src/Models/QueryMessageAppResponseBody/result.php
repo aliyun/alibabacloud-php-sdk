@@ -10,28 +10,39 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Details about the interactive messaging applications.
+     *
      * @var appList[]
      */
     public $appList;
 
     /**
+     * @description Indicates whether the current page is followed by another page. Valid values:
+     *
+     *   true: The current page is followed by another page.
+     *   false: The current page is not followed by another page.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hasMore;
 
     /**
+     * @description The total number of applications returned.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'appList'    => 'AppList',
-        'hasMore'    => 'HasMore',
+        'appList' => 'AppList',
+        'hasMore' => 'HasMore',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +77,7 @@ class result extends Model
         if (isset($map['AppList'])) {
             if (!empty($map['AppList'])) {
                 $model->appList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['AppList'] as $item) {
                     $model->appList[$n++] = null !== $item ? appList::fromMap($item) : $item;
                 }

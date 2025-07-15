@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StopPlaylistResponseBody extends Model
 {
     /**
+     * @description The ID of the episode list.
+     *
+     * @example 445409ec-7eaa-461d-8f29-4bec2eb9****
+     *
      * @var string
      */
     public $programId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5c6a2a0d-f228-4a64-af62-20e91b96****
+     *
      * @var string
      */
     public $requestId;
@@ -22,9 +30,7 @@ class StopPlaylistResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveSnapshotDetectPornConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name in the ingest URL. Otherwise, the configuration does not take effect. The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name cannot start with a hyphen (-) or underscore (_). You can also specify an asterisk (\\*) as the value to match all applications.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The interval at which snapshots are captured from the live stream. Valid values: **5 to 3600**. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The endpoint of the Object Storage Service (OSS) bucket.
+     *
+     * @example cn-oss-****.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The name of the snapshot that stores violations such as pornographic content and politically sensitive content.
+     *
+     * @example {liveApp****}/{liveStream****}/{Date}/{Hour}/{Minute}_{Second}.jpg
+     *
      * @var string
      */
     public $ossObject;
@@ -44,6 +72,10 @@ class UpdateLiveSnapshotDetectPornConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The moderation scenario array.
+     *
+     * @example porn
+     *
      * @var string[]
      */
     public $scene;
@@ -53,20 +85,18 @@ class UpdateLiveSnapshotDetectPornConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
-        'interval'      => 'Interval',
-        'ossBucket'     => 'OssBucket',
-        'ossEndpoint'   => 'OssEndpoint',
-        'ossObject'     => 'OssObject',
-        'ownerId'       => 'OwnerId',
-        'scene'         => 'Scene',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'interval' => 'Interval',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
+        'ossObject' => 'OssObject',
+        'ownerId' => 'OwnerId',
+        'scene' => 'Scene',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

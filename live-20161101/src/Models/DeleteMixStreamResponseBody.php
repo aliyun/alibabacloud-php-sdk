@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteMixStreamResponseBody extends Model
 {
     /**
+     * @description The ID of the stream mixing task.
+     *
+     * @example 749b7594-86d6-37b1-513b-e1e19845****
+     *
      * @var string
      */
     public $mixStreamId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BE9407FF-F897-4DBD-338D-98A750AD805F
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'mixStreamId' => 'MixStreamId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

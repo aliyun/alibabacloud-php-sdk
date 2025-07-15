@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
 {
     /**
+     * @description The domain names to query. Separate them with commas (,). A domain name cannot contain double-byte characters.
+     *
+     * @example live.aiyun.com
+     *
      * @var string
      */
     public $domainName;
@@ -21,16 +25,26 @@ class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The timestamp.
+     *
+     * This parameter is required.
+     *
+     * @example 2018-08-08T00:00:00Z
+     *
+     * @var string
+     */
     public $time;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
-        'time'       => 'Time',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'time' => 'Time',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -40,6 +54,9 @@ class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
@@ -61,6 +78,9 @@ class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];

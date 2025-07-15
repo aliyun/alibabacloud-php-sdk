@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamMonitorListResponseBody extends Model
 {
     /**
+     * @description The list of monitoring sessions.
+     *
      * @var liveStreamMonitorList[]
      */
     public $liveStreamMonitorList;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2234baba-a586-46ea-8bd4-c8f7891abcdef
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of monitoring sessions.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'liveStreamMonitorList' => 'LiveStreamMonitorList',
-        'requestId'             => 'RequestId',
-        'total'                 => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +74,7 @@ class DescribeLiveStreamMonitorListResponseBody extends Model
         if (isset($map['LiveStreamMonitorList'])) {
             if (!empty($map['LiveStreamMonitorList'])) {
                 $model->liveStreamMonitorList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['LiveStreamMonitorList'] as $item) {
                     $model->liveStreamMonitorList[$n++] = null !== $item ? liveStreamMonitorList::fromMap($item) : $item;
                 }

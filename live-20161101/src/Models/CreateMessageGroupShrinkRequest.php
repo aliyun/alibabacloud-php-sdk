@@ -9,28 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateMessageGroupShrinkRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example a494caec-***-695ef345db77
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the creator. The ID can be up to 36 characters in length and can contain only letters and digits.
+     *
+     * This parameter is required.
+     *
+     * @example as****hs
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The extended field.
+     *
      * @var string
      */
     public $extensionShrink;
     protected $_name = [
-        'appId'           => 'AppId',
-        'creatorId'       => 'CreatorId',
+        'appId' => 'AppId',
+        'creatorId' => 'CreatorId',
         'extensionShrink' => 'Extension',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

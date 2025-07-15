@@ -10,52 +10,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRecordConfigResponseBody extends Model
 {
     /**
+     * @description The list of recording configurations.
+     *
      * @var liveAppRecordList
      */
     public $liveAppRecordList;
 
     /**
+     * @description The sorting order of recording configurations by creation time.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The page number.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5056369B-D337-499E-B8B7-B761BD37B08A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of recording configurations that meet the specified conditions.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
         'liveAppRecordList' => 'LiveAppRecordList',
-        'order'             => 'Order',
-        'pageNum'           => 'PageNum',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
-        'totalNum'          => 'TotalNum',
-        'totalPage'         => 'TotalPage',
+        'order' => 'Order',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

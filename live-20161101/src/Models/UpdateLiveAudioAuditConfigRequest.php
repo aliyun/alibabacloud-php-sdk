@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveAudioAuditConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name in the ingest URL. Otherwise, the configuration does not take effect. The application name is case-sensitive.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The business type. You can specify a model. The default value is the domain name.
+     *
+     * @example example.edu
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the Object Storage Service (OSS) bucket.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
+     * @example cn-oss-****.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The name of the recording that is stored in OSS.
+     *
+     * @example liveObject****
+     *
      * @var string
      */
     public $ossObject;
@@ -46,21 +74,31 @@ class UpdateLiveAudioAuditConfigRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The name of the live stream. The value of this parameter must be the same as the stream name in the ingest URL. Otherwise, the configuration does not take effect. The stream name is case-sensitive.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
+     * @var string
+     */
     public $streamName;
     protected $_name = [
-        'appName'     => 'AppName',
-        'bizType'     => 'BizType',
-        'domainName'  => 'DomainName',
-        'ossBucket'   => 'OssBucket',
+        'appName' => 'AppName',
+        'bizType' => 'BizType',
+        'domainName' => 'DomainName',
+        'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
-        'ossObject'   => 'OssObject',
-        'ownerId'     => 'OwnerId',
-        'streamName'  => 'StreamName',
+        'ossObject' => 'OssObject',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,6 +123,9 @@ class UpdateLiveAudioAuditConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -121,6 +162,9 @@ class UpdateLiveAudioAuditConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

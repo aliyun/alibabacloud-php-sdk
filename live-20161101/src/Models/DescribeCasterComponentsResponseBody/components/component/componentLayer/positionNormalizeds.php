@@ -16,9 +16,7 @@ class positionNormalizeds extends Model
         'position' => 'Position',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

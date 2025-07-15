@@ -14,58 +14,81 @@ use AlibabaCloud\Tea\Model;
 class studioLayouts extends Model
 {
     /**
+     * @description The background material configurations.
+     *
      * @var bgImageConfig
      */
     public $bgImageConfig;
 
     /**
+     * @description The common layout configurations. This parameter is returned only for a common layout.
+     *
      * @var commonConfig
      */
     public $commonConfig;
 
     /**
+     * @description The layer sorting configurations.
+     *
      * @var layerOrderConfigList[]
      */
     public $layerOrderConfigList;
 
     /**
+     * @description The ID of the layout.
+     *
+     * @example 445409ec-7eaa-461d-8f29-4bec2eb9****
+     *
      * @var string
      */
     public $layoutId;
 
     /**
+     * @description The name of the layout.
+     *
+     * @example 测试布局
+     *
      * @var string
      */
     public $layoutName;
 
     /**
+     * @description The type of the layout. Valid values:
+     *
+     *   **common**
+     *   **studio**
+     *
+     * @example studio
+     *
      * @var string
      */
     public $layoutType;
 
     /**
+     * @description The multimedia input configurations.
+     *
      * @var mediaInputConfigList[]
      */
     public $mediaInputConfigList;
 
     /**
+     * @description The input configurations for chroma key.
+     *
      * @var screenInputConfigList[]
      */
     public $screenInputConfigList;
     protected $_name = [
-        'bgImageConfig'         => 'BgImageConfig',
-        'commonConfig'          => 'CommonConfig',
-        'layerOrderConfigList'  => 'LayerOrderConfigList',
-        'layoutId'              => 'LayoutId',
-        'layoutName'            => 'LayoutName',
-        'layoutType'            => 'LayoutType',
-        'mediaInputConfigList'  => 'MediaInputConfigList',
+        'bgImageConfig' => 'BgImageConfig',
+        'commonConfig' => 'CommonConfig',
+        'layerOrderConfigList' => 'LayerOrderConfigList',
+        'layoutId' => 'LayoutId',
+        'layoutName' => 'LayoutName',
+        'layoutType' => 'LayoutType',
+        'mediaInputConfigList' => 'MediaInputConfigList',
         'screenInputConfigList' => 'ScreenInputConfigList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -133,7 +156,7 @@ class studioLayouts extends Model
         if (isset($map['LayerOrderConfigList'])) {
             if (!empty($map['LayerOrderConfigList'])) {
                 $model->layerOrderConfigList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['LayerOrderConfigList'] as $item) {
                     $model->layerOrderConfigList[$n++] = null !== $item ? layerOrderConfigList::fromMap($item) : $item;
                 }
@@ -151,7 +174,7 @@ class studioLayouts extends Model
         if (isset($map['MediaInputConfigList'])) {
             if (!empty($map['MediaInputConfigList'])) {
                 $model->mediaInputConfigList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['MediaInputConfigList'] as $item) {
                     $model->mediaInputConfigList[$n++] = null !== $item ? mediaInputConfigList::fromMap($item) : $item;
                 }
@@ -160,7 +183,7 @@ class studioLayouts extends Model
         if (isset($map['ScreenInputConfigList'])) {
             if (!empty($map['ScreenInputConfigList'])) {
                 $model->screenInputConfigList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['ScreenInputConfigList'] as $item) {
                     $model->screenInputConfigList[$n++] = null !== $item ? screenInputConfigList::fromMap($item) : $item;
                 }

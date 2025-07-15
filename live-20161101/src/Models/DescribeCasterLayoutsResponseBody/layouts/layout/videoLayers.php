@@ -17,9 +17,7 @@ class videoLayers extends Model
         'videoLayer' => 'VideoLayer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class videoLayers extends Model
         if (isset($map['VideoLayer'])) {
             if (!empty($map['VideoLayer'])) {
                 $model->videoLayer = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['VideoLayer'] as $item) {
                     $model->videoLayer[$n++] = null !== $item ? videoLayer::fromMap($item) : $item;
                 }

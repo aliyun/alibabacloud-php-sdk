@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveStreamsNotifyUrlConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 40A4F36D-A7CC-473A-88E7-154F92242566
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class DeleteLiveStreamsNotifyUrlConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

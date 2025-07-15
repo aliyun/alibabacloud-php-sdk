@@ -9,46 +9,68 @@ use AlibabaCloud\Tea\Model;
 class firstFrameCostData extends Model
 {
     /**
+     * @description The time elapsed from initialization to connection establishment.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $connected;
 
     /**
+     * @description The time elapsed from connection establishment to subscription.
+     *
+     * @example 89
+     *
      * @var string
      */
     public $finishGetStreamInfo;
 
     /**
+     * @description The time elapsed from first packet processing to display of the first frame.
+     *
+     * @example 32
+     *
      * @var string
      */
     public $firstFrameComplete;
 
     /**
+     * @description The time elapsed from subscription to first packet processing.
+     *
+     * @example 132
+     *
      * @var string
      */
     public $firstPacket;
 
     /**
+     * @description The time consumed by initialization.
+     *
+     * @example 1100
+     *
      * @var string
      */
     public $initialized;
 
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'connected'           => 'Connected',
+        'connected' => 'Connected',
         'finishGetStreamInfo' => 'FinishGetStreamInfo',
-        'firstFrameComplete'  => 'FirstFrameComplete',
-        'firstPacket'         => 'FirstPacket',
-        'initialized'         => 'Initialized',
-        'timeStamp'           => 'TimeStamp',
+        'firstFrameComplete' => 'FirstFrameComplete',
+        'firstPacket' => 'FirstPacket',
+        'initialized' => 'Initialized',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

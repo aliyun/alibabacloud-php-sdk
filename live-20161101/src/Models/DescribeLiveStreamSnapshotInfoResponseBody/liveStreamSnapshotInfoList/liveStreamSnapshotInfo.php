@@ -9,46 +9,71 @@ use AlibabaCloud\Tea\Model;
 class liveStreamSnapshotInfo extends Model
 {
     /**
+     * @description The time when the snapshot was captured. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-01T17:36:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp when the snapshot file was created. Unit: milliseconds.
+     *
+     * @example 1653641526637
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The snapshot mode. Valid values:
+     *
+     *   **true**: overwrite mode, which means that a new snapshot overwrites the previous snapshot.
+     *   **false**: sequence mode, which means that a new snapshot does not overwrite the previous snapshot.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isOverlay;
 
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
+     * @example cn-oss-****.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The name of the snapshot stored in Object Storage Service (OSS).
+     *
+     * @example {liveApp****}/{liveStream****}.jpg
+     *
      * @var string
      */
     public $ossObject;
     protected $_name = [
-        'createTime'      => 'CreateTime',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'isOverlay'       => 'IsOverlay',
-        'ossBucket'       => 'OssBucket',
-        'ossEndpoint'     => 'OssEndpoint',
-        'ossObject'       => 'OssObject',
+        'isOverlay' => 'IsOverlay',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
+        'ossObject' => 'OssObject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

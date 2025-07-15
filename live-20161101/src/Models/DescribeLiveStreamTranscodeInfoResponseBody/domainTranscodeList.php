@@ -17,9 +17,7 @@ class domainTranscodeList extends Model
         'domainTranscodeInfo' => 'DomainTranscodeInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class domainTranscodeList extends Model
         if (isset($map['DomainTranscodeInfo'])) {
             if (!empty($map['DomainTranscodeInfo'])) {
                 $model->domainTranscodeInfo = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['DomainTranscodeInfo'] as $item) {
                     $model->domainTranscodeInfo[$n++] = null !== $item ? domainTranscodeInfo::fromMap($item) : $item;
                 }

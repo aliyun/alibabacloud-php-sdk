@@ -17,9 +17,7 @@ class liveLazyPullConfigList extends Model
         'liveLazyPullConfig' => 'LiveLazyPullConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveLazyPullConfigList extends Model
         if (isset($map['LiveLazyPullConfig'])) {
             if (!empty($map['LiveLazyPullConfig'])) {
                 $model->liveLazyPullConfig = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['LiveLazyPullConfig'] as $item) {
                     $model->liveLazyPullConfig[$n++] = null !== $item ? liveLazyPullConfig::fromMap($item) : $item;
                 }

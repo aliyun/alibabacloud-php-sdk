@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpBpsPeakDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Specifies whether to collect statistics at the domain name level. Valid values:
+     *
+     *   on: collects statistics at the domain name level.
+     *   off: collects statistics at the user level. This is the default value.
+     *
+     * @example on
+     *
      * @var string
      */
     public $domainSwitch;
 
     /**
+     * @description The end time of stream pulling. The time must be in UTC. The end time must be later than the start time. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-10-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -31,18 +48,28 @@ class DescribeUpBpsPeakDataRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The start time of stream pulling. The time must be in UTC. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-10-10T20:00:00Z
+     *
+     * @var string
+     */
     public $startTime;
     protected $_name = [
-        'domainName'   => 'DomainName',
+        'domainName' => 'DomainName',
         'domainSwitch' => 'DomainSwitch',
-        'endTime'      => 'EndTime',
-        'ownerId'      => 'OwnerId',
-        'startTime'    => 'StartTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,6 +85,9 @@ class DescribeUpBpsPeakDataRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -85,6 +115,9 @@ class DescribeUpBpsPeakDataRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainOnlineUserNumRequest extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -19,18 +25,26 @@ class DescribeLiveDomainOnlineUserNumRequest extends Model
     public $ownerId;
 
     /**
+     * @description The point of time to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2018-12-27T13:09:21Z
+     *
      * @var string
      */
     public $queryTime;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
-        'queryTime'  => 'QueryTime',
+        'ownerId' => 'OwnerId',
+        'queryTime' => 'QueryTime',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -43,6 +57,9 @@ class DescribeLiveDomainOnlineUserNumRequest extends Model
         }
         if (null !== $this->queryTime) {
             $res['QueryTime'] = $this->queryTime;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +81,9 @@ class DescribeLiveDomainOnlineUserNumRequest extends Model
         }
         if (isset($map['QueryTime'])) {
             $model->queryTime = $map['QueryTime'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

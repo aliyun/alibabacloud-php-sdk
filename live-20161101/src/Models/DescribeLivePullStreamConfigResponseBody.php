@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLivePullStreamConfigResponseBody extends Model
 {
     /**
+     * @description Details about the stream pulling configurations.
+     *
      * @var liveAppRecordList
      */
     public $liveAppRecordList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A3136B58-5876-4168-83CA-B562781981A0
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'liveAppRecordList' => 'LiveAppRecordList',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

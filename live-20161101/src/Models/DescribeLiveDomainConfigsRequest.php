@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainConfigsRequest extends Model
 {
     /**
+     * @description The ingest domain or streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The names of the features. Separate multiple features with commas (,). For more information, see the **Features specified by the Functions parameter** section in this topic.
+     *
+     * This parameter is required.
+     *
+     * @example set_req_host_header,set_hashkey_args
+     *
      * @var string
      */
     public $functionNames;
@@ -28,15 +40,13 @@ class DescribeLiveDomainConfigsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
         'functionNames' => 'FunctionNames',
-        'ownerId'       => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainDetailResponseBody extends Model
 {
     /**
+     * @description The configuration details of the domain name.
+     *
      * @var domainDetail
      */
     public $domainDetail;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 09ABE829-6CD3-4FE0-AFEE-556113E29727
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainDetail' => 'DomainDetail',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -14,17 +14,27 @@ class DeleteCasterEpisodeGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the episode list. If the episode list was added by calling the [AddCasterEpisodeGroup](https://help.aliyun.com/document_detail/2848071.html) operation, check the value of the response parameter ProgramId to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf932738****
+     *
      * @var string
      */
     public $programId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'programId' => 'ProgramId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -34,6 +44,9 @@ class DeleteCasterEpisodeGroupRequest extends Model
         }
         if (null !== $this->programId) {
             $res['ProgramId'] = $this->programId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class DeleteCasterEpisodeGroupRequest extends Model
         }
         if (isset($map['ProgramId'])) {
             $model->programId = $map['ProgramId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

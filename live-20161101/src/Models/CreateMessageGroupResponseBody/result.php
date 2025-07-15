@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The extended field.
+     *
+     * @example test001
+     *
      * @var mixed[]
      */
     public $extension;
 
     /**
+     * @description The ID of the message group.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
     protected $_name = [
         'extension' => 'Extension',
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

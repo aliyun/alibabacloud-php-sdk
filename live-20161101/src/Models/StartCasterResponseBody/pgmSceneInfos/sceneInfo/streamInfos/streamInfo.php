@@ -9,28 +9,47 @@ use AlibabaCloud\Tea\Model;
 class streamInfo extends Model
 {
     /**
+     * @description The URL.
+     *
+     * @example rtmp://abclive/caster/example.net
+     *
      * @var string
      */
     public $outputStreamUrl;
 
     /**
+     * @description The transcoding configuration. Valid values:
+     *
+     *   **lsd**: standard definition
+     *   **lld**: low definition
+     *   **lud**: ultra-high definition
+     *   **lhd**: high definition
+     *
+     * @example lld
+     *
      * @var string
      */
     public $transcodeConfig;
 
     /**
+     * @description The format. Valid values:
+     *
+     *   **flv**
+     *   **rtmp**
+     *   **m3u8**
+     *
+     * @example flv
+     *
      * @var string
      */
     public $videoFormat;
     protected $_name = [
         'outputStreamUrl' => 'OutputStreamUrl',
         'transcodeConfig' => 'TranscodeConfig',
-        'videoFormat'     => 'VideoFormat',
+        'videoFormat' => 'VideoFormat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetMessageAppRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * This parameter is required.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
@@ -16,9 +22,7 @@ class GetMessageAppRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

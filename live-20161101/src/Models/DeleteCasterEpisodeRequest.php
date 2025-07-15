@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteCasterEpisodeRequest extends Model
 {
     /**
+     * @description The ID of the production studio.
+     *
+     *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
+     *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+     *
+     * >  You can find the ID of the production studio in the Instance ID/Name column.
+     *
+     * This parameter is required.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf93880e****
+     *
      * @var string
      */
     public $casterId;
 
     /**
+     * @description The ID of the episode. If the episode was added by calling the [AddCasterEpisode](https://help.aliyun.com/document_detail/2848068.html) operation, check the value of the response parameter EpisodeId to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf932738****
+     *
      * @var string
      */
     public $episodeId;
@@ -22,15 +39,19 @@ class DeleteCasterEpisodeRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'casterId'  => 'CasterId',
+        'casterId' => 'CasterId',
         'episodeId' => 'EpisodeId',
-        'ownerId'   => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -43,6 +64,9 @@ class DeleteCasterEpisodeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +88,9 @@ class DeleteCasterEpisodeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

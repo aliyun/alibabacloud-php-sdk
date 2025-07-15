@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainRealTimeBpsDataResponseBody extends Model
 {
     /**
+     * @description The interval at which data was queried.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The streaming domain name or names that was queried.
+     *
+     * @example example.com,example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-11-30T05:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The bandwidth data that was collected every minute.
+     *
      * @var realTimeBpsDataPerInterval
      */
     public $realTimeBpsDataPerInterval;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BC858082-736F-4A25-867B-E5B67C85ACF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-11-30T05:33:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'               => 'DataInterval',
-        'domainName'                 => 'DomainName',
-        'endTime'                    => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
         'realTimeBpsDataPerInterval' => 'RealTimeBpsDataPerInterval',
-        'requestId'                  => 'RequestId',
-        'startTime'                  => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class RollbackLiveStagingConfigRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
+     * This parameter is required.
+     *
+     * @example developer.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the feature. For more information about how to obtain the feature name, see [DescribeLiveDomainStagingConfig](https://help.aliyun.com/document_detail/297374.html).
+     *
+     * This parameter is required.
+     *
+     * @example aliauth
+     *
      * @var string
      */
     public $functionName;
@@ -22,15 +34,19 @@ class RollbackLiveStagingConfigRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'domainName'   => 'DomainName',
+        'domainName' => 'DomainName',
         'functionName' => 'FunctionName',
-        'ownerId'      => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -43,6 +59,9 @@ class RollbackLiveStagingConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +83,9 @@ class RollbackLiveStagingConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

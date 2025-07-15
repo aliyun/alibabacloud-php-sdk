@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpBpsPeakOfLineResponseBody extends Model
 {
     /**
+     * @description The information about peak inbound bandwidth of the leased line on each day.
+     *
      * @var describeUpBpsPeakOfLines
      */
     public $describeUpBpsPeakOfLines;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6CFDE7AB-571A-14EA-B072-989FF753****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'describeUpBpsPeakOfLines' => 'DescribeUpBpsPeakOfLines',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

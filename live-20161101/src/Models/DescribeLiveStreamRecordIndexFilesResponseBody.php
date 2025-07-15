@@ -10,52 +10,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamRecordIndexFilesResponseBody extends Model
 {
     /**
+     * @description The sort order.
+     *
+     * @example asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The page number.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The index files.
+     *
      * @var recordIndexInfoList
      */
     public $recordIndexInfoList;
 
     /**
+     * @description The request ID.
+     *
+     * @example DE24625C-7C0F-4020-8448-9C31A50C1556
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries that meet the specified conditions.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
-        'order'               => 'Order',
-        'pageNum'             => 'PageNum',
-        'pageSize'            => 'PageSize',
+        'order' => 'Order',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'recordIndexInfoList' => 'RecordIndexInfoList',
-        'requestId'           => 'RequestId',
-        'totalNum'            => 'TotalNum',
-        'totalPage'           => 'TotalPage',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

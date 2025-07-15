@@ -17,9 +17,7 @@ class content extends Model
         'realtimeLogDeliveryInfos' => 'RealtimeLogDeliveryInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class content extends Model
         if (isset($map['RealtimeLogDeliveryInfos'])) {
             if (!empty($map['RealtimeLogDeliveryInfos'])) {
                 $model->realtimeLogDeliveryInfos = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['RealtimeLogDeliveryInfos'] as $item) {
                     $model->realtimeLogDeliveryInfos[$n++] = null !== $item ? realtimeLogDeliveryInfos::fromMap($item) : $item;
                 }

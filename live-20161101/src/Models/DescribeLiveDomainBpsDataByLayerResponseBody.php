@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainBpsDataByLayerResponseBody extends Model
 {
     /**
+     * @description The data returned at each time interval.
+     *
      * @var bpsDataInterval
      */
     public $bpsDataInterval;
 
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The request ID.
+     *
+     * @example BEA5625F-8FCF-48F4-851B-2A48566EA967
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'bpsDataInterval' => 'BpsDataInterval',
-        'dataInterval'    => 'DataInterval',
-        'requestId'       => 'RequestId',
+        'dataInterval' => 'DataInterval',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

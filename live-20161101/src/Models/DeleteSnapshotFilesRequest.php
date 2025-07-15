@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotFilesRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The timestamps when the snapshots that you want to delete were captured.
+     *
+     * This parameter is required.
+     *
+     * @example 1653641526637
+     *
      * @var int[]
      */
     public $createTimestampList;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -29,26 +47,47 @@ class DeleteSnapshotFilesRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description Specifies whether to also delete the corresponding file in Object Storage Service (OSS) at the same time. Value values:
+     *
+     *   **true**: deletes the corresponding file in OSS.
+     *   **false**: does not delete the corresponding file in OSS.
+     *
+     * >  To delete the corresponding file in OSS, you must have the permissions on the OSS bucket.
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $removeFile;
 
     /**
+     * @description The name of the live stream.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'             => 'AppName',
+        'appName' => 'AppName',
         'createTimestampList' => 'CreateTimestampList',
-        'domainName'          => 'DomainName',
-        'ownerId'             => 'OwnerId',
-        'removeFile'          => 'RemoveFile',
-        'streamName'          => 'StreamName',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'removeFile' => 'RemoveFile',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,6 +103,9 @@ class DeleteSnapshotFilesRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->removeFile) {
             $res['RemoveFile'] = $this->removeFile;
@@ -96,6 +138,9 @@ class DeleteSnapshotFilesRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RemoveFile'])) {
             $model->removeFile = $map['RemoveFile'];

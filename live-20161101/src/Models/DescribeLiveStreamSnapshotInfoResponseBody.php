@@ -10,28 +10,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamSnapshotInfoResponseBody extends Model
 {
     /**
+     * @description The snapshots.
+     *
      * @var liveStreamSnapshotInfoList
      */
     public $liveStreamSnapshotInfoList;
 
     /**
+     * @description The time when the next call occurred. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * >  If the number of snapshots that were captured within the specified time period exceeds the value of the Limit parameter, this parameter is returned. It indicates the time when the DescribeLiveStreamSnapshotInfo operation was called again. If this parameter is not returned, the number of snapshots that are captured within the specified time period does not exceed the specified limit.
+     *
+     * @example 2015-12-01T17:36:00Z
+     *
      * @var string
      */
     public $nextStartTime;
 
     /**
+     * @description The request ID.
+     *
+     * @example 62136AE6-7793-45ED-B14A-60D19A9486D3
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'liveStreamSnapshotInfoList' => 'LiveStreamSnapshotInfoList',
-        'nextStartTime'              => 'NextStartTime',
-        'requestId'                  => 'RequestId',
+        'nextStartTime' => 'NextStartTime',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

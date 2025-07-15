@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRealtimeLogDeliveryInfosRequest extends Model
 {
     /**
+     * @description This parameter has no practical significance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $liveOpenapiReserve;
@@ -17,14 +21,18 @@ class ListLiveRealtimeLogDeliveryInfosRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'liveOpenapiReserve' => 'LiveOpenapiReserve',
-        'ownerId'            => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -34,6 +42,9 @@ class ListLiveRealtimeLogDeliveryInfosRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +63,9 @@ class ListLiveRealtimeLogDeliveryInfosRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

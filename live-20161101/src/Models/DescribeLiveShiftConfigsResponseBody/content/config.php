@@ -9,40 +9,63 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The application for which you configure time shifting.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The domain name for which you configure time shifting.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Whether to ignore time shift generation for the transcode stream.
+     *
+     *   true: Ignore time shifting generation.
+     *   false: Generate time shifting.
+     *
+     * The default value is true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ignoreTranscode;
 
     /**
+     * @description The name of the live stream for which you configure time shifting.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The number of days for which the time shifting configurations are retained.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $vision;
     protected $_name = [
-        'appName'         => 'AppName',
-        'domainName'      => 'DomainName',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
         'ignoreTranscode' => 'IgnoreTranscode',
-        'streamName'      => 'StreamName',
-        'vision'          => 'Vision',
+        'streamName' => 'StreamName',
+        'vision' => 'Vision',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

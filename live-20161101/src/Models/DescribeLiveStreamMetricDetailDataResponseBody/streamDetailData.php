@@ -17,9 +17,7 @@ class streamDetailData extends Model
         'streamData' => 'StreamData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class streamDetailData extends Model
         if (isset($map['StreamData'])) {
             if (!empty($map['StreamData'])) {
                 $model->streamData = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['StreamData'] as $item) {
                     $model->streamData[$n++] = null !== $item ? streamData::fromMap($item) : $item;
                 }

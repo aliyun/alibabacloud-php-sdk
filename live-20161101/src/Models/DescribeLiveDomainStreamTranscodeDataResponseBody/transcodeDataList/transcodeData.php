@@ -9,52 +9,102 @@ use AlibabaCloud\Tea\Model;
 class transcodeData extends Model
 {
     /**
+     * @description The main streaming domain. This parameter is returned only when you add the domain key to the value of the Split parameter.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The transcoding length. Unit: minutes.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The frame rate of the transcoded stream. This parameter is returned only when you add the fps key to the value of the Split parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The region in which the domain name resides. Valid values:
+     *
+     * >  This parameter takes effect only when you set Split to region.
+     *
+     *   **cn-beijing**: China (Beijing)
+     *   **cn-shanghai**: China (Shanghai)
+     *   **cn-qingdao**: China (Qingdao)
+     *   **cn-shenzhen**: China (Shenzhen)
+     *   **ap-northeast-1**: Japan (Tokyo)
+     *   **ap-southeast-1**: Singapore
+     *   **ap-southeast-5**: Indonesia (Jakarta)
+     *   **eu-central-1**: Germany (Frankfurt)
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The resolution of the transcoded stream. This parameter is returned only when you add the resolution key to the value of the Split parameter. Valid values:
+     *
+     *   **2K**
+     *   **4K**
+     *   **LD**: low definition
+     *   **SD**: standard definition
+     *   **HD**: high definition
+     *   **def**: audio
+     *
+     * @example HD
+     *
      * @var string
      */
     public $resolution;
 
     /**
+     * @description The transcoding type. Valid values:
+     *
+     * >  This parameter takes effect only if the request parameter Split is set to transcode_type.
+     *
+     *   **H264NBHD**: Narrowband HD™ transcoding based on H.264
+     *   **H265NBHD**: Narrowband HD™ transcoding based on H.265
+     *   **AUDIO**: audio transcoding
+     *
+     * @example H264STD
+     *
      * @var string
      */
     public $tanscodeType;
 
     /**
+     * @description The timestamp of the data entry.
+     *
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'domain'       => 'Domain',
-        'duration'     => 'Duration',
-        'fps'          => 'Fps',
-        'region'       => 'Region',
-        'resolution'   => 'Resolution',
+        'domain' => 'Domain',
+        'duration' => 'Duration',
+        'fps' => 'Fps',
+        'region' => 'Region',
+        'resolution' => 'Resolution',
         'tanscodeType' => 'TanscodeType',
-        'timeStamp'    => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

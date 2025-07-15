@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class HotLiveRtcStreamRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * This parameter is required.
+     *
+     * @example app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The audio MSID.
+     *
+     * This parameter is required.
+     *
+     * @example rts audio
+     *
      * @var string
      */
     public $audioMsid;
 
     /**
+     * @description The duration for which the prefetch connection is maintained. Unit: milliseconds. Default value: 0, which specifies that the prefetch connection is always maintained.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $connectionTimeout;
 
     /**
+     * @description The streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The custom period after which a timeout event is triggered. Unit: milliseconds.
+     *
+     * @example 100000
+     *
      * @var string
      */
     public $mediaTimeout;
@@ -39,6 +65,14 @@ class HotLiveRtcStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the region in which the live stream is prefetched. For more information, see the following tables that list available region codes.
+     *
+     * >  Region codes include provincial codes for China and country codes for all countries.
+     *
+     * This parameter is required.
+     *
+     * @example ZHJ
+     *
      * @var string
      */
     public $regionCode;
@@ -46,27 +80,43 @@ class HotLiveRtcStreamRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The name of the live stream that you want to prefetch.
+     *
+     * This parameter is required.
+     *
+     * @example stream
+     *
+     * @var string
+     */
     public $streamName;
 
     /**
+     * @description The video MSID.
+     *
+     * This parameter is required.
+     *
+     * @example rts video
+     *
      * @var string
      */
     public $videoMsid;
     protected $_name = [
-        'appName'           => 'AppName',
-        'audioMsid'         => 'AudioMsid',
+        'appName' => 'AppName',
+        'audioMsid' => 'AudioMsid',
         'connectionTimeout' => 'ConnectionTimeout',
-        'domainName'        => 'DomainName',
-        'mediaTimeout'      => 'MediaTimeout',
-        'ownerId'           => 'OwnerId',
-        'regionCode'        => 'RegionCode',
-        'streamName'        => 'StreamName',
-        'videoMsid'         => 'VideoMsid',
+        'domainName' => 'DomainName',
+        'mediaTimeout' => 'MediaTimeout',
+        'ownerId' => 'OwnerId',
+        'regionCode' => 'RegionCode',
+        'regionId' => 'RegionId',
+        'streamName' => 'StreamName',
+        'videoMsid' => 'VideoMsid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -91,6 +141,9 @@ class HotLiveRtcStreamRequest extends Model
         }
         if (null !== $this->regionCode) {
             $res['RegionCode'] = $this->regionCode;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -130,6 +183,9 @@ class HotLiveRtcStreamRequest extends Model
         }
         if (isset($map['RegionCode'])) {
             $model->regionCode = $map['RegionCode'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class certificateListModel extends Model
 {
     /**
+     * @description The certificates.
+     *
      * @var certList
      */
     public $certList;
 
     /**
+     * @description The number of certificates.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
     protected $_name = [
         'certList' => 'CertList',
-        'count'    => 'Count',
+        'count' => 'Count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

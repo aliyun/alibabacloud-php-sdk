@@ -17,9 +17,7 @@ class transcodeDataList extends Model
         'transcodeData' => 'TranscodeData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class transcodeDataList extends Model
         if (isset($map['TranscodeData'])) {
             if (!empty($map['TranscodeData'])) {
                 $model->transcodeData = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['TranscodeData'] as $item) {
                     $model->transcodeData[$n++] = null !== $item ? transcodeData::fromMap($item) : $item;
                 }

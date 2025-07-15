@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDrmUsageDataResponseBody extends Model
 {
     /**
+     * @description The usage of the DRM encryption service at each time interval.
+     *
      * @var drmUsageData
      */
     public $drmUsageData;
 
     /**
+     * @description The request ID.
+     *
+     * @example 91FC2D9D-B042-4634-8A5C-7B8E7482C22D
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'drmUsageData' => 'DrmUsageData',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

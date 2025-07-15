@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRealtimeLogDeliveryDomainsResponseBody extends Model
 {
     /**
+     * @description The domain names.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The request ID.
+     *
+     * @example 95D5B69F-8AEC-419B-8F3A-612B35032B0D
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

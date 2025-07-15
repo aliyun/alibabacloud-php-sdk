@@ -9,64 +9,98 @@ use AlibabaCloud\Tea\Model;
 class mixStreamList extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The time when the stream mixing task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-09-17T08:39:14Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the stream mixing task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-09-17T08:39:15Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The number of input streams.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $inputStreamNumber;
 
     /**
+     * @description The ID of the layout.
+     *
+     * @example USERDEFINED
+     *
      * @var string
      */
     public $layoutId;
 
     /**
+     * @description The stream mixing template.
+     *
+     * @example lp_ld
+     *
      * @var string
      */
     public $mixStreamTemplate;
 
     /**
+     * @description The ID of the stream mixing task. You can specify this parameter in a request to delete the steam mixing task.
+     *
+     * @example aaf9a50f-c460-3a9b-f180-38dd8f05****
+     *
      * @var string
      */
     public $mixstreamId;
 
     /**
+     * @description The name of the output stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'           => 'AppName',
-        'domainName'        => 'DomainName',
-        'gmtCreate'         => 'GmtCreate',
-        'gmtModified'       => 'GmtModified',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
         'inputStreamNumber' => 'InputStreamNumber',
-        'layoutId'          => 'LayoutId',
+        'layoutId' => 'LayoutId',
         'mixStreamTemplate' => 'MixStreamTemplate',
-        'mixstreamId'       => 'MixstreamId',
-        'streamName'        => 'StreamName',
+        'mixstreamId' => 'MixstreamId',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeRTSNativeSDKVvDataResponseBody extends Model
 {
     /**
+     * @description The time granularity.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The end of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total number of playbacks and the number of successful playbacks at each interval.
+     *
      * @var vvData[]
      */
     public $vvData;
     protected $_name = [
         'dataInterval' => 'DataInterval',
-        'endTime'      => 'EndTime',
-        'requestId'    => 'RequestId',
-        'startTime'    => 'StartTime',
-        'vvData'       => 'VvData',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'vvData' => 'VvData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +112,7 @@ class DescribeRTSNativeSDKVvDataResponseBody extends Model
         if (isset($map['VvData'])) {
             if (!empty($map['VvData'])) {
                 $model->vvData = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['VvData'] as $item) {
                     $model->vvData[$n++] = null !== $item ? vvData::fromMap($item) : $item;
                 }

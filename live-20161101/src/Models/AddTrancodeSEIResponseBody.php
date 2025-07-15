@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddTrancodeSEIResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4E*****43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class AddTrancodeSEIResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

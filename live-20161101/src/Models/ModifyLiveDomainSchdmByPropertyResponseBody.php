@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyLiveDomainSchdmByPropertyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class ModifyLiveDomainSchdmByPropertyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateMessageAppRequest extends Model
 {
     /**
+     * @description The configurations of the application.
+     *
      * @var string[]
      */
     public $appConfig;
 
     /**
+     * @description The name of the interactive message application. The name must be 2 to 16 characters in length.
+     *
+     * This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The extended fields.
+     *
      * @var string[]
      */
     public $extension;
     protected $_name = [
         'appConfig' => 'AppConfig',
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'extension' => 'Extension',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

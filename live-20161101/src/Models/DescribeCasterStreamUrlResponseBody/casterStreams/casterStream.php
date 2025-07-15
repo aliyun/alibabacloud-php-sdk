@@ -10,40 +10,59 @@ use AlibabaCloud\Tea\Model;
 class casterStream extends Model
 {
     /**
+     * @description Indicates whether the output stream is in preview mode or program mode.
+     *
+     *   **0**: indicates that the output videos of the scene are in preview mode.
+     *   **1**: indicates that the output videos of the scene are in program mode.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $outputType;
 
     /**
+     * @description The Real Time Messaging Protocol (RTMP) URL.
+     *
+     * @example rtmp://live/caster/example.edu
+     *
      * @var string
      */
     public $rtmpUrl;
 
     /**
+     * @description The ID of the scene.
+     *
+     * @example 23ca74e0-aca3-4e7a-8561-9d96f525****
+     *
      * @var string
      */
     public $sceneId;
 
     /**
+     * @description The information about the stream.
+     *
      * @var streamInfos
      */
     public $streamInfos;
 
     /**
+     * @description The streaming URL.
+     *
+     * @example http://live/caster/example.org
+     *
      * @var string
      */
     public $streamUrl;
     protected $_name = [
-        'outputType'  => 'OutputType',
-        'rtmpUrl'     => 'RtmpUrl',
-        'sceneId'     => 'SceneId',
+        'outputType' => 'OutputType',
+        'rtmpUrl' => 'RtmpUrl',
+        'sceneId' => 'SceneId',
         'streamInfos' => 'StreamInfos',
-        'streamUrl'   => 'StreamUrl',
+        'streamUrl' => 'StreamUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

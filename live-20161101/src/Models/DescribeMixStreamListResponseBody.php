@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeMixStreamListResponseBody extends Model
 {
     /**
+     * @description Details about the stream mixing tasks.
+     *
      * @var mixStreamList[]
      */
     public $mixStreamList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BC1E78D3-FA8B-4457-DEE2-6093E1232254
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'mixStreamList' => 'MixStreamList',
-        'requestId'     => 'RequestId',
-        'total'         => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +74,7 @@ class DescribeMixStreamListResponseBody extends Model
         if (isset($map['MixStreamList'])) {
             if (!empty($map['MixStreamList'])) {
                 $model->mixStreamList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['MixStreamList'] as $item) {
                     $model->mixStreamList[$n++] = null !== $item ? mixStreamList::fromMap($item) : $item;
                 }

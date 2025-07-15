@@ -17,9 +17,7 @@ class recordContentInfoList extends Model
         'recordContentInfo' => 'RecordContentInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class recordContentInfoList extends Model
         if (isset($map['RecordContentInfo'])) {
             if (!empty($map['RecordContentInfo'])) {
                 $model->recordContentInfo = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['RecordContentInfo'] as $item) {
                     $model->recordContentInfo[$n++] = null !== $item ? recordContentInfo::fromMap($item) : $item;
                 }

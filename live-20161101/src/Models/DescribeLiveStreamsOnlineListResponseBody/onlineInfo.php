@@ -17,9 +17,7 @@ class onlineInfo extends Model
         'liveStreamOnlineInfo' => 'LiveStreamOnlineInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class onlineInfo extends Model
         if (isset($map['LiveStreamOnlineInfo'])) {
             if (!empty($map['LiveStreamOnlineInfo'])) {
                 $model->liveStreamOnlineInfo = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['LiveStreamOnlineInfo'] as $item) {
                     $model->liveStreamOnlineInfo[$n++] = null !== $item ? liveStreamOnlineInfo::fromMap($item) : $item;
                 }

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainMappingRequest extends Model
 {
     /**
+     * @description The domain name for which you want to query the mappings. The following types of domain names are supported:
+     *
+     *   Ingest domain
+     *   Main streaming domain
+     *   Sub-streaming domain
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -17,14 +27,18 @@ class DescribeLiveDomainMappingRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -34,6 +48,9 @@ class DescribeLiveDomainMappingRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +69,9 @@ class DescribeLiveDomainMappingRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

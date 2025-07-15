@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetCasterSceneConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CF60DB6A-7FD6-426E-9288-122CC1A52FA7
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class SetCasterSceneConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

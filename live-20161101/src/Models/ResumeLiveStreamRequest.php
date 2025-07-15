@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ResumeLiveStreamRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ingest domain.
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Specifies whether the live stream is ingested by a streamer or played by a client. Set the value to **publisher**, which specifies that the live stream is ingested by a streamer.
+     *
+     * This parameter is required.
+     *
+     * @example publisher
+     *
      * @var string
      */
     public $liveStreamType;
@@ -34,21 +52,25 @@ class ResumeLiveStreamRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the ingested stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'        => 'AppName',
-        'domainName'     => 'DomainName',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
         'liveStreamType' => 'LiveStreamType',
-        'ownerId'        => 'OwnerId',
-        'securityToken'  => 'SecurityToken',
-        'streamName'     => 'StreamName',
+        'ownerId' => 'OwnerId',
+        'securityToken' => 'SecurityToken',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

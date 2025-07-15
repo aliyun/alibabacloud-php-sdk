@@ -10,52 +10,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveSnapshotDetectPornConfigResponseBody extends Model
 {
     /**
+     * @description The list of video moderation configurations.
+     *
      * @var liveSnapshotDetectPornConfigList
      */
     public $liveSnapshotDetectPornConfigList;
 
     /**
+     * @description The sort order.
+     *
+     * @example Asc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries that meet the specified conditions.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $totalPage;
     protected $_name = [
         'liveSnapshotDetectPornConfigList' => 'LiveSnapshotDetectPornConfigList',
-        'order'                            => 'Order',
-        'pageNum'                          => 'PageNum',
-        'pageSize'                         => 'PageSize',
-        'requestId'                        => 'RequestId',
-        'totalNum'                         => 'TotalNum',
-        'totalPage'                        => 'TotalPage',
+        'order' => 'Order',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class videoResources extends Model
         'videoResource' => 'VideoResource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class videoResources extends Model
         if (isset($map['VideoResource'])) {
             if (!empty($map['VideoResource'])) {
                 $model->videoResource = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['VideoResource'] as $item) {
                     $model->videoResource[$n++] = null !== $item ? videoResource::fromMap($item) : $item;
                 }

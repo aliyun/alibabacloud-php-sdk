@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class liveStreamOnlineUserNumInfo extends Model
 {
     /**
+     * @description The statistics on the stream.
+     *
      * @var infos
      */
     public $infos;
 
     /**
+     * @description The name of the stream.
+     *
+     * @example rtmp://example.com/test/liveStream****_3_1
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'infos'      => 'Infos',
+        'infos' => 'Infos',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

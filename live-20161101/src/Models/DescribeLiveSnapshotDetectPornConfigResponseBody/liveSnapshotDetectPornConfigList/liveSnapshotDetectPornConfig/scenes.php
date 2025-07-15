@@ -16,9 +16,7 @@ class scenes extends Model
         'scene' => 'scene',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

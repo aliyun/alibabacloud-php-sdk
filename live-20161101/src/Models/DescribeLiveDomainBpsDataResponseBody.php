@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainBpsDataResponseBody extends Model
 {
     /**
+     * @description The bandwidth data returned at each interval.
+     *
      * @var bpsDataPerInterval
      */
     public $bpsDataPerInterval;
 
     /**
+     * @description The time granularity of the query. Unit: seconds.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-12-10T09:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The request ID.
+     *
+     * @example B955107D-E658-4E77-B913-E0AC3D31693E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-12-10T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'bpsDataPerInterval' => 'BpsDataPerInterval',
-        'dataInterval'       => 'DataInterval',
-        'domainName'         => 'DomainName',
-        'endTime'            => 'EndTime',
-        'requestId'          => 'RequestId',
-        'startTime'          => 'StartTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

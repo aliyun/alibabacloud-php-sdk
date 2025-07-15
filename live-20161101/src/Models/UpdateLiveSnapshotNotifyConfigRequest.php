@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveSnapshotNotifyConfigRequest extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example ww.yourdomain***.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The callback authentication key. The key can be 16 to 32 characters in length and can contain only letters and digits.
+     *
+     * >  This parameter is required if you set the NotifyReqAuth parameter to **yes**.
+     *
+     * @example yourkey
+     *
      * @var string
      */
     public $notifyAuthKey;
 
     /**
+     * @description Specifies whether to enable callback authentication. Valid values:
+     *
+     *   **yes**: enables callback authentication
+     *   **no**: disables callback authentication
+     *
+     * >  Default value: **no**. If you set this parameter to **yes**, the NotifyAuthKey parameter is required.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $notifyReqAuth;
 
     /**
+     * @description The callback URL. Specify a valid URL that is up to 500 characters in length.
+     *
+     * @example http://callback.yourdomain***.com
+     *
      * @var string
      */
     public $notifyUrl;
@@ -32,17 +57,21 @@ class UpdateLiveSnapshotNotifyConfigRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
         'notifyAuthKey' => 'NotifyAuthKey',
         'notifyReqAuth' => 'NotifyReqAuth',
-        'notifyUrl'     => 'NotifyUrl',
-        'ownerId'       => 'OwnerId',
+        'notifyUrl' => 'NotifyUrl',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -61,6 +90,9 @@ class UpdateLiveSnapshotNotifyConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -88,6 +120,9 @@ class UpdateLiveSnapshotNotifyConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

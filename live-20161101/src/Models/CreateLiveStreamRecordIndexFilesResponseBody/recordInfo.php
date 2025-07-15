@@ -9,94 +9,146 @@ use AlibabaCloud\Tea\Model;
 class recordInfo extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The time when the index file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2016-05-27T09:40:56Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The recording length. Unit: seconds.
+     *
+     * @example 20
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The end time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-01T07:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The height of the video.
+     *
+     * @example 480
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
+     * @example cn-oss-****.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The name of the recording that is stored in OSS.
+     *
+     * @example liveObject****.m3u8
+     *
      * @var string
      */
     public $ossObject;
 
     /**
+     * @description The ID of the index file.
+     *
+     * @example c4d7f0a4-b506-43f9-8de3-07732c3f****
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @description The URL of the M3U8 index file.
+     *
      * @var string
      */
     public $recordUrl;
 
     /**
+     * @description The start time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-01T07:36:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The width of the video.
+     *
+     * @example 640
+     *
      * @var int
      */
     public $width;
     protected $_name = [
-        'appName'     => 'AppName',
-        'createTime'  => 'CreateTime',
-        'domainName'  => 'DomainName',
-        'duration'    => 'Duration',
-        'endTime'     => 'EndTime',
-        'height'      => 'Height',
-        'ossBucket'   => 'OssBucket',
+        'appName' => 'AppName',
+        'createTime' => 'CreateTime',
+        'domainName' => 'DomainName',
+        'duration' => 'Duration',
+        'endTime' => 'EndTime',
+        'height' => 'Height',
+        'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
-        'ossObject'   => 'OssObject',
-        'recordId'    => 'RecordId',
-        'recordUrl'   => 'RecordUrl',
-        'startTime'   => 'StartTime',
-        'streamName'  => 'StreamName',
-        'width'       => 'Width',
+        'ossObject' => 'OssObject',
+        'recordId' => 'RecordId',
+        'recordUrl' => 'RecordUrl',
+        'startTime' => 'StartTime',
+        'streamName' => 'StreamName',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

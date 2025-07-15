@@ -12,34 +12,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamDelayConfigResponseBody extends Model
 {
     /**
+     * @description The latency of FLV-based playback.
+     *
      * @var liveStreamFlvDelayConfig
      */
     public $liveStreamFlvDelayConfig;
 
     /**
+     * @description The latency of HLS-based playback.
+     *
      * @var liveStreamHlsDelayConfig
      */
     public $liveStreamHlsDelayConfig;
 
     /**
+     * @description The latency of RTMP-based playback.
+     *
      * @var liveStreamRtmpDelayConfig
      */
     public $liveStreamRtmpDelayConfig;
 
     /**
+     * @description The request ID.
+     *
+     * @example 785C9CB0-EB8A-4912-BBF2-966BEFD32DC3
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'liveStreamFlvDelayConfig'  => 'LiveStreamFlvDelayConfig',
-        'liveStreamHlsDelayConfig'  => 'LiveStreamHlsDelayConfig',
+        'liveStreamFlvDelayConfig' => 'LiveStreamFlvDelayConfig',
+        'liveStreamHlsDelayConfig' => 'LiveStreamHlsDelayConfig',
         'liveStreamRtmpDelayConfig' => 'LiveStreamRtmpDelayConfig',
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

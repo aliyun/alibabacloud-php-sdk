@@ -10,40 +10,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeRTSNativeSDKPlayFailStatusResponseBody extends Model
 {
     /**
+     * @description The time granularity.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @description The end of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of error status codes at each interval.
+     *
      * @var playFailStatus[]
      */
     public $playFailStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which the data was queried.
+     *
+     * @example 2021-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'   => 'DataInterval',
-        'endTime'        => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'endTime' => 'EndTime',
         'playFailStatus' => 'PlayFailStatus',
-        'requestId'      => 'RequestId',
-        'startTime'      => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +106,7 @@ class DescribeRTSNativeSDKPlayFailStatusResponseBody extends Model
         if (isset($map['PlayFailStatus'])) {
             if (!empty($map['PlayFailStatus'])) {
                 $model->playFailStatus = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['PlayFailStatus'] as $item) {
                     $model->playFailStatus[$n++] = null !== $item ? playFailStatus::fromMap($item) : $item;
                 }

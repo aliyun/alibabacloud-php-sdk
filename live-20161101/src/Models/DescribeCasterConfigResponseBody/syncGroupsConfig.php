@@ -17,9 +17,7 @@ class syncGroupsConfig extends Model
         'syncGroup' => 'SyncGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class syncGroupsConfig extends Model
         if (isset($map['SyncGroup'])) {
             if (!empty($map['SyncGroup'])) {
                 $model->syncGroup = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['SyncGroup'] as $item) {
                     $model->syncGroup[$n++] = null !== $item ? syncGroup::fromMap($item) : $item;
                 }

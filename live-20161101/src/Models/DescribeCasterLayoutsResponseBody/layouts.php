@@ -17,9 +17,7 @@ class layouts extends Model
         'layout' => 'Layout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class layouts extends Model
         if (isset($map['Layout'])) {
             if (!empty($map['Layout'])) {
                 $model->layout = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Layout'] as $item) {
                     $model->layout[$n++] = null !== $item ? layout::fromMap($item) : $item;
                 }

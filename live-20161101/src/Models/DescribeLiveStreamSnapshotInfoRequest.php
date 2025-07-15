@@ -9,26 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamSnapshotInfoRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. The time range specified by the EndTime and StartTime parameters cannot exceed **one** day. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of snapshots to return per call. Valid values: **1 to 100**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   **asc** (default): ascending order
+     *   **desc**: descending order
+     *
+     * @example asc
+     *
      * @var string
      */
     public $order;
@@ -44,29 +73,39 @@ class DescribeLiveStreamSnapshotInfoRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example 2017-12-21T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the live stream.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
-        'endTime'       => 'EndTime',
-        'limit'         => 'Limit',
-        'order'         => 'Order',
-        'ownerId'       => 'OwnerId',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'limit' => 'Limit',
+        'order' => 'Order',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'startTime'     => 'StartTime',
-        'streamName'    => 'StreamName',
+        'startTime' => 'StartTime',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

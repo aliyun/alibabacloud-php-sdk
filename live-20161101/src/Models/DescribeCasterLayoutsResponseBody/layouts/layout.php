@@ -13,40 +13,50 @@ use AlibabaCloud\Tea\Model;
 class layout extends Model
 {
     /**
+     * @description The configurations of the audio layers.
+     *
      * @var audioLayers
      */
     public $audioLayers;
 
     /**
+     * @description The location IDs of the video layers, which are in the same order as the video layers.
+     *
      * @var blendList
      */
     public $blendList;
 
     /**
+     * @description The ID of the layout.
+     *
+     * @example 72d2ec7a-4cd7-4a01-974b-7cd53947****
+     *
      * @var string
      */
     public $layoutId;
 
     /**
+     * @description The location IDs of the audio layers, which are in the same order as the audio layers.
+     *
      * @var mixList
      */
     public $mixList;
 
     /**
+     * @description The configurations of the video layers, which are in the default array sequence.
+     *
      * @var videoLayers
      */
     public $videoLayers;
     protected $_name = [
         'audioLayers' => 'AudioLayers',
-        'blendList'   => 'BlendList',
-        'layoutId'    => 'LayoutId',
-        'mixList'     => 'MixList',
+        'blendList' => 'BlendList',
+        'layoutId' => 'LayoutId',
+        'mixList' => 'MixList',
         'videoLayers' => 'VideoLayers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

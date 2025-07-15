@@ -9,136 +9,258 @@ use AlibabaCloud\Tea\Model;
 class streamData extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The total bandwidth consumed by the stream per minute. Unit: bit/s.
+     *
+     * @example 423304182.66
+     *
      * @var float
      */
     public $bps;
 
     /**
+     * @description The total number of online viewers for the stream per minute.
+     *
+     * @example 423304182
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The bandwidth over the Flash Video (FLV) protocol. Unit: bit/s.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 454
+     *
      * @var float
      */
     public $flvBps;
 
     /**
+     * @description The number of online viewers over the FLV protocol.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $flvCount;
 
     /**
+     * @description The amount of traffic over the FLV protocol. Unit: bytes.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 1254
+     *
      * @var int
      */
     public $flvTraffic;
 
     /**
+     * @description The bandwidth over the HTTP Live Streaming (HLS) protocol. Unit: bit/s.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 4456
+     *
      * @var float
      */
     public $hlsBps;
 
     /**
+     * @description The number of online viewers over the HLS protocol.
+     *
+     * >  Currently, this parameter is not supported.
+     *
+     * @example 56
+     *
      * @var int
      */
     public $hlsCount;
 
     /**
+     * @description The amount of traffic over the HLS protocol. Unit: bytes.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 568
+     *
      * @var int
      */
     public $hlsTraffic;
 
     /**
+     * @description Number of new connections established per minute.
+     *
+     * @example 450
+     *
+     * @var string
+     */
+    public $newConns;
+
+    /**
+     * @description The bandwidth over the P2P protocol. Unit: bit/s.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 6845
+     *
      * @var float
      */
     public $p2pBps;
 
     /**
+     * @description The number of online viewers over the P2P protocol.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 78
+     *
      * @var int
      */
     public $p2pCount;
 
     /**
+     * @description The amount of traffic over the peer-to-peer (P2P) protocol. Unit: bytes.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 4102
+     *
      * @var int
      */
     public $p2pTraffic;
 
     /**
+     * @description The bandwidth over the Real-Time Messaging Protocol (RTMP) protocol. Unit: bit/s.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 3323
+     *
      * @var float
      */
     public $rtmpBps;
 
     /**
+     * @description The number of online viewers over the RTMP protocol.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 63
+     *
      * @var int
      */
     public $rtmpCount;
 
     /**
+     * @description The amount of traffic over the RTMP protocol. Unit: bytes.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 5568
+     *
      * @var int
      */
     public $rtmpTraffic;
 
     /**
+     * @description The bandwidth over the RTS protocol. Unit: bit/s.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 2361
+     *
      * @var float
      */
     public $rtsBps;
 
     /**
+     * @description The number of online viewers over the Real-Time Streaming (RTS) protocol.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 89
+     *
      * @var int
      */
     public $rtsCount;
 
     /**
+     * @description The amount of traffic over the RTS protocol. Unit: bytes.
+     *
+     * >  This parameter is not returned if no traffic is generated over the protocol.
+     *
+     * @example 2322
+     *
      * @var int
      */
     public $rtsTraffic;
 
     /**
+     * @description The name of the stream.
+     *
+     * @example test.flv
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @description The total amount of traffic consumed by the stream per minute. Unit: bytes.
+     *
+     * @example 423304182
+     *
      * @var int
      */
     public $traffic;
     protected $_name = [
-        'appName'     => 'AppName',
-        'bps'         => 'Bps',
-        'count'       => 'Count',
-        'flvBps'      => 'FlvBps',
-        'flvCount'    => 'FlvCount',
-        'flvTraffic'  => 'FlvTraffic',
-        'hlsBps'      => 'HlsBps',
-        'hlsCount'    => 'HlsCount',
-        'hlsTraffic'  => 'HlsTraffic',
-        'p2pBps'      => 'P2pBps',
-        'p2pCount'    => 'P2pCount',
-        'p2pTraffic'  => 'P2pTraffic',
-        'rtmpBps'     => 'RtmpBps',
-        'rtmpCount'   => 'RtmpCount',
+        'appName' => 'AppName',
+        'bps' => 'Bps',
+        'count' => 'Count',
+        'flvBps' => 'FlvBps',
+        'flvCount' => 'FlvCount',
+        'flvTraffic' => 'FlvTraffic',
+        'hlsBps' => 'HlsBps',
+        'hlsCount' => 'HlsCount',
+        'hlsTraffic' => 'HlsTraffic',
+        'newConns' => 'NewConns',
+        'p2pBps' => 'P2pBps',
+        'p2pCount' => 'P2pCount',
+        'p2pTraffic' => 'P2pTraffic',
+        'rtmpBps' => 'RtmpBps',
+        'rtmpCount' => 'RtmpCount',
         'rtmpTraffic' => 'RtmpTraffic',
-        'rtsBps'      => 'RtsBps',
-        'rtsCount'    => 'RtsCount',
-        'rtsTraffic'  => 'RtsTraffic',
-        'streamName'  => 'StreamName',
-        'timeStamp'   => 'TimeStamp',
-        'traffic'     => 'Traffic',
+        'rtsBps' => 'RtsBps',
+        'rtsCount' => 'RtsCount',
+        'rtsTraffic' => 'RtsTraffic',
+        'streamName' => 'StreamName',
+        'timeStamp' => 'TimeStamp',
+        'traffic' => 'Traffic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -169,6 +291,9 @@ class streamData extends Model
         }
         if (null !== $this->hlsTraffic) {
             $res['HlsTraffic'] = $this->hlsTraffic;
+        }
+        if (null !== $this->newConns) {
+            $res['NewConns'] = $this->newConns;
         }
         if (null !== $this->p2pBps) {
             $res['P2pBps'] = $this->p2pBps;
@@ -244,6 +369,9 @@ class streamData extends Model
         }
         if (isset($map['HlsTraffic'])) {
             $model->hlsTraffic = $map['HlsTraffic'];
+        }
+        if (isset($map['NewConns'])) {
+            $model->newConns = $map['NewConns'];
         }
         if (isset($map['P2pBps'])) {
             $model->p2pBps = $map['P2pBps'];

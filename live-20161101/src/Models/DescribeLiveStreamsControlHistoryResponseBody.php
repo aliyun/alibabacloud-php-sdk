@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsControlHistoryResponseBody extends Model
 {
     /**
+     * @description The operation records.
+     *
      * @var controlInfo
      */
     public $controlInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9C31856F-386D-4DB3-BE79-A0AA493D702A
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'controlInfo' => 'ControlInfo',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

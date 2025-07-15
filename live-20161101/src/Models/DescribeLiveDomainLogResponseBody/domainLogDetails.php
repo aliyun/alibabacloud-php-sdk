@@ -17,9 +17,7 @@ class domainLogDetails extends Model
         'domainLogDetail' => 'DomainLogDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class domainLogDetails extends Model
         if (isset($map['DomainLogDetail'])) {
             if (!empty($map['DomainLogDetail'])) {
                 $model->domainLogDetail = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['DomainLogDetail'] as $item) {
                     $model->domainLogDetail[$n++] = null !== $item ? domainLogDetail::fromMap($item) : $item;
                 }

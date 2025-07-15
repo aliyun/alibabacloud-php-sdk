@@ -9,46 +9,71 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the message group was created. The time is displayed in UTC.
+     *
+     * @example 1502280113
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the creator.
+     *
+     * @example as****hs
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The extended field.
+     *
+     * @example 1
+     *
      * @var mixed[]
      */
     public $extension;
 
     /**
+     * @description The ID of the message group.
+     *
+     * @example AE35-****-T95F
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description Indicates whether the message group is muted.
+     *
+     *   true: The message group is muted.
+     *   false: The message group is not muted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isMuteAll;
 
     /**
+     * @description The status of the message group. The default value is **1**, which indicates that the message group is normal.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'creatorId'  => 'CreatorId',
-        'extension'  => 'Extension',
-        'groupId'    => 'GroupId',
-        'isMuteAll'  => 'IsMuteAll',
-        'status'     => 'Status',
+        'creatorId' => 'CreatorId',
+        'extension' => 'Extension',
+        'groupId' => 'GroupId',
+        'isMuteAll' => 'IsMuteAll',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

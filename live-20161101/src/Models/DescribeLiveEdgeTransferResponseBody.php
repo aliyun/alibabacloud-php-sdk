@@ -9,52 +9,81 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveEdgeTransferResponseBody extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ingest domain.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The HTTPDNS API that is used to obtain the destination URLs.
+     *
+     * @example http://developer.aliyundoc.com/****
+     *
      * @var string
      */
     public $httpDns;
 
     /**
+     * @description The request ID.
+     *
+     * @example 53FCB985-C67C-467B-B2B3-398430A21E14
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the ingested stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The destination domain names to which the ingested stream is relayed. Multiple domain names are separated by commas (,).
+     *
+     * @example learn.aliyundoc.com,guide.aliyundoc.com
+     *
      * @var string
      */
     public $targetDomainList;
 
     /**
+     * @description Indicates whether stream ingest parameters are passed through. Valid values:
+     *
+     *   **yes**: Stream ingest parameters are passed through.
+     *   **no**: Stream ingest parameters are not passed through.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $transferArgs;
     protected $_name = [
-        'appName'          => 'AppName',
-        'domainName'       => 'DomainName',
-        'httpDns'          => 'HttpDns',
-        'requestId'        => 'RequestId',
-        'streamName'       => 'StreamName',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'httpDns' => 'HttpDns',
+        'requestId' => 'RequestId',
+        'streamName' => 'StreamName',
         'targetDomainList' => 'TargetDomainList',
-        'transferArgs'     => 'TransferArgs',
+        'transferArgs' => 'TransferArgs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

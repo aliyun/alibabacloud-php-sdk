@@ -9,40 +9,61 @@ use AlibabaCloud\Tea\Model;
 class QueryMessageAppRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the interactive messaging application.
+     *
+     * @example testApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The number of the page to return. Default value: 1. Valid values: 1 to 100000.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of applications to return on each page. Default value: 20. Valid values: 1 to 50.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   0: ascending order by time
+     *   1: descending order by time
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sortType;
     protected $_name = [
-        'appId'    => 'AppId',
-        'appName'  => 'AppName',
-        'pageNum'  => 'PageNum',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'sortType' => 'SortType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

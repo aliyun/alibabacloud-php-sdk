@@ -17,9 +17,7 @@ class billPredictionData extends Model
         'billPredictionDataItem' => 'BillPredictionDataItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class billPredictionData extends Model
         if (isset($map['BillPredictionDataItem'])) {
             if (!empty($map['BillPredictionDataItem'])) {
                 $model->billPredictionDataItem = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['BillPredictionDataItem'] as $item) {
                     $model->billPredictionDataItem[$n++] = null !== $item ? billPredictionDataItem::fromMap($item) : $item;
                 }

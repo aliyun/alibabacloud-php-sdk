@@ -16,9 +16,7 @@ class liveTemplateIds extends Model
         'locationId' => 'LocationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

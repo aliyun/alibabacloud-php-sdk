@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterScenesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example The ID of the scene.
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The scenes.
+     *
      * @var sceneList
      */
     public $sceneList;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'requestId' => 'RequestId',
         'sceneList' => 'SceneList',
-        'total'     => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,28 +9,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamStateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CE6CD79D-0A98-1F22-A15F-FADA74DF2729
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the stream. Valid values:
+     *
+     *   online: The stream is being ingested.
+     *   offline: The stream is offline. This may be caused by failed or completed stream ingest. For the specific reason, check the stream ingest callback. This operation does not provide detailed information.
+     *
+     * @example online
+     *
      * @var string
      */
     public $streamState;
 
     /**
+     * @description The mode of the stream. Valid values:
+     *
+     *   push: stream ingest
+     *   pull: triggered stream pulling
+     *
+     * @example push
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'streamState' => 'StreamState',
-        'type'        => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

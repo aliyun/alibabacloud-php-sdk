@@ -9,34 +9,48 @@ use AlibabaCloud\Tea\Model;
 class liveStreamControlInfo extends Model
 {
     /**
+     * @description The name of the operation performed.
+     *
+     * @example DescribeLiveStreamsControlHistory
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The IP address that is used by the client for live streaming.
+     *
+     * @example 10.207.XX.XX
+     *
      * @var string
      */
     public $clientIP;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The time when the operation was performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-12-01T16:36:18Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'action'     => 'Action',
-        'clientIP'   => 'ClientIP',
+        'action' => 'Action',
+        'clientIP' => 'ClientIP',
         'streamName' => 'StreamName',
-        'timeStamp'  => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

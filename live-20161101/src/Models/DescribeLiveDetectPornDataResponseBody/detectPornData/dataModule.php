@@ -9,58 +9,97 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The number of reviewed images.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description Indicates whether a quota of free image scanning is available. Valid values:
+     *
+     *   **free**
+     *   **charge**
+     *
+     * @example free
+     *
      * @var string
      */
     public $fee;
 
     /**
+     * @description The region in which the domain name resides.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The moderation scenario. Valid values:
+     *
+     *   **porn** (default): pornography
+     *   **terrorism**: terrorism or politically sensitive content
+     *   **ad**: ad violation
+     *   **live**: undesirable scene
+     *   **logo**
+     *
+     * @example porn
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $stream;
 
     /**
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-12-10T15:00:05Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'app'       => 'App',
-        'count'     => 'Count',
-        'domain'    => 'Domain',
-        'fee'       => 'Fee',
-        'region'    => 'Region',
-        'scene'     => 'Scene',
-        'stream'    => 'Stream',
+        'app' => 'App',
+        'count' => 'Count',
+        'domain' => 'Domain',
+        'fee' => 'Fee',
+        'region' => 'Region',
+        'scene' => 'Scene',
+        'stream' => 'Stream',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

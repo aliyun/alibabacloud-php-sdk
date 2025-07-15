@@ -9,40 +9,67 @@ use AlibabaCloud\Tea\Model;
 class ListMessageGroupRequest extends Model
 {
     /**
+     * @description The ID of the interactive messaging application.
+     *
+     * @example VKL3***
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The number of the page to return. Default value: 1. Valid values: 1 to 100000.
+     *
+     * This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of message groups to return on each page. Default value: 20.
+     *
+     * Valid values: 1 to 50.
+     *
+     * This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   0: ascending order by time
+     *   1: descending order by time
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sortType;
 
     /**
+     * @description The ID of the user. Each user has a unique ID in the application. You can specify multiple user IDs.
+     *
+     * @example de1**a0
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'    => 'AppId',
-        'pageNum'  => 'PageNum',
+        'appId' => 'AppId',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'sortType' => 'SortType',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class recordFormat extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig\recordFormat\recordFormat[]
+     * @var recordFormat\recordFormat[]
      */
     public $recordFormat;
     protected $_name = [
         'recordFormat' => 'RecordFormat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class recordFormat extends Model
         if (isset($map['RecordFormat'])) {
             if (!empty($map['RecordFormat'])) {
                 $model->recordFormat = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['RecordFormat'] as $item) {
-                    $model->recordFormat[$n++] = null !== $item ? \AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig\recordFormat\recordFormat::fromMap($item) : $item;
+                    $model->recordFormat[$n++] = null !== $item ? recordFormat\recordFormat::fromMap($item) : $item;
                 }
             }
         }

@@ -9,46 +9,80 @@ use AlibabaCloud\Tea\Model;
 class textLayerContent extends Model
 {
     /**
+     * @description The color of the text border. Valid values: **0x000000 to 0xffffff**. If the value of this parameter is **""**, this parameter does not take effect.
+     *
+     * @example 0x000000
+     *
      * @var string
      */
     public $borderColor;
 
     /**
+     * @description The normalized value of the width of the text border. The value of this parameter equals the border width divided by the font size.****
+     *
+     * The maximum width of the text border is **16**, even if the border width calculated based on this parameter is greater than **16**.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $borderWidthNormalized;
 
     /**
+     * @description The color of the text. Valid values: **0x000000 to 0xffffff**.
+     *
+     * @example 0xff0000
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @description The font of the text, which is specified by the system. Valid values:
+     *
+     *   **KaiTi**
+     *   **AlibabaPuHuiTi-Regular**
+     *   **AlibabaPuHuiTi-Bold**
+     *   **NAlibabaPuHuiTi-Light**
+     *   **NotoSansHans-Regular**
+     *   **NotoSansHans-Bold**
+     *   **NotoSansHans-Light**
+     ****
+     * @example KaiTi
+     *
      * @var string
      */
     public $fontName;
 
     /**
+     * @description The normalized value of the font size of the text.
+     *
+     * The value of this parameter equals the font size divided by the output height.**** The maximum font size of the text is **1,024**, even if the font size calculated based on this parameter is greater than **1,024**. If the value of this parameter is **-1**, this parameter does not take effect.
+     *
+     * @example 16
+     *
      * @var float
      */
     public $sizeNormalized;
 
     /**
+     * @description The content of the text.
+     *
+     * @example hello world
+     *
      * @var string
      */
     public $text;
     protected $_name = [
-        'borderColor'           => 'BorderColor',
+        'borderColor' => 'BorderColor',
         'borderWidthNormalized' => 'BorderWidthNormalized',
-        'color'                 => 'Color',
-        'fontName'              => 'FontName',
-        'sizeNormalized'        => 'SizeNormalized',
-        'text'                  => 'Text',
+        'color' => 'Color',
+        'fontName' => 'FontName',
+        'sizeNormalized' => 'SizeNormalized',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

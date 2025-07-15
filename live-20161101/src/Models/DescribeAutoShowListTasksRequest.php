@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoShowListTasksRequest extends Model
 {
     /**
+     * @description The ID of the production studio for which you want to query scheduled tasks.
+     *
+     * >  If the scheduled tasks were created by calling the [InitializeAutoShowListTask](https://help.aliyun.com/document_detail/2848056.html) operation, check the value of the response parameter CasterId to obtain the ID. If you do not specify this parameter, the system queries all the scheduled tasks that belong to the user specified by the OwnerId parameter.
+     *
+     * @example 53200b81-b761-4c10-842a-a0726d97****
+     *
      * @var string
      */
     public $casterId;
@@ -17,14 +23,18 @@ class DescribeAutoShowListTasksRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'casterId' => 'CasterId',
-        'ownerId'  => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -34,6 +44,9 @@ class DescribeAutoShowListTasksRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class DescribeAutoShowListTasksRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterVideoResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CF60DB6A-7FD6-426E-9288-122CC1A52FA7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @description The input sources.
+     *
      * @var videoResources
      */
     public $videoResources;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'total'          => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
         'videoResources' => 'VideoResources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

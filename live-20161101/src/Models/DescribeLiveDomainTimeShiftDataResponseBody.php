@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainTimeShiftDataResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 8AE1CB3A-6510-442E-A6B9-EF03D05B3E09
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time shifting usage data that was collected for each time interval.
+     *
      * @var timeShiftData
      */
     public $timeShiftData;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'timeShiftData' => 'TimeShiftData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,22 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamWatermarkRulesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 5c6a2a0df228-4a64- af62-20e91b9676b3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The watermark rules.
+     *
      * @var ruleInfoList
      */
     public $ruleInfoList;
+
+    /**
+     * @description The total number of entries that meet the specified conditions.
+     *
+     * @example 100
+     *
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'ruleInfoList' => 'RuleInfoList',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -35,6 +49,9 @@ class DescribeLiveStreamWatermarkRulesResponseBody extends Model
         }
         if (null !== $this->ruleInfoList) {
             $res['RuleInfoList'] = null !== $this->ruleInfoList ? $this->ruleInfoList->toMap() : null;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -53,6 +70,9 @@ class DescribeLiveStreamWatermarkRulesResponseBody extends Model
         }
         if (isset($map['RuleInfoList'])) {
             $model->ruleInfoList = ruleInfoList::fromMap($map['RuleInfoList']);
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpPeakPublishStreamDataResponseBody extends Model
 {
     /**
+     * @description The information about the peak number of concurrently ingested streams on each day.
+     *
      * @var describeUpPeakPublishStreamDatas
      */
     public $describeUpPeakPublishStreamDatas;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6CFDE7AB-571A-14EA-B072-989FF753****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'describeUpPeakPublishStreamDatas' => 'DescribeUpPeakPublishStreamDatas',
-        'requestId'                        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

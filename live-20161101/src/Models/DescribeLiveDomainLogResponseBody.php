@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainLogResponseBody extends Model
 {
     /**
+     * @description The log information.
+     *
      * @var domainLogDetails
      */
     public $domainLogDetails;
 
     /**
+     * @description The streaming domain or ingest domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainLogDetails' => 'DomainLogDetails',
-        'domainName'       => 'DomainName',
-        'requestId'        => 'RequestId',
+        'domainName' => 'DomainName',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

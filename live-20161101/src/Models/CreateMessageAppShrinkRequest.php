@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateMessageAppShrinkRequest extends Model
 {
     /**
+     * @description The configurations of the application.
+     *
      * @var string
      */
     public $appConfigShrink;
 
     /**
+     * @description The name of the interactive message application. The name must be 2 to 16 characters in length.
+     *
+     * This parameter is required.
+     *
+     * @example test
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The extended fields.
+     *
      * @var string
      */
     public $extensionShrink;
     protected $_name = [
         'appConfigShrink' => 'AppConfig',
-        'appName'         => 'AppName',
+        'appName' => 'AppName',
         'extensionShrink' => 'Extension',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

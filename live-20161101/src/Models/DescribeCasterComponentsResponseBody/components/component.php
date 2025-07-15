@@ -13,64 +13,100 @@ use AlibabaCloud\Tea\Model;
 class component extends Model
 {
     /**
+     * @description The information about the subtitle component.
+     *
      * @var captionLayerContent
      */
     public $captionLayerContent;
 
     /**
+     * @description The component ID.
+     *
+     * @example 72d2ec7a-4cd7-4a01-974b-7cd53947****
+     *
      * @var string
      */
     public $componentId;
 
     /**
+     * @description The information about the component layer, such as the size and layout.
+     *
      * @var componentLayer
      */
     public $componentLayer;
 
     /**
+     * @description The name of the component. By default, the name is the ID of the component.
+     *
+     * @example component_name
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @description The type of the component. Valid values:
+     *
+     *   **text**: a text component
+     *   **image**: an image component
+     *   **caption**: a caption component
+     *
+     * @example text
+     *
      * @var string
      */
     public $componentType;
 
     /**
+     * @description The display effect for the component. Valid values:
+     *
+     *   **none**
+     *   **animateH**: horizontal scrolling
+     *   **animateV**: vertical scrolling
+     *
+     * @example animateV
+     *
      * @var string
      */
     public $effect;
 
     /**
+     * @description The information about the image component. This parameter is returned only for image components.
+     *
      * @var imageLayerContent
      */
     public $imageLayerContent;
 
     /**
+     * @description The location ID of the component.
+     *
+     * Each location ID can be assigned to only one component and must be in the RC[Number] format. The values of this parameter are in ascending order, for example, from RC01 to RC12.
+     *
+     * @example RC01
+     *
      * @var string
      */
     public $locationId;
 
     /**
+     * @description The information about the text component. This parameter is returned only for text components.
+     *
      * @var textLayerContent
      */
     public $textLayerContent;
     protected $_name = [
         'captionLayerContent' => 'CaptionLayerContent',
-        'componentId'         => 'ComponentId',
-        'componentLayer'      => 'ComponentLayer',
-        'componentName'       => 'ComponentName',
-        'componentType'       => 'ComponentType',
-        'effect'              => 'Effect',
-        'imageLayerContent'   => 'ImageLayerContent',
-        'locationId'          => 'LocationId',
-        'textLayerContent'    => 'TextLayerContent',
+        'componentId' => 'ComponentId',
+        'componentLayer' => 'ComponentLayer',
+        'componentName' => 'ComponentName',
+        'componentType' => 'ComponentType',
+        'effect' => 'Effect',
+        'imageLayerContent' => 'ImageLayerContent',
+        'locationId' => 'LocationId',
+        'textLayerContent' => 'TextLayerContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

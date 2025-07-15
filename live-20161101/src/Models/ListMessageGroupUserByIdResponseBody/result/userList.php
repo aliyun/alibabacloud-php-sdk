@@ -9,46 +9,72 @@ use AlibabaCloud\Tea\Model;
 class userList extends Model
 {
     /**
+     * @description Indicates whether the user is muted. Valid values:
+     *
+     *   true: The user is muted.
+     *   false: The user is not muted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isMute;
 
     /**
+     * @description The type of the mute. Valid values:
+     *
+     *   group: All members in the message group are muted.
+     *   user: Specific members in the message group are muted.
+     *
      * @var string[]
      */
     public $muteBy;
 
     /**
+     * @description The URL of the profile picture of the user.
+     *
+     * @example "http://www.aliyundoc.com/xxyy.png"
+     *
      * @var string
      */
     public $userAvatar;
 
     /**
+     * @description The custom information about the user.
+     *
+     * @example 12e
+     *
      * @var string
      */
     public $userExtension;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example ad***
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The nickname of the user.
+     *
+     * @example xxyy
+     *
      * @var string
      */
     public $userNick;
     protected $_name = [
-        'isMute'        => 'IsMute',
-        'muteBy'        => 'MuteBy',
-        'userAvatar'    => 'UserAvatar',
+        'isMute' => 'IsMute',
+        'muteBy' => 'MuteBy',
+        'userAvatar' => 'UserAvatar',
         'userExtension' => 'UserExtension',
-        'userId'        => 'UserId',
-        'userNick'      => 'UserNick',
+        'userId' => 'UserId',
+        'userNick' => 'UserNick',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

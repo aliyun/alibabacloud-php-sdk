@@ -17,9 +17,7 @@ class notifyRecordsInfo extends Model
         'liveStreamNotifyRecordsInfo' => 'LiveStreamNotifyRecordsInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class notifyRecordsInfo extends Model
         if (isset($map['LiveStreamNotifyRecordsInfo'])) {
             if (!empty($map['LiveStreamNotifyRecordsInfo'])) {
                 $model->liveStreamNotifyRecordsInfo = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['LiveStreamNotifyRecordsInfo'] as $item) {
                     $model->liveStreamNotifyRecordsInfo[$n++] = null !== $item ? liveStreamNotifyRecordsInfo::fromMap($item) : $item;
                 }

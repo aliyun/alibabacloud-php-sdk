@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the application was deleted. Valid values:
+     *
+     *   true: The application was deleted.
+     *   false: The application failed to be deleted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -16,9 +23,7 @@ class result extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

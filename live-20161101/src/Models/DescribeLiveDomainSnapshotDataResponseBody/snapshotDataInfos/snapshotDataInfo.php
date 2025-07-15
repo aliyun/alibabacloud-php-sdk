@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class snapshotDataInfo extends Model
 {
     /**
+     * @description The date.
+     *
+     * @example 20180209
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description The total number of snapshots that were captured on the day.
+     *
+     * @example 110
+     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'date'  => 'Date',
+        'date' => 'Date',
         'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,46 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveTopDomainsByFlowResponseBody extends Model
 {
     /**
+     * @description The total number of domain names in your account.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $domainCount;
 
     /**
+     * @description The total number of domain names that are in the Enabled state in your account.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $domainOnlineCount;
 
     /**
+     * @description The end of the time range for which data was queried.
+     *
+     * @example 2018-03-20T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The request ID.
+     *
+     * @example 33834C3E-388E-5FFE-A8AE-63575035C064
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for which data was queried.
+     *
+     * @example 2018-03-17T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The top domain names ranked by traffic.
+     *
      * @var topDomains
      */
     public $topDomains;
     protected $_name = [
-        'domainCount'       => 'DomainCount',
+        'domainCount' => 'DomainCount',
         'domainOnlineCount' => 'DomainOnlineCount',
-        'endTime'           => 'EndTime',
-        'requestId'         => 'RequestId',
-        'startTime'         => 'StartTime',
-        'topDomains'        => 'TopDomains',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'topDomains' => 'TopDomains',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

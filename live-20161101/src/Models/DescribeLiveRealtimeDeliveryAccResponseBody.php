@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRealtimeDeliveryAccResponseBody extends Model
 {
     /**
+     * @description The information about real-time log deliveries.
+     *
      * @var realTimeDeliveryAccData
      */
     public $realTimeDeliveryAccData;
 
     /**
+     * @description The request ID.
+     *
+     * @example 684306D2-2511-4977-991D-CE97E91FD7C0
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'realTimeDeliveryAccData' => 'RealTimeDeliveryAccData',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

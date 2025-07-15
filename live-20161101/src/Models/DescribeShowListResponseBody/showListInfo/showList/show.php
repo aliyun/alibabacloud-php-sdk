@@ -10,40 +10,58 @@ use AlibabaCloud\Tea\Model;
 class show extends Model
 {
     /**
+     * @description The duration of the episode. Unit: seconds.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The number of times the episode repeats after the first playback is complete.
+     *
+     * For example, if you set the value to 0, the episode is to be played once. If you set the value to 1, the episode is to be played twice.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $repeatTimes;
 
     /**
+     * @description The resource information.
+     *
      * @var resourceInfo
      */
     public $resourceInfo;
 
     /**
+     * @description The ID of the episode.
+     *
+     * @example a2b8e671-2fe5-4642-a2ec-bf93880e****
+     *
      * @var string
      */
     public $showId;
 
     /**
+     * @description The name of the episode.
+     *
+     * @example liveShow****
+     *
      * @var string
      */
     public $showName;
     protected $_name = [
-        'duration'     => 'Duration',
-        'repeatTimes'  => 'RepeatTimes',
+        'duration' => 'Duration',
+        'repeatTimes' => 'RepeatTimes',
         'resourceInfo' => 'ResourceInfo',
-        'showId'       => 'ShowId',
-        'showName'     => 'ShowName',
+        'showId' => 'ShowId',
+        'showName' => 'ShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,52 +10,76 @@ use AlibabaCloud\Tea\Model;
 class liveSnapshotDetectPornConfig extends Model
 {
     /**
+     * @description The application name.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The interval at which snapshots are captured from the live stream. Unit: seconds.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
+     * @example cn-oss-****.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The name of the storage file in Object Storage Service (OSS).
+     *
+     * @example {liveApp****}/{liveStream****}/{Date}/{Hour}/{Minute}_{Second}.jpg
+     *
      * @var string
      */
     public $ossObject;
 
     /**
+     * @description The moderation scenario array.
+     *
      * @var scenes
      */
     public $scenes;
     protected $_name = [
-        'appName'     => 'AppName',
-        'domainName'  => 'DomainName',
-        'interval'    => 'Interval',
-        'ossBucket'   => 'OssBucket',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'interval' => 'Interval',
+        'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
-        'ossObject'   => 'OssObject',
-        'scenes'      => 'Scenes',
+        'ossObject' => 'OssObject',
+        'scenes' => 'Scenes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

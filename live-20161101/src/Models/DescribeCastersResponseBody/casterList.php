@@ -17,9 +17,7 @@ class casterList extends Model
         'caster' => 'Caster',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class casterList extends Model
         if (isset($map['Caster'])) {
             if (!empty($map['Caster'])) {
                 $model->caster = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Caster'] as $item) {
                     $model->caster[$n++] = null !== $item ? caster::fromMap($item) : $item;
                 }

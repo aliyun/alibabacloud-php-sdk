@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveStreamTranscodeRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
@@ -29,20 +41,40 @@ class DeleteLiveStreamTranscodeRequest extends Model
     public $securityToken;
 
     /**
+     * @description The transcoding template ID. Valid values:
+     *
+     *   Standard transcoding:
+     *
+     *   lld: low definition
+     *   lsd: standard definition
+     *   lhd: high definition
+     *   lud : ultra-high definition
+     *
+     *   Narrowband HD™ transcoding:
+     *
+     *   ld: low definition
+     *   sd: standard definition
+     *   hd: high definition
+     *   ud: ultra-high definition
+     *
+     *   Custom transcoding: a custom ID
+     *
+     * This parameter is required.
+     *
+     * @example lld
+     *
      * @var string
      */
     public $template;
     protected $_name = [
-        'app'           => 'App',
-        'domain'        => 'Domain',
-        'ownerId'       => 'OwnerId',
+        'app' => 'App',
+        'domain' => 'Domain',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'template'      => 'Template',
+        'template' => 'Template',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

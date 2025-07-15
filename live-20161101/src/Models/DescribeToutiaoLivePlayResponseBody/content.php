@@ -9,52 +9,78 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The bandwidth. Unit: Mbit/s.
+     *
+     * @example 0.0801239013671875
+     *
      * @var float
      */
     public $bandwidth;
 
     /**
+     * @description The Content Delivery Network (CDN) name.
+     *
+     * @example ali
+     *
      * @var string
      */
     public $cdnName;
 
     /**
+     * @description The streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The number of viewers.
+     *
+     * @example 452
+     *
      * @var int
      */
     public $playNum;
 
     /**
+     * @description The name of the live stream.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @description The timestamp.
+     *
+     * @example 1625484600
+     *
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'app'        => 'App',
-        'bandwidth'  => 'Bandwidth',
-        'cdnName'    => 'CdnName',
-        'domain'     => 'Domain',
-        'playNum'    => 'PlayNum',
+        'app' => 'App',
+        'bandwidth' => 'Bandwidth',
+        'cdnName' => 'CdnName',
+        'domain' => 'Domain',
+        'playNum' => 'PlayNum',
         'streamName' => 'StreamName',
-        'timestamp'  => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

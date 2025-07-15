@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveSpecificStagingConfigRequest extends Model
 {
     /**
+     * @description The ID of the configuration that you want to delete. If you want to specify multiple IDs, separate them with commas (,). You can call the [DescribeLiveDomainStagingConfig](https://help.aliyun.com/document_detail/297374.html) operation to obtain the configuration ID.
+     *
+     * This parameter is required.
+     *
+     * @example 6295
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @description The accelerated domain name.
+     *
+     * This parameter is required.
+     *
+     * @example developer.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -28,15 +40,13 @@ class DeleteLiveSpecificStagingConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'configId'      => 'ConfigId',
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'configId' => 'ConfigId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

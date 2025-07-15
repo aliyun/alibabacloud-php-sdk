@@ -9,34 +9,51 @@ use AlibabaCloud\Tea\Model;
 class liveRecordNotifyConfig extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Indicates whether recording status callbacks are enabled. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $needStatusNotify;
 
     /**
+     * @description The recording callback URL.
+     *
+     * @example http://learn.aliyundoc.com/examplecallback.action
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @description The callback URL for on-demand recording.
+     *
+     * @example http://guide.aliyundoc.com/ondemandcallback.action
+     *
      * @var string
      */
     public $onDemandUrl;
     protected $_name = [
-        'domainName'       => 'DomainName',
+        'domainName' => 'DomainName',
         'needStatusNotify' => 'NeedStatusNotify',
-        'notifyUrl'        => 'NotifyUrl',
-        'onDemandUrl'      => 'OnDemandUrl',
+        'notifyUrl' => 'NotifyUrl',
+        'onDemandUrl' => 'OnDemandUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

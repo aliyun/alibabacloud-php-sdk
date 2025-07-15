@@ -9,21 +9,50 @@ use AlibabaCloud\Tea\Model;
 class AddLiveStreamTranscodeRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     *   The transcoding template takes effect only if the value of this parameter is the same as the application name that is specified in the ingest URL. The name can be up to 256 characters in length and can contain digits, letters, hyphens (-), and underscores (_).
+     *   You can also set this parameter to an asterisk (\\*). Asterisks (\\*) can match any string, including an empty string.
+     *
+     * >  If you configure a transcoding template for which App is set to an asterisk (\\*), the transcoding template is used only if no transcoding template for which App is set to the same value as AppName in the ingest URL exists.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @description The name of the main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The encryption configuration. The value is a JSON string. The following fields are included in the syntax:
+     *
+     *   EncryptType: the type of the encryption. Set the value to **aliyun**.
+     *   KmsKeyID: the ID of the CMK in KMS.
+     *   KmsKeyExpireInterval: the validity period of the CMK. Valid values: **60 to 3600**. Unit: seconds.
+     *
+     * @example {"EncryptType": "aliyun", "KmsKeyID":"afce5722-81d2-43c3-9930-7601da11****","KmsKeyExpireInterval":"3600"}
+     *
      * @var string
      */
     public $encryptParameters;
 
     /**
+     * @description Specifies whether to use the load-on-demand mechanism for transcoding. Default value: **yes**.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $lazy;
@@ -36,19 +65,43 @@ class AddLiveStreamTranscodeRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The transcoding template. Valid values:
+     *
+     *   Standard transcoding template:
+     *
+     *   **lld**: low definition
+     *   **lsd**: standard definition
+     *   **lhd**: high definition
+     *   **lud**: ultra-high definition
+     *
+     *   Narrowband HD™ transcoding template:
+     *
+     *   **ld**: low definition
+     *   **sd**: standard definition
+     *   **hd**: high definition
+     *   **ud**: ultra-high definition
+     *
+     * This parameter is required.
+     *
+     * @example lsd
+     *
+     * @var string
+     */
     public $template;
     protected $_name = [
-        'app'               => 'App',
-        'domain'            => 'Domain',
+        'app' => 'App',
+        'domain' => 'Domain',
         'encryptParameters' => 'EncryptParameters',
-        'lazy'              => 'Lazy',
-        'ownerId'           => 'OwnerId',
-        'template'          => 'Template',
+        'lazy' => 'Lazy',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'template' => 'Template',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -67,6 +120,9 @@ class AddLiveStreamTranscodeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->template) {
             $res['Template'] = $this->template;
@@ -97,6 +153,9 @@ class AddLiveStreamTranscodeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Template'])) {
             $model->template = $map['Template'];

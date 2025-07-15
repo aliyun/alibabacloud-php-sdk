@@ -17,9 +17,7 @@ class recordDeleteInfoList extends Model
         'recordDeleteInfo' => 'RecordDeleteInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class recordDeleteInfoList extends Model
         if (isset($map['RecordDeleteInfo'])) {
             if (!empty($map['RecordDeleteInfo'])) {
                 $model->recordDeleteInfo = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['RecordDeleteInfo'] as $item) {
                     $model->recordDeleteInfo[$n++] = null !== $item ? recordDeleteInfo::fromMap($item) : $item;
                 }

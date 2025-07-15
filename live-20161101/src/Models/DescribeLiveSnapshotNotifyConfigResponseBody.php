@@ -9,40 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveSnapshotNotifyConfigResponseBody extends Model
 {
     /**
+     * @description The main streaming domain.
+     *
+     * @example www.yourdomain***.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The callback authentication key.
+     *
+     * @example yourkey
+     *
      * @var string
      */
     public $notifyAuthKey;
 
     /**
+     * @description Indicates whether callback authentication is enabled. Valid values:
+     *
+     *   **yes**: Callback authentication is enabled.
+     *   **no**: Callback authentication is disabled.
+     *
+     * @example yes
+     *
      * @var string
      */
     public $notifyReqAuth;
 
     /**
+     * @description The callback URL.
+     *
+     * @example http://callback.yourdomain***.com
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5056369B-D337-499E-B8B7-B761BD37B08A
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
         'notifyAuthKey' => 'NotifyAuthKey',
         'notifyReqAuth' => 'NotifyReqAuth',
-        'notifyUrl'     => 'NotifyUrl',
-        'requestId'     => 'RequestId',
+        'notifyUrl' => 'NotifyUrl',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

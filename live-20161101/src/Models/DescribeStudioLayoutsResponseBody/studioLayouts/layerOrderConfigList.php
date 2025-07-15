@@ -9,22 +9,31 @@ use AlibabaCloud\Tea\Model;
 class layerOrderConfigList extends Model
 {
     /**
+     * @description The unique ID of the resource.
+     *
+     * @example k12kj31****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   **background**: background material
+     *   **media**: multimedia material
+     *
+     * @example media
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

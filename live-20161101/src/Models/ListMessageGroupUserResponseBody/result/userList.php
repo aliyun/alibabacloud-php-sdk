@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class userList extends Model
 {
     /**
+     * @description The time when the user joined the message group. The value is a UTC timestamp.
+     *
+     * @example 12**45
+     *
      * @var int
      */
     public $joinTime;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example de1**a0,hu**9
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
         'joinTime' => 'JoinTime',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

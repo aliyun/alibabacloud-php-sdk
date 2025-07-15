@@ -10,34 +10,51 @@ use AlibabaCloud\Tea\Model;
 class domainConfig extends Model
 {
     /**
+     * @description The configuration ID.
+     *
+     * @example 5003576
+     *
      * @var string
      */
     public $configId;
 
     /**
+     * @description The attributes of the feature.
+     *
      * @var functionArgs
      */
     public $functionArgs;
 
     /**
+     * @description The name of the feature.
+     *
+     * @example set_req_host_header
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The configuration status. Valid values:
+     *
+     *   **success**
+     *   **testing**
+     *   **failed**
+     *   **configuring**
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'configId'     => 'ConfigId',
+        'configId' => 'ConfigId',
         'functionArgs' => 'FunctionArgs',
         'functionName' => 'FunctionName',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

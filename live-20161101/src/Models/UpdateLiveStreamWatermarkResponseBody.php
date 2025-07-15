@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveStreamWatermarkResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5c6a2a0df228-4a64-af62-20e91b9676b3
+     *
      * @var string
      */
     public $requestId;
@@ -16,9 +20,7 @@ class UpdateLiveStreamWatermarkResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

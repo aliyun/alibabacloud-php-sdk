@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamCountResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example FCFFE4A4-F34F-4EEF-B401-36A01689AFBC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics of the live streams.
+     *
      * @var streamCountInfos
      */
     public $streamCountInfos;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'streamCountInfos' => 'StreamCountInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

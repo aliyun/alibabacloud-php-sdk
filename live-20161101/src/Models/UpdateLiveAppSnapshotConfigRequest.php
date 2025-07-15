@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveAppSnapshotConfigRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The callback URL that is used to receive notifications about snapshot capture.
+     *
+     * @example https://learn.aliyundoc.com
+     *
      * @var string
      */
     public $callback;
 
     /**
+     * @description The main streaming domain.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example liveBucket****
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The endpoint of the OSS bucket.
+     *
+     * @example cn-oss-****.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @description The naming format of snapshots that are stored in the overwrite mode, which means that a new snapshot overwrites the previous snapshot.
+     *
+     *   The name must be less than 256 bytes in length.
+     *   Only JPG images are supported.
+     *   The name can contain variables such as {AppName} and {StreamName}.
+     *   A value of hyphen (-) indicates that this parameter is deleted.
+     *
+     * @example {liveApp****}/{liveStream****}.jpg
+     *
      * @var string
      */
     public $overwriteOssObject;
@@ -49,30 +82,41 @@ class UpdateLiveAppSnapshotConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @description The naming format of snapshots that are stored in sequence, which means that a new snapshot does not overwrite the previous snapshot. You can call the [DescribeLiveStreamSnapshotInfo](https://help.aliyun.com/document_detail/2847902.html) operation to query the snapshots that were captured within a specific time period.
+     *
+     *   The name must be less than 256 bytes in length.
+     *   Only JPG images are supported.
+     *   The name can contain variables such as {AppName}, {StreamName}, {UnixTimestamp}, and {Sequence}. The name must contain at least one of the {UnixTimestamp} and {Sequence} variables.
+     *   A value of hyphen (-) indicates that this parameter is deleted.
+     *
+     * @example snapshot/{liveApp****}/{liveStream****}/{UnixTimestamp****}.jpg
+     *
      * @var string
      */
     public $sequenceOssObject;
 
     /**
+     * @description The interval at which snapshots are captured. Valid values: **5 to 3600**. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $timeInterval;
     protected $_name = [
-        'appName'            => 'AppName',
-        'callback'           => 'Callback',
-        'domainName'         => 'DomainName',
-        'ossBucket'          => 'OssBucket',
-        'ossEndpoint'        => 'OssEndpoint',
+        'appName' => 'AppName',
+        'callback' => 'Callback',
+        'domainName' => 'DomainName',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
         'overwriteOssObject' => 'OverwriteOssObject',
-        'ownerId'            => 'OwnerId',
-        'securityToken'      => 'SecurityToken',
-        'sequenceOssObject'  => 'SequenceOssObject',
-        'timeInterval'       => 'TimeInterval',
+        'ownerId' => 'OwnerId',
+        'securityToken' => 'SecurityToken',
+        'sequenceOssObject' => 'SequenceOssObject',
+        'timeInterval' => 'TimeInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

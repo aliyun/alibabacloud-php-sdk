@@ -9,28 +9,38 @@ use AlibabaCloud\Tea\Model;
 class accData extends Model
 {
     /**
+     * @description The number of failed real-time log deliveries.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failedNum;
 
     /**
+     * @description The number of successful real-time log deliveries.
+     *
+     * @example 321321
+     *
      * @var int
      */
     public $successNum;
 
     /**
+     * @description The timestamp of the data returned.
+     *
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'failedNum'  => 'FailedNum',
+        'failedNum' => 'FailedNum',
         'successNum' => 'SuccessNum',
-        'timeStamp'  => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

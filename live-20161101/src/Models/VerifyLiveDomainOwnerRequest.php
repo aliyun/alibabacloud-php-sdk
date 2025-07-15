@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class VerifyLiveDomainOwnerRequest extends Model
 {
     /**
+     * @description The domain name for which you want to verify the ownership. You can specify only one domain name in each request.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -21,16 +27,29 @@ class VerifyLiveDomainOwnerRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @description The verification method. Valid values:
+     *
+     *   dnsCheck: DNS record verification
+     *   fileCheck: file verification
+     *
+     * This parameter is required.
+     *
+     * @example dnsCheck
+     *
+     * @var string
+     */
     public $verifyType;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'verifyType' => 'VerifyType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -40,6 +59,9 @@ class VerifyLiveDomainOwnerRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
@@ -61,6 +83,9 @@ class VerifyLiveDomainOwnerRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];

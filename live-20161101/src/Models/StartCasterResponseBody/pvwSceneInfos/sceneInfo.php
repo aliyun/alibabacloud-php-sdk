@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class sceneInfo extends Model
 {
     /**
+     * @description The ID of the scene.
+     *
+     * @example b5f8c837-ceeb-424f-b30b-68e94e86****
+     *
      * @var string
      */
     public $sceneId;
 
     /**
+     * @description The streaming URL of the PVW scene in the production studio. The value is not a stream relay URL.
+     *
+     * @example rtmp://abclive/caster/example.net
+     *
      * @var string
      */
     public $streamUrl;
     protected $_name = [
-        'sceneId'   => 'SceneId',
+        'sceneId' => 'SceneId',
         'streamUrl' => 'StreamUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

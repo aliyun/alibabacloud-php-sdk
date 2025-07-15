@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeGroupResponseBody extends Model
 {
     /**
+     * @description The IDs of the episodes.
+     *
      * @var itemIds
      */
     public $itemIds;
 
     /**
+     * @description The ID of the episode list that was added. Record the ID as it can be used to manage the program being added.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68X****
+     *
      * @var string
      */
     public $programId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'itemIds'   => 'ItemIds',
+        'itemIds' => 'ItemIds',
         'programId' => 'ProgramId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

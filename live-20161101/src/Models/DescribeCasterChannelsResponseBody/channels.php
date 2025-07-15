@@ -17,9 +17,7 @@ class channels extends Model
         'channel' => 'Channel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class channels extends Model
         if (isset($map['Channel'])) {
             if (!empty($map['Channel'])) {
                 $model->channel = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Channel'] as $item) {
                     $model->channel[$n++] = null !== $item ? channel::fromMap($item) : $item;
                 }

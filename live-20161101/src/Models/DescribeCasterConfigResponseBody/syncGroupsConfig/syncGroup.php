@@ -10,28 +10,40 @@ use AlibabaCloud\Tea\Model;
 class syncGroup extends Model
 {
     /**
+     * @description The ID of the resource in the production studio.
+     *
+     * @example 28768383240243****
+     *
      * @var string
      */
     public $hostResourceId;
 
     /**
+     * @description The cache mode of the Static Page Caching policy. Valid values:
+     *
+     *   0: standard mode
+     *   1: force mode
+     *   2: no cache
+     *
+     * @example 0
+     *
      * @var int
      */
     public $mode;
 
     /**
+     * @description The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
+     *
      * @var resourceIds
      */
     public $resourceIds;
     protected $_name = [
         'hostResourceId' => 'HostResourceId',
-        'mode'           => 'Mode',
-        'resourceIds'    => 'ResourceIds',
+        'mode' => 'Mode',
+        'resourceIds' => 'ResourceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

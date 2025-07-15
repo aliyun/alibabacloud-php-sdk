@@ -9,40 +9,70 @@ use AlibabaCloud\Tea\Model;
 class liveStreamsNotifyConfig extends Model
 {
     /**
+     * @description The ingest domain.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Exception event callback URL.
+     *
+     * @example https://4a7e5f08.r37.cpolar.top/live/Record/call-back/streamException
+     *
+     * @var string
+     */
+    public $exceptionNotifyUrl;
+
+    /**
+     * @description The authentication key.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $notifyAuthKey;
 
     /**
+     * @description Indicates whether callback authentication is enabled. Valid values:
+     *
+     *   yes
+     *   no
+     *
+     * @example yes
+     *
      * @var string
      */
     public $notifyReqAuth;
 
     /**
+     * @description The callback URL.
+     *
+     * @example http://guide.aliyundoc.com/notify
+     *
      * @var string
      */
     public $notifyUrl;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
+        'exceptionNotifyUrl' => 'ExceptionNotifyUrl',
         'notifyAuthKey' => 'NotifyAuthKey',
         'notifyReqAuth' => 'NotifyReqAuth',
-        'notifyUrl'     => 'NotifyUrl',
+        'notifyUrl' => 'NotifyUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->exceptionNotifyUrl) {
+            $res['ExceptionNotifyUrl'] = $this->exceptionNotifyUrl;
         }
         if (null !== $this->notifyAuthKey) {
             $res['NotifyAuthKey'] = $this->notifyAuthKey;
@@ -67,6 +97,9 @@ class liveStreamsNotifyConfig extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['ExceptionNotifyUrl'])) {
+            $model->exceptionNotifyUrl = $map['ExceptionNotifyUrl'];
         }
         if (isset($map['NotifyAuthKey'])) {
             $model->notifyAuthKey = $map['NotifyAuthKey'];

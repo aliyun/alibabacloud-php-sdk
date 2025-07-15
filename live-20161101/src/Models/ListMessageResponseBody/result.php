@@ -10,22 +10,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the current page is followed by another page. Valid values:
+     *
+     *   true: The current page is followed by another page.
+     *   false: The current page is not followed by another page.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hasMore;
 
     /**
+     * @description Details about the messages.
+     *
      * @var messageList[]
      */
     public $messageList;
     protected $_name = [
-        'hasMore'     => 'HasMore',
+        'hasMore' => 'HasMore',
         'messageList' => 'MessageList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -60,7 +67,7 @@ class result extends Model
         if (isset($map['MessageList'])) {
             if (!empty($map['MessageList'])) {
                 $model->messageList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['MessageList'] as $item) {
                     $model->messageList[$n++] = null !== $item ? messageList::fromMap($item) : $item;
                 }

@@ -9,22 +9,30 @@ use AlibabaCloud\Tea\Model;
 class AddCasterLayoutResponseBody extends Model
 {
     /**
+     * @description The ID of the layout.
+     *
+     * Record the ID as it can be used to manage the layout being created.
+     *
+     * @example 21926b36-7dd2-4fde-ae25-51b5bc8e****
+     *
      * @var string
      */
     public $layoutId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'layoutId'  => 'LayoutId',
+        'layoutId' => 'LayoutId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

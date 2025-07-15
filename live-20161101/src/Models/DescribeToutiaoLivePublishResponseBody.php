@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeToutiaoLivePublishResponseBody extends Model
 {
     /**
+     * @description The stream ingest details.
+     *
      * @var content[]
      */
     public $content;
 
     /**
+     * @description The description of the response status.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'description' => 'Description',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +74,7 @@ class DescribeToutiaoLivePublishResponseBody extends Model
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Content'] as $item) {
                     $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
                 }

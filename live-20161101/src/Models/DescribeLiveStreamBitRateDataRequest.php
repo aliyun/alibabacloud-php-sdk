@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamBitRateDataRequest extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+     *
+     * This parameter is required.
+     *
+     * @example liveApp****
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ingest domain.
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2017-12-22T08:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -34,27 +50,35 @@ class DescribeLiveStreamBitRateDataRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-12-21T08:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+     *
+     * This parameter is required.
+     *
+     * @example liveStream****
+     *
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
-        'endTime'       => 'EndTime',
-        'ownerId'       => 'OwnerId',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'startTime'     => 'StartTime',
-        'streamName'    => 'StreamName',
+        'startTime' => 'StartTime',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveDomainRequest extends Model
 {
     /**
+     * @description The ingest domain or streaming domain that you want to delete.
+     *
+     * This parameter is required.
+     *
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
@@ -28,15 +34,13 @@ class DeleteLiveDomainRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

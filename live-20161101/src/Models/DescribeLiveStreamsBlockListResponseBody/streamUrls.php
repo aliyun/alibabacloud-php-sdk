@@ -16,9 +16,7 @@ class streamUrls extends Model
         'streamUrl' => 'StreamUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

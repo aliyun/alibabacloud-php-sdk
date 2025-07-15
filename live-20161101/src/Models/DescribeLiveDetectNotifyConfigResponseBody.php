@@ -10,22 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDetectNotifyConfigResponseBody extends Model
 {
     /**
+     * @description The callback configuration.
+     *
      * @var liveDetectNotifyConfig
      */
     public $liveDetectNotifyConfig;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'liveDetectNotifyConfig' => 'LiveDetectNotifyConfig',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
