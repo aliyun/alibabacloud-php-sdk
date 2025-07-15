@@ -18,6 +18,11 @@ class RunTextPolishingRequest extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $prompt;
+
+    /**
      * @description This parameter is required.
      *
      * @example xxxx
@@ -27,6 +32,7 @@ class RunTextPolishingRequest extends Model
     public $workspaceId;
     protected $_name = [
         'content' => 'Content',
+        'prompt' => 'Prompt',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -37,6 +43,9 @@ class RunTextPolishingRequest extends Model
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->prompt) {
+            $res['Prompt'] = $this->prompt;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -55,6 +64,9 @@ class RunTextPolishingRequest extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Prompt'])) {
+            $model->prompt = $map['Prompt'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

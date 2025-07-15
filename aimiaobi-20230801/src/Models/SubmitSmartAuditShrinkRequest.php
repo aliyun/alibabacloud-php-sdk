@@ -24,10 +24,16 @@ class SubmitSmartAuditShrinkRequest extends Model
      * @var string
      */
     public $workspaceId;
+
+    /**
+     * @var string
+     */
+    public $imageUrlsShrink;
     protected $_name = [
         'subCodesShrink' => 'SubCodes',
         'text' => 'Text',
         'workspaceId' => 'WorkspaceId',
+        'imageUrlsShrink' => 'imageUrls',
     ];
 
     public function validate() {}
@@ -43,6 +49,9 @@ class SubmitSmartAuditShrinkRequest extends Model
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
+        }
+        if (null !== $this->imageUrlsShrink) {
+            $res['imageUrls'] = $this->imageUrlsShrink;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class SubmitSmartAuditShrinkRequest extends Model
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
+        }
+        if (isset($map['imageUrls'])) {
+            $model->imageUrlsShrink = $map['imageUrls'];
         }
 
         return $model;

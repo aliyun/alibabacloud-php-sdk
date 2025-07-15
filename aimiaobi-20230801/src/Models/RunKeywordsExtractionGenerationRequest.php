@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class RunKeywordsExtractionGenerationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $prompt;
+
+    /**
      * @description This parameter is required.
      *
      * @var referenceData
@@ -32,6 +37,7 @@ class RunKeywordsExtractionGenerationRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'prompt' => 'Prompt',
         'referenceData' => 'ReferenceData',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
@@ -42,6 +48,9 @@ class RunKeywordsExtractionGenerationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->prompt) {
+            $res['Prompt'] = $this->prompt;
+        }
         if (null !== $this->referenceData) {
             $res['ReferenceData'] = null !== $this->referenceData ? $this->referenceData->toMap() : null;
         }
@@ -63,6 +72,9 @@ class RunKeywordsExtractionGenerationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Prompt'])) {
+            $model->prompt = $map['Prompt'];
+        }
         if (isset($map['ReferenceData'])) {
             $model->referenceData = referenceData::fromMap($map['ReferenceData']);
         }

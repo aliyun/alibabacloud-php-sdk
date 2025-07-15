@@ -81,6 +81,11 @@ class errorItemDetails extends Model
      * @var string
      */
     public $subClassDesc;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'checkId' => 'CheckId',
         'context' => 'Context',
@@ -94,6 +99,7 @@ class errorItemDetails extends Model
         'rightWord' => 'RightWord',
         'subClassCode' => 'SubClassCode',
         'subClassDesc' => 'SubClassDesc',
+        'url' => 'Url',
     ];
 
     public function validate() {}
@@ -136,6 +142,9 @@ class errorItemDetails extends Model
         }
         if (null !== $this->subClassDesc) {
             $res['SubClassDesc'] = $this->subClassDesc;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -184,6 +193,9 @@ class errorItemDetails extends Model
         }
         if (isset($map['SubClassDesc'])) {
             $model->subClassDesc = $map['SubClassDesc'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -6645,6 +6645,9 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->content)) {
             $body['Content'] = $request->content;
         }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
         }
@@ -7636,6 +7639,9 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->content)) {
             $body['Content'] = $request->content;
         }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
         }
@@ -7809,6 +7815,9 @@ class AiMiaoBi extends OpenApiClient
             $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
         if (!Utils::isUnset($request->referenceDataShrink)) {
             $body['ReferenceData'] = $request->referenceDataShrink;
         }
@@ -8255,6 +8264,9 @@ class AiMiaoBi extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->content)) {
             $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
@@ -9688,6 +9700,9 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($tmpReq->subCodes)) {
             $request->subCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subCodes, 'SubCodes', 'json');
         }
+        if (!Utils::isUnset($tmpReq->imageUrls)) {
+            $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'imageUrls', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->subCodesShrink)) {
             $body['SubCodes'] = $request->subCodesShrink;
@@ -9697,6 +9712,9 @@ class AiMiaoBi extends OpenApiClient
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
+        }
+        if (!Utils::isUnset($request->imageUrlsShrink)) {
+            $body['imageUrls'] = $request->imageUrlsShrink;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
