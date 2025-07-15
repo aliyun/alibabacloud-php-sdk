@@ -75,6 +75,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileShareLinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileShareLinkResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveUsersRequest;
@@ -92,6 +94,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateEcdReportTaskRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateEcdReportTaskResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNASFileSystemRequest;
@@ -200,6 +204,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDrivesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDrivesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeEcdReportTasksRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeEcdReportTasksResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowStatisticRequest;
@@ -315,6 +321,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFilesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFilesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceRequest;
@@ -463,6 +471,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\StopInvocationRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StopInvocationResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\TransferTaskApprovalCallbackRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\TransferTaskApprovalCallbackResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnbindConfigGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnbindConfigGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnbindUserDesktopRequest;
@@ -3006,6 +3016,69 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary Authorizes a user to use a team space.
+     *  *
+     * @description The list of teams of a cloud disk in Cloud Drive Service is synchronized from the Organization tab in the Elastic Desktop Service (EDS) console. You can choose Users > Manager User > User > Organization in the console. If you want to authorize a user to use a team space, you must move the user to the corresponding organization. After you move the user, the user can view the menu bar of the team space on a Cloud Drive Service client.
+     *  *
+     * @param CreateCloudDriveGroupRequest $request CreateCloudDriveGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCloudDriveGroupResponse CreateCloudDriveGroupResponse
+     */
+    public function createCloudDriveGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adminUserIds)) {
+            $query['AdminUserIds'] = $request->adminUserIds;
+        }
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->totalSize)) {
+            $query['TotalSize'] = $request->totalSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloudDriveGroup',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloudDriveGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Authorizes a user to use a team space.
+     *  *
+     * @description The list of teams of a cloud disk in Cloud Drive Service is synchronized from the Organization tab in the Elastic Desktop Service (EDS) console. You can choose Users > Manager User > User > Organization in the console. If you want to authorize a user to use a team space, you must move the user to the corresponding organization. After you move the user, the user can view the menu bar of the team space on a Cloud Drive Service client.
+     *  *
+     * @param CreateCloudDriveGroupRequest $request CreateCloudDriveGroupRequest
+     *
+     * @return CreateCloudDriveGroupResponse CreateCloudDriveGroupResponse
+     */
+    public function createCloudDriveGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudDriveGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an enterprise drive.
      *  *
      * @description Before you call this operation, make sure that you understand the billing methods and pricing of Enterprise Drive Service (formerly Cloud Drive Service). For more information, see [Overview](https://help.aliyun.com/document_detail/386301.html).
@@ -3845,6 +3918,65 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDriveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建无影数据报表导出任务
+     *  *
+     * @param CreateEcdReportTaskRequest $request CreateEcdReportTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateEcdReportTaskResponse CreateEcdReportTaskResponse
+     */
+    public function createEcdReportTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterList)) {
+            $query['FilterList'] = $request->filterList;
+        }
+        if (!Utils::isUnset($request->langType)) {
+            $query['LangType'] = $request->langType;
+        }
+        if (!Utils::isUnset($request->reportFileName)) {
+            $query['ReportFileName'] = $request->reportFileName;
+        }
+        if (!Utils::isUnset($request->subType)) {
+            $query['SubType'] = $request->subType;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEcdReportTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEcdReportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建无影数据报表导出任务
+     *  *
+     * @param CreateEcdReportTaskRequest $request CreateEcdReportTaskRequest
+     *
+     * @return CreateEcdReportTaskResponse CreateEcdReportTaskResponse
+     */
+    public function createEcdReportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEcdReportTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -7600,6 +7732,68 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary 查询数据报表导出任务列表
+     *  *
+     * @param DescribeEcdReportTasksRequest $request DescribeEcdReportTasksRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeEcdReportTasksResponse DescribeEcdReportTasksResponse
+     */
+    public function describeEcdReportTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->subType)) {
+            $query['SubType'] = $request->subType;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEcdReportTasks',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEcdReportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据报表导出任务列表
+     *  *
+     * @param DescribeEcdReportTasksRequest $request DescribeEcdReportTasksRequest
+     *
+     * @return DescribeEcdReportTasksResponse DescribeEcdReportTasksResponse
+     */
+    public function describeEcdReportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEcdReportTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询EIP监控
      *  *
      * @param DescribeFlowMetricRequest $request DescribeFlowMetricRequest
@@ -11282,6 +11476,59 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取文件下载地址
+     *  *
+     * @param ListTransferFilesRequest $request ListTransferFilesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTransferFilesResponse ListTransferFilesResponse
+     */
+    public function listTransferFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTransferFiles',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTransferFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文件下载地址
+     *  *
+     * @param ListTransferFilesRequest $request ListTransferFilesRequest
+     *
+     * @return ListTransferFilesResponse ListTransferFilesResponse
+     */
+    public function listTransferFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTransferFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -16407,6 +16654,62 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 文件传输审批回调
+     *  *
+     * @param TransferTaskApprovalCallbackRequest $request TransferTaskApprovalCallbackRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TransferTaskApprovalCallbackResponse TransferTaskApprovalCallbackResponse
+     */
+    public function transferTaskApprovalCallbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $query['OssBucketName'] = $request->ossBucketName;
+        }
+        if (!Utils::isUnset($request->ossBucketRegionId)) {
+            $query['OssBucketRegionId'] = $request->ossBucketRegionId;
+        }
+        if (!Utils::isUnset($request->result)) {
+            $query['Result'] = $request->result;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TransferTaskApprovalCallback',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TransferTaskApprovalCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 文件传输审批回调
+     *  *
+     * @param TransferTaskApprovalCallbackRequest $request TransferTaskApprovalCallbackRequest
+     *
+     * @return TransferTaskApprovalCallbackResponse TransferTaskApprovalCallbackResponse
+     */
+    public function transferTaskApprovalCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transferTaskApprovalCallbackWithOptions($request, $runtime);
     }
 
     /**

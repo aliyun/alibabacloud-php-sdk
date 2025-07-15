@@ -1,3 +1,11 @@
+2025-07-15 Version: 4.7.0
+- Support API CreateCloudDriveGroup.
+- Support API CreateEcdReportTask.
+- Support API DescribeEcdReportTasks.
+- Support API ListTransferFiles.
+- Support API TransferTaskApprovalCallback.
+
+
 2025-07-11 Version: 4.6.1
 - Update API CreateDesktopGroup: add request parameters DeleteDuration.
 - Update API DescribeDesktopGroups: add response parameters Body.DesktopGroups.$.ExpiredTimes.
