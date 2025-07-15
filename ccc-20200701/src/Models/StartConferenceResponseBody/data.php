@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceResponseBody\data\callContext;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceResponseBody\data\userContext;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -24,43 +24,32 @@ class data extends Model
         'userContext' => 'UserContext',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->callContext) {
-            $this->callContext->validate();
-        }
-        if (null !== $this->userContext) {
-            $this->userContext->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callContext) {
-            $res['CallContext'] = null !== $this->callContext ? $this->callContext->toArray($noStream) : $this->callContext;
+            $res['CallContext'] = null !== $this->callContext ? $this->callContext->toMap() : null;
         }
-
         if (null !== $this->userContext) {
-            $res['UserContext'] = null !== $this->userContext ? $this->userContext->toArray($noStream) : $this->userContext;
+            $res['UserContext'] = null !== $this->userContext ? $this->userContext->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallContext'])) {
             $model->callContext = callContext::fromMap($map['CallContext']);
         }
-
         if (isset($map['UserContext'])) {
             $model->userContext = userContext::fromMap($map['UserContext']);
         }

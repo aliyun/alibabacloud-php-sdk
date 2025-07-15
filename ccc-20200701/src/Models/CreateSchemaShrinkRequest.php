@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSchemaShrinkRequest extends Model
 {
     /**
+     * @example -
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description schema id
+     *
+     * @example profile
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example b0eb2742-f37e-4c67-82d4-25c651c1c450
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +39,8 @@ class CreateSchemaShrinkRequest extends Model
     public $propertiesShrink;
 
     /**
+     * @example 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+     *
      * @var string
      */
     public $requestId;
@@ -40,30 +52,23 @@ class CreateSchemaShrinkRequest extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->propertiesShrink) {
             $res['Properties'] = $this->propertiesShrink;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -71,30 +76,26 @@ class CreateSchemaShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSchemaShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Properties'])) {
             $model->propertiesShrink = $map['Properties'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

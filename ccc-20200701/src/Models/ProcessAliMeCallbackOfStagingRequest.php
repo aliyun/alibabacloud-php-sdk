@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ProcessAliMeCallbackOfStagingRequest extends Model
 {
@@ -22,18 +22,14 @@ class ProcessAliMeCallbackOfStagingRequest extends Model
         'token' => 'Token',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -41,18 +37,17 @@ class ProcessAliMeCallbackOfStagingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ProcessAliMeCallbackOfStagingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

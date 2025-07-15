@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetContactFlowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 274601be-a6d5-4429-bcef-32b51d031c6e
+     *
      * @var string
      */
     public $contactFlowId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 566399d7-5558-447c-a72f-9be2768b6a82
+     *
      * @var string
      */
     public $draftId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -28,22 +40,17 @@ class GetContactFlowRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
-
         if (null !== $this->draftId) {
             $res['DraftId'] = $this->draftId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,22 +58,20 @@ class GetContactFlowRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetContactFlowRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
-
         if (isset($map['DraftId'])) {
             $model->draftId = $map['DraftId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

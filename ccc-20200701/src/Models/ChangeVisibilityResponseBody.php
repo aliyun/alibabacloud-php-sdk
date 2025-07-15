@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class ChangeVisibilityResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class ChangeVisibilityResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Internal service issue. Detail:.
+     *
      * @var string
      */
     public $message;
@@ -35,6 +41,8 @@ class ChangeVisibilityResponseBody extends Model
     public $params;
 
     /**
+     * @example 24BE19E8-BF7D-4992-A35E-15EBA874F2E5
+     *
      * @var string
      */
     public $requestId;
@@ -47,47 +55,26 @@ class ChangeVisibilityResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        if (\is_array($this->params)) {
-            Model::validateArray($this->params);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->params) {
-            if (\is_array($this->params)) {
-                $res['Params'] = [];
-                $n1 = 0;
-                foreach ($this->params as $item1) {
-                    $res['Params'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Params'] = $this->params;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -95,41 +82,31 @@ class ChangeVisibilityResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangeVisibilityResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
-                $model->params = [];
-                $n1 = 0;
-                foreach ($map['Params'] as $item1) {
-                    $model->params[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->params = $map['Params'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

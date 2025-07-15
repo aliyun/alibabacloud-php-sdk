@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data\inbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data\outbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data\overall;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -31,52 +31,35 @@ class data extends Model
         'overall' => 'Overall',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->inbound)) {
-            Model::validateArray($this->inbound);
-        }
-        if (\is_array($this->outbound)) {
-            Model::validateArray($this->outbound);
-        }
-        if (\is_array($this->overall)) {
-            Model::validateArray($this->overall);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inbound) {
-            if (\is_array($this->inbound)) {
-                $res['Inbound'] = [];
-                $n1 = 0;
-                foreach ($this->inbound as $item1) {
-                    $res['Inbound'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Inbound'] = [];
+            if (null !== $this->inbound && \is_array($this->inbound)) {
+                $n = 0;
+                foreach ($this->inbound as $item) {
+                    $res['Inbound'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->outbound) {
-            if (\is_array($this->outbound)) {
-                $res['Outbound'] = [];
-                $n1 = 0;
-                foreach ($this->outbound as $item1) {
-                    $res['Outbound'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Outbound'] = [];
+            if (null !== $this->outbound && \is_array($this->outbound)) {
+                $n = 0;
+                foreach ($this->outbound as $item) {
+                    $res['Outbound'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->overall) {
-            if (\is_array($this->overall)) {
-                $res['Overall'] = [];
-                $n1 = 0;
-                foreach ($this->overall as $item1) {
-                    $res['Overall'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Overall'] = [];
+            if (null !== $this->overall && \is_array($this->overall)) {
+                $n = 0;
+                foreach ($this->overall as $item) {
+                    $res['Overall'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -84,43 +67,38 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Inbound'])) {
             if (!empty($map['Inbound'])) {
                 $model->inbound = [];
-                $n1 = 0;
-                foreach ($map['Inbound'] as $item1) {
-                    $model->inbound[$n1] = inbound::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Inbound'] as $item) {
+                    $model->inbound[$n++] = null !== $item ? inbound::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Outbound'])) {
             if (!empty($map['Outbound'])) {
                 $model->outbound = [];
-                $n1 = 0;
-                foreach ($map['Outbound'] as $item1) {
-                    $model->outbound[$n1] = outbound::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Outbound'] as $item) {
+                    $model->outbound[$n++] = null !== $item ? outbound::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Overall'])) {
             if (!empty($map['Overall'])) {
                 $model->overall = [];
-                $n1 = 0;
-                foreach ($map['Overall'] as $item1) {
-                    $model->overall[$n1] = overall::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Overall'] as $item) {
+                    $model->overall[$n++] = null !== $item ? overall::fromMap($item) : $item;
                 }
             }
         }

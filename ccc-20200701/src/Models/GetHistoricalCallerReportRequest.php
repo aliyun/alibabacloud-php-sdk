@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetHistoricalCallerReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1900000****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1646841600000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1646928000000
+     *
      * @var int
      */
     public $stopTime;
@@ -34,26 +50,20 @@ class GetHistoricalCallerReportRequest extends Model
         'stopTime' => 'StopTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callingNumber) {
             $res['CallingNumber'] = $this->callingNumber;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->stopTime) {
             $res['StopTime'] = $this->stopTime;
         }
@@ -61,26 +71,23 @@ class GetHistoricalCallerReportRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetHistoricalCallerReportRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallingNumber'])) {
             $model->callingNumber = $map['CallingNumber'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['StopTime'])) {
             $model->stopTime = $map['StopTime'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetNumberLocationResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -14,6 +14,8 @@ class data extends Model
     public $city;
 
     /**
+     * @example 1312121****
+     *
      * @var string
      */
     public $number;
@@ -28,22 +30,17 @@ class data extends Model
         'province' => 'Province',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
-
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
-
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
@@ -51,22 +48,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
-
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
-
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }

@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupSummaryReportsSinceMidnightResponseBody\pagedSkillGroupSummaryReport;
+use AlibabaCloud\Tea\Model;
 
 class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,11 +34,15 @@ class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends Model
     public $pagedSkillGroupSummaryReport;
 
     /**
+     * @example 2B36CEBC-6D11-5451-9E6B-C6D1927841C5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -47,37 +55,26 @@ class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pagedSkillGroupSummaryReport) {
-            $this->pagedSkillGroupSummaryReport->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->pagedSkillGroupSummaryReport) {
-            $res['PagedSkillGroupSummaryReport'] = null !== $this->pagedSkillGroupSummaryReport ? $this->pagedSkillGroupSummaryReport->toArray($noStream) : $this->pagedSkillGroupSummaryReport;
+            $res['PagedSkillGroupSummaryReport'] = null !== $this->pagedSkillGroupSummaryReport ? $this->pagedSkillGroupSummaryReport->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -85,34 +82,29 @@ class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSkillGroupSummaryReportsSinceMidnightResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['PagedSkillGroupSummaryReport'])) {
             $model->pagedSkillGroupSummaryReport = pagedSkillGroupSummaryReport::fromMap($map['PagedSkillGroupSummaryReport']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

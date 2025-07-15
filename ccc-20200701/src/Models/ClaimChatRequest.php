@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ClaimChatRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example chat-65382141036853491
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example skillgroup@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
@@ -28,22 +40,17 @@ class ClaimChatRequest extends Model
         'skillGroupId' => 'SkillGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
@@ -51,22 +58,20 @@ class ClaimChatRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ClaimChatRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }

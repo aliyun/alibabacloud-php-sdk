@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateCallSummaryRequest extends Model
 {
@@ -14,11 +14,19 @@ class UpdateCallSummaryRequest extends Model
     public $context;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example f2c6722b-cd13-442d-bf10-22a07c70d6d5
+     *
      * @var string
      */
     public $ticketId;
@@ -28,22 +36,17 @@ class UpdateCallSummaryRequest extends Model
         'ticketId' => 'TicketId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->context) {
             $res['Context'] = $this->context;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ticketId) {
             $res['TicketId'] = $this->ticketId;
         }
@@ -51,22 +54,20 @@ class UpdateCallSummaryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateCallSummaryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Context'])) {
             $model->context = $map['Context'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['TicketId'])) {
             $model->ticketId = $map['TicketId'];
         }

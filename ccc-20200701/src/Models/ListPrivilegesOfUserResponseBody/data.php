@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListPrivilegesOfUserResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Workbench:Call
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example SELF_ONLY
+     *
      * @var string
      */
     public $scope;
@@ -28,22 +34,17 @@ class data extends Model
         'scope' => 'Scope',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
@@ -51,22 +52,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }

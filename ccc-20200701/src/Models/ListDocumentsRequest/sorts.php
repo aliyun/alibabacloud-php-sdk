@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sorts extends Model
 {
     /**
+     * @example desc
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $propertyName;
@@ -22,18 +26,14 @@ class sorts extends Model
         'propertyName' => 'PropertyName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
-
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
         }
@@ -41,18 +41,17 @@ class sorts extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sorts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
-
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
         }

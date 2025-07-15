@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImportDoNotCallNumbersRequest extends Model
 {
     /**
+     * @example temp/blacklist/import/15772471154xxxx/ccc-test/20220315100340/blacklist.xlsx
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ["1900000****","1312121****"]
+     *
      * @var string
      */
     public $numberList;
@@ -34,26 +42,20 @@ class ImportDoNotCallNumbersRequest extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->numberList) {
             $res['NumberList'] = $this->numberList;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -61,26 +63,23 @@ class ImportDoNotCallNumbersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImportDoNotCallNumbersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NumberList'])) {
             $model->numberList = $map['NumberList'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

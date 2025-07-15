@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDocumentsShrinkRequest extends Model
 {
@@ -14,16 +14,28 @@ class DeleteDocumentsShrinkRequest extends Model
     public $documentIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0630E5DF-CEB0-445B-8626-D5C7481181C3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description schema id
+     *
+     * This parameter is required.
+     *
+     * @example profile
+     *
      * @var string
      */
     public $schemaId;
@@ -34,26 +46,20 @@ class DeleteDocumentsShrinkRequest extends Model
         'schemaId' => 'SchemaId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->documentIdsShrink) {
             $res['DocumentIds'] = $this->documentIdsShrink;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -61,26 +67,23 @@ class DeleteDocumentsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDocumentsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocumentIds'])) {
             $model->documentIdsShrink = $map['DocumentIds'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

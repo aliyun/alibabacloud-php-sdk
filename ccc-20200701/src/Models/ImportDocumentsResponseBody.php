@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImportDocumentsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,6 +33,8 @@ class ImportDocumentsResponseBody extends Model
     public $params;
 
     /**
+     * @example 01B12EE4-6AF2-4730-8B78-EC15F4E5C025
+     *
      * @var string
      */
     public $requestId;
@@ -40,40 +46,23 @@ class ImportDocumentsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->params)) {
-            Model::validateArray($this->params);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->params) {
-            if (\is_array($this->params)) {
-                $res['Params'] = [];
-                $n1 = 0;
-                foreach ($this->params as $item1) {
-                    $res['Params'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Params'] = $this->params;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -81,37 +70,28 @@ class ImportDocumentsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImportDocumentsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
-                $model->params = [];
-                $n1 = 0;
-                foreach ($map['Params'] as $item1) {
-                    $model->params[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->params = $map['Params'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

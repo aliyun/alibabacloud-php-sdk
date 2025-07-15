@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListRealtimeSkillGroupStatesResponseBody\data\list_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class breakCodeDetailList extends Model
 {
@@ -22,18 +22,14 @@ class breakCodeDetailList extends Model
         'count' => 'Count',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->breakCode) {
             $res['BreakCode'] = $this->breakCode;
         }
-
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -41,18 +37,17 @@ class breakCodeDetailList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return breakCodeDetailList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BreakCode'])) {
             $model->breakCode = $map['BreakCode'];
         }
-
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

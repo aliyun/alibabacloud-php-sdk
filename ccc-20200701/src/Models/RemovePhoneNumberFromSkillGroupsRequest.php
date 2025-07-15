@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemovePhoneNumberFromSkillGroupsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 0101234****
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+     *
      * @var string
      */
     public $skillGroupIdList;
@@ -28,22 +40,17 @@ class RemovePhoneNumberFromSkillGroupsRequest extends Model
         'skillGroupIdList' => 'SkillGroupIdList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
-
         if (null !== $this->skillGroupIdList) {
             $res['SkillGroupIdList'] = $this->skillGroupIdList;
         }
@@ -51,22 +58,20 @@ class RemovePhoneNumberFromSkillGroupsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemovePhoneNumberFromSkillGroupsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
-
         if (isset($map['SkillGroupIdList'])) {
             $model->skillGroupIdList = $map['SkillGroupIdList'];
         }

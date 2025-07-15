@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImportDocumentsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example b0eb2742-f37e-4c67-82d4-25c651c1c450
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test/test-file.wav
+     *
      * @var string
      */
     public $ossFileKey;
 
     /**
+     * @example 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description schema id
+     *
+     * This parameter is required.
+     *
+     * @example profile
+     *
      * @var string
      */
     public $schemaId;
@@ -34,26 +50,20 @@ class ImportDocumentsRequest extends Model
         'schemaId' => 'SchemaId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ossFileKey) {
             $res['OssFileKey'] = $this->ossFileKey;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -61,26 +71,23 @@ class ImportDocumentsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImportDocumentsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OssFileKey'])) {
             $model->ossFileKey = $map['OssFileKey'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

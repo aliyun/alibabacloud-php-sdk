@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateCustomCallTaggingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $customNumberList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +28,14 @@ class CreateCustomCallTaggingRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customNumberList) {
             $res['CustomNumberList'] = $this->customNumberList;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +43,17 @@ class CreateCustomCallTaggingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateCustomCallTaggingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomNumberList'])) {
             $model->customNumberList = $map['CustomNumberList'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

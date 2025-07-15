@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExportDoNotCallNumbersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example INSTANCE
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example RemarkA
+     *
      * @var string
      */
     public $searchPattern;
@@ -28,22 +36,17 @@ class ExportDoNotCallNumbersRequest extends Model
         'searchPattern' => 'SearchPattern',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
-
         if (null !== $this->searchPattern) {
             $res['SearchPattern'] = $this->searchPattern;
         }
@@ -51,22 +54,20 @@ class ExportDoNotCallNumbersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExportDoNotCallNumbersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
-
         if (isset($map['SearchPattern'])) {
             $model->searchPattern = $map['SearchPattern'];
         }

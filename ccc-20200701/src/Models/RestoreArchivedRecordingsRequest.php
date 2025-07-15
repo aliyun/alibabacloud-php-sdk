@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RestoreArchivedRecordingsRequest extends Model
 {
     /**
+     * @example [\\"job-216750038017142784\\"]
+     *
      * @var string
      */
     public $contactIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +28,14 @@ class RestoreArchivedRecordingsRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactIds) {
             $res['ContactIds'] = $this->contactIds;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +43,17 @@ class RestoreArchivedRecordingsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RestoreArchivedRecordingsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactIds'])) {
             $model->contactIds = $map['ContactIds'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

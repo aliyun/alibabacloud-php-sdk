@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAudioFileDownloadUrlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example acc300c4-75c9-41ba-ba5e-2a365c96c248
+     *
      * @var string
      */
     public $audioResourceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +30,14 @@ class GetAudioFileDownloadUrlRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->audioResourceId) {
             $res['AudioResourceId'] = $this->audioResourceId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +45,17 @@ class GetAudioFileDownloadUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAudioFileDownloadUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioResourceId'])) {
             $model->audioResourceId = $map['AudioResourceId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

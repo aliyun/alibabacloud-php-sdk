@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponseBody\data\analyticsReport;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class emotion extends Model
 {
@@ -40,30 +40,23 @@ class emotion extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -71,30 +64,26 @@ class emotion extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return emotion
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

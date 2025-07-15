@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ["24861380681070****","105980354482****"]
+     *
      * @var string
      */
     public $adminRamIdList;
@@ -19,16 +23,26 @@ class CreateInstanceRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ["0830011xxxx", "0830312xxxx"]
+     *
      * @var string
      */
     public $numberList;
@@ -40,30 +54,23 @@ class CreateInstanceRequest extends Model
         'numberList' => 'NumberList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->adminRamIdList) {
             $res['AdminRamIdList'] = $this->adminRamIdList;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->numberList) {
             $res['NumberList'] = $this->numberList;
         }
@@ -71,30 +78,26 @@ class CreateInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdminRamIdList'])) {
             $model->adminRamIdList = $map['AdminRamIdList'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['NumberList'])) {
             $model->numberList = $map['NumberList'];
         }

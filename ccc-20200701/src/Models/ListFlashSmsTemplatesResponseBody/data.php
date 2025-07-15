@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsTemplatesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -14,6 +14,8 @@ class data extends Model
     public $templateDetails;
 
     /**
+     * @example 1715*****38
+     *
      * @var string
      */
     public $templateId;
@@ -28,22 +30,17 @@ class data extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->templateDetails) {
             $res['TemplateDetails'] = $this->templateDetails;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -51,22 +48,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateDetails'])) {
             $model->templateDetails = $map['TemplateDetails'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

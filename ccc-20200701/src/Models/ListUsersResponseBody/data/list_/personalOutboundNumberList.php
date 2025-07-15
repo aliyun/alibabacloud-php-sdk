@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersResponseBody\data\list_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class personalOutboundNumberList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
@@ -19,6 +21,8 @@ class personalOutboundNumberList extends Model
     public $city;
 
     /**
+     * @example 0830011****
+     *
      * @var string
      */
     public $number;
@@ -29,6 +33,8 @@ class personalOutboundNumberList extends Model
     public $province;
 
     /**
+     * @example Bidirection
+     *
      * @var string
      */
     public $usage;
@@ -40,30 +46,23 @@ class personalOutboundNumberList extends Model
         'usage' => 'Usage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
-
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
-
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
-
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
-
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -71,30 +70,26 @@ class personalOutboundNumberList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return personalOutboundNumberList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
-
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
-
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
-
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }
-
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

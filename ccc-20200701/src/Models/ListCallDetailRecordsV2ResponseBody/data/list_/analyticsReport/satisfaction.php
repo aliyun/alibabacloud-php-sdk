@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2ResponseBody\data\list_\analyticsReport;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class satisfaction extends Model
 {
@@ -34,26 +34,20 @@ class satisfaction extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-
         if (null !== $this->satisfactionDescription) {
             $res['SatisfactionDescription'] = $this->satisfactionDescription;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -61,26 +55,23 @@ class satisfaction extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return satisfaction
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-
         if (isset($map['SatisfactionDescription'])) {
             $model->satisfactionDescription = $map['SatisfactionDescription'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

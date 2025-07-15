@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BridgeRtcCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $callee;
@@ -19,11 +21,15 @@ class BridgeRtcCallRequest extends Model
     public $caller;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -64,46 +70,35 @@ class BridgeRtcCallRequest extends Model
         'videoEnabled' => 'VideoEnabled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->callee) {
             $res['Callee'] = $this->callee;
         }
-
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
-
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->serviceProvider) {
             $res['ServiceProvider'] = $this->serviceProvider;
         }
-
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-
         if (null !== $this->timeoutSeconds) {
             $res['TimeoutSeconds'] = $this->timeoutSeconds;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->videoEnabled) {
             $res['VideoEnabled'] = $this->videoEnabled;
         }
@@ -111,46 +106,38 @@ class BridgeRtcCallRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BridgeRtcCallRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Callee'])) {
             $model->callee = $map['Callee'];
         }
-
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
-
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['ServiceProvider'])) {
             $model->serviceProvider = $map['ServiceProvider'];
         }
-
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-
         if (isset($map['TimeoutSeconds'])) {
             $model->timeoutSeconds = $map['TimeoutSeconds'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['VideoEnabled'])) {
             $model->videoEnabled = $map['VideoEnabled'];
         }

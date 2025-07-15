@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class overall extends Model
 {
@@ -22,18 +22,14 @@ class overall extends Model
         'statsTime' => 'StatsTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxLoggedInAgents) {
             $res['MaxLoggedInAgents'] = $this->maxLoggedInAgents;
         }
-
         if (null !== $this->statsTime) {
             $res['StatsTime'] = $this->statsTime;
         }
@@ -41,18 +37,17 @@ class overall extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return overall
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxLoggedInAgents'])) {
             $model->maxLoggedInAgents = $map['MaxLoggedInAgents'];
         }
-
         if (isset($map['StatsTime'])) {
             $model->statsTime = $map['StatsTime'];
         }

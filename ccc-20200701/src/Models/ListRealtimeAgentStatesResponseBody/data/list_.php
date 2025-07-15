@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListRealtimeAgentStatesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @example agent1@ccc-test
+     *
      * @var string
      */
     public $agentId;
@@ -24,36 +26,50 @@ class list_ extends Model
     public $breakCode;
 
     /**
+     * @example Outbound
+     *
      * @var string
      */
     public $callType;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $counterParty;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 80317391
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1382114****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outboundScenario;
@@ -69,21 +85,29 @@ class list_ extends Model
     public $skillGroupNameList;
 
     /**
+     * @example ACW
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example Monitored
+     *
      * @var string
      */
     public $stateCode;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $stateTime;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;
@@ -106,94 +130,56 @@ class list_ extends Model
         'workMode' => 'WorkMode',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->skillGroupIdList)) {
-            Model::validateArray($this->skillGroupIdList);
-        }
-        if (\is_array($this->skillGroupNameList)) {
-            Model::validateArray($this->skillGroupNameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
-
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
-
         if (null !== $this->breakCode) {
             $res['BreakCode'] = $this->breakCode;
         }
-
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
         }
-
         if (null !== $this->counterParty) {
             $res['CounterParty'] = $this->counterParty;
         }
-
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
-
         if (null !== $this->outboundScenario) {
             $res['OutboundScenario'] = $this->outboundScenario;
         }
-
         if (null !== $this->skillGroupIdList) {
-            if (\is_array($this->skillGroupIdList)) {
-                $res['SkillGroupIdList'] = [];
-                $n1 = 0;
-                foreach ($this->skillGroupIdList as $item1) {
-                    $res['SkillGroupIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SkillGroupIdList'] = $this->skillGroupIdList;
         }
-
         if (null !== $this->skillGroupNameList) {
-            if (\is_array($this->skillGroupNameList)) {
-                $res['SkillGroupNameList'] = [];
-                $n1 = 0;
-                foreach ($this->skillGroupNameList as $item1) {
-                    $res['SkillGroupNameList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SkillGroupNameList'] = $this->skillGroupNameList;
         }
-
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-
         if (null !== $this->stateCode) {
             $res['StateCode'] = $this->stateCode;
         }
-
         if (null !== $this->stateTime) {
             $res['StateTime'] = $this->stateTime;
         }
-
         if (null !== $this->workMode) {
             $res['WorkMode'] = $this->workMode;
         }
@@ -201,88 +187,63 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
-
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
-
         if (isset($map['BreakCode'])) {
             $model->breakCode = $map['BreakCode'];
         }
-
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
         }
-
         if (isset($map['CounterParty'])) {
             $model->counterParty = $map['CounterParty'];
         }
-
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
-
         if (isset($map['OutboundScenario'])) {
             $model->outboundScenario = $map['OutboundScenario'];
         }
-
         if (isset($map['SkillGroupIdList'])) {
             if (!empty($map['SkillGroupIdList'])) {
-                $model->skillGroupIdList = [];
-                $n1 = 0;
-                foreach ($map['SkillGroupIdList'] as $item1) {
-                    $model->skillGroupIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->skillGroupIdList = $map['SkillGroupIdList'];
             }
         }
-
         if (isset($map['SkillGroupNameList'])) {
             if (!empty($map['SkillGroupNameList'])) {
-                $model->skillGroupNameList = [];
-                $n1 = 0;
-                foreach ($map['SkillGroupNameList'] as $item1) {
-                    $model->skillGroupNameList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->skillGroupNameList = $map['SkillGroupNameList'];
             }
         }
-
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-
         if (isset($map['StateCode'])) {
             $model->stateCode = $map['StateCode'];
         }
-
         if (isset($map['StateTime'])) {
             $model->stateTime = $map['StateTime'];
         }
-
         if (isset($map['WorkMode'])) {
             $model->workMode = $map['WorkMode'];
         }

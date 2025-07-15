@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example TagC
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @example CALL_TAG_NAME_DUPLICATED
+     *
      * @var string
      */
     public $reason;
@@ -22,18 +26,14 @@ class data extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->item) {
             $res['Item'] = $this->item;
         }
-
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -41,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Item'])) {
             $model->item = $map['Item'];
         }
-
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

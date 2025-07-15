@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemovePersonalNumbersFromUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ["0101234****", "0105678****"]
+     *
      * @var string
      */
     public $numberList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
@@ -28,22 +40,17 @@ class RemovePersonalNumbersFromUserRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->numberList) {
             $res['NumberList'] = $this->numberList;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -51,22 +58,20 @@ class RemovePersonalNumbersFromUserRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemovePersonalNumbersFromUserRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NumberList'])) {
             $model->numberList = $map['NumberList'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

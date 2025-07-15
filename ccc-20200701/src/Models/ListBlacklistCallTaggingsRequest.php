@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListBlacklistCallTaggingsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example [{"number":"1521083xxxx","jobId":"job-481841171213393920"}]
+     *
      * @var string
      */
     public $numberList;
@@ -22,18 +30,14 @@ class ListBlacklistCallTaggingsRequest extends Model
         'numberList' => 'NumberList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->numberList) {
             $res['NumberList'] = $this->numberList;
         }
@@ -41,18 +45,17 @@ class ListBlacklistCallTaggingsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListBlacklistCallTaggingsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NumberList'])) {
             $model->numberList = $map['NumberList'];
         }

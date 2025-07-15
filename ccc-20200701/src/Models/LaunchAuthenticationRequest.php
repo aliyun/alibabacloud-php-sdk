@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LaunchAuthenticationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example af145gfc-1108-4d55-8fca-f719bd512ebb
+     *
      * @var string
      */
     public $contactFlowId;
@@ -19,21 +23,33 @@ class LaunchAuthenticationRequest extends Model
     public $contactFlowVariables;
 
     /**
+     * @example ACC-YUNBS-1.0.10-****
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example job-6538214103685****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example agent@ccc-test
+     *
      * @var string
      */
     public $userId;
@@ -46,34 +62,26 @@ class LaunchAuthenticationRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
-
         if (null !== $this->contactFlowVariables) {
             $res['ContactFlowVariables'] = $this->contactFlowVariables;
         }
-
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -81,34 +89,29 @@ class LaunchAuthenticationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LaunchAuthenticationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
-
         if (isset($map['ContactFlowVariables'])) {
             $model->contactFlowVariables = $map['ContactFlowVariables'];
         }
-
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

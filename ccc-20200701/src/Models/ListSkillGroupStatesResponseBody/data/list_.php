@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupStatesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $averageWaitingTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $breakingAgents;
@@ -24,21 +28,29 @@ class list_ extends Model
     public $inboundTalkingAgents;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $loggedInAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $longestCall;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $outboundScenarioReadyAgents;
@@ -49,11 +61,15 @@ class list_ extends Model
     public $outboundTalkingAgents;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $readyAgents;
 
     /**
+     * @example skillgroup1@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
@@ -64,31 +80,43 @@ class list_ extends Model
     public $skillGroupName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $talkingAgents;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCalls;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCallsLevel10;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCallsLevel20;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $waitingCallsLevel30;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $workingAgents;
@@ -112,78 +140,59 @@ class list_ extends Model
         'workingAgents' => 'WorkingAgents',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->averageWaitingTime) {
             $res['AverageWaitingTime'] = $this->averageWaitingTime;
         }
-
         if (null !== $this->breakingAgents) {
             $res['BreakingAgents'] = $this->breakingAgents;
         }
-
         if (null !== $this->inboundTalkingAgents) {
             $res['InboundTalkingAgents'] = $this->inboundTalkingAgents;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->loggedInAgents) {
             $res['LoggedInAgents'] = $this->loggedInAgents;
         }
-
         if (null !== $this->longestCall) {
             $res['LongestCall'] = $this->longestCall;
         }
-
         if (null !== $this->outboundScenarioReadyAgents) {
             $res['OutboundScenarioReadyAgents'] = $this->outboundScenarioReadyAgents;
         }
-
         if (null !== $this->outboundTalkingAgents) {
             $res['OutboundTalkingAgents'] = $this->outboundTalkingAgents;
         }
-
         if (null !== $this->readyAgents) {
             $res['ReadyAgents'] = $this->readyAgents;
         }
-
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
-
         if (null !== $this->skillGroupName) {
             $res['SkillGroupName'] = $this->skillGroupName;
         }
-
         if (null !== $this->talkingAgents) {
             $res['TalkingAgents'] = $this->talkingAgents;
         }
-
         if (null !== $this->waitingCalls) {
             $res['WaitingCalls'] = $this->waitingCalls;
         }
-
         if (null !== $this->waitingCallsLevel10) {
             $res['WaitingCallsLevel10'] = $this->waitingCallsLevel10;
         }
-
         if (null !== $this->waitingCallsLevel20) {
             $res['WaitingCallsLevel20'] = $this->waitingCallsLevel20;
         }
-
         if (null !== $this->waitingCallsLevel30) {
             $res['WaitingCallsLevel30'] = $this->waitingCallsLevel30;
         }
-
         if (null !== $this->workingAgents) {
             $res['WorkingAgents'] = $this->workingAgents;
         }
@@ -191,78 +200,62 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AverageWaitingTime'])) {
             $model->averageWaitingTime = $map['AverageWaitingTime'];
         }
-
         if (isset($map['BreakingAgents'])) {
             $model->breakingAgents = $map['BreakingAgents'];
         }
-
         if (isset($map['InboundTalkingAgents'])) {
             $model->inboundTalkingAgents = $map['InboundTalkingAgents'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['LoggedInAgents'])) {
             $model->loggedInAgents = $map['LoggedInAgents'];
         }
-
         if (isset($map['LongestCall'])) {
             $model->longestCall = $map['LongestCall'];
         }
-
         if (isset($map['OutboundScenarioReadyAgents'])) {
             $model->outboundScenarioReadyAgents = $map['OutboundScenarioReadyAgents'];
         }
-
         if (isset($map['OutboundTalkingAgents'])) {
             $model->outboundTalkingAgents = $map['OutboundTalkingAgents'];
         }
-
         if (isset($map['ReadyAgents'])) {
             $model->readyAgents = $map['ReadyAgents'];
         }
-
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
-
         if (isset($map['SkillGroupName'])) {
             $model->skillGroupName = $map['SkillGroupName'];
         }
-
         if (isset($map['TalkingAgents'])) {
             $model->talkingAgents = $map['TalkingAgents'];
         }
-
         if (isset($map['WaitingCalls'])) {
             $model->waitingCalls = $map['WaitingCalls'];
         }
-
         if (isset($map['WaitingCallsLevel10'])) {
             $model->waitingCallsLevel10 = $map['WaitingCallsLevel10'];
         }
-
         if (isset($map['WaitingCallsLevel20'])) {
             $model->waitingCallsLevel20 = $map['WaitingCallsLevel20'];
         }
-
         if (isset($map['WaitingCallsLevel30'])) {
             $model->waitingCallsLevel30 = $map['WaitingCallsLevel30'];
         }
-
         if (isset($map['WorkingAgents'])) {
             $model->workingAgents = $map['WorkingAgents'];
         }

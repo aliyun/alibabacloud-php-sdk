@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ImportCustomCallTaggingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example temp/ImportCustomCallTagging.xlsx
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
@@ -22,18 +30,14 @@ class ImportCustomCallTaggingRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,18 +45,17 @@ class ImportCustomCallTaggingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ImportCustomCallTaggingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

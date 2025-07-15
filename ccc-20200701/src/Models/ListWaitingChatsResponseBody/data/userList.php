@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListWaitingChatsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userList extends Model
 {
@@ -14,6 +14,8 @@ class userList extends Model
     public $avatarUrl;
 
     /**
+     * @example c361765f-******-4e07-b81c-4b5d9183fac6
+     *
      * @var string
      */
     public $userId;
@@ -24,6 +26,8 @@ class userList extends Model
     public $userName;
 
     /**
+     * @example CUSTOMER
+     *
      * @var string
      */
     public $userType;
@@ -34,26 +38,20 @@ class userList extends Model
         'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->avatarUrl) {
             $res['AvatarUrl'] = $this->avatarUrl;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
-
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -61,26 +59,23 @@ class userList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvatarUrl'])) {
             $model->avatarUrl = $map['AvatarUrl'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
-
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }
