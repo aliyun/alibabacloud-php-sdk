@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyKeyPairNameRequest extends Model
 {
     /**
+     * @description The ID of the ADB key pair.
+     *
+     * This parameter is required.
+     *
+     * @example kp-6v2q33ae4tw3a****
+     *
      * @var string
      */
     public $keyPairId;
 
     /**
+     * @description The name of the ADB key pair.
+     *
+     * This parameter is required.
+     *
+     * @example newKeyPairName
+     *
      * @var string
      */
     public $newKeyPairName;
@@ -22,18 +34,14 @@ class ModifyKeyPairNameRequest extends Model
         'newKeyPairName' => 'NewKeyPairName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keyPairId) {
             $res['KeyPairId'] = $this->keyPairId;
         }
-
         if (null !== $this->newKeyPairName) {
             $res['NewKeyPairName'] = $this->newKeyPairName;
         }
@@ -41,18 +49,17 @@ class ModifyKeyPairNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyKeyPairNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyPairId'])) {
             $model->keyPairId = $map['KeyPairId'];
         }
-
         if (isset($map['NewKeyPairName'])) {
             $model->newKeyPairName = $map['NewKeyPairName'];
         }

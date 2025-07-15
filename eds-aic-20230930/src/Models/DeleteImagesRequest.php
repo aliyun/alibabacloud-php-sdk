@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteImagesRequest extends Model
 {
     /**
+     * @description The IDs of the images.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $imageIds;
@@ -16,47 +20,29 @@ class DeleteImagesRequest extends Model
         'imageIds' => 'ImageIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->imageIds)) {
-            Model::validateArray($this->imageIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageIds) {
-            if (\is_array($this->imageIds)) {
-                $res['ImageIds'] = [];
-                $n1 = 0;
-                foreach ($this->imageIds as $item1) {
-                    $res['ImageIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ImageIds'] = $this->imageIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteImagesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageIds'])) {
             if (!empty($map['ImageIds'])) {
-                $model->imageIds = [];
-                $n1 = 0;
-                foreach ($map['ImageIds'] as $item1) {
-                    $model->imageIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->imageIds = $map['ImageIds'];
             }
         }
 

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAndroidInstanceGroupRequest extends Model
 {
     /**
+     * @description The IDs of the instance groups.
+     *
      * @var string[]
      */
     public $instanceGroupIds;
@@ -16,47 +18,29 @@ class DeleteAndroidInstanceGroupRequest extends Model
         'instanceGroupIds' => 'InstanceGroupIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceGroupIds)) {
-            Model::validateArray($this->instanceGroupIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceGroupIds) {
-            if (\is_array($this->instanceGroupIds)) {
-                $res['InstanceGroupIds'] = [];
-                $n1 = 0;
-                foreach ($this->instanceGroupIds as $item1) {
-                    $res['InstanceGroupIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InstanceGroupIds'] = $this->instanceGroupIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAndroidInstanceGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceGroupIds'])) {
             if (!empty($map['InstanceGroupIds'])) {
-                $model->instanceGroupIds = [];
-                $n1 = 0;
-                foreach ($map['InstanceGroupIds'] as $item1) {
-                    $model->instanceGroupIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->instanceGroupIds = $map['InstanceGroupIds'];
             }
         }
 

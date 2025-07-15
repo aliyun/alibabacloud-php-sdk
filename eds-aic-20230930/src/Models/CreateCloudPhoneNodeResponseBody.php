@@ -4,57 +4,68 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeResponseBody\networkPackageOrderModel;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeResponseBody\nodeInfos;
+use AlibabaCloud\Tea\Model;
 
 class CreateCloudPhoneNodeResponseBody extends Model
 {
     /**
+     * @var networkPackageOrderModel
+     */
+    public $networkPackageOrderModel;
+
+    /**
+     * @description The cloud phone matrixes.
+     *
      * @var nodeInfos[]
      */
     public $nodeInfos;
 
     /**
+     * @description The order ID.
+     *
+     * @example 223684716098****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'networkPackageOrderModel' => 'NetworkPackageOrderModel',
         'nodeInfos' => 'NodeInfos',
         'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodeInfos)) {
-            Model::validateArray($this->nodeInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
+        if (null !== $this->networkPackageOrderModel) {
+            $res['NetworkPackageOrderModel'] = null !== $this->networkPackageOrderModel ? $this->networkPackageOrderModel->toMap() : null;
+        }
         if (null !== $this->nodeInfos) {
-            if (\is_array($this->nodeInfos)) {
-                $res['NodeInfos'] = [];
-                $n1 = 0;
-                foreach ($this->nodeInfos as $item1) {
-                    $res['NodeInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['NodeInfos'] = [];
+            if (null !== $this->nodeInfos && \is_array($this->nodeInfos)) {
+                $n = 0;
+                foreach ($this->nodeInfos as $item) {
+                    $res['NodeInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,29 +73,29 @@ class CreateCloudPhoneNodeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateCloudPhoneNodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NetworkPackageOrderModel'])) {
+            $model->networkPackageOrderModel = networkPackageOrderModel::fromMap($map['NetworkPackageOrderModel']);
+        }
         if (isset($map['NodeInfos'])) {
             if (!empty($map['NodeInfos'])) {
                 $model->nodeInfos = [];
-                $n1 = 0;
-                foreach ($map['NodeInfos'] as $item1) {
-                    $model->nodeInfos[$n1] = nodeInfos::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['NodeInfos'] as $item) {
+                    $model->nodeInfos[$n++] = null !== $item ? nodeInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

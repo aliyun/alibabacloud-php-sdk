@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisconnectAndroidInstanceResponseBody extends Model
 {
     /**
+     * @example E5138F7E-46B5-526A-8C99-82DEAE6B****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DisconnectAndroidInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DisconnectAndroidInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisconnectAndroidInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

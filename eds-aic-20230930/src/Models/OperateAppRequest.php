@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperateAppRequest extends Model
 {
     /**
+     * @description The ID of the app.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The IDs of the cloud phone instances.
+     *
      * @var string[]
      */
     public $instanceIdList;
 
     /**
+     * @description The type of the operation.
+     *
+     * Valid values:
+     *
+     *   stop: closes the app.
+     *   restart: reopens the app.
+     *   start: open the app.
+     *
+     * @example start
+     *
      * @var string
      */
     public $operateType;
@@ -28,32 +44,17 @@ class OperateAppRequest extends Model
         'operateType' => 'OperateType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceIdList)) {
-            Model::validateArray($this->instanceIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->instanceIdList) {
-            if (\is_array($this->instanceIdList)) {
-                $res['InstanceIdList'] = [];
-                $n1 = 0;
-                foreach ($this->instanceIdList as $item1) {
-                    $res['InstanceIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InstanceIdList'] = $this->instanceIdList;
         }
-
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
@@ -61,29 +62,22 @@ class OperateAppRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperateAppRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['InstanceIdList'])) {
             if (!empty($map['InstanceIdList'])) {
-                $model->instanceIdList = [];
-                $n1 = 0;
-                foreach ($map['InstanceIdList'] as $item1) {
-                    $model->instanceIdList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->instanceIdList = $map['InstanceIdList'];
             }
         }
-
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }

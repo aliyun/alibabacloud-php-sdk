@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The time when the ADB key pair was created.
+     *
+     * @example 2023-03-05T10:29:22Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description The ID of the ADB key pair.
+     *
+     * @example kp-6v2q33ae4tw3*****
+     *
      * @var string
      */
     public $keyPairId;
 
     /**
+     * @description The name of the ADB key pair.
+     *
+     * @example TestKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
@@ -28,22 +40,17 @@ class data extends Model
         'keyPairName' => 'KeyPairName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
-
         if (null !== $this->keyPairId) {
             $res['KeyPairId'] = $this->keyPairId;
         }
-
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
@@ -51,22 +58,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
-
         if (isset($map['KeyPairId'])) {
             $model->keyPairId = $map['KeyPairId'];
         }
-
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }

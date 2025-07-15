@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastResponseBody\metricTotalModel\metricModelList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class processLastInfos extends Model
 {
     /**
+     * @example 50
+     *
      * @var float
      */
     public $cpuUsage;
 
     /**
+     * @example 50
+     *
      * @var float
      */
     public $memoryUsage;
 
     /**
+     * @example com.offerup
+     *
      * @var string
      */
     public $name;
@@ -29,6 +35,8 @@ class processLastInfos extends Model
     public $processIds;
 
     /**
+     * @example 1548777660000
+     *
      * @var int
      */
     public $timestamp;
@@ -40,40 +48,23 @@ class processLastInfos extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->processIds)) {
-            Model::validateArray($this->processIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cpuUsage) {
             $res['CpuUsage'] = $this->cpuUsage;
         }
-
         if (null !== $this->memoryUsage) {
             $res['MemoryUsage'] = $this->memoryUsage;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->processIds) {
-            if (\is_array($this->processIds)) {
-                $res['ProcessIds'] = [];
-                $n1 = 0;
-                foreach ($this->processIds as $item1) {
-                    $res['ProcessIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ProcessIds'] = $this->processIds;
         }
-
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -81,37 +72,28 @@ class processLastInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return processLastInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CpuUsage'])) {
             $model->cpuUsage = $map['CpuUsage'];
         }
-
         if (isset($map['MemoryUsage'])) {
             $model->memoryUsage = $map['MemoryUsage'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ProcessIds'])) {
             if (!empty($map['ProcessIds'])) {
-                $model->processIds = [];
-                $n1 = 0;
-                foreach ($map['ProcessIds'] as $item1) {
-                    $model->processIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->processIds = $map['ProcessIds'];
             }
         }
-
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDisplayConfigResponseBody extends Model
 {
     /**
+     * @example A578AD3A-8E7C-54FE-A09F-B060941*****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class ModifyDisplayConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class ModifyDisplayConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDisplayConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

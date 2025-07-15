@@ -4,16 +4,29 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\netRedirectPolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
+     * @description The type of the rule.
+     *
+     * Valid values:
+     *
+     *   prc: an application package name.
+     *   domain: a domain name.
+     *
+     * @example domain
+     *
      * @var string
      */
     public $ruleType;
 
     /**
+     * @description The name of the application package or domain name.
+     *
+     * @example *.example.com
+     *
      * @var string
      */
     public $target;
@@ -22,18 +35,14 @@ class rules extends Model
         'target' => 'Target',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -41,18 +50,17 @@ class rules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
-
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }

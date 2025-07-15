@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExpandDataVolumeRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
@@ -24,6 +28,8 @@ class ExpandDataVolumeRequest extends Model
     public $nodeIds;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $shareDataVolume;
@@ -34,36 +40,20 @@ class ExpandDataVolumeRequest extends Model
         'shareDataVolume' => 'ShareDataVolume',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodeIds)) {
-            Model::validateArray($this->nodeIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
-
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
-
         if (null !== $this->nodeIds) {
-            if (\is_array($this->nodeIds)) {
-                $res['NodeIds'] = [];
-                $n1 = 0;
-                foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['NodeIds'] = $this->nodeIds;
         }
-
         if (null !== $this->shareDataVolume) {
             $res['ShareDataVolume'] = $this->shareDataVolume;
         }
@@ -71,33 +61,25 @@ class ExpandDataVolumeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExpandDataVolumeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
-
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
-
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = [];
-                $n1 = 0;
-                foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->nodeIds = $map['NodeIds'];
             }
         }
-
         if (isset($map['ShareDataVolume'])) {
             $model->shareDataVolume = $map['ShareDataVolume'];
         }

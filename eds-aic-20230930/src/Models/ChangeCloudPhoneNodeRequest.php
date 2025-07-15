@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChangeCloudPhoneNodeRequest extends Model
 {
     /**
+     * @example ac.max
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example cpn-0ugbptfu473fy****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $phoneCount;
@@ -28,22 +34,17 @@ class ChangeCloudPhoneNodeRequest extends Model
         'phoneCount' => 'PhoneCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->phoneCount) {
             $res['PhoneCount'] = $this->phoneCount;
         }
@@ -51,22 +52,20 @@ class ChangeCloudPhoneNodeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangeCloudPhoneNodeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['PhoneCount'])) {
             $model->phoneCount = $map['PhoneCount'];
         }

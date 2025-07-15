@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartAndroidInstanceRequest extends Model
 {
     /**
+     * @description List of instances.
+     *
      * @var string[]
      */
     public $androidInstanceIds;
@@ -22,28 +24,14 @@ class StartAndroidInstanceRequest extends Model
         'saleMode' => 'SaleMode',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->androidInstanceIds)) {
-            Model::validateArray($this->androidInstanceIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->androidInstanceIds) {
-            if (\is_array($this->androidInstanceIds)) {
-                $res['AndroidInstanceIds'] = [];
-                $n1 = 0;
-                foreach ($this->androidInstanceIds as $item1) {
-                    $res['AndroidInstanceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AndroidInstanceIds'] = $this->androidInstanceIds;
         }
-
         if (null !== $this->saleMode) {
             $res['SaleMode'] = $this->saleMode;
         }
@@ -51,25 +39,19 @@ class StartAndroidInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartAndroidInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIds'])) {
             if (!empty($map['AndroidInstanceIds'])) {
-                $model->androidInstanceIds = [];
-                $n1 = 0;
-                foreach ($map['AndroidInstanceIds'] as $item1) {
-                    $model->androidInstanceIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->androidInstanceIds = $map['AndroidInstanceIds'];
             }
         }
-
         if (isset($map['SaleMode'])) {
             $model->saleMode = $map['SaleMode'];
         }
