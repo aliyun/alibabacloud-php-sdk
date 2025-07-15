@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vSwitchIds extends Model
 {
@@ -16,45 +16,29 @@ class vSwitchIds extends Model
         'vSwitchIds' => 'VSwitchIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vSwitchIds)) {
-            Model::validateArray($this->vSwitchIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vSwitchIds) {
-            if (\is_array($this->vSwitchIds)) {
-                $res['VSwitchIds'] = [];
-                $n1 = 0;
-                foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
-                }
-            }
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vSwitchIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
-                $model->vSwitchIds = [];
-                $n1 = 0;
-                foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
-                }
+                $model->vSwitchIds = $map['VSwitchIds'];
             }
         }
 

@@ -4,21 +4,39 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateInstanceConfigRequest extends Model
 {
     /**
+     * @description The configurations that you want to update for the ApsaraMQ for Kafka instance. The value must be a valid JSON string.
+     *
+     * This parameter is required.
+     *
+     * @example {"kafka.log.retention.hours":"33"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example alikafka_post-cn-v0h1fgs2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,22 +46,17 @@ class UpdateInstanceConfigRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,22 +64,20 @@ class UpdateInstanceConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateInstanceConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

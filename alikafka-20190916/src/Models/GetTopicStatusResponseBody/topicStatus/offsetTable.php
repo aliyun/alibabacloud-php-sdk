@@ -4,36 +4,29 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponseBody\topicStatus;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponseBody\topicStatus\offsetTable\offsetTable;
+use AlibabaCloud\Tea\Model;
 
 class offsetTable extends Model
 {
     /**
-     * @var offsetTable[]
+     * @var offsetTable\offsetTable[]
      */
     public $offsetTable;
     protected $_name = [
         'offsetTable' => 'OffsetTable',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->offsetTable)) {
-            Model::validateArray($this->offsetTable);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->offsetTable) {
-            if (\is_array($this->offsetTable)) {
-                $res['OffsetTable'] = [];
-                $n1 = 0;
-                foreach ($this->offsetTable as $item1) {
-                    $res['OffsetTable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OffsetTable'] = [];
+            if (null !== $this->offsetTable && \is_array($this->offsetTable)) {
+                $n = 0;
+                foreach ($this->offsetTable as $item) {
+                    $res['OffsetTable'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +34,20 @@ class offsetTable extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return offsetTable
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OffsetTable'])) {
             if (!empty($map['OffsetTable'])) {
                 $model->offsetTable = [];
-                $n1 = 0;
-                foreach ($map['OffsetTable'] as $item1) {
-                    $model->offsetTable[$n1++] = self::fromMap($item1);
+                $n = 0;
+                foreach ($map['OffsetTable'] as $item) {
+                    $model->offsetTable[$n++] = null !== $item ? offsetTable\offsetTable::fromMap($item) : $item;
                 }
             }
         }

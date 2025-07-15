@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class serverlessConfig extends Model
 {
     /**
+     * @example 60
+     *
      * @var int
      */
     public $reservedPublishCapacity;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $reservedSubscribeCapacity;
@@ -22,18 +26,14 @@ class serverlessConfig extends Model
         'reservedSubscribeCapacity' => 'ReservedSubscribeCapacity',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reservedPublishCapacity) {
             $res['ReservedPublishCapacity'] = $this->reservedPublishCapacity;
         }
-
         if (null !== $this->reservedSubscribeCapacity) {
             $res['ReservedSubscribeCapacity'] = $this->reservedSubscribeCapacity;
         }
@@ -41,18 +41,17 @@ class serverlessConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return serverlessConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReservedPublishCapacity'])) {
             $model->reservedPublishCapacity = $map['ReservedPublishCapacity'];
         }
-
         if (isset($map['ReservedSubscribeCapacity'])) {
             $model->reservedSubscribeCapacity = $map['ReservedSubscribeCapacity'];
         }

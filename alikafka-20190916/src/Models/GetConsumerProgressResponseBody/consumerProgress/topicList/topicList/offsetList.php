@@ -4,36 +4,29 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList\offsetList\offsetList;
+use AlibabaCloud\Tea\Model;
 
 class offsetList extends Model
 {
     /**
-     * @var offsetList[]
+     * @var offsetList\offsetList[]
      */
     public $offsetList;
     protected $_name = [
         'offsetList' => 'OffsetList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->offsetList)) {
-            Model::validateArray($this->offsetList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->offsetList) {
-            if (\is_array($this->offsetList)) {
-                $res['OffsetList'] = [];
-                $n1 = 0;
-                foreach ($this->offsetList as $item1) {
-                    $res['OffsetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OffsetList'] = [];
+            if (null !== $this->offsetList && \is_array($this->offsetList)) {
+                $n = 0;
+                foreach ($this->offsetList as $item) {
+                    $res['OffsetList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +34,20 @@ class offsetList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return offsetList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OffsetList'])) {
             if (!empty($map['OffsetList'])) {
                 $model->offsetList = [];
-                $n1 = 0;
-                foreach ($map['OffsetList'] as $item1) {
-                    $model->offsetList[$n1++] = self::fromMap($item1);
+                $n = 0;
+                foreach ($map['OffsetList'] as $item) {
+                    $model->offsetList[$n++] = null !== $item ? offsetList\offsetList::fromMap($item) : $item;
                 }
             }
         }

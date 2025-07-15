@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponseBody\data\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data\data
      */
     public $data;
 
     /**
+     * @description The request name.
+     *
+     * >  The value of this parameter indicates the type of request that the client sends to the broker within the specified period of time.
+     *
+     * @example OFFSET_COMMIT
+     *
      * @var string
      */
     public $name;
@@ -22,21 +30,14 @@ class data extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -44,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data\data::fromMap($map['Data']);
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

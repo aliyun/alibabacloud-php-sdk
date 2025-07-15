@@ -4,23 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListResponseBody\allowedList\internetList;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListResponseBody\allowedList\vpcList;
+use AlibabaCloud\Tea\Model;
 
 class allowedList extends Model
 {
     /**
+     * @description The deployment mode of the instance. Valid values:
+     *
+     *   **4**: allows access from the Internet and a virtual private cloud (VPC).
+     *   **5**: allows access from a VPC.
+     *
+     * >  Only integrators need to concern themselves with the value of this parameter.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $deployType;
 
     /**
+     * @description The whitelist for access from the Internet.
+     *
      * @var internetList[]
      */
     public $internetList;
 
     /**
+     * @description The whitelist for access from a virtual private cloud (VPC).
+     *
      * @var vpcList[]
      */
     public $vpcList;
@@ -30,40 +43,29 @@ class allowedList extends Model
         'vpcList' => 'VpcList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->internetList)) {
-            Model::validateArray($this->internetList);
-        }
-        if (\is_array($this->vpcList)) {
-            Model::validateArray($this->vpcList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
         }
-
         if (null !== $this->internetList) {
-            if (\is_array($this->internetList)) {
-                $res['InternetList'] = [];
-                $n1 = 0;
-                foreach ($this->internetList as $item1) {
-                    $res['InternetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InternetList'] = [];
+            if (null !== $this->internetList && \is_array($this->internetList)) {
+                $n = 0;
+                foreach ($this->internetList as $item) {
+                    $res['InternetList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vpcList) {
-            if (\is_array($this->vpcList)) {
-                $res['VpcList'] = [];
-                $n1 = 0;
-                foreach ($this->vpcList as $item1) {
-                    $res['VpcList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VpcList'] = [];
+            if (null !== $this->vpcList && \is_array($this->vpcList)) {
+                $n = 0;
+                foreach ($this->vpcList as $item) {
+                    $res['VpcList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -71,34 +73,32 @@ class allowedList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return allowedList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
         }
-
         if (isset($map['InternetList'])) {
             if (!empty($map['InternetList'])) {
                 $model->internetList = [];
-                $n1 = 0;
-                foreach ($map['InternetList'] as $item1) {
-                    $model->internetList[$n1++] = internetList::fromMap($item1);
+                $n = 0;
+                foreach ($map['InternetList'] as $item) {
+                    $model->internetList[$n++] = null !== $item ? internetList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['VpcList'])) {
             if (!empty($map['VpcList'])) {
                 $model->vpcList = [];
-                $n1 = 0;
-                foreach ($map['VpcList'] as $item1) {
-                    $model->vpcList[$n1++] = vpcList::fromMap($item1);
+                $n = 0;
+                foreach ($map['VpcList'] as $item) {
+                    $model->vpcList[$n++] = null !== $item ? vpcList::fromMap($item) : $item;
                 }
             }
         }

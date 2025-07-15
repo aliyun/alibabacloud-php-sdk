@@ -4,21 +4,41 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteScheduledScalingRuleRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example alikafka_serverless-cn-vxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the scheduled scaling rule.
+     *
+     * >  You can delete only rules that are disabled and rules that are scheduled only once and have been executed.
+     *
+     * This parameter is required.
+     *
+     * @example rule-name-test
+     *
      * @var string
      */
     public $ruleName;
@@ -28,22 +48,17 @@ class DeleteScheduledScalingRuleRequest extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -51,22 +66,20 @@ class DeleteScheduledScalingRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteScheduledScalingRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

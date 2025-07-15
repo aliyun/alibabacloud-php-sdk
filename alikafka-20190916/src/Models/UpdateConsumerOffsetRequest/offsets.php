@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateConsumerOffsetRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class offsets extends Model
 {
     /**
+     * @description The consumer offset of the partition.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @description The partition ID.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $partition;
@@ -22,18 +30,14 @@ class offsets extends Model
         'partition' => 'Partition',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
-
         if (null !== $this->partition) {
             $res['Partition'] = $this->partition;
         }
@@ -41,18 +45,17 @@ class offsets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return offsets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
-
         if (isset($map['Partition'])) {
             $model->partition = $map['Partition'];
         }

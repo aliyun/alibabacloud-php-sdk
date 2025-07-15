@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example alikafka_pre-cn-pe333xxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 236972661580636
+     *
      * @var int
      */
     public $orderId;
@@ -22,18 +26,14 @@ class data extends Model
         'orderId' => 'OrderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -41,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

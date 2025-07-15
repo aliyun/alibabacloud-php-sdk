@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAutoScalingConfigurationResponseBody\data\scheduledScalingRules\scheduledScalingRules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class weeklyTypes extends Model
 {
@@ -16,45 +16,29 @@ class weeklyTypes extends Model
         'weeklyTypes' => 'WeeklyTypes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->weeklyTypes)) {
-            Model::validateArray($this->weeklyTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->weeklyTypes) {
-            if (\is_array($this->weeklyTypes)) {
-                $res['WeeklyTypes'] = [];
-                $n1 = 0;
-                foreach ($this->weeklyTypes as $item1) {
-                    $res['WeeklyTypes'][$n1++] = $item1;
-                }
-            }
+            $res['WeeklyTypes'] = $this->weeklyTypes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return weeklyTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WeeklyTypes'])) {
             if (!empty($map['WeeklyTypes'])) {
-                $model->weeklyTypes = [];
-                $n1 = 0;
-                foreach ($map['WeeklyTypes'] as $item1) {
-                    $model->weeklyTypes[$n1++] = $item1;
-                }
+                $model->weeklyTypes = $map['WeeklyTypes'];
             }
         }
 

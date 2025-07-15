@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponseBody\consumerList\consumerVO;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponseBody\consumerList\consumerVO\tags\tagVO;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
@@ -17,23 +17,17 @@ class tags extends Model
         'tagVO' => 'TagVO',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tagVO)) {
-            Model::validateArray($this->tagVO);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagVO) {
-            if (\is_array($this->tagVO)) {
-                $res['TagVO'] = [];
-                $n1 = 0;
-                foreach ($this->tagVO as $item1) {
-                    $res['TagVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TagVO'] = [];
+            if (null !== $this->tagVO && \is_array($this->tagVO)) {
+                $n = 0;
+                foreach ($this->tagVO as $item) {
+                    $res['TagVO'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagVO'])) {
             if (!empty($map['TagVO'])) {
                 $model->tagVO = [];
-                $n1 = 0;
-                foreach ($map['TagVO'] as $item1) {
-                    $model->tagVO[$n1++] = tagVO::fromMap($item1);
+                $n = 0;
+                foreach ($map['TagVO'] as $item) {
+                    $model->tagVO[$n++] = null !== $item ? tagVO::fromMap($item) : $item;
                 }
             }
         }

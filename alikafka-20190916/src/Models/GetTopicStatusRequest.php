@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTopicStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example alikafka_pre-cn-v0h15tjm****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the topic.
+     *
+     * This parameter is required.
+     *
+     * @example normal_topic_9d034262835916103455551be06cc****
+     *
      * @var string
      */
     public $topic;
@@ -28,22 +44,17 @@ class GetTopicStatusRequest extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -51,22 +62,20 @@ class GetTopicStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTopicStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }
