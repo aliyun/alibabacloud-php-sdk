@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVcoRouteEntryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9208DDD8-0930-3CE6-AF7F-732B4E67B3DD
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteVcoRouteEntryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteVcoRouteEntryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVcoRouteEntryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

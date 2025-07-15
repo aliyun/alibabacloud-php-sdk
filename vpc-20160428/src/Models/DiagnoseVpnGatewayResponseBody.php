@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DiagnoseVpnGatewayResponseBody extends Model
 {
     /**
+     * @description The diagnostic ID.
+     *
+     * After a diagnostic ID is returned, you can call [GetVpnGatewayDiagnoseResult](https://help.aliyun.com/document_detail/2521963.html) to query the diagnostic report.
+     *
+     * @example vpndgn-uf6kuxbe3iv028k3s****
+     *
      * @var string
      */
     public $diagnoseId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +32,14 @@ class DiagnoseVpnGatewayResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->diagnoseId) {
             $res['DiagnoseId'] = $this->diagnoseId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +47,17 @@ class DiagnoseVpnGatewayResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DiagnoseVpnGatewayResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiagnoseId'])) {
             $model->diagnoseId = $map['DiagnoseId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

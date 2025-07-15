@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyRouteEntryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 861E6630-AEC0-4B2D-B214-6CB5E44B7F04
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyRouteEntryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyRouteEntryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyRouteEntryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

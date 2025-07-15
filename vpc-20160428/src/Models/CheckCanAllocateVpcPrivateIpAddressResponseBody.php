@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
 {
     /**
+     * @description Indicates whether the private IP address is available. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canAllocate;
 
     /**
+     * @description The request ID.
+     *
+     * @example 93360B0-2969-40BF-8542-EBB34FD358AB
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +33,14 @@ class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->canAllocate) {
             $res['CanAllocate'] = $this->canAllocate;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +48,17 @@ class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckCanAllocateVpcPrivateIpAddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanAllocate'])) {
             $model->canAllocate = $map['CanAllocate'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

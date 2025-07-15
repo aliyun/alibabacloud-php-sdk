@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyEipForwardModeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 62C6A6A5-1534-53D9-AB1E-C9307A147ED5
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyEipForwardModeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyEipForwardModeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyEipForwardModeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DissociateVpnGatewayWithCertificateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DissociateVpnGatewayWithCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DissociateVpnGatewayWithCertificateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DissociateVpnGatewayWithCertificateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

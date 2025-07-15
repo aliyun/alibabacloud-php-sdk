@@ -4,42 +4,87 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionRequest\tag;
+use AlibabaCloud\Tea\Model;
 
 class CreatePhysicalConnectionRequest extends Model
 {
     /**
+     * @description The access point ID of the Express Connect circuit.
+     *
+     * This parameter is required.
+     *
+     * @example ap-cn-beijing-ft-A
+     *
      * @var string
      */
     public $accessPointId;
 
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     *
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the Express Connect circuit.
+     *
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     *
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The advanced features of the device.
+     *
      * @var string[]
      */
     public $deviceAdvancedCapacity;
 
     /**
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
+     *
+     *   **CT**: China Telecom.
+     *   **CU**: China Unicom.
+     *   **CM**: China Mobile.
+     *   **CO**: other connectivity providers in the Chinese mainland.
+     *   **Equinix**: Equinix.
+     *   **Other**: other connectivity providers outside the Chinese mainland.
+     *
+     * This parameter is required.
+     *
+     * @example CT
+     *
      * @var string
      */
     public $lineOperator;
 
     /**
+     * @description The name of the Express Connect circuit.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -55,26 +100,60 @@ class CreatePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The geographical location of the data center.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $peerLocation;
 
     /**
+     * @description The port type. Valid values:
+     *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * >  To use ports 40GBase-LR and 100GBase-LR, you must first contact your account manager.
+     *
+     * @example 1000Base-T
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @description The ID of the redundant Express Connect circuit. The redundant Express Connect circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+     *
+     * @example pc-119mfjzm****
+     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the Express Connect circuit belongs.
+     *
+     * @example rg-acfmoiyermp****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -90,16 +169,28 @@ class CreatePhysicalConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The type of Express Connect circuit. Default value: **VPC**.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The maximum bandwidth of the hosted connection. Unit: Mbit/s.
+     *
+     * Valid values: **50**, **100**, **200**, **300**, **400**, **500**, **1000**, **2000**, **4000**, **5000**, **8000**, and **10000**.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $bandwidth;
@@ -125,106 +216,71 @@ class CreatePhysicalConnectionRequest extends Model
         'bandwidth' => 'bandwidth',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->deviceAdvancedCapacity)) {
-            Model::validateArray($this->deviceAdvancedCapacity);
-        }
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
         }
-
         if (null !== $this->circuitCode) {
             $res['CircuitCode'] = $this->circuitCode;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->deviceAdvancedCapacity) {
-            if (\is_array($this->deviceAdvancedCapacity)) {
-                $res['DeviceAdvancedCapacity'] = [];
-                $n1 = 0;
-                foreach ($this->deviceAdvancedCapacity as $item1) {
-                    $res['DeviceAdvancedCapacity'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['DeviceAdvancedCapacity'] = $this->deviceAdvancedCapacity;
         }
-
         if (null !== $this->lineOperator) {
             $res['LineOperator'] = $this->lineOperator;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->peerLocation) {
             $res['PeerLocation'] = $this->peerLocation;
         }
-
         if (null !== $this->portType) {
             $res['PortType'] = $this->portType;
         }
-
         if (null !== $this->redundantPhysicalConnectionId) {
             $res['RedundantPhysicalConnectionId'] = $this->redundantPhysicalConnectionId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->bandwidth) {
             $res['bandwidth'] = $this->bandwidth;
         }
@@ -232,100 +288,76 @@ class CreatePhysicalConnectionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePhysicalConnectionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];
         }
-
         if (isset($map['CircuitCode'])) {
             $model->circuitCode = $map['CircuitCode'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DeviceAdvancedCapacity'])) {
             if (!empty($map['DeviceAdvancedCapacity'])) {
-                $model->deviceAdvancedCapacity = [];
-                $n1 = 0;
-                foreach ($map['DeviceAdvancedCapacity'] as $item1) {
-                    $model->deviceAdvancedCapacity[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->deviceAdvancedCapacity = $map['DeviceAdvancedCapacity'];
             }
         }
-
         if (isset($map['LineOperator'])) {
             $model->lineOperator = $map['LineOperator'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PeerLocation'])) {
             $model->peerLocation = $map['PeerLocation'];
         }
-
         if (isset($map['PortType'])) {
             $model->portType = $map['PortType'];
         }
-
         if (isset($map['RedundantPhysicalConnectionId'])) {
             $model->redundantPhysicalConnectionId = $map['RedundantPhysicalConnectionId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1] = tag::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['bandwidth'])) {
             $model->bandwidth = $map['bandwidth'];
         }

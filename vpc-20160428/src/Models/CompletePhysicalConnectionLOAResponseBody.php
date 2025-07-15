@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CompletePhysicalConnectionLOAResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F8983C74-E068-4509-B442-89BD82C8F43B
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CompletePhysicalConnectionLOAResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CompletePhysicalConnectionLOAResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CompletePhysicalConnectionLOAResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

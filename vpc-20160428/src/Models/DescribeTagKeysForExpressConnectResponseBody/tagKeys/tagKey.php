@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeTagKeysForExpressConnectResponseBody\tagKeys;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagKey extends Model
 {
     /**
+     * @description The key of the tag.
+     *
+     * @example FinanceDept
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The type of the resource. The value is set to **PHYSICALCONNECTION**, which indicates an Express Connect circuit.
+     *
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $type;
@@ -22,18 +30,14 @@ class tagKey extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,18 +45,17 @@ class tagKey extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagKey
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

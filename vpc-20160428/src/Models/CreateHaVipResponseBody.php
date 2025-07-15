@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateHaVipResponseBody extends Model
 {
     /**
+     * @description The ID of the HaVip.
+     *
+     * @example havip-2zeo05qre24nhrqpy****
+     *
      * @var string
      */
     public $haVipId;
 
     /**
+     * @description The IP address of the HaVip.
+     *
+     * @example 192.XX.XX.10
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C44F62BE-9CE7-4277-B117-69243F3988BF
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class CreateHaVipResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->haVipId) {
             $res['HaVipId'] = $this->haVipId;
         }
-
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class CreateHaVipResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateHaVipResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HaVipId'])) {
             $model->haVipId = $map['HaVipId'];
         }
-
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

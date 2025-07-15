@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class secondaryCidrBlocks extends Model
 {
@@ -16,47 +16,29 @@ class secondaryCidrBlocks extends Model
         'secondaryCidrBlock' => 'SecondaryCidrBlock',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->secondaryCidrBlock)) {
-            Model::validateArray($this->secondaryCidrBlock);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->secondaryCidrBlock) {
-            if (\is_array($this->secondaryCidrBlock)) {
-                $res['SecondaryCidrBlock'] = [];
-                $n1 = 0;
-                foreach ($this->secondaryCidrBlock as $item1) {
-                    $res['SecondaryCidrBlock'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SecondaryCidrBlock'] = $this->secondaryCidrBlock;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return secondaryCidrBlocks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecondaryCidrBlock'])) {
             if (!empty($map['SecondaryCidrBlock'])) {
-                $model->secondaryCidrBlock = [];
-                $n1 = 0;
-                foreach ($map['SecondaryCidrBlock'] as $item1) {
-                    $model->secondaryCidrBlock[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->secondaryCidrBlock = $map['SecondaryCidrBlock'];
             }
         }
 

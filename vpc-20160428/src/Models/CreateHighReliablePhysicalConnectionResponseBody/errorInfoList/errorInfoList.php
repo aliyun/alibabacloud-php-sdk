@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateHighReliablePhysicalConnectionResponseBody\errorInfoList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class errorInfoList extends Model
 {
     /**
+     * @description Error codes.
+     *
+     * @example pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned error message.
+     *
+     * @example pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
+     * @example pc-j5e5qqo616p81ncspbll1
+     *
      * @var string
      */
     public $instanceId;
@@ -28,22 +40,17 @@ class errorInfoList extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,22 +58,20 @@ class errorInfoList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return errorInfoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

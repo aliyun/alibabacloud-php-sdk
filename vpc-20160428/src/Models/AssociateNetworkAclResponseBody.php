@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AssociateNetworkAclResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 4CF20CC7-D1FC-425B-A15B-DF7C8E2131A7
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AssociateNetworkAclResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AssociateNetworkAclResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AssociateNetworkAclResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

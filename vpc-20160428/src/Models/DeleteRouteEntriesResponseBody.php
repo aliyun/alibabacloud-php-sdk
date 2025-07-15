@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouteEntriesResponseBody\failedRouteEntries;
+use AlibabaCloud\Tea\Model;
 
 class DeleteRouteEntriesResponseBody extends Model
 {
     /**
+     * @description The number of route entries that failed to be deleted.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $failedCount;
 
     /**
+     * @description The information about the route entry that failed to be deleted.
+     *
      * @var failedRouteEntries[]
      */
     public $failedRouteEntries;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of route entries that were deleted.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $successCount;
@@ -35,36 +49,26 @@ class DeleteRouteEntriesResponseBody extends Model
         'successCount' => 'SuccessCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failedRouteEntries)) {
-            Model::validateArray($this->failedRouteEntries);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
         }
-
         if (null !== $this->failedRouteEntries) {
-            if (\is_array($this->failedRouteEntries)) {
-                $res['FailedRouteEntries'] = [];
-                $n1 = 0;
-                foreach ($this->failedRouteEntries as $item1) {
-                    $res['FailedRouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FailedRouteEntries'] = [];
+            if (null !== $this->failedRouteEntries && \is_array($this->failedRouteEntries)) {
+                $n = 0;
+                foreach ($this->failedRouteEntries as $item) {
+                    $res['FailedRouteEntries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
@@ -72,33 +76,29 @@ class DeleteRouteEntriesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteRouteEntriesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
         }
-
         if (isset($map['FailedRouteEntries'])) {
             if (!empty($map['FailedRouteEntries'])) {
                 $model->failedRouteEntries = [];
-                $n1 = 0;
-                foreach ($map['FailedRouteEntries'] as $item1) {
-                    $model->failedRouteEntries[$n1] = failedRouteEntries::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FailedRouteEntries'] as $item) {
+                    $model->failedRouteEntries[$n++] = null !== $item ? failedRouteEntries::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }

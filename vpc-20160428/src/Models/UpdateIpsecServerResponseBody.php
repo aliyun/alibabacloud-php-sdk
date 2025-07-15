@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateIpsecServerResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B61C08E5-403A-46A2-96C1-F7B1216DB10C
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateIpsecServerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateIpsecServerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateIpsecServerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

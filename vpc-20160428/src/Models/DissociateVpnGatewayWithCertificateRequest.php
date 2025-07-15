@@ -4,36 +4,82 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DissociateVpnGatewayWithCertificateRequest extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * >  The certificate ID refers to the ID generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate.
+     *
+     * This parameter is required.
+     *
+     * @example 6bfe4218-ea1d****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The certificate type. Valid values:
+     *
+     *   **Encryption**
+     *   **Signature**
+     *
+     * This parameter is required.
+     *
+     * @example Encryption
+     *
      * @var string
      */
     public $certificateType;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     *
+     * @example 02fb3da4-130e*******
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request passes the dry run, the `DryRunOperation` error code is returned. Otherwise, an error message is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The region ID of the VPN gateway.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
+     * This parameter is required.
+     *
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;
@@ -46,34 +92,26 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
         'vpnGatewayId' => 'VpnGatewayId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
-
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->vpnGatewayId) {
             $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
@@ -81,34 +119,29 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DissociateVpnGatewayWithCertificateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
-
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['VpnGatewayId'])) {
             $model->vpnGatewayId = $map['VpnGatewayId'];
         }

@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EnablePhysicalConnectionRequest extends Model
 {
     /**
+     * @description Specifies whether to skip the order lifecycle. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * >  To use this feature, you must contact your account manager.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $byPassSp;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 02fb3da4-130e-11e9-8e44-0016e04115b
+     *
      * @var string
      */
     public $clientToken;
@@ -29,11 +44,25 @@ class EnablePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
+     * This parameter is required.
+     *
+     * @example pc-119mfjz****
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @description The region where the Express Connect circuit is deployed.
+     *
+     * You can call the DescribeRegions operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -58,42 +87,32 @@ class EnablePhysicalConnectionRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->byPassSp) {
             $res['ByPassSp'] = $this->byPassSp;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->physicalConnectionId) {
             $res['PhysicalConnectionId'] = $this->physicalConnectionId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -101,42 +120,35 @@ class EnablePhysicalConnectionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EnablePhysicalConnectionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ByPassSp'])) {
             $model->byPassSp = $map['ByPassSp'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PhysicalConnectionId'])) {
             $model->physicalConnectionId = $map['PhysicalConnectionId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

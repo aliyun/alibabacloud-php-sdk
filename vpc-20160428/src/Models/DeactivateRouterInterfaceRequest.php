@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeactivateRouterInterfaceRequest extends Model
 {
@@ -14,6 +14,14 @@ class DeactivateRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the router interface is deployed.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -29,6 +37,12 @@ class DeactivateRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the router interface.
+     *
+     * This parameter is required.
+     *
+     * @example ri-2zeo3xzyf38r4urz****
+     *
      * @var string
      */
     public $routerInterfaceId;
@@ -40,30 +54,23 @@ class DeactivateRouterInterfaceRequest extends Model
         'routerInterfaceId' => 'RouterInterfaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->routerInterfaceId) {
             $res['RouterInterfaceId'] = $this->routerInterfaceId;
         }
@@ -71,30 +78,26 @@ class DeactivateRouterInterfaceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeactivateRouterInterfaceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['RouterInterfaceId'])) {
             $model->routerInterfaceId = $map['RouterInterfaceId'];
         }

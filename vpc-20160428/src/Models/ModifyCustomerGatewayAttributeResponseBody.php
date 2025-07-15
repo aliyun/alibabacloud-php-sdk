@@ -4,41 +4,71 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyCustomerGatewayAttributeResponseBody extends Model
 {
     /**
+     * @description The timestamp generated when the customer gateway was created.
+     *
+     * @example 1492747187000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the customer gateway.
+     *
+     * @example cgw-bp1pvpl9r9adju6l5****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @description The description of the customer gateway.
+     *
+     * @example desctest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The public IP address of the gateway device in the data center.
+     *
+     * @example 139.32.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The name of the customer gateway.
+     *
+     * @example nametest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The request ID.
+     *
+     * @example 8AA5CE21-2E6A-4530-BDF5-F055849476E6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the customer gateway belongs.
+     *
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+     *
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -52,38 +82,29 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->customerGatewayId) {
             $res['CustomerGatewayId'] = $this->customerGatewayId;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -91,38 +112,32 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyCustomerGatewayAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['CustomerGatewayId'])) {
             $model->customerGatewayId = $map['CustomerGatewayId'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSnatTableEntriesResponseBody\snatTableEntries;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSnatTableEntriesResponseBody extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6D7E89B1-1C5B-412B-8585-4908E222EED5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of SNAT entries.
+     *
      * @var snatTableEntries
      */
     public $snatTableEntries;
 
     /**
+     * @description The number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
@@ -41,33 +59,23 @@ class DescribeSnatTableEntriesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->snatTableEntries) {
-            $this->snatTableEntries->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->snatTableEntries) {
-            $res['SnatTableEntries'] = null !== $this->snatTableEntries ? $this->snatTableEntries->toArray($noStream) : $this->snatTableEntries;
+            $res['SnatTableEntries'] = null !== $this->snatTableEntries ? $this->snatTableEntries->toMap() : null;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -75,30 +83,26 @@ class DescribeSnatTableEntriesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSnatTableEntriesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SnatTableEntries'])) {
             $model->snatTableEntries = snatTableEntries::fromMap($map['SnatTableEntries']);
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

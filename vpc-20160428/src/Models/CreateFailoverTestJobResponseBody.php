@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateFailoverTestJobResponseBody extends Model
 {
     /**
+     * @description The ID of the failover test.
+     *
+     * @example ftj-xxxxxxxxx
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The request ID.
+     *
+     * @example C44F62BE-9CE7-4277-B117-69243F3988BF
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateFailoverTestJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateFailoverTestJobResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateFailoverTestJobResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

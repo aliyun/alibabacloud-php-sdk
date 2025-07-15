@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ActivateRouterInterfaceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 079874CD-AEC1-43E6-AC03-ADD96B6E4907
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ActivateRouterInterfaceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ActivateRouterInterfaceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ActivateRouterInterfaceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyIpv6GatewayAttributeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9DFEDBEE-E5AB-49E8-A2DC-CC114C67AF75
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyIpv6GatewayAttributeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyIpv6GatewayAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyIpv6GatewayAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

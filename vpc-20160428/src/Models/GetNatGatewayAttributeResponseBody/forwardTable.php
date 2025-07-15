@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class forwardTable extends Model
 {
     /**
+     * @description The number of DNAT entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $forwardEntryCount;
 
     /**
+     * @description The ID of the DNAT table.
+     *
+     * @example ftb-uf6gj3mhsg94qsqst****
+     *
      * @var string
      */
     public $forwardTableId;
@@ -22,18 +30,14 @@ class forwardTable extends Model
         'forwardTableId' => 'ForwardTableId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->forwardEntryCount) {
             $res['ForwardEntryCount'] = $this->forwardEntryCount;
         }
-
         if (null !== $this->forwardTableId) {
             $res['ForwardTableId'] = $this->forwardTableId;
         }
@@ -41,18 +45,17 @@ class forwardTable extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return forwardTable
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForwardEntryCount'])) {
             $model->forwardEntryCount = $map['ForwardEntryCount'];
         }
-
         if (isset($map['ForwardTableId'])) {
             $model->forwardTableId = $map['ForwardTableId'];
         }

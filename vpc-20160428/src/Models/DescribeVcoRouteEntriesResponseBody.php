@@ -4,38 +4,60 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVcoRouteEntriesResponseBody\vcoRouteEntries;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVcoRouteEntriesResponseBody\vpnRouteCounts;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVcoRouteEntriesResponseBody extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E18980E8-C8C2-31BD-8156-AE2BBDEC87E1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The list of route entries.
+     *
      * @var vcoRouteEntries[]
      */
     public $vcoRouteEntries;
 
     /**
+     * @description The information on route entries of the dual-tunnel IPsec connection.
+     *
+     * >  This parameter is returned only for IPsec connections in dual-tunnel mode.
+     *
      * @var vpnRouteCounts[]
      */
     public $vpnRouteCounts;
@@ -48,54 +70,38 @@ class DescribeVcoRouteEntriesResponseBody extends Model
         'vpnRouteCounts' => 'VpnRouteCounts',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vcoRouteEntries)) {
-            Model::validateArray($this->vcoRouteEntries);
-        }
-        if (\is_array($this->vpnRouteCounts)) {
-            Model::validateArray($this->vpnRouteCounts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->vcoRouteEntries) {
-            if (\is_array($this->vcoRouteEntries)) {
-                $res['VcoRouteEntries'] = [];
-                $n1 = 0;
-                foreach ($this->vcoRouteEntries as $item1) {
-                    $res['VcoRouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['VcoRouteEntries'] = [];
+            if (null !== $this->vcoRouteEntries && \is_array($this->vcoRouteEntries)) {
+                $n = 0;
+                foreach ($this->vcoRouteEntries as $item) {
+                    $res['VcoRouteEntries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vpnRouteCounts) {
-            if (\is_array($this->vpnRouteCounts)) {
-                $res['VpnRouteCounts'] = [];
-                $n1 = 0;
-                foreach ($this->vpnRouteCounts as $item1) {
-                    $res['VpnRouteCounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['VpnRouteCounts'] = [];
+            if (null !== $this->vpnRouteCounts && \is_array($this->vpnRouteCounts)) {
+                $n = 0;
+                foreach ($this->vpnRouteCounts as $item) {
+                    $res['VpnRouteCounts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -103,48 +109,41 @@ class DescribeVcoRouteEntriesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVcoRouteEntriesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['VcoRouteEntries'])) {
             if (!empty($map['VcoRouteEntries'])) {
                 $model->vcoRouteEntries = [];
-                $n1 = 0;
-                foreach ($map['VcoRouteEntries'] as $item1) {
-                    $model->vcoRouteEntries[$n1] = vcoRouteEntries::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['VcoRouteEntries'] as $item) {
+                    $model->vcoRouteEntries[$n++] = null !== $item ? vcoRouteEntries::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['VpnRouteCounts'])) {
             if (!empty($map['VpnRouteCounts'])) {
                 $model->vpnRouteCounts = [];
-                $n1 = 0;
-                foreach ($map['VpnRouteCounts'] as $item1) {
-                    $model->vpnRouteCounts[$n1] = vpnRouteCounts::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['VpnRouteCounts'] as $item) {
+                    $model->vpnRouteCounts[$n++] = null !== $item ? vpnRouteCounts::fromMap($item) : $item;
                 }
             }
         }

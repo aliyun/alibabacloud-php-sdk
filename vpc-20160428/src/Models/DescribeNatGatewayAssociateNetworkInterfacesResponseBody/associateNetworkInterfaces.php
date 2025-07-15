@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewayAssociateNetworkInterfacesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewayAssociateNetworkInterfacesResponseBody\associateNetworkInterfaces\associateNetworkInterface;
+use AlibabaCloud\Tea\Model;
 
 class associateNetworkInterfaces extends Model
 {
@@ -17,24 +17,17 @@ class associateNetworkInterfaces extends Model
         'associateNetworkInterface' => 'AssociateNetworkInterface',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->associateNetworkInterface)) {
-            Model::validateArray($this->associateNetworkInterface);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->associateNetworkInterface) {
-            if (\is_array($this->associateNetworkInterface)) {
-                $res['AssociateNetworkInterface'] = [];
-                $n1 = 0;
-                foreach ($this->associateNetworkInterface as $item1) {
-                    $res['AssociateNetworkInterface'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['AssociateNetworkInterface'] = [];
+            if (null !== $this->associateNetworkInterface && \is_array($this->associateNetworkInterface)) {
+                $n = 0;
+                foreach ($this->associateNetworkInterface as $item) {
+                    $res['AssociateNetworkInterface'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class associateNetworkInterfaces extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return associateNetworkInterfaces
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociateNetworkInterface'])) {
             if (!empty($map['AssociateNetworkInterface'])) {
                 $model->associateNetworkInterface = [];
-                $n1 = 0;
-                foreach ($map['AssociateNetworkInterface'] as $item1) {
-                    $model->associateNetworkInterface[$n1] = associateNetworkInterface::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['AssociateNetworkInterface'] as $item) {
+                    $model->associateNetworkInterface[$n++] = null !== $item ? associateNetworkInterface::fromMap($item) : $item;
                 }
             }
         }

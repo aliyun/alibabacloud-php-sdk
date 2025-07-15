@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipSegmentResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipSegmentResponseBody\eipSegments\eipSegment;
+use AlibabaCloud\Tea\Model;
 
 class eipSegments extends Model
 {
@@ -17,24 +17,17 @@ class eipSegments extends Model
         'eipSegment' => 'EipSegment',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->eipSegment)) {
-            Model::validateArray($this->eipSegment);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eipSegment) {
-            if (\is_array($this->eipSegment)) {
-                $res['EipSegment'] = [];
-                $n1 = 0;
-                foreach ($this->eipSegment as $item1) {
-                    $res['EipSegment'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['EipSegment'] = [];
+            if (null !== $this->eipSegment && \is_array($this->eipSegment)) {
+                $n = 0;
+                foreach ($this->eipSegment as $item) {
+                    $res['EipSegment'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class eipSegments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return eipSegments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipSegment'])) {
             if (!empty($map['EipSegment'])) {
                 $model->eipSegment = [];
-                $n1 = 0;
-                foreach ($map['EipSegment'] as $item1) {
-                    $model->eipSegment[$n1] = eipSegment::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['EipSegment'] as $item) {
+                    $model->eipSegment[$n++] = null !== $item ? eipSegment::fromMap($item) : $item;
                 }
             }
         }

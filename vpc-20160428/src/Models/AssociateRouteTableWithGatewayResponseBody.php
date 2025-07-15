@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AssociateRouteTableWithGatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F89C2176-8F10-55EF-90CF-CF99D1E3F816
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AssociateRouteTableWithGatewayResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AssociateRouteTableWithGatewayResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AssociateRouteTableWithGatewayResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

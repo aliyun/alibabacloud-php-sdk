@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressConnectTrafficQosRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class addInstanceList extends Model
 {
     /**
+     * @description The ID of the instance to be associated.
+     *
+     * @example pc-bp159zj8zujwy3p07****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of instance to be associated. Set the value to **PHYSICALCONNECTION**.
+     *
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $instanceType;
@@ -22,18 +30,14 @@ class addInstanceList extends Model
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -41,18 +45,17 @@ class addInstanceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return addInstanceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

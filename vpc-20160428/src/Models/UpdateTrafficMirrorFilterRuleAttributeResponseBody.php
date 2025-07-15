@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateTrafficMirrorFilterRuleAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 02EB8585-D4DC-4E29-A0F4-7C588C82863C
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateTrafficMirrorFilterRuleAttributeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateTrafficMirrorFilterRuleAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateTrafficMirrorFilterRuleAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,23 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateHighReliablePhysicalConnectionResponseBody\errorInfoList;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateHighReliablePhysicalConnectionResponseBody\physicalConnectionList;
+use AlibabaCloud\Tea\Model;
 
 class CreateHighReliablePhysicalConnectionResponseBody extends Model
 {
     /**
+     * @description If the request fails the dry run, the following error codes and error messages may be returned:
+     *
+     * - pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing. Billing for outbound data transfer is not enabled.
+     * - pconn.high.reliable.dryrun.error.incompatable.device.capacity. No device in the access point supports advanced features.
+     * - pconn.high.reliable.dryrun.error.quota.exceeded. The quota is insufficient.
+     * - pconn.high.reliable.dryrun.error.not.enough.resource. The access point resources are insufficient.
+     *
      * @var errorInfoList
      */
     public $errorInfoList;
 
     /**
+     * @description The Express Connect circuits.
+     *
      * @var physicalConnectionList
      */
     public $physicalConnectionList;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
@@ -30,28 +43,17 @@ class CreateHighReliablePhysicalConnectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->errorInfoList) {
-            $this->errorInfoList->validate();
-        }
-        if (null !== $this->physicalConnectionList) {
-            $this->physicalConnectionList->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorInfoList) {
-            $res['ErrorInfoList'] = null !== $this->errorInfoList ? $this->errorInfoList->toArray($noStream) : $this->errorInfoList;
+            $res['ErrorInfoList'] = null !== $this->errorInfoList ? $this->errorInfoList->toMap() : null;
         }
-
         if (null !== $this->physicalConnectionList) {
-            $res['PhysicalConnectionList'] = null !== $this->physicalConnectionList ? $this->physicalConnectionList->toArray($noStream) : $this->physicalConnectionList;
+            $res['PhysicalConnectionList'] = null !== $this->physicalConnectionList ? $this->physicalConnectionList->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,22 +61,20 @@ class CreateHighReliablePhysicalConnectionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateHighReliablePhysicalConnectionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorInfoList'])) {
             $model->errorInfoList = errorInfoList::fromMap($map['ErrorInfoList']);
         }
-
         if (isset($map['PhysicalConnectionList'])) {
             $model->physicalConnectionList = physicalConnectionList::fromMap($map['PhysicalConnectionList']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewayAssociateNetworkInterfacesResponseBody\associateNetworkInterfaces\associateNetworkInterface;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewayAssociateNetworkInterfacesResponseBody\associateNetworkInterfaces\associateNetworkInterface\IPv4Sets\IPv4Set;
+use AlibabaCloud\Tea\Model;
 
 class IPv4Sets extends Model
 {
@@ -17,24 +17,17 @@ class IPv4Sets extends Model
         'IPv4Set' => 'IPv4Set',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->IPv4Set)) {
-            Model::validateArray($this->IPv4Set);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->IPv4Set) {
-            if (\is_array($this->IPv4Set)) {
-                $res['IPv4Set'] = [];
-                $n1 = 0;
-                foreach ($this->IPv4Set as $item1) {
-                    $res['IPv4Set'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['IPv4Set'] = [];
+            if (null !== $this->IPv4Set && \is_array($this->IPv4Set)) {
+                $n = 0;
+                foreach ($this->IPv4Set as $item) {
+                    $res['IPv4Set'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class IPv4Sets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return IPv4Sets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IPv4Set'])) {
             if (!empty($map['IPv4Set'])) {
                 $model->IPv4Set = [];
-                $n1 = 0;
-                foreach ($map['IPv4Set'] as $item1) {
-                    $model->IPv4Set[$n1] = IPv4Set::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['IPv4Set'] as $item) {
+                    $model->IPv4Set[$n++] = null !== $item ? IPv4Set::fromMap($item) : $item;
                 }
             }
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVbrHaResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the VBR failover group.
+     *
+     * @example vbrha-sa1sxheuxtd98****
+     *
      * @var string
      */
     public $vbrHaId;
@@ -22,18 +30,14 @@ class CreateVbrHaResponseBody extends Model
         'vbrHaId' => 'VbrHaId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->vbrHaId) {
             $res['VbrHaId'] = $this->vbrHaId;
         }
@@ -41,18 +45,17 @@ class CreateVbrHaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVbrHaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['VbrHaId'])) {
             $model->vbrHaId = $map['VbrHaId'];
         }

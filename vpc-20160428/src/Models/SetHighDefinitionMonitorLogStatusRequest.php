@@ -4,26 +4,48 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetHighDefinitionMonitorLogStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance for which you want to configure fine-grained monitoring.
+     *
+     * This parameter is required.
+     *
+     * @example eip-wz9fi6qboho9fwgx7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The instance type. Set the value to **EIP**.
+     *
+     * @example EIP
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The name of the Simple Log Service (SLS) project.
+     *
+     * This parameter is required.
+     *
+     * @example hdmonitor-cn-shenzhen
+     *
      * @var string
      */
     public $logProject;
 
     /**
+     * @description The name of the Logstore.
+     *
+     * This parameter is required.
+     *
+     * @example hdmonitor
+     *
      * @var string
      */
     public $logStore;
@@ -39,6 +61,14 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +84,15 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of fine-grained monitoring. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * This parameter is required.
+     *
+     * @example ON
+     *
      * @var string
      */
     public $status;
@@ -70,50 +109,38 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-
         if (null !== $this->logProject) {
             $res['LogProject'] = $this->logProject;
         }
-
         if (null !== $this->logStore) {
             $res['LogStore'] = $this->logStore;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -121,50 +148,41 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetHighDefinitionMonitorLogStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-
         if (isset($map['LogProject'])) {
             $model->logProject = $map['LogProject'];
         }
-
         if (isset($map['LogStore'])) {
             $model->logStore = $map['LogStore'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

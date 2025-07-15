@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSslVpnServerResponseBody extends Model
 {
     /**
+     * @description The SSL server name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The request ID.
+     *
+     * @example E98A9651-7098-40C7-8F85-C818D1EBBA85
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the SSL server.
+     *
+     * @example vss-bp18q7hzj6largv4v****
+     *
      * @var string
      */
     public $sslVpnServerId;
@@ -28,22 +40,17 @@ class CreateSslVpnServerResponseBody extends Model
         'sslVpnServerId' => 'SslVpnServerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->sslVpnServerId) {
             $res['SslVpnServerId'] = $this->sslVpnServerId;
         }
@@ -51,22 +58,20 @@ class CreateSslVpnServerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSslVpnServerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SslVpnServerId'])) {
             $model->sslVpnServerId = $map['SslVpnServerId'];
         }

@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AllocateIpv6AddressResponseBody extends Model
 {
     /**
+     * @description The IPv6 address.
+     *
+     * @example 2408:XXXX:153:3921:851c:c435:7b12:1c5f
+     *
      * @var string
      */
     public $ipv6Address;
 
     /**
+     * @description The ID of the IPv6 address.
+     *
+     * @example ipv6-2zen5j4axcp5l5qyy****
+     *
      * @var string
      */
     public $ipv6AddressId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazdjdhd****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,26 +50,20 @@ class AllocateIpv6AddressResponseBody extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
         }
-
         if (null !== $this->ipv6AddressId) {
             $res['Ipv6AddressId'] = $this->ipv6AddressId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -61,26 +71,23 @@ class AllocateIpv6AddressResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AllocateIpv6AddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];
         }
-
         if (isset($map['Ipv6AddressId'])) {
             $model->ipv6AddressId = $map['Ipv6AddressId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

@@ -4,36 +4,73 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GrantInstanceToVbrRequest extends Model
 {
     /**
+     * @description The VBRs that need to acquire permissions on the VPC. Valid values:
+     *
+     *   **All**: Permissions on the VPC are granted to all VBRs that belong to the specified region and Alibaba Cloud account. In this case, you can leave **VbrInstanceIds** empty.
+     *   **Specify**: Permissions on the VPC are granted to the specified VBRs. **VbrInstanceIds** must be assigned a value.
+     *
+     * This parameter is required.
+     *
+     * @example All
+     *
      * @var string
      */
     public $grantType;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * This parameter is required.
+     *
+     * @example vpc-bp1lqhq93q8evjpky****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the region where the VPC is deployed.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The information about the VBRs.
+     *
      * @var string[]
      */
     public $vbrInstanceIds;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
+     *
+     * This parameter is required.
+     *
+     * @example 1210123456123456
+     *
      * @var int
      */
     public $vbrOwnerUid;
 
     /**
+     * @description The ID of the region where the VBR is deployed.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $vbrRegionNo;
@@ -46,44 +83,26 @@ class GrantInstanceToVbrRequest extends Model
         'vbrRegionNo' => 'VbrRegionNo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vbrInstanceIds)) {
-            Model::validateArray($this->vbrInstanceIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->grantType) {
             $res['GrantType'] = $this->grantType;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->vbrInstanceIds) {
-            if (\is_array($this->vbrInstanceIds)) {
-                $res['VbrInstanceIds'] = [];
-                $n1 = 0;
-                foreach ($this->vbrInstanceIds as $item1) {
-                    $res['VbrInstanceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['VbrInstanceIds'] = $this->vbrInstanceIds;
         }
-
         if (null !== $this->vbrOwnerUid) {
             $res['VbrOwnerUid'] = $this->vbrOwnerUid;
         }
-
         if (null !== $this->vbrRegionNo) {
             $res['VbrRegionNo'] = $this->vbrRegionNo;
         }
@@ -91,41 +110,31 @@ class GrantInstanceToVbrRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GrantInstanceToVbrRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GrantType'])) {
             $model->grantType = $map['GrantType'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['VbrInstanceIds'])) {
             if (!empty($map['VbrInstanceIds'])) {
-                $model->vbrInstanceIds = [];
-                $n1 = 0;
-                foreach ($map['VbrInstanceIds'] as $item1) {
-                    $model->vbrInstanceIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->vbrInstanceIds = $map['VbrInstanceIds'];
             }
         }
-
         if (isset($map['VbrOwnerUid'])) {
             $model->vbrOwnerUid = $map['VbrOwnerUid'];
         }
-
         if (isset($map['VbrRegionNo'])) {
             $model->vbrRegionNo = $map['VbrRegionNo'];
         }

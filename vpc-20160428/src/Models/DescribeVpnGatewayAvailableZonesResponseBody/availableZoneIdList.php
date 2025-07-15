@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewayAvailableZonesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class availableZoneIdList extends Model
 {
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The zone name.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneName;
@@ -22,18 +30,14 @@ class availableZoneIdList extends Model
         'zoneName' => 'ZoneName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-
         if (null !== $this->zoneName) {
             $res['ZoneName'] = $this->zoneName;
         }
@@ -41,18 +45,17 @@ class availableZoneIdList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return availableZoneIdList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-
         if (isset($map['ZoneName'])) {
             $model->zoneName = $map['ZoneName'];
         }

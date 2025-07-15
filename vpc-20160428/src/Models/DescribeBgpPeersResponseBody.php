@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpPeersResponseBody\bgpPeers;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBgpPeersResponseBody extends Model
 {
     /**
+     * @description The information about the BGP peer.
+     *
      * @var bgpPeers
      */
     public $bgpPeers;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
@@ -41,33 +59,23 @@ class DescribeBgpPeersResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->bgpPeers) {
-            $this->bgpPeers->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bgpPeers) {
-            $res['BgpPeers'] = null !== $this->bgpPeers ? $this->bgpPeers->toArray($noStream) : $this->bgpPeers;
+            $res['BgpPeers'] = null !== $this->bgpPeers ? $this->bgpPeers->toMap() : null;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -75,30 +83,26 @@ class DescribeBgpPeersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBgpPeersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpPeers'])) {
             $model->bgpPeers = bgpPeers::fromMap($map['BgpPeers']);
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

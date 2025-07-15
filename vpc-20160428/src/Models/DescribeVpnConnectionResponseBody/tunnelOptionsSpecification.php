@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\tunnelOptionsSpecification\tunnelOptions;
+use AlibabaCloud\Tea\Model;
 
 class tunnelOptionsSpecification extends Model
 {
@@ -17,24 +17,17 @@ class tunnelOptionsSpecification extends Model
         'tunnelOptions' => 'TunnelOptions',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tunnelOptions)) {
-            Model::validateArray($this->tunnelOptions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tunnelOptions) {
-            if (\is_array($this->tunnelOptions)) {
-                $res['TunnelOptions'] = [];
-                $n1 = 0;
-                foreach ($this->tunnelOptions as $item1) {
-                    $res['TunnelOptions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['TunnelOptions'] = [];
+            if (null !== $this->tunnelOptions && \is_array($this->tunnelOptions)) {
+                $n = 0;
+                foreach ($this->tunnelOptions as $item) {
+                    $res['TunnelOptions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class tunnelOptionsSpecification extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tunnelOptionsSpecification
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TunnelOptions'])) {
             if (!empty($map['TunnelOptions'])) {
                 $model->tunnelOptions = [];
-                $n1 = 0;
-                foreach ($map['TunnelOptions'] as $item1) {
-                    $model->tunnelOptions[$n1] = tunnelOptions::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['TunnelOptions'] as $item) {
+                    $model->tunnelOptions[$n++] = null !== $item ? tunnelOptions::fromMap($item) : $item;
                 }
             }
         }

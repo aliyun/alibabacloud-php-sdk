@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteNatIpCidrResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7021BEB1-210F-48A9-AB82-BE9A9110BB89
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteNatIpCidrResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteNatIpCidrResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteNatIpCidrResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

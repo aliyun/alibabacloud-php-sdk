@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpPeersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpPeersResponseBody\bgpPeers\bgpPeer;
+use AlibabaCloud\Tea\Model;
 
 class bgpPeers extends Model
 {
@@ -17,24 +17,17 @@ class bgpPeers extends Model
         'bgpPeer' => 'BgpPeer',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->bgpPeer)) {
-            Model::validateArray($this->bgpPeer);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bgpPeer) {
-            if (\is_array($this->bgpPeer)) {
-                $res['BgpPeer'] = [];
-                $n1 = 0;
-                foreach ($this->bgpPeer as $item1) {
-                    $res['BgpPeer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['BgpPeer'] = [];
+            if (null !== $this->bgpPeer && \is_array($this->bgpPeer)) {
+                $n = 0;
+                foreach ($this->bgpPeer as $item) {
+                    $res['BgpPeer'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class bgpPeers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bgpPeers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpPeer'])) {
             if (!empty($map['BgpPeer'])) {
                 $model->bgpPeer = [];
-                $n1 = 0;
-                foreach ($map['BgpPeer'] as $item1) {
-                    $model->bgpPeer[$n1] = bgpPeer::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['BgpPeer'] as $item) {
+                    $model->bgpPeer[$n++] = null !== $item ? bgpPeer::fromMap($item) : $item;
                 }
             }
         }

@@ -4,31 +4,66 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyPhysicalConnectionAttributeRequest extends Model
 {
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     *
+     * @example longtel001
+     *
      * @var string
      */
     public $circuitCode;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     *
+     * @example efefe566754h
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the Express Connect circuit.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     *
+     * @example The description of the Express Connect circuit.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
+     *
+     *   **CT**: China Telecom
+     *   **CU**: China Unicom
+     *   **CM**: China Mobile
+     *   **CO**: other connectivity providers in the Chinese mainland
+     *   **Equinix**: Equinix
+     *   **Other**: other connectivity providers outside the Chinese mainland
+     *
+     * @example CT
+     *
      * @var string
      */
     public $lineOperator;
 
     /**
+     * @description The name of the Express Connect circuit.
+     *
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
+     *
+     * @example Name
+     *
      * @var string
      */
     public $name;
@@ -44,26 +79,62 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The geographical location of the data center.
+     *
+     * @example XX Number, XX Road, XX Town, XX District, Hangzhou City, Zhejiang Province.
+     *
      * @var string
      */
     public $peerLocation;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
+     * This parameter is required.
+     *
+     * @example pc-119mfjzm******
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @description The port type of the Express Connect circuit. Valid values:
+     *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T** (default): 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * >  To use ports 40GBase-LR and 100GBase-LR, you must first contact your account manager.
+     *
+     * @example 1000Base-LX
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @description The ID of the redundant Express Connect circuit. The redundant Express Connect circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+     *
+     * @example pc-119mfjzm7
+     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -79,6 +150,10 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The bandwidth value for the connection over the Express Connect circuit. Unit: Mbit/s. Valid values: 2 to 10240.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
@@ -100,70 +175,53 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
         'bandwidth' => 'bandwidth',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->circuitCode) {
             $res['CircuitCode'] = $this->circuitCode;
         }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->lineOperator) {
             $res['LineOperator'] = $this->lineOperator;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->peerLocation) {
             $res['PeerLocation'] = $this->peerLocation;
         }
-
         if (null !== $this->physicalConnectionId) {
             $res['PhysicalConnectionId'] = $this->physicalConnectionId;
         }
-
         if (null !== $this->portType) {
             $res['PortType'] = $this->portType;
         }
-
         if (null !== $this->redundantPhysicalConnectionId) {
             $res['RedundantPhysicalConnectionId'] = $this->redundantPhysicalConnectionId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->bandwidth) {
             $res['bandwidth'] = $this->bandwidth;
         }
@@ -171,70 +229,56 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyPhysicalConnectionAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CircuitCode'])) {
             $model->circuitCode = $map['CircuitCode'];
         }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['LineOperator'])) {
             $model->lineOperator = $map['LineOperator'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PeerLocation'])) {
             $model->peerLocation = $map['PeerLocation'];
         }
-
         if (isset($map['PhysicalConnectionId'])) {
             $model->physicalConnectionId = $map['PhysicalConnectionId'];
         }
-
         if (isset($map['PortType'])) {
             $model->portType = $map['PortType'];
         }
-
         if (isset($map['RedundantPhysicalConnectionId'])) {
             $model->redundantPhysicalConnectionId = $map['RedundantPhysicalConnectionId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['bandwidth'])) {
             $model->bandwidth = $map['bandwidth'];
         }

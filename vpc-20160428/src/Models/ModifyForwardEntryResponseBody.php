@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyForwardEntryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyForwardEntryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyForwardEntryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyForwardEntryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

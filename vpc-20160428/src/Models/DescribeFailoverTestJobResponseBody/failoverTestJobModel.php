@@ -4,56 +4,107 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFailoverTestJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failoverTestJobModel extends Model
 {
     /**
+     * @description The description of the failover test.
+     *
+     * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the failover test. Unit: minutes. Valid values: **1 to 4320**.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $jobDuration;
 
     /**
+     * @description The ID of the failover test.
+     *
+     * @example ftj-xxxxxxxxx
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description Indicates whether the failover test is performed immediately. Valid values:
+     *
+     *   **StartNow**
+     *   **StartLater**
+     *
+     * @example StartNow
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @description The name of the failover test.
+     *
+     * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The IDs of failover test resources.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of failover test resource. Only **PHYSICALCONNECTION** is returned.
+     *
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The start time of the failover test. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2023-11-21T14:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the failover test. Valid values:
+     *
+     *   **Init**
+     *   **Starting**
+     *   **Testing**
+     *   **Stopping**
+     *   **Stopped**
+     *
+     * @example Init
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The end time of the failover test. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2023-11-21T15:00:00Z
+     *
      * @var string
      */
     public $stopTime;
@@ -70,60 +121,38 @@ class failoverTestJobModel extends Model
         'stopTime' => 'StopTime',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceId)) {
-            Model::validateArray($this->resourceId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->jobDuration) {
             $res['JobDuration'] = $this->jobDuration;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->resourceId) {
-            if (\is_array($this->resourceId)) {
-                $res['ResourceId'] = [];
-                $n1 = 0;
-                foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->stopTime) {
             $res['StopTime'] = $this->stopTime;
         }
@@ -131,57 +160,43 @@ class failoverTestJobModel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failoverTestJobModel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['JobDuration'])) {
             $model->jobDuration = $map['JobDuration'];
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = [];
-                $n1 = 0;
-                foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->resourceId = $map['ResourceId'];
             }
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['StopTime'])) {
             $model->stopTime = $map['StopTime'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyNatGatewaySpecResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DBD4E4A2-786E-4BD2-8EB6-107FFC2B5B7D
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyNatGatewaySpecResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyNatGatewaySpecResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyNatGatewaySpecResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

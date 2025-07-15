@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MoveVpnResourceGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 89ED47AF-3319-566E-A5F5-94E3F47F54A8
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class MoveVpnResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class MoveVpnResourceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MoveVpnResourceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

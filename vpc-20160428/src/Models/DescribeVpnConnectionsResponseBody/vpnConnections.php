@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection;
+use AlibabaCloud\Tea\Model;
 
 class vpnConnections extends Model
 {
@@ -17,24 +17,17 @@ class vpnConnections extends Model
         'vpnConnection' => 'VpnConnection',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vpnConnection)) {
-            Model::validateArray($this->vpnConnection);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpnConnection) {
-            if (\is_array($this->vpnConnection)) {
-                $res['VpnConnection'] = [];
-                $n1 = 0;
-                foreach ($this->vpnConnection as $item1) {
-                    $res['VpnConnection'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['VpnConnection'] = [];
+            if (null !== $this->vpnConnection && \is_array($this->vpnConnection)) {
+                $n = 0;
+                foreach ($this->vpnConnection as $item) {
+                    $res['VpnConnection'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class vpnConnections extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpnConnections
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpnConnection'])) {
             if (!empty($map['VpnConnection'])) {
                 $model->vpnConnection = [];
-                $n1 = 0;
-                foreach ($map['VpnConnection'] as $item1) {
-                    $model->vpnConnection[$n1] = vpnConnection::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['VpnConnection'] as $item) {
+                    $model->vpnConnection[$n++] = null !== $item ? vpnConnection::fromMap($item) : $item;
                 }
             }
         }

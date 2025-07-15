@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UnassociateVpcCidrBlockResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C1221A1F-2ACD-4592-8F27-474E02883159
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UnassociateVpcCidrBlockResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UnassociateVpcCidrBlockResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnassociateVpcCidrBlockResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

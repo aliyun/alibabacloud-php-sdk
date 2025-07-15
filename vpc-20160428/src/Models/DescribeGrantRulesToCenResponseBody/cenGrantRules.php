@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGrantRulesToCenResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGrantRulesToCenResponseBody\cenGrantRules\cbnGrantRule;
+use AlibabaCloud\Tea\Model;
 
 class cenGrantRules extends Model
 {
@@ -17,24 +17,17 @@ class cenGrantRules extends Model
         'cbnGrantRule' => 'CbnGrantRule',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cbnGrantRule)) {
-            Model::validateArray($this->cbnGrantRule);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cbnGrantRule) {
-            if (\is_array($this->cbnGrantRule)) {
-                $res['CbnGrantRule'] = [];
-                $n1 = 0;
-                foreach ($this->cbnGrantRule as $item1) {
-                    $res['CbnGrantRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['CbnGrantRule'] = [];
+            if (null !== $this->cbnGrantRule && \is_array($this->cbnGrantRule)) {
+                $n = 0;
+                foreach ($this->cbnGrantRule as $item) {
+                    $res['CbnGrantRule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class cenGrantRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cenGrantRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CbnGrantRule'])) {
             if (!empty($map['CbnGrantRule'])) {
                 $model->cbnGrantRule = [];
-                $n1 = 0;
-                foreach ($map['CbnGrantRule'] as $item1) {
-                    $model->cbnGrantRule[$n1] = cbnGrantRule::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['CbnGrantRule'] as $item) {
+                    $model->cbnGrantRule[$n++] = null !== $item ? cbnGrantRule::fromMap($item) : $item;
                 }
             }
         }

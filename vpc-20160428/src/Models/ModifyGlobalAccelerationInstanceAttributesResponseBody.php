@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyGlobalAccelerationInstanceAttributesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example BD5BCEE8-F62C-40C2-9AC3-89XXXXXXXXX
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyGlobalAccelerationInstanceAttributesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyGlobalAccelerationInstanceAttributesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyGlobalAccelerationInstanceAttributesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DissociateRouteTableFromGatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C5644C9A-7480-13B6-AECB-30FF142E3724
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DissociateRouteTableFromGatewayResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DissociateRouteTableFromGatewayResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DissociateRouteTableFromGatewayResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

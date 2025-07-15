@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFlowLogsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFlowLogsResponseBody\flowLogs\flowLog;
+use AlibabaCloud\Tea\Model;
 
 class flowLogs extends Model
 {
@@ -17,24 +17,17 @@ class flowLogs extends Model
         'flowLog' => 'FlowLog',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->flowLog)) {
-            Model::validateArray($this->flowLog);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->flowLog) {
-            if (\is_array($this->flowLog)) {
-                $res['FlowLog'] = [];
-                $n1 = 0;
-                foreach ($this->flowLog as $item1) {
-                    $res['FlowLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['FlowLog'] = [];
+            if (null !== $this->flowLog && \is_array($this->flowLog)) {
+                $n = 0;
+                foreach ($this->flowLog as $item) {
+                    $res['FlowLog'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class flowLogs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return flowLogs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowLog'])) {
             if (!empty($map['FlowLog'])) {
                 $model->flowLog = [];
-                $n1 = 0;
-                foreach ($map['FlowLog'] as $item1) {
-                    $model->flowLog[$n1] = flowLog::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['FlowLog'] as $item) {
+                    $model->flowLog[$n++] = null !== $item ? flowLog::fromMap($item) : $item;
                 }
             }
         }

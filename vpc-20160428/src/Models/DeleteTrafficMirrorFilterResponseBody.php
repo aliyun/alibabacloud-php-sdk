@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTrafficMirrorFilterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 07F272E2-6AD5-433A-8207-A607C76F1676
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteTrafficMirrorFilterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteTrafficMirrorFilterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTrafficMirrorFilterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

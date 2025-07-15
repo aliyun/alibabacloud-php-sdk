@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeZonesResponseBody\zones;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class zone extends Model
 {
     /**
+     * @description The zone name.
+     *
+     * @example Hangzhou Zone B
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The zone type. Default value: **AvailabilityZone**.
+     *
+     * @example AvailabilityZone
+     *
      * @var string
      */
     public $zoneType;
@@ -28,22 +40,17 @@ class zone extends Model
         'zoneType' => 'ZoneType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-
         if (null !== $this->zoneType) {
             $res['ZoneType'] = $this->zoneType;
         }
@@ -51,22 +58,20 @@ class zone extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return zone
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-
         if (isset($map['ZoneType'])) {
             $model->zoneType = $map['ZoneType'];
         }

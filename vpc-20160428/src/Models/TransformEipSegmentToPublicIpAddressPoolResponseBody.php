@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TransformEipSegmentToPublicIpAddressPoolResponseBody extends Model
 {
     /**
+     * @description The ID of the IP address pool.
+     *
+     * @example pippool-6wetvn6fumkgycssx****
+     *
      * @var string
      */
     public $publicIpAddressPoolId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the IP address pool belongs.
+     *
+     * @example rg-acfmxazb4pcdvf****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -28,22 +40,17 @@ class TransformEipSegmentToPublicIpAddressPoolResponseBody extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->publicIpAddressPoolId) {
             $res['PublicIpAddressPoolId'] = $this->publicIpAddressPoolId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -51,22 +58,20 @@ class TransformEipSegmentToPublicIpAddressPoolResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TransformEipSegmentToPublicIpAddressPoolResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PublicIpAddressPoolId'])) {
             $model->publicIpAddressPoolId = $map['PublicIpAddressPoolId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

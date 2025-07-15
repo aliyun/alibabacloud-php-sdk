@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class accessMode extends Model
 {
@@ -22,18 +22,14 @@ class accessMode extends Model
         'tunnelType' => 'TunnelType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modeValue) {
             $res['ModeValue'] = $this->modeValue;
         }
-
         if (null !== $this->tunnelType) {
             $res['TunnelType'] = $this->tunnelType;
         }
@@ -41,18 +37,17 @@ class accessMode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accessMode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModeValue'])) {
             $model->modeValue = $map['ModeValue'];
         }
-
         if (isset($map['TunnelType'])) {
             $model->tunnelType = $map['TunnelType'];
         }

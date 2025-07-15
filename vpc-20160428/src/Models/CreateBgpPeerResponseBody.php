@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateBgpPeerResponseBody extends Model
 {
     /**
+     * @description The ID of the BGP peer.
+     *
+     * @example bgp-m5eoyp2mwegk8ce9v****
+     *
      * @var string
      */
     public $bgpPeerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D4B7649A-61BB-4C64-A586-1DFF1EDA6A42
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateBgpPeerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bgpPeerId) {
             $res['BgpPeerId'] = $this->bgpPeerId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateBgpPeerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBgpPeerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpPeerId'])) {
             $model->bgpPeerId = $map['BgpPeerId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

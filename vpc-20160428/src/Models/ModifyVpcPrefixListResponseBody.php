@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyVpcPrefixListResponseBody extends Model
 {
     /**
+     * @description The ID of the prefix list.
+     *
+     * @example pl-0b7hwu67****
+     *
      * @var string
      */
     public $prefixListId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class ModifyVpcPrefixListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->prefixListId) {
             $res['PrefixListId'] = $this->prefixListId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class ModifyVpcPrefixListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyVpcPrefixListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrefixListId'])) {
             $model->prefixListId = $map['PrefixListId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

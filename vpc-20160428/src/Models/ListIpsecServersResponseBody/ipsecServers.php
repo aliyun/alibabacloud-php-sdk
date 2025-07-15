@@ -4,98 +4,178 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListIpsecServersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListIpsecServersResponseBody\ipsecServers\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListIpsecServersResponseBody\ipsecServers\ipsecConfig;
+use AlibabaCloud\Tea\Model;
 
 class ipsecServers extends Model
 {
     /**
+     * @description The client CIDR block. It refers to the CIDR block that is allocated to the virtual interface of the client.
+     *
+     * @example 10.0.0.0/24
+     *
      * @var string
      */
     public $clientIpPool;
 
     /**
+     * @description The time when the IPsec server was created.
+     *
+     * T is used as a delimiter. Z indicates that the time is in UTC.
+     *
+     * @example 2018-12-03T10:11:55Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description Indicates whether the current IPsec tunnel is deleted and negotiations are reinitiated. Valid values:
+     *
+     *   **true**: immediately initiates negotiations after the configuration is completed.
+     *   **false**: initiates negotiations when inbound traffic is detected.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
+     * @description The ID of the IDaaS instance.
+     *
+     * @example idaas-cn-hangzhou-****
+     *
      * @var string
      */
     public $IDaaSInstanceId;
 
     /**
+     * @description The configurations of Phase 1 negotiations.
+     *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
+     * @description The public IP address of the VPN gateway.
+     *
+     * @example 47.22.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The configurations of Phase 2 negotiations.
+     *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @description The IPsec server ID.
+     *
+     * @example iss-bp1bo3xuvcxo7ixll****
+     *
      * @var string
      */
     public $ipsecServerId;
 
     /**
+     * @description The name of the IPsec server.
+     *
+     * @example test
+     *
      * @var string
      */
     public $ipsecServerName;
 
     /**
+     * @description The local CIDR blocks, which refer to the CIDR blocks on the virtual private cloud (VPC) side.
+     *
+     * @example 192.168.0.0/16,172.17.0.0/16
+     *
      * @var string
      */
     public $localSubnet;
 
     /**
+     * @description The number of SSL-VPN connections supported by the VPN gateway.
+     *
+     * >  The number of SSL-VPN connections specified in this parameter includes both SSL-VPN and IPsec-VPN connections. For example, you have five SSL-VPN connections and three SSL clients occupy three SSL-VPN connections. In this case, two clients can connect to the IPsec server.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @description Indicates whether two-factor authentication is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**: The feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $multiFactorAuthEnabled;
 
     /**
+     * @description The number of clients that are connected to the IPsec server.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $onlineClientCount;
 
     /**
+     * @description The pre-shared key.
+     *
+     * @example pgw6dy7d****
+     *
      * @var string
      */
     public $psk;
 
     /**
+     * @description Indicates whether pre-shared key authentication is enabled. Only **true** may be returned, which indicates that pre-shared key authentication is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $pskEnabled;
 
     /**
+     * @description The ID of the region where the IPsec server is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the IPsec server belongs.
+     *
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+     *
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
+     * @example vpn-bp1q8bgx4xnkm2ogj****
+     *
      * @var string
      */
     public $vpnGatewayId;
@@ -120,88 +200,62 @@ class ipsecServers extends Model
         'vpnGatewayId' => 'VpnGatewayId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->ikeConfig) {
-            $this->ikeConfig->validate();
-        }
-        if (null !== $this->ipsecConfig) {
-            $this->ipsecConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientIpPool) {
             $res['ClientIpPool'] = $this->clientIpPool;
         }
-
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-
         if (null !== $this->effectImmediately) {
             $res['EffectImmediately'] = $this->effectImmediately;
         }
-
         if (null !== $this->IDaaSInstanceId) {
             $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
         }
-
         if (null !== $this->ikeConfig) {
-            $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toArray($noStream) : $this->ikeConfig;
+            $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toMap() : null;
         }
-
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-
         if (null !== $this->ipsecConfig) {
-            $res['IpsecConfig'] = null !== $this->ipsecConfig ? $this->ipsecConfig->toArray($noStream) : $this->ipsecConfig;
+            $res['IpsecConfig'] = null !== $this->ipsecConfig ? $this->ipsecConfig->toMap() : null;
         }
-
         if (null !== $this->ipsecServerId) {
             $res['IpsecServerId'] = $this->ipsecServerId;
         }
-
         if (null !== $this->ipsecServerName) {
             $res['IpsecServerName'] = $this->ipsecServerName;
         }
-
         if (null !== $this->localSubnet) {
             $res['LocalSubnet'] = $this->localSubnet;
         }
-
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
         }
-
         if (null !== $this->multiFactorAuthEnabled) {
             $res['MultiFactorAuthEnabled'] = $this->multiFactorAuthEnabled;
         }
-
         if (null !== $this->onlineClientCount) {
             $res['OnlineClientCount'] = $this->onlineClientCount;
         }
-
         if (null !== $this->psk) {
             $res['Psk'] = $this->psk;
         }
-
         if (null !== $this->pskEnabled) {
             $res['PskEnabled'] = $this->pskEnabled;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->vpnGatewayId) {
             $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
@@ -209,82 +263,65 @@ class ipsecServers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipsecServers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIpPool'])) {
             $model->clientIpPool = $map['ClientIpPool'];
         }
-
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-
         if (isset($map['EffectImmediately'])) {
             $model->effectImmediately = $map['EffectImmediately'];
         }
-
         if (isset($map['IDaaSInstanceId'])) {
             $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
         }
-
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
         }
-
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-
         if (isset($map['IpsecConfig'])) {
             $model->ipsecConfig = ipsecConfig::fromMap($map['IpsecConfig']);
         }
-
         if (isset($map['IpsecServerId'])) {
             $model->ipsecServerId = $map['IpsecServerId'];
         }
-
         if (isset($map['IpsecServerName'])) {
             $model->ipsecServerName = $map['IpsecServerName'];
         }
-
         if (isset($map['LocalSubnet'])) {
             $model->localSubnet = $map['LocalSubnet'];
         }
-
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
         }
-
         if (isset($map['MultiFactorAuthEnabled'])) {
             $model->multiFactorAuthEnabled = $map['MultiFactorAuthEnabled'];
         }
-
         if (isset($map['OnlineClientCount'])) {
             $model->onlineClientCount = $map['OnlineClientCount'];
         }
-
         if (isset($map['Psk'])) {
             $model->psk = $map['Psk'];
         }
-
         if (isset($map['PskEnabled'])) {
             $model->pskEnabled = $map['PskEnabled'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['VpnGatewayId'])) {
             $model->vpnGatewayId = $map['VpnGatewayId'];
         }

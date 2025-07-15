@@ -4,36 +4,63 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\tunnelOptionsSpecification\tunnelOptions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tunnelBgpConfig extends Model
 {
     /**
+     * @description The negotiation state of BGP. Valid values:
+     *
+     *   **success**
+     *   **false**
+     *
+     * @example success
+     *
      * @var string
      */
     public $bgpStatus;
 
     /**
+     * @description The ASN on the Alibaba Cloud side.
+     *
+     * @example 65530
+     *
      * @var string
      */
     public $localAsn;
 
     /**
+     * @description The BGP address on the Alibaba Cloud side.
+     *
+     * @example 169.254.10.1
+     *
      * @var string
      */
     public $localBgpIp;
 
     /**
+     * @description The ASN of the tunnel peer.
+     *
+     * @example 65531
+     *
      * @var string
      */
     public $peerAsn;
 
     /**
+     * @description The BGP IP address of the tunnel peer.
+     *
+     * @example 169.254.10.2
+     *
      * @var string
      */
     public $peerBgpIp;
 
     /**
+     * @description The BGP CIDR block of the tunnel.
+     *
+     * @example 169.254.10.0/30
+     *
      * @var string
      */
     public $tunnelCidr;
@@ -46,34 +73,26 @@ class tunnelBgpConfig extends Model
         'tunnelCidr' => 'TunnelCidr',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bgpStatus) {
             $res['BgpStatus'] = $this->bgpStatus;
         }
-
         if (null !== $this->localAsn) {
             $res['LocalAsn'] = $this->localAsn;
         }
-
         if (null !== $this->localBgpIp) {
             $res['LocalBgpIp'] = $this->localBgpIp;
         }
-
         if (null !== $this->peerAsn) {
             $res['PeerAsn'] = $this->peerAsn;
         }
-
         if (null !== $this->peerBgpIp) {
             $res['PeerBgpIp'] = $this->peerBgpIp;
         }
-
         if (null !== $this->tunnelCidr) {
             $res['TunnelCidr'] = $this->tunnelCidr;
         }
@@ -81,34 +100,29 @@ class tunnelBgpConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tunnelBgpConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpStatus'])) {
             $model->bgpStatus = $map['BgpStatus'];
         }
-
         if (isset($map['LocalAsn'])) {
             $model->localAsn = $map['LocalAsn'];
         }
-
         if (isset($map['LocalBgpIp'])) {
             $model->localBgpIp = $map['LocalBgpIp'];
         }
-
         if (isset($map['PeerAsn'])) {
             $model->peerAsn = $map['PeerAsn'];
         }
-
         if (isset($map['PeerBgpIp'])) {
             $model->peerBgpIp = $map['PeerBgpIp'];
         }
-
         if (isset($map['TunnelCidr'])) {
             $model->tunnelCidr = $map['TunnelCidr'];
         }

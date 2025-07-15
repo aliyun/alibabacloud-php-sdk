@@ -4,16 +4,30 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
+     * @description The key of tag N. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+     *
+     * The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+     *
+     * @example FinanceDept
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N.
+     *
+     * The tag value can be up to 128 characters in length. It can be an empty string. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+     *
+     * Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
+     *
+     * @example yunke
+     *
      * @var string
      */
     public $value;
@@ -22,18 +36,14 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,18 +51,17 @@ class tag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

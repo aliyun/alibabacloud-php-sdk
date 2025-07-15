@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIpv6InternetBandwidthResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example E07E0FE6-5C21-405F-AF82-7613AA81EF92
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteIpv6InternetBandwidthResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteIpv6InternetBandwidthResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIpv6InternetBandwidthResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

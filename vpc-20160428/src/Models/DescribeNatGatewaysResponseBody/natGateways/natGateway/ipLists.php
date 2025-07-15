@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\ipLists\ipList;
+use AlibabaCloud\Tea\Model;
 
 class ipLists extends Model
 {
@@ -17,24 +17,17 @@ class ipLists extends Model
         'ipList' => 'IpList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipList)) {
-            Model::validateArray($this->ipList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipList) {
-            if (\is_array($this->ipList)) {
-                $res['IpList'] = [];
-                $n1 = 0;
-                foreach ($this->ipList as $item1) {
-                    $res['IpList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['IpList'] = [];
+            if (null !== $this->ipList && \is_array($this->ipList)) {
+                $n = 0;
+                foreach ($this->ipList as $item) {
+                    $res['IpList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class ipLists extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipLists
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpList'])) {
             if (!empty($map['IpList'])) {
                 $model->ipList = [];
-                $n1 = 0;
-                foreach ($map['IpList'] as $item1) {
-                    $model->ipList[$n1] = ipList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['IpList'] as $item) {
+                    $model->ipList[$n++] = null !== $item ? ipList::fromMap($item) : $item;
                 }
             }
         }

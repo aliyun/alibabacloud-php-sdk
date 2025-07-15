@@ -4,26 +4,48 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\GetDhcpOptionsSetResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dhcpOptions extends Model
 {
     /**
+     * @description The suffix of the hostname.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The IP address of the DNS server.
+     *
+     * @example 192.XX.XX.123
+     *
      * @var string
      */
     public $domainNameServers;
 
     /**
+     * @description The lease time of the IPv6 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     *
+     * @example 3650d
+     *
      * @var string
      */
     public $ipv6LeaseTime;
 
     /**
+     * @description The lease time of the IPv4 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     *
+     * @example 3650d
+     *
      * @var string
      */
     public $leaseTime;
@@ -34,26 +56,20 @@ class dhcpOptions extends Model
         'leaseTime' => 'LeaseTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->domainNameServers) {
             $res['DomainNameServers'] = $this->domainNameServers;
         }
-
         if (null !== $this->ipv6LeaseTime) {
             $res['Ipv6LeaseTime'] = $this->ipv6LeaseTime;
         }
-
         if (null !== $this->leaseTime) {
             $res['LeaseTime'] = $this->leaseTime;
         }
@@ -61,26 +77,23 @@ class dhcpOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dhcpOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['DomainNameServers'])) {
             $model->domainNameServers = $map['DomainNameServers'];
         }
-
         if (isset($map['Ipv6LeaseTime'])) {
             $model->ipv6LeaseTime = $map['Ipv6LeaseTime'];
         }
-
         if (isset($map['LeaseTime'])) {
             $model->leaseTime = $map['LeaseTime'];
         }
